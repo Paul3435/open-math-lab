@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "updated_at": "2026-07-29T21:07:00Z",
+  "problems": [
+    {
+      "id": "demo-collatz-bound-toy",
+      "title": "Toy bounded Collatz variant (demo only)",
+      "domain": [
+        "number-theory",
+        "dynamics"
+      ],
+      "source": "internal-demo",
+      "status": "scored",
+      "feasibility": {
+        "id": "demo-collatz-bound-toy",
+        "scored_at": "2026-07-29T21:07:00Z",
+        "rubric_version": "v0-stub",
+        "dimensions": {
+          "formalizable": 4.0,
+          "partial_progress_paths": 4.0,
+          "literature_clarity": 3.0,
+          "compute_bounded": 3.0,
+          "agent_skill_fit": 3.0,
+          "crackpot_risk": 1.0
+        },
+        "budget_tokens_estimate": 200000,
+        "recommendation": "reject",
+        "rationale": "Demo only",
+        "overall_1_to_5": 3.2
+      },
+      "notes": "Placeholder for pipeline demos \u2014 NOT an open research target."
+    },
+    {
+      "id": "mathlib-gap-candidate",
+      "title": "Mathlib formalization gap (TBD by Scout)",
+      "domain": [
+        "formalization"
+      ],
+      "source": "mathlib-wishlist",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Scout replaces with a real, small formalization task."
+    },
+    {
+      "id": "oeis-finite-check-candidate",
+      "title": "Finite OEIS / computational conjecture check (TBD)",
+      "domain": [
+        "experimental",
+        "combinatorics"
+      ],
+      "source": "oeis-style",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Prefer decidable finite checks with clear bounds."
+    }
+  ]
+}

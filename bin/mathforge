@@ -1,0 +1,256 @@
+#!/usr/bin/env python3
+"""mathforge — Open Math Lab CLI (stub v0)."""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CATALOG = ROOT / "catalog" / "problems.json"
+PROBLEMS = ROOT / "problems"
+
+
+def _now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _load_catalog() -> dict:
+    if not CATALOG.exists():
+        return {"version": 1, "updated_at": None, "problems": []}
+    return json.loads(CATALOG.read_text(encoding="utf-8"))
+
+
+def _save_catalog(data: dict) -> None:
+    CATALOG.parent.mkdir(parents=True, exist_ok=True)
+    data["updated_at"] = _now()
+    CATALOG.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
+def cmd_status(_: argparse.Namespace) -> int:
+    data = _load_catalog()
+    probs = data.get("problems") or []
+    print(f"mathforge status — {len(probs)} catalog entries")
+    print(f"catalog updated: {data.get('updated_at') or 'never'}")
+    by = {}
+    for p in probs:
+        s = p.get("status", "unknown")
+        by[s] = by.get(s, 0) + 1
+    for k, v in sorted(by.items()):
+        print(f"  {k}: {v}")
+    if not probs:
+        print("  (empty — run: mathforge catalog seed)")
+    return 0
+
+
+def cmd_catalog_seed(_: argparse.Namespace) -> int:
+    """Seed a few *illustrative* candidates — not endorsed as solvable."""
+    data = _load_catalog()
+    existing = {p["id"] for p in data.get("problems") or []}
+    seeds = [
+        {
+            "id": "demo-collatz-bound-toy",
+            "title": "Toy bounded Collatz variant (demo only)",
+            "domain": ["number-theory", "dynamics"],
+            "source": "internal-demo",
+            "status": "seed",
+            "feasibility": None,
+            "notes": "Placeholder for pipeline demos — NOT an open research target.",
+        },
+        {
+            "id": "mathlib-gap-candidate",
+            "title": "Mathlib formalization gap (TBD by Scout)",
+            "domain": ["formalization"],
+            "source": "mathlib-wishlist",
+            "status": "needs-scout",
+            "feasibility": None,
+            "notes": "Scout replaces with a real, small formalization task.",
+        },
+        {
+            "id": "oeis-finite-check-candidate",
+            "title": "Finite OEIS / computational conjecture check (TBD)",
+            "domain": ["experimental", "combinatorics"],
+            "source": "oeis-style",
+            "status": "needs-scout",
+            "feasibility": None,
+            "notes": "Prefer decidable finite checks with clear bounds.",
+        },
+    ]
+    added = 0
+    probs = list(data.get("problems") or [])
+    for s in seeds:
+        if s["id"] not in existing:
+            probs.append(s)
+            added += 1
+    data["problems"] = probs
+    _save_catalog(data)
+    print(f"seeded {added} problems (total {len(probs)})")
+    return 0
+
+
+def cmd_score(args: argparse.Namespace) -> int:
+    data = _load_catalog()
+    pid = args.id
+    target = next((p for p in data.get("problems") or [] if p["id"] == pid), None)
+    if not target:
+        print(f"unknown id: {pid}", file=sys.stderr)
+        return 1
+    # Stub heuristic — Scout/Director replace with real rubric.
+    score = {
+        "id": pid,
+        "scored_at": _now(),
+        "rubric_version": "v0-stub",
+        "dimensions": {
+            "formalizable": args.formalizable,
+            "partial_progress_paths": args.partial,
+            "literature_clarity": args.literature,
+            "compute_bounded": args.compute,
+            "agent_skill_fit": args.skill_fit,
+            "crackpot_risk": args.crackpot_risk,
+        },
+        "budget_tokens_estimate": args.budget_tokens,
+        "recommendation": args.recommendation,
+        "rationale": args.rationale or "stub score — replace after Scout dossier",
+    }
+    # overall 1-5 crude
+    d = score["dimensions"]
+    overall = (
+        d["formalizable"]
+        + d["partial_progress_paths"]
+        + d["literature_clarity"]
+        + d["compute_bounded"]
+        + d["agent_skill_fit"]
+        - d["crackpot_risk"]
+    ) / 5.0
+    score["overall_1_to_5"] = round(max(0.0, min(5.0, overall)), 2)
+    target["feasibility"] = score
+    target["status"] = "scored"
+    _save_catalog(data)
+    out = PROBLEMS / pid
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "feasibility.json").write_text(json.dumps(score, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(score, indent=2))
+    return 0
+
+
+def cmd_problem_new(args: argparse.Namespace) -> int:
+    data = _load_catalog()
+    pid = args.id
+    if any(p["id"] == pid for p in data.get("problems") or []):
+        print(f"already exists: {pid}", file=sys.stderr)
+        return 1
+    entry = {
+        "id": pid,
+        "title": args.title,
+        "domain": [x.strip() for x in args.domain.split(",") if x.strip()],
+        "source": args.source or "manual",
+        "status": "draft",
+        "feasibility": None,
+        "notes": args.notes or "",
+    }
+    data.setdefault("problems", []).append(entry)
+    _save_catalog(data)
+    d = PROBLEMS / pid
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "STATEMENT.md").write_text(
+        f"# {args.title}\n\n**id:** `{pid}`\n\n## Informal statement\n\nTODO\n\n## Why feasible?\n\nTODO\n\n## References\n\nTODO\n",
+        encoding="utf-8",
+    )
+    (d / "ATTACK_LOG.md").write_text(
+        f"# Attack log — {pid}\n\n| when | agent | strategy | result |\n|------|-------|----------|--------|\n",
+        encoding="utf-8",
+    )
+    print(f"created problems/{pid}/")
+    return 0
+
+
+def cmd_claim_prepare(args: argparse.Namespace) -> int:
+    pid = args.id
+    d = PROBLEMS / pid
+    if not d.exists():
+        print(f"missing problems/{pid}", file=sys.stderr)
+        return 1
+    packet = d / "CLAIM_PACKET.md"
+    packet.write_text(
+        f"""# Claim packet — {pid}
+
+**status:** DRAFT — board only
+**prepared_at:** {_now()}
+
+## Claim (one sentence)
+
+TODO — default is NO CLAIM
+
+## Evidence
+
+- [ ] Lean theorem name + `lake build` log path
+- [ ] Informal writeup path
+- [ ] Adversarial Reviewer sign-off issue id
+- [ ] Residual risks listed
+
+## What we are NOT claiming
+
+TODO
+
+## Recommended board action
+
+- [ ] reject / no publish
+- [ ] request more work
+- [ ] internal note only
+- [ ] external draft (board writes)
+""",
+        encoding="utf-8",
+    )
+    print(f"wrote {packet.relative_to(ROOT)}")
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(prog="mathforge", description="Open Math Lab toolkit")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    s = sub.add_parser("status", help="portfolio summary")
+    s.set_defaults(func=cmd_status)
+
+    c = sub.add_parser("catalog", help="catalog ops")
+    csub = c.add_subparsers(dest="catalog_cmd", required=True)
+    seed = csub.add_parser("seed", help="seed demo catalog rows")
+    seed.set_defaults(func=cmd_catalog_seed)
+
+    sc = sub.add_parser("score", help="write feasibility score (stub rubric)")
+    sc.add_argument("id")
+    sc.add_argument("--formalizable", type=float, default=3.0)
+    sc.add_argument("--partial", type=float, default=3.0)
+    sc.add_argument("--literature", type=float, default=3.0)
+    sc.add_argument("--compute", type=float, default=3.0)
+    sc.add_argument("--skill-fit", type=float, default=3.0)
+    sc.add_argument("--crackpot-risk", type=float, default=1.0)
+    sc.add_argument("--budget-tokens", type=int, default=200_000)
+    sc.add_argument("--recommendation", default="hold", choices=["attack", "hold", "reject", "formalize-only"])
+    sc.add_argument("--rationale", default="")
+    sc.set_defaults(func=cmd_score)
+
+    pn = sub.add_parser("problem", help="problem dossiers")
+    pn_sub = pn.add_subparsers(dest="problem_cmd", required=True)
+    newp = pn_sub.add_parser("new", help="create dossier + catalog row")
+    newp.add_argument("id")
+    newp.add_argument("--title", required=True)
+    newp.add_argument("--domain", default="general")
+    newp.add_argument("--source", default="manual")
+    newp.add_argument("--notes", default="")
+    newp.set_defaults(func=cmd_problem_new)
+
+    cl = sub.add_parser("claim", help="claim packets")
+    cl_sub = cl.add_subparsers(dest="claim_cmd", required=True)
+    prep = cl_sub.add_parser("prepare", help="scaffold board claim packet")
+    prep.add_argument("id")
+    prep.set_defaults(func=cmd_claim_prepare)
+
+    args = p.parse_args(argv)
+    return int(args.func(args))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
