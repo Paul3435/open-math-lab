@@ -1,0 +1,11 @@
+{
+  "attack_id": "erdos-woods-20260729-214654",
+  "problem_id": "erdos-woods",
+  "status": "active",
+  "started_at": "2026-07-29T21:46:54Z",
+  "strategy": "computational-check",
+  "agent": "attack-lead",
+  "budget_tokens": 200000,
+  "tokens_used": 0,
+  "notes": "Testing Windows compatibility"
+}
