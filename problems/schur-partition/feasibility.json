@@ -1,0 +1,17 @@
+{
+  "id": "schur-partition",
+  "scored_at": "2026-07-29T21:21:37Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 5.0,
+    "partial_progress_paths": 4.5,
+    "literature_clarity": 5.0,
+    "compute_bounded": 3.5,
+    "agent_skill_fit": 4.0,
+    "crackpot_risk": 0.0
+  },
+  "budget_tokens_estimate": 400000,
+  "recommendation": "formalize-only",
+  "rationale": "Classic partition theorem with known proofs. Mathlib gap identified. Excellent formalization target: well-understood mathematics, existing proof techniques, good infrastructure in Mathlib. Partial progress = incremental formalization steps. Zero crackpot risk (established 1926 theorem). Recommendation: formalize-only (not original research, but valuable Mathlib contribution).",
+  "overall_1_to_5": 4.4
+}

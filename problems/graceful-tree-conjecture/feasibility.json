@@ -1,0 +1,17 @@
+{
+  "id": "graceful-tree-conjecture",
+  "scored_at": "2026-07-29T21:21:45Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 4.0,
+    "partial_progress_paths": 5.0,
+    "literature_clarity": 4.5,
+    "compute_bounded": 4.5,
+    "agent_skill_fit": 4.0,
+    "crackpot_risk": 1.0
+  },
+  "budget_tokens_estimate": 250000,
+  "recommendation": "attack",
+  "rationale": "Finite enumeration + backtracking search for caterpillar trees \u226412 vertices (~400 trees). Known partial results (n\u22648 confirmed). Clear success/failure criteria. Strong partial progress (results partition by n). Low crackpot risk (bounded verification, not claiming to solve full conjecture). Attack-ready with graph theory + CSP skill pack.",
+  "overall_1_to_5": 4.2
+}

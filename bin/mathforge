@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "catalog" / "problems.json"
 PROBLEMS = ROOT / "problems"
+ATTACKS = ROOT / "attacks"
 
 
 def _now() -> str:
@@ -34,14 +35,29 @@ def cmd_status(_: argparse.Namespace) -> int:
     probs = data.get("problems") or []
     print(f"mathforge status — {len(probs)} catalog entries")
     print(f"catalog updated: {data.get('updated_at') or 'never'}")
-    by = {}
+
+    # Aggregate by status
+    by_status = {}
     for p in probs:
         s = p.get("status", "unknown")
-        by[s] = by.get(s, 0) + 1
-    for k, v in sorted(by.items()):
+        by_status[s] = by_status.get(s, 0) + 1
+
+    # Count active attacks
+    active_attacks = 0
+    if ATTACKS.exists():
+        for attack_dir in ATTACKS.iterdir():
+            if attack_dir.is_dir() and (attack_dir / "STATUS.json").exists():
+                status_data = json.loads((attack_dir / "STATUS.json").read_text(encoding="utf-8"))
+                if status_data.get("status") == "active":
+                    active_attacks += 1
+
+    print(f"\nProblems by status:")
+    for k, v in sorted(by_status.items()):
         print(f"  {k}: {v}")
     if not probs:
         print("  (empty — run: mathforge catalog seed)")
+
+    print(f"\nActive attacks: {active_attacks}")
     return 0
 
 
@@ -166,6 +182,79 @@ def cmd_problem_new(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_attack_start(args: argparse.Namespace) -> int:
+    pid = args.id
+    data = _load_catalog()
+    target = next((p for p in data.get("problems") or [] if p["id"] == pid), None)
+    if not target:
+        print(f"unknown problem id: {pid}", file=sys.stderr)
+        return 1
+
+    # Create attack directory
+    attack_id = f"{pid}-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}"
+    attack_dir = ATTACKS / attack_id
+    attack_dir.mkdir(parents=True, exist_ok=True)
+
+    # Write attack status
+    status_data = {
+        "attack_id": attack_id,
+        "problem_id": pid,
+        "status": "active",
+        "started_at": _now(),
+        "strategy": args.strategy or "general",
+        "agent": args.agent or "attack-lead",
+        "budget_tokens": args.budget_tokens,
+        "tokens_used": 0,
+        "notes": args.notes or "",
+    }
+    status_file = attack_dir / "STATUS.json"
+    status_file.write_text(json.dumps(status_data, indent=2) + "\n", encoding="utf-8")
+
+    # Create attack log
+    log_file = attack_dir / "LOG.md"
+    log_file.write_text(
+        f"""# Attack log — {attack_id}
+
+**problem:** {pid} — {target.get('title', 'untitled')}
+**strategy:** {status_data['strategy']}
+**started:** {status_data['started_at']}
+**budget:** {status_data['budget_tokens']:,} tokens
+
+## Attempts
+
+| timestamp | action | result | tokens |
+|-----------|--------|--------|--------|
+
+## Notes
+
+{status_data['notes']}
+""",
+        encoding="utf-8",
+    )
+
+    # Create strategies scaffold
+    strategies_file = attack_dir / "STRATEGIES.md"
+    strategies_file.write_text(
+        f"""# Strategies — {attack_id}
+
+## Planned approaches
+
+1. TODO — add strategy descriptions
+
+## Dead ends
+
+- (none yet)
+""",
+        encoding="utf-8",
+    )
+
+    print(f"started attack: {attack_id}")
+    print(f"  attack dir: {attack_dir.relative_to(ROOT)}")
+    print(f"  strategy: {status_data['strategy']}")
+    print(f"  budget: {status_data['budget_tokens']:,} tokens")
+    return 0
+
+
 def cmd_claim_prepare(args: argparse.Namespace) -> int:
     pid = args.id
     d = PROBLEMS / pid
@@ -241,6 +330,16 @@ def main(argv: list[str] | None = None) -> int:
     newp.add_argument("--source", default="manual")
     newp.add_argument("--notes", default="")
     newp.set_defaults(func=cmd_problem_new)
+
+    at = sub.add_parser("attack", help="attack ops")
+    at_sub = at.add_subparsers(dest="attack_cmd", required=True)
+    start = at_sub.add_parser("start", help="start a new attack on a problem")
+    start.add_argument("id", help="problem id")
+    start.add_argument("--strategy", default="general", help="attack strategy")
+    start.add_argument("--agent", default="attack-lead", help="agent role")
+    start.add_argument("--budget-tokens", type=int, default=200_000, help="token budget")
+    start.add_argument("--notes", default="", help="optional notes")
+    start.set_defaults(func=cmd_attack_start)
 
     cl = sub.add_parser("claim", help="claim packets")
     cl_sub = cl.add_subparsers(dest="claim_cmd", required=True)

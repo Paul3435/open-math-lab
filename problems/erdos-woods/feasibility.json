@@ -1,0 +1,17 @@
+{
+  "id": "erdos-woods",
+  "scored_at": "2026-07-29T21:21:30Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 4.5,
+    "partial_progress_paths": 5.0,
+    "literature_clarity": 4.0,
+    "compute_bounded": 4.0,
+    "agent_skill_fit": 4.5,
+    "crackpot_risk": 0.5
+  },
+  "budget_tokens_estimate": 300000,
+  "recommendation": "attack",
+  "rationale": "Bounded computational search with clear verification criteria. Erd\u0151s-Woods numbers are well-studied; k=16 verification is tractable. Strong partial progress path (interval search). Low crackpot risk (finite problem, no connection to major conjectures).",
+  "overall_1_to_5": 4.3
+}

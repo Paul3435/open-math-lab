@@ -1,57 +1,90 @@
 {
   "version": 1,
-  "updated_at": "2026-07-29T21:07:00Z",
+  "updated_at": "2026-07-29T21:21:45Z",
   "problems": [
     {
-      "id": "demo-collatz-bound-toy",
-      "title": "Toy bounded Collatz variant (demo only)",
+      "id": "erdos-woods",
+      "title": "Erd\u0151s-Woods number existence for k=16",
       "domain": [
         "number-theory",
-        "dynamics"
+        "computational"
       ],
-      "source": "internal-demo",
+      "source": "erdos-woods-conjecture",
       "status": "scored",
       "feasibility": {
-        "id": "demo-collatz-bound-toy",
-        "scored_at": "2026-07-29T21:07:00Z",
+        "id": "erdos-woods",
+        "scored_at": "2026-07-29T21:21:30Z",
+        "rubric_version": "v0-stub",
+        "dimensions": {
+          "formalizable": 4.5,
+          "partial_progress_paths": 5.0,
+          "literature_clarity": 4.0,
+          "compute_bounded": 4.0,
+          "agent_skill_fit": 4.5,
+          "crackpot_risk": 0.5
+        },
+        "budget_tokens_estimate": 300000,
+        "recommendation": "attack",
+        "rationale": "Bounded computational search with clear verification criteria. Erd\u0151s-Woods numbers are well-studied; k=16 verification is tractable. Strong partial progress path (interval search). Low crackpot risk (finite problem, no connection to major conjectures).",
+        "overall_1_to_5": 4.3
+      },
+      "notes": "Finite verification task: check if 16 is an Erd\u0151s-Woods number"
+    },
+    {
+      "id": "schur-partition",
+      "title": "Formalize Schur's partition theorem",
+      "domain": [
+        "combinatorics",
+        "formalization"
+      ],
+      "source": "mathlib-gap",
+      "status": "scored",
+      "feasibility": {
+        "id": "schur-partition",
+        "scored_at": "2026-07-29T21:21:37Z",
+        "rubric_version": "v0-stub",
+        "dimensions": {
+          "formalizable": 5.0,
+          "partial_progress_paths": 4.5,
+          "literature_clarity": 5.0,
+          "compute_bounded": 3.5,
+          "agent_skill_fit": 4.0,
+          "crackpot_risk": 0.0
+        },
+        "budget_tokens_estimate": 400000,
+        "recommendation": "formalize-only",
+        "rationale": "Classic partition theorem with known proofs. Mathlib gap identified. Excellent formalization target: well-understood mathematics, existing proof techniques, good infrastructure in Mathlib. Partial progress = incremental formalization steps. Zero crackpot risk (established 1926 theorem). Recommendation: formalize-only (not original research, but valuable Mathlib contribution).",
+        "overall_1_to_5": 4.4
+      },
+      "notes": "Mathlib currently lacks Schur's partition theorem - classic result suitable for formalization"
+    },
+    {
+      "id": "graceful-tree-conjecture",
+      "title": "Graceful labeling verification for small caterpillar trees",
+      "domain": [
+        "graph-theory",
+        "computational"
+      ],
+      "source": "graceful-labeling",
+      "status": "scored",
+      "feasibility": {
+        "id": "graceful-tree-conjecture",
+        "scored_at": "2026-07-29T21:21:45Z",
         "rubric_version": "v0-stub",
         "dimensions": {
           "formalizable": 4.0,
-          "partial_progress_paths": 4.0,
-          "literature_clarity": 3.0,
-          "compute_bounded": 3.0,
-          "agent_skill_fit": 3.0,
+          "partial_progress_paths": 5.0,
+          "literature_clarity": 4.5,
+          "compute_bounded": 4.5,
+          "agent_skill_fit": 4.0,
           "crackpot_risk": 1.0
         },
-        "budget_tokens_estimate": 200000,
-        "recommendation": "reject",
-        "rationale": "Demo only",
-        "overall_1_to_5": 3.2
+        "budget_tokens_estimate": 250000,
+        "recommendation": "attack",
+        "rationale": "Finite enumeration + backtracking search for caterpillar trees \u226412 vertices (~400 trees). Known partial results (n\u22648 confirmed). Clear success/failure criteria. Strong partial progress (results partition by n). Low crackpot risk (bounded verification, not claiming to solve full conjecture). Attack-ready with graph theory + CSP skill pack.",
+        "overall_1_to_5": 4.2
       },
-      "notes": "Placeholder for pipeline demos \u2014 NOT an open research target."
-    },
-    {
-      "id": "mathlib-gap-candidate",
-      "title": "Mathlib formalization gap (TBD by Scout)",
-      "domain": [
-        "formalization"
-      ],
-      "source": "mathlib-wishlist",
-      "status": "needs-scout",
-      "feasibility": null,
-      "notes": "Scout replaces with a real, small formalization task."
-    },
-    {
-      "id": "oeis-finite-check-candidate",
-      "title": "Finite OEIS / computational conjecture check (TBD)",
-      "domain": [
-        "experimental",
-        "combinatorics"
-      ],
-      "source": "oeis-style",
-      "status": "needs-scout",
-      "feasibility": null,
-      "notes": "Prefer decidable finite checks with clear bounds."
+      "notes": "Finite check: verify graceful labeling conjecture for caterpillar trees with \u226412 vertices"
     }
   ]
 }
