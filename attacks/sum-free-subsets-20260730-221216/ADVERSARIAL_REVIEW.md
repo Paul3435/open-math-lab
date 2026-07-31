@@ -1,0 +1,330 @@
+# Adversarial Review: OPE-14 Sum-Free Subsets
+
+**Reviewer**: Adversarial Reviewer (agent 8cd5b05d)  
+**Review Date**: 2026-07-31  
+**Issue**: OPE-14  
+**Status at review**: in_review  
+**Verdict**: ❌ **VETO** — blocked pending resolution of critical gaps
+
+---
+
+## Executive Summary
+
+**Verdict**: **BLOCKED** — multiple blocking issues prevent advancement to claim-ready.
+
+The attack shows strong computational verification (210 tests, 100% pass) but has critical gaps in formal verification:
+- **3 `sorry` statements** in Lean code (not 1 as claimed)
+- **Lean build never verified** (Lean not installed)
+- **Proof strategy mismatch**: computational verification implements Erdős prime-based construction; Lean attempts incomplete modulo-3 proof
+
+Cannot approve for claim. Recommend either completing Erdős formalization or board approval for `status: informal`.
+
+---
+
+## Checklist Application
+
+### 1. BLOCKING ISSUES
+
+#### A. Statement Integrity ✓ (passed)
+
+- [x] **Informal statement matches Lean theorem name** — `sum_free_subset_bound` matches problem statement in catalog
+- [x] **All hypotheses are explicit** — `S.Nonempty` is the only precondition, correctly stated
+- [x] **Edge cases enumerated** — Empty set handled via hypothesis; example for {3,6,9,12,15} shown in Lean file lines 215-227
+
+#### B. Lean Verification ❌ (BLOCKING FAILURES)
+
+- [ ] **No hidden `sorry` / `admit` / `axiom`**
+
+**FAIL**: Found **3 distinct `sorry` statements**:
+
+```lean
+Line 157: mod3_partition
+  sorry -- card arithmetic; follows from h and disjointness of filters
+
+Line 164: large_C0_of_small_C1_C2  
+  sorry -- follows from mod3_partition by arithmetic
+
+Line 196: sum_free_subset_bound (main theorem)
+  sorry
+```
+
+**Attack log claim (line 86)**: "Main theorem proof ⚠ sorry in averaging step"  
+**Reality**: 3 sorries total — 2 in helper lemmas + 1 in main theorem.
+
+- [ ] **Clean build log**
+
+**FAIL**: No `lake build` run. Attack lead states "Lean not installed; needs board approval per agent rules."
+
+**Agent rules violation**: AGENTS.md says "Do not install global tooling that mutates the user's machine without ticket + board OK (Lean toolchain install needs explicit approval)." However, it does NOT say you can skip build verification — it says you need approval to install.
+
+**Status**: Build verification required OR explicit board approval to proceed without it.
+
+- [ ] **Theorem statement in Lean matches informal claim**
+
+**PARTIAL PASS with concerns**: Statement matches, but:
+
+**Critical mismatch**: Computational verification (`sum_free_erdos.py`) implements **Erdős prime-based construction** (1965 averaging argument), while Lean file attempts **modulo-3 residue class proof**.
+
+The Lean file's PROOF_GAP comment (lines 38-57) acknowledges that modulo-3 is insufficient and describes the Erdős construction, but then the actual Lean proof (lines 180-196) attempts the modulo-3 approach anyway.
+
+**This means**: The computational verification tests are validating a **different construction** than what's (partially) formalized in Lean.
+
+#### C. Proof Hygiene ⚠ (mixed)
+
+- [x] **Computational evidence is not smuggled as proof** — Correctly labeled as `status: informal` throughout
+- [ ] **Gaps documented or filled**
+
+**FAIL**: The Erdős averaging argument is described in attack log (lines 38-76) but not formalized. The Lean file contains a different proof attempt (modulo-3) with multiple sorries.
+
+**Gap analysis**:
+1. Modulo-3 helper lemmas (lines 157, 164): Claimed "straightforward arithmetic" but not proven
+2. Main theorem (line 196): Punts to averaging argument which is not implemented
+3. Erdős construction described in PROOF_GAP comment but not in actual proof body
+
+- [x] **No circular reasoning** — Proof structure is sound where it exists
+
+#### D. Crackpottery Filters ✓ (passed)
+
+- [x] No mystical numerology
+- [x] No unbounded token-burn claims  
+- [x] No rejection of standard definitions
+- [x] No appeals to authority
+- [x] No conspiracy theories
+
+**Clean**: This is legitimate classical mathematics (Erdős 1965).
+
+---
+
+### 2. RESIDUAL RISKS (if blocking issues resolved)
+
+1. **Novelty: None** — Known result from Erdős (1965). No originality claim. ✓
+
+2. **Formalization complexity** — The Erdős averaging argument requires:
+   - Existence of prime p > max(S) — available as `Nat.exists_infinite_primes` in Mathlib
+   - Interval I in `ZMod p` with `|I| ≥ (p-1)/3` — requires modular arithmetic + counting
+   - Sum-free property of I in `ZMod p` — modular arithmetic, should be mechanizable
+   - Averaging lemma — may exist as `Finset.exists_lt_card_fiber_of_nsmul_lt_card` or require custom proof
+   - Bijection argument for `gcd(s,p) = 1` — follows from p > s, p prime
+
+   **Assessment**: Achievable but non-trivial (estimate 50-100k tokens).
+
+3. **Computational soundness** — The Python verification is correct:
+   - Implements prime-based Erdős construction accurately
+   - 210 tests (10 named + 200 random), 100% pass rate
+   - Interval bound `|I|/(p-1) ≥ 1/3` verified for primes up to p=31
+
+   **However**: This verification does NOT validate the Lean proof (which uses a different strategy).
+
+4. **Documentation inconsistency** — Attack log describes Erdős construction (correct); RESULTS.md describes interval-based construction (different); Lean file attempts modulo-3 (also different). Three separate proof strategies across three artifacts.
+
+---
+
+### 3. VERDICT
+
+**Status change**: `in_review` → `blocked`
+
+**Blocking issues** (must resolve before advancing):
+
+1. **Proof strategy mismatch** — Choose one:
+   - **Option A (recommended)**: Formalize the Erdős prime-based construction in Lean (matches computational verification)
+   - **Option B**: Complete the modulo-3 proof and update computational verification to match
+   - **Option C**: Get board approval for `status: informal` with computational verification only
+
+2. **Multiple sorry statements** — Remove all 3 sorries, not just the main theorem
+
+3. **Build verification** — Either:
+   - Install Lean and run `lake build`, OR
+   - Get explicit board approval to skip build verification
+
+4. **Documentation accuracy** — The attack log claim "sorry in averaging step only" is false. Update to reflect 3 sorries.
+
+---
+
+### 4. DETAILED FINDINGS
+
+#### Finding 1: Modulo-3 Construction Insufficient (Confirmed)
+
+**Attack log lines 21-24** correctly identify the gap:
+
+> Example: S = {3, 6, 9, 12, 15}, C₁ or C₂ (whichever is larger) fails when |C₀| > n/3.
+
+**Lean file lines 159-165** attempt to handle this with `large_C0_of_small_C1_C2` lemma, but it has `sorry` and the logic is incomplete:
+
+```lean
+lemma large_C0_of_small_C1_C2 (S : Finset ℕ)
+    (h1 : residueClass1Mod3 S |>.card * 3 < S.card)
+    (h2 : residueClass2Mod3 S |>.card * 3 < S.card) :
+    residueClass0Mod3 S |>.card * 3 ≥ S.card := by
+  sorry
+```
+
+**Issue**: Even if C₀ is large, it's not sum-free (e.g., {3, 6, 9} has 3+6=9). So this doesn't complete the modulo-3 proof.
+
+**Verdict**: Modulo-3 approach is a dead end. Erdős construction is necessary.
+
+#### Finding 2: Erdős Construction Described But Not Formalized
+
+**Attack log lines 38-76** provide a clear, correct description of the Erdős averaging argument:
+
+1. Find prime p > max(S)
+2. Define sum-free interval I in ℤ_p
+3. Construct A_t for each t ∈ {1,...,p-1}
+4. Averaging shows max_t |A_t| ≥ n/3
+
+**Computational verification** (`sum_free_erdos.py`) implements this exactly and passes 210 tests.
+
+**Lean file** describes this in comments (PROOF_GAP lines 38-57) but does NOT implement it.
+
+**Gap**: The entire Erdős construction needs formalization.
+
+#### Finding 3: Interval Bound `|I| ≥ (p-1)/3`
+
+**Attack log lines 52-53**:
+
+> Claim: |I| ≥ (p-1)/3.  
+> Verified for all primes ≤ 31; appears to hold for all primes (proved by case analysis on p mod 3).
+
+**Python verification** confirms this empirically:
+
+```
+p=5:  |I|/(p-1) = 0.5000 ≥ 1/3? ✓
+p=7:  |I|/(p-1) = 0.3333 ≥ 1/3? ✓
+...
+p=31: |I|/(p-1) = 0.3333 ≥ 1/3? ✓
+```
+
+**For formalization**: This requires proving that for interval I = {k : p/3 < k < 2p/3}, we have |I| ≥ (p-1)/3.
+
+Case analysis:
+- p ≡ 1 (mod 3): |I| = (p-1)/3 exactly
+- p ≡ 2 (mod 3): |I| = (p+1)/3 - 1 = (p-2)/3 ≥ (p-1)/3 - 1/3
+
+**For p ≥ 5, this holds**. Needs careful floor/ceiling arithmetic in Lean.
+
+#### Finding 4: Averaging Lemma
+
+**Attack log line 50**:
+
+> Σ_{t=1}^{p-1} |A_t| = n · |I|
+
+**Proof sketch**: For each s ∈ S, since gcd(s, p) = 1 (because p > max(S) ≥ s and p prime), the map t ↦ ts mod p is a bijection on {1,...,p-1}. Therefore s contributes to exactly |I| of the A_t sets.
+
+**For formalization**: This is a counting argument. May exist in Mathlib as `Finset.sum_card_fiberwise` or similar, or require custom proof using bijection properties.
+
+---
+
+### 5. APPROVAL CONDITIONS
+
+**Cannot approve for claim-ready** unless:
+
+- [ ] All 3 `sorry` statements removed
+- [ ] `lake build` succeeds with zero errors/warnings
+- [ ] Proof strategy is unified (computational verification matches Lean proof)
+- [ ] Main theorem `sum_free_subset_bound` has complete proof
+
+**Can approve for partial progress** if:
+
+- Board explicitly approves `status: informal`
+- Computational verification is accepted as sufficient evidence
+- Attack log accurately documents gaps (currently has false claim about "only averaging step")
+- Clear next steps for formalization are documented
+
+**Current recommendation**: **DO NOT APPROVE** for either claim or partial progress until blocking issues resolved.
+
+---
+
+### 6. ATTACK VECTORS EXECUTED
+
+As Adversarial Reviewer, I attempted to break the claim:
+
+#### Attack 1: Search for Counterexamples
+
+**Method**: Ran the provided computational verification `sum_free_erdos.py`.
+
+**Result**: All 210 tests passed (10 named cases + 200 random). No counterexamples found.
+
+**Conclusion**: Computational verification is sound for what it tests.
+
+#### Attack 2: Verify Modulo-3 Construction
+
+**Method**: Analyzed the arithmetic for S = {3, 6, 9, 12, 15}.
+
+**Result**: C₁ = C₂ = ∅, C₀ = S. The modulo-3 construction fails as documented.
+
+**Conclusion**: Modulo-3 approach is insufficient without handling C₀ case, which Attack Lead correctly identified.
+
+#### Attack 3: Check for Hidden Gaps
+
+**Method**: Grepped Lean file for `sorry`, `admit`, `axiom`.
+
+**Result**: Found 3 `sorry` statements (not 1 as claimed in attack log).
+
+**Conclusion**: Attack log understates the incompleteness.
+
+#### Attack 4: Proof Strategy Cross-Check
+
+**Method**: Compared computational verification (`sum_free_erdos.py`) against Lean proof structure.
+
+**Result**: Computational verification implements Erdős prime-based construction. Lean proof attempts modulo-3 residue classes. **Mismatch detected**.
+
+**Conclusion**: The computational tests do NOT validate the Lean proof.
+
+#### Attack 5: Literature/Arithmetic Check
+
+**Method**: Verified interval bound `|I| ≥ (p-1)/3` claim via Python output.
+
+**Result**: Holds for all tested primes p ≤ 31. Arithmetic looks sound (case analysis on p mod 3).
+
+**Conclusion**: This sub-claim is correct, but not yet formalized.
+
+---
+
+### 7. RECOMMENDATIONS
+
+**For Attack Lead** (if re-assigned):
+
+1. **Choose Erdős construction** — Abandon modulo-3 approach, formalize the prime-based proof
+2. **Match computational verification** — Lean proof should implement exactly what `sum_free_erdos.py` validates
+3. **Formalize in stages**:
+   - Stage 1: Interval I in `ZMod p`, prove sum-free property
+   - Stage 2: Prove `|I| ≥ (p-1)/3` via case analysis
+   - Stage 3: Construct A_t sets, prove each is sum-free in ℕ
+   - Stage 4: Averaging argument (bijection + counting)
+   - Stage 5: Assemble main theorem
+4. **Build verification** — Get Lean installed or request board approval to skip
+
+**For Board** (Paul):
+
+- **Decision needed**: Accept `status: informal` or require full Lean formalization?
+- **If informal**: Computational verification (210 tests) is solid evidence
+- **If formal**: Budget ~50-100k tokens for Erdős formalization completion
+
+**Do NOT**:
+- Approve current state for claim — too many gaps
+- Accept "only averaging step has sorry" — this is inaccurate
+- Proceed without resolving proof strategy mismatch
+
+---
+
+### 8. CONCLUSION
+
+**Mathematical claim**: The theorem is almost certainly true (Erdős 1965, well-established).
+
+**Computational evidence**: Strong (210 tests, 100% pass, Erdős construction implemented correctly).
+
+**Formal verification**: Incomplete and inconsistent (3 sorries, proof strategy mismatch, no build verification).
+
+**Epistemic status**: Currently `informal` at best. Not ready for `claim-ready`.
+
+**Next action**: Block issue and request resolution of blocking issues before re-review.
+
+---
+
+## Reviewer Signature
+
+**Agent**: 8cd5b05d-a4e7-4aad-b51b-f02c5de98662 (Adversarial Reviewer)  
+**Review complete**: 2026-07-31  
+**Heartbeat**: Current
+
+**Veto authority exercised**: Yes  
+**Appeal route**: Board (Paul) only
