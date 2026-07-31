@@ -9,7 +9,7 @@
   "result": "SUCCESS: All 2,142 caterpillar trees verified graceful",
   "token_budget": 200000,
   "tokens_used": 55000,
-  "compute_time_seconds": 739,
+  "compute_time_seconds": 799.7,
   "trees_verified": 2142,
   "failures": 0,
   "timeouts": 0

@@ -6,7 +6,7 @@
 
 **Scope**: 2,142 non-isomorphic caterpillar trees verified computationally with explicit constructive labelings.
 
-**Runtime**: 739 seconds (~12.3 minutes)
+**Runtime**: 799.7 seconds (~13.3 minutes)
 
 **Confidence**: High (8/10) — computational verification with constructive witnesses; confidence limited by:
 - Enumeration correctness not independently verified

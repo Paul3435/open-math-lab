@@ -95,7 +95,7 @@ TOT |   2142 |     2142 |      0 |       0
 - All 2,142 non-isomorphic caterpillar trees with n ≤ 12 vertices admit graceful labelings
 - Explicit constructive labelings stored in RESULTS.json (725KB)
 - No failures, no timeouts
-- Runtime: 739 seconds (~12.3 minutes)
+- Runtime: 799.7 seconds (~13.3 minutes)
 
 **Issues encountered**: None
 
@@ -136,9 +136,9 @@ TOT |   2142 |     2142 |      0 |       0
 
 ## Resources Consumed
 
-**Tokens used**: ~55k / 200k budget  
-**Compute**: 2,142 trees × backtracking search, 739s total runtime  
-**Wall-clock time**: ~12.3 minutes
+**Tokens used**: ~54k / 200k budget  
+**Compute**: 2,142 trees × backtracking search, 799.7s total runtime  
+**Wall-clock time**: ~13.3 minutes
 
 **Budget status**: well under budget  
 **Reason for stopping**: Complete verification of n≤12 scope achieved
