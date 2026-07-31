@@ -1,6 +1,6 @@
 # Git + GitHub PR workflow (Open Math Lab)
 
-**Remote SoT:** `https://github.com/Paul3435/open-math-lab`  
+**Remote SoT:** `https://github.com/Paul3435/open-math-lab` (public)  
 **Local SoT:** `C:\Users\paulb\Documents\VSCode\open-math-lab`  
 **Default branch:** `master` locally; GitHub may use `main` — open PRs with `--base` matching the remote default (`gh repo view --json defaultBranchRef`).  
 **Board merge authority:** Paul only (agents open PRs; agents do **not** merge to `master` unless a ticket explicitly says so).
