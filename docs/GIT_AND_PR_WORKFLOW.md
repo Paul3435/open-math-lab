@@ -2,7 +2,7 @@
 
 **Remote SoT:** `https://github.com/Paul3435/open-math-lab`  
 **Local SoT:** `C:\Users\paulb\Documents\VSCode\open-math-lab`  
-**Default branch:** `master`  
+**Default branch:** `master` locally; GitHub may use `main` — open PRs with `--base` matching the remote default (`gh repo view --json defaultBranchRef`).  
 **Board merge authority:** Paul only (agents open PRs; agents do **not** merge to `master` unless a ticket explicitly says so).
 
 ## Why PRs
@@ -114,4 +114,4 @@ Agents use the host `gh` login (`Paul3435`, `repo` scope). If `gh auth status` f
 
 ## CI
 
-GitHub Actions runs lightweight Python tests on PRs/pushes (not full Mathlib CI — too heavy for free runners). Local Lean remains `lake build` on the lab machine after OPE-17.
+Lightweight Python tests are defined in `docs/ci/github-actions-test.yml`. Copy to `.github/workflows/test.yml` after the board grants the GitHub token **`workflow`** scope (`gh auth refresh -s workflow`), then commit that path. Full Mathlib `lake build` stays local (OPE-17), not free GitHub runners.
