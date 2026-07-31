@@ -1,0 +1,16 @@
+{
+  "problem_id": "graceful-tree-conjecture",
+  "attack_id": "graceful-tree-conjecture-20260731-094627",
+  "started": "2026-07-31T09:46:27Z",
+  "completed": "2026-07-31T10:00:16Z",
+  "status": "ready-for-review",
+  "scope": "caterpillar trees with n <= 12 vertices",
+  "strategy": "backtrack-enumerate",
+  "result": "SUCCESS: All 2,142 caterpillar trees verified graceful",
+  "token_budget": 200000,
+  "tokens_used": 55000,
+  "compute_time_seconds": 739,
+  "trees_verified": 2142,
+  "failures": 0,
+  "timeouts": 0
+}
