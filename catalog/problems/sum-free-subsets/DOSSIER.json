@@ -1,0 +1,22 @@
+{
+  "id": "sum-free-subsets",
+  "title": "Sum-Free Subsets in Finite Sets",
+  "status": "candidate",
+  "domain": "additive_combinatorics",
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 19,
+    "crackpot_resistance": 20
+  },
+  "flags": [],
+  "recommendation": "Prime target. Clear constructive proof via modulo-3 residues. Good match for combinatorics skill pack.",
+  "skill_packs": ["combinatorics", "number-theory"],
+  "estimated_token_budget": "150k",
+  "notes": [
+    "Mathlib has Finset, modular arithmetic, and basic combinatorics",
+    "Constructive proof avoids classical choice overhead",
+    "Excellent Mathlib contribution candidate"
+  ]
+}

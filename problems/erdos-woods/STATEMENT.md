@@ -1,41 +1,81 @@
-# Erdős-Woods number existence for k=16
+# Erdős-Woods Numbers
 
-**id:** `erdos-woods`
+## Problem Statement
 
-## Informal statement
+A positive integer k is called an **Erdős-Woods number** if there exists a positive integer a such that for every integer j in the open interval (a, a+k) — that is, for each j with a < j < a+k — the integer j shares at least one prime factor with either a or a+k (the interval endpoints).
 
-An integer k is called an **Erdős-Woods number** if there exists a positive integer a such that for each integer d with 0 < d ≤ k, at least one of the numbers a, a+1, ..., a+k has a nontrivial common factor with d.
+**Known result**: k = 16 is an Erdős-Woods number with minimal witness **a = 2184** (Erdős & Woods, 1980).
 
-The conjecture states that every sufficiently large integer is an Erdős-Woods number. For small k, determining whether k is an Erdős-Woods number requires exhaustive computational search or mathematical proof.
+## Formal Definition
 
-**Research question:** Is k=16 an Erdős-Woods number?
+Given k ∈ ℕ⁺, we say k is an Erdős-Woods number if:
 
-Current status: k=16 is believed to be an Erdős-Woods number but lacks complete computational verification across all necessary search ranges. The search space is bounded but computationally intensive.
+∃a ∈ ℕ⁺: ∀j ∈ ℕ, (a < j < a+k) ⇒ [gcd(j, a) > 1 ∨ gcd(j, a+k) > 1]
 
-## Why feasible?
+Equivalently: every integer in the open interval (a, a+k) is composite relative to the endpoints {a, a+k}.
 
-1. **Bounded search space**: For any k, there exists a computable bound B(k) such that if no witness a ≤ B(k) exists, then k is not an Erdős-Woods number. For k=16, heuristic bounds suggest B(16) ≤ 10^12.
+## Background
 
-2. **Parallelizable**: The search can be partitioned into independent intervals.
+- **Source**: Erdős, P. and Woods, A. R. (1980), *Some new results on problem of Erdős and Graham*
+- **Known Erdős-Woods numbers**: 16, 22, 34, 36, 46, 56, 64, 66, 70, 76, 78, 86, 88, 92, 94, ...
+- **Canonical example**: k=16 with minimal witness a=2184
+  - Every integer j with 2184 < j < 2200 shares a prime factor with 2184 or 2200
 
-3. **Checkable**: Each candidate witness a can be verified in polynomial time.
+## Mathematical Context
 
-4. **Formalizable**: The definition translates cleanly to Lean/Mathlib (divisibility, intervals, existential claims).
+The Erdős-Woods property characterizes intervals where the endpoints "cover" all interior points through shared divisibility. This is related to:
 
-5. **Partial progress measurable**: Progress = (intervals checked) / (total search space).
+- Arithmetic progressions and covering systems
+- Distribution of smooth numbers
+- Computational bounds on witness existence
 
-6. **Literature base**: Papers by Erdős & Woods (1980), Cégielski et al. (2006), computational number theory databases.
+## Literature References
 
-## Why this specific problem?
+1. Erdős, P. and Woods, A. R. (1980). "Some new results on problem of Erdős and Graham"
+2. OEIS A059756: Erdős-Woods numbers
+3. Computational searches have verified witnesses for small k values
 
-- **Not a crackpot target**: Well-defined finite search, no connection to RH/Goldbach/P=NP.
-- **Research value**: Erdős-Woods numbers connect to covering systems, modular arithmetic patterns, and sieve theory.
-- **Attack-ready**: Skill pack = experimental number theory + Python/Lean verification.
-- **Honest frame**: This is a verification task, not a deep theorem proof.
+## Verification Approach
 
-## References
+To verify a claimed witness (k, a):
 
-- Erdős, P., & Woods, A. R. (1980). "Some computational results on a problem of Erdős and Graham." Utilitas Mathematica, 17, 253-260.
-- Cégielski, P., Matiyasevich, Y., & Richard, D. (2006). "Definability and decidability issues in extensions of the integers with the divisibility predicate." Journal of Symbolic Logic, 71(2), 643-656.
-- OEIS A059756: Erdős-Woods numbers
-- Mathlib gaps: No current formalization of Erdős-Woods number definition in Mathlib (as of Jan 2025).
+1. Check interval bounds: compute a+k
+2. For each integer j in (a, a+k):
+   - Compute gcd(j, a)
+   - Compute gcd(j, a+k)
+   - Verify at least one gcd > 1
+3. If all j satisfy the condition, (k, a) is a valid witness pair
+
+**Primes relevant for k=16**: {2, 3, 5, 7, 11, 13}
+
+For a=2184, k=16:
+- Endpoints: 2184 = 2³ × 3 × 7 × 13, 2200 = 2³ × 5² × 11
+- Interval: (2184, 2200) contains 15 integers: 2185, 2186, ..., 2199
+- Each must share a factor with 2184 or 2200
+
+## Success Criteria
+
+**Mathematical formalization** (Lean 4):
+- Formalize the definition of Erdős-Woods numbers
+- Verify k=16, a=2184 as a witness pair
+- Computational proof via exhaustive divisibility check
+
+**Computational verification**:
+- Script verifying each j ∈ (2184, 2200) shares a factor with an endpoint
+- Clean output showing gcd results for transparency
+
+## Domain
+
+**Primary**: Elementary Number Theory  
+**Secondary**: Computational Number Theory, Formalization
+
+## Difficulty Estimate
+
+**Mathematical complexity**: Low (definition is elementary, known result)  
+**Computational complexity**: Trivial (verification is 15 gcd computations)  
+**Formalization complexity**: Low-Medium (Lean statement + computational certificate)  
+**Feasibility score**: 7.5 / 10 (straightforward formalization of known result)
+
+## Notes
+
+This problem serves as a **calibration target** for the lab's verification pipeline. The mathematical claim is settled; the value lies in producing a machine-checked artifact demonstrating the witness property.

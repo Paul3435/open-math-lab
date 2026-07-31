@@ -1,0 +1,23 @@
+{
+  "id": "derangement-formula",
+  "title": "Derangement Counting Formula",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 19,
+    "attack_surface": 15,
+    "verification_budget": 18,
+    "crackpot_resistance": 20
+  },
+  "flags": [],
+  "recommendation": "Prime target. Finite, constructive, excellent Mathlib fit. Recurrence relation may be easier path than full inclusion-exclusion.",
+  "skill_packs": ["combinatorics"],
+  "estimated_token_budget": "200k",
+  "notes": [
+    "Inclusion-exclusion is partially in Mathlib; may need to extend",
+    "Recurrence D(n) = (n-1)·(D(n-1) + D(n-2)) is alternative proof path",
+    "Small-case computational verification (n ≤ 10) is easy warmup",
+    "Strong Mathlib contribution value"
+  ]
+}

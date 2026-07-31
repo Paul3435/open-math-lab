@@ -1,0 +1,23 @@
+{
+  "id": "frobenius-coin-problem",
+  "title": "Frobenius Coin Problem (Two Denominations)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 17,
+    "verification_budget": 19,
+    "crackpot_resistance": 20
+  },
+  "flags": [],
+  "recommendation": "Prime target. Well-scoped, constructive, strong number-theory skill pack match. Excellent Mathlib contribution.",
+  "skill_packs": ["number-theory"],
+  "estimated_token_budget": "180k",
+  "notes": [
+    "Bézout's identity is in Mathlib; needs glue to representability",
+    "Chicken McNugget theorem (representability bound) is key lemma",
+    "Three+ coin case is NP-hard; strict scope to two coins only",
+    "Computational verification for specific (a, b) pairs is easy warmup"
+  ]
+}

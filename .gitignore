@@ -7,9 +7,14 @@ venv/
 !.env.example
 node_modules/
 .lake/
+lake-packages/
 *.olean
 .DS_Store
 .idea/
 .vscode/
 *.log
 .paperclip/
+.claude/
+witness_5.json
+**/__pycache__/
+*.pyc

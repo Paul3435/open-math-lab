@@ -20,7 +20,8 @@ Build software and research process that *attempts* rigorous progress on **feasi
 - Work only inside this repository unless a ticket says otherwise.
 - Never commit secrets, API keys, or credentialed `.env`.
 - Do not email, tweet, post to arXiv, or open external PRs claiming results.
-- Do not install global tooling that mutates the user’s machine without ticket + board OK (Lean toolchain install needs explicit approval).
+- Do not install global tooling that mutates the user’s machine without ticket + board OK.
+- **Lean/elan:** board approved user-local install on 2026-07-31 (**OPE-17**, Formalist). Still no external math claims without board; prefer Lean-checked gates when toolchain is green.
 - Prefer small diffs, tests or a verify script, honest issue comments.
 - When done: summarize changes, how to verify, remaining mathematical and engineering risks.
 
@@ -35,3 +36,12 @@ Build software and research process that *attempts* rigorous progress on **feasi
 ## Claim policy
 
 Public or board “claim packets” only via `mathforge claim prepare`. Default recommendation is **no claim**. Board (Paul) is the only authority for external communication.
+
+## GitHub + pull requests
+
+- Remote: `https://github.com/Paul3435/open-math-lab` (branch `master`).
+- Full procedure: `docs/GIT_AND_PR_WORKFLOW.md`.
+- **Open a PR** when closing a sprint/issue with code or research artifacts (attack logs, Lean, catalog, CLI). Use branch `ope/<id>-<slug>`.
+- Comment the PR URL on the Paperclip issue. Prefer `gh pr create`.
+- **Do not merge** to `master` unless a ticket explicitly grants merge. Board merges.
+- Never force-push `master`, never commit secrets, never treat a merged PR as arXiv/public proof publication.

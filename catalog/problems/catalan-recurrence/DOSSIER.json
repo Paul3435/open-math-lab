@@ -1,0 +1,24 @@
+{
+  "id": "catalan-recurrence",
+  "title": "Catalan Numbers - Recurrence and Closed Form Equivalence",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 14,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "flags": ["requires_binomial_lemmas"],
+  "recommendation": "Feasible. Requires binomial coefficient manipulation infrastructure. Consider attacking after derangement-formula to reuse techniques.",
+  "skill_packs": ["combinatorics"],
+  "estimated_token_budget": "250k",
+  "notes": [
+    "Factorial division in ℕ requires divisibility proofs first",
+    "Binomial coefficient algebra may be tedious; check Mathlib coverage",
+    "Small-case verification (n ≤ 5) is easy warmup",
+    "Generating function proof is elegant but likely out of scope",
+    "Combinatorial bijection proofs (e.g., via binary trees) are alternative paths"
+  ]
+}

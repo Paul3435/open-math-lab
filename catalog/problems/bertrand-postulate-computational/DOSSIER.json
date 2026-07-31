@@ -1,0 +1,23 @@
+{
+  "id": "bertrand-postulate-computational",
+  "title": "Bertrand's Postulate - Computational Verification to 10^6",
+  "status": "candidate",
+  "domain": "computational_number_theory",
+  "scores": {
+    "formalizability": 20,
+    "partial_progress": 18,
+    "attack_surface": 14,
+    "verification_budget": 12,
+    "crackpot_resistance": 20
+  },
+  "flags": ["large_artifact_size"],
+  "recommendation": "Feasible. Demonstrates computational certification technique. May hit verification timeout; consider n ≤ 10^5 as fallback.",
+  "skill_packs": ["number-theory"],
+  "estimated_token_budget": "100k",
+  "notes": [
+    "General theorem already in Mathlib; this adds computational certificate",
+    "Witness table generation is external (Python/Sage)",
+    "Lean elaboration time is the main risk; test with smaller bounds first",
+    "Educational value: shows how to lift computational evidence into Lean"
+  ]
+}

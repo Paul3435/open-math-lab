@@ -1,184 +1,174 @@
 # Feasibility Rubric
 
-## Purpose
+**Purpose**: Score open mathematical problems for realistic attack suitability within mathforge constraints.
 
-Score open mathematical problems for Open Math Lab attack feasibility. Output: honest go/no-go recommendations, not overpromises.
+**Output**: Numerical feasibility score (0–100) + categorical risk flags.
 
-## Rubric Version
+---
 
-**Current**: v1 (2026-07-29)
+## Scoring Dimensions
 
-## Scoring Dimensions (1–5 scale)
+Each dimension scores 0–20. Total feasibility = sum of all five dimensions.
 
-### 1. Formalizable (weight: high)
+### 1. Formalizability (0–20)
 
-Can the problem statement and solution be expressed in Lean 4 + Mathlib?
+**Question**: Can the problem statement be expressed in Lean 4 + Mathlib within reasonable effort?
 
-- **5**: Direct Mathlib vocabulary (e.g., partition theorems, finite graph properties)
-- **4**: Requires minor definitions, clear formalization path exists
-- **3**: Moderate gaps, but standard mathematical objects
-- **2**: Substantial formalization burden (missing theory)
-- **1**: Fundamentally informal or computational (no theorem to state)
+- **20**: Problem naturally maps to existing Mathlib types (e.g., finite group property, polynomial bound)
+- **15**: Requires 1–2 new definitions but no major theory gaps
+- **10**: Needs moderate Mathlib extension (missing lemmas, glue code)
+- **5**: Requires significant formalization infrastructure (new algebraic structures, custom tactics)
+- **0**: Vague statement, no clear first-order encoding, or depends on unformalized foundations
 
-**Rationale**: Lean checkability is our truth gate. Unformalizable = unverifiable.
+**Red flags**:
+- "Existence of a pattern" without decidable predicate
+- Relies on未formalized fields (e.g., large swaths of algebraic topology)
+- Natural language ambiguity ("sufficiently large," "typical configuration")
 
-### 2. Partial Progress Paths (weight: high)
+---
 
-Can we make measurable progress even if full solution fails?
+### 2. Partial Progress Pathway (0–20)
 
-- **5**: Clear intermediate milestones (e.g., "verify for n ≤ 12", "formalize statement", "prove special case")
-- **4**: Likely checkpoints, requires some discovery
-- **3**: Some partial results possible, unclear boundaries
-- **2**: All-or-nothing (RH-style)
-- **1**: No partial credit available
+**Question**: Are there meaningful intermediate milestones that provide value even if the full problem remains open?
 
-**Rationale**: Failed attacks should produce dead-end maps, not just token burn.
+- **20**: Clear reduction ladder (e.g., bounded case → asymptotic case → full proof)
+- **15**: Computational verification adds evidence; partial results publishable
+- **10**: Some lemmas useful for Mathlib but not standalone results
+- **5**: All-or-nothing proof; no incremental validation
+- **0**: Binary outcome with no partial credit possible
 
-### 3. Literature Clarity (weight: medium)
+**Red flags**:
+- "Solve completely or nothing"
+- No known weaker variants or special cases
+- Computational bounds don't inform the general problem
 
-How well-documented is the problem?
+---
 
-- **5**: Published papers, known proof techniques, clear formulation (e.g., Schur's theorem)
-- **4**: Well-posed problem with references (e.g., OEIS sequences, MO posts)
-- **3**: Mentioned in literature but sparse details
-- **2**: Informal conjecture, vague formulation
-- **1**: No reliable sources, potential crackpot territory
+### 3. Attack Surface (0–20)
 
-**Rationale**: We need ground truth to verify against and learn from.
+**Question**: Do we have or can we build specialist tools/skills to make progress?
 
-### 4. Compute Bounded (weight: medium)
+- **20**: Problem matches existing skill pack domain (combinatorics, number theory)
+- **15**: Skills transferable from adjacent areas; clear tactic repertoire
+- **10**: Standard techniques apply but need custom automation
+- **5**: Requires expertise outside current skill inventory
+- **0**: Unknown domain; no clear starting heuristics
 
-Is computational exploration tractable?
+**Boost**: +5 if Mathlib already contains >50% of needed definitions  
+**Penalty**: -5 if problem is known to resist standard methods
 
-- **5**: Finite enumeration (e.g., graphs ≤ 10 vertices, n ≤ 1000)
-- **4**: Bounded search with optimizations (e.g., SAT solving, interval arithmetic)
-- **3**: Heuristic search, may not terminate
-- **2**: Exponential blowup, infeasible ranges
-- **1**: No computational angle
+---
 
-**Rationale**: Agents excel at search + verification. Infinite unbounded exploration doesn't.
+### 4. Verification Budget (0–20)
 
-### 5. Agent Skill Fit (weight: medium)
+**Question**: Can we verify correctness within reasonable computational limits?
 
-Do we have or can we build skill packs for this domain?
+- **20**: Lean proof checking is instant (<1s per theorem)
+- **15**: Build time <5 min; computational lemmas tractable on local hardware
+- **10**: Moderate verification (requires cluster time but <1 CPU-hour)
+- **5**: High computational barrier (e.g., case explosion, unification timeouts)
+- **0**: Verification infeasible (e.g., requires proof search beyond resource limits)
 
-- **5**: Strong Mathlib coverage + agent tactics (e.g., `Finset` combinatorics)
-- **4**: Good coverage, some skill-pack curation needed
-- **3**: Moderate coverage, significant upfront work
-- **2**: Sparse Mathlib support
-- **1**: No relevant infrastructure
+**Context**: Token budget is 100k–500k per attack; Lean elaboration must stay reasonable.
 
-**Rationale**: Skill packs (tactic templates, lemma libraries) are force multipliers.
+---
 
-### 6. Crackpot Risk (weight: penalty)
+### 5. Crackpot Resistance (0–20)
 
-How likely is this to be a fool's errand or crank magnet?
+**Question**: Is the problem well-defined enough to reject false claims mechanically?
 
-- **0**: Established formalization gap, bounded problem
-- **1**: Well-posed conjecture, no crank associations
-- **2**: Tangential to crank-favorite topics (Collatz, 3n+1)
-- **3**: Often misunderstood, requires care (twin primes computational bounds)
-- **4**: Actively attracts crank attempts
-- **5**: Mystical numerology territory (Illuminati primes, π patterns)
+- **20**: Lean type-checks the statement; counterexamples computable
+- **15**: Informal statement has consensus definition + known test cases
+- **10**: Literature agrees on formulation but edge cases debatable
+- **5**: Problem has multiple incompatible versions in circulation
+- **0**: Attracts mystical interpretations, unbounded scope, or vague success criteria
 
-**Rationale**: Reputation risk. We prefer Mathlib gaps over conspiracy theory adjacency.
+**Veto triggers** (automatic score = 0):
+- Problem known to attract crank submissions (e.g., P vs NP social media "proofs")
+- No authoritative reference (textbook, MathOverflow, Polymath, OEIS)
+- Relies on "AI will discover the pattern" without formal criteria
 
-## Overall Score Calculation
+---
 
-```
-overall = (
-    formalizable * 0.25 +
-    partial_progress_paths * 0.25 +
-    literature_clarity * 0.15 +
-    compute_bounded * 0.15 +
-    agent_skill_fit * 0.20
-) - (crackpot_risk * 0.10)
-```
+## Composite Score Interpretation
 
-Clamped to [1, 5].
+| Score   | Verdict             | Action                                                  |
+|---------|---------------------|---------------------------------------------------------|
+| 80–100  | **Prime target**    | Add to shortlist; assign Attack Lead                    |
+| 60–79   | **Feasible**        | Approve if skill pack exists; defer otherwise           |
+| 40–59   | **Risky**           | Requires board justification; time-box exploration      |
+| 20–39   | **Long shot**       | Catalog only; revisit if new tools/theory emerge        |
+| 0–19    | **Infeasible**      | Reject; document why to avoid re-evaluation waste       |
 
-## Recommendation Thresholds
+---
 
-| Overall Score | Recommendation | Meaning |
-|---------------|----------------|---------|
-| ≥ 4.0 | **attack** | Strong candidate, assign to Attack Lead |
-| 3.5–3.9 | **consider** | Borderline, may need skill-pack investment first |
-| 3.0–3.4 | **formalize-only** | Good Mathlib contribution, not original research |
-| 2.0–2.9 | **defer** | Not ready, revisit after infrastructure improves |
-| < 2.0 | **reject** | Not feasible or too risky |
+## Usage
 
-## Budget Estimate (tokens)
-
-Rough token budget per recommendation tier:
-
-- **attack** candidates: 150k–400k tokens (formalization + attack + review)
-- **consider**: 100k–200k tokens (smaller scope or uncertain success)
-- **formalize-only**: 100k–300k tokens (translation work, not discovery)
-- **defer/reject**: 0 tokens (catalog only, no active work)
-
-## Scoring Process
-
-1. Read problem statement and sources (`problems/<id>/STATEMENT.md`)
-2. Research literature (MathOverflow, OEIS, papers)
-3. Check Mathlib for existing coverage or gaps
-4. Score each dimension with rationale
-5. Calculate overall score and recommendation
-6. Write `problems/<id>/feasibility.json` with full breakdown
-7. Update `catalog/problems.json` status to `scored`
-
-## CLI Usage
+### Command-line scoring
 
 ```bash
-# Score a problem (interactive prompts for each dimension)
 python bin/mathforge score <problem-id>
-
-# View scored problems
-python bin/mathforge catalog
-
-# Filter by recommendation
-python bin/mathforge catalog --rec attack
 ```
 
-## Calibration Examples
+Reads `catalog/problems/<id>/STATEMENT.md` and dossier metadata, outputs structured JSON:
 
-### High Score (attack): Erdős-Woods number k=16
+```json
+{
+  "problem_id": "collatz-bounded-68",
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 12,
+    "attack_surface": 10,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "total": 75,
+  "verdict": "feasible",
+  "flags": [],
+  "recommendation": "Approve; time-box to 200k tokens for bounded computational proof."
+}
+```
 
-- **Formalizable**: 4.5 (number theory, finite verification)
-- **Partial**: 5.0 (interval search, incremental bounds)
-- **Literature**: 4.0 (published papers, clear definition)
-- **Compute**: 4.0 (bounded search space)
-- **Skill Fit**: 4.5 (Mathlib number theory strong)
-- **Crackpot**: 0.5 (niche but legit)
-- **Overall**: 4.3 → **attack**
+### Manual override
 
-### Medium Score (formalize-only): Schur's Partition Theorem
+Scout may adjust dimension scores with written justification in `catalog/problems/<id>/DOSSIER.md`.
 
-- **Formalizable**: 5.0 (classic combinatorics)
-- **Partial**: 4.5 (incremental formalization steps)
-- **Literature**: 5.0 (1926 theorem, known proofs)
-- **Compute**: 3.5 (verification exists, not primary goal)
-- **Skill Fit**: 4.0 (Mathlib partition theory)
-- **Crackpot**: 0.0 (established math)
-- **Overall**: 4.4 → **formalize-only** (not discovery)
+---
 
-### Low Score (reject): Collatz conjecture full proof
+## Non-Scoring Factors
 
-- **Formalizable**: 3.0 (statement yes, proof unknown)
-- **Partial**: 1.0 (all-or-nothing)
-- **Literature**: 5.0 (extremely well-documented)
-- **Compute**: 2.0 (verified to 2^68, but doesn't prove conjecture)
-- **Skill Fit**: 3.0 (easy to state, no known tactics)
-- **Crackpot**: 5.0 (crank magnet)
-- **Overall**: 1.8 → **reject**
+These do **not** affect feasibility score but inform prioritization:
 
-## Versioning
+- **Novelty**: Is this already in Mathlib or arXiv?
+- **Impact**: Does solving this unlock other problems?
+- **Skill development**: Does attacking this build reusable tactics?
 
-- **v0-stub**: Initial bootstrap scores (used for demo catalog)
-- **v1**: This rubric (2026-07-29), first production version
-- Future versions will refine weights and add dimensions as we calibrate
+Record in dossier; escalate to Research Director for roadmap trade-offs.
 
-## Notes
+---
 
-- Scores are **estimates**, not guarantees. Real attacks may succeed/fail differently.
-- Revisit scores quarterly as Mathlib expands and agent capabilities improve.
-- If a problem status changes (e.g., Mathlib adds coverage), rescore and update catalog.
+## Examples
+
+### High-scoring example: "Finite sum identity for binomial coefficients"
+
+- Formalizability: 20 (Mathlib has `Nat.choose`, ring tactics)
+- Partial progress: 15 (can verify computationally for small n)
+- Attack surface: 18 (combinatorics skill pack applies)
+- Verification budget: 20 (instant Lean check)
+- Crackpot resistance: 20 (unambiguous statement, computable)
+- **Total: 93** → Prime target
+
+### Low-scoring example: "Generalized Riemann Hypothesis"
+
+- Formalizability: 5 (analytic number theory not fully in Mathlib)
+- Partial progress: 8 (bounded cases known but huge literature)
+- Attack surface: 2 (no relevant skill packs; highly specialized)
+- Verification budget: 0 (no finite verification procedure)
+- Crackpot resistance: 0 (attracts unbounded crank attempts)
+- **Total: 15** → Infeasible
+
+---
+
+**Last updated**: 2026-07-29  
+**Owner**: Problem Scout role  
+**Scope**: All problems before shortlist inclusion
