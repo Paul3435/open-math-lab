@@ -1,0 +1,10 @@
+{
+  "problem_id": "schur-partition",
+  "level": "A",
+  "status": "heuristic",
+  "claim": false,
+  "verify": "python attacks/schur-partition-20260804-225016/verify_schur.py --N 150",
+  "lean": "proofs/lean-project/ProofLab/Schur.lean (Level B, sorry-free small-n)",
+  "issues": ["OPE-26"],
+  "updated_at": "2026-08-04T22:55:00Z"
+}
