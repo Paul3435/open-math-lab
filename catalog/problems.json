@@ -11,12 +11,17 @@
       "score": 90,
       "sprint": "OPE-21",
       "issue": "OPE-22",
-      "note": "Selected as next investigation (untouched prime candidate). Classical formula g(a,b)=ab-a-b for coprime a,b. Strict two-coin scope. Known theorem — process/Lean path, not discovery.",
+      "mathlib_covered": true,
+      "mathlib_ref": "Mathlib/NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair",
+      "note": "OPE-25 Scout RATIFIED AS PROCESS-FUEL ONLY\u2014NOT A GAP PRIME. v4.10.0 verify shows the two-coin theorem is ALREADY in Mathlib (NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair, Chicken McNugget g(m,n)=m*n-m-n for Coprime m n, 1<m, 1<n). Dossier 'Mathlib gap' claim was FALSE. OPE-22 continues as Lean/process practice only (no novelty, no contribution). Supersede as formalization bet; keep as ratify-as-process-fuel. Classical known theorem.",
       "artifacts": [
         "catalog/problems/frobenius-coin-problem/",
         "problems/frobenius-coin-problem/"
       ],
-      "skill_packs": ["number-theory", "formalization"]
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ]
     },
     {
       "id": "graceful-tree-conjecture",
@@ -25,7 +30,11 @@
       "domain": "graph_theory",
       "result": "All 560 non-isomorphic caterpillar trees with n\u226412 vertices admit graceful labelings (computational verification, 0 failures)",
       "attack": "attacks/graceful-tree-conjecture-20260731-094627",
-      "tickets": ["OPE-13", "OPE-18", "OPE-20"],
+      "tickets": [
+        "OPE-13",
+        "OPE-18",
+        "OPE-20"
+      ],
       "confidence": "moderate (6/10) for bounded scope",
       "note": "Bounded computational verification (status: heuristic), NOT claim-ready and NOT a proof (no Lean build). Caterpillars already known graceful for ALL n (Rosa 1967/Golomb), so this run is a sanity check with witnesses over 560 distinct classes, not new mathematics. Earlier '2,142 trees / verified' was a representation count (enumeration only removed reflections, not spine-shift duplicates); corrected to 560 distinct after adversarial review (OPE-18). Does not prove the general Graceful Tree Conjecture.",
       "residual_risks": [
@@ -41,7 +50,10 @@
       "title": "Erd\u0151s-Woods k=16 Formalization",
       "status": "candidate",
       "domain": "elementary_number_theory",
-      "tickets": ["OPE-12", "OPE-15"],
+      "tickets": [
+        "OPE-12",
+        "OPE-15"
+      ],
       "claim_status": "vetoed",
       "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet.",
       "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair"
@@ -51,13 +63,15 @@
       "title": "Sum-Free Subsets in Finite Sets",
       "status": "informal",
       "domain": "additive_combinatorics",
-      "tickets": ["OPE-14"],
+      "tickets": [
+        "OPE-14"
+      ],
       "score": 90,
-      "note": "Classical Erd\u0151s (1965) n/3 bound — process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
+      "note": "Classical Erd\u0151s (1965) n/3 bound \u2014 process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
       "attack": "attacks/sum-free-subsets-20260730-221216",
       "residual_risks": [
         "main Lean theorem incomplete / strategy mismatch at last review",
-        "known theorem — no novelty claim",
+        "known theorem \u2014 no novelty claim",
         "modulo-3 construction alone is insufficient (multiples of 3)"
       ]
     },
@@ -66,8 +80,34 @@
       "title": "Schur partition theorem (formalize-only)",
       "status": "candidate",
       "domain": "partition_theory",
-      "note": "Scout dossier under problems/schur-partition/. Formalize-only recommendation. No attack sprint yet.",
-      "artifacts": ["problems/schur-partition/"]
+      "recommended_prime": true,
+      "sprint": "OPE-25 (Scout shortlist)",
+      "score": 90,
+      "skill_packs": [
+        "formalization",
+        "partition-theory"
+      ],
+      "note": "OPE-25 Scout RECOMMENDED PRIME. Genuine Mathlib gap verified vs v4.10.0: Schur's partition theorem (#parts \u22611,2 mod 3 = #distinct parts \u2261\u00b11 mod 6) is NOT in Mathlib, while partition infra (Nat.Partition) exists. Formalize-only, finite n verification, no novelty claim. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
+      "artifacts": [
+        "problems/schur-partition/"
+      ],
+      "feasibility": {
+        "id": "schur-partition",
+        "scored_at": "2026-08-04T20:37:22Z",
+        "rubric_version": "v0-stub",
+        "dimensions": {
+          "formalizable": 18.0,
+          "partial_progress_paths": 17.0,
+          "literature_clarity": 18.0,
+          "compute_bounded": 16.0,
+          "agent_skill_fit": 17.0,
+          "crackpot_risk": 20.0
+        },
+        "budget_tokens_estimate": 220000,
+        "recommendation": "formalize-only",
+        "rationale": "Genuine Mathlib gap (Schur partition theorem, 1926: #parts \u22611,2 mod 3 = #distinct parts \u2261\u00b11 mod 6). Partition infra (Nat.Partition) exists; theorem NOT in Mathlib. No prospect of novelty claim; clean formalize-only bet with finite n verification. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
+        "overall_1_to_5": 5.0
+      }
     },
     {
       "id": "derangement-formula",
@@ -75,7 +115,12 @@
       "status": "candidate",
       "domain": "enumerative_combinatorics",
       "score": 89,
-      "note": "Untouched prime candidate. Prefer recurrence path before full inclusion-exclusion."
+      "mathlib_covered": true,
+      "mathlib_ref": "Mathlib/Combinatorics/Derangements/{Basic,Finite,Exponential}.lean",
+      "note": "OPE-25 Scout: ALREADY IN Mathlib (numDerangements, numDerangements_sum, recurrence numDerangements_add_two, card_derangements_fin_eq_numDerangements, numDerangements_tendsto_inv_e). Dossier scored 89 on false 'Mathlib gap'. Demote from prime; Lean-practice only, no contribution value.",
+      "skill_packs": [
+        "combinatorics"
+      ]
     },
     {
       "id": "catalan-recurrence",
@@ -83,7 +128,12 @@
       "status": "candidate",
       "domain": "enumerative_combinatorics",
       "score": 85,
-      "note": "Untouched. Binomial/divisibility infra; consider after derangements."
+      "mathlib_covered": true,
+      "mathlib_ref": "Mathlib/Combinatorics/Enumerative/Catalan.lean",
+      "note": "OPE-25 Scout: ALREADY IN Mathlib (catalan def, catalan_succ recurrence, catalan_eq_centralBinom_div closed form, treesOfNumNodesEq_card_eq_catalan). Dossier scored 85 on false 'Mathlib gap'. Demote from prime; Lean-practice only.",
+      "skill_packs": [
+        "combinatorics"
+      ]
     },
     {
       "id": "bertrand-postulate-computational",
@@ -96,7 +146,10 @@
     {
       "id": "demo-collatz-bound-toy",
       "title": "Toy bounded Collatz variant (demo only)",
-      "domain": ["number-theory", "dynamics"],
+      "domain": [
+        "number-theory",
+        "dynamics"
+      ],
       "source": "internal-demo",
       "status": "seed",
       "feasibility": null,
@@ -105,7 +158,9 @@
     {
       "id": "mathlib-gap-candidate",
       "title": "Mathlib formalization gap (TBD by Scout)",
-      "domain": ["formalization"],
+      "domain": [
+        "formalization"
+      ],
       "source": "mathlib-wishlist",
       "status": "needs-scout",
       "feasibility": null,
@@ -114,12 +169,15 @@
     {
       "id": "oeis-finite-check-candidate",
       "title": "Finite OEIS / computational conjecture check (TBD)",
-      "domain": ["experimental", "combinatorics"],
+      "domain": [
+        "experimental",
+        "combinatorics"
+      ],
       "source": "oeis-style",
       "status": "needs-scout",
       "feasibility": null,
       "notes": "Prefer decidable finite checks with clear bounds."
     }
   ],
-  "updated_at": "2026-08-04T20:40:00Z"
+  "updated_at": "2026-08-04T20:42:44Z"
 }
