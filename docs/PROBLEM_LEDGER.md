@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-04 (OPE-25 Scout shortlist + Mathlib-gap verification)
+**Last updated:** 2026-08-04 (OPE-21 Director: approve OPE-25 shortlist; Schur STATEMENT pin)
 
 ## Lifecycle labels
 
@@ -29,7 +29,8 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 | `erdos-woods` | elem. number theory | OPE-12 attack; OPE-15 hygiene veto | **`vetoed` claim** (wrong def / a=5). Literature fact k=16, a=2184 remains valid **candidate** for *correct* formalization | Known (1980) | `problems/erdos-woods/`, `attacks/erdos-woods-20260730-125506/` (+ BOARD_VETO) |
 | `sum-free-subsets` | additive combinatorics | OPE-14 (board may still be open) | **Classical Erdős (1965)** process demo. Compute OK; Lean had sorry + strategy mismatch at review. Status: **`informal` / not claim-ready**. Do not treat as discovery | Known theorem | `problems/sum-free-subsets/`, `attacks/sum-free-subsets-20260730-221216/`, Lean `ProofLab/SumFree.lean` |
 | `graceful-tree-conjecture` (bounded caterpillars n≤12) | graph theory | OPE-13 attack; OPE-18 review; OPE-20 re-review | **`heuristic`** bounded verify: 560 distinct non-iso caterpillars, 0 search failures after dedup. Family already known graceful for all n (Rosa/Golomb). **Not** full GTC; **not** Lean-gated | Sanity check, not new math | `problems/graceful-tree-conjecture/`, `attacks/graceful-tree-conjecture-20260731-094627/` |
-| `schur-partition` | partitions | Scout seed (OPE-2 era) | **`candidate` / formalize-only** — dossier under `problems/schur-partition/`; no sprint attack yet | Known (1926); Mathlib gap claimed at scout time | `problems/schur-partition/` |
+| `schur-partition` | partitions | OPE-2 seed; OPE-25 shortlist; OPE-21 Director approve | **`shortlisted` prime** — STATEMENT pin 2026-08-04 (distinct parts ≡1,2 mod 3 = parts ≡±1 mod 6). Attack child filed after approval. Formalize-only | Known (1926); **genuine Mathlib gap** (OPE-25 grep) | `problems/schur-partition/` |
+| `frobenius-coin-problem` | number theory | OPE-21/22; OPE-25 | **process-fuel** (not gap prime). Mathlib already has `frobeniusNumber_pair`. Level A/B artifacts under attack dir + `ProofLab/Frobenius.lean` | Known textbook; already-in-Mathlib | `problems/frobenius-coin-problem/`, `attacks/frobenius-coin-problem-20260804-222513/` |
 
 ## Pipeline / infrastructure (not math bets)
 
@@ -48,8 +49,8 @@ already covered upstream; `schur-partition` is the only confirmed gap among prio
 
 | Problem ID | Status | Domain | Notes |
 |------------|--------|--------|-------|
-| **`schur-partition`** | **candidate — OPE-25 RECOMMENDED PRIME** | partition theory | **Genuine Mathlib gap verified vs v4.10.0** (Schur partition thm NOT in Mathlib; `Nat.Partition` infra exists). Formalize-only, finite n verify. Def risk: pin congruence statement to Schur 1926/Andrews. |
-| `frobenius-coin-problem` | shortlisted (process-fuel only) | number theory | **SUPERSEDED as gap prime** — ALREADY in Mathlib (`frobeniusNumber_pair`, Chicken McNugget). OPE-22 continues as Lean/process practice, no contribution value. Do NOT name next prime. |
+| **`schur-partition`** | **shortlisted — Director APPROVED prime (OPE-21)** | partition theory | OPE-25 recommended; Director approved. STATEMENT pinned (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** attack filed (`todo`, blockedBy OPE-22 for wake order). |
+| `frobenius-coin-problem` | shortlisted (process-fuel only) / in_progress OPE-22 | number theory | **SUPERSEDED as gap prime** — already in Mathlib. OPE-22 = compute cert + Lean practice only. |
 | `derangement-formula` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`numDerangements` + sum/recurrence/asymp). Dossier gap claim false. Lean-practice only. |
 | `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |
 | `bertrand-postulate-computational` | candidate (demoted) | computational NT | General theorem already in Mathlib; certificate-only value, low contribution. |
@@ -62,13 +63,12 @@ future candidate.
 
 | Bet | Issue | Owner role | Intent |
 |-----|-------|------------|--------|
-| `frobenius-coin-problem` | **OPE-22** (child of OPE-21) | Attack Lead | Ratified by OPE-25 as process-fuel only: compute cert + optional Lean practice; **no claim, no Mathlib contribution** (already in Mathlib). |
-| Scout shortlist / ratify | **OPE-25** (child of OPE-21) | **Problem Scout** | **DONE** — shortlist + ratify/supersede frobenius. **Recommended next prime: `schur-partition`** (verified genuine Mathlib gap). Await Director approval before any new attack issue. |
-| (proposed next) | after Director approves | Attack Lead | Only on Director order from OPE-25 shortlist — Scout does not open. |
+| `frobenius-coin-problem` | **OPE-22** (child of OPE-21) | Attack Lead | Process-fuel only (OPE-25): Level A/B practice; **no claim**. Close when Attack Lead finishes PR + residual risks; optional Reviewer only if someone proposes claim language (they should not). |
+| Scout shortlist / ratify | **OPE-25** (child of OPE-21) | Problem Scout | **DONE** — Mathlib-gap audit; frobenius superseded as gap prime; schur recommended. |
+| `schur-partition` | **OPE-26** (child of OPE-21; blockedBy OPE-22 wake-order) | Attack Lead | **Approved prime.** Queue `todo`; wake **after OPE-22** completes (one-specialist discipline) unless board raises concurrency. |
+| OPE-21 control | **OPE-21** | Research Director | Approve shortlist, pin STATEMENT, open Schur attack, keep ledger — then **done**. |
 
-**Wake discipline:** one specialist at a time when on shared model limits. OPE-22 Attack Lead
-continues as process fuel. New attack on `schur-partition` must wait for Director approval of the
-OPE-25 shortlist (per Scout gate — no concurrent specialist pile-up without board raising concurrency).
+**Wake discipline:** one specialist at a time when on shared model limits. Prefer finish **OPE-22** → then wake Attack Lead on **Schur**. Do not pile Scout+Attack+Formalist without board OK.
 
 ## Lessons encoded (do not relearn the hard way)
 

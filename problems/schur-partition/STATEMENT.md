@@ -1,53 +1,80 @@
 # Formalize Schur's partition theorem
 
-**id:** `schur-partition`
+**id:** `schur-partition`  
+**Pinned:** 2026-08-04 (Director OPE-21 after OPE-25 Scout)  
+**Status:** shortlisted prime — formalize-only, no novelty claim
 
-## Informal statement
+## Informal statement (literature-pinned)
 
-**Schur's partition theorem** (1926) states:
+**Schur's partition theorem** (I. Schur, 1926; see Andrews, *The Theory of Partitions*):
 
-Let A(n) denote the number of partitions of n into parts congruent to 1 or 2 (mod 3), and let B(n) denote the number of partitions of n into distinct parts congruent to ±1 (mod 6). Then A(n) = B(n) for all non-negative integers n.
+For every non-negative integer \(n\),
 
-Example: For n=5:
-- Partitions into parts ≡ 1,2 (mod 3): {5}, {4,1}, {2,2,1}, {2,1,1,1}, {1,1,1,1,1} → A(5) = 5
-- Partitions into distinct parts ≡ ±1 (mod 6): {5}, {5}, {11}, ... (calculation omitted) → B(5) = 5
+\[
+A(n) = B(n),
+\]
 
-**Formalization target**: State and prove Schur's theorem in Lean 4 + Mathlib.
+where:
+
+- **\(A(n)\)** = number of partitions of \(n\) into **distinct** parts each congruent to \(1\) or \(2 \pmod{3}\).  
+  Allowed part set: \(\{1,2,4,5,7,8,10,11,\ldots\}\) (no part \(\equiv 0 \pmod{3}\)); each part used at most once.
+- **\(B(n)\)** = number of partitions of \(n\) into parts each congruent to \(\pm 1 \pmod{6}\) (i.e. \(1\) or \(5 \pmod{6}\)), **repetitions allowed**.  
+  Allowed part set: \(\{1,5,7,11,13,17,\ldots\}\).
+
+### Machine check of the pin (do not “fix” without literature)
+
+Python enumeration for \(0 \le n \le 15\): \(A(n)=B(n)\) under **this** pairing.  
+The **swapped** pairing (unrestricted parts \(\equiv 1,2 \pmod{3}\) vs distinct \(\equiv \pm1 \pmod{6}\)) **fails** already at \(n=2\).
+
+That swap appeared in an earlier STATEMENT draft example — **superseded**. Treat it as a definition landmine of the same class as OPE-12 EW.
+
+### Worked example \(n=5\)
+
+| Side | Partitions | Count |
+|------|------------|------:|
+| \(A(5)\) distinct parts \(\equiv 1,2 \pmod{3}\) | \(\{5\}\), \(\{4,1\}\) | 2 |
+| \(B(5)\) parts \(\equiv 1,5 \pmod{6}\) (reps OK) | \(\{5\}\), \(\{1,1,1,1,1\}\) | 2 |
+
+(\(2+2+1\) is **not** in \(A(5)\): part \(2\) repeats. \(4+1\) is OK: distinct, both \(\equiv 1\) or \(2 \pmod{3}\).)
+
+### Alternate equivalent phrasings
+
+Some sources swap labels \(A/B\) or state generating-function identities. Before Lean names freeze, Attack Lead must cite **one** primary reference (Andrews § or Schur 1926) and keep Lean defs 1:1 with this file. Do not mix OEIS indices without checking the offset and exact constraints.
+
+## Formalization target
+
+State and prove Schur's theorem in Lean 4 + Mathlib (or a finite computational certificate ladder toward the full theorem).
+
+Honest frame: **formalize-only / process**. Known classical theorem. Default **no external claim**.
 
 ## Why feasible?
 
-1. **Well-understood proof**: Multiple textbook proofs exist using generating functions (classical), or bijective/combinatorial arguments (constructive).
+1. Textbook proofs (generating functions; bijective/combinatorial maps).
+2. Mathlib has partition infrastructure (`Nat.Partition` / related); OPE-25 verified the **theorem itself** is still a Mathlib gap on the pinned v4.10.0 snapshot.
+3. Finite verification: \(A(n), B(n)\) computable for each fixed \(n\).
+4. Incremental path:
+   - Level A: Python (or similar) certificate \(A(n)=B(n)\) for \(n \le N\) (suggest \(N \ge 50\)) with explicit partition listing or DP.
+   - Level B: Lean defs of \(A,B\) + sorry-free small \(n\) by `native_decide` / computation.
+   - Level C (stretch): full theorem `lake build` green.
+5. Not crackpot; clear success metric; no deep modular-forms prerequisites for a first attack.
 
-2. **Mathlib has partition infrastructure**: 
-   - `Nat.Partition` for integer partitions
-   - Finset and Multiset for combinatorics
-   - Modular arithmetic for congruence conditions
-   - Cardinality lemmas
+## Definition risks (hard stops)
 
-3. **Finite verification**: For each fixed n, both A(n) and B(n) are computable, allowing empirical checks before formal proof.
-
-4. **Incremental formalization path**:
-   - Step 1: Define A(n) and B(n) as `Finset.card` over filtered partitions
-   - Step 2: Prove A(n) = B(n) for small n (n ≤ 10) by computation
-   - Step 3: Prove general case using generating function bijection or direct combinatorial map
-   - Step 4: Extract computational decision procedure
-
-5. **No deep prerequisites**: Unlike modular forms or elliptic curves, Schur's theorem requires only elementary partition theory.
-
-6. **Clear success metric**: `lake build` passes on theorem statement + proof; computational checks pass for n ≤ 100.
-
-## Why this specific problem?
-
-- **Mathlib gap**: As of Jan 2025, Mathlib has no formalization of Schur's theorem (checked via `lake env lean --find`).
-- **Educational value**: Classic result in partition theory, suitable for teaching formal methods.
-- **Not crackpot**: Well-established theorem with known proofs; no speculative claims.
-- **Attack-ready**: Skill pack = formalization + partition theory + generating functions.
-- **Honest frame**: This is a formalization task, not original research. Success = machine-checked proof, not mathematical novelty.
+- **Do not** attack the swapped congruence/distinctness pairing.
+- Pin \(n=0\) empty-partition convention (\(A(0)=B(0)=1\)).
+- Distinct means multiplicity \(\le 1\), not “parts look different after sorting” bugs.
+- No scope creep into other Schur theorems (Ramsey / Schur numbers).
 
 ## References
 
-- Schur, I. (1926). "Zur additiven Zahlentheorie." Sitzungsberichte der Preussischen Akademie der Wissenschaften, Physikalisch-Mathematische Klasse, 488-495.
-- Andrews, G. E. (1976). "The Theory of Partitions." Encyclopedia of Mathematics and its Applications, Vol. 2, Addison-Wesley.
-- Hardy, G. H., & Wright, E. M. (1979). "An Introduction to the Theory of Numbers" (5th ed.), Chapter 19.
-- OEIS A003106 (partitions into parts ≡ 1,2 mod 3) and related sequences.
-- Mathlib 2025-01: `Mathlib.Combinatorics.Partition.Basic` exists but no Schur theorem.
+- Schur, I. (1926). "Zur additiven Zahlentheorie." Sitzungsberichte der Preussischen Akademie der Wissenschaften, Physikalisch-Mathematische Klasse, 488–495.
+- Andrews, G. E. (1976). *The Theory of Partitions.* Encyclopedia of Mathematics and its Applications, Vol. 2.
+- Hardy & Wright, *An Introduction to the Theory of Numbers*, partition chapters (context).
+- OEIS: cross-check only after matching the exact constraints above (do not trust title alone).
+- Mathlib: confirm gap still holds on the **local** `.lake/packages/mathlib` pin before claiming contribution (OPE-25 lesson #7).
+
+## Tickets
+
+- Scout shortlist: **OPE-25** (recommended prime)
+- Director approval: **OPE-21**
+- Attack: child of OPE-21 (see Paperclip)
