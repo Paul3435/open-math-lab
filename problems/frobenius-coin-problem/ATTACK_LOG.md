@@ -9,10 +9,12 @@
 
 Use `docs/ATTACK_LOG_TEMPLATE.md`. Append dated sections; never delete failed paths.
 
-### 2026-08-04 — Director intake
+### 2026-08-04 — Director intake (process breach)
 
 - Selected as new investigation: not previously attacked in-lab.
-- Catalog dossier score 90/100; skill pack number-theory.
+- **Breach:** Director used catalog dossier score 90/100 as if it were a Scout shortlist.
+  No concurrent Problem Scout run. Board called this out on OPE-21.
+- Corrective: OPE-22 remains provisional process fuel; Scout shortlist/ratify child filed.
 - Acceptance: Level A compute certificate minimum; Level B/C Lean as budget allows.
 - Default recommendation remains **no external claim**.
 - Child ticket: OPE-22 assigned to Attack Lead.

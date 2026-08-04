@@ -9,6 +9,24 @@ attacks, catalog entry, and claims.
   numerology or unbounded "AI solves it tonight" claims.
 - The Problem Scout feasibility dossier is the gate. No dossier scored pass -> no attack.
 
+## Scout shortlist gate (new investigations)
+- **Problem Scout owns candidate generation and shortlists.** Director does **not**
+  pick a "prime" attack solely by reading `catalog/problems.json` scores.
+- Before opening a **new** attack issue on a problem not already under attack, require
+  a **fresh Scout shortlist run** (Paperclip issue assigned to Problem Scout) that:
+  1. Re-scores or reaffirms dossiers for ≤3 candidates,
+  2. Names an explicit recommended prime (or "none"),
+  3. Notes literature/definition risks (see OPE-12/OPE-15),
+  4. Updates `docs/PROBLEM_LEDGER.md` untouched/shortlist tables if needed.
+- Director may only **approve / reject / order** that shortlist, then assign Attack Lead.
+- **Exception (board-only):** board names the problem explicitly on the ticket.
+- **Not an exception:** "dossier exists from months ago" or "highest score in JSON."
+  Stale catalog rows are inputs to Scout, not a substitute for a Scout run.
+- **Process breach (OPE-21 lesson):** Director shortlisted `frobenius-coin-problem` and
+  opened OPE-22 from catalog score 90 without a concurrent Scout shortlist ticket.
+  Corrective path: keep OPE-22 as provisional process fuel; require Scout ratification
+  / next-shortlist before the *next* prime; document the breach in the ledger.
+
 ## Reject crackpottery
 - Automatic evidence: numerology, unexplained constants, appeals to authority over argument,
   conspiracy theories about the establishment, unbounded token burn. Any such claim gets an

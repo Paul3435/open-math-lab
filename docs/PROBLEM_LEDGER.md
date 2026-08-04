@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-04 (OPE-21 director sprint)
+**Last updated:** 2026-08-04 (OPE-25 Scout shortlist + Mathlib-gap verification)
 
 ## Lifecycle labels
 
@@ -40,28 +40,35 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 | Workspace SoT + GitHub PR workflow | OPE-16, docs | Git SoT: `Documents/VSCode/open-math-lab` |
 | Review checklist + claim gates | OPE-10, OPE-5 | `docs/REVIEW_CHECKLIST.md`, `docs/CLAIM_POLICY.md` |
 
-## Untouched prime candidates (catalog dossiers ready)
+## Untouched / catalog candidates (Scout refreshed — OPE-25)
 
-None of these had a dedicated attack sprint before OPE-21:
+**OPE-21 process breach corrected by OPE-25.** Only genuine Mathlib-gap scores survive.
+`frobenius`, `derangement`, `catalan` were scored on false "Mathlib gap" assumptions and are
+already covered upstream; `schur-partition` is the only confirmed gap among prior candidates.
 
-| Problem ID | Score (dossier) | Domain | Suggested first move |
-|------------|----------------:|--------|----------------------|
-| **`frobenius-coin-problem`** | 90 | number theory | **Selected — OPE-22** — two-coin formula g(a,b)=ab−a−b |
-| `derangement-formula` | 89 | enum. combinatorics | Recurrence path before full IE |
-| `catalan-recurrence` | 85 | enum. combinatorics | After derangements (binomial infra) |
-| `bertrand-postulate-computational` | 84 | computational NT | Bound n≤10^4 first; general thm already Mathlib |
+| Problem ID | Status | Domain | Notes |
+|------------|--------|--------|-------|
+| **`schur-partition`** | **candidate — OPE-25 RECOMMENDED PRIME** | partition theory | **Genuine Mathlib gap verified vs v4.10.0** (Schur partition thm NOT in Mathlib; `Nat.Partition` infra exists). Formalize-only, finite n verify. Def risk: pin congruence statement to Schur 1926/Andrews. |
+| `frobenius-coin-problem` | shortlisted (process-fuel only) | number theory | **SUPERSEDED as gap prime** — ALREADY in Mathlib (`frobeniusNumber_pair`, Chicken McNugget). OPE-22 continues as Lean/process practice, no contribution value. Do NOT name next prime. |
+| `derangement-formula` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`numDerangements` + sum/recurrence/asymp). Dossier gap claim false. Lean-practice only. |
+| `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |
+| `bertrand-postulate-computational` | candidate (demoted) | computational NT | General theorem already in Mathlib; certificate-only value, low contribution. |
 
-Placeholders still needing Scout replacement: `mathlib-gap-candidate`, `oeis-finite-check-candidate`, `demo-collatz-bound-toy` (demo only).
+Placeholders still needing Scout replacement: `mathlib-gap-candidate`, `oeis-finite-check-candidate`,
+`demo-collatz-bound-toy` (demo only). `erdos-woods` correct-formalization (k=16,a=2184) remains a valid
+future candidate.
 
 ## Active sprint (from OPE-21)
 
 | Bet | Issue | Owner role | Intent |
 |-----|-------|------------|--------|
-| `frobenius-coin-problem` | **OPE-22** (child of OPE-21) | Attack Lead `65834f64-b136-424f-a6e0-124f9b6da939` | Computational certificate + Lean statement path for two-coin Frobenius; **no external claim** |
-| (optional follow-up) | create after OPE-22 | Formalist | Only if Attack leaves clear Lean TODOs and lake target |
-| (gate) | create after OPE-22 | Adversarial Reviewer | After attack artifacts exist |
+| `frobenius-coin-problem` | **OPE-22** (child of OPE-21) | Attack Lead | Ratified by OPE-25 as process-fuel only: compute cert + optional Lean practice; **no claim, no Mathlib contribution** (already in Mathlib). |
+| Scout shortlist / ratify | **OPE-25** (child of OPE-21) | **Problem Scout** | **DONE** — shortlist + ratify/supersede frobenius. **Recommended next prime: `schur-partition`** (verified genuine Mathlib gap). Await Director approval before any new attack issue. |
+| (proposed next) | after Director approves | Attack Lead | Only on Director order from OPE-25 shortlist — Scout does not open. |
 
-**Wake discipline:** one specialist at a time. Do not wake Formalist/Reviewer until Attack Lead closes or blocks with artifacts.
+**Wake discipline:** one specialist at a time when on shared model limits. OPE-22 Attack Lead
+continues as process fuel. New attack on `schur-partition` must wait for Director approval of the
+OPE-25 shortlist (per Scout gate — no concurrent specialist pile-up without board raising concurrency).
 
 ## Lessons encoded (do not relearn the hard way)
 
@@ -70,6 +77,8 @@ Placeholders still needing Scout replacement: `mathlib-gap-candidate`, `oeis-fin
 3. **Enumeration ≠ isomorphism classes** — OPE-13/18: 2142 representations → 560 distinct after adversarial pressure.
 4. **Compute ≠ Lean** — passing Python tests with `sorry` in Lean is blocked at review (OPE-14).
 5. **Git SoT** — write under `Documents/VSCode/open-math-lab`, not Paperclip managed `_default` mirror.
+6. **Scout shortlist gate** — Director must not pick primes from catalog scores alone. Fresh Scout shortlist (or explicit board-named problem) before new attack issues (`docs/PORTFOLIO_PRINCIPLES.md`).
+7. **Verify “Mathlib gap” claims against the local toolchain first** — OPE-25: frobenius (`frobeniusNumber_pair`), derangement (`numDerangements*`), catalan (`catalan*`) were all **already in Mathlib** despite dossier “gap” claims; only schur-partition was a real gap. `grep` the pinned `Mathlib/` snapshot (`.lake/packages/mathlib`) before citing a gap or scoring a candidate.
 
 ## How to update this ledger
 
