@@ -27,15 +27,23 @@ Build software and research process that *attempts* rigorous progress on **feasi
 
 ## Roles
 
-- **Research Director**: break goals into issues, assign, unblock, kill bad problem bets — do not implement large code or long proof searches in one run.
-- **Problem Scout**: curate catalogs, write feasibility dossiers, propose shortlists — do not “solve.”
+- **Research Director**: break goals into issues, assign, unblock, kill bad problem bets — do not implement large code or long proof searches in one run. **Does not invent primes** from catalog scores; approves Scout shortlists (see `docs/PORTFOLIO_PRINCIPLES.md`).
+- **Problem Scout**: curate catalogs, write feasibility dossiers, propose ≤3 shortlists and the recommended prime — do not “solve.” **Gate for new investigations.**
 - **Formalist**: Lean project layout, statement formalization, CI `lake build`, proof hygiene.
 - **Attack Lead**: strategies, skill-pack prompts, attempt logs, reduction lemmas — stop at budget; hand to Reviewer.
 - **Adversarial Reviewer**: demand gaps, counterexamples, missing hypotheses; block rubber-stamp “solved.”
 
+Role detail: `docs/roles/*.md`.
+
 ## Claim policy
 
 Public or board “claim packets” only via `mathforge claim prepare`. Default recommendation is **no claim**. Board (Paul) is the only authority for external communication.
+
+## Problem history
+
+- **Handled bets + dispositions:** `docs/PROBLEM_LEDGER.md` (update on every status change).
+- **Catalog index:** `catalog/problems.json` + `catalog/README.md`.
+- Portfolio rules: `docs/PORTFOLIO_PRINCIPLES.md`.
 
 ## GitHub + pull requests
 

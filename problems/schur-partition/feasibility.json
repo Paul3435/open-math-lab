@@ -1,17 +1,17 @@
 {
   "id": "schur-partition",
-  "scored_at": "2026-07-29T21:21:37Z",
+  "scored_at": "2026-08-04T20:37:22Z",
   "rubric_version": "v0-stub",
   "dimensions": {
-    "formalizable": 5.0,
-    "partial_progress_paths": 4.5,
-    "literature_clarity": 5.0,
-    "compute_bounded": 3.5,
-    "agent_skill_fit": 4.0,
-    "crackpot_risk": 0.0
+    "formalizable": 18.0,
+    "partial_progress_paths": 17.0,
+    "literature_clarity": 18.0,
+    "compute_bounded": 16.0,
+    "agent_skill_fit": 17.0,
+    "crackpot_risk": 20.0
   },
-  "budget_tokens_estimate": 400000,
+  "budget_tokens_estimate": 220000,
   "recommendation": "formalize-only",
-  "rationale": "Classic partition theorem with known proofs. Mathlib gap identified. Excellent formalization target: well-understood mathematics, existing proof techniques, good infrastructure in Mathlib. Partial progress = incremental formalization steps. Zero crackpot risk (established 1926 theorem). Recommendation: formalize-only (not original research, but valuable Mathlib contribution).",
-  "overall_1_to_5": 4.4
+  "rationale": "Genuine Mathlib gap (Schur partition theorem, 1926: #parts \u22611,2 mod 3 = #distinct parts \u2261\u00b11 mod 6). Partition infra (Nat.Partition) exists; theorem NOT in Mathlib. No prospect of novelty claim; clean formalize-only bet with finite n verification. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
+  "overall_1_to_5": 5.0
 }

@@ -320,6 +320,69 @@ As Adversarial Reviewer, I attempted to break the claim:
 
 ---
 
+## ADDENDUM — Re-verification (2026-08-04): Build checked, FALSE THEOREMS FOUND
+
+After the initial review, the Lean toolchain was installed (see OPE-17, commit `508b520`). I re-ran adversarial verification against the current repo state.
+
+### A. Build graph check — the "successful lake build" does NOT compile SumFree.lean
+
+- Toolchain pinned to `leanprover/lean4:v4.10.0`; installed elan has 4.10.0 and 4.32.2.
+- `lake build` **succeeds** (exit 0), but **only produces `ProofLab/Basic.olean`**.
+- `ProofLab/ProofLab.lean` has SumFree **commented out**:
+  ```lean
+  import ProofLab.Basic
+  -- import ProofLab.ErdosWoods
+  -- import ProofLab.SumFree
+  ```
+- **Result**: the green `lake build` verifies nothing about SumFree.lean. It is not in the module graph. Prior claim of "type-checks / build green" is misleading.
+
+### B. Direct type-check of `SumFree.lean` — FAILS (not merely sorries)
+
+`lake env lean ProofLab/SumFree.lean` fails with real errors (exit 1):
+
+```
+SumFree.lean:78:2: error: omega could not prove the goal ... (singleton_sum_free)
+SumFree.lean:141:6: warning: declaration uses 'sorry'        (mod3_partition)
+SumFree.lean:161:37: error: unexpected token '*'; expected ')'
+SumFree.lean:180:8: warning: declaration uses 'sorry'        (sum_free_subset_bound)
+SumFree.lean:219:2: error: unsolved goals  ⊢ 6 + 6 ≠ 12
+SumFree.lean:225:4: error: omega could not prove the goal ... (verified example)
+```
+
+Only 2 of the 3 old `sorry` remain reported (line 157/164 merged). The rest are **hard compile errors**, not placeholders.
+
+### C. FALSE THEOREMS (correctness bugs, not just incomplete proofs)
+
+The file header claims `"type-checks (modulo sorries)"` — **false**. The Lean statements themselves are mathematically false as quantified over `ℕ` (which includes 0):
+
+1. **`singleton_sum_free (a : ℕ) : IsSumFree {a}` is FALSE for `a = 0`.**
+   - `IsSumFree {0}`: 0 ∈ {0}, 0 ∈ {0}, 0 ∈ {0}, and `0 + 0 = 0`, so `x+y=z`. That is exactly why `omega` fails on line 78.
+
+2. **The verified example `IsSumFree ({6, 12})` is FALSE.** `6 + 6 = 12`, both in the set. Line 219's unsolved goal `⊢ 6 + 6 ≠ 12` is the unprovable residue. (Interestingly its subset claim `2*3 ≥ 5` is true — the weakest link is sum-freeness.)
+
+3. **The main theorem `sum_free_subset_bound (S : Finset ℕ)` is FALSE over `ℕ`.**
+   - Counterexample `S = {0}`: no nonempty subset of `{0}` is sum-free (`{0}` fails, `∅` is the only alternative with `|∅|=0`), and `0*3 ≥ 1` is false. The theorem is vacuously-necessitated to fail.
+
+All three confirmed computationally (`verify_sum_free` script run this session): `IsSumFree{0}=False`, `IsSumFree{6,12}=False (6,6,12)`, `S={0}: max sum-free subset size = 0`, while the **positive-integer** case `S={3,6,9,12,15}` has size-3 subset ≥ 2 (the theorem is true for positive integers — classical Erdős 1965).
+
+### D. Root cause & fix
+
+The attack formalized over `Finset ℕ` (all naturals). The Erdős theorem is stated for **positive integers** (problem STATEMENT.md says positive integers). Over `ℕ`, 0 is a self-sum (0+0=0) and breaks sum-freeness. Fix is a **statement-level correction**, not a proof-width fix:
+- Quantify sum-free subsets of positive integers, OR add hypothesis `0 ∉ S`, OR use `ℕ+` / `S ⊆ {n | n > 0}`.
+- Update `singleton_sum_free`/examples accordingly with the positivity hypothesis.
+- Re-enable `import ProofLab.SumFree` in `ProofLab.lean`, fix the syntax error on line 161, then `lake build`.
+
+### E. Updated verdict
+
+**VETO UPHELD — stronger.** The formalization is not just `formalize-incomplete`; it is **not type-checking and contains false statements**. It must go back to the **Formalist** (or Attack Lead), not toward any claim. Nothing here is claim-ready, and the prior "type-checks modulo sorries" documentation was inaccurate.
+
+**Next tickets (Owner: Formalist, after board OK):**
+- **OPE-14.2**: Correct the statement to positive integers / `0 ∉ S`; repair `singleton_sum_free`, the `{6,12}` example, and the line-161 syntax error; re-enable SumFree in the build graph.
+- **OPE-14.1** (unchanged): Complete the Erdős averaging proof (prime p > max S, interval I in ZMod p, fiber-averaging) with `lake build` green and **zero sorries**.
+- Gate: reviewer re-checks a fresh `lake build` that actually produces `SumFree.olean`.
+
+---
+
 ## Reviewer Signature
 
 **Agent**: 8cd5b05d-a4e7-4aad-b51b-f02c5de98662 (Adversarial Reviewer)  

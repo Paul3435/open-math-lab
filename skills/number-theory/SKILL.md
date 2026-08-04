@@ -95,6 +95,18 @@ Use number-theory lens when the problem involves:
 - **Goldbach-type problems**: Additive prime problems are notoriously hard.
 - **Perfect number variants**: Mersenne primes, perfect numbers require heavy computation.
 
+## Frobenius two-coin checklist (OPE-21 / OPE-22)
+
+Use when attacking `frobenius-coin-problem` (or similar numerical semigroup generators):
+
+1. **Scope lock:** exactly two denominations; refuse ≥3-coin generalizations mid-sprint.
+2. **Convention for a=1 or b=1:** every n ≥ 0 is representable; Frobenius often taken as −1 — encode explicitly in code/Lean, do not silently wrap ℕ.
+3. **Coprimality gate:** if gcd(a,b)=d>1, non-representable residue classes exist and no finite Frobenius number — test must reject or branch.
+4. **Certificate level A:** for many coprime pairs, compute the full non-representable set below ab and check max = ab−a−b.
+5. **Non-representability:** show ab−a−b is impossible with x,y ≥ 0 (modular obstruction).
+6. **Representability:** for n > g, construct x,y (Bézout + shift by a or b).
+7. **Do not claim novelty** — textbook result; success is lab process + optional Lean.
+
 ## Budget & Stopping Criteria
 
 - **Token budget per reduction attempt**: 100k tokens max

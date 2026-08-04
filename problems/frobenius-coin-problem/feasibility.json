@@ -1,0 +1,21 @@
+{
+  "id": "frobenius-coin-problem",
+  "scored_at": "2026-08-04T20:30:00Z",
+  "rubric_version": "catalog-dossier-v1",
+  "source_dossier": "catalog/problems/frobenius-coin-problem/DOSSIER.json",
+  "dimensions_0_to_20": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 17,
+    "verification_budget": 19,
+    "crackpot_resistance": 20
+  },
+  "total_0_to_100": 90,
+  "verdict": "prime_target",
+  "recommendation": "attack",
+  "budget_tokens_estimate": 180000,
+  "skill_packs": ["number-theory", "formalization"],
+  "director_notes": "OPE-21 selected as first untouched prime candidate (OPE-22). Known theorem — process + Lean path, not discovery. Strict two-coin scope.",
+  "prior_lab_touch": false,
+  "issue": "OPE-22"
+}
