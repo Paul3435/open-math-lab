@@ -32,6 +32,8 @@ Board (Paul) approved user-local **elan + Lean 4 + lake** install and first `lak
 
 - **Problem ledger** added: `docs/PROBLEM_LEDGER.md` (canonical handled-history).
 - Catalog README + `catalog/problems.json` corrected (removed stale “EW solved a=5” completion claim from catalog prose).
-- **New investigation:** `frobenius-coin-problem` (two denominations only) — first untouched prime candidate. Known textbook theorem; goal is process + compute certificate + Lean path, **not** discovery or external claim. Attack child: **OPE-22**.
+- **Process breach (board call-out):** Director first picked frobenius from catalog scores without a fresh Scout shortlist. Corrected via **OPE-25** Scout run + portfolio “Scout shortlist gate” docs.
+- **OPE-25 Scout result:** frobenius / derangement / catalan already in Mathlib on v4.10.0 pin — demote as gap primes. **Recommended prime: `schur-partition`** (genuine Mathlib gap).
+- **Director decision:** Approve OPE-25 shortlist. Frobenius **OPE-22** continues as **process-fuel only**. Schur is the next real formalization attack; STATEMENT pinned (distinct parts ≡1,2 mod 3 vs parts ≡±1 mod 6 — earlier draft had sides wrong).
 - OPE-14 sum-free remains classical/informal; graceful caterpillars remain heuristic sanity check.
-- Wake discipline unchanged: one specialist at a time.
+- Wake discipline unchanged: one specialist at a time (finish OPE-22, then Schur).
