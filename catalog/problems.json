@@ -1,54 +1,125 @@
 {
-  "version": "1.0",
-  "last_updated": "2026-07-31",
+  "version": "1.1",
+  "last_updated": "2026-08-04",
+  "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
+      "id": "frobenius-coin-problem",
+      "title": "Frobenius Coin Problem (Two Denominations)",
+      "status": "shortlisted",
+      "domain": "number_theory",
+      "score": 90,
+      "sprint": "OPE-21",
+      "issue": "OPE-22",
+      "note": "Selected as next investigation (untouched prime candidate). Classical formula g(a,b)=ab-a-b for coprime a,b. Strict two-coin scope. Known theorem — process/Lean path, not discovery.",
+      "artifacts": [
+        "catalog/problems/frobenius-coin-problem/",
+        "problems/frobenius-coin-problem/"
+      ],
+      "skill_packs": ["number-theory", "formalization"]
+    },
+    {
       "id": "graceful-tree-conjecture",
-      "title": "Graceful Labeling - Caterpillar Trees n≤12",
-      "status": "verified",
+      "title": "Graceful Labeling - Caterpillar Trees n\u226412",
+      "status": "heuristic",
       "domain": "graph_theory",
-      "result": "All 2,142 caterpillar trees with n≤12 vertices are graceful",
+      "result": "All 560 non-isomorphic caterpillar trees with n\u226412 vertices admit graceful labelings (computational verification, 0 failures)",
       "attack": "attacks/graceful-tree-conjecture-20260731-094627",
-      "confidence": "high (8/10)",
-      "note": "Computational verification with constructive labelings; does not prove general conjecture"
+      "tickets": ["OPE-13", "OPE-18", "OPE-20"],
+      "confidence": "moderate (6/10) for bounded scope",
+      "note": "Bounded computational verification (status: heuristic), NOT claim-ready and NOT a proof (no Lean build). Caterpillars already known graceful for ALL n (Rosa 1967/Golomb), so this run is a sanity check with witnesses over 560 distinct classes, not new mathematics. Earlier '2,142 trees / verified' was a representation count (enumeration only removed reflections, not spine-shift duplicates); corrected to 560 distinct after adversarial review (OPE-18). Does not prove the general Graceful Tree Conjecture.",
+      "residual_risks": [
+        "bounded scope n<=12, caterpillars only",
+        "search is heuristic (backtracking); absence of failure not a proof",
+        "no Lean build of witnesses or enumeration",
+        "novelty: family already known graceful for all n",
+        "count relies on enumeration + AHU cross-check agreeing"
+      ]
     },
     {
       "id": "erdos-woods",
-      "title": "Erdős-Woods k=16 Formalization",
+      "title": "Erd\u0151s-Woods k=16 Formalization",
       "status": "candidate",
       "domain": "elementary_number_theory",
-      "note": "Known result (a=2184). OPE-12 used wrong definition; see attacks/erdos-woods-20260730-125506/BOARD_VETO.md",
+      "tickets": ["OPE-12", "OPE-15"],
+      "claim_status": "vetoed",
+      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet.",
       "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair"
     },
     {
       "id": "sum-free-subsets",
       "title": "Sum-Free Subsets in Finite Sets",
-      "status": "candidate",
-      "domain": "additive_combinatorics"
+      "status": "informal",
+      "domain": "additive_combinatorics",
+      "tickets": ["OPE-14"],
+      "score": 90,
+      "note": "Classical Erd\u0151s (1965) n/3 bound — process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
+      "attack": "attacks/sum-free-subsets-20260730-221216",
+      "residual_risks": [
+        "main Lean theorem incomplete / strategy mismatch at last review",
+        "known theorem — no novelty claim",
+        "modulo-3 construction alone is insufficient (multiples of 3)"
+      ]
     },
     {
-      "id": "bertrand-postulate-computational",
-      "title": "Bertrand's Postulate - Computational Verification to 10^6",
+      "id": "schur-partition",
+      "title": "Schur partition theorem (formalize-only)",
       "status": "candidate",
-      "domain": "computational_number_theory"
+      "domain": "partition_theory",
+      "note": "Scout dossier under problems/schur-partition/. Formalize-only recommendation. No attack sprint yet.",
+      "artifacts": ["problems/schur-partition/"]
     },
     {
       "id": "derangement-formula",
       "title": "Derangement Counting Formula",
       "status": "candidate",
-      "domain": "enumerative_combinatorics"
-    },
-    {
-      "id": "frobenius-coin-problem",
-      "title": "Frobenius Coin Problem (Two Denominations)",
-      "status": "candidate",
-      "domain": "number_theory"
+      "domain": "enumerative_combinatorics",
+      "score": 89,
+      "note": "Untouched prime candidate. Prefer recurrence path before full inclusion-exclusion."
     },
     {
       "id": "catalan-recurrence",
       "title": "Catalan Numbers - Recurrence and Closed Form Equivalence",
       "status": "candidate",
-      "domain": "enumerative_combinatorics"
+      "domain": "enumerative_combinatorics",
+      "score": 85,
+      "note": "Untouched. Binomial/divisibility infra; consider after derangements."
+    },
+    {
+      "id": "bertrand-postulate-computational",
+      "title": "Bertrand's Postulate - Computational Verification to 10^6",
+      "status": "candidate",
+      "domain": "computational_number_theory",
+      "score": 84,
+      "note": "General theorem already in Mathlib; this is certificate technique. Start with smaller bound than 10^6."
+    },
+    {
+      "id": "demo-collatz-bound-toy",
+      "title": "Toy bounded Collatz variant (demo only)",
+      "domain": ["number-theory", "dynamics"],
+      "source": "internal-demo",
+      "status": "seed",
+      "feasibility": null,
+      "notes": "Placeholder for pipeline demos \u2014 NOT an open research target."
+    },
+    {
+      "id": "mathlib-gap-candidate",
+      "title": "Mathlib formalization gap (TBD by Scout)",
+      "domain": ["formalization"],
+      "source": "mathlib-wishlist",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Scout replaces with a real, small formalization task."
+    },
+    {
+      "id": "oeis-finite-check-candidate",
+      "title": "Finite OEIS / computational conjecture check (TBD)",
+      "domain": ["experimental", "combinatorics"],
+      "source": "oeis-style",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Prefer decidable finite checks with clear bounds."
     }
-  ]
+  ],
+  "updated_at": "2026-08-04T20:40:00Z"
 }

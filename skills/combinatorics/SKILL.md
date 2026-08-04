@@ -98,6 +98,10 @@ Use combinatorics lens when the problem involves:
 
 7. **Over-relying on OEIS**
    - **Why it fails**: OEIS match suggests a pattern but doesn't prove it; sequences can match for small n and diverge later.
+
+8. **Counting representations instead of isomorphism classes** (lab lesson OPE-13/18)
+   - **Why it fails**: Reflecting a spine or shifting labels can inflate “verified trees” without new combinatorial objects (2142 → 560 caterpillars).
+   - **Fix**: Define a canonical form; cross-check with an independent isomorphism invariant (e.g. AHU); report both raw and distinct counts.
    - **Example**: Sequence 1, 2, 4, 8, ... matches both 2ⁿ and "number of binary trees on n nodes" for small n but they differ later.
    - **Fix**: Use OEIS to guess closed form or identify known sequences, then prove the match rigorously (bijection, induction, etc.).
 

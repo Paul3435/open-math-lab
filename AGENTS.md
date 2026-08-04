@@ -37,6 +37,12 @@ Build software and research process that *attempts* rigorous progress on **feasi
 
 Public or board “claim packets” only via `mathforge claim prepare`. Default recommendation is **no claim**. Board (Paul) is the only authority for external communication.
 
+## Problem history
+
+- **Handled bets + dispositions:** `docs/PROBLEM_LEDGER.md` (update on every status change).
+- **Catalog index:** `catalog/problems.json` + `catalog/README.md`.
+- Portfolio rules: `docs/PORTFOLIO_PRINCIPLES.md`.
+
 ## GitHub + pull requests
 
 - Remote: `https://github.com/Paul3435/open-math-lab` (branch `master`).

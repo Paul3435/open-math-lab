@@ -27,3 +27,11 @@ Classical Erdős result (every n-set has sum-free subset size ≥ n/3). Computat
 ## 2026-07-31 — Lean install APPROVED
 
 Board (Paul) approved user-local **elan + Lean 4 + lake** install and first `lake build` of `proofs/lean-project`. Ticket: Formalist OPE install issue. Still no external claims without board.
+
+## 2026-08-04 — OPE-21 next sprint (Director)
+
+- **Problem ledger** added: `docs/PROBLEM_LEDGER.md` (canonical handled-history).
+- Catalog README + `catalog/problems.json` corrected (removed stale “EW solved a=5” completion claim from catalog prose).
+- **New investigation:** `frobenius-coin-problem` (two denominations only) — first untouched prime candidate. Known textbook theorem; goal is process + compute certificate + Lean path, **not** discovery or external claim. Attack child: **OPE-22**.
+- OPE-14 sum-free remains classical/informal; graceful caterpillars remain heuristic sanity check.
+- Wake discipline unchanged: one specialist at a time.
