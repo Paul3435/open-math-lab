@@ -16,3 +16,9 @@ Use `docs/ATTACK_LOG_TEMPLATE.md`. Append dated sections; never delete failed pa
 - Acceptance: Level A compute certificate minimum; Level B/C Lean as budget allows.
 - Default recommendation remains **no external claim**.
 - Child ticket: OPE-22 assigned to Attack Lead.
+
+### 2026-08-04 — Level A starter certificate
+
+- Path: `attacks/frobenius-coin-problem-20260804-222513/`
+- `verify_frobenius.py` PASS (22 coprime pairs default).
+- OPE-22 Attack Lead should extend + hand to review when ready; still no claim.

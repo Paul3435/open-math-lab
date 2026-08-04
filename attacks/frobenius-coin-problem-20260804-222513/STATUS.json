@@ -1,0 +1,9 @@
+{
+  "problem_id": "frobenius-coin-problem",
+  "level": "A",
+  "status": "heuristic",
+  "claim": false,
+  "verify": "python attacks/frobenius-coin-problem-20260804-222513/verify_frobenius.py",
+  "issues": ["OPE-21", "OPE-22"],
+  "updated_at": "2026-08-04T20:45:00Z"
+}
