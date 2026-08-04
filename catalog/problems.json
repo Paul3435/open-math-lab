@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-07-31",
+  "last_updated": "2026-08-04",
   "problems": [
     {
       "id": "graceful-tree-conjecture",
@@ -49,6 +49,16 @@
       "title": "Catalan Numbers - Recurrence and Closed Form Equivalence",
       "status": "candidate",
       "domain": "enumerative_combinatorics"
+    },
+    {
+      "id": "schur-partition",
+      "title": "Schur's Partition Theorem (A(n)=B(n), formalize-only)",
+      "status": "verified",
+      "domain": "partition_theory",
+      "result": "A(n)=B(n) for 0≤n≤150 (N=1000); Lean sorry-free small-n 0..12; no Mathlib theorem (gap confirmed)",
+      "attack": "attacks/schur-partition-20260804-225016",
+      "confidence": "high for sampled (heuristic); general theorem not Lean-gated",
+      "note": "Classical 1926 result, no novelty claim. Swapped pairing fails at n=2. Level C general proof deferred."
     }
   ]
 }
