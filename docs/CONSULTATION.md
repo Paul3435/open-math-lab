@@ -70,6 +70,20 @@ All workers are DeepSeek (OpenRouter). If Lean `sorry`-gap review ever needs a s
 **Verdict:** No new agent needed — the gaps are skill/process, not org shape or headcount. Core fix: add `formalization` + `experimental` + `graph-theory` packs and reconcile README with disk; add a novelty-screen sub-step before funded attacks; tag catalog for expected result. Hire a Novelty Reviewer only if the novelty gate becomes the bottleneck after the no-hire fix.
 
 **Ask board to:**
-- [ ] Approve pack-addition tickets (formalization, experimental, graph-theory).
-- [ ] Decide Novelty Reviewer: hire later / no (director: no).
-- [ ] Approve novelty-screen and catalog-tagging process change.
+- [x] Approve pack-addition tickets (formalization, experimental, graph-theory). — **APPROVED 2026-08-05**
+- [x] Decide Novelty Reviewer: hire later / no (director: no). — **DECIDED no hire; fold novelty-screen into Scout**
+- [x] Approve novelty-screen and catalog-tagging process change. — **APPROVED 2026-08-05**
+
+## 6b. Board decisions & execution (2026-08-05, interaction 707b9c26)
+
+Interaction `ask_user_questions` answered by board:
+1. **Skill packs** — `approve` → add all 3 packs.
+2. **Novelty Reviewer** — `no_first` → fold novelty-screen into Scout (no hire).
+3. **Process change** — `approve` → adopt novelty-screen + catalog `expected` tags.
+
+Execution (branch `ope/28-consultation-exec`, PR #8):
+- Added `skills/formalization/SKILL.md`, `skills/experimental/SKILL.md`, `skills/graph-theory/SKILL.md`.
+- Reconcilement `skills/README.md` table now matches on-disk dirs (no more planned/ stubs).
+- Scout role updated (`docs/roles/problem-scout.md`) with a novelty pre-screen gate.
+- `catalog/problems.json` v1.2: every problem tagged `expected` (`known-classical` / `formalize-only` / `open`) + `expected_taxonomy` enum documented; `catalog/README.md` novelty-tagging policy.
+- No Novelty Reviewer created (director recommendation upheld).

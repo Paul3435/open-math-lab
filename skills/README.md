@@ -11,12 +11,13 @@ Attack Lead and Formalist extend these. Each pack is a **lens**, not a silo — 
 | `analysis` | inequalities, limits, elementary real/complex | ε-proof sketches → Lean |
 | `topology` | basic point-set (use sparingly) | definitions, counterexamples |
 | `logic` | foundations, encoding pitfalls | statement hygiene |
-| *(planned)* `graph-theory` | currently fold into `combinatorics` until pack split | graceful / trees work used combinatorics+scripts |
-| *(planned)* `formalization` | Mathlib patterns — use Formalist role + `docs/LEAN_PLAN.md` | Lean statements |
-| *(planned)* `experimental` | OEIS, SAT/SMT — fold into attack scripts for now | certificates |
+| `formalization` | Mathlib patterns, tactics, sorry policy — Formalist | Lean statements, sorry-free builds |
+| `experimental` | OEIS, SAT/SMT, exhaustive finite, certificates — Attack Lead | verify scripts + witness files |
+| `graph-theory` | labelings, colorings, canonical-form enumeration — Attack Lead (OPE-28) | spectral/color/graceful checks |
 
-On-disk dirs today: `number-theory`, `combinatorics`, `partition-theory`, `algebra`, `analysis`, `topology`, `logic`.
-README table historically listed packs not yet created; prefer real dirs.
+On-disk dirs today: `number-theory`, `combinatorics`, `partition-theory`, `algebra`,
+`analysis`, `topology`, `logic`, `formalization`, `experimental`, `graph-theory` (last three added OPE-28).
+README table matches disk.
 
 ## Pack file convention
 
