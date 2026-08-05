@@ -89,6 +89,17 @@ See `docs/FEASIBILITY_RUBRIC.md`. Five dimensions × 0–20 → total 0–100.
 
 **Remove / archive** if: already fully in Mathlib with no lab value; score collapses < 40; crankery.
 
+## Novelty tagging (OPE-28)
+
+Every `problems.json` entry must carry an `expected` tag set by Scout during the pre-screen
+(before funding an attack), per `docs/roles/problem-scout.md`:
+
+- `known-classical` — already in Mathlib/classic literature → do not re-fund as novel
+- `formalize-only` — genuine Mathlib gap, no novelty claim
+- `open` — unsolved; eligible for a gate-funded attack
+
+Fuller enum in `problems.json` → `expected_taxonomy`.
+
 ## Shortlist (post OPE-21)
 
 1. **Frobenius (two coins)** — OPE-22 in flight  

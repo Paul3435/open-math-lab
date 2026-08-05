@@ -1,6 +1,6 @@
 {
-  "version": "1.1",
-  "last_updated": "2026-08-04",
+  "version": "1.2",
+  "last_updated": "2026-08-05",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -21,7 +21,8 @@
       "skill_packs": [
         "number-theory",
         "formalization"
-      ]
+      ],
+      "expected": "known-classical"
     },
     {
       "id": "graceful-tree-conjecture",
@@ -43,7 +44,8 @@
         "no Lean build of witnesses or enumeration",
         "novelty: family already known graceful for all n",
         "count relies on enumeration + AHU cross-check agreeing"
-      ]
+      ],
+      "expected": "known-classical"
     },
     {
       "id": "erdos-woods",
@@ -56,7 +58,8 @@
       ],
       "claim_status": "vetoed",
       "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet.",
-      "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair"
+      "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair",
+      "expected": "known-classical"
     },
     {
       "id": "sum-free-subsets",
@@ -69,6 +72,7 @@
       "score": 90,
       "note": "Classical Erdős (1965) n/3 bound — process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
       "attack": "attacks/sum-free-subsets-20260730-221216",
+      "expected": "known-classical",
       "residual_risks": [
         "main Lean theorem incomplete / strategy mismatch at last review",
         "known theorem — no novelty claim",
@@ -110,7 +114,8 @@
         "overall_1_to_5": 5.0
       },
       "director_approved": true,
-      "issue": "OPE-26"
+      "issue": "OPE-26",
+      "expected": "formalize-only"
     },
     {
       "id": "derangement-formula",
@@ -123,7 +128,8 @@
       "note": "OPE-25 Scout: ALREADY IN Mathlib (numDerangements, numDerangements_sum, recurrence numDerangements_add_two, card_derangements_fin_eq_numDerangements, numDerangements_tendsto_inv_e). Dossier scored 89 on false 'Mathlib gap'. Demote from prime; Lean-practice only, no contribution value.",
       "skill_packs": [
         "combinatorics"
-      ]
+      ],
+      "expected": "known-classical"
     },
     {
       "id": "catalan-recurrence",
@@ -136,7 +142,8 @@
       "note": "OPE-25 Scout: ALREADY IN Mathlib (catalan def, catalan_succ recurrence, catalan_eq_centralBinom_div closed form, treesOfNumNodesEq_card_eq_catalan). Dossier scored 85 on false 'Mathlib gap'. Demote from prime; Lean-practice only.",
       "skill_packs": [
         "combinatorics"
-      ]
+      ],
+      "expected": "known-classical"
     },
     {
       "id": "bertrand-postulate-computational",
@@ -144,7 +151,8 @@
       "status": "candidate",
       "domain": "computational_number_theory",
       "score": 84,
-      "note": "General theorem already in Mathlib; this is certificate technique. Start with smaller bound than 10^6."
+      "note": "General theorem already in Mathlib; this is certificate technique. Start with smaller bound than 10^6.",
+      "expected": "formalize-only"
     },
     {
       "id": "demo-collatz-bound-toy",
@@ -156,7 +164,8 @@
       "source": "internal-demo",
       "status": "seed",
       "feasibility": null,
-      "notes": "Placeholder for pipeline demos — NOT an open research target."
+      "notes": "Placeholder for pipeline demos — NOT an open research target.",
+      "expected": "known-classical"
     },
     {
       "id": "mathlib-gap-candidate",
@@ -167,7 +176,8 @@
       "source": "mathlib-wishlist",
       "status": "needs-scout",
       "feasibility": null,
-      "notes": "Scout replaces with a real, small formalization task."
+      "notes": "Scout replaces with a real, small formalization task.",
+      "expected": "formalize-only"
     },
     {
       "id": "oeis-finite-check-candidate",
@@ -179,8 +189,14 @@
       "source": "oeis-style",
       "status": "needs-scout",
       "feasibility": null,
-      "notes": "Prefer decidable finite checks with clear bounds."
+      "notes": "Prefer decidable finite checks with clear bounds.",
+      "expected": "open"
     }
   ],
-  "updated_at": "2026-08-04T20:50:00Z"
+  "updated_at": "2026-08-05T21:00:00Z",
+  "expected_taxonomy": {
+    "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
+    "formalize-only": "no novelty claim; Lean contribution is the value",
+    "open": "still-unsolved; eligible for a gate-funded attack (novelty pre-screen recorded, OPE-28)"
+  }
 }

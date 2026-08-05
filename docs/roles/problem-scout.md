@@ -32,6 +32,26 @@ placeholders, re-score after vetoes/reviews, and produce the next ≤3 shortlist
 
 Mathlib TODOs / formalization gaps, finite computational conjectures, well-posed MO/OEIS-bounded questions, reductions of harder problems into checkable lemmas.
 
+## Novelty pre-screen gate (OPE-28)
+
+Before a candidate is funded for an attack, run a **novelty / prior-art pre-screen** and record
+the outcome in the catalog entry's `expected` field so later attacks don't re-fund a settled
+theorem (GAP-4):
+
+- `known-classical` — already in Mathlib or classic literature → do NOT re-fund as novel;
+  Lean-practice / formalize-only only (e.g. sum-free n/3, Schur partition, Frobenius 2-denom,
+  Catalan, derangement, graceful caterpillars).
+- `formalize-only` — genuine Mathlib gap / no novelty claim → Lean contribution is the value.
+- `open` — still-unsolved, highest research value → eligible for a gate-funded attack.
+
+Mandatory checks on every candidate:
+  1. Grep the **local** Mathlib pin, never the internet (OPE-25).
+  2. OEIS / classic-theorem cross-check (use `experimental` + `formalization` packs).
+  3. Record the literature handle, or mark the candidate `refuse` (no handle).
+
+This folds the novelty-screen into Scout so no Novelty Reviewer hire is needed; hire one only
+if the gate later becomes a bottleneck.
+
 ## Refuse
 
-Unbounded “solve RH”, vague physics-of-everything, problems with no literature handle, anything you cannot score on formalizable / partial-progress / crackpot-risk.
+Unbounded “solve RH”, vague physics-of-everything, problems with no literature handle, anything you cannot score on formalizable / partial-progress / crackpot-risk, or an `expected: known-trivial` candidate with no formalization value.
