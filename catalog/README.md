@@ -51,8 +51,8 @@ and `attacks/<id>-<timestamp>/`. Prefer git SoT:
 | ID | Notes |
 |----|-------|
 | demo-collatz-bound-toy | pipeline demo only |
-| ~~mathlib-gap-candidate~~ | **replaced** 2026-08-07 → `van-der-waerden-w23` (Scout) |
-| oeis-finite-check-candidate | bounded OEIS-style check |
+| ~~mathlib-gap-candidate~~ | **replaced** 2026-08-07 (Scout keep-fresh) → `van-der-Waerden-w23`, then `ramsey-r33`/`schur-number` |
+| ~~oeis-finite-check-candidate~~ | **replaced** 2026-08-07 (Scout keep-fresh) → `ramsey-r33` + `schur-number` (formalize-only, Mathlib-gap) |
 
 ## Usage
 
