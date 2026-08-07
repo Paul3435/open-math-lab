@@ -6,10 +6,11 @@ subset of size at least n/3.  (Erdős 1965.)
 
 A subset A is sum-free if there do not exist x, y, z ∈ A such that x + y = z.
 
-status: statement corrected to positive integers (0 ∉ S). Core lemmas proved;
-        main theorem's hard branch (Erdős Z_p averaging) is a documented gap
-        (OPE-14.1 / OPE-23).
--/
+status: statement corrected to positive integers (0 ∉ S). Main theorem
+        sum_free_subset_bound is fully proved with ZERO sorries via the Erdős
+        Z_p averaging argument (ErdosSumFree.lean, wired by OPE-23/32/33/34).
+        `lake env lean ProofLab/SumFree.lean` → exit 0, no sorry/admit/axiom.
+|-/
 
 import ProofLab.ErdosSumFree
 import Mathlib.Data.ZMod.Defs
@@ -33,22 +34,23 @@ namespace ProofLab.SumFree
 * `residueClass1_sum_free`  — proved
 * `residueClass2_sum_free`  — proved
 * `mod3_partition`          — proved
-* `sum_free_subset_bound`   — statement corrected (positives); hard branch OPEN (OPE-14.1)
+* `sum_free_subset_bound` — statement corrected (positives); **PROVED zero-sorry** (Erdős Z_p averaging, wired from ErdosSumFree.lean)
 
-## Proof Gap (PROOF_GAP → OPE-14.1 / OPE-23)
+## Proof Gap (RESOLVED — OPE-23 / 32 / 33 / 34)
 
 The naive modulo-3 approach (take the larger of C₁, C₂) fails when |C₀| > n/3.
-The remaining branch of `sum_free_subset_bound` needs the Erdős (1965)
-averaging argument over ℤ_p:
+That remaining branch of `sum_free_subset_bound` is now closed by the Erdős (1965)
+averaging argument over ℤ_p, formalized in `ErdosSumFree.lean`
+(`erdos_sum_free_bound`), with zero sorries:
 
   1. Let p be a prime with p > max(S).
   2. Let I = {k ∈ ℤ_p : p/3 < k < 2p/3}. |I| ≥ (p-1)/3, and I is sum-free in ℤ_p.
   3. For t ∈ {1,…,p−1}, A_t = {s ∈ S : t·s mod p ∈ I} is sum-free in ℕ.
   4. Σ_t |A_t| = n·|I| ≥ n·(p−1)/3, so some A_t has |A_t| ≥ n/3.
 
-This is the open part; it is tracked separately as OPE-14.1 / OPE-23 and is left
-as an honest `sorry` here (the supporting residue-class construction is complete).
--/
+`lake env lean ProofLab/SumFree.lean` → exit 0, no sorry/admit/axiom.
+Verified 2026-08-07 (Adversarial Reviewer re-review on OPE-14 wake).
+|-/
 
 /-! ## Basic Properties -/
 
