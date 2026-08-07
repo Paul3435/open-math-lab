@@ -1,0 +1,26 @@
+{
+  "id": "schur-number",
+  "title": "Schur number S(2)/S(3) (formalize-only)",
+  "status": "candidate",
+  "domain": "additive_combinatorics",
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 13,
+    "attack_surface": 15,
+    "verification_budget": 18,
+    "crackpot_resistance": 20
+  },
+  "flags": ["known-classical; formalize-only — do NOT re-fund as novel"],
+  "recommendation": "Formalize-only. Reset-annotation: S(2)/S(3) small decidable k-colour partition check, hand-provable; S(4)=44 has SAT-certified precedent (Heule 2018). Mathlib has NO SchurNumber content (gap confirmed v4.10.0).",
+  "skill_packs": ["additive-combinatorics", "formalization", "combinatorics"],
+  "estimated_token_budget": "120k",
+  "expected": "known-classical",
+  "mathlib_ref": "Mathlib has no SchurNumber combinatorics (gap); only unrelated SchurZassenhaus/SchurComplement",
+  "scored_at": "2026-08-07",
+  "notes": [
+    "Replaces seed placeholder oeis-finite-check-candidate",
+    "Schur 1916; S(2)/S(3)/S(4) exact, indexing convention must be pinned in statement",
+    "Finitary, decidable, developer-friendly",
+    "Do NOT re-fund as novel research"
+  ]
+}

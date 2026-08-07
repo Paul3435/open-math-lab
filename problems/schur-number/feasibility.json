@@ -1,0 +1,17 @@
+{
+  "id": "schur-number",
+  "scored_at": "2026-08-07T20:20:41Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 17.0,
+    "partial_progress_paths": 13.0,
+    "literature_clarity": 16.0,
+    "compute_bounded": 18.0,
+    "agent_skill_fit": 17.0,
+    "crackpot_risk": 1.0
+  },
+  "budget_tokens_estimate": 120000,
+  "recommendation": "formalize-only",
+  "rationale": "Finitary Schur numbers; decidable k-colour partition check. S(2)/S(3) small and hand-provable, S(4) SAT-certified precedent (Heule). Mathlib gap confirmed. formalize-only.",
+  "overall_1_to_5": 5.0
+}

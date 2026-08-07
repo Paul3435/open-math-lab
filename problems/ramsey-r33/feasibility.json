@@ -1,0 +1,17 @@
+{
+  "id": "ramsey-r33",
+  "scored_at": "2026-08-07T20:20:41Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 18.0,
+    "partial_progress_paths": 14.0,
+    "literature_clarity": 17.0,
+    "compute_bounded": 19.0,
+    "agent_skill_fit": 17.0,
+    "crackpot_risk": 1.0
+  },
+  "budget_tokens_estimate": 160000,
+  "recommendation": "formalize-only",
+  "rationale": "Finitary 2-colour Ramsey; Mathlib has coloring/clique infra but no ramsey theorem (gap confirmed v4.10.0). R(3,3)=6 clean hand proof; R(4,4)=18 certified exhaustive/SAT. formalize-only, no novelty claim.",
+  "overall_1_to_5": 5.0
+}
