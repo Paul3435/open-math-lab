@@ -1,3 +1,4 @@
+bash.exe: warning: could not find /tmp, please create!
 # mathforge Problem Catalog
 
 This directory contains curated mathematical problems suitable for formalization
@@ -50,7 +51,7 @@ and `attacks/<id>-<timestamp>/`. Prefer git SoT:
 | ID | Notes |
 |----|-------|
 | demo-collatz-bound-toy | pipeline demo only |
-| mathlib-gap-candidate | replace with real Mathlib gap |
+| ~~mathlib-gap-candidate~~ | **replaced** 2026-08-07 → `van-der-waerden-w23` (Scout) |
 | oeis-finite-check-candidate | bounded OEIS-style check |
 
 ## Usage

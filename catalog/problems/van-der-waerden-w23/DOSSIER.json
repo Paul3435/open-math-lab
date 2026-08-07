@@ -1,0 +1,27 @@
+{
+  "id": "van-der-waerden-w23",
+  "title": "Van der Waerden finite form — W(2,3) = 9 (formalize-only)",
+  "status": "candidate",
+  "domain": "additive_combinatorics",
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 18,
+    "crackpot_resistance": 20
+  },
+  "flags": [],
+  "recommendation": "Formalize-only. Finitary Van der Waerden is an explicit Mathlib TODO (HalesJewett.lean); W(2,3)=9 is fully decidable and small. Lean contribution is the value; no novelty claim.",
+  "skill_packs": ["additive-combinatorics", "formalization", "combinatorics"],
+  "estimated_token_budget": "120k",
+  "expected": "formalize-only",
+  "mathlib_ref": "Mathlib/Combinatorics/HalesJewett.lean (TODO: prove finitary Van der Waerden)",
+  "scored_at": "2026-08-07",
+  "notes": [
+    "Replaces seed placeholder mathlib-gap-candidate (OPE-25 audit flagged needs-scout)",
+    "Infinitary VdW + exists_mono_homothetic_copy already in Mathlib; finitary exact value is the gap",
+    "W(2,3)=9 classical; also W(2,3)>8 tight failure witness",
+    "Decidable finite search → developer-friendly, works under slow model",
+    "Do NOT re-fund as novel research"
+  ]
+}

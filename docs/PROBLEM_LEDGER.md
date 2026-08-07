@@ -1,3 +1,4 @@
+bash.exe: warning: could not find /tmp, please create!
 # Problem ledger — Open Math Lab
 
 Source of truth for **which mathematical bets we have touched**, their disposition,
@@ -55,9 +56,9 @@ already covered upstream; `schur-partition` is the only confirmed gap among prio
 | `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |
 | `bertrand-postulate-computational` | candidate (demoted) | computational NT | General theorem already in Mathlib; certificate-only value, low contribution. |
 
-Placeholders still needing Scout replacement: `mathlib-gap-candidate`, `oeis-finite-check-candidate`,
+Placeholders still needing Scout replacement: `oeis-finite-check-candidate`,
 `demo-collatz-bound-toy` (demo only). `erdos-woods` correct-formalization (k=16,a=2184) remains a valid
-future candidate.
+future candidate. **New candidate (Scout keep-fresh 2026-08-07):** `van-der-waerden-w23` — finitary Van der Waerden W(2,3)=9, an explicit Mathlib TODO (HalesJewett.lean L50-53), `formalize-only` (score 86/100, overall 5.0).
 
 ## Active sprint (from OPE-21)
 
