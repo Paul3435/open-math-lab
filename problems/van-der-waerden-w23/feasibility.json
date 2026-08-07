@@ -1,0 +1,17 @@
+{
+  "id": "van-der-waerden-w23",
+  "scored_at": "2026-08-07T14:43:22Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 17.0,
+    "partial_progress_paths": 16.0,
+    "literature_clarity": 18.0,
+    "compute_bounded": 19.0,
+    "agent_skill_fit": 17.0,
+    "crackpot_risk": 1.0
+  },
+  "budget_tokens_estimate": 120000,
+  "recommendation": "formalize-only",
+  "rationale": "Finitary Van der Waerden is explicit Mathlib TODO (HalesJewett.lean L50-53); W(2,3)=9 fully decidable over Fin 8/Fin 9. formalize-only, no novelty claim.",
+  "overall_1_to_5": 5.0
+}
