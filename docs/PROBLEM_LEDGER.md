@@ -56,9 +56,14 @@ already covered upstream; `schur-partition` is the only confirmed gap among prio
 | `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |
 | `bertrand-postulate-computational` | candidate (demoted) | computational NT | General theorem already in Mathlib; certificate-only value, low contribution. |
 
-Placeholders still needing Scout replacement: `oeis-finite-check-candidate`,
-`demo-collatz-bound-toy` (demo only). `erdos-woods` correct-formalization (k=16,a=2184) remains a valid
-future candidate. **New candidate (Scout keep-fresh 2026-08-07):** `van-der-waerden-w23` — finitary Van der Waerden W(2,3)=9, an explicit Mathlib TODO (HalesJewett.lean L50-53), `formalize-only` (score 86/100, overall 5.0).
+Placeholders: `demo-collatz-bound-toy` (demo only). **Seed placeholders `oeis-finite-check-candidate` and
+`mathlib-gap-candidate` REPLACED by Scout 2026-08-07** with two novelty-pre-screened, finitary, decidable,
+Mathlib-gap candidates: **`ramsey-r33`** (finite graph Ramsey R(3,3)=6 / R(4,4)=18) and **`schur-number`**
+(Schur S(2)/S(3)). Both `expected: known-classical` → **formalize-only** (genuine Mathlib contribution; do NOT
+re-fund as novel). Dossiers + feasibility under `catalog/problems/<id>/` and `problems/<id>/`.
+`erdos-woods` correct-formalization (k=16,a=2184) remains a valid future candidate.
+Previous Scout keep-fresh: **`van-der-waerden-w23`** — finitary Van der Waerden W(2,3)=9, explicit Mathlib TODO
+(HalesJewett.lean L50-53), `formalize-only` (overall 5.0).
 
 ## Active sprint (from OPE-21)
 
