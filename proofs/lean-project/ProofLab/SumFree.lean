@@ -11,8 +11,7 @@ status: statement corrected to positive integers (0 ∉ S). Core lemmas proved;
         (OPE-14.1 / OPE-23).
 -/
 
-import Mathlib.Data.Finset.Card
-import Mathlib.Data.Nat.Defs
+import ProofLab.ErdosSumFree
 import Mathlib.Data.ZMod.Defs
 import Mathlib.Tactic
 
@@ -50,11 +49,6 @@ averaging argument over ℤ_p:
 This is the open part; it is tracked separately as OPE-14.1 / OPE-23 and is left
 as an honest `sorry` here (the supporting residue-class construction is complete).
 -/
-
-/-- A finite set A ⊆ ℕ is sum-free if no element is the sum of two (not
-    necessarily distinct) elements. -/
-def IsSumFree (A : Finset ℕ) : Prop :=
-  ∀ x y z, x ∈ A → y ∈ A → z ∈ A → x + y ≠ z
 
 /-! ## Basic Properties -/
 
@@ -196,12 +190,14 @@ lemma large_C0_of_small_C1_C2 (S : Finset ℕ)
 /-! ## Main Theorem -/
 
 /-!
+## Main Theorem
+
 **Theorem** (Erdős 1965): Every finite set S of positive integers contains a sum-free
 subset A with |A| * 3 ≥ |S|.
 
 The modulo-3 residue classes C₁ and C₂ handle the case when one is large.
-The remaining case (|C₀| > n/3) needs the Erdős Z_p averaging argument,
-which is the documented open gap tracked as OPE-14.1 / OPE-23.
+The remaining case (|C₀| > n/3) uses the Erdős Z_p averaging argument from
+`ErdosSumFree.lean` (`erdos_sum_free_bound`).
 -/
 theorem sum_free_subset_bound (S : Finset ℕ) (hS : 0 ∉ S) :
     ∃ A : Finset ℕ, A ⊆ S ∧ IsSumFree A ∧ A.card * 3 ≥ S.card := by
@@ -213,10 +209,9 @@ theorem sum_free_subset_bound (S : Finset ℕ) (hS : 0 ∉ S) :
   · by_cases h2 : (residueClass2Mod3 S).card * 3 ≥ S.card
     · exact ⟨residueClass2Mod3 S, Finset.filter_subset _ S,
              residueClass2_sum_free S, h2⟩
-    -- Otherwise |C₀| > n/3; this branch needs the Erdős averaging argument
-    -- over ℤ_p (ope-14.1 / OPE-23).  Until then it is an honest gap.
+    -- Otherwise |C₀| > n/3; use the Erdős Z_p averaging argument.
     · push_neg at h1 h2
-      sorry
+      exact erdos_sum_free_bound S hS
 
 /-! ## Verified Examples -/
 

@@ -1,4 +1,5 @@
-import Mathlib.Data.Nat.Defs
+import ProofLab.Basic
+import ProofLab.ErdosWorkbench
 import Mathlib.Data.Nat.ModEq
 import Mathlib.Data.Nat.Prime.Defs
 import Mathlib.Data.Finset.Card
@@ -30,12 +31,12 @@ Remaining (tracked OPE-32/33):
 This is a WORK-IN-PROGRESS development file; it never shadows `SumFree.lean`.
 -/
 
-/-- IsSumFree predicate, matching SumFree.lean. -/
-def IsSumFree (A : Finset ℕ) : Prop :=
-  ∀ x y z, x ∈ A → y ∈ A → z ∈ A → x + y ≠ z
+/-!
+## CORE (proved): the middle third is sum-free
 
-/-- CORE (proved): if a, b are in the middle third, the reduced sum
-    (a + b) % p avoids the middle third: 3·((a+b)%p) ≤ p or 2p ≤ 3·((a+b)%p). -/
+if a, b are in the middle third, the reduced sum (a + b) % p avoids the
+middle third: 3·((a+b)%p) ≤ p or 2p ≤ 3·((a+b)%p).
+-/
 lemma middle_third_sumfree (p a b : ℕ) (hp : 0 < p)
     (ha1 : p < 3 * a) (ha2 : 3 * a < 2 * p)
     (hb1 : p < 3 * b) (hb2 : 3 * b < 2 * p) :
@@ -297,5 +298,61 @@ theorem averaging_bound (p : ℕ) (hp : p.Prime) (S : Finset ℕ) (hS : S ⊆ un
         simp [Finset.sum_const]
       simpa [hconst] using hcore
     nlinarith [hsum_lt, hlo]
+
+/-! ## OPE-33: assembled Erdős bound
+
+Pick a prime `p` strictly larger than every element of `S` (and `p ≥ 5`, so
+`3 ∤ p`).  Since `S` excludes `0`, every `s ∈ S` satisfies `0 < s < p`, hence
+`s ∈ unitsRes p`.  Then `averaging_bound` yields a multiplier `t` whose fiber
+`A_t ⊆ S` is sum-free (`fiber_sum_free`) with `3·|A_t| ≥ |S|`.
+-/
+theorem erdos_sum_free_bound (S : Finset ℕ) (hS : 0 ∉ S) :
+    ∃ A : Finset ℕ, A ⊆ S ∧ IsSumFree A ∧ A.card * 3 ≥ S.card := by
+  by_cases hSempty : S = ∅
+  · subst S
+    refine ⟨∅, by simp, ?_, by simp⟩
+    unfold IsSumFree
+    intro x y z hx
+    exact False.elim (Finset.not_mem_empty x hx)
+  · have hne : S.Nonempty := Finset.nonempty_iff_ne_empty.mpr hSempty
+    let ms := S.max' hne
+    let n := max (ms + 1) 5
+    obtain ⟨p, hpn, hp⟩ := Nat.exists_infinite_primes n
+    have hp5 : 5 ≤ p := by
+      have h1 : n ≤ p := hpn
+      have h2 : n = max (ms + 1) 5 := rfl
+      rw [h2] at h1
+      exact le_trans (le_max_right _ _) h1
+    have hms : ms < p := by
+      have h1 : ms + 1 ≤ p :=
+        le_trans (le_max_left _ _) (by simpa [n] using hpn)
+      omega
+    have hSunits : S ⊆ unitsRes p := by
+      intro s hs
+      have hsle : s ≤ ms := Finset.le_max' (s := S) s hs
+      have hsp : s < p := by omega
+      have hs0 : s ≠ 0 := fun h => hS (by simpa [← h] using hs)
+      rw [unitsRes]
+      rw [Finset.mem_erase, Finset.mem_range]
+      exact ⟨hs0, hsp⟩
+    have hp2 : 2 ≤ p := by omega
+    have hpmod : p % 3 ≠ 0 := by
+      intro hdiv
+      have h3dvd : 3 ∣ p := Nat.dvd_of_mod_eq_zero hdiv
+      rcases hp.eq_one_or_self_of_dvd 3 h3dvd with h | h
+      · norm_num at h
+      · have hp3 : p = 3 := h.symm
+        omega
+    have hI : 3 * (middleThird p).card ≥ p - 1 := by
+      have hc := middle_third_count_bound p hpmod
+      simpa [middleThird, middleThirdCount] using hc
+    rcases averaging_bound p hp S hSunits hI with ⟨t, ht, hbd⟩
+    let A : Finset ℕ := S.filter (fun s => (t * s) % p ∈ middleThird p)
+    refine ⟨A, ?_, ?_, ?_⟩
+    · exact Finset.filter_subset _ S
+    · have hf := fiber_sum_free (p := p) (t := t) (by omega) S
+      simpa [A] using hf
+    · have hbd' : 3 * A.card ≥ S.card := by simpa [A] using hbd
+      simpa [mul_comm] using hbd'
 
 end ProofLab.SumFree

@@ -1,15 +1,15 @@
 -- Basic module for Open Math Lab proof verification
--- This file contains trivial examples to verify the Lean setup works
+-- This file contains the shared foundational definitions used across ProofLab.
 
-namespace ProofLab
+import Mathlib.Data.Finset.Card
+import Mathlib.Data.Nat.Defs
+import Mathlib.Tactic
 
--- Trivial arithmetic theorem to verify Lean is working
-example : 1 + 1 = 2 := rfl
+namespace ProofLab.SumFree
 
--- Another simple example using natural number addition
-example : Nat.succ 0 = 1 := rfl
+/-- A finite set A ⊆ ℕ is sum-free if no element is the sum of two (not
+    necessarily distinct) elements of A. -/
+def IsSumFree (A : Finset ℕ) : Prop :=
+  ∀ x y z, x ∈ A → y ∈ A → z ∈ A → x + y ≠ z
 
--- Simple propositional logic example
-example (p q : Prop) : p → (q → p) := fun hp _ => hp
-
-end ProofLab
+end ProofLab.SumFree
