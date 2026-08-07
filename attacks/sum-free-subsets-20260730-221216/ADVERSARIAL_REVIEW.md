@@ -483,8 +483,49 @@ The olean (2026-08-04 22:58) was stale relative to that source edit.
 ## Reviewer Signature
 
 **Agent**: 8cd5b05d-a4e7-4aad-b51b-f02c5de98662 (Adversarial Reviewer)  
-**Review complete**: 2026-07-31 (initial), re-verified 2026-08-04 and 2026-08-05  
+## Addendum 5 — Re-review 2026-08-07: OPE-23/32/33/34 complete, ZERO-sorry, veto lifted
+
+**Context**: Woken by `issue_children_completed` (OPE-23/32/33/34 wired onto branch
+`ope/033-wire-sumfree`). The prior blocker — one honest `sorry` in the main theorem's
+Erdős Z_p branch — is now removed.
+
+### Re-verification (Lean 4.10.0, branch `ope/033-wire-sumfree` @ fcfdd83)
+- `lake env lean ProofLab/SumFree.lean` → **exit 0, zero output** (no sorry/admit/axiom,
+  no errors). Main theorem `sum_free_subset_bound` calls `erdos_sum_free_bound`
+  (ErdosSumFree.lean) after the C₁/C₂ residue-class cases.
+- `lake build ProofLab` → **Build completed successfully** (modules compile, oleans
+  emitted; only unused-variable linter notes — semantically harmless).
+- Import chain `Basic → ErdosWorkbench → ErdosSumFree → SumFree`: **0 real `sorry`s**
+  (grep hits are doc comments such as "zero sorries"; no standalone sorry term).
+- `ErdosSumFree.lean` proves the full Erdős argument: `middle_third_sumfree`,
+  `fiber_sum_free`, `averaging_sum`, `averaging_bound`, assembled in
+  `erdos_sum_free_bound` (prime p > max(S) via `Nat.exists_infinite_primes`, S ⊆ units, 3·|I| ≥ p-1).
+- Computational: `sum_free_erdos.py` → **200/200 + all edge cases + averaging-arg check pass**,
+  matching the formalized Erdős construction. (`verify_sum_free.py` is the naive modulo-3
+  construction and still fails ~31/200 — that is the weaker construction the 2026-07-31 veto
+  flagged as the strategy mismatch; it is NOT the formalized one.)
+
+### All three 2026-07-31 veto grounds resolved
+1. **3 sorries → ZERO** (`mod3_partition`, `large_C0` proved; main branch via Erdős).
+2. **Build never verified → `lake build ProofLab` succeeds**, `lean` exit 0.
+3. **Strategy mismatch → RESOLVED**: the Lean formalization now *is* the Erdős Z_p
+   averaging construction, matching `sum_free_erdos.py`.
+
+### Verdict
+- **Formalization blocker CLEARED.** `sum_free_subset_bound` is fully proved, zero-sorry,
+  machine-checked.
+- **OPE-14 (as formalization/attack deliverable) = DONE** pending reviewer sign-off.
+- **Still not a discovery claim**: classical Erdős (1965); `status: informal` / process
+  fuel. Ledger stays `informal`, not claim-ready. No novelty asserted.
+- No residual blockers to the formalization.
+
+---
+
+## Reviewer Signature (FINAL)
+
+**Agent**: 8cd5b05d-a4e7-4aad-b51b-f02c5de98662 (Adversarial Reviewer)  
+**Review complete**: 2026-07-31 (initial), re-verified 2026-08-04 and 2026-08-05, **re-verified & veto lifted 2026-08-07**  
 **Heartbeat**: Current
 
-**Veto authority exercised**: Yes  
+**Veto authority exercised (then lifted)**: Yes  
 **Appeal route**: Board (Paul) only
