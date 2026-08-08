@@ -280,4 +280,114 @@ theorem ramseyUpper_swap (k l n : ℕ) : RamseyUpper k l n ↔ RamseyUpper l k n
     · exact Or.inr hl
     · exact Or.inl (by simpa using hk)
 
+/-- Extract three pairwise-distinct elements from a Finset of card ≥ 3. -/
+lemma extract3 {α : Type*} [DecidableEq α] {s : Finset α} (h : 3 ≤ s.card) :
+    ∃ a b c : α, a ∈ s ∧ b ∈ s ∧ c ∈ s ∧ a ≠ b ∧ a ≠ c ∧ b ≠ c := by
+  classical
+  have hpos1 : 0 < s.card := by omega
+  obtain ⟨a, ha⟩ := Finset.card_pos.mp hpos1
+  have he1 : (s.erase a).card = s.card - 1 := Finset.card_erase_of_mem ha
+  have hge2 : 2 ≤ (s.erase a).card := by rw [he1]; omega
+  have hpos2 : 0 < (s.erase a).card := by omega
+  obtain ⟨b, hb⟩ := Finset.card_pos.mp hpos2
+  have hb_mem : b ∈ s := mem_of_mem_erase hb
+  have hb_ne_a : b ≠ a := (Finset.mem_erase.mp hb).1
+  have he2 : ((s.erase a).erase b).card = (s.erase a).card - 1 := Finset.card_erase_of_mem hb
+  have hge1 : 1 ≤ ((s.erase a).erase b).card := by rw [he2]; omega
+  have hpos3 : 0 < ((s.erase a).erase b).card := by omega
+  obtain ⟨c, hc⟩ := Finset.card_pos.mp hpos3
+  have hc_mem_erase2 : c ∈ (s.erase a).erase b := hc
+  have hc_mem : c ∈ s := mem_of_mem_erase (mem_of_mem_erase hc_mem_erase2)
+  have hc_ne_b : c ≠ b := (Finset.mem_erase.mp hc_mem_erase2).1
+  have hc_in_erase_a : c ∈ s.erase a := (Finset.mem_erase.mp hc_mem_erase2).2
+  have hc_ne_a : c ≠ a := (Finset.mem_erase.mp hc_in_erase_a).1
+  exact ⟨a, b, c, ha, hb_mem, hc_mem, hb_ne_a.symm, hc_ne_a.symm, hc_ne_b.symm⟩
+
+/-- Three explicit pairwise-adjacent vertices build a 3-clique. -/
+lemma clique3_of_adj {V : Type*} [DecidableEq V] (G : SimpleGraph V) {a b c : V}
+    (hne1 : a ≠ b) (hne2 : a ≠ c) (hne3 : b ≠ c)
+    (h1 : G.Adj a b) (h2 : G.Adj a c) (h3 : G.Adj b c) :
+    HasClique G 3 := by
+  refine ⟨{a, b, c}, ?_⟩
+  rw [SimpleGraph.isNClique_iff]
+  constructor
+  · -- G.IsClique {a,b,c} : pairwise adjacency
+    intro x hx y hy hxy
+    simp at hx hy
+    rcases hx with rfl | rfl | rfl <;> rcases hy with rfl | rfl | rfl <;> simp_all
+      <;> try (apply G.symm <;> simp_all)
+  · simp [hne1, hne2, hne3]
+
+/-- **R(3,3) ≤ 6, hand pigeonhole**: any red/blue colouring of `K_6` has a
+red triangle or a blue triangle.  Pick a vertex `z`; of its 5 other vertices at
+least 3 share a colour to `z`; if two of those share an edge the colour-mate of
+`z` closes a monochromatic triangle, else all are pairwise the other colour and
+form a monochromatic triangle among themselves. -/
+theorem ramsey33_fin6 : ∀ G : SimpleGraph (Fin 6), HasClique G 3 ∨ HasClique Gᶜ 3 := by
+  classical
+  intro G
+  let z : Fin 6 := 0
+  let R : Finset (Fin 6) := Finset.univ.filter (fun u => G.Adj z u)
+  let B : Finset (Fin 6) := Finset.univ.filter (fun u => u ≠ z ∧ ¬ G.Adj z u)
+  -- R and B are disjoint and R ∪ B = univ \ {z}, so R.card + B.card = 5
+  have hdisj : Disjoint R B := by
+    rw [Finset.disjoint_left]
+    intro u huR huB
+    rw [Finset.mem_filter] at huR huB
+    exact (huB.2.2) huR.2
+  have hRB : R ∪ B = Finset.univ.erase z := by
+    ext u
+    by_cases hz : u = z
+    · subst u
+      simp [R, B]
+    · simp [R, B, hz]
+      by_cases h : G.Adj z u
+      · simp [h]
+      · simp [h]
+  have hcard : R.card + B.card = 5 := by
+    have hc := Finset.card_union_of_disjoint hdisj
+    have hzmem : z ∈ (Finset.univ : Finset (Fin 6)) := by simp
+    have hez : (Finset.univ.erase z).card = 5 := by
+      rw [Finset.card_erase_of_mem hzmem]
+      norm_num
+    rw [← hc, hRB]
+    exact hez
+  -- pigeonhole: at least 3 of the 5 neighbours share a colour with z
+  by_cases hR : 3 ≤ R.card
+  · -- three red neighbours a,b,c of z
+    rcases extract3 hR with ⟨a, b, c, haR, hbR, hcR, hab, hac, hbc⟩
+    have hzaA : G.Adj z a := by simpa [R] using haR
+    have hzbA : G.Adj z b := by simpa [R] using hbR
+    have hzcA : G.Adj z c := by simpa [R] using hcR
+    have hza : z ≠ a := G.ne_of_adj hzaA
+    have hzb : z ≠ b := G.ne_of_adj hzbA
+    have hzc : z ≠ c := G.ne_of_adj hzcA
+    by_cases h1 : G.Adj a b
+    · left; exact clique3_of_adj G hza hzb hab hzaA hzbA h1
+    · by_cases h2 : G.Adj a c
+      · left; exact clique3_of_adj G hza hzc hac hzaA hzcA h2
+      · by_cases h3 : G.Adj b c
+        · left; exact clique3_of_adj G hzb hzc hbc hzbA hzcA h3
+        · right; exact clique3_of_adj (Gᶜ) hab hac hbc (by simpa [h1]) (by simpa [h2]) (by simpa [h3])
+  · -- at most 2 red neighbours, so at least 3 blue neighbours (≠z)
+    have hB : 3 ≤ B.card := by omega
+    rcases extract3 hB with ⟨a, b, c, haB, hbB, hcB, hab, hac, hbc⟩
+    have haA : ¬G.Adj z a := (Finset.mem_filter.mp haB).2.2
+    have hbA : ¬G.Adj z b := (Finset.mem_filter.mp hbB).2.2
+    have hcA : ¬G.Adj z c := (Finset.mem_filter.mp hcB).2.2
+    have hza : z ≠ a := (Finset.mem_filter.mp haB).2.1.symm
+    have hzb : z ≠ b := (Finset.mem_filter.mp hbB).2.1.symm
+    have hzc : z ≠ c := (Finset.mem_filter.mp hcB).2.1.symm
+    have hzaC : (Gᶜ).Adj z a := by simpa [haA]
+    have hzbC : (Gᶜ).Adj z b := by simpa [hbA]
+    have hzcC : (Gᶜ).Adj z c := by simpa [hcA]
+    by_cases h1 : ¬ G.Adj a b
+    · right; exact clique3_of_adj (Gᶜ) hza hzb hab hzaC hzbC (by simpa [h1])
+    · by_cases h2 : ¬ G.Adj a c
+      · right; exact clique3_of_adj (Gᶜ) hza hzc hac hzaC hzcC (by simpa [h2])
+      · by_cases h3 : ¬ G.Adj b c
+        · right; exact clique3_of_adj (Gᶜ) hzb hzc hbc hzbC hzcC (by simpa [h3])
+        · left; exact clique3_of_adj G hab hac hbc
+            (Classical.not_not.mp h1) (Classical.not_not.mp h2) (Classical.not_not.mp h3)
+
 end ProofLab.Ramsey
