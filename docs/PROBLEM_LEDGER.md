@@ -6,7 +6,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-04 (OPE-21 Director: approve OPE-25 shortlist; Schur STATEMENT pin)
+**Last updated:** 2026-08-08 (OPE-43 Director: approve Scout keep-fresh shortlist — ramsey-r33 prime; assign OPE-44/45/46)
 
 ## Lifecycle labels
 
@@ -50,8 +50,8 @@ already covered upstream; `schur-partition` is the only confirmed gap among prio
 
 | Problem ID | Status | Domain | Notes |
 |------------|--------|--------|-------|
-| **`schur-partition`** | **shortlisted — Director APPROVED prime (OPE-21)** | partition theory | OPE-25 recommended; Director approved. STATEMENT pinned (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** attack filed (`todo`, blockedBy OPE-22 for wake order). |
-| `frobenius-coin-problem` | shortlisted (process-fuel only) / in_progress OPE-22 | number theory | **SUPERSEDED as gap prime** — already in Mathlib. OPE-22 = compute cert + Lean practice only. |
+| **`schur-partition`** | **`shortlisted` → done (OPE-26 attack complete)** | partition theory | OPE-25 recommended; Director approved; STATEMENT pinned (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** attack completed 2026-08-04 — Level A cert (N≤1000, DP+brute force agree) + Level B Lean sorry-free small-n (`ProofLab/Schur.lean`). |
+| `frobenius-coin-problem` | shortlisted (process-fuel only) / done (OPE-22 complete) | number theory | **SUPERSEDED as gap prime** — already in Mathlib. OPE-22 = compute cert + Lean practice completed (no contribution claim). |
 | `derangement-formula` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`numDerangements` + sum/recurrence/asymp). Dossier gap claim false. Lean-practice only. |
 | `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |
 | `bertrand-postulate-computational` | candidate (demoted) | computational NT | General theorem already in Mathlib; certificate-only value, low contribution. |
@@ -65,6 +65,10 @@ re-fund as novel). Dossiers + feasibility under `catalog/problems/<id>/` and `pr
 Previous Scout keep-fresh: **`van-der-waerden-w23`** — finitary Van der Waerden W(2,3)=9, explicit Mathlib TODO
 (HalesJewett.lean L50-53), `formalize-only` (overall 5.0).
 
+**OPE-43 update (2026-08-08):** `ramsey-r33` (PRIME, OPE-44), `van-der-waerden-w23` (OPE-45), and
+`schur-number` (OPE-46) are now **shortlisted / Director-approved** — catalog + ledger updated, attacks
+assigned to Attack Lead in wake-order chain.
+
 ## Active sprint (from OPE-21)
 
 | Bet | Issue | Owner role | Intent |
@@ -74,7 +78,22 @@ Previous Scout keep-fresh: **`van-der-waerden-w23`** — finitary Van der Waerde
 | `schur-partition` | **OPE-26** (child of OPE-21; blockedBy OPE-22 wake-order) | Attack Lead | **Approved prime.** Queue `todo`; wake **after OPE-22** completes (one-specialist discipline) unless board raises concurrency. |
 | OPE-21 control | **OPE-21** | Research Director | Approve shortlist, pin STATEMENT, open Schur attack, keep ledger — then **done**. |
 
-**Wake discipline:** one specialist at a time when on shared model limits. Prefer finish **OPE-22** → then wake Attack Lead on **Schur**. Do not pile Scout+Attack+Formalist without board OK.
+## Active sprint (from OPE-43)
+
+**OPE-43 (Director): approved the fresh Scout keep-fresh shortlist (OPE-36/PR #14 + van-der-Waerden PR #10).**
+Next bets are all known-classical → **formalize-only**, genuine Mathlib gaps, zero novelty claims.
+Prime = `ramsey-r33` (Scout's own recommendation: "ramsey-r33 recommended first"). Wake-order chain via
+blockedBy: OPE-44 → OPE-45 → OPE-46 (one specialist at a time).
+
+| Bet | Issue | Owner role | Intent |
+|-----|-------|------------|--------|
+| `ramsey-r33` (R(3,3)=6 / R(3,4)=9 / R(4,4)=18) | **OPE-44** (child of OPE-43; PRIME) | Attack Lead | **Approved prime.** Formalize-only Ramsey API + R(3,3)/R(3,4) zero-sorry; R(4,4) via certified search (stretch). |
+| `van-der-waerden-w23` (W(2,3)=9) | **OPE-45** (child of OPE-43; blockedBy OPE-44) | Attack Lead | Formalize-only finitary VdW; Mathlib TODO (HalesJewett.lean L50-53). |
+| `schur-number` (S(2)/S(3)) | **OPE-46** (child of OPE-43; blockedBy OPE-45) | Attack Lead | Formalize-only Schur numbers; pin indexing convention in statement. |
+| OPE-43 control | **OPE-43** | Research Director | Approve Scout shortlist, assign Attack Lead, keep catalog+ledger, open PR — then **done**. |
+
+**Wake discipline:** one specialist at a time on shared model limits. OPE-44 fires first; OPE-45/46 are
+blocked until their predecessor completes (or board raises concurrency).
 
 ## Lessons encoded (do not relearn the hard way)
 
