@@ -158,4 +158,111 @@ theorem ramsey33_gt_5 : ¬ RamseyUpper 3 3 5 := by
   · exact hred hcor
   · exact hblue hcor
 
+/-! ## Certified lower-bound witnesses
+
+The R(3,3)>5 witness above was hand-constructed (the 5-cycle).  The lower
+bounds R(3,4)>8 and R(4,4)>17 use concrete explicit colourings that are
+certified by exhaustive decision (`native_decide`): each is a *single* finite
+graph, so `native_decide` enumerates its (small) set of cliques and closes the
+goal with no `sorry`. -/
+
+/-- Red pairs of a (3,4)-Ramsey colouring of `K_8`: triangle-free, complement
+`K_4`-free (verified by the theorem below).  Found by random search; 10 edges. -/
+def red34Pairs : List (Nat × Nat) :=
+  [(0,4), (0,5), (1,2), (1,5), (1,6), (2,3), (2,4), (3,5), (3,7), (6,7)]
+
+/-- Red adjacency of the (3,4;8) witness: `u` red-adjacent to `v` iff the
+unordered pair `{u,v}` is in `red34Pairs`. -/
+def red34Adj (u v : Fin 8) : Prop :=
+  u ≠ v ∧ ((u.val, v.val) ∈ red34Pairs ∨ (v.val, u.val) ∈ red34Pairs)
+
+/-- The `K_8` colouring witnessing `R(3,4) > 8` (red = this graph). -/
+def Ramsey34Wit : SimpleGraph (Fin 8) where
+  Adj := red34Adj
+  symm := by
+    intro u v h
+    rcases h with ⟨hne, hrel⟩
+    refine ⟨hne.symm, ?_⟩
+    rcases hrel with h1 | h2
+    · exact Or.inr h1
+    · exact Or.inl h2
+  loopless := by
+    intro u hu
+    exact (hu.1 rfl).elim
+
+instance : DecidableRel (Ramsey34Wit.Adj) := by
+  unfold Ramsey34Wit red34Adj
+  infer_instance
+
+/-- **R(3,4) > 8**, certified: the witness colouring of `K_8` has no red
+triangle and no blue `K_4`.  Zero `sorry`. -/
+theorem not_ramsey34_8 :
+    ¬(Ramsey34Wit.cliqueFinset 3).Nonempty ∧ ¬(Ramsey34Witᶜ.cliqueFinset 4).Nonempty := by
+  native_decide
+
+/-- **R(3,4) > 8** in the `RamseyUpper` vocabulary. -/
+theorem ramsey34_gt_8 : ¬ RamseyUpper 3 4 8 := by
+  intro h
+  have hred : ¬HasClique Ramsey34Wit 3 := by
+    have hc := (not_ramsey34_8).1
+    intro hcl
+    exact hc (by simpa using (hasClique_iff_cliqueFinset Ramsey34Wit 3).1 hcl)
+  have hblue : ¬HasClique (Ramsey34Witᶜ) 4 := by
+    have hc := (not_ramsey34_8).2
+    intro hcl
+    exact hc (by simpa using (hasClique_iff_cliqueFinset (Ramsey34Witᶜ) 4).1 hcl)
+  rcases h Ramsey34Wit with hcor | hcor
+  · exact hred hcor
+  · exact hblue hcor
+
+/-- Quadratic-residue neighbours in `ℤ/17`: the Paley graph on `Fin 17`.  The
+Paley(17) graph is self-complementary and both it and its complement are
+`K_4`-free, so it witnesses `R(4,4) > 17`. -/
+def paley17QR : List Nat := [1, 2, 4, 8, 9, 13, 15, 16]
+
+/-- Distance `(v - u) mod 17` in `[0,16]`. -/
+def paleyDist (u v : Fin 17) : Nat := (17 + v.val - u.val) % 17
+
+/-- Paley-17 adjacency: `u` red-adjacent to `v` iff their (signed) difference
+mod 17 is a quadratic residue.  The residue set is closed under negation, so
+checking both orientations makes the relation manifestly symmetric. -/
+def paley17Adj (u v : Fin 17) : Prop :=
+  u ≠ v ∧ (paleyDist u v ∈ paley17QR ∨ paleyDist v u ∈ paley17QR)
+
+/-- The `K_17` colouring witnessing `R(4,4) > 17`. -/
+def Ramsey44Wit : SimpleGraph (Fin 17) where
+  Adj := paley17Adj
+  symm := by
+    intro u v h
+    rcases h with ⟨hne, hrel⟩
+    exact ⟨hne.symm, by simpa [or_comm] using hrel⟩
+  loopless := by
+    intro u hu
+    exact (hu.1 rfl).elim
+
+instance : DecidableRel (Ramsey44Wit.Adj) := by
+  unfold Ramsey44Wit paley17Adj
+  infer_instance
+
+/-- **R(4,4) > 17**, certified: the Paley-17 colouring of `K_17` has no red
+`K_4` and no blue `K_4`.  Zero `sorry`. -/
+theorem not_ramsey44_17 :
+    ¬(Ramsey44Wit.cliqueFinset 4).Nonempty ∧ ¬(Ramsey44Witᶜ.cliqueFinset 4).Nonempty := by
+  native_decide
+
+/-- **R(4,4) > 17** in the `RamseyUpper` vocabulary. -/
+theorem ramsey44_gt_17 : ¬ RamseyUpper 4 4 17 := by
+  intro h
+  have hred : ¬HasClique Ramsey44Wit 4 := by
+    have hc := (not_ramsey44_17).1
+    intro hcl
+    exact hc (by simpa using (hasClique_iff_cliqueFinset Ramsey44Wit 4).1 hcl)
+  have hblue : ¬HasClique (Ramsey44Witᶜ) 4 := by
+    have hc := (not_ramsey44_17).2
+    intro hcl
+    exact hc (by simpa using (hasClique_iff_cliqueFinset (Ramsey44Witᶜ) 4).1 hcl)
+  rcases h Ramsey44Wit with hcor | hcor
+  · exact hred hcor
+  · exact hblue hcor
+
 end ProofLab.Ramsey
