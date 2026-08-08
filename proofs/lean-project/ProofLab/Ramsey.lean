@@ -265,4 +265,19 @@ theorem ramsey44_gt_17 : ¬ RamseyUpper 4 4 17 := by
   · exact hred hcor
   · exact hblue hcor
 
+/-- Exchange the two colour roles: since `(Gᶜ)ᶜ = G`, an `l`-clique on the blue
+(complement) side of `G` is a `k`-clique on the red side once colours are
+swapped.  Hence `RamseyUpper k l n` and `RamseyUpper l k n` are equivalent (so,
+in particular, `R(4,3) = R(3,4)`). -/
+theorem ramseyUpper_swap (k l n : ℕ) : RamseyUpper k l n ↔ RamseyUpper l k n := by
+  constructor
+  · intro h G
+    rcases h Gᶜ with hk | hl
+    · exact Or.inr hk
+    · exact Or.inl (by simpa using hl)
+  · intro h G
+    rcases h Gᶜ with hl | hk
+    · exact Or.inr hl
+    · exact Or.inl (by simpa using hk)
+
 end ProofLab.Ramsey
