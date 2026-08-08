@@ -118,7 +118,10 @@
         "graph_theory"
       ],
       "source": "mathlib-gap",
-      "status": "candidate",
+      "status": "shortlisted",
+      "director_approved": true,
+      "issue": "OPE-44",
+      "sprint": "OPE-43",
       "feasibility": {
         "id": "ramsey-r33",
         "scored_at": "2026-08-07T20:20:41Z",
@@ -147,7 +150,10 @@
         "additive_combinatorics"
       ],
       "source": "mathlib-gap",
-      "status": "candidate",
+      "status": "shortlisted",
+      "director_approved": true,
+      "issue": "OPE-46",
+      "sprint": "OPE-43",
       "feasibility": {
         "id": "schur-number",
         "scored_at": "2026-08-07T20:20:41Z",
@@ -230,7 +236,10 @@
       "title": "Van der Waerden finite form — W(2,3) = 9 (formalize-only)",
       "domain": "additive_combinatorics",
       "source": "mathlib-gap",
-      "status": "scored",
+      "status": "shortlisted",
+      "director_approved": true,
+      "issue": "OPE-45",
+      "sprint": "OPE-43",
       "feasibility": {
         "id": "van-der-waerden-w23",
         "scored_at": "2026-08-07T14:45:26Z",
@@ -259,7 +268,7 @@
       "expected": "formalize-only"
     }
   ],
-  "updated_at": "2026-08-07T20:22:44Z",
+  "updated_at": "2026-08-08T11:50:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
