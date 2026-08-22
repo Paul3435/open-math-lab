@@ -79,3 +79,21 @@ For a=2184, k=16:
 ## Notes
 
 This problem serves as a **calibration target** for the lab's verification pipeline. The mathematical claim is settled; the value lies in producing a machine-checked artifact demonstrating the witness property.
+
+## Scout refresh — 2026-08-22 (OPE-334)
+
+Status: **leading next-prime candidate** (formalize-only, no novelty claim).
+
+- Definition re-pinned to the literature form above: open interval (a, a+k),
+  every interior j shares a prime factor with a or a+k. The OPE-12 veto
+  (wrong predicate, spurious a=5) does NOT apply to this statement.
+- Witness property independently re-verified by a bounded check:
+  `python3 problems/erdos-woods/verify_witness.py` -> PASS 15/15 interior
+  points for (k=16, a=2184), with 2184 = 2^3*3*7*13 and 2200 = 2^3*5^2*11.
+- Minimality of k=16 / a=2184 is literature knowledge (Erdos and Woods 1980,
+  OEIS A059756) and was NOT re-proven — out of scout scope.
+- Formalization sketch for the future attack ticket: define
+  `ErdosWoodsPair (k a : Nat+) : Prop` exactly as pinned; certify
+  `ErdosWoodsPair 16 2184` by `native_decide`/decidable enumeration over
+  Fin-indexed j (mirrors the PR #17 VdW/Schur pattern); minimality stays
+  cited, not proven.
