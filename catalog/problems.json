@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-07",
+  "last_updated": "2026-08-22T12:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -63,9 +63,18 @@
         "OPE-15"
       ],
       "claim_status": "vetoed",
-      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet.",
+      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet. | Scout refresh 2026-08-22 (OPE-334): leading next-prime candidate — literature definition pinned in STATEMENT.md; witness (16,2184) re-verified by bounded Python check (all interior j of (2184,2200) share a prime factor with 2184 or 2200); minimal-for-k claim NOT re-proven (out of scout scope). formalize-only, no novelty claim.",
       "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair",
-      "expected": "known-classical"
+      "expected": "known-classical",
+      "scout_refresh": {
+       "date": "2026-08-22",
+       "issue": "OPE-334",
+       "role": "leading next-prime candidate",
+       "definition_pinned": "k Erdos-Woods number iff exists a>0 such that every j with a<j<a+k shares a prime factor with a or a+k",
+       "witness_check": "python3 problems/erdos-woods/verify_witness.py -> PASS 15/15 interior j for (k=16,a=2184)",
+       "feasibility_overall_1_to_5": 4.3,
+       "expected": "known-classical"
+      }
     },
     {
       "id": "frobenius-coin-problem",
@@ -118,7 +127,7 @@
         "graph_theory"
       ],
       "source": "mathlib-gap",
-      "status": "shortlisted",
+      "status": "in_progress",
       "director_approved": true,
       "issue": "OPE-44",
       "sprint": "OPE-43",
@@ -139,7 +148,7 @@
         "rationale": "Finitary 2-colour Ramsey; Mathlib has coloring/clique infra but no ramsey theorem (gap confirmed v4.10.0). R(3,3)=6 clean hand proof; R(4,4)=18 certified exhaustive/SAT. formalize-only, no novelty claim.",
         "overall_1_to_5": 5.0
       },
-      "notes": "Finitary exhaustive/SAT cert; Mathlib gap (no ramseyNumber theorem)",
+      "notes": "Finitary exhaustive/SAT cert; Mathlib gap (no ramseyNumber theorem) | Scout keep-fresh (2026-08-22): OPE-44 attack in_progress on branch ope/044-ramsey-r33 — R(3,3)=6 both bounds + R(3,4)>8 / R(4,4)>17 lower bounds certified zero-sorry; upper bounds R(3,4)<=9 / R(4,4)<=18 pending hand proof (degree-parity plan in ATTACK_LOG.md).",
       "expected": "known-classical",
       "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/"
     },
@@ -150,7 +159,7 @@
         "additive_combinatorics"
       ],
       "source": "mathlib-gap",
-      "status": "shortlisted",
+      "status": "formalized",
       "director_approved": true,
       "issue": "OPE-46",
       "sprint": "OPE-43",
@@ -171,9 +180,10 @@
         "rationale": "Finitary Schur numbers; decidable k-colour partition check. S(2)/S(3) small and hand-provable, S(4) SAT-certified precedent (Heule). Mathlib gap confirmed. formalize-only.",
         "overall_1_to_5": 5.0
       },
-      "notes": "Finitary partition check; Mathlib gap (no SchurNumber combinatorics)",
+      "notes": "Finitary partition check; Mathlib gap (no SchurNumber combinatorics) | Scout keep-fresh (2026-08-22): PR #17 MERGED to main; S(2)=4 / S(3)=13 Lean zero-sorry landed (schur2_lower/schur2_le_4, schur3_lower/schur3_le_13, native_decide; x=y allowed convention pinned). Gate re-verified by Scout 2026-08-22.",
       "expected": "known-classical",
-      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/schur-number/"
+      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/schur-number/",
+      "lean_artifact": "proofs/lean-project/ProofLab/SchurNumber.lean"
     },
     {
       "id": "schur-partition",
@@ -236,7 +246,7 @@
       "title": "Van der Waerden finite form — W(2,3) = 9 (formalize-only)",
       "domain": "additive_combinatorics",
       "source": "mathlib-gap",
-      "status": "shortlisted",
+      "status": "formalized",
       "director_approved": true,
       "issue": "OPE-45",
       "sprint": "OPE-43",
@@ -264,11 +274,12 @@
         "combinatorics"
       ],
       "mathlib_ref": "Mathlib/Combinatorics/HalesJewett.lean (TODO: prove finitary Van der Waerden)",
-      "notes": "Scout keep-fresh (2026-08-07): replaced seed placeholder. Finitary VdW is an explicit TODO in local Mathlib pin (HalesJewett.lean ~L50-53); infinitary VdW + exists_mono_homothetic_copy already present. W(2,3)=9 exact classical value, fully decidable (Fin 8/Fin 9). formalize-only; no novelty claim.",
-      "expected": "formalize-only"
+      "notes": "Scout keep-fresh (2026-08-07): replaced seed placeholder. Finitary VdW is an explicit TODO in local Mathlib pin (HalesJewett.lean ~L50-53); infinitary VdW + exists_mono_homothetic_copy already present. W(2,3)=9 exact classical value, fully decidable (Fin 8/Fin 9). formalize-only; no novelty claim. | Scout keep-fresh (2026-08-22): PR #17 MERGED to main; W(2,3)=9 Lean zero-sorry landed (vdw_le_9 + vdw_gt_8, native_decide). Gate re-verified by Scout 2026-08-22: lake env lean exit 0, zero sorry/admit/axiom.",
+      "expected": "formalize-only",
+      "lean_artifact": "proofs/lean-project/ProofLab/VanDerWaerden.lean"
     }
   ],
-  "updated_at": "2026-08-08T11:50:00Z",
+  "updated_at": "2026-08-22T12:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
