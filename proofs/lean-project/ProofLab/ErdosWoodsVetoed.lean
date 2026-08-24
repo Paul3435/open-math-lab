@@ -1,3 +1,9 @@
+-- =============================================================================
+-- HARD VETO (OPE-15 / OPE-391): WRONG DEFINITION — DO NOT IMPORT OR REVIVE.
+-- Former name: ProofLab/ErdosWoods.lean
+-- Problems: closed interval, PrimeDistinguishes XOR, spurious witness a=5.
+-- Correct formalization: ProofLab/ErdosWoodsCorrect.lean (k=16, a=2184).
+-- =============================================================================
 -- PSEUDO-LEAN (not type-checked — Lean toolchain not installed)
 -- Formalization draft for Erdős-Woods k=16 verification
 -- Status: Draft — requires Lean installation to build

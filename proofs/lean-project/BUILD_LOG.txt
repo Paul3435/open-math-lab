@@ -6,3 +6,9 @@ note: this linter can be disabled with `set_option linter.unnecessarySimpa false
 warning: .\.\.\.\ProofLab\Ramsey.lean:709:4: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
 Build completed successfully.
+
+--- OPE-391 2026-08-24T13:34Z ---
+lake build ProofLab.ErdosWoodsCorrect → success
+lake env lean ProofLab/ErdosWoodsCorrect.lean → EXIT=0
+lake env lean ProofLab.lean → EXIT=0
+zero sorry/admit/axiom in ErdosWoodsCorrect.lean
