@@ -36,7 +36,7 @@
       "source": "internal-demo",
       "status": "seed",
       "feasibility": null,
-      "notes": "Placeholder for pipeline demos — NOT an open research target.",
+      "notes": "Placeholder for pipeline demos \u2014 NOT an open research target.",
       "expected": "known-classical"
     },
     {
@@ -55,7 +55,7 @@
     },
     {
       "id": "erdos-woods",
-      "title": "Erdős-Woods k=16 Formalization",
+      "title": "Erd\u0151s-Woods k=16 Formalization",
       "status": "formalized",
       "domain": "elementary_number_theory",
       "tickets": [
@@ -63,7 +63,7 @@
         "OPE-15"
       ],
       "claim_status": "vetoed",
-      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet. | Scout refresh 2026-08-22 (OPE-334): leading next-prime candidate — literature definition pinned in STATEMENT.md; witness (16,2184) re-verified by bounded Python check (all interior j of (2184,2200) share a prime factor with 2184 or 2200); minimal-for-k claim NOT re-proven (out of scout scope). formalize-only, no novelty claim. | OPE-390 Scout 2026-08-24: CLOSED by OPE-391 (Formalist) mid-flight — zero-sorry Lean witness (ProofLab/ErdosWoodsCorrect.lean), gate independently re-verified by Scout (lake env lean EXIT=0). Dropped from shortlist as attack candidate; upstreaming to Mathlib is possible future work.",
+      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet. | Scout refresh 2026-08-22 (OPE-334): leading next-prime candidate \u2014 literature definition pinned in STATEMENT.md; witness (16,2184) re-verified by bounded Python check (all interior j of (2184,2200) share a prime factor with 2184 or 2200); minimal-for-k claim NOT re-proven (out of scout scope). formalize-only, no novelty claim. | OPE-390 Scout 2026-08-24: CLOSED by OPE-391 (Formalist) mid-flight \u2014 zero-sorry Lean witness (ProofLab/ErdosWoodsCorrect.lean), gate independently re-verified by Scout (lake env lean EXIT=0). Dropped from shortlist as attack candidate; upstreaming to Mathlib is possible future work.",
       "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair",
       "expected": "known-classical",
       "scout_refresh": {
@@ -86,7 +86,7 @@
       "issue": "OPE-22",
       "mathlib_covered": true,
       "mathlib_ref": "Mathlib/NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair",
-      "note": "OPE-25 Scout RATIFIED AS PROCESS-FUEL ONLY—NOT A GAP PRIME. v4.10.0 verify shows the two-coin theorem is ALREADY in Mathlib (NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair, Chicken McNugget g(m,n)=m*n-m-n for Coprime m n, 1<m, 1<n). Dossier 'Mathlib gap' claim was FALSE. OPE-22 continues as Lean/process practice only (no novelty, no contribution). Supersede as formalization bet; keep as ratify-as-process-fuel. Classical known theorem.",
+      "note": "OPE-25 Scout RATIFIED AS PROCESS-FUEL ONLY\u2014NOT A GAP PRIME. v4.10.0 verify shows the two-coin theorem is ALREADY in Mathlib (NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair, Chicken McNugget g(m,n)=m*n-m-n for Coprime m n, 1<m, 1<n). Dossier 'Mathlib gap' claim was FALSE. OPE-22 continues as Lean/process practice only (no novelty, no contribution). Supersede as formalization bet; keep as ratify-as-process-fuel. Classical known theorem.",
       "artifacts": [
         "catalog/problems/frobenius-coin-problem/",
         "problems/frobenius-coin-problem/"
@@ -99,10 +99,10 @@
     },
     {
       "id": "graceful-tree-conjecture",
-      "title": "Graceful Labeling - Caterpillar Trees n≤12",
+      "title": "Graceful Labeling - Caterpillar Trees n\u226412",
       "status": "heuristic",
       "domain": "graph_theory",
-      "result": "All 560 non-isomorphic caterpillar trees with n≤12 vertices admit graceful labelings (computational verification, 0 failures)",
+      "result": "All 560 non-isomorphic caterpillar trees with n\u226412 vertices admit graceful labelings (computational verification, 0 failures)",
       "attack": "attacks/graceful-tree-conjecture-20260731-094627",
       "tickets": [
         "OPE-13",
@@ -122,7 +122,7 @@
     },
     {
       "id": "ramsey-r33",
-      "title": "Finite graph Ramsey numbers — R(3,3)=6 / R(4,4)=18 (formalize-only)",
+      "title": "Finite graph Ramsey numbers \u2014 R(3,3)=6 / R(4,4)=18 (formalize-only)",
       "domain": [
         "graph_theory"
       ],
@@ -150,7 +150,7 @@
       },
       "notes": "Finitary exhaustive/SAT cert; Mathlib gap (no ramseyNumber theorem) | OPE-44 CLOSED 2026-08-24: R(3,3)=6 / R(3,4)=9 / R(4,4)=18 all zero-sorry (ramsey33_eq_6, ramsey34_eq_9, ramsey44_eq_18). Board independent lake env lean EXIT=0. formalize-only, no claim.",
       "expected": "known-classical",
-      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/",
+      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only \u2014 do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/",
       "lean_artifact": "proofs/lean-project/ProofLab/Ramsey.lean"
     },
     {
@@ -183,7 +183,7 @@
       },
       "notes": "Finitary partition check; Mathlib gap (no SchurNumber combinatorics) | Scout keep-fresh (2026-08-22): PR #17 MERGED to main; S(2)=4 / S(3)=13 Lean zero-sorry landed (schur2_lower/schur2_le_4, schur3_lower/schur3_le_13, native_decide; x=y allowed convention pinned). Gate re-verified by Scout 2026-08-22.",
       "expected": "known-classical",
-      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/schur-number/",
+      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only \u2014 do NOT re-fund as novel research. Dossier: catalog/problems/schur-number/",
       "lean_artifact": "proofs/lean-project/ProofLab/SchurNumber.lean"
     },
     {
@@ -199,7 +199,7 @@
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline. | OPE-402 (2026-08-24): retained as wave BENCH fallback (number-theory continuity) behind happy-ending-es3 prime.",
+      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts \u22611,2 mod 3; B(n)=# parts \u2261\u00b11 mod 6 (reps OK). Earlier draft swapped distinctness \u2014 that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline. | OPE-402 (2026-08-24): retained as wave BENCH fallback (number-theory continuity) behind happy-ending-es3 prime.",
       "artifacts": [
         "problems/schur-partition/"
       ],
@@ -217,7 +217,7 @@
         },
         "budget_tokens_estimate": 220000,
         "recommendation": "formalize-only",
-        "rationale": "Genuine Mathlib gap (Schur partition theorem, 1926: #parts ≡1,2 mod 3 = #distinct parts ≡±1 mod 6). Partition infra (Nat.Partition) exists; theorem NOT in Mathlib. No prospect of novelty claim; clean formalize-only bet with finite n verification. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
+        "rationale": "Genuine Mathlib gap (Schur partition theorem, 1926: #parts \u22611,2 mod 3 = #distinct parts \u2261\u00b11 mod 6). Partition infra (Nat.Partition) exists; theorem NOT in Mathlib. No prospect of novelty claim; clean formalize-only bet with finite n verification. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
         "overall_1_to_5": 5.0
       },
       "director_approved": true,
@@ -233,18 +233,18 @@
         "OPE-14"
       ],
       "score": 90,
-      "note": "Classical Erdős (1965) n/3 bound — process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
+      "note": "Classical Erd\u0151s (1965) n/3 bound \u2014 process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
       "attack": "attacks/sum-free-subsets-20260730-221216",
       "expected": "known-classical",
       "residual_risks": [
         "main Lean theorem incomplete / strategy mismatch at last review",
-        "known theorem — no novelty claim",
+        "known theorem \u2014 no novelty claim",
         "modulo-3 construction alone is insufficient (multiples of 3)"
       ]
     },
     {
       "id": "van-der-waerden-w23",
-      "title": "Van der Waerden finite form — W(2,3) = 9 (formalize-only)",
+      "title": "Van der Waerden finite form \u2014 W(2,3) = 9 (formalize-only)",
       "domain": "additive_combinatorics",
       "source": "mathlib-gap",
       "status": "formalized",
@@ -314,11 +314,17 @@
     {
       "id": "happy-ending-es3",
       "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
-      "status": "shortlisted",
+      "status": "in_progress",
       "domain": "discrete_geometry",
       "score": 78,
-      "note": "OPE-390 Scout prime recommendation RATIFIED by Director OPE-402 (2026-08-24): approved wave PRIME. STATEMENT pinned problems/happy-ending-es3/STATEMENT.md. Formalize-only ES(3)=5; new orientation/order-type plumbing is itself Mathlib-gap material. ES(4)=9 stretch only. No claim.",
-      "expected": "known-classical"
+      "note": "OPE-403 Attack Lead PARTIAL formalize (2026-08-24): zero-sorry plumbing in ProofLab/HappyEndingES3.lean (orient, barycentric triangle membership, hull vertices, convexIndependent_hull_vertices) + es_three_eq_five_of_hull_card_ge_four. Residual: triangle+2-interior separating-line case. lake env lean EXIT=0; lake build ProofLab green. Formalize-only, no claim. STATEMENT pin OPE-402. ",
+      "expected": "known-classical",
+      "issue": "OPE-403",
+      "artifacts": [
+        "problems/happy-ending-es3/STATEMENT.md",
+        "proofs/lean-project/ProofLab/HappyEndingES3.lean",
+        "attacks/happy-ending-es3-20260824-ope403/"
+      ]
     }
   ],
   "updated_at": "2026-08-24T13:35:40Z",
