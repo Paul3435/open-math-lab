@@ -1,15 +1,8 @@
-Build completed successfully (library modules).
-
-The full `proofs/lean-project` library compiles cleanly: `lake build ProofLab.Ramsey`
-→ "Build completed successfully." and `lake env lean ProofLab.lean` → exit 0.
-
-Known environment note (pre-existing, NOT a math/logic issue): the final executable
-link step (`leanc.exe`, producing `proof-lab.exe`) fails on this Windows host with
-error code 206 (command-line too long) because the full Mathlib dependency list
-exceeds the Windows command-line length limit.  This affects linking the binary
-only; every Lean module (ProofLab.Ramsey, ProofLab, Main, and dependencies)
-type-checks and builds to .olean successfully.  The project's documented verification
-gate is `lake env lean ProofLab/<Module>.lean` → exit 0 (see VERIFY.md), which passes.
-
-Ramsey module added by OPE-44 (Attack Lead): ProofLab/Ramsey.lean,
-containing zero-`sorry` certified proofs of R(3,3) ≤ 6 and R(3,3) > 5.
+⚠ [2253/2253] Replayed ProofLab.Ramsey
+warning: .\.\.\.\ProofLab\Ramsey.lean:317:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: .\.\.\.\ProofLab\Ramsey.lean:514:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: .\.\.\.\ProofLab\Ramsey.lean:709:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+Build completed successfully.

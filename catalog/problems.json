@@ -36,7 +36,7 @@
       "source": "internal-demo",
       "status": "seed",
       "feasibility": null,
-      "notes": "Placeholder for pipeline demos — NOT an open research target.",
+      "notes": "Placeholder for pipeline demos \u2014 NOT an open research target.",
       "expected": "known-classical"
     },
     {
@@ -55,7 +55,7 @@
     },
     {
       "id": "erdos-woods",
-      "title": "Erdős-Woods k=16 Formalization",
+      "title": "Erd\u0151s-Woods k=16 Formalization",
       "status": "candidate",
       "domain": "elementary_number_theory",
       "tickets": [
@@ -77,7 +77,7 @@
       "issue": "OPE-22",
       "mathlib_covered": true,
       "mathlib_ref": "Mathlib/NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair",
-      "note": "OPE-25 Scout RATIFIED AS PROCESS-FUEL ONLY—NOT A GAP PRIME. v4.10.0 verify shows the two-coin theorem is ALREADY in Mathlib (NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair, Chicken McNugget g(m,n)=m*n-m-n for Coprime m n, 1<m, 1<n). Dossier 'Mathlib gap' claim was FALSE. OPE-22 continues as Lean/process practice only (no novelty, no contribution). Supersede as formalization bet; keep as ratify-as-process-fuel. Classical known theorem.",
+      "note": "OPE-25 Scout RATIFIED AS PROCESS-FUEL ONLY\u2014NOT A GAP PRIME. v4.10.0 verify shows the two-coin theorem is ALREADY in Mathlib (NumberTheory/FrobeniusNumber.lean :: frobeniusNumber_pair, Chicken McNugget g(m,n)=m*n-m-n for Coprime m n, 1<m, 1<n). Dossier 'Mathlib gap' claim was FALSE. OPE-22 continues as Lean/process practice only (no novelty, no contribution). Supersede as formalization bet; keep as ratify-as-process-fuel. Classical known theorem.",
       "artifacts": [
         "catalog/problems/frobenius-coin-problem/",
         "problems/frobenius-coin-problem/"
@@ -90,10 +90,10 @@
     },
     {
       "id": "graceful-tree-conjecture",
-      "title": "Graceful Labeling - Caterpillar Trees n≤12",
+      "title": "Graceful Labeling - Caterpillar Trees n\u226412",
       "status": "heuristic",
       "domain": "graph_theory",
-      "result": "All 560 non-isomorphic caterpillar trees with n≤12 vertices admit graceful labelings (computational verification, 0 failures)",
+      "result": "All 560 non-isomorphic caterpillar trees with n\u226412 vertices admit graceful labelings (computational verification, 0 failures)",
       "attack": "attacks/graceful-tree-conjecture-20260731-094627",
       "tickets": [
         "OPE-13",
@@ -113,12 +113,12 @@
     },
     {
       "id": "ramsey-r33",
-      "title": "Finite graph Ramsey numbers — R(3,3)=6 / R(4,4)=18 (formalize-only)",
+      "title": "Finite graph Ramsey numbers \u2014 R(3,3)=6 / R(4,4)=18 (formalize-only)",
       "domain": [
         "graph_theory"
       ],
       "source": "mathlib-gap",
-      "status": "shortlisted",
+      "status": "formalized",
       "director_approved": true,
       "issue": "OPE-44",
       "sprint": "OPE-43",
@@ -135,13 +135,13 @@
           "crackpot_risk": 1.0
         },
         "budget_tokens_estimate": 160000,
-        "recommendation": "formalize-only",
+        "recommendation": "formalized (formalize-only, OPE-44 closed)",
         "rationale": "Finitary 2-colour Ramsey; Mathlib has coloring/clique infra but no ramsey theorem (gap confirmed v4.10.0). R(3,3)=6 clean hand proof; R(4,4)=18 certified exhaustive/SAT. formalize-only, no novelty claim.",
         "overall_1_to_5": 5.0
       },
       "notes": "Finitary exhaustive/SAT cert; Mathlib gap (no ramseyNumber theorem)",
       "expected": "known-classical",
-      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/"
+      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only \u2014 do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/"
     },
     {
       "id": "schur-number",
@@ -173,7 +173,7 @@
       },
       "notes": "Finitary partition check; Mathlib gap (no SchurNumber combinatorics)",
       "expected": "known-classical",
-      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/schur-number/"
+      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only \u2014 do NOT re-fund as novel research. Dossier: catalog/problems/schur-number/"
     },
     {
       "id": "schur-partition",
@@ -188,7 +188,7 @@
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline.",
+      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts \u22611,2 mod 3; B(n)=# parts \u2261\u00b11 mod 6 (reps OK). Earlier draft swapped distinctness \u2014 that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline.",
       "artifacts": [
         "problems/schur-partition/"
       ],
@@ -206,7 +206,7 @@
         },
         "budget_tokens_estimate": 220000,
         "recommendation": "formalize-only",
-        "rationale": "Genuine Mathlib gap (Schur partition theorem, 1926: #parts ≡1,2 mod 3 = #distinct parts ≡±1 mod 6). Partition infra (Nat.Partition) exists; theorem NOT in Mathlib. No prospect of novelty claim; clean formalize-only bet with finite n verification. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
+        "rationale": "Genuine Mathlib gap (Schur partition theorem, 1926: #parts \u22611,2 mod 3 = #distinct parts \u2261\u00b11 mod 6). Partition infra (Nat.Partition) exists; theorem NOT in Mathlib. No prospect of novelty claim; clean formalize-only bet with finite n verification. Definition risk: exact congruence statement must be pinned to Schur 1926/Andrews before attack.",
         "overall_1_to_5": 5.0
       },
       "director_approved": true,
@@ -222,18 +222,18 @@
         "OPE-14"
       ],
       "score": 90,
-      "note": "Classical Erdős (1965) n/3 bound — process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
+      "note": "Classical Erd\u0151s (1965) n/3 bound \u2014 process demo, not discovery. Compute verification strong; adversarial review blocked claim (sorry count + strategy mismatch + Lean not built at review time). OPE-14 may still be open on the board for cleanup; do not escalate as novel research.",
       "attack": "attacks/sum-free-subsets-20260730-221216",
       "expected": "known-classical",
       "residual_risks": [
         "main Lean theorem incomplete / strategy mismatch at last review",
-        "known theorem — no novelty claim",
+        "known theorem \u2014 no novelty claim",
         "modulo-3 construction alone is insufficient (multiples of 3)"
       ]
     },
     {
       "id": "van-der-waerden-w23",
-      "title": "Van der Waerden finite form — W(2,3) = 9 (formalize-only)",
+      "title": "Van der Waerden finite form \u2014 W(2,3) = 9 (formalize-only)",
       "domain": "additive_combinatorics",
       "source": "mathlib-gap",
       "status": "shortlisted",
@@ -266,9 +266,32 @@
       "mathlib_ref": "Mathlib/Combinatorics/HalesJewett.lean (TODO: prove finitary Van der Waerden)",
       "notes": "Scout keep-fresh (2026-08-07): replaced seed placeholder. Finitary VdW is an explicit TODO in local Mathlib pin (HalesJewett.lean ~L50-53); infinitary VdW + exists_mono_homothetic_copy already present. W(2,3)=9 exact classical value, fully decidable (Fin 8/Fin 9). formalize-only; no novelty claim.",
       "expected": "formalize-only"
+    },
+    {
+      "id": "mathlib-gap-candidate",
+      "title": "Mathlib formalization gap (TBD by Scout)",
+      "domain": [
+        "formalization"
+      ],
+      "source": "mathlib-wishlist",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Scout replaces with a real, small formalization task."
+    },
+    {
+      "id": "oeis-finite-check-candidate",
+      "title": "Finite OEIS / computational conjecture check (TBD)",
+      "domain": [
+        "experimental",
+        "combinatorics"
+      ],
+      "source": "oeis-style",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Prefer decidable finite checks with clear bounds."
     }
   ],
-  "updated_at": "2026-08-08T11:50:00Z",
+  "updated_at": "2026-08-24T13:06:37Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

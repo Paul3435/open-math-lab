@@ -508,10 +508,10 @@ theorem ramsey33_clique_inside_finset {V : Type*} [LinearOrder V] [DecidableEq V
     (S : Finset V) (hS : S.card = 6) :
     (∃ t ⊆ S, G.IsNClique 3 t) ∨ (∃ t ⊆ S, Gᶜ.IsNClique 3 t) := by
   classical
-  let f : Fin 6 ↪ V := (S.orderEmbOfFin hS).toEmbedding
+  let emb := S.orderEmbOfFin hS
+  let f : Fin 6 ↪ V := emb.toEmbedding
   have f_mem : ∀ i, f i ∈ S := fun i => by
-    -- orderEmbOfFin lands in S
-    simpa using Finset.orderEmbOfFin_mem S hS i
+    simpa [f, emb] using (Finset.orderEmbOfFin_mem S hS i)
   rcases ramsey33_fin6 (G.comap f) with h | h
   · left
     obtain ⟨s, hs⟩ := h
@@ -528,7 +528,6 @@ theorem ramsey33_clique_inside_finset {V : Type*} [LinearOrder V] [DecidableEq V
       have hadj : (G.comap f).Adj a b := hs.1 ha hb hab
       simpa [comap_adj] using hadj
   · right
-    -- h : HasClique (G.comap f)ᶜ 3; rewrite to Gᶜ.comap f
     have h' : HasClique (Gᶜ.comap f) 3 := by
       rwa [← comap_compl_eq_of_injective f G]
     obtain ⟨s, hs⟩ := h'
@@ -607,10 +606,10 @@ lemma red_degree_le_three_of_no_cliques (G : SimpleGraph (Fin 9))
   have hN : 4 ≤ (G.neighborFinset v).card := by
     simpa [card_neighborFinset_eq_degree] using hge
   rcases extract4 hN with ⟨a, b, c, d, ha, hb, hc, hd, hab, hac, had, hbc, hbd, hcd⟩
-  have hva : G.Adj v a := (mem_neighborFinset _ _).mp ha
-  have hvb : G.Adj v b := (mem_neighborFinset _ _).mp hb
-  have hvc : G.Adj v c := (mem_neighborFinset _ _).mp hc
-  have hvd : G.Adj v d := (mem_neighborFinset _ _).mp hd
+  have hva : G.Adj v a := by simpa [mem_neighborFinset] using ha
+  have hvb : G.Adj v b := by simpa [mem_neighborFinset] using hb
+  have hvc : G.Adj v c := by simpa [mem_neighborFinset] using hc
+  have hvd : G.Adj v d := by simpa [mem_neighborFinset] using hd
   by_cases eab : G.Adj a b
   · exact hno3 (clique3_of_adj G (G.ne_of_adj hva) (G.ne_of_adj hvb) hab hva hvb eab)
   by_cases eac : G.Adj a c
@@ -647,7 +646,7 @@ lemma blue_degree_le_five_of_no_cliques (G : SimpleGraph (Fin 9))
       intro x hx
       have hxS : x ∈ S := ht_sub hx
       have hxN : x ∈ Gᶜ.neighborFinset v := hSsub hxS
-      exact (mem_neighborFinset _ _).mp hxN
+      simpa [mem_neighborFinset] using hxN
     exact hno4 (hasClique_insert_common (Gᶜ) ht hv_adj)
 
 /-- **R(3,4) ≤ 9**: every red/blue colouring of `K_9` has a red triangle or a
@@ -666,13 +665,15 @@ theorem ramsey34_le_9 : RamseyUpper 3 4 9 := by
     blue_degree_le_five_of_no_cliques G h3 h4 v
   have hsum : ∀ v, G.degree v + Gᶜ.degree v = 8 := by
     intro v
-    have hdc := degree_compl_fin G v
+    have hdc : Gᶜ.degree v = 9 - 1 - G.degree v := degree_compl_fin G v
+    have hlt : G.degree v < 9 := by
+      simpa using G.degree_lt_card_verts v
     omega
   have hblue_eq : ∀ v, Gᶜ.degree v = 5 := by
     intro v
-    have := hsum v
-    have := hred v
-    have := hblue_le v
+    have hs := hsum v
+    have hr := hred v
+    have hb := hblue_le v
     omega
   exact (not_five_regular_fin9 (Gᶜ) hblue_eq).elim
 
@@ -702,9 +703,10 @@ theorem ramseyUpper_clique_inside_finset {k l n : ℕ} (hR : RamseyUpper k l n)
     (S : Finset V) (hS : S.card = n) (G : SimpleGraph V) [DecidableRel G.Adj] :
     (∃ t ⊆ S, G.IsNClique k t) ∨ (∃ t ⊆ S, Gᶜ.IsNClique l t) := by
   classical
-  let f : Fin n ↪ V := (S.orderEmbOfFin hS).toEmbedding
+  let emb := S.orderEmbOfFin hS
+  let f : Fin n ↪ V := emb.toEmbedding
   have f_mem : ∀ i, f i ∈ S := fun i => by
-    simpa using Finset.orderEmbOfFin_mem S hS i
+    simpa [f, emb] using (Finset.orderEmbOfFin_mem S hS i)
   let G0 : SimpleGraph (Fin n) := G.comap f
   rcases hR G0 with hk | hl
   · left
@@ -740,22 +742,24 @@ theorem ramseyUpper_clique_inside_finset {k l n : ℕ} (hR : RamseyUpper k l n)
 
 /-! ## Classical recurrence R(k,l) ≤ R(k-1,l) + R(k,l-1) -/
 
-/-- The classical Ramsey recurrence. -/
+/-- The classical Ramsey recurrence. Requires `0 < a + b` so `Fin (a+b)` is
+nonempty (holds for the concrete instances `a,b ≥ 1` used below). -/
 theorem ramseyUpper_add {k l a b : ℕ}
     (hk : 2 ≤ k) (hl : 2 ≤ l)
+    (hpos : 0 < a + b)
     (ha : RamseyUpper (k - 1) l a) (hb : RamseyUpper k (l - 1) b) :
     RamseyUpper k l (a + b) := by
   classical
   intro G
   letI : DecidableRel G.Adj := Classical.decRel _
-  let v : Fin (a + b) := ⟨0, by omega⟩
+  let v : Fin (a + b) := ⟨0, hpos⟩
   let R := G.neighborFinset v
   let B := Gᶜ.neighborFinset v
   have hdisj : Disjoint R B := by
     rw [disjoint_left]
     intro x hxR hxB
-    have h1 := (mem_neighborFinset G v x).mp hxR
-    have h2 := (mem_neighborFinset Gᶜ v x).mp hxB
+    have h1 : G.Adj v x := by simpa [R, mem_neighborFinset] using hxR
+    have h2 : Gᶜ.Adj v x := by simpa [B, mem_neighborFinset] using hxB
     simp [compl_adj] at h2
     exact h2.2 h1
   have hcard_sum : R.card + B.card = a + b - 1 := by
@@ -767,17 +771,14 @@ theorem ramseyUpper_add {k l a b : ℕ}
       by_cases hx : x = v
       · subst x
         simp [R, B, mem_neighborFinset, SimpleGraph.irrefl]
-      · have hxv : x ≠ v := hx
-        simp [R, B, mem_neighborFinset, compl_adj, hxv, Ne.symm hxv]
-        constructor
-        · intro h
-          cases h with
-          | inl hr => exact Or.inl hr
-          | inr hb' => exact Or.inr hb'.2
-        · intro h
-          cases h with
-          | inl hr => exact Or.inl hr
-          | inr hb' => exact Or.inr ⟨Ne.symm hxv, hb'⟩
+      · constructor
+        · intro _hmem
+          exact mem_erase.mpr ⟨hx, mem_univ x⟩
+        · intro _hmem
+          simp only [mem_union, R, B, mem_neighborFinset, compl_adj]
+          by_cases h : G.Adj v x
+          · exact Or.inl h
+          · exact Or.inr ⟨Ne.symm hx, h⟩
     have hc := card_union_of_disjoint hdisj
     rw [← hc, hRB, hez]
   by_cases hRge : a ≤ R.card
@@ -786,7 +787,8 @@ theorem ramseyUpper_add {k l a b : ℕ}
     · rcases hred with ⟨t, ht_sub, ht⟩
       have hv_adj : ∀ x ∈ t, G.Adj v x := by
         intro x hx
-        exact (mem_neighborFinset _ _).mp (hs_sub (ht_sub hx))
+        have : x ∈ R := hs_sub (ht_sub hx)
+        simpa [R, mem_neighborFinset] using this
       have hkm : k - 1 + 1 = k := by omega
       have hcl : G.IsNClique k (insert v t) := by
         have hins := ht.insert hv_adj
@@ -802,7 +804,8 @@ theorem ramseyUpper_add {k l a b : ℕ}
     · rcases hblue with ⟨t, ht_sub, ht⟩
       have hv_adj : ∀ x ∈ t, Gᶜ.Adj v x := by
         intro x hx
-        exact (mem_neighborFinset _ _).mp (hs_sub (ht_sub hx))
+        have : x ∈ B := hs_sub (ht_sub hx)
+        simpa [B, mem_neighborFinset] using this
       have hlm : l - 1 + 1 = l := by omega
       have hcl : Gᶜ.IsNClique l (insert v t) := by
         have hins := ht.insert hv_adj
@@ -814,7 +817,7 @@ theorem ramsey44_le_18 : RamseyUpper 4 4 18 := by
   have h34 : RamseyUpper 3 4 9 := ramsey34_le_9
   have h43 : RamseyUpper 4 3 9 := (ramseyUpper_swap 3 4 9).1 h34
   simpa using ramseyUpper_add (k := 4) (l := 4) (a := 9) (b := 9)
-    (by norm_num) (by norm_num) h34 h43
+    (by norm_num) (by norm_num) (by norm_num) h34 h43
 
 /-- **R(4,4) = 18** as a pair of bounds. -/
 theorem ramsey44_eq_18 : (¬ RamseyUpper 4 4 17) ∧ RamseyUpper 4 4 18 :=
