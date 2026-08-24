@@ -14,14 +14,17 @@
     "inConvexPosition4_iff_convexIndependent_F1",
     "exists_convexIndependent_of_inConvexPosition4",
     "exists_hull_vertex_min",
+    "proj_orient_sums_max_orient_hull_vertex",
+    "exists_third_hull_vertex",
+    "hullVertices_card_ge_two",
+    "hullVertices_card_ge_three_of_gp",
     "prior_ope403_plumbing_and_hull_ge_four"
   ],
   "residual": [
-    "hull_card_ge_three_under_gp",
     "triangle_plus_two_interior_separating_line_case",
     "full_es_three_eq_five_glue"
   ],
   "base_branch": "ope/403-happy-ending-es3",
   "note_f2": "board merges PR#23 then #24; no agent merges",
-  "updated_at": "2026-08-24T21:00:00Z"
+  "updated_at": "2026-08-24T21:40:00Z"
 }

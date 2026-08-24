@@ -23,11 +23,12 @@ import Mathlib.Tactic
 9. `es_three_eq_five_of_hull_card_ge_four` (hull ≥ 4 case)
 10. `EsThreeEqFiveStatement` / `GeneralPosition` predicates (1:1 with STATEMENT)
 11. **F1** `inConvexPosition4_iff_convexIndependent` (OPE-410)
-12. `exists_hull_vertex_min` (lex-min dual; OPE-410 hull progress)
+12. `exists_hull_vertex_min` (lex-min dual; OPE-410)
+13. `proj` / orient-proj sums / `isHullVertex_of_max_orient_proj`
+14. `exists_third_hull_vertex`, `hullVertices_card_ge_two`, `hullVertices_card_ge_three_of_gp`
 
 ## Residual (OPE-410)
 
-- `GP ∧ card≥3 ⇒ hull.card ≥ 3` (third vertex via max-orient / off-line)
 - Triangle + 2-interior separating-line orientation bash
 - Full `es_three_eq_five` discharging `EsThreeEqFiveStatement`
 
@@ -517,6 +518,413 @@ theorem exists_hull_vertex_min (s : Finset P) (hs : s.Nonempty) :
   have hy' := hy
   rw [yeq] at hy'
   exact absurd hy' (not_mem_erase q s)
+
+
+/-! ## Orientation affine sums + hull-card lower bounds (OPE-410) -/
+
+/-- Projection of `x - a` onto `b - a`. -/
+def proj (a b x : P) : ℝ :=
+  (x.1 - a.1) * (b.1 - a.1) + (x.2 - a.2) * (b.2 - a.2)
+
+lemma orient_sum_of_weight_one (a b : P) (s : Finset P) (w : P → ℝ)
+    (hw1 : ∑ y ∈ s, w y = 1) :
+    orient a b (∑ y ∈ s, w y • y) = ∑ y ∈ s, w y * orient a b y := by
+  unfold orient
+  have h1 : (∑ y ∈ s, w y • y).1 = ∑ y ∈ s, w y * y.1 := by
+    simp [Prod.fst_sum, Prod.smul_fst, smul_eq_mul]
+  have h2 : (∑ y ∈ s, w y • y).2 = ∑ y ∈ s, w y * y.2 := by
+    simp [Prod.snd_sum, Prod.smul_snd, smul_eq_mul]
+  rw [h1, h2]
+  have hy2 : (∑ y ∈ s, w y * y.2) - a.2 = ∑ y ∈ s, w y * (y.2 - a.2) := by
+    calc
+      (∑ y ∈ s, w y * y.2) - a.2
+          = (∑ y ∈ s, w y * y.2) - a.2 * (∑ y ∈ s, w y) := by rw [hw1]; ring
+      _ = (∑ y ∈ s, w y * y.2) - ∑ y ∈ s, a.2 * w y := by simp [mul_sum]
+      _ = ∑ y ∈ s, (w y * y.2 - a.2 * w y) := by rw [← sum_sub_distrib]
+      _ = ∑ y ∈ s, w y * (y.2 - a.2) := by congr 1; ext y; ring
+  have hy1 : (∑ y ∈ s, w y * y.1) - a.1 = ∑ y ∈ s, w y * (y.1 - a.1) := by
+    calc
+      (∑ y ∈ s, w y * y.1) - a.1
+          = (∑ y ∈ s, w y * y.1) - a.1 * (∑ y ∈ s, w y) := by rw [hw1]; ring
+      _ = (∑ y ∈ s, w y * y.1) - ∑ y ∈ s, a.1 * w y := by simp [mul_sum]
+      _ = ∑ y ∈ s, (w y * y.1 - a.1 * w y) := by rw [← sum_sub_distrib]
+      _ = ∑ y ∈ s, w y * (y.1 - a.1) := by congr 1; ext y; ring
+  rw [hy2, hy1, mul_sum, mul_sum, ← sum_sub_distrib]
+  congr 1; ext y; ring
+
+lemma proj_sum_of_weight_one (a b : P) (s : Finset P) (w : P → ℝ)
+    (hw1 : ∑ y ∈ s, w y = 1) :
+    proj a b (∑ y ∈ s, w y • y) = ∑ y ∈ s, w y * proj a b y := by
+  unfold proj
+  have h1 : (∑ y ∈ s, w y • y).1 = ∑ y ∈ s, w y * y.1 := by
+    simp [Prod.fst_sum, Prod.smul_fst, smul_eq_mul]
+  have h2 : (∑ y ∈ s, w y • y).2 = ∑ y ∈ s, w y * y.2 := by
+    simp [Prod.snd_sum, Prod.smul_snd, smul_eq_mul]
+  rw [h1, h2]
+  have hy1 : (∑ y ∈ s, w y * y.1) - a.1 = ∑ y ∈ s, w y * (y.1 - a.1) := by
+    calc
+      (∑ y ∈ s, w y * y.1) - a.1
+          = (∑ y ∈ s, w y * y.1) - a.1 * (∑ y ∈ s, w y) := by rw [hw1]; ring
+      _ = (∑ y ∈ s, w y * y.1) - ∑ y ∈ s, a.1 * w y := by simp [mul_sum]
+      _ = ∑ y ∈ s, (w y * y.1 - a.1 * w y) := by rw [← sum_sub_distrib]
+      _ = ∑ y ∈ s, w y * (y.1 - a.1) := by congr 1; ext y; ring
+  have hy2 : (∑ y ∈ s, w y * y.2) - a.2 = ∑ y ∈ s, w y * (y.2 - a.2) := by
+    calc
+      (∑ y ∈ s, w y * y.2) - a.2
+          = (∑ y ∈ s, w y * y.2) - a.2 * (∑ y ∈ s, w y) := by rw [hw1]; ring
+      _ = (∑ y ∈ s, w y * y.2) - ∑ y ∈ s, a.2 * w y := by simp [mul_sum]
+      _ = ∑ y ∈ s, (w y * y.2 - a.2 * w y) := by rw [← sum_sub_distrib]
+      _ = ∑ y ∈ s, w y * (y.2 - a.2) := by congr 1; ext y; ring
+  rw [hy1, hy2, sum_mul, sum_mul, ← sum_add_distrib]
+  congr 1; ext y; ring
+
+lemma eq_of_orient_eq_proj_eq {a b x y : P} (hab : a ≠ b)
+    (ho : orient a b x = orient a b y) (hp : proj a b x = proj a b y) :
+    x = y := by
+  dsimp [orient, proj] at ho hp
+  have hdet : (b.1 - a.1) * (x.2 - y.2) - (b.2 - a.2) * (x.1 - y.1) = 0 := by linarith
+  have hdot : (b.1 - a.1) * (x.1 - y.1) + (b.2 - a.2) * (x.2 - y.2) = 0 := by linarith
+  have hab' : b.1 ≠ a.1 ∨ b.2 ≠ a.2 := by
+    by_contra h; push_neg at h
+    exact hab (Prod.ext (by linarith) (by linarith))
+  have hsumsq :
+      ((b.1 - a.1) ^ 2 + (b.2 - a.2) ^ 2) * ((x.1 - y.1) ^ 2 + (x.2 - y.2) ^ 2) = 0 := by
+    have hid :
+        ((b.1 - a.1) ^ 2 + (b.2 - a.2) ^ 2) * ((x.1 - y.1) ^ 2 + (x.2 - y.2) ^ 2) =
+          ((b.1 - a.1) * (x.1 - y.1) + (b.2 - a.2) * (x.2 - y.2)) ^ 2 +
+            ((b.1 - a.1) * (x.2 - y.2) - (b.2 - a.2) * (x.1 - y.1)) ^ 2 := by ring
+    rw [hid, hdot, hdet]; ring
+  have hnorm : (b.1 - a.1) ^ 2 + (b.2 - a.2) ^ 2 ≠ 0 := by
+    intro h
+    cases hab' with
+    | inl hx => nlinarith [sq_pos_of_ne_zero (sub_ne_zero.mpr hx.symm)]
+    | inr hy => nlinarith [sq_pos_of_ne_zero (sub_ne_zero.mpr hy.symm)]
+  have hxy : (x.1 - y.1) ^ 2 + (x.2 - y.2) ^ 2 = 0 := by
+    have hA : 0 < (b.1 - a.1) ^ 2 + (b.2 - a.2) ^ 2 :=
+      lt_of_le_of_ne (by positivity) (Ne.symm hnorm)
+    exact (mul_eq_zero.mp hsumsq).resolve_left (ne_of_gt hA)
+  apply Prod.ext
+  · have : (x.1 - y.1) ^ 2 ≤ 0 := by nlinarith [sq_nonneg (x.2 - y.2)]
+    nlinarith [sq_nonneg (x.1 - y.1)]
+  · have : (x.2 - y.2) ^ 2 ≤ 0 := by nlinarith [sq_nonneg (x.1 - y.1)]
+    nlinarith [sq_nonneg (x.2 - y.2)]
+
+/-- Point maximizing orient, then proj, is a hull vertex (a ≠ b). -/
+theorem isHullVertex_of_max_orient_proj (s : Finset P) (a b p : P)
+    (hp : p ∈ s) (hab : a ≠ b)
+    (hO : ∀ q ∈ s, orient a b q ≤ orient a b p)
+    (hD : ∀ q ∈ s, orient a b q = orient a b p → proj a b q ≤ proj a b p) :
+    IsHullVertex s p := by
+  refine ⟨hp, ?_⟩
+  intro hconv
+  rw [erase_coe] at hconv
+  obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp hconv
+  have hOeq : orient a b p = ∑ y ∈ s.erase p, w y * orient a b y := by
+    have h := congr_arg (orient a b) hmass
+    rw [orient_sum_of_weight_one a b (s.erase p) w hw1] at h
+    exact h.symm
+  have hleO : ∀ y ∈ s.erase p, w y * orient a b y ≤ w y * orient a b p := by
+    intro y hy
+    exact mul_le_mul_of_nonneg_left (hO y (mem_of_mem_erase hy)) (hw0 y hy)
+  have hrhsO : ∑ y ∈ s.erase p, w y * orient a b p = orient a b p := by
+    simp [← sum_mul, hw1]
+  have heqO : ∑ y ∈ s.erase p, w y * orient a b y = ∑ y ∈ s.erase p, w y * orient a b p := by
+    linarith [hOeq, hrhsO]
+  have hpairO := weighted_eq_of_sum_eq w (fun y => orient a b y) (fun _ => orient a b p) hleO heqO
+  have hyO : ∀ y ∈ s.erase p, w y ≠ 0 → orient a b y = orient a b p := by
+    intro y hy hwne
+    exact mul_left_cancel₀ hwne (by linarith [hpairO y hy])
+  have hPeq : proj a b p = ∑ y ∈ s.erase p, w y * proj a b y := by
+    have h := congr_arg (proj a b) hmass
+    rw [proj_sum_of_weight_one a b (s.erase p) w hw1] at h
+    exact h.symm
+  have hleP : ∀ y ∈ s.erase p, w y * proj a b y ≤ w y * proj a b p := by
+    intro y hy
+    by_cases hwne : w y = 0
+    · simp [hwne]
+    · have hOy := hyO y hy hwne
+      exact mul_le_mul_of_nonneg_left
+        (hD y (mem_of_mem_erase hy) hOy) (hw0 y hy)
+  have hrhsP : ∑ y ∈ s.erase p, w y * proj a b p = proj a b p := by
+    simp [← sum_mul, hw1]
+  have heqP : ∑ y ∈ s.erase p, w y * proj a b y = ∑ y ∈ s.erase p, w y * proj a b p := by
+    linarith [hPeq, hrhsP]
+  have hpairP := weighted_eq_of_sum_eq w (fun y => proj a b y) (fun _ => proj a b p) hleP heqP
+  have hyP : ∀ y ∈ s.erase p, w y ≠ 0 → proj a b y = proj a b p := by
+    intro y hy hwne
+    exact mul_left_cancel₀ hwne (by linarith [hpairP y hy])
+  obtain ⟨y, hy, hypos⟩ : ∃ y ∈ s.erase p, 0 < w y := by
+    by_contra H
+    push_neg at H
+    have hz : ∀ y ∈ s.erase p, w y = 0 := fun y hy => le_antisymm (H y hy) (hw0 y hy)
+    have : ∑ y ∈ s.erase p, w y = 0 := sum_eq_zero hz
+    linarith [hw1]
+  have hyeq : y = p :=
+    eq_of_orient_eq_proj_eq hab (hyO y hy (ne_of_gt hypos)) (hyP y hy (ne_of_gt hypos))
+  exact absurd (hyeq ▸ hy) (not_mem_erase p s)
+
+/-- If a≠b are in s and some point is off the line ab, a third hull vertex exists. -/
+theorem exists_third_hull_vertex (s : Finset P) (a b : P)
+    (ha : a ∈ s) (hb : b ∈ s) (hab : a ≠ b)
+    (hex : ∃ c ∈ s, orient a b c ≠ 0) :
+    ∃ p, IsHullVertex s p ∧ p ≠ a ∧ p ≠ b := by
+  have oa : orient a b a = 0 := by unfold orient; ring
+  have ob : orient a b b = 0 := by unfold orient; ring
+  by_cases hpos : ∃ c ∈ s, 0 < orient a b c
+  · obtain ⟨p0, hp0, hmaxO⟩ := s.exists_max_image (fun q => orient a b q) ⟨a, ha⟩
+    let sO : Finset P := s.filter (fun q => orient a b q = orient a b p0)
+    have hsO : sO.Nonempty := ⟨p0, by simp [sO, hp0]⟩
+    obtain ⟨p, hp, hmaxD⟩ := sO.exists_max_image (fun q => proj a b q) hsO
+    have hp_s : p ∈ s := (mem_filter.mp hp).1
+    have hpO : orient a b p = orient a b p0 := (mem_filter.mp hp).2
+    have hO : ∀ q ∈ s, orient a b q ≤ orient a b p := by
+      intro q hq
+      calc orient a b q ≤ orient a b p0 := hmaxO q hq
+        _ = orient a b p := hpO.symm
+    have hD : ∀ q ∈ s, orient a b q = orient a b p → proj a b q ≤ proj a b p := by
+      intro q hq hqO
+      have hqO' : q ∈ sO := by
+        simp only [sO, mem_filter, hq, true_and]
+        linarith [hqO, hpO]
+      exact hmaxD q hqO'
+    have hV := isHullVertex_of_max_orient_proj s a b p hp_s hab hO hD
+    obtain ⟨c, hc, hcpos⟩ := hpos
+    have hmaxpos : 0 < orient a b p := by
+      have := hO c hc; linarith
+    refine ⟨p, hV, ?_, ?_⟩
+    · intro hpa; subst hpa; linarith [oa, hmaxpos]
+    · intro hpb; subst hpb; linarith [ob, hmaxpos]
+  · push_neg at hpos
+    obtain ⟨c, hc, hc0⟩ := hex
+    have hcneg : orient a b c < 0 := by
+      have hle : orient a b c ≤ 0 := hpos c hc
+      exact lt_of_le_of_ne hle hc0
+    have hba : b ≠ a := hab.symm
+    have orient_swap : ∀ q, orient b a q = -orient a b q := by
+      intro q; unfold orient; ring
+    obtain ⟨p0, hp0, hmaxO⟩ := s.exists_max_image (fun q => orient b a q) ⟨b, hb⟩
+    let sO : Finset P := s.filter (fun q => orient b a q = orient b a p0)
+    have hsO : sO.Nonempty := ⟨p0, by simp [sO, hp0]⟩
+    obtain ⟨p, hp, hmaxD⟩ := sO.exists_max_image (fun q => proj b a q) hsO
+    have hp_s : p ∈ s := (mem_filter.mp hp).1
+    have hpO : orient b a p = orient b a p0 := (mem_filter.mp hp).2
+    have hO : ∀ q ∈ s, orient b a q ≤ orient b a p := by
+      intro q hq
+      calc orient b a q ≤ orient b a p0 := hmaxO q hq
+        _ = orient b a p := hpO.symm
+    have hD : ∀ q ∈ s, orient b a q = orient b a p → proj b a q ≤ proj b a p := by
+      intro q hq hqO
+      have hqO' : q ∈ sO := by
+        simp only [sO, mem_filter, hq, true_and]
+        linarith [hqO, hpO]
+      exact hmaxD q hqO'
+    have hV := isHullVertex_of_max_orient_proj s b a p hp_s hba hO hD
+    have hmaxpos : 0 < orient b a p := by
+      have hcpos : 0 < orient b a c := by
+        have := orient_swap c; linarith [hcneg]
+      have := hO c hc; linarith
+    have oa' : orient b a a = 0 := by unfold orient; ring
+    have ob' : orient b a b = 0 := by unfold orient; ring
+    refine ⟨p, hV, ?_, ?_⟩
+    · intro hpa; subst hpa; linarith [oa', hmaxpos]
+    · intro hpb; subst hpb; linarith [ob', hmaxpos]
+
+/-- At least two hull vertices when `s` has two distinct points. -/
+theorem hullVertices_card_ge_two (s : Finset P) (hs : 2 ≤ s.card) :
+    2 ≤ (hullVertices s).card := by
+  have hne : s.Nonempty := card_pos.mp (lt_of_lt_of_le (by norm_num : (0:ℕ) < 2) hs)
+  obtain ⟨pmax₀, hpmax₀, hmax0⟩ := s.exists_max_image (fun p : P => p.1) hne
+  let sMax : Finset P := s.filter (fun q => q.1 = pmax₀.1)
+  have hsMax : sMax.Nonempty := ⟨pmax₀, by simp [sMax, hpmax₀]⟩
+  obtain ⟨xmax, hxmax, hmax1⟩ := sMax.exists_max_image (fun p : P => p.2) hsMax
+  obtain ⟨pmin₀, hpmin₀, hmin0⟩ := s.exists_min_image (fun p : P => p.1) hne
+  let sMin : Finset P := s.filter (fun q => q.1 = pmin₀.1)
+  have hsMin : sMin.Nonempty := ⟨pmin₀, by simp [sMin, hpmin₀]⟩
+  obtain ⟨xmin, hxmin, hmin1⟩ := sMin.exists_min_image (fun p : P => p.2) hsMin
+  have xmaxV : IsHullVertex s xmax := by
+    refine ⟨(mem_filter.mp hxmax).1, ?_⟩
+    intro hconv
+    rw [erase_coe] at hconv
+    obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp hconv
+    have hq1 : xmax.1 = pmax₀.1 := (mem_filter.mp hxmax).2
+    have hfst : xmax.1 = ∑ y ∈ s.erase xmax, w y * y.1 := by
+      have := congr_arg Prod.fst hmass
+      simpa [Prod.fst_sum, Prod.smul_fst, smul_eq_mul] using this.symm
+    have hsnd : xmax.2 = ∑ y ∈ s.erase xmax, w y * y.2 := by
+      have := congr_arg Prod.snd hmass
+      simpa [Prod.snd_sum, Prod.smul_snd, smul_eq_mul] using this.symm
+    have hy1_le : ∀ y ∈ s.erase xmax, y.1 ≤ xmax.1 := by
+      intro y hy; have := hmax0 y (mem_of_mem_erase hy); linarith [hq1]
+    have hle1 : ∀ y ∈ s.erase xmax, w y * y.1 ≤ w y * xmax.1 := fun y hy =>
+      mul_le_mul_of_nonneg_left (hy1_le y hy) (hw0 y hy)
+    have hrhs1 : ∑ y ∈ s.erase xmax, w y * xmax.1 = xmax.1 := by simp [← sum_mul, hw1]
+    have heq1 : ∑ y ∈ s.erase xmax, w y * y.1 = ∑ y ∈ s.erase xmax, w y * xmax.1 := by
+      linarith [hfst, hrhs1]
+    have hpair1 := weighted_eq_of_sum_eq w (fun y => y.1) (fun _ => xmax.1) hle1 heq1
+    have hy1_eq : ∀ y ∈ s.erase xmax, w y ≠ 0 → y.1 = xmax.1 := by
+      intro y hy hwne; exact mul_left_cancel₀ hwne (by linarith [hpair1 y hy])
+    have hle2 : ∀ y ∈ s.erase xmax, w y * y.2 ≤ w y * xmax.2 := by
+      intro y hy
+      by_cases hwne : w y = 0
+      · simp [hwne]
+      · have hy1eq := hy1_eq y hy hwne
+        have y_in : y ∈ sMax := by
+          simp only [sMax, mem_filter, mem_of_mem_erase hy, true_and]
+          linarith [hq1, hy1eq]
+        exact mul_le_mul_of_nonneg_left (hmax1 y y_in) (hw0 y hy)
+    have hrhs2 : ∑ y ∈ s.erase xmax, w y * xmax.2 = xmax.2 := by simp [← sum_mul, hw1]
+    have heq2 : ∑ y ∈ s.erase xmax, w y * y.2 = ∑ y ∈ s.erase xmax, w y * xmax.2 := by
+      linarith [hsnd, hrhs2]
+    have hpair2 := weighted_eq_of_sum_eq w (fun y => y.2) (fun _ => xmax.2) hle2 heq2
+    have hy_eq : ∀ y ∈ s.erase xmax, w y ≠ 0 → y = xmax := by
+      intro y hy hwne
+      apply Prod.ext
+      · exact hy1_eq y hy hwne
+      · exact mul_left_cancel₀ hwne (by linarith [hpair2 y hy])
+    obtain ⟨y, hy, hypos⟩ : ∃ y ∈ s.erase xmax, 0 < w y := by
+      by_contra H
+      push_neg at H
+      have hz : ∀ y ∈ s.erase xmax, w y = 0 := fun y hy => le_antisymm (H y hy) (hw0 y hy)
+      have : ∑ y ∈ s.erase xmax, w y = 0 := sum_eq_zero hz
+      linarith [hw1]
+    have yeq := hy_eq y hy (ne_of_gt hypos)
+    exact absurd (yeq ▸ hy) (not_mem_erase xmax s)
+  have xminV : IsHullVertex s xmin := by
+    refine ⟨(mem_filter.mp hxmin).1, ?_⟩
+    intro hconv
+    rw [erase_coe] at hconv
+    obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp hconv
+    have hq1 : xmin.1 = pmin₀.1 := (mem_filter.mp hxmin).2
+    have hfst : xmin.1 = ∑ y ∈ s.erase xmin, w y * y.1 := by
+      have := congr_arg Prod.fst hmass
+      simpa [Prod.fst_sum, Prod.smul_fst, smul_eq_mul] using this.symm
+    have hsnd : xmin.2 = ∑ y ∈ s.erase xmin, w y * y.2 := by
+      have := congr_arg Prod.snd hmass
+      simpa [Prod.snd_sum, Prod.smul_snd, smul_eq_mul] using this.symm
+    have hy1_ge : ∀ y ∈ s.erase xmin, xmin.1 ≤ y.1 := by
+      intro y hy; have := hmin0 y (mem_of_mem_erase hy); linarith [hq1]
+    have hle1 : ∀ y ∈ s.erase xmin, w y * xmin.1 ≤ w y * y.1 := fun y hy =>
+      mul_le_mul_of_nonneg_left (hy1_ge y hy) (hw0 y hy)
+    have hlhs1 : ∑ y ∈ s.erase xmin, w y * xmin.1 = xmin.1 := by simp [← sum_mul, hw1]
+    have heq1 : ∑ y ∈ s.erase xmin, w y * xmin.1 = ∑ y ∈ s.erase xmin, w y * y.1 := by
+      linarith [hfst, hlhs1]
+    have hpair1 := weighted_eq_of_sum_eq w (fun _ => xmin.1) (fun y => y.1) hle1 heq1
+    have hy1_eq : ∀ y ∈ s.erase xmin, w y ≠ 0 → y.1 = xmin.1 := by
+      intro y hy hwne; exact mul_left_cancel₀ hwne (by linarith [hpair1 y hy])
+    have hle2 : ∀ y ∈ s.erase xmin, w y * xmin.2 ≤ w y * y.2 := by
+      intro y hy
+      by_cases hwne : w y = 0
+      · simp [hwne]
+      · have hy1eq := hy1_eq y hy hwne
+        have y_in : y ∈ sMin := by
+          simp only [sMin, mem_filter, mem_of_mem_erase hy, true_and]
+          linarith [hq1, hy1eq]
+        exact mul_le_mul_of_nonneg_left (hmin1 y y_in) (hw0 y hy)
+    have hlhs2 : ∑ y ∈ s.erase xmin, w y * xmin.2 = xmin.2 := by simp [← sum_mul, hw1]
+    have heq2 : ∑ y ∈ s.erase xmin, w y * xmin.2 = ∑ y ∈ s.erase xmin, w y * y.2 := by
+      linarith [hsnd, hlhs2]
+    have hpair2 := weighted_eq_of_sum_eq w (fun _ => xmin.2) (fun y => y.2) hle2 heq2
+    have hy_eq : ∀ y ∈ s.erase xmin, w y ≠ 0 → y = xmin := by
+      intro y hy hwne
+      apply Prod.ext
+      · exact hy1_eq y hy hwne
+      · exact mul_left_cancel₀ hwne (by linarith [hpair2 y hy])
+    obtain ⟨y, hy, hypos⟩ : ∃ y ∈ s.erase xmin, 0 < w y := by
+      by_contra H
+      push_neg at H
+      have hz : ∀ y ∈ s.erase xmin, w y = 0 := fun y hy => le_antisymm (H y hy) (hw0 y hy)
+      have : ∑ y ∈ s.erase xmin, w y = 0 := sum_eq_zero hz
+      linarith [hw1]
+    have yeq := hy_eq y hy (ne_of_gt hypos)
+    exact absurd (yeq ▸ hy) (not_mem_erase xmin s)
+  have hne_pm : xmin ≠ xmax := by
+    intro heq
+    have hx_all : ∀ q ∈ s, q.1 = xmin.1 := by
+      intro q hq
+      have hlo := hmin0 q hq
+      have hhi := hmax0 q hq
+      have hmin1eq : xmin.1 = pmin₀.1 := (mem_filter.mp hxmin).2
+      have hmax1eq : xmax.1 = pmax₀.1 := (mem_filter.mp hxmax).2
+      have : xmin.1 = xmax.1 := by rw [heq]
+      linarith
+    have hy_all : ∀ q ∈ s, q.2 = xmin.2 := by
+      intro q hq
+      have hx := hx_all q hq
+      have qMin : q ∈ sMin := by
+        simp only [sMin, mem_filter, hq, true_and]
+        linarith [(mem_filter.mp hxmin).2]
+      have qMax : q ∈ sMax := by
+        simp only [sMax, mem_filter, hq, true_and]
+        have : q.1 = pmax₀.1 := by
+          have hxm := (mem_filter.mp hxmax).2
+          have heq1 : xmin.1 = xmax.1 := by rw [heq]
+          linarith [hx, (mem_filter.mp hxmin).2, hxm, heq1]
+        exact this
+      have hlo := hmin1 q qMin
+      have hhi := hmax1 q qMax
+      have : xmin.2 = xmax.2 := by rw [heq]
+      linarith
+    have hall : ∀ q ∈ s, q = xmin := fun q hq => Prod.ext (hx_all q hq) (hy_all q hq)
+    have : s ⊆ ({xmin} : Finset P) := by intro q hq; simp [hall q hq]
+    have : s.card ≤ 1 := (card_le_card this).trans (by simp)
+    linarith
+  have hsub : ({xmin, xmax} : Finset P) ⊆ hullVertices s := by
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl
+    · exact mem_hullVertices.mpr xminV
+    · exact mem_hullVertices.mpr xmaxV
+  have h2 : ({xmin, xmax} : Finset P).card = 2 := card_pair hne_pm
+  exact le_trans (le_of_eq h2.symm) (card_le_card hsub)
+
+/-- Under GP, a 3-point (or larger) set has at least 3 hull vertices. -/
+theorem hullVertices_card_ge_three_of_gp (s : Finset P)
+    (hs : 3 ≤ s.card) (hgp : GeneralPosition s) :
+    3 ≤ (hullVertices s).card := by
+  have h2le : 2 ≤ (hullVertices s).card :=
+    hullVertices_card_ge_two s (le_trans (by norm_num : (2:ℕ) ≤ 3) hs)
+  obtain ⟨t, ht_sub, ht2⟩ := exists_subset_card_eq h2le
+  rw [card_eq_two] at ht2
+  obtain ⟨a, b, hab, rfl⟩ := ht2
+  have haH : a ∈ hullVertices s := ht_sub (by simp)
+  have hbH : b ∈ hullVertices s := ht_sub (by simp)
+  have ha : a ∈ s := (mem_hullVertices.mp haH).1
+  have hb : b ∈ s := (mem_hullVertices.mp hbH).1
+  obtain ⟨c0, hc0s, hc0ab⟩ : ∃ c ∈ s, c ≠ a ∧ c ≠ b := by
+    by_contra H
+    push_neg at H
+    have hsub : s ⊆ ({a, b} : Finset P) := by
+      intro x hx
+      have hx' : x = a ∨ x = b := by
+        by_cases hxa : x = a
+        · exact Or.inl hxa
+        · exact Or.inr (H x hx hxa)
+      simpa using hx'
+    have hle : s.card ≤ 2 := by
+      have : ({a, b} : Finset P).card = 2 := card_pair hab
+      exact (card_le_card hsub).trans (by simp [this])
+    linarith
+  have hone : orient a b c0 ≠ 0 :=
+    hgp ha hb hc0s hab hc0ab.2.symm hc0ab.1.symm
+  obtain ⟨p, hpV, hpa, hpb⟩ :=
+    exists_third_hull_vertex s a b ha hb hab ⟨c0, hc0s, hone⟩
+  have hpH : p ∈ hullVertices s := mem_hullVertices.mpr hpV
+  have hsub3 : ({a, b, p} : Finset P) ⊆ hullVertices s := by
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl | rfl
+    · exact haH
+    · exact hbH
+    · exact hpH
+  have h3 : 3 ≤ ({a, b, p} : Finset P).card := by
+    have hpn : p ∉ ({a, b} : Finset P) := by simp [hpa, hpb]
+    have heq : ({a, b, p} : Finset P) = insert p ({a, b} : Finset P) := by
+      ext x; simp; tauto
+    have hcard : ({a, b, p} : Finset P).card = 3 := by
+      rw [heq, card_insert_of_not_mem hpn, card_pair hab]
+    exact le_of_eq hcard.symm
+  exact le_trans h3 (card_le_card hsub3)
+
 
 /-! ## Sanity -/
 

@@ -4,25 +4,25 @@
 
 **PARTIAL formalize-only** finish wave. Zero `sorry`/`admit`/custom `axiom`.
 
-## What is proved (this PR)
+## What is proved
 
-- **F1** `InConvexPosition4 a b c d ↔ ConvexIndependent` on the 4-point finset
-  (`inConvexPosition4_iff_convexIndependent`), plus convenience exporter.
-- Lex-min hull vertex dual: `exists_hull_vertex_min`.
-- Prior OPE-403 plumbing retained (orient, bary, hull≥4 partial main).
+- **F1** InConvexPosition4 ↔ ConvexIndependent on 4-point sets
+- Lex-min hull vertex dual
+- **hullVertices.card ≥ 2** (always for card≥2)
+- **hullVertices.card ≥ 3 under GP** (card≥3) via max-orient + proj third vertex
+- Prior OPE-403 plumbing + hull≥4 partial main
 
 ## What remains
 
-- GP + card≥3 ⇒ hullVertices.card ≥ 3
 - Triangle + 2-interior separating-line orientation bash
-- Full `es_three_eq_five` discharging `EsThreeEqFiveStatement`
+- Full `es_three_eq_five` discharging EsThreeEqFiveStatement (case split 3 vs ≥4)
 
 ## Verify
 
 ```bash
 cd proofs/lean-project
 lake env lean ProofLab/HappyEndingES3.lean   # EXIT=0
-lake build ProofLab                          # Build completed successfully
+lake build ProofLab                          # green
 ```
 
 ## Claim

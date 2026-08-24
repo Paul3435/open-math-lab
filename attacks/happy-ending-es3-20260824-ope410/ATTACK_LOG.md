@@ -47,3 +47,12 @@ lake build ProofLab                          # green
 - **Claim:** none (formalize-only, known classical 1935).
 - **Completeness:** PARTIAL — F1 closed; hull≥3 + interior + full theorem still open.
 - **No merges** attempted (F2).
+
+### Attempt 3: hull-card >=3 under GP (resume heartbeat)
+
+**Delivered:** proj, orient/proj weight-one sums, eq_of_orient_eq_proj_eq,
+isHullVertex_of_max_orient_proj, exists_third_hull_vertex,
+hullVertices_card_ge_two, hullVertices_card_ge_three_of_gp.
+
+**Outcome:** success on remaining item 1 (hull lower bound under GP).
+Interior bash + full glue still open.
