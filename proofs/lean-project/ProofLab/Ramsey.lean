@@ -11,7 +11,7 @@ open SimpleGraph Finset
 namespace ProofLab.Ramsey
 
 /-!
-# Finite graph Ramsey numbers — R(3,3)=6 + lower bounds (formalize-only, OPE-44)
+# Finite graph Ramsey numbers — R(3,3)=6 / R(3,4)=9 / R(4,4)=18 (formalize-only, OPE-44)
 
 A red/blue edge-colouring of the complete graph `K_n` is represented by a
 `SimpleGraph (Fin n)` (the "red" edges); the complement graph is "blue".
@@ -27,14 +27,14 @@ A red/blue edge-colouring of the complete graph `K_n` is represented by a
 
 ## Main results (zero `sorry`)
 
-* `ramsey33_le_6` / `ramsey33_fin6`: `R(3,3) ≤ 6` (exhaustive + hand pigeonhole).
-* `not_ramsey33_5` / `ramsey33_gt_5`: `R(3,3) > 5` via the 5-cycle.
-* `ramsey34_gt_8`: `R(3,4) > 8` (explicit witness; lower bound only).
-* `ramsey44_gt_17`: `R(4,4) > 17` (Paley-17; lower bound only).
-* `ramseyUpper_swap`: colour-role symmetry.
-* Support for the open upper bounds: degree-sum parity (`not_five_regular_fin9`) and
-  induced Fin-6 transfer (`ramsey33_comap_embedding`, `ramsey33_on_finset`).
-* **Not yet proved:** `R(3,4) ≤ 9`, `R(4,4) ≤ 18`.
+* `ramsey33_eq_6` / `ramsey33_fin6` / `ramsey33_le_6`: `R(3,3) = 6`
+  (hand pigeonhole + C5 lower; also exhaustive certify).
+* `ramsey34_eq_9` / `ramsey34_le_9`: `R(3,4) = 9` (degree-parity upper +
+  8-vertex lower witness).
+* `ramsey44_eq_18` / `ramsey44_le_18`: `R(4,4) = 18` (recurrence via
+  `ramseyUpper_add` + Paley-17 lower).
+* Infra: `ramseyUpper_swap`, Fin-6/finset clique transfer, handshake parity.
+* Known-classical formalize-only; **no novelty claim**.
 -/
 
 /-! ## Definition of the Ramsey predicate -/
@@ -399,8 +399,7 @@ The classical argument needs:
    (via pullback along an embedding `Fin 6 ↪ V`), and monochromatic triangles
    on `S` push forward to monochromatic triangles in the ambient graph.
 
-These lemmas do **not** yet close `RamseyUpper 3 4 9`; they only factor the
-reusable infrastructure. Zero `sorry`. -/
+Used by `ramsey34_le_9` / `blue_degree_le_five_of_no_cliques`. Zero `sorry`. -/
 
 /-- Degree-sum formula specialized: the sum of degrees is always even. -/
 theorem sum_degrees_even {V : Type*} (G : SimpleGraph V) [Fintype V]
