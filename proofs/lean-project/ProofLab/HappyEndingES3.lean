@@ -325,37 +325,38 @@ lemma ne_four_of_card_le_three {s : Finset P} (h : s.card ≤ 3) : s.card ≠ 4 
 lemma pairwise_of_card4 {a b c d : P}
     (h : ({a, b, c, d} : Finset P).card = 4) :
     a ≠ b ∧ a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d ∧ c ≠ d := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;> intro heq <;> subst heq <;>
-    first
-    | exact (ne_four_of_card_le_three (card_at_most_three _ _ _)
-        (by simpa [Finset.insert_eq_of_mem] using h))
-    | exact (ne_four_of_card_le_three (card_at_most_three a c d)
-        (by simpa [Finset.insert_eq_of_mem] using h))
-    | exact (ne_four_of_card_le_three (card_at_most_three a b d)
-        (by
-          have : ({a, b, a, d} : Finset P) = ({a, b, d} : Finset P) := by
-            simp [Finset.insert_eq_of_mem]
-          simpa [this] using h))
-    | exact (ne_four_of_card_le_three (card_at_most_three a b c)
-        (by
-          have : ({a, b, c, a} : Finset P) = ({a, b, c} : Finset P) := by
-            simp [Finset.insert_eq_of_mem]
-          simpa [this] using h))
-    | exact (ne_four_of_card_le_three (card_at_most_three a b d)
-        (by
-          have : ({a, b, b, d} : Finset P) = ({a, b, d} : Finset P) := by
-            simp [Finset.insert_eq_of_mem]
-          simpa [this] using h))
-    | exact (ne_four_of_card_le_three (card_at_most_three a b c)
-        (by
-          have : ({a, b, c, b} : Finset P) = ({a, b, c} : Finset P) := by
-            simp [Finset.insert_eq_of_mem]
-          simpa [this] using h))
-    | exact (ne_four_of_card_le_three (card_at_most_three a b c)
-        (by
-          have : ({a, b, c, c} : Finset P) = ({a, b, c} : Finset P) := by
-            simp [Finset.insert_eq_of_mem]
-          simpa [this] using h))
+  -- Collision of any pair collapses the literal 4-set to a triple (card ≤ 3).
+  have collapse4 {u v w : P} (heqS : ({a, b, c, d} : Finset P) = ({u, v, w} : Finset P)) :
+      False :=
+    ne_four_of_card_le_three (card_at_most_three u v w) (heqS ▸ h)
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro heq
+    exact collapse4 (by simp [heq, Finset.insert_eq_of_mem] : ({a, b, c, d} : Finset P) = ({a, c, d} : Finset P))
+  · intro heq
+    apply collapse4 (u := a) (v := b) (w := d)
+    ext x
+    simp only [Finset.mem_insert, Finset.mem_singleton, heq]
+    constructor <;> intro hmem <;> aesop
+  · intro heq
+    apply collapse4 (u := a) (v := b) (w := c)
+    ext x
+    simp only [Finset.mem_insert, Finset.mem_singleton, heq]
+    constructor <;> intro hmem <;> aesop
+  · intro heq
+    apply collapse4 (u := a) (v := b) (w := d)
+    ext x
+    simp only [Finset.mem_insert, Finset.mem_singleton, heq]
+    constructor <;> intro hmem <;> aesop
+  · intro heq
+    apply collapse4 (u := a) (v := b) (w := c)
+    ext x
+    simp only [Finset.mem_insert, Finset.mem_singleton, heq]
+    constructor <;> intro hmem <;> aesop
+  · intro heq
+    apply collapse4 (u := a) (v := b) (w := c)
+    ext x
+    simp only [Finset.mem_insert, Finset.mem_singleton, heq]
+    constructor <;> intro hmem <;> aesop
 
 private lemma mem_finset4 {a b c d x : P} :
     x ∈ ({a, b, c, d} : Finset P) ↔ x = a ∨ x = b ∨ x = c ∨ x = d := by simp
