@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-22T12:00:00Z",
+  "last_updated": "2026-08-24T00:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -56,14 +56,14 @@
     {
       "id": "erdos-woods",
       "title": "Erdős-Woods k=16 Formalization",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "elementary_number_theory",
       "tickets": [
         "OPE-12",
         "OPE-15"
       ],
       "claim_status": "vetoed",
-      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet. | Scout refresh 2026-08-22 (OPE-334): leading next-prime candidate — literature definition pinned in STATEMENT.md; witness (16,2184) re-verified by bounded Python check (all interior j of (2184,2200) share a prime factor with 2184 or 2200); minimal-for-k claim NOT re-proven (out of scout scope). formalize-only, no novelty claim.",
+      "note": "Known result (a=2184). OPE-12 used wrong definition (a=5 claim vetoed); see attacks/erdos-woods-20260730-125506/BOARD_VETO.md and docs/BOARD_NOTES.md. Correct formalization of (k=16,a=2184) remains a valid future bet. | Scout refresh 2026-08-22 (OPE-334): leading next-prime candidate — literature definition pinned in STATEMENT.md; witness (16,2184) re-verified by bounded Python check (all interior j of (2184,2200) share a prime factor with 2184 or 2200); minimal-for-k claim NOT re-proven (out of scout scope). formalize-only, no novelty claim. | OPE-390 Scout 2026-08-24: CLOSED by OPE-391 (Formalist) mid-flight — zero-sorry Lean witness (ProofLab/ErdosWoodsCorrect.lean), gate independently re-verified by Scout (lake env lean EXIT=0). Dropped from shortlist as attack candidate; upstreaming to Mathlib is possible future work.",
       "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair",
       "expected": "known-classical",
       "scout_refresh": {
@@ -278,9 +278,50 @@
       "notes": "Scout keep-fresh (2026-08-07): replaced seed placeholder. Finitary VdW is an explicit TODO in local Mathlib pin (HalesJewett.lean ~L50-53); infinitary VdW + exists_mono_homothetic_copy already present. W(2,3)=9 exact classical value, fully decidable (Fin 8/Fin 9). formalize-only; no novelty claim. | Scout keep-fresh (2026-08-22): PR #17 MERGED to main; W(2,3)=9 Lean zero-sorry landed (vdw_le_9 + vdw_gt_8, native_decide). Gate re-verified by Scout 2026-08-22: lake env lean exit 0, zero sorry/admit/axiom.",
       "expected": "formalize-only",
       "lean_artifact": "proofs/lean-project/ProofLab/VanDerWaerden.lean"
+    },
+    {
+      "id": "mathlib-gap-candidate",
+      "title": "Mathlib formalization gap (TBD by Scout)",
+      "domain": [
+        "formalization"
+      ],
+      "source": "mathlib-wishlist",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Scout replaces with a real, small formalization task."
+    },
+    {
+      "id": "oeis-finite-check-candidate",
+      "title": "Finite OEIS / computational conjecture check (TBD)",
+      "domain": [
+        "experimental",
+        "combinatorics"
+      ],
+      "source": "oeis-style",
+      "status": "needs-scout",
+      "feasibility": null,
+      "notes": "Prefer decidable finite checks with clear bounds."
+    },
+    {
+      "id": "ramsey-r35",
+      "title": "Ramsey number R(3,5)=14",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 86,
+      "note": "OPE-390 Scout: formalize-only follow-on to closed ramsey-r33. Upper bound hand degree-counting; lower bound explicit 13-vtx witness certified via SimpleGraph decidable clique checks. Reuses ProofLab/Ramsey.lean vocabulary (PR #18). Gap re-confirmed v4.10.0: no Ramsey theorem in Mathlib.",
+      "expected": "known-classical"
+    },
+    {
+      "id": "happy-ending-es3",
+      "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
+      "status": "candidate",
+      "domain": "discrete_geometry",
+      "score": 78,
+      "note": "OPE-390 Scout: formalize-only. Any 5 points in general position contain a convex 4-gon. Needs new Mathlib orientation/order-type plumbing (itself a contribution). ES(4)=9 stretch only. Gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content.",
+      "expected": "known-classical"
     }
   ],
-  "updated_at": "2026-08-24T13:30:00Z",
+  "updated_at": "2026-08-24T13:35:40Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

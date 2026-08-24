@@ -1,0 +1,30 @@
+{
+  "id": "erdos-woods",
+  "title": "Erdős-Woods k=16 / a=2184 witness pair (formalize-only)",
+  "status": "formalized",
+  "domain": "elementary_number_theory",
+  "tickets": ["OPE-12", "OPE-15", "OPE-334", "OPE-391"],
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 14,
+    "attack_surface": 15,
+    "verification_budget": 20,
+    "crackpot_resistance": 19
+  },
+  "total_score": 86,
+  "flags": [
+    "known-classical; formalize-only — do NOT re-fund as novel",
+    "history risk: OPE-12 veto was definition drift; OPE-334 re-pinned the literature predicate (open interval (a, a+k), endpoints share prime factor with every interior j)"
+  ],
+  "recommendation": "CLOSED by OPE-391 (Formalist) 2026-08-24 while OPE-390 shortlist was in flight — no longer an attack candidate. Lean zero-sorry witness: isErdosWoodsWitness_16_2184 + erdos_woods_16 via interval_cases + native_decide on 15 interiors (ProofLab/ErdosWoodsCorrect.lean). Scout independently re-verified the gate: lake env lean EXIT=0 against pinned v4.10.0, no real sorry/admit/axiom. Minimality of k=16 stays literature-cited, NOT proven. Mathlib has NO ErdosWoods content (gap confirmed v4.10.0 by grep) — upstreaming remains possible future work.",
+  "skill_packs": ["number-theory", "formalization", "combinatorics"],
+  "estimated_token_budget": "100k",
+  "expected": "known-classical",
+  "mathlib_ref": "Mathlib has no ErdosWoods/Erdős–Woods content (gap confirmed against pinned v4.10.0 snapshot); Nat.gcd infrastructure suffices for the certificate",
+  "scored_at": "2026-08-24",
+  "notes": [
+    "OPE-334 refresh: definition pinned in STATEMENT.md; witness re-verified by bounded Python check (15/15 interior points PASS)",
+    "Finitary, decidable, developer-friendly; smallest budget of the shortlist",
+    "Do NOT re-fund as novel research; no minimality claim"
+  ]
+}
