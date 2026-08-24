@@ -312,22 +312,23 @@
       "expected": "known-classical"
     },
     {
-      "id": "happy-ending-es3",
-      "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
-      "status": "in_progress",
-      "domain": "discrete_geometry",
-      "score": 78,
-      "note": "OPE-403 Attack Lead PARTIAL formalize (2026-08-24): zero-sorry plumbing in ProofLab/HappyEndingES3.lean (orient, barycentric triangle membership, hull vertices, convexIndependent_hull_vertices) + es_three_eq_five_of_hull_card_ge_four. Residual: triangle+2-interior separating-line case. lake env lean EXIT=0; lake build ProofLab green. Formalize-only, no claim. STATEMENT pin OPE-402. ",
-      "expected": "known-classical",
-      "issue": "OPE-403",
-      "artifacts": [
-        "problems/happy-ending-es3/STATEMENT.md",
-        "proofs/lean-project/ProofLab/HappyEndingES3.lean",
-        "attacks/happy-ending-es3-20260824-ope403/"
-      ]
-    }
-  ],
-  "updated_at": "2026-08-24T13:35:40Z",
+          "id": "happy-ending-es3",
+          "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
+          "status": "formalized",
+          "domain": "discrete_geometry",
+          "score": 78,
+          "note": "OPE-410 full formalize + OPE-413 APPROVED (2026-08-25): es_three_eq_five zero-sorry in ProofLab/HappyEndingES3.lean (F1 iff-glue, hull>=3 GP, hull>=4 + separating-line interior). lake env lean EXIT=0; lake build ProofLab green; axiom audit no sorryAx. PR #25 d46ca64 (stack base PR #24; board merge #23 then #24 then #25). Formalize-only, no claim (classical 1935). STATEMENT pin OPE-402.",
+          "expected": "known-classical",
+          "issue": "OPE-410",
+          "artifacts": [
+            "problems/happy-ending-es3/STATEMENT.md",
+            "proofs/lean-project/ProofLab/HappyEndingES3.lean",
+            "attacks/happy-ending-es3-20260824-ope410/",
+            "attacks/happy-ending-es3-20260824-ope403/"
+          ]
+        }
+      ],
+      "updated_at": "2026-08-25T00:45:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
