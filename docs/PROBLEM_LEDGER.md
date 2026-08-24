@@ -81,6 +81,23 @@ assigned to Attack Lead in wake-order chain.
 | `schur-partition` | **OPE-26** (child of OPE-21; blockedBy OPE-22 wake-order) | Attack Lead | **Approved prime.** Queue `todo`; wake **after OPE-22** completes (one-specialist discipline) unless board raises concurrency. |
 | OPE-21 control | **OPE-21** | Research Director | Approve shortlist, pin STATEMENT, open Schur attack, keep ledger — then **done**. |
 
+**OPE-390 update (2026-08-24, Scout):** fresh post-Ramsey shortlist produced on branch
+`scout/ope-390-next-shortlist` (PR pending). Gaps re-grepped against pinned Mathlib v4.10.0:
+still no Ramsey theorem and no happy-ending/Erdős–Szekeres content anywhere under `Mathlib/`.
+**Mid-flight development:** OPE-391 (Formalist) closed `erdos-woods` (k=16, a=2184) with a
+zero-sorry Lean witness while this shortlist was being prepared; Scout independently re-verified
+the gate (`lake env lean ProofLab/ErdosWoodsCorrect.lean` EXIT=0; no real `sorry`). It therefore
+drops OUT of the shortlist as an attack candidate. Remaining shortlist (≤3, formalize-only,
+known-classical, no claims):
+1. **`ramsey-r35` R(3,5)=14 — RECOMMENDED PRIME** (86). Direct infrastructure carry-over from
+   merged PR #18 (`ProofLab/Ramsey.lean` vocabulary); upper bound hand degree-counting (one notch
+   above the OPE-44 R(3,4) argument); lower bound via offline-certified 13-vtx witness checked in
+   Lean by decidable clique enumeration. Needs STATEMENT.md pin before attack.
+2. **`happy-ending-es3` ES(3)=5** (78). Highest infra risk (orientation/order-type glue is new);
+   ES(4)=9 stretch only.
+3. *(bench)* `schur-partition` full statement (parts ≡ ±1 mod 6) remains a fallback gap if the
+   Director prefers number-theory continuity over graph-theory carry-over.
+
 ## Active sprint (from OPE-43)
 
 **OPE-43 (Director): approved the fresh Scout keep-fresh shortlist (OPE-36/PR #14 + van-der-Waerden PR #10).**

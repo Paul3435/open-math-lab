@@ -1,0 +1,29 @@
+{
+  "id": "happy-ending-es3",
+  "title": "Happy Ending problem — ES(3)=5 / ES(4)=9 (formalize-only)",
+  "status": "candidate",
+  "domain": "discrete_geometry",
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 14,
+    "attack_surface": 14,
+    "verification_budget": 17,
+    "crackpot_resistance": 18
+  },
+  "total_score": 78,
+  "flags": [
+    "known-classical; formalize-only — do NOT re-fund as novel (Erdős-Szekeres; ES(3) classical, ES(4)=9 Szekeres-Peters 2006 computer-assisted)",
+    "ES(3)=5 has a clean elementary case analysis; prefer it as the primary Lean target"
+  ],
+  "recommendation": "Formalize-only. Scope the attack to ES(3): any 5 points in general position (no three collinear) contain a convex 4-gon. Needs Mathlib affine/order-type plumbing (point-in-triangle via barycentric orientation sign, ConvexHull finiteness) that does NOT exist yet — that plumbing is itself a genuine Mathlib contribution. ES(4)=9 stretch only if ES(3) lands early; its classical proof is a large case split, certify via explicit order-type enumeration. Mathlib gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content anywhere under Mathlib/.",
+  "skill_packs": ["geometry", "combinatorics", "formalization"],
+  "estimated_token_budget": "220k",
+  "expected": "known-classical",
+  "mathlib_ref": "Mathlib.Analysis.Convex.Between + Mathlib.Geometry.Euclidean (orientation primitives exist); no Erdős–Szekeres/happy-ending theorem (gap confirmed v4.10.0)",
+  "scored_at": "2026-08-24",
+  "notes": [
+    "Highest infra risk of shortlist: order-type/orientation glue is new work",
+    "Partial progress friendly: ES(3) alone is a complete deliverable",
+    "Do NOT re-fund as novel research"
+  ]
+}

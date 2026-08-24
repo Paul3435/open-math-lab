@@ -1,0 +1,29 @@
+{
+  "id": "ramsey-r35",
+  "title": "Ramsey number R(3,5)=14 (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "scores": {
+    "formalizability": 19,
+    "partial_progress": 15,
+    "attack_surface": 17,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "total_score": 86,
+  "flags": [
+    "known-classical; formalize-only — do NOT re-fund as novel (Grinstead-Roberts 1982; lower-bound witness by computer)",
+    "depends on ProofLab/Ramsey.lean vocabulary from OPE-44 — reuse, do not fork"
+  ],
+  "recommendation": "Formalize-only follow-on to the closed ramsey-r33 prime. Upper bound R(3,5)≤14: hand degree-counting in the RamseyUpper/Coloring vocabulary of ProofLab/Ramsey.lean (same shape as the OPE-44 degree-parity R(3,4)≤9 argument, one notch harder). Lower bound R(3,5)>13: explicit triangle-free graph on 13 vertices with independence number ≤4, certified in Lean via SimpleGraph decidable clique checks (witness generation offline, witness checking in Lean — same pattern as the OPE-44 8-vertex K_3,3-free witness). Mathlib gap re-confirmed v4.10.0: still no Ramsey theorem anywhere under Mathlib/.",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "estimated_token_budget": "180k",
+  "expected": "known-classical",
+  "mathlib_ref": "Mathlib/Combinatorics/SimpleGraph/{Coloring,Clique}.lean (use); no Ramsey file yet (gap confirmed v4.10.0 post-PR-18)",
+  "scored_at": "2026-08-24",
+  "notes": [
+    "Direct infrastructure carry-over from merged PR #18 keeps marginal cost low",
+    "Lower-bound witness on Fin 13 needs an offline certified search before Lean work starts",
+    "Do NOT re-fund as novel research"
+  ]
+}
