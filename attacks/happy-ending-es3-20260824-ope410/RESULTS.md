@@ -2,20 +2,21 @@
 
 ## Verdict
 
-**PARTIAL formalize-only** finish wave. Zero `sorry`/`admit`/custom `axiom`.
+**FULL formalize-only** for ES(3)=5 on the STATEMENT pin. Zero `sorry`/`admit`/custom `axiom`.
 
 ## What is proved
 
-- **F1** InConvexPosition4 ↔ ConvexIndependent on 4-point sets
-- Lex-min hull vertex dual
-- **hullVertices.card ≥ 2** (always for card≥2)
-- **hullVertices.card ≥ 3 under GP** (card≥3) via max-orient + proj third vertex
-- Prior OPE-403 plumbing + hull≥4 partial main
+- All OPE-403 plumbing + hull ≥ 4 case
+- F1 InConvexPosition4 ↔ ConvexIndependent
+- hullVertices.card ≥ 3 under GP
+- Triangle + 2 non-hull separating-line bash (`inConvexPosition4_of_same_side_pair`)
+- Full **`es_three_eq_five : EsThreeEqFiveStatement`** (case split hull ≥4 vs =3)
 
-## What remains
+## Residual
 
-- Triangle + 2-interior separating-line orientation bash
-- Full `es_three_eq_five` discharging EsThreeEqFiveStatement (case split 3 vs ≥4)
+- ES(4)=9 out of scope
+- Board merge sequencing F2 (PR #23 then #24 then #25); no agent merges
+- **No claim** (classical 1935)
 
 ## Verify
 
@@ -24,7 +25,3 @@ cd proofs/lean-project
 lake env lean ProofLab/HappyEndingES3.lean   # EXIT=0
 lake build ProofLab                          # green
 ```
-
-## Claim
-
-**None.** Known classical (1935). Default no claim.

@@ -27,12 +27,14 @@ import Mathlib.Tactic
 13. `proj` / orient-proj sums / `isHullVertex_of_max_orient_proj`
 14. `exists_third_hull_vertex`, `hullVertices_card_ge_two`, `hullVertices_card_ge_three_of_gp`
 
-## Residual (OPE-410)
+## Delivered OPE-410 finish
 
-- Triangle + 2-interior separating-line orientation bash
-- Full `es_three_eq_five` discharging `EsThreeEqFiveStatement`
+15. Support-line hull criteria (`isHullVertex_of_orient_nonneg/nonpos`)
+16. `both_sides_of_non_hull`, `inConvexPosition4_of_same_side_pair`
+17. `es_three_eq_five_of_hull_card_eq_three` (separating-line bash)
+18. Full **`es_three_eq_five`** discharging `EsThreeEqFiveStatement`
 
-ES(4)=9 out of scope.
+ES(4)=9 out of scope. **No claim** (classical 1935).
 -/
 
 namespace ProofLab.HappyEndingES3
@@ -924,6 +926,445 @@ theorem hullVertices_card_ge_three_of_gp (s : Finset P)
       rw [heq, card_insert_of_not_mem hpn, card_pair hab]
     exact le_of_eq hcard.symm
   exact le_trans h3 (card_le_card hsub3)
+
+
+/-! ## Interior case: separating line through the non-hull pair (OPE-410) -/
+
+private lemma sum3_orient (d e b c x : P) (w : P → ℝ)
+    (hbx : b ≠ x) (hcx : c ≠ x) (hbc : b ≠ c) :
+    ∑ y ∈ ({b, c, x} : Finset P), w y * orient d e y =
+      w b * orient d e b + w c * orient d e c + w x * orient d e x := by
+  simp [hbx, hcx, hbc, Finset.sum_insert, Finset.mem_insert, Finset.sum_singleton]
+  abel
+
+private lemma sum3_w (b c x : P) (w : P → ℝ)
+    (hbx : b ≠ x) (hcx : c ≠ x) (hbc : b ≠ c) :
+    ∑ y ∈ ({b, c, x} : Finset P), w y = w b + w c + w x := by
+  simp [hbx, hcx, hbc, Finset.sum_insert, Finset.mem_insert, Finset.sum_singleton]
+  abel
+
+private lemma sum3_smul (b c x : P) (w : P → ℝ)
+    (hbx : b ≠ x) (hcx : c ≠ x) (hbc : b ≠ c) :
+    ∑ y ∈ ({b, c, x} : Finset P), w y • y = w b • b + w c • c + w x • x := by
+  simp [hbx, hcx, hbc, Finset.sum_insert, Finset.mem_insert, Finset.sum_singleton]
+  abel
+
+/-- Support line: all `orient d e ≥ 0` ⇒ `d` is a hull vertex (under GP). -/
+theorem isHullVertex_of_orient_nonneg (s : Finset P) (d e : P)
+    (hd : d ∈ s) (he : e ∈ s) (hde : d ≠ e) (hgp : GeneralPosition s)
+    (hnn : ∀ p ∈ s, 0 ≤ orient d e p) : IsHullVertex s d := by
+  refine ⟨hd, ?_⟩
+  intro hconv
+  rw [erase_coe] at hconv
+  obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp hconv
+  have hode : orient d e d = 0 := by unfold orient; ring
+  have hsum : ∑ y ∈ s.erase d, w y * orient d e y = 0 := by
+    have h := congr_arg (orient d e) hmass
+    rw [orient_sum_of_weight_one d e (s.erase d) w hw1] at h
+    linarith [hode, h.symm]
+  have hnn_all : ∀ t ∈ s.erase d, 0 ≤ w t * orient d e t := fun t ht =>
+    mul_nonneg (hw0 t ht) (hnn t (mem_of_mem_erase ht))
+  have hall0 := (sum_eq_zero_iff_of_nonneg hnn_all).1 hsum
+  have only_e : ∀ z ∈ s.erase d, w z ≠ 0 → z = e := by
+    intro z hz hwz
+    have hoz : orient d e z = 0 := (mul_eq_zero.mp (hall0 z hz)).resolve_left hwz
+    have hz_s : z ∈ s := mem_of_mem_erase hz
+    have hz_ne_d : z ≠ d := ne_of_mem_erase hz
+    by_contra hzne
+    have hzne' : e ≠ z := fun h => hzne h.symm
+    exact hgp hd he hz_s hde hzne' hz_ne_d.symm hoz
+  have he_mem : e ∈ s.erase d := mem_erase.mpr ⟨hde.symm, he⟩
+  have hwe : w e = 1 := by
+    have hsupp : ∀ z ∈ s.erase d, z ≠ e → w z = 0 := by
+      intro z hz hzne
+      by_cases hwz : w z = 0
+      · exact hwz
+      · exact absurd (only_e z hz hwz) hzne
+    have hrest : ∑ z ∈ (s.erase d).erase e, w z = 0 :=
+      sum_eq_zero fun z hz => hsupp z (mem_of_mem_erase hz) (ne_of_mem_erase hz)
+    have hsplit := sum_erase_add (s.erase d) w he_mem
+    linarith [hw1, hrest, hsplit]
+  have hsum_smul : ∑ z ∈ s.erase d, w z • z = w e • e := by
+    have hsplit := (sum_erase_add (s.erase d) (fun z => w z • z) he_mem).symm
+    have hrest : ∑ z ∈ (s.erase d).erase e, w z • z = 0 := by
+      apply sum_eq_zero
+      intro z hz
+      have hwz0 : w z = 0 := by
+        by_cases hwz : w z = 0
+        · exact hwz
+        · exact absurd (only_e z (mem_of_mem_erase hz) hwz) (ne_of_mem_erase hz)
+      simp [hwz0]
+    simpa [hrest] using hsplit
+  have : d = e := by
+    have := hmass.symm
+    rw [hsum_smul, hwe, one_smul] at this
+    exact this
+  exact hde this
+
+/-- Support line: all `orient d e ≤ 0` ⇒ `d` is a hull vertex (under GP). -/
+theorem isHullVertex_of_orient_nonpos (s : Finset P) (d e : P)
+    (hd : d ∈ s) (he : e ∈ s) (hde : d ≠ e) (hgp : GeneralPosition s)
+    (hnp : ∀ p ∈ s, orient d e p ≤ 0) : IsHullVertex s d := by
+  refine ⟨hd, ?_⟩
+  intro hconv
+  rw [erase_coe] at hconv
+  obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp hconv
+  have hode : orient d e d = 0 := by unfold orient; ring
+  have hsum : ∑ y ∈ s.erase d, w y * orient d e y = 0 := by
+    have h := congr_arg (orient d e) hmass
+    rw [orient_sum_of_weight_one d e (s.erase d) w hw1] at h
+    linarith [hode, h.symm]
+  have hnp_all : ∀ t ∈ s.erase d, w t * orient d e t ≤ 0 := fun t ht =>
+    mul_nonpos_of_nonneg_of_nonpos (hw0 t ht) (hnp t (mem_of_mem_erase ht))
+  have hall0 : ∀ y ∈ s.erase d, w y * orient d e y = 0 := by
+    intro y hy
+    have hnegsum : ∑ t ∈ s.erase d, -(w t * orient d e t) = 0 := by
+      simp [sum_neg_distrib, hsum]
+    have hnn : ∀ t ∈ s.erase d, 0 ≤ -(w t * orient d e t) := fun t ht =>
+      neg_nonneg.mpr (hnp_all t ht)
+    linarith [(sum_eq_zero_iff_of_nonneg hnn).1 hnegsum y hy]
+  have only_e : ∀ z ∈ s.erase d, w z ≠ 0 → z = e := by
+    intro z hz hwz
+    have hoz : orient d e z = 0 := (mul_eq_zero.mp (hall0 z hz)).resolve_left hwz
+    have hz_s : z ∈ s := mem_of_mem_erase hz
+    have hz_ne_d : z ≠ d := ne_of_mem_erase hz
+    by_contra hzne
+    have hzne' : e ≠ z := fun h => hzne h.symm
+    exact hgp hd he hz_s hde hzne' hz_ne_d.symm hoz
+  have he_mem : e ∈ s.erase d := mem_erase.mpr ⟨hde.symm, he⟩
+  have hwe : w e = 1 := by
+    have hsupp : ∀ z ∈ s.erase d, z ≠ e → w z = 0 := by
+      intro z hz hzne
+      by_cases hwz : w z = 0
+      · exact hwz
+      · exact absurd (only_e z hz hwz) hzne
+    have hrest : ∑ z ∈ (s.erase d).erase e, w z = 0 :=
+      sum_eq_zero fun z hz => hsupp z (mem_of_mem_erase hz) (ne_of_mem_erase hz)
+    have hsplit := sum_erase_add (s.erase d) w he_mem
+    linarith [hw1, hrest, hsplit]
+  have hsum_smul : ∑ z ∈ s.erase d, w z • z = w e • e := by
+    have hsplit := (sum_erase_add (s.erase d) (fun z => w z • z) he_mem).symm
+    have hrest : ∑ z ∈ (s.erase d).erase e, w z • z = 0 := by
+      apply sum_eq_zero
+      intro z hz
+      have hwz0 : w z = 0 := by
+        by_cases hwz : w z = 0
+        · exact hwz
+        · exact absurd (only_e z (mem_of_mem_erase hz) hwz) (ne_of_mem_erase hz)
+      simp [hwz0]
+    simpa [hrest] using hsplit
+  have : d = e := by
+    have := hmass.symm
+    rw [hsum_smul, hwe, one_smul] at this
+    exact this
+  exact hde this
+
+/-- Non-hull endpoint ⇒ both open half-planes of `de` meet `s`. -/
+theorem both_sides_of_non_hull (s : Finset P) (d e : P)
+    (hd : d ∈ s) (he : e ∈ s) (hde : d ≠ e) (hgp : GeneralPosition s)
+    (hdV : ¬IsHullVertex s d) :
+    (∃ p ∈ s, orient d e p < 0) ∧ (∃ p ∈ s, 0 < orient d e p) := by
+  constructor
+  · by_contra H; push_neg at H
+    exact hdV (isHullVertex_of_orient_nonneg s d e hd he hde hgp H)
+  · by_contra H; push_neg at H
+    exact hdV (isHullVertex_of_orient_nonpos s d e hd he hde hgp H)
+
+/-- Same strict side of `de` + hull vertices `b`,`c` ⇒ `InConvexPosition4 b c d e`. -/
+theorem inConvexPosition4_of_same_side_pair (s : Finset P) (b c d e : P)
+    (hbV : IsHullVertex s b) (hcV : IsHullVertex s c)
+    (hd : d ∈ s) (he : e ∈ s)
+    (hbd : b ≠ d) (hbe : b ≠ e) (hcd : c ≠ d) (hce : c ≠ e)
+    (hde : d ≠ e) (hbc : b ≠ c)
+    (hside : 0 < orient d e b * orient d e c) :
+    InConvexPosition4 b c d e := by
+  have hb_s := hbV.1
+  have hc_s := hcV.1
+  have same_sign :
+      (0 < orient d e b ∧ 0 < orient d e c) ∨ (orient d e b < 0 ∧ orient d e c < 0) := by
+    have := mul_pos_iff.mp hside; tauto
+  constructor
+  · intro hbconv
+    have hsub : ({c, d, e} : Set P) ⊆ (s : Set P) \ {b} := by
+      intro x hx
+      rcases (show x = c ∨ x = d ∨ x = e by simpa using hx) with rfl | rfl | rfl
+      · exact ⟨hc_s, fun h => hbc h.symm⟩
+      · exact ⟨hd, fun h => hbd h.symm⟩
+      · exact ⟨he, fun h => hbe h.symm⟩
+    exact hbV.2 (convexHull_mono hsub hbconv)
+  constructor
+  · intro hcconv
+    have hsub : ({b, d, e} : Set P) ⊆ (s : Set P) \ {c} := by
+      intro x hx
+      rcases (show x = b ∨ x = d ∨ x = e by simpa using hx) with rfl | rfl | rfl
+      · exact ⟨hb_s, hbc⟩
+      · exact ⟨hd, fun h => hcd h.symm⟩
+      · exact ⟨he, fun h => hce h.symm⟩
+    exact hcV.2 (convexHull_mono hsub hcconv)
+  constructor
+  · intro hdconv
+    obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp (by
+      have : (({b, c, e} : Finset P) : Set P) = ({b, c, e} : Set P) := by ext; simp
+      rwa [← this] at hdconv)
+    have hode : orient d e d = 0 := by unfold orient; ring
+    have hoe : orient d e e = 0 := by unfold orient; ring
+    have hsum : ∑ y ∈ ({b, c, e} : Finset P), w y * orient d e y = 0 := by
+      have h := congr_arg (orient d e) hmass
+      rw [orient_sum_of_weight_one d e _ w hw1] at h
+      linarith [hode, h.symm]
+    have hw_sum : w b * orient d e b + w c * orient d e c = 0 := by
+      have hsum' := hsum
+      rw [sum3_orient d e b c e w hbe hce hbc, hoe, mul_zero, add_zero] at hsum'
+      exact hsum'
+    have wb0 : w b = 0 := by
+      rcases same_sign with ⟨hbpos, hcpos⟩ | ⟨hbneg, hcneg⟩
+      · have : w b * orient d e b = 0 := by
+          nlinarith [mul_nonneg (hw0 b (by simp)) (le_of_lt hbpos),
+            mul_nonneg (hw0 c (by simp)) (le_of_lt hcpos), hw_sum]
+        exact (mul_eq_zero.mp this).resolve_right (ne_of_gt hbpos)
+      · have : w b * orient d e b = 0 := by
+          nlinarith [mul_nonpos_of_nonneg_of_nonpos (hw0 b (by simp)) (le_of_lt hbneg),
+            mul_nonpos_of_nonneg_of_nonpos (hw0 c (by simp)) (le_of_lt hcneg), hw_sum]
+        exact (mul_eq_zero.mp this).resolve_right (ne_of_lt hbneg)
+    have wc0 : w c = 0 := by
+      rcases same_sign with ⟨hbpos, hcpos⟩ | ⟨hbneg, hcneg⟩
+      · exact (mul_eq_zero.mp (show w c * orient d e c = 0 by nlinarith [hw_sum, wb0])).resolve_right
+          (ne_of_gt hcpos)
+      · exact (mul_eq_zero.mp (show w c * orient d e c = 0 by nlinarith [hw_sum, wb0])).resolve_right
+          (ne_of_lt hcneg)
+    have hwe : w e = 1 := by
+      have hw1' := hw1
+      rw [sum3_w b c e w hbe hce hbc] at hw1'
+      linarith [hw1', wb0, wc0]
+    have hmass' : d = w b • b + w c • c + w e • e := by
+      have hsm := sum3_smul b c e w hbe hce hbc
+      have hmass2 : d = ∑ y ∈ ({b, c, e} : Finset P), w y • y := hmass.symm
+      rw [hmass2, hsm]
+    simp [wb0, wc0, hwe, one_smul] at hmass'
+    exact hde hmass'
+  · intro heconv
+    obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp (by
+      have : (({b, c, d} : Finset P) : Set P) = ({b, c, d} : Set P) := by ext; simp
+      rwa [← this] at heconv)
+    have hode : orient d e d = 0 := by unfold orient; ring
+    have hoe : orient d e e = 0 := by unfold orient; ring
+    have hsum : ∑ y ∈ ({b, c, d} : Finset P), w y * orient d e y = 0 := by
+      have h := congr_arg (orient d e) hmass
+      rw [orient_sum_of_weight_one d e _ w hw1] at h
+      linarith [hoe, h.symm]
+    have hw_sum : w b * orient d e b + w c * orient d e c = 0 := by
+      have hsum' := hsum
+      rw [sum3_orient d e b c d w hbd hcd hbc, hode, mul_zero, add_zero] at hsum'
+      exact hsum'
+    have wb0 : w b = 0 := by
+      rcases same_sign with ⟨hbpos, hcpos⟩ | ⟨hbneg, hcneg⟩
+      · have : w b * orient d e b = 0 := by
+          nlinarith [mul_nonneg (hw0 b (by simp)) (le_of_lt hbpos),
+            mul_nonneg (hw0 c (by simp)) (le_of_lt hcpos), hw_sum]
+        exact (mul_eq_zero.mp this).resolve_right (ne_of_gt hbpos)
+      · have : w b * orient d e b = 0 := by
+          nlinarith [mul_nonpos_of_nonneg_of_nonpos (hw0 b (by simp)) (le_of_lt hbneg),
+            mul_nonpos_of_nonneg_of_nonpos (hw0 c (by simp)) (le_of_lt hcneg), hw_sum]
+        exact (mul_eq_zero.mp this).resolve_right (ne_of_lt hbneg)
+    have wc0 : w c = 0 := by
+      rcases same_sign with ⟨hbpos, hcpos⟩ | ⟨hbneg, hcneg⟩
+      · exact (mul_eq_zero.mp (show w c * orient d e c = 0 by nlinarith [hw_sum, wb0])).resolve_right
+          (ne_of_gt hcpos)
+      · exact (mul_eq_zero.mp (show w c * orient d e c = 0 by nlinarith [hw_sum, wb0])).resolve_right
+          (ne_of_lt hcneg)
+    have hwd : w d = 1 := by
+      have hw1' := hw1
+      rw [sum3_w b c d w hbd hcd hbc] at hw1'
+      linarith [hw1', wb0, wc0]
+    have hmass' : e = w b • b + w c • c + w d • d := by
+      have hsm := sum3_smul b c d w hbd hcd hbc
+      have hmass2 : e = ∑ y ∈ ({b, c, d} : Finset P), w y • y := hmass.symm
+      rw [hmass2, hsm]
+    simp [wb0, wc0, hwd, one_smul] at hmass'
+    exact hde.symm hmass'
+
+private lemma s_eq_hull_union_pair (s : Finset P) (a b c d e : P)
+    (hH : hullVertices s = {a, b, c})
+    (hR : s \ hullVertices s = {d, e}) :
+    s = {a, b, c, d, e} := by
+  ext x
+  constructor
+  · intro hx
+    by_cases h : x ∈ hullVertices s
+    · have : x ∈ ({a, b, c} : Finset P) := by rwa [hH] at h
+      simp only [Finset.mem_insert, Finset.mem_singleton] at this ⊢
+      tauto
+    · have hxR : x ∈ s \ hullVertices s := mem_sdiff.mpr ⟨hx, h⟩
+      have : x ∈ ({d, e} : Finset P) := by rwa [hR] at hxR
+      simp only [Finset.mem_insert, Finset.mem_singleton] at this ⊢
+      tauto
+  · intro hx
+    have hx' : x = a ∨ x = b ∨ x = c ∨ x = d ∨ x = e := by
+      simpa [Finset.mem_insert, Finset.mem_singleton] using hx
+    have memH : ∀ p, p ∈ ({a, b, c} : Finset P) → p ∈ s := by
+      intro p hp
+      have hpH : p ∈ hullVertices s := by simpa [hH] using hp
+      exact (mem_hullVertices.mp hpH).1
+    have memR : ∀ p, p ∈ ({d, e} : Finset P) → p ∈ s := by
+      intro p hp
+      have hpR : p ∈ s \ hullVertices s := by simpa [hR] using hp
+      exact (mem_sdiff.mp hpR).1
+    rcases hx' with h | h | h | h | h
+    · rw [h]; exact memH a (by simp)
+    · rw [h]; exact memH b (by simp)
+    · rw [h]; exact memH c (by simp)
+    · rw [h]; exact memR d (by simp)
+    · rw [h]; exact memR e (by simp)
+
+private lemma card4_of_pairwise {u v d e : P}
+    (huv : u ≠ v) (hud : u ≠ d) (hue : u ≠ e) (hvd : v ≠ d) (hve : v ≠ e) (hde : d ≠ e) :
+    ({u, v, d, e} : Finset P).card = 4 := by
+  have h2 : ({d, e} : Finset P).card = 2 := card_pair hde
+  have hv_not : v ∉ ({d, e} : Finset P) := by simp [hvd, hve]
+  have h3 : ({v, d, e} : Finset P).card = 3 := by
+    rw [card_insert_of_not_mem hv_not, h2]
+  have hu_not : u ∉ ({v, d, e} : Finset P) := by simp [huv, hud, hue]
+  rw [card_insert_of_not_mem hu_not, h3]
+
+/-- Triangle hull + 2 non-hull points ⇒ convex 4-subset via separating line. -/
+theorem es_three_eq_five_of_hull_card_eq_three (s : Finset P)
+    (hcard : s.card = 5) (hgp : GeneralPosition s)
+    (hHcard : (hullVertices s).card = 3) :
+    ∃ t : Finset P, t ⊆ s ∧ t.card = 4 ∧
+      ConvexIndependent ℝ (fun x : (↑t : Set P) => (x : P)) := by
+  have hHeq := hHcard
+  rw [card_eq_three] at hHeq
+  obtain ⟨a, b, c, hab, hac, hbc, hHset⟩ := hHeq
+  have haH : a ∈ hullVertices s := by rw [hHset]; simp
+  have hbH : b ∈ hullVertices s := by rw [hHset]; simp
+  have hcH : c ∈ hullVertices s := by rw [hHset]; simp
+  have haV := mem_hullVertices.mp haH
+  have hbV := mem_hullVertices.mp hbH
+  have hcV := mem_hullVertices.mp hcH
+  have ha := haV.1; have hb := hbV.1; have hc := hcV.1
+  let R := s \ hullVertices s
+  have hRcard : R.card = 2 := by
+    have hdisj : Disjoint (hullVertices s) R := disjoint_sdiff
+    have hunion : hullVertices s ∪ R = s := by
+      ext x; constructor
+      · intro hx
+        rcases mem_union.mp hx with h | h
+        · exact (mem_hullVertices.mp h).1
+        · exact (mem_sdiff.mp h).1
+      · intro hx
+        by_cases h : x ∈ hullVertices s
+        · exact mem_union_left _ h
+        · exact mem_union_right _ (mem_sdiff.mpr ⟨hx, h⟩)
+    have hsum : (hullVertices s ∪ R).card = (hullVertices s).card + R.card :=
+      card_union_of_disjoint hdisj
+    rw [hunion, hcard, hHcard] at hsum
+    omega
+  rw [card_eq_two] at hRcard
+  obtain ⟨d, e, hde, hRset⟩ := hRcard
+  have hdR : d ∈ R := by rw [hRset]; simp
+  have heR : e ∈ R := by rw [hRset]; simp
+  have hd : d ∈ s := (mem_sdiff.mp hdR).1
+  have he : e ∈ s := (mem_sdiff.mp heR).1
+  have hdV : ¬IsHullVertex s d := by
+    intro h; exact (mem_sdiff.mp hdR).2 (mem_hullVertices.mpr h)
+  have heV : ¬IsHullVertex s e := by
+    intro h; exact (mem_sdiff.mp heR).2 (mem_hullVertices.mpr h)
+  have hda : d ≠ a := fun h => hdV (h ▸ haV)
+  have hdb : d ≠ b := fun h => hdV (h ▸ hbV)
+  have hdc : d ≠ c := fun h => hdV (h ▸ hcV)
+  have hea : e ≠ a := fun h => heV (h ▸ haV)
+  have heb : e ≠ b := fun h => heV (h ▸ hbV)
+  have hec : e ≠ c := fun h => heV (h ▸ hcV)
+  have hs_eq : s = {a, b, c, d, e} := s_eq_hull_union_pair s a b c d e hHset hRset
+  have hoa : orient d e a ≠ 0 := hgp hd he ha hde hea hda
+  have hob : orient d e b ≠ 0 := hgp hd he hb hde heb hdb
+  have hoc : orient d e c ≠ 0 := hgp hd he hc hde hec hdc
+  have hod0 : orient d e d = 0 := by unfold orient; ring
+  have hoe0 : orient d e e = 0 := by unfold orient; ring
+  have hneg_hull : orient d e a < 0 ∨ orient d e b < 0 ∨ orient d e c < 0 := by
+    obtain ⟨⟨p, hp, hpneg⟩, _⟩ := both_sides_of_non_hull s d e hd he hde hgp hdV
+    have hpmem : p ∈ ({a, b, c, d, e} : Finset P) := by rw [← hs_eq]; exact hp
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hpmem
+    rcases hpmem with hpa | hpb | hpc | hpd | hpe
+    · subst hpa; exact Or.inl hpneg
+    · subst hpb; exact Or.inr (Or.inl hpneg)
+    · subst hpc; exact Or.inr (Or.inr hpneg)
+    · subst hpd; linarith [hod0, hpneg]
+    · subst hpe; linarith [hoe0, hpneg]
+  have hpos_hull : 0 < orient d e a ∨ 0 < orient d e b ∨ 0 < orient d e c := by
+    obtain ⟨_, ⟨p, hp, hppos⟩⟩ := both_sides_of_non_hull s d e hd he hde hgp hdV
+    have hpmem : p ∈ ({a, b, c, d, e} : Finset P) := by rw [← hs_eq]; exact hp
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hpmem
+    rcases hpmem with hpa | hpb | hpc | hpd | hpe
+    · subst hpa; exact Or.inl hppos
+    · subst hpb; exact Or.inr (Or.inl hppos)
+    · subst hpc; exact Or.inr (Or.inr hppos)
+    · subst hpd; linarith [hod0, hppos]
+    · subst hpe; linarith [hoe0, hppos]
+  have sa : orient d e a < 0 ∨ 0 < orient d e a := lt_or_gt_of_ne hoa
+  have sb : orient d e b < 0 ∨ 0 < orient d e b := lt_or_gt_of_ne hob
+  have sc : orient d e c < 0 ∨ 0 < orient d e c := lt_or_gt_of_ne hoc
+  have majority :
+      (0 < orient d e a * orient d e b ∧ a ≠ d ∧ a ≠ e ∧ b ≠ d ∧ b ≠ e) ∨
+      (0 < orient d e a * orient d e c ∧ a ≠ d ∧ a ≠ e ∧ c ≠ d ∧ c ≠ e) ∨
+      (0 < orient d e b * orient d e c ∧ b ≠ d ∧ b ≠ e ∧ c ≠ d ∧ c ≠ e) := by
+    rcases sa with ha_neg | ha_pos
+    · rcases sb with hb_neg | hb_pos
+      · rcases sc with _hc_neg | _hc_pos
+        · exact False.elim (by rcases hpos_hull with h | h | h <;> linarith)
+        · exact Or.inl ⟨by nlinarith, Ne.symm hda, Ne.symm hea, Ne.symm hdb, Ne.symm heb⟩
+      · rcases sc with hc_neg | hc_pos
+        · exact Or.inr (Or.inl ⟨by nlinarith, Ne.symm hda, Ne.symm hea, Ne.symm hdc, Ne.symm hec⟩)
+        · exact Or.inr (Or.inr ⟨by nlinarith, Ne.symm hdb, Ne.symm heb, Ne.symm hdc, Ne.symm hec⟩)
+    · rcases sb with hb_neg | hb_pos
+      · rcases sc with hc_neg | hc_pos
+        · exact Or.inr (Or.inr ⟨by nlinarith, Ne.symm hdb, Ne.symm heb, Ne.symm hdc, Ne.symm hec⟩)
+        · exact Or.inr (Or.inl ⟨by nlinarith, Ne.symm hda, Ne.symm hea, Ne.symm hdc, Ne.symm hec⟩)
+      · rcases sc with _hc_neg | _hc_pos
+        · exact Or.inl ⟨by nlinarith, Ne.symm hda, Ne.symm hea, Ne.symm hdb, Ne.symm heb⟩
+        · exact False.elim (by rcases hneg_hull with h | h | h <;> linarith)
+  rcases majority with hmaj | hmaj | hmaj
+  · obtain ⟨hside, had, hae, hbd', hbe'⟩ := hmaj
+    have hICP := inConvexPosition4_of_same_side_pair s a b d e haV hbV hd he
+      had hae hbd' hbe' hde hab hside
+    have h4 := card4_of_pairwise hab had hae hbd' hbe' hde
+    obtain ⟨t, ht_sub, ht4, hci⟩ :=
+      exists_convexIndependent_of_inConvexPosition4 a b d e h4 hICP
+    refine ⟨t, ht_sub.trans ?_, ht4, hci⟩
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl | rfl | rfl <;> assumption
+  · obtain ⟨hside, had, hae, hcd', hce'⟩ := hmaj
+    have hICP := inConvexPosition4_of_same_side_pair s a c d e haV hcV hd he
+      had hae hcd' hce' hde hac hside
+    have h4 := card4_of_pairwise hac had hae hcd' hce' hde
+    obtain ⟨t, ht_sub, ht4, hci⟩ :=
+      exists_convexIndependent_of_inConvexPosition4 a c d e h4 hICP
+    refine ⟨t, ht_sub.trans ?_, ht4, hci⟩
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl | rfl | rfl <;> assumption
+  · obtain ⟨hside, hbd', hbe', hcd', hce'⟩ := hmaj
+    have hICP := inConvexPosition4_of_same_side_pair s b c d e hbV hcV hd he
+      hbd' hbe' hcd' hce' hde hbc hside
+    have h4 := card4_of_pairwise hbc hbd' hbe' hcd' hce' hde
+    obtain ⟨t, ht_sub, ht4, hci⟩ :=
+      exists_convexIndependent_of_inConvexPosition4 b c d e h4 hICP
+    refine ⟨t, ht_sub.trans ?_, ht4, hci⟩
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl | rfl | rfl <;> assumption
+
+/-- Full ES(3)=5: any 5-point GP set has a convex-independent 4-subset. -/
+theorem es_three_eq_five : EsThreeEqFiveStatement := by
+  intro s hcard hgp
+  have h3 : 3 ≤ (hullVertices s).card :=
+    hullVertices_card_ge_three_of_gp s (by omega : 3 ≤ s.card) hgp
+  by_cases hge4 : 4 ≤ (hullVertices s).card
+  · exact es_three_eq_five_of_hull_card_ge_four s hcard hgp hge4
+  · have hH3 : (hullVertices s).card = 3 := by omega
+    exact es_three_eq_five_of_hull_card_eq_three s hcard hgp hH3
+
 
 
 /-! ## Sanity -/

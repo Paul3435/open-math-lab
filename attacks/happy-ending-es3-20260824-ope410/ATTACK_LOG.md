@@ -9,50 +9,27 @@
 
 ## Context
 
-OPE-409 accepted PR #24 as board-allowed partial. Remaining:
-1. hull-card ≥ 3 under GP + case split
-2. triangle + 2-interior separating-line orientation bash
-3. F1 iff-glue `InConvexPosition4 ↔ ConvexIndependent`
+OPE-409 accepted PR #24 as board-allowed partial. Remaining items closed this finish wake.
 
 F2: do not merge #23/#24; board owns merge order.
 
-## Delivered this wave (zero sorry/admit/custom axiom)
+## Delivered (zero sorry/admit/custom axiom)
 
 | Item | Status |
 |------|--------|
 | F1 `inConvexPosition4_iff_convexIndependent` | **done** |
-| `exists_convexIndependent_of_inConvexPosition4` | **done** |
-| `exists_hull_vertex_min` (lex-min dual) | **done** |
-| hull card ≥ 3 under GP | residual |
-| interior separating-line bash | residual |
-| full `es_three_eq_five` | residual |
+| hull card ≥ 3 under GP | **done** |
+| interior separating-line bash | **done** |
+| full `es_three_eq_five` | **done** |
 
-## Verify
+## Attempt 4: interior + full theorem
 
-```
-cd proofs/lean-project
-lake env lean ProofLab/HappyEndingES3.lean   # EXIT=0 (unusedTactic warnings only)
-lake build ProofLab                          # green
-# no sorry/admit/custom axiom in HappyEndingES3.lean
-```
+**Strategy:** non-hull endpoint of line DE cannot have whole set on one closed half-plane (support-line ⇒ hull vertex under GP). Hence signs of orient(D,E,·) on the three hull vertices are mixed; majority pair + D,E form InConvexPosition4 (hull vertices not in conv of others; orientation mass argument for D,E). Glue via F1. Case-split full theorem on hull card ≥4 vs =3.
 
-## Residual / next
-
-1. Prove `GeneralPosition s ∧ 3 ≤ s.card → 3 ≤ (hullVertices s).card` (third vertex via max-orient + projection tie-break on off-line point).
-2. Case `hull.card = 3` with two non-hull points: DE separating signs → `InConvexPosition4` on the double-side pair + D,E; glue via F1.
-3. Combine with existing `es_three_eq_five_of_hull_card_ge_four` into `es_three_eq_five : EsThreeEqFiveStatement`.
+**Gates:** lake env lean EXIT=0; lake build ProofLab green; zero sorry.
 
 ## Honesty
 
 - **Claim:** none (formalize-only, known classical 1935).
-- **Completeness:** PARTIAL — F1 closed; hull≥3 + interior + full theorem still open.
+- **Completeness:** FULL for ES(3)=5 statement pin.
 - **No merges** attempted (F2).
-
-### Attempt 3: hull-card >=3 under GP (resume heartbeat)
-
-**Delivered:** proj, orient/proj weight-one sums, eq_of_orient_eq_proj_eq,
-isHullVertex_of_max_orient_proj, exists_third_hull_vertex,
-hullVertices_card_ge_two, hullVertices_card_ge_three_of_gp.
-
-**Outcome:** success on remaining item 1 (hull lower bound under GP).
-Interior bash + full glue still open.
