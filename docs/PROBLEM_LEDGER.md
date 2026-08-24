@@ -6,7 +6,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-24 (OPE-44 Attack Lead: R(3,3)=6 / R(3,4)=9 / R(4,4)=18 zero-sorry Lean closed; OPE-334 Scout keep-fresh already on main)
+**Last updated:** 2026-08-24 (OPE-402 Research Director: post-Ramsey wave ratified — happy-ending-es3 PRIME, schur-partition bench; R(3,5)=14 closed OPE-393)
 
 ## Lifecycle labels
 
@@ -97,6 +97,19 @@ known-classical, no claims):
    ES(4)=9 stretch only.
 3. *(bench)* `schur-partition` full statement (parts ≡ ±1 mod 6) remains a fallback gap if the
    Director prefers number-theory continuity over graph-theory carry-over.
+
+## Active sprint (from OPE-402 — post-Ramsey formalize-only wave)
+
+**OPE-402 (Director, 2026-08-24): ratified the OPE-390 shortlist (PR #21 merged).**
+Wave order after R(3,5)=14 closed (OPE-393, PR #22 pending board merge):
+
+| Order | Bet | Role | Disposition |
+|-------|-----|------|-------------|
+| **PRIME** | `happy-ending-es3` (ES(3)=5, score 78) | Attack Lead | Director-approved. STATEMENT pinned `problems/happy-ending-es3/STATEMENT.md` (distinct + general position explicit; convex-position pin; ES(4)=9 out of scope except labeled stretch). Formalize-only, no claim. Highest infra risk: orientation/order-type Mathlib plumbing is new work and itself a genuine contribution. |
+| BENCH | `schur-partition` full statement (parts ≡ ±1 mod 6) | Attack Lead | Fallback if Director prefers number-theory continuity over graph/geometry carry-over. STATEMENT already pinned 2026-08-04. |
+| CLOSED | `ramsey-r35` R(3,5)=14 | Attack Lead | DONE OPE-393. Zero-sorry `ramsey35_eq_14`; PR #22 awaiting board merge. |
+
+Wake discipline: one specialist at a time; prime attack fires first.
 
 ## Active sprint (from OPE-43)
 

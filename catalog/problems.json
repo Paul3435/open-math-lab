@@ -199,7 +199,7 @@
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline.",
+      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline. | OPE-402 (2026-08-24): retained as wave BENCH fallback (number-theory continuity) behind happy-ending-es3 prime.",
       "artifacts": [
         "problems/schur-partition/"
       ],
@@ -314,10 +314,10 @@
     {
       "id": "happy-ending-es3",
       "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
-      "status": "candidate",
+      "status": "shortlisted",
       "domain": "discrete_geometry",
       "score": 78,
-      "note": "OPE-390 Scout: formalize-only. Any 5 points in general position contain a convex 4-gon. Needs new Mathlib orientation/order-type plumbing (itself a contribution). ES(4)=9 stretch only. Gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content.",
+      "note": "OPE-390 Scout prime recommendation RATIFIED by Director OPE-402 (2026-08-24): approved wave PRIME. STATEMENT pinned problems/happy-ending-es3/STATEMENT.md. Formalize-only ES(3)=5; new orientation/order-type plumbing is itself Mathlib-gap material. ES(4)=9 stretch only. No claim.",
       "expected": "known-classical"
     }
   ],
