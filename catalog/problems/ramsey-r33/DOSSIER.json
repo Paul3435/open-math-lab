@@ -1,7 +1,7 @@
 {
   "id": "ramsey-r33",
-  "title": "Finite graph Ramsey numbers — R(3,3)=6 / R(4,4)=18 (formalize-only)",
-  "status": "candidate",
+  "title": "Finite graph Ramsey numbers \u2014 R(3,3)=6 / R(4,4)=18 (formalize-only)",
+  "status": "formalized",
   "domain": "graph_theory",
   "scores": {
     "formalizability": 18,
@@ -10,9 +10,15 @@
     "verification_budget": 19,
     "crackpot_resistance": 20
   },
-  "flags": ["known-classical; formalize-only — do NOT re-fund as novel"],
+  "flags": [
+    "known-classical; formalize-only \u2014 do NOT re-fund as novel"
+  ],
   "recommendation": "Formalize-only. Mathlib has SimpleGraph.Coloring/Clique infra but NO ramsey theorem (gap confirmed v4.10.0). R(3,3)=6 is a clean hand Lean proof; R(3,4)=9 easy; R(4,4)=18 via certified exhaustive/SAT. Genuine Mathlib contribution is the value.",
-  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "skill_packs": [
+    "graph-theory",
+    "formalization",
+    "combinatorics"
+  ],
   "estimated_token_budget": "160k",
   "expected": "known-classical",
   "mathlib_ref": "Mathlib/Combinatorics/SimpleGraph/{Coloring,Clique}.lean (use); no Ramsey file yet (gap)",
@@ -21,6 +27,7 @@
     "Replaces seed placeholder mathlib-gap-candidate / oeis-finite-check-candidate",
     "R(3,3)=6 classic pigeonhole; R(4,4)=18 Greenwood-Gleason 1955",
     "Finitary, decidable, developer-friendly",
-    "Do NOT re-fund as novel research"
+    "Do NOT re-fund as novel research",
+    "OPE-44 closed 2026-08-24: R(3,3)=6, R(3,4)=9, R(4,4)=18 zero-sorry in ProofLab/Ramsey.lean"
   ]
 }

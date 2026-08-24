@@ -67,13 +67,13 @@
       "formalization_target": "Lean 4 proof that k=16, a=2184 is witness pair",
       "expected": "known-classical",
       "scout_refresh": {
-       "date": "2026-08-22",
-       "issue": "OPE-334",
-       "role": "leading next-prime candidate",
-       "definition_pinned": "k Erdos-Woods number iff exists a>0 such that every j with a<j<a+k shares a prime factor with a or a+k",
-       "witness_check": "python3 problems/erdos-woods/verify_witness.py -> PASS 15/15 interior j for (k=16,a=2184)",
-       "feasibility_overall_1_to_5": 4.3,
-       "expected": "known-classical"
+        "date": "2026-08-22",
+        "issue": "OPE-334",
+        "role": "leading next-prime candidate",
+        "definition_pinned": "k Erdos-Woods number iff exists a>0 such that every j with a<j<a+k shares a prime factor with a or a+k",
+        "witness_check": "python3 problems/erdos-woods/verify_witness.py -> PASS 15/15 interior j for (k=16,a=2184)",
+        "feasibility_overall_1_to_5": 4.3,
+        "expected": "known-classical"
       }
     },
     {
@@ -127,7 +127,7 @@
         "graph_theory"
       ],
       "source": "mathlib-gap",
-      "status": "in_progress",
+      "status": "formalized",
       "director_approved": true,
       "issue": "OPE-44",
       "sprint": "OPE-43",
@@ -144,13 +144,14 @@
           "crackpot_risk": 1.0
         },
         "budget_tokens_estimate": 160000,
-        "recommendation": "formalize-only",
+        "recommendation": "formalized (formalize-only, OPE-44 closed)",
         "rationale": "Finitary 2-colour Ramsey; Mathlib has coloring/clique infra but no ramsey theorem (gap confirmed v4.10.0). R(3,3)=6 clean hand proof; R(4,4)=18 certified exhaustive/SAT. formalize-only, no novelty claim.",
         "overall_1_to_5": 5.0
       },
-      "notes": "Finitary exhaustive/SAT cert; Mathlib gap (no ramseyNumber theorem) | Scout keep-fresh (2026-08-22): OPE-44 attack in_progress on branch ope/044-ramsey-r33 — R(3,3)=6 both bounds + R(3,4)>8 / R(4,4)>17 lower bounds certified zero-sorry; upper bounds R(3,4)<=9 / R(4,4)<=18 pending hand proof (degree-parity plan in ATTACK_LOG.md).",
+      "notes": "Finitary exhaustive/SAT cert; Mathlib gap (no ramseyNumber theorem) | OPE-44 CLOSED 2026-08-24: R(3,3)=6 / R(3,4)=9 / R(4,4)=18 all zero-sorry (ramsey33_eq_6, ramsey34_eq_9, ramsey44_eq_18). Board independent lake env lean EXIT=0. formalize-only, no claim.",
       "expected": "known-classical",
-      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/"
+      "note": "OPE Scout 2026-08-07: replaces seed placeholder. Finitary decidable problem; Mathlib gap confirmed v4.10.0. formalize-only — do NOT re-fund as novel research. Dossier: catalog/problems/ramsey-r33/",
+      "lean_artifact": "proofs/lean-project/ProofLab/Ramsey.lean"
     },
     {
       "id": "schur-number",
@@ -279,7 +280,7 @@
       "lean_artifact": "proofs/lean-project/ProofLab/VanDerWaerden.lean"
     }
   ],
-  "updated_at": "2026-08-22T12:00:00Z",
+  "updated_at": "2026-08-24T13:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
