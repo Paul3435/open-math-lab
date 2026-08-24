@@ -5,7 +5,7 @@ import Mathlib.Analysis.Convex.Join
 import Mathlib.Tactic
 
 /-!
-# Happy Ending ES(3)=5 — orientation / hull plumbing (OPE-403)
+# Happy Ending ES(3)=5 — OPE-403 plumbing + OPE-410 finish wave
 
 **Literature:** Erdős–Szekeres 1935; Esther Klein. Formalize-only; **no novelty claim**.
 **Pin:** `problems/happy-ending-es3/STATEMENT.md`
@@ -20,13 +20,18 @@ import Mathlib.Tactic
 6. `InConvexPosition4` (STATEMENT convex-position definition)
 7. `IsHullVertex`, `exists_hull_vertex`, `hullVertices`
 8. `convexIndependent_hull_vertices`
-9. `es_three_eq_five_of_hull_card_ge_four` (partial main: hull ≥ 4 case)
+9. `es_three_eq_five_of_hull_card_ge_four` (hull ≥ 4 case)
 10. `EsThreeEqFiveStatement` / `GeneralPosition` predicates (1:1 with STATEMENT)
+11. **F1** `inConvexPosition4_iff_convexIndependent` (OPE-410)
+12. `exists_hull_vertex_min` (lex-min dual; OPE-410 hull progress)
 
-## Residual
+## Residual (OPE-410)
 
-Full ES(3)=5 for the triangle + 2-interior case (separating-line orientation bash).
-Board-accepted partial: this plumbing alone. ES(4)=9 out of scope.
+- `GP ∧ card≥3 ⇒ hull.card ≥ 3` (third vertex via max-orient / off-line)
+- Triangle + 2-interior separating-line orientation bash
+- Full `es_three_eq_five` discharging `EsThreeEqFiveStatement`
+
+ES(4)=9 out of scope.
 -/
 
 namespace ProofLab.HappyEndingES3
@@ -303,6 +308,214 @@ theorem es_three_eq_five_of_hull_card_ge_four (s : Finset P)
     have hh : ∀ p ∈ (↑t : Set P), IsHullVertex s p := by
       intro p hp; exact mem_hullVertices.mp (htH hp)
     exact convexIndependent_hull_vertices s (↑t) ht_set hh
+
+/-! ## F1: InConvexPosition4 ↔ ConvexIndependent (OPE-410 / review finding F1) -/
+
+lemma card_at_most_three (x y z : P) : ({x, y, z} : Finset P).card ≤ 3 := by
+  calc
+    ({x, y, z} : Finset P).card ≤ ({y, z} : Finset P).card + 1 := Finset.card_insert_le _ _
+    _ ≤ ({z} : Finset P).card + 1 + 1 := Nat.add_le_add_right (Finset.card_insert_le _ _) 1
+    _ ≤ 1 + 1 + 1 := by
+        have : ({z} : Finset P).card = 1 := Finset.card_singleton z
+        linarith
+    _ = 3 := by norm_num
+
+lemma ne_four_of_card_le_three {s : Finset P} (h : s.card ≤ 3) : s.card ≠ 4 := by omega
+
+lemma pairwise_of_card4 {a b c d : P}
+    (h : ({a, b, c, d} : Finset P).card = 4) :
+    a ≠ b ∧ a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d ∧ c ≠ d := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;> intro heq <;> subst heq <;>
+    first
+    | exact (ne_four_of_card_le_three (card_at_most_three _ _ _)
+        (by simpa [Finset.insert_eq_of_mem] using h))
+    | exact (ne_four_of_card_le_three (card_at_most_three a c d)
+        (by simpa [Finset.insert_eq_of_mem] using h))
+    | exact (ne_four_of_card_le_three (card_at_most_three a b d)
+        (by
+          have : ({a, b, a, d} : Finset P) = ({a, b, d} : Finset P) := by
+            simp [Finset.insert_eq_of_mem]
+          simpa [this] using h))
+    | exact (ne_four_of_card_le_three (card_at_most_three a b c)
+        (by
+          have : ({a, b, c, a} : Finset P) = ({a, b, c} : Finset P) := by
+            simp [Finset.insert_eq_of_mem]
+          simpa [this] using h))
+    | exact (ne_four_of_card_le_three (card_at_most_three a b d)
+        (by
+          have : ({a, b, b, d} : Finset P) = ({a, b, d} : Finset P) := by
+            simp [Finset.insert_eq_of_mem]
+          simpa [this] using h))
+    | exact (ne_four_of_card_le_three (card_at_most_three a b c)
+        (by
+          have : ({a, b, c, b} : Finset P) = ({a, b, c} : Finset P) := by
+            simp [Finset.insert_eq_of_mem]
+          simpa [this] using h))
+    | exact (ne_four_of_card_le_three (card_at_most_three a b c)
+        (by
+          have : ({a, b, c, c} : Finset P) = ({a, b, c} : Finset P) := by
+            simp [Finset.insert_eq_of_mem]
+          simpa [this] using h))
+
+private lemma mem_finset4 {a b c d x : P} :
+    x ∈ ({a, b, c, d} : Finset P) ↔ x = a ∨ x = b ∨ x = c ∨ x = d := by simp
+
+lemma coe_set4_diff_a {a b c d : P} (hab : a ≠ b) (hac : a ≠ c) (had : a ≠ d) :
+    ((({a, b, c, d} : Finset P) : Set P) \ {a}) = ({b, c, d} : Set P) := by
+  ext x; constructor
+  · intro hx
+    have : x = a ∨ x = b ∨ x = c ∨ x = d := (mem_finset4).1 hx.1
+    rcases this with rfl | rfl | rfl | rfl
+    · exact (hx.2 rfl).elim
+    · simp
+    · simp
+    · simp
+  · intro hx
+    rcases (show x = b ∨ x = c ∨ x = d by simpa using hx) with rfl | rfl | rfl
+    · exact ⟨by simp [mem_finset4, hab.symm], hab.symm⟩
+    · exact ⟨by simp [mem_finset4, hac.symm], hac.symm⟩
+    · exact ⟨by simp [mem_finset4, had.symm], had.symm⟩
+
+lemma coe_set4_diff_b {a b c d : P} (hab : a ≠ b) (hbc : b ≠ c) (hbd : b ≠ d) :
+    ((({a, b, c, d} : Finset P) : Set P) \ {b}) = ({a, c, d} : Set P) := by
+  ext x; constructor
+  · intro hx
+    rcases (mem_finset4 (a := a) (b := b) (c := c) (d := d)).1 hx.1 with rfl | rfl | rfl | rfl
+    · simp
+    · exact (hx.2 rfl).elim
+    · simp
+    · simp
+  · intro hx
+    rcases (show x = a ∨ x = c ∨ x = d by simpa using hx) with rfl | rfl | rfl
+    · exact ⟨by simp [mem_finset4], hab⟩
+    · exact ⟨by simp [mem_finset4, hbc.symm], hbc.symm⟩
+    · exact ⟨by simp [mem_finset4, hbd.symm], hbd.symm⟩
+
+lemma coe_set4_diff_c {a b c d : P} (hac : a ≠ c) (hbc : b ≠ c) (hcd : c ≠ d) :
+    ((({a, b, c, d} : Finset P) : Set P) \ {c}) = ({a, b, d} : Set P) := by
+  ext x; constructor
+  · intro hx
+    rcases (mem_finset4 (a := a) (b := b) (c := c) (d := d)).1 hx.1 with rfl | rfl | rfl | rfl
+    · simp
+    · simp
+    · exact (hx.2 rfl).elim
+    · simp
+  · intro hx
+    rcases (show x = a ∨ x = b ∨ x = d by simpa using hx) with rfl | rfl | rfl
+    · exact ⟨by simp [mem_finset4], hac⟩
+    · exact ⟨by simp [mem_finset4], hbc⟩
+    · exact ⟨by simp [mem_finset4, hcd.symm], hcd.symm⟩
+
+lemma coe_set4_diff_d {a b c d : P} (had : a ≠ d) (hbd : b ≠ d) (hcd : c ≠ d) :
+    ((({a, b, c, d} : Finset P) : Set P) \ {d}) = ({a, b, c} : Set P) := by
+  ext x; constructor
+  · intro hx
+    rcases (mem_finset4 (a := a) (b := b) (c := c) (d := d)).1 hx.1 with rfl | rfl | rfl | rfl
+    · simp
+    · simp
+    · simp
+    · exact (hx.2 rfl).elim
+  · intro hx
+    rcases (show x = a ∨ x = b ∨ x = c by simpa using hx) with rfl | rfl | rfl
+    · exact ⟨by simp [mem_finset4], had⟩
+    · exact ⟨by simp [mem_finset4], hbd⟩
+    · exact ⟨by simp [mem_finset4], hcd⟩
+
+/-- F1: STATEMENT convex-position definition ↔ Mathlib `ConvexIndependent` on the 4-set. -/
+theorem inConvexPosition4_iff_convexIndependent (a b c d : P)
+    (h4 : ({a, b, c, d} : Finset P).card = 4) :
+    InConvexPosition4 a b c d ↔
+      ConvexIndependent ℝ (fun x : (({a, b, c, d} : Finset P) : Set P) => (x : P)) := by
+  obtain ⟨hab, hac, had, hbc, hbd, hcd⟩ := pairwise_of_card4 h4
+  rw [convexIndependent_set_iff_not_mem_convexHull_diff]
+  constructor
+  · intro h x hx
+    have hx' : x = a ∨ x = b ∨ x = c ∨ x = d := (mem_finset4).1 (by simpa using hx)
+    rcases hx' with rfl | rfl | rfl | rfl
+    · rw [coe_set4_diff_a hab hac had]; exact h.1
+    · rw [coe_set4_diff_b hab hbc hbd]; exact h.2.1
+    · rw [coe_set4_diff_c hac hbc hcd]; exact h.2.2.1
+    · rw [coe_set4_diff_d had hbd hcd]; exact h.2.2.2
+  · intro h
+    constructor
+    · rw [← coe_set4_diff_a hab hac had]; exact h a (by simp)
+    constructor
+    · rw [← coe_set4_diff_b hab hbc hbd]; exact h b (by simp)
+    constructor
+    · rw [← coe_set4_diff_c hac hbc hcd]; exact h c (by simp)
+    · rw [← coe_set4_diff_d had hbd hcd]; exact h d (by simp)
+
+/-- Convenience: `InConvexPosition4` yields the finset form used by `EsThreeEqFiveStatement`. -/
+theorem exists_convexIndependent_of_inConvexPosition4 (a b c d : P)
+    (h4 : ({a, b, c, d} : Finset P).card = 4)
+    (h : InConvexPosition4 a b c d) :
+    ∃ t : Finset P, t ⊆ ({a, b, c, d} : Finset P) ∧ t.card = 4 ∧
+      ConvexIndependent ℝ (fun x : (↑t : Set P) => (x : P)) := by
+  refine ⟨{a, b, c, d}, Finset.Subset.rfl, h4, ?_⟩
+  exact (inConvexPosition4_iff_convexIndependent a b c d h4).1 h
+
+/-! ## Hull-card lower bounds (OPE-410 item 1 progress) -/
+
+/-- Lex-min point (min x, then min y) is a hull vertex — dual of `exists_hull_vertex`. -/
+theorem exists_hull_vertex_min (s : Finset P) (hs : s.Nonempty) :
+    ∃ p, IsHullVertex s p := by
+  obtain ⟨p₀, hp₀, hmin0⟩ := s.exists_min_image (fun p : P => p.1) hs
+  let s2 : Finset P := s.filter (fun q => q.1 = p₀.1)
+  have hs2 : s2.Nonempty := ⟨p₀, by simp [s2, hp₀]⟩
+  obtain ⟨q, hq, hmin1⟩ := s2.exists_min_image (fun p : P => p.2) hs2
+  have hq_s : q ∈ s := (mem_filter.mp hq).1
+  have hq1 : q.1 = p₀.1 := (mem_filter.mp hq).2
+  refine ⟨q, hq_s, ?_⟩
+  intro hconv
+  rw [erase_coe] at hconv
+  obtain ⟨w, hw0, hw1, hmass⟩ := Finset.mem_convexHull'.mp hconv
+  have hfst : q.1 = ∑ y ∈ s.erase q, w y * y.1 := by
+    have := congr_arg Prod.fst hmass
+    simpa [Prod.fst_sum, Prod.smul_fst, smul_eq_mul] using this.symm
+  have hsnd : q.2 = ∑ y ∈ s.erase q, w y * y.2 := by
+    have := congr_arg Prod.snd hmass
+    simpa [Prod.snd_sum, Prod.smul_snd, smul_eq_mul] using this.symm
+  have hy1_ge : ∀ y ∈ s.erase q, q.1 ≤ y.1 := by
+    intro y hy
+    have := hmin0 y (mem_of_mem_erase hy)
+    linarith [hq1]
+  have hle1 : ∀ y ∈ s.erase q, w y * q.1 ≤ w y * y.1 := fun y hy =>
+    mul_le_mul_of_nonneg_left (hy1_ge y hy) (hw0 y hy)
+  have hlhs1 : ∑ y ∈ s.erase q, w y * q.1 = q.1 := by simp [← sum_mul, hw1]
+  have heq1 : ∑ y ∈ s.erase q, w y * q.1 = ∑ y ∈ s.erase q, w y * y.1 := by
+    linarith [hfst, hlhs1]
+  have hpair1 := weighted_eq_of_sum_eq w (fun _ => q.1) (fun y => y.1) hle1 heq1
+  have hy1_eq : ∀ y ∈ s.erase q, w y ≠ 0 → y.1 = q.1 := by
+    intro y hy hwne
+    exact mul_left_cancel₀ hwne (by linarith [hpair1 y hy])
+  have hle2 : ∀ y ∈ s.erase q, w y * q.2 ≤ w y * y.2 := by
+    intro y hy
+    by_cases hwne : w y = 0
+    · simp [hwne]
+    · have hy1eq := hy1_eq y hy hwne
+      have y_in_s2 : y ∈ s2 := by
+        simp only [s2, mem_filter, mem_of_mem_erase hy, true_and]
+        linarith [hq1, hy1eq]
+      exact mul_le_mul_of_nonneg_left (hmin1 y y_in_s2) (hw0 y hy)
+  have hlhs2 : ∑ y ∈ s.erase q, w y * q.2 = q.2 := by simp [← sum_mul, hw1]
+  have heq2 : ∑ y ∈ s.erase q, w y * q.2 = ∑ y ∈ s.erase q, w y * y.2 := by
+    linarith [hsnd, hlhs2]
+  have hpair2 := weighted_eq_of_sum_eq w (fun _ => q.2) (fun y => y.2) hle2 heq2
+  have hy_eq : ∀ y ∈ s.erase q, w y ≠ 0 → y = q := by
+    intro y hy hwne
+    apply Prod.ext
+    · exact hy1_eq y hy hwne
+    · exact mul_left_cancel₀ hwne (by linarith [hpair2 y hy])
+  obtain ⟨y, hy, hypos⟩ : ∃ y ∈ s.erase q, 0 < w y := by
+    by_contra H
+    push_neg at H
+    have hz : ∀ y ∈ s.erase q, w y = 0 := fun y hy => le_antisymm (H y hy) (hw0 y hy)
+    have : ∑ y ∈ s.erase q, w y = 0 := sum_eq_zero hz
+    linarith [hw1]
+  have yeq := hy_eq y hy (ne_of_gt hypos)
+  have hy' := hy
+  rw [yeq] at hy'
+  exact absurd hy' (not_mem_erase q s)
 
 /-! ## Sanity -/
 
