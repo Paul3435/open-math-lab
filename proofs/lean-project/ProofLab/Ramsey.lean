@@ -1,6 +1,9 @@
 import Mathlib.Combinatorics.SimpleGraph.Clique
 import Mathlib.Combinatorics.SimpleGraph.Basic
+import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+import Mathlib.Combinatorics.SimpleGraph.Maps
 import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Finset.Sort
 import Mathlib.Tactic
 
 open SimpleGraph Finset
@@ -8,7 +11,7 @@ open SimpleGraph Finset
 namespace ProofLab.Ramsey
 
 /-!
-# Finite graph Ramsey numbers — R(3,3)=6 (formalize-only, OPE-44)
+# Finite graph Ramsey numbers — R(3,3)=6 + lower bounds (formalize-only, OPE-44)
 
 A red/blue edge-colouring of the complete graph `K_n` is represented by a
 `SimpleGraph (Fin n)` (the "red" edges); the complement graph is "blue".
@@ -22,20 +25,16 @@ A red/blue edge-colouring of the complete graph `K_n` is represented by a
 * `edgeIndex`, `Red6`: certification encoding of a colouring of `K_6` by
   booleans on the 15 edges.
 
-## Main results (certified, zero `sorry`)
+## Main results (zero `sorry`)
 
-* `ramsey33_le_6`: `R(3,3) ≤ 6`.  Exhaustive search over the `2^15` red/blue
-  colourings of `K_6`: a boolean function on the 15 edges of `K_6` is a finite
-  decidable object, so `native_decide` closes the goal.
-* `not_ramsey33_5`: `R(3,3) > 5`, witnessed by the 5-cycle colouring of `K_5`
-  (no monochromatic triangle), certified by exhaustive decision.
-* `ramsey33_gt_5`: `¬ RamseyUpper 3 3 5`, derived from `not_ramsey33_5`.
-
-`R(3,4)=9` and `R(4,4)=18` are stated in issue OPE-44 but not yet proved here:
-a direct `native_decide` enumeration would need to decide `2^36` resp. `2^153`
-colourings, which is not tractable; see `problems/ramsey-r33/ATTACK_LOG.md`
-for the reduction plan (backtracking/SAT-style search or a Greenwood–Gleason
-structural argument).
+* `ramsey33_le_6` / `ramsey33_fin6`: `R(3,3) ≤ 6` (exhaustive + hand pigeonhole).
+* `not_ramsey33_5` / `ramsey33_gt_5`: `R(3,3) > 5` via the 5-cycle.
+* `ramsey34_gt_8`: `R(3,4) > 8` (explicit witness; lower bound only).
+* `ramsey44_gt_17`: `R(4,4) > 17` (Paley-17; lower bound only).
+* `ramseyUpper_swap`: colour-role symmetry.
+* Support for the open upper bounds: degree-sum parity (`not_five_regular_fin9`) and
+  induced Fin-6 transfer (`ramsey33_comap_embedding`, `ramsey33_on_finset`).
+* **Not yet proved:** `R(3,4) ≤ 9`, `R(4,4) ≤ 18`.
 -/
 
 /-! ## Definition of the Ramsey predicate -/
@@ -389,5 +388,440 @@ theorem ramsey33_fin6 : ∀ G : SimpleGraph (Fin 6), HasClique G 3 ∨ HasClique
         · right; exact clique3_of_adj (Gᶜ) hzb hzc hbc hzbC hzcC (by simpa [h3])
         · left; exact clique3_of_adj G hab hac hbc
             (Classical.not_not.mp h1) (Classical.not_not.mp h2) (Classical.not_not.mp h3)
+
+/-! ## Support lemmas for the R(3,4) ≤ 9 degree-parity hand proof
+
+The classical argument needs:
+1. **degree-sum / handshake** — `∑ degree = 2 · #edges` is even, so a 5-regular
+   colouring on 9 vertices is impossible (sum 45 odd).
+2. **induced Fin-6 transfer** — if a colouring of `K_n` has a 6-vertex set `S`,
+   the induced colouring on `S` inherits `R(3,3) ≤ 6` from `ramsey33_fin6`
+   (via pullback along an embedding `Fin 6 ↪ V`), and monochromatic triangles
+   on `S` push forward to monochromatic triangles in the ambient graph.
+
+These lemmas do **not** yet close `RamseyUpper 3 4 9`; they only factor the
+reusable infrastructure. Zero `sorry`. -/
+
+/-- Degree-sum formula specialized: the sum of degrees is always even. -/
+theorem sum_degrees_even {V : Type*} (G : SimpleGraph V) [Fintype V]
+    [DecidableRel G.Adj] [Fintype (Sym2 V)] :
+    Even (∑ v : V, G.degree v) := by
+  rw [G.sum_degrees_eq_twice_card_edges]
+  exact even_two_mul _
+
+/-- If every vertex has the same degree `d`, the degree sum is `#V * d`. -/
+theorem sum_degrees_of_regular {V : Type*} (G : SimpleGraph V) [Fintype V]
+    [DecidableRel G.Adj] (d : ℕ) (h : ∀ v : V, G.degree v = d) :
+    ∑ v : V, G.degree v = Fintype.card V * d := by
+  simp [h]
+
+/-- Handshake parity obstruction: no graph on an odd number of vertices can be
+regular of odd degree (classical step 3 of the R(3,4)≤9 proof: 9 · 5 = 45). -/
+theorem not_regular_odd_of_odd_card {V : Type*} (G : SimpleGraph V) [Fintype V]
+    [DecidableRel G.Adj] [Fintype (Sym2 V)] (d : ℕ)
+    (hcard : Odd (Fintype.card V)) (hd : Odd d)
+    (hreg : ∀ v : V, G.degree v = d) : False := by
+  have hsum := sum_degrees_even G
+  rw [sum_degrees_of_regular G d hreg] at hsum
+  exact Nat.odd_iff_not_even.mp (Odd.mul hcard hd) hsum
+
+/-- Concrete form used by the R(3,4)≤9 plan: no 5-regular simple graph on
+`Fin 9` (would force blue-degree sum 45, odd). -/
+theorem not_five_regular_fin9 (G : SimpleGraph (Fin 9)) [DecidableRel G.Adj]
+    (h : ∀ v : Fin 9, G.degree v = 5) : False := by
+  haveI : Fintype (Sym2 (Fin 9)) := inferInstance
+  exact not_regular_odd_of_odd_card G 5 (by decide) (by decide) h
+
+/-- Complement degrees: blue-degree = n − 1 − red-degree (Mathlib `degree_compl`). -/
+theorem degree_compl_fin {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    [DecidableEq (Fin n)] (v : Fin n) :
+    Gᶜ.degree v = n - 1 - G.degree v := by
+  simpa using (G.degree_compl (v := v))
+
+/-- Pulling adjacency back along an injective map preserves the complement:
+`(G.comap f)ᶜ = Gᶜ.comap f`. -/
+theorem comap_compl_eq_of_injective {V W : Type*} (f : V ↪ W) (G : SimpleGraph W) :
+    (G.comap f)ᶜ = Gᶜ.comap f := by
+  ext a b
+  simp only [compl_adj, comap_adj]
+  constructor
+  · rintro ⟨hne, hna⟩
+    exact ⟨fun h => hne (f.injective h), hna⟩
+  · rintro ⟨hne, hna⟩
+    exact ⟨fun h => hne (by simp [h]), hna⟩
+
+/-- A `k`-clique in a pullback graph pushes forward along the embedding to a
+`k`-clique in the ambient graph. -/
+theorem hasClique_of_hasClique_comap {V W : Type*} [DecidableEq V] [DecidableEq W]
+    (f : V ↪ W) (G : SimpleGraph W) {k : ℕ}
+    (h : HasClique (G.comap f) k) : HasClique G k := by
+  obtain ⟨s, hs⟩ := h
+  refine ⟨s.map f, ?_⟩
+  rw [isNClique_iff] at hs ⊢
+  refine ⟨?_, by simp [hs.2]⟩
+  intro x hx y hy hxy
+  rcases Finset.mem_map.mp hx with ⟨a, ha, rfl⟩
+  rcases Finset.mem_map.mp hy with ⟨b, hb, rfl⟩
+  have hab : a ≠ b := fun h => hxy (by simp [h])
+  have hadj : (G.comap f).Adj a b := hs.1 ha hb hab
+  simpa [comap_adj] using hadj
+
+/-- **Induced Fin-6 transfer**: any pullback of a colouring along `Fin 6 ↪ V`
+has a monochromatic triangle (red or blue), by `ramsey33_fin6`. -/
+theorem ramsey33_comap_embedding {V : Type*} (G : SimpleGraph V) (f : Fin 6 ↪ V)
+    [DecidableRel G.Adj] :
+    HasClique (G.comap f) 3 ∨ HasClique (Gᶜ.comap f) 3 := by
+  classical
+  have h := ramsey33_fin6 (G.comap f)
+  rwa [comap_compl_eq_of_injective f G] at h
+
+/-- Same transfer, pushing the monochromatic triangle into the ambient graph. -/
+theorem hasMonoTriangle3_of_embedding {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (f : Fin 6 ↪ V) [DecidableRel G.Adj] :
+    HasClique G 3 ∨ HasClique Gᶜ 3 := by
+  classical
+  rcases ramsey33_comap_embedding G f with h | h
+  · exact Or.inl (hasClique_of_hasClique_comap f G h)
+  · exact Or.inr (hasClique_of_hasClique_comap f Gᶜ h)
+
+/-- **Finset form**: any 6-vertex set in a linearly ordered vertex type induces
+a monochromatic triangle under any red/blue colouring (via `orderEmbOfFin`). -/
+theorem ramsey33_on_finset {V : Type*} [LinearOrder V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (S : Finset V) (hS : S.card = 6) :
+    HasClique G 3 ∨ HasClique Gᶜ 3 := by
+  classical
+  exact hasMonoTriangle3_of_embedding G (S.orderEmbOfFin hS).toEmbedding
+
+/-- Specialization: a 6-element finset of `Fin n` yields a monochromatic
+triangle. Used when the blue-neighbourhood of a vertex in `K_9` has size ≥ 6. -/
+theorem ramsey33_on_finset_fin {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (S : Finset (Fin n)) (hS : S.card = 6) :
+    HasClique G 3 ∨ HasClique Gᶜ 3 :=
+  ramsey33_on_finset G S hS
+
+/-- Monochromatic triangle **inside** a 6-set (keeps the clique as a subset so
+it can be extended by a common neighbour). -/
+theorem ramsey33_clique_inside_finset {V : Type*} [LinearOrder V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (S : Finset V) (hS : S.card = 6) :
+    (∃ t ⊆ S, G.IsNClique 3 t) ∨ (∃ t ⊆ S, Gᶜ.IsNClique 3 t) := by
+  classical
+  let f : Fin 6 ↪ V := (S.orderEmbOfFin hS).toEmbedding
+  have f_mem : ∀ i, f i ∈ S := fun i => by
+    -- orderEmbOfFin lands in S
+    simpa using Finset.orderEmbOfFin_mem S hS i
+  rcases ramsey33_fin6 (G.comap f) with h | h
+  · left
+    obtain ⟨s, hs⟩ := h
+    refine ⟨s.map f, ?_, ?_⟩
+    · intro x hx
+      rcases Finset.mem_map.mp hx with ⟨i, _, rfl⟩
+      exact f_mem i
+    · rw [isNClique_iff] at hs ⊢
+      refine ⟨?_, by simp [hs.2]⟩
+      intro x hx y hy hxy
+      rcases Finset.mem_map.mp hx with ⟨a, ha, rfl⟩
+      rcases Finset.mem_map.mp hy with ⟨b, hb, rfl⟩
+      have hab : a ≠ b := fun e => hxy (by simp [e])
+      have hadj : (G.comap f).Adj a b := hs.1 ha hb hab
+      simpa [comap_adj] using hadj
+  · right
+    -- h : HasClique (G.comap f)ᶜ 3; rewrite to Gᶜ.comap f
+    have h' : HasClique (Gᶜ.comap f) 3 := by
+      rwa [← comap_compl_eq_of_injective f G]
+    obtain ⟨s, hs⟩ := h'
+    refine ⟨s.map f, ?_, ?_⟩
+    · intro x hx
+      rcases Finset.mem_map.mp hx with ⟨i, _, rfl⟩
+      exact f_mem i
+    · rw [isNClique_iff] at hs ⊢
+      refine ⟨?_, by simp [hs.2]⟩
+      intro x hx y hy hxy
+      rcases Finset.mem_map.mp hx with ⟨a, ha, rfl⟩
+      rcases Finset.mem_map.mp hy with ⟨b, hb, rfl⟩
+      have hab : a ≠ b := fun e => hxy (by simp [e])
+      have hadj : (Gᶜ.comap f).Adj a b := hs.1 ha hb hab
+      simpa [comap_adj] using hadj
+
+/-- Extract four pairwise-distinct elements from a Finset of card ≥ 4. -/
+lemma extract4 {α : Type*} [DecidableEq α] {s : Finset α} (h : 4 ≤ s.card) :
+    ∃ a b c d : α,
+      a ∈ s ∧ b ∈ s ∧ c ∈ s ∧ d ∈ s ∧
+      a ≠ b ∧ a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d ∧ c ≠ d := by
+  classical
+  have h3 : 3 ≤ s.card := by omega
+  rcases extract3 h3 with ⟨a, b, c, ha, hb, hc, hab, hac, hbc⟩
+  have hsub : ({a, b, c} : Finset α) ⊆ s := by
+    intro x hx; simp at hx; rcases hx with rfl | rfl | rfl <;> assumption
+  have hc3 : ({a, b, c} : Finset α).card = 3 := by
+    simp [hab, hac, hbc]
+  have hrest : 1 ≤ (s \ {a, b, c}).card := by
+    have hcard := card_sdiff hsub
+    omega
+  have hpos : 0 < (s \ {a, b, c}).card := by omega
+  obtain ⟨d, hd⟩ := Finset.card_pos.mp hpos
+  have hd_mem : d ∈ s := (mem_sdiff.mp hd).1
+  have hd_not : d ∉ ({a, b, c} : Finset α) := (mem_sdiff.mp hd).2
+  have hne : d ≠ a ∧ d ≠ b ∧ d ≠ c := by
+    simpa using hd_not
+  exact ⟨a, b, c, d, ha, hb, hc, hd_mem, hab, hac, hne.1.symm, hbc, hne.2.1.symm, hne.2.2.symm⟩
+
+/-- Four pairwise-adjacent vertices form a 4-clique. -/
+lemma clique4_of_adj {V : Type*} [DecidableEq V] (G : SimpleGraph V)
+    {a b c d : V}
+    (hab : a ≠ b) (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d) (hcd : c ≠ d)
+    (eab : G.Adj a b) (eac : G.Adj a c) (ead : G.Adj a d)
+    (ebc : G.Adj b c) (ebd : G.Adj b d) (ecd : G.Adj c d) :
+    HasClique G 4 := by
+  refine ⟨{a, b, c, d}, ?_⟩
+  rw [isNClique_iff]
+  constructor
+  · intro x hx y hy hxy
+    simp at hx hy
+    rcases hx with rfl | rfl | rfl | rfl <;> rcases hy with rfl | rfl | rfl | rfl <;>
+      first
+      | exact (hxy rfl).elim
+      | assumption
+      | apply G.symm; assumption
+  · simp [hab, hac, had, hbc, hbd, hcd]
+
+/-- Insert a common neighbour onto an `n`-clique to get an `(n+1)`-clique. -/
+lemma hasClique_insert_common {V : Type*} [DecidableEq V] (G : SimpleGraph V)
+    {v : V} {n : ℕ} {t : Finset V} (ht : G.IsNClique n t)
+    (hv : ∀ x ∈ t, G.Adj v x) : HasClique G (n + 1) :=
+  ⟨insert v t, ht.insert hv⟩
+
+/-! ## R(3,4) ≤ 9 by degree parity -/
+
+/-- In a red-triangle-free / blue-`K_4`-free colouring of `K_9`, every red
+degree is ≤ 3. -/
+lemma red_degree_le_three_of_no_cliques (G : SimpleGraph (Fin 9))
+    [DecidableRel G.Adj]
+    (hno3 : ¬ HasClique G 3) (hno4 : ¬ HasClique Gᶜ 4) (v : Fin 9) :
+    G.degree v ≤ 3 := by
+  classical
+  by_contra hgt
+  have hge : 4 ≤ G.degree v := by omega
+  have hN : 4 ≤ (G.neighborFinset v).card := by
+    simpa [card_neighborFinset_eq_degree] using hge
+  rcases extract4 hN with ⟨a, b, c, d, ha, hb, hc, hd, hab, hac, had, hbc, hbd, hcd⟩
+  have hva : G.Adj v a := (mem_neighborFinset _ _).mp ha
+  have hvb : G.Adj v b := (mem_neighborFinset _ _).mp hb
+  have hvc : G.Adj v c := (mem_neighborFinset _ _).mp hc
+  have hvd : G.Adj v d := (mem_neighborFinset _ _).mp hd
+  by_cases eab : G.Adj a b
+  · exact hno3 (clique3_of_adj G (G.ne_of_adj hva) (G.ne_of_adj hvb) hab hva hvb eab)
+  by_cases eac : G.Adj a c
+  · exact hno3 (clique3_of_adj G (G.ne_of_adj hva) (G.ne_of_adj hvc) hac hva hvc eac)
+  by_cases ead : G.Adj a d
+  · exact hno3 (clique3_of_adj G (G.ne_of_adj hva) (G.ne_of_adj hvd) had hva hvd ead)
+  by_cases ebc : G.Adj b c
+  · exact hno3 (clique3_of_adj G (G.ne_of_adj hvb) (G.ne_of_adj hvc) hbc hvb hvc ebc)
+  by_cases ebd : G.Adj b d
+  · exact hno3 (clique3_of_adj G (G.ne_of_adj hvb) (G.ne_of_adj hvd) hbd hvb hvd ebd)
+  by_cases ecd : G.Adj c d
+  · exact hno3 (clique3_of_adj G (G.ne_of_adj hvc) (G.ne_of_adj hvd) hcd hvc hvd ecd)
+  exact hno4 (clique4_of_adj (Gᶜ) hab hac had hbc hbd hcd
+    (by simpa [eab]) (by simpa [eac]) (by simpa [ead])
+    (by simpa [ebc]) (by simpa [ebd]) (by simpa [ecd]))
+
+/-- In a red-triangle-free / blue-`K_4`-free colouring of `K_9`, every blue
+degree is ≤ 5. -/
+lemma blue_degree_le_five_of_no_cliques (G : SimpleGraph (Fin 9))
+    [DecidableRel G.Adj]
+    (hno3 : ¬ HasClique G 3) (hno4 : ¬ HasClique Gᶜ 4) (v : Fin 9) :
+    Gᶜ.degree v ≤ 5 := by
+  classical
+  by_contra hgt
+  have hge : 6 ≤ Gᶜ.degree v := by omega
+  have hN : 6 ≤ (Gᶜ.neighborFinset v).card := by
+    simpa [card_neighborFinset_eq_degree] using hge
+  obtain ⟨S, hSsub, hScard⟩ := Finset.exists_subset_card_eq hN
+  rcases ramsey33_clique_inside_finset G S hScard with hred | hblue
+  · rcases hred with ⟨t, _, ht⟩
+    exact hno3 ⟨t, ht⟩
+  · rcases hblue with ⟨t, ht_sub, ht⟩
+    have hv_adj : ∀ x ∈ t, Gᶜ.Adj v x := by
+      intro x hx
+      have hxS : x ∈ S := ht_sub hx
+      have hxN : x ∈ Gᶜ.neighborFinset v := hSsub hxS
+      exact (mem_neighborFinset _ _).mp hxN
+    exact hno4 (hasClique_insert_common (Gᶜ) ht hv_adj)
+
+/-- **R(3,4) ≤ 9**: every red/blue colouring of `K_9` has a red triangle or a
+blue `K_4`. -/
+theorem ramsey34_le_9 : RamseyUpper 3 4 9 := by
+  classical
+  intro G
+  letI : DecidableRel G.Adj := Classical.decRel _
+  by_cases h3 : HasClique G 3
+  · exact Or.inl h3
+  by_cases h4 : HasClique Gᶜ 4
+  · exact Or.inr h4
+  have hred : ∀ v, G.degree v ≤ 3 := fun v =>
+    red_degree_le_three_of_no_cliques G h3 h4 v
+  have hblue_le : ∀ v, Gᶜ.degree v ≤ 5 := fun v =>
+    blue_degree_le_five_of_no_cliques G h3 h4 v
+  have hsum : ∀ v, G.degree v + Gᶜ.degree v = 8 := by
+    intro v
+    have hdc := degree_compl_fin G v
+    omega
+  have hblue_eq : ∀ v, Gᶜ.degree v = 5 := by
+    intro v
+    have := hsum v
+    have := hred v
+    have := hblue_le v
+    omega
+  exact (not_five_regular_fin9 (Gᶜ) hblue_eq).elim
+
+/-- **R(3,4) = 9** as a pair of bounds (`> 8` and `≤ 9`). -/
+theorem ramsey34_eq_9 : (¬ RamseyUpper 3 4 8) ∧ RamseyUpper 3 4 9 :=
+  ⟨ramsey34_gt_8, ramsey34_le_9⟩
+
+/-! ## Transfer of `RamseyUpper` onto arbitrary finsets / types -/
+
+/-- `RamseyUpper k l n` lifts along any type of cardinality `n`. -/
+theorem ramseyUpper_of_card {k l n : ℕ} (hR : RamseyUpper k l n)
+    {V : Type*} [Fintype V] [DecidableEq V] (hcard : Fintype.card V = n)
+    (G : SimpleGraph V) : HasClique G k ∨ HasClique Gᶜ l := by
+  classical
+  let e : V ≃ Fin n := Fintype.equivFinOfCardEq hcard
+  let f : Fin n ↪ V := e.symm.toEmbedding
+  let G0 : SimpleGraph (Fin n) := G.comap f
+  rcases hR G0 with hk | hl
+  · exact Or.inl (hasClique_of_hasClique_comap f G hk)
+  · have hl' : HasClique (Gᶜ.comap f) l := by
+      rwa [← comap_compl_eq_of_injective f G]
+    exact Or.inr (hasClique_of_hasClique_comap f Gᶜ hl')
+
+/-- Clique-inside form of `RamseyUpper` on an `n`-element finset. -/
+theorem ramseyUpper_clique_inside_finset {k l n : ℕ} (hR : RamseyUpper k l n)
+    {V : Type*} [LinearOrder V] [DecidableEq V]
+    (S : Finset V) (hS : S.card = n) (G : SimpleGraph V) [DecidableRel G.Adj] :
+    (∃ t ⊆ S, G.IsNClique k t) ∨ (∃ t ⊆ S, Gᶜ.IsNClique l t) := by
+  classical
+  let f : Fin n ↪ V := (S.orderEmbOfFin hS).toEmbedding
+  have f_mem : ∀ i, f i ∈ S := fun i => by
+    simpa using Finset.orderEmbOfFin_mem S hS i
+  let G0 : SimpleGraph (Fin n) := G.comap f
+  rcases hR G0 with hk | hl
+  · left
+    obtain ⟨s, hs⟩ := hk
+    refine ⟨s.map f, ?_, ?_⟩
+    · intro x hx
+      rcases Finset.mem_map.mp hx with ⟨i, _, rfl⟩
+      exact f_mem i
+    · rw [isNClique_iff] at hs ⊢
+      refine ⟨?_, by simp [hs.2]⟩
+      intro x hx y hy hxy
+      rcases Finset.mem_map.mp hx with ⟨a, ha, rfl⟩
+      rcases Finset.mem_map.mp hy with ⟨b, hb, rfl⟩
+      have hab : a ≠ b := fun e => hxy (by simp [e])
+      have hadj : G0.Adj a b := hs.1 ha hb hab
+      simpa [G0, comap_adj] using hadj
+  · right
+    have hl' : HasClique (Gᶜ.comap f) l := by
+      rwa [← comap_compl_eq_of_injective f G]
+    obtain ⟨s, hs⟩ := hl'
+    refine ⟨s.map f, ?_, ?_⟩
+    · intro x hx
+      rcases Finset.mem_map.mp hx with ⟨i, _, rfl⟩
+      exact f_mem i
+    · rw [isNClique_iff] at hs ⊢
+      refine ⟨?_, by simp [hs.2]⟩
+      intro x hx y hy hxy
+      rcases Finset.mem_map.mp hx with ⟨a, ha, rfl⟩
+      rcases Finset.mem_map.mp hy with ⟨b, hb, rfl⟩
+      have hab : a ≠ b := fun e => hxy (by simp [e])
+      have hadj : (Gᶜ.comap f).Adj a b := hs.1 ha hb hab
+      simpa [comap_adj] using hadj
+
+/-! ## Classical recurrence R(k,l) ≤ R(k-1,l) + R(k,l-1) -/
+
+/-- The classical Ramsey recurrence. -/
+theorem ramseyUpper_add {k l a b : ℕ}
+    (hk : 2 ≤ k) (hl : 2 ≤ l)
+    (ha : RamseyUpper (k - 1) l a) (hb : RamseyUpper k (l - 1) b) :
+    RamseyUpper k l (a + b) := by
+  classical
+  intro G
+  letI : DecidableRel G.Adj := Classical.decRel _
+  let v : Fin (a + b) := ⟨0, by omega⟩
+  let R := G.neighborFinset v
+  let B := Gᶜ.neighborFinset v
+  have hdisj : Disjoint R B := by
+    rw [disjoint_left]
+    intro x hxR hxB
+    have h1 := (mem_neighborFinset G v x).mp hxR
+    have h2 := (mem_neighborFinset Gᶜ v x).mp hxB
+    simp [compl_adj] at h2
+    exact h2.2 h1
+  have hcard_sum : R.card + B.card = a + b - 1 := by
+    have hzmem : v ∈ (univ : Finset (Fin (a + b))) := mem_univ v
+    have hez : ((univ : Finset (Fin (a + b))).erase v).card = a + b - 1 := by
+      rw [card_erase_of_mem hzmem, card_univ, Fintype.card_fin]
+    have hRB : R ∪ B = (univ : Finset (Fin (a + b))).erase v := by
+      ext x
+      by_cases hx : x = v
+      · subst x
+        simp [R, B, mem_neighborFinset, SimpleGraph.irrefl]
+      · have hxv : x ≠ v := hx
+        simp [R, B, mem_neighborFinset, compl_adj, hxv, Ne.symm hxv]
+        constructor
+        · intro h
+          cases h with
+          | inl hr => exact Or.inl hr
+          | inr hb' => exact Or.inr hb'.2
+        · intro h
+          cases h with
+          | inl hr => exact Or.inl hr
+          | inr hb' => exact Or.inr ⟨Ne.symm hxv, hb'⟩
+    have hc := card_union_of_disjoint hdisj
+    rw [← hc, hRB, hez]
+  by_cases hRge : a ≤ R.card
+  · obtain ⟨s, hs_sub, hs_card⟩ := Finset.exists_subset_card_eq hRge
+    rcases ramseyUpper_clique_inside_finset ha s hs_card G with hred | hblue
+    · rcases hred with ⟨t, ht_sub, ht⟩
+      have hv_adj : ∀ x ∈ t, G.Adj v x := by
+        intro x hx
+        exact (mem_neighborFinset _ _).mp (hs_sub (ht_sub hx))
+      have hkm : k - 1 + 1 = k := by omega
+      have hcl : G.IsNClique k (insert v t) := by
+        have hins := ht.insert hv_adj
+        simpa [hkm] using hins
+      exact Or.inl ⟨insert v t, hcl⟩
+    · rcases hblue with ⟨t, _, ht⟩
+      exact Or.inr ⟨t, ht⟩
+  · have hBge : b ≤ B.card := by omega
+    obtain ⟨s, hs_sub, hs_card⟩ := Finset.exists_subset_card_eq hBge
+    rcases ramseyUpper_clique_inside_finset hb s hs_card G with hred | hblue
+    · rcases hred with ⟨t, _, ht⟩
+      exact Or.inl ⟨t, ht⟩
+    · rcases hblue with ⟨t, ht_sub, ht⟩
+      have hv_adj : ∀ x ∈ t, Gᶜ.Adj v x := by
+        intro x hx
+        exact (mem_neighborFinset _ _).mp (hs_sub (ht_sub hx))
+      have hlm : l - 1 + 1 = l := by omega
+      have hcl : Gᶜ.IsNClique l (insert v t) := by
+        have hins := ht.insert hv_adj
+        simpa [hlm] using hins
+      exact Or.inr ⟨insert v t, hcl⟩
+
+/-- **R(4,4) ≤ 18** via `R(4,4) ≤ R(3,4) + R(4,3) = 9 + 9`. -/
+theorem ramsey44_le_18 : RamseyUpper 4 4 18 := by
+  have h34 : RamseyUpper 3 4 9 := ramsey34_le_9
+  have h43 : RamseyUpper 4 3 9 := (ramseyUpper_swap 3 4 9).1 h34
+  simpa using ramseyUpper_add (k := 4) (l := 4) (a := 9) (b := 9)
+    (by norm_num) (by norm_num) h34 h43
+
+/-- **R(4,4) = 18** as a pair of bounds. -/
+theorem ramsey44_eq_18 : (¬ RamseyUpper 4 4 17) ∧ RamseyUpper 4 4 18 :=
+  ⟨ramsey44_gt_17, ramsey44_le_18⟩
+
+/-- **R(3,3) = 6** as a pair of bounds. -/
+theorem ramsey33_eq_6 : (¬ RamseyUpper 3 3 5) ∧ RamseyUpper 3 3 6 :=
+  ⟨ramsey33_gt_5, ramsey33_fin6⟩
 
 end ProofLab.Ramsey

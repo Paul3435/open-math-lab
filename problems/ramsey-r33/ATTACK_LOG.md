@@ -4,6 +4,7 @@
 |------|-------|----------|--------|
 | 2026-08-08 14:40 | Attack Lead | R(3,3) via certified exhaustive enumeration (`native_decide` over Fin 15 edge-boolean colourings of K6); lower bound via 5-cycle witness | R(3,3) ≤ 6 PROVED zero-sorry (ProofLab/Ramsey.lean `ramsey33_le_6`); R(3,3) > 5 PROVED (`not_ramsey33_5`, `ramsey33_gt_5`). `lake build ProofLab.Ramsey` green, `lake env lean ProofLab.lean` exit 0. |
 | 2026-08-08 15:40 | Attack Lead | Certified lower-bound witnesses via `native_decide` on concrete graph colourings; complement symmetry lemma | R(3,4) > 8 PROVED (`ramsey34_gt_8`, 8-vertex witness, 10 red edges, no red K3 / no blue K4). R(4,4) > 17 PROVED (`ramsey44_gt_17`, Paley-17 self-complementary colouring, 68 red edges, no K4 in either colour). `ramseyUpper_swap` proves `RamseyUpper k l n ↔ RamseyUpper l k n` (⇒ `R(3,4)=R(4,3)`). `lake build ProofLab` green, zero sorries. Upper bounds `R(3,4)≤9`, `R(4,4)≤18` remain (see plan below). |
+| 2026-08-24 | Formalist | Degree-sum + Fin-6 transfer infrastructure for R(3,4)≤9 (no full upper bound yet) | Landed zero-sorry lemmas on `ope/044-ramsey-r33`: `sum_degrees_even`, `not_regular_odd_of_odd_card`, `not_five_regular_fin9` (handshake parity: no 5-regular graph on Fin 9); `comap_compl_eq_of_injective`, `hasClique_of_hasClique_comap`, `ramsey33_comap_embedding`, `hasMonoTriangle3_of_embedding`, `ramsey33_on_finset` / `_fin`, `mono_triangle_of_blue_degree_ge_6`. Corrected module docstring that falsely advertised `ramsey34_le_9`/`ramsey44_le_18` (not present). Verified `lake env lean ProofLab/Ramsey.lean` EXIT=0 and `lake env lean ProofLab.lean` EXIT=0. **Still open:** `RamseyUpper 3 4 9` and `RamseyUpper 4 4 18`. |
 
 ## Status
 
@@ -15,6 +16,7 @@
   - `ramsey34_gt_8` : `R(3,4) > 8` — 8-vertex witness (no red K3, no blue K4).
   - `ramsey44_gt_17` : `R(4,4) > 17` — Paley-17 witness (68 red edges, self-complementary, no K4 either colour).
   - `ramseyUpper_swap` : `RamseyUpper k l n ↔ RamseyUpper l k n` (colour-role symmetry).
+- **Support lemmas (Formalist 2026-08-24, zero sorry):** degree-sum parity (`not_five_regular_fin9`) + induced Fin-6 transfer (`ramsey33_on_finset`, `ramsey33_comap_embedding`). Ready for Attack Lead to assemble the degree-parity argument.
 - **Not yet proved:** `R(3,4) ≤ 9` and `R(4,4) ≤ 18` (upper bounds).
 
 ## Why R(3,4)=9 / R(4,4)=18 upper bounds cannot use the R(3,3) enumeration trick
