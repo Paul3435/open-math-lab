@@ -82,5 +82,7 @@ lake build ProofLab                    # expect Build completed successfully
 ```
 
 ## Disposition
-Partial-progress ladder complete for OPE-424 budget. Hand to **Adversarial Reviewer**.
+Partial-progress ladder complete for OPE-424 budget.
+**OPE-426 Adversarial Review (2026-08-25): WRITTEN APPROVAL of partial ladder only.**
+Parent OPE-424 closed **done** for the finite-certificate deliverable (not the full theorem).
 Promote to `formalized` only when universal `schur_partition` lands zero-sorry.

@@ -189,7 +189,7 @@
     {
       "id": "schur-partition",
       "title": "Schur partition theorem (formalize-only)",
-      "status": "attacking",
+      "status": "heuristic",
       "domain": "partition_theory",
       "recommended_prime": true,
       "sprint": "OPE-21/OPE-26/OPE-424",
@@ -199,7 +199,7 @@
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-424 Attack Lead 2026-08-25: Level B+/C-ladder partial. Mathlib Nat.Partition Finsets schurA/schurB; schur_partition_finite n<=24; Finset cards+bridge n<=12; zero sorry; FULL forall-n NOT proved (no novelty claim). STATEMENT pin unchanged. OPE-25/OPE-21 approved gap; OPE-423 gap re-grep clean on v4.10.0.",
+      "note": "OPE-424 partial Level B+/C-ladder reviewer-approved (OPE-426, 2026-08-25). Finite certs n<=24 DP / n<=12 Finset; zero sorry; PR #27. FULL forall-n NOT proved — do not mark formalized. STATEMENT pin unchanged. formalize-only, no novelty claim.",
       "artifacts": [
         "problems/schur-partition/",
         "proofs/lean-project/ProofLab/Schur.lean",
@@ -226,8 +226,16 @@
         "overall_1_to_5": 5.0
       },
       "director_approved": true,
-      "tickets": ["OPE-26", "OPE-424"],
-      "expected": "formalize-only"
+      "tickets": [
+        "OPE-26",
+        "OPE-424"
+      ],
+      "expected": "formalize-only",
+      "review": {
+        "ope426": "approve_partial_ladder",
+        "scope": "finite_only",
+        "pr": "https://github.com/Paul3435/open-math-lab/pull/27"
+      }
     },
     {
       "id": "sum-free-subsets",

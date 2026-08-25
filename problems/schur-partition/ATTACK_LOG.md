@@ -2,7 +2,7 @@
 
 **Problem:** `schur-partition`
 **Opened by:** Research Director (OPE-21) after Scout OPE-25
-**Status:** Level A+B done (OPE-26); Level B+/C-ladder partial (OPE-424) — full ∀n open
+**Status:** Level A+B done (OPE-26); Level B+/C-ladder partial **reviewer-approved** (OPE-424/OPE-426) — full ∀n still open
 
 ## 2026-08-04 — Director intake
 
@@ -32,3 +32,12 @@
 - Gates: `lake env lean ProofLab/Schur.lean` EXIT=0; `lake build ProofLab` green.
 - Attack package: `attacks/schur-partition-20260825-080400/`.
 - Hand-off: Adversarial Reviewer. Residual: universal theorem open.
+
+## 2026-08-25 — OPE-426 Adversarial Review → OPE-424 close (partial only)
+
+- Verdict: **approve partial ladder** (finite certificates n≤24 / Finset n≤12 + bridge).
+- Explicitly **not** approval of full ∀n theorem (remains open / unproved).
+- Independent Reviewer gates: STATEMENT pin, lake lean/build, axiom audit, no over-claim, STATUS honesty — all PASS.
+- PR note: https://github.com/Paul3435/open-math-lab/pull/27#issuecomment-5407402473
+- OPE-424 closed **done** for partial deliverable only per AGENTS.md (written approval + residual risks).
+- Promotion to `formalized` stays gated on zero-sorry universal `schur_partition`.
