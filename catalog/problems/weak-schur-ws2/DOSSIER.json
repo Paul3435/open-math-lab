@@ -1,7 +1,7 @@
 {
   "id": "weak-schur-ws2",
   "title": "Weak Schur number WS(2)=8 (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "additive_combinatorics",
   "score": 81,
   "scores": {

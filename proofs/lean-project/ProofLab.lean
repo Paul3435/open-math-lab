@@ -5,3 +5,6 @@ import ProofLab.Frobenius
 import ProofLab.ErdosWoodsCorrect
 import ProofLab.SumFree
 import ProofLab.Ramsey
+import ProofLab.SchurNumber
+import ProofLab.VanDerWaerden
+import ProofLab.WeakSchur
