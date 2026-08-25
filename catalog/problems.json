@@ -305,23 +305,23 @@
     {
       "id": "ramsey-r35",
       "title": "Ramsey number R(3,5)=14",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 86,
-      "note": "OPE-390 Scout: formalize-only follow-on to closed ramsey-r33. Upper bound hand degree-counting; lower bound explicit 13-vtx witness certified via SimpleGraph decidable clique checks. Reuses ProofLab/Ramsey.lean vocabulary (PR #18). Gap re-confirmed v4.10.0: no Ramsey theorem in Mathlib.",
+      "note": "CLOSED formalize-only (OPE-393/OPE-410 wave, PRs #22/#23/#24/#25 approved by gate reviews): R(3,5)=14 Lean zero-sorry — upper bound hand degree-counting; lower bound 13-vtx witness decidable clique check. Known-classical; genuine Mathlib gap (no Ramsey theorem v4.10.0). No claim.",
       "expected": "known-classical"
     },
     {
       "id": "happy-ending-es3",
       "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "discrete_geometry",
       "score": 78,
-      "note": "OPE-390 Scout: formalize-only. Any 5 points in general position contain a convex 4-gon. Needs new Mathlib orientation/order-type plumbing (itself a contribution). ES(4)=9 stretch only. Gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content.",
+      "note": "CLOSED formalize-only (OPE-403/OPE-410, PRs #23/#24/#25 approved by gate reviews): ES(3)=5 — any 5 points in general position contain a convex 4-gon; Lean zero-sorry with orientation/order-type plumbing. Known-classical; gap confirmed (no happyEnding/ErdosSzekeres content in Mathlib v4.10.0). ES(4) NOT attacked. No claim.",
       "expected": "known-classical"
     }
   ],
-  "updated_at": "2026-08-24T13:35:40Z",
+  "updated_at": "2026-08-25T00:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
