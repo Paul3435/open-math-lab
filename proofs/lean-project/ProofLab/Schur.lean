@@ -18,8 +18,7 @@ This file:
   * Level B: computable A/B + sorry-free native_decide equalities through n ≤ 24
   * Level B+: Mathlib `Nat.Partition` Finset statements `schurA` / `schurB`
     and card equalities through n ≤ 12 (Fintype/composition blow-up limits decide)
-  * Level C target name: `schur_partition` — FULL ∀ n, card equality.
-    Not closed this run; residual risks documented in the attack log.
+  * Level C full `schur_partition` lives in `ProofLab.SchurGlaisher` (OPE-447).
     Zero `sorry` / `admit` / custom `axiom` in this file.
 
 formalize-only / known-classical. Default no external claim. No novelty claim.
@@ -229,24 +228,11 @@ theorem partAllowedB_implies_partAllowedA {p : ℕ}
     have : p % 3 = 2 := by omega
     simp [this]
 
-/-! ## Level C target (NOT proved this run)
+/-! ## Level C pointer
 
-The full classical theorem in Mathlib-shaped vocabulary:
-
-  ∀ n, (schurA n).card = (schurB n).card
-
-Proof routes (Andrews / Schur 1926), deferred:
-  1. Generating functions:
-       ∏_k (1 + x^{3k+1})(1 + x^{3k+2})
-         = ∏_k 1/((1 - x^{6k+1})(1 - x^{6k+5}))
-     as formal power series over ℤ (or ℕ coefficients).
-  2. Bijective / Glaisher-style involution on partitions.
-  3. Recurrence + uniqueness of partition generating functions.
-
-We deliberately do **not** plant a `sorry` stub for the full theorem: a sorry
-would either fail a zero-sorry gate or over-claim. The named theorem below is
-the finite certificate form; the universal statement remains an open Mathlib
-gap (re-verified OPE-423 on pinned v4.10.0).
+Full universal theorem (Glaisher bijection, zero sorry) is proved in
+`ProofLab.SchurGlaisher.schur_partition` (OPE-447). This file keeps the
+computable/finite Finset ladder and definitions of `schurA` / `schurB`.
 -/
 
 /-- **Schur partition theorem — finite form (Level B+/C ladder step).**
@@ -261,11 +247,9 @@ theorem schur_partition_finset_finite (n : ℕ) (hn : n ≤ 12) :
   schurA_card_eq_schurB_card_le_12 n hn
 
 /-
-  Future (true Level C, not this file yet):
-
-  theorem schur_partition (n : ℕ) : (schurA n).card = (schurB n).card := ...
-
-  When that lands zero-sorry, promote STATUS to formalized and hand Reviewer.
+  See `ProofLab.SchurGlaisher.schur_partition` for
+    theorem schur_partition (n : ℕ) : (schurA n).card = (schurB n).card
+  (OPE-447, Glaisher inverses + Finset.card_bij').
 -/
 
 end ProofLab.Schur
