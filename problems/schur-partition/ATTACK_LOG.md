@@ -20,3 +20,11 @@
 - Level B ∀n Finset card equality **not closed** (inverse/Nodup-across-kernels remaining).
 - Artifacts: `attacks/schur-partition-20260825-ope440/`.
 - No novelty claim; do not re-prime closed finite-certificate scope.
+
+## 2026-08-25 — OPE-445 Attack Lead (Glaisher Level B partial)
+
+- Closed OPE-440 Nodup bottleneck: `glaisherExpand_nodup` on B-legal multisets (disjoint expands of distinct odd kernels).
+- Closed one-way Finset maps: `glaisherBtoA_mem_schurA`, `glaisherAtoB_mem_schurB` (zero sorry).
+- Inverse multiset identities + `∀n` card equality still open (no sorry stub).
+- Artifacts: `attacks/schur-partition-20260825-ope445/`.
+- Hand Reviewer for map/Nodup; follow-up for inverse → full `schur_partition`.

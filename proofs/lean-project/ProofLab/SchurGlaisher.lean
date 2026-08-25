@@ -344,4 +344,159 @@ def glaisherAtoB_parts (p : Partition n) : Partition n :=
   ofSums n (glaisherCollapse p.parts) (by
     simpa [p.parts_sum] using sum_glaisherCollapse p.parts)
 
+/-! ## Level B — counts, Nodup, residue maps (OPE-445)
+
+Partial lift toward `∀ n, (schurA n).card = (schurB n).card`.
+This section closes Nodup of Glaisher expand on B-multisets and the one-way
+Finset maps `schurB → schurA` and `schurA → schurB`. Inverse/count bijection
+for card equality remains open (no sorry planted for the universal theorem).
+-/
+
+theorem B_part_odd {m : ℕ} (hm : m % 6 = 1 ∨ m % 6 = 5) : m % 2 = 1 := by omega
+
+theorem B_part_pos {m : ℕ} (hm : m % 6 = 1 ∨ m % 6 = 5) : 0 < m := by omega
+
+theorem B_part_mod3 {m : ℕ} (hm : m % 6 = 1 ∨ m % 6 = 5) :
+    m % 3 = 1 ∨ m % 3 = 2 := by omega
+
+theorem expandPart_pos {m c p : ℕ} (hm : 0 < m) (hp : p ∈ expandPart m c) : 0 < p := by
+  rcases exists_bit_of_mem_expandPart hp with ⟨i, rfl, _⟩
+  exact Nat.mul_pos hm (Nat.pow_pos (by decide))
+
+theorem oddPart_expand {m c p : ℕ} (hm : 0 < m) (hodd : m % 2 = 1)
+    (hp : p ∈ expandPart m c) : oddPart p = m := by
+  rcases exists_bit_of_mem_expandPart hp with ⟨i, rfl, _⟩
+  exact oddPart_mul_pow_odd hm hodd
+
+theorem count_expandPart_pow {m c i : ℕ} (hm : 0 < m) :
+    Multiset.count (m * 2 ^ i) (expandPart m c) =
+      if c.testBit i = true then 1 else 0 := by
+  classical
+  by_cases hbit : c.testBit i = true
+  · simp only [hbit, ↓reduceIte]
+    exact Multiset.count_eq_one_of_mem (expandPart_nodup_of_pos hm)
+      (mem_expandPart_of_bit hbit)
+  · simp only [hbit, ↓reduceIte]
+    by_contra hpos
+    have hmem : m * 2 ^ i ∈ expandPart m c :=
+      (count_pos (a := m * 2 ^ i)).1 (Nat.pos_of_ne_zero hpos)
+    rcases exists_bit_of_mem_expandPart hmem with ⟨j, heq, hbit'⟩
+    have hij : i = j :=
+      Nat.pow_right_injective (by decide : 1 < 2) (Nat.eq_of_mul_eq_mul_left hm heq)
+    subst hij
+    exact hbit hbit'
+
+theorem count_collapsePart (p q : ℕ) :
+    Multiset.count q (collapsePart p) =
+      if p = 0 then 0 else if q = oddPart p then 2 ^ val2 p else 0 := by
+  classical
+  by_cases h0 : p = 0
+  · simp [collapsePart, h0]
+  · simp [collapsePart, h0, Multiset.count_replicate]
+
+/-- Expand parts from distinct positive odd kernels are pairwise disjoint. -/
+theorem expandPart_disjoint_of_ne_odd {m₁ m₂ c₁ c₂ : ℕ}
+    (hm₁ : 0 < m₁) (hm₂ : 0 < m₂)
+    (ho₁ : m₁ % 2 = 1) (ho₂ : m₂ % 2 = 1) (hne : m₁ ≠ m₂) :
+    Multiset.Disjoint (expandPart m₁ c₁) (expandPart m₂ c₂) := by
+  intro p hp₁ hp₂
+  have h1 := oddPart_expand hm₁ ho₁ hp₁
+  have h2 := oddPart_expand hm₂ ho₂ hp₂
+  exact hne (h1.symm.trans h2)
+
+/-- Glaisher expand of a B-legal multiset is Nodup. -/
+theorem glaisherExpand_nodup {s : Multiset ℕ}
+    (hB : ∀ m ∈ s, m % 6 = 1 ∨ m % 6 = 5) :
+    (glaisherExpand s).Nodup := by
+  classical
+  unfold glaisherExpand
+  rw [Multiset.nodup_bind]
+  constructor
+  · intro m hm
+    exact expandPart_nodup_of_pos (B_part_pos (hB m (mem_dedup.mp hm)))
+  · refine Multiset.Nodup.pairwise ?_ (nodup_dedup s)
+    intro a ha b hb hne
+    exact expandPart_disjoint_of_ne_odd
+      (B_part_pos (hB a (mem_dedup.mp ha)))
+      (B_part_pos (hB b (mem_dedup.mp hb)))
+      (B_part_odd (hB a (mem_dedup.mp ha)))
+      (B_part_odd (hB b (mem_dedup.mp hb)))
+      hne
+
+theorem glaisherExpand_pos {s : Multiset ℕ}
+    (hB : ∀ m ∈ s, m % 6 = 1 ∨ m % 6 = 5) {p : ℕ}
+    (hp : p ∈ glaisherExpand s) : 0 < p := by
+  simp only [glaisherExpand, mem_bind] at hp
+  rcases hp with ⟨m, hm, hp'⟩
+  exact expandPart_pos (B_part_pos (hB m (mem_dedup.mp hm))) hp'
+
+theorem ofSums_parts_eq_of_pos {n : ℕ} {l : Multiset ℕ} (hl : l.sum = n)
+    (hpos : ∀ x ∈ l, 0 < x) : (ofSums n l hl).parts = l := by
+  simp only [ofSums]
+  refine Multiset.filter_eq_self.2 ?_
+  intro x hx
+  exact (hpos x hx).ne'
+
+/-- B→A Glaisher map sends `schurB` into `schurA`. -/
+theorem glaisherBtoA_mem_schurA {n : ℕ} {p : Partition n} (hp : p ∈ schurB n) :
+    glaisherBtoA_parts p ∈ schurA n := by
+  classical
+  have hB : partsMod6_15 p := schurB_mod6 hp
+  have hBall : ∀ m ∈ p.parts, m % 6 = 1 ∨ m % 6 = 5 := hB
+  unfold glaisherBtoA_parts schurA
+  refine Finset.mem_filter.mpr ⟨Finset.mem_univ _, ?_, ?_⟩
+  · have hparts :
+        (ofSums n (glaisherExpand p.parts)
+          (by simpa [p.parts_sum] using sum_glaisherExpand p.parts)).parts =
+          glaisherExpand p.parts :=
+      ofSums_parts_eq_of_pos _ (fun x hx => glaisherExpand_pos hBall hx)
+    rw [hparts]
+    exact glaisherExpand_nodup hBall
+  · intro i hi
+    have hparts :
+        (ofSums n (glaisherExpand p.parts)
+          (by simpa [p.parts_sum] using sum_glaisherExpand p.parts)).parts =
+          glaisherExpand p.parts :=
+      ofSums_parts_eq_of_pos _ (fun x hx => glaisherExpand_pos hBall hx)
+    rw [hparts] at hi
+    exact glaisherExpand_parts_mod3 hBall hi
+
+theorem glaisherCollapse_pos {s : Multiset ℕ}
+    (hA : ∀ p ∈ s, 0 < p) {q : ℕ} (hq : q ∈ glaisherCollapse s) : 0 < q := by
+  simp only [glaisherCollapse, mem_bind] at hq
+  rcases hq with ⟨p, hp, hq'⟩
+  have hppos := hA p hp
+  rw [collapsePart_eq_odd hppos] at hq'
+  rcases Multiset.mem_replicate.mp hq' with ⟨_, rfl⟩
+  exact oddPart_pos hppos
+
+/-- A→B Glaisher map sends `schurA` into `schurB`. -/
+theorem glaisherAtoB_mem_schurB {n : ℕ} {p : Partition n} (hp : p ∈ schurA n) :
+    glaisherAtoB_parts p ∈ schurB n := by
+  classical
+  have hmod := schurA_mod3 hp
+  have hA : ∀ q ∈ p.parts, 0 < q ∧ (q % 3 = 1 ∨ q % 3 = 2) := by
+    intro q hq
+    exact ⟨p.parts_pos hq, hmod q hq⟩
+  unfold glaisherAtoB_parts schurB
+  refine Finset.mem_filter.mpr ⟨Finset.mem_univ _, ?_⟩
+  intro i hi
+  have hpos' : ∀ x ∈ glaisherCollapse p.parts, 0 < x :=
+    fun x hx => glaisherCollapse_pos (fun q hq => (hA q hq).1) hx
+  have hparts :
+      (ofSums n (glaisherCollapse p.parts)
+        (by simpa [p.parts_sum] using sum_glaisherCollapse p.parts)).parts =
+        glaisherCollapse p.parts :=
+    ofSums_parts_eq_of_pos _ hpos'
+  rw [hparts] at hi
+  exact glaisherCollapse_parts_mod6 hA hi
+
+/-!
+### Remaining for full `schur_partition` (card equality)
+1. `glaisherCollapse (glaisherExpand s) = s` on B-legal multisets (binary bit-sum inverse).
+2. `glaisherExpand (glaisherCollapse s) = s` on Nodup A-legal multisets.
+3. Conclude `(schurA n).card = (schurB n).card` via `Finset.card_bij'`.
+No `sorry` is planted for those goals.
+-/
+
 end ProofLab.Schur
