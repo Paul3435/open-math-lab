@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-24T00:00:00Z",
+  "last_updated": "2026-08-25T17:05:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -323,10 +323,10 @@
     {
       "id": "ramsey-multicolor-r333",
       "title": "Multicolour Ramsey R(3,3,3)=17",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 84,
-      "note": "OPE-458 Scout RECOMMENDED PRIME: new multicolour proof layer over closed Ramsey infra. Upper hand parity argument; lower F_2^4 certificate verified offline (witness16_certificate.txt). Gap grep clean v4.10.0 (no RamseyNumber/multicolor content). formalize-only, known-classical (Greenwood-Gleason 1955).",
+      "note": "OPE-461 Formalist: BOTH bounds formalized zero-sorry in ProofLab/RamseyMulticolor.lean (r333_gt_16 native_decide GG cert; r333_le_17 pigeonhole+ramsey33 pullback). lake build ProofLab green. Known-classical Greenwood-Gleason 1955; no novelty/claim. Attack pack attacks/ramsey-multicolor-r333-20260825-ope461/.",
       "expected": "known-classical"
     },
     {
@@ -348,7 +348,7 @@
       "expected": "known-classical"
     }
   ],
-  "updated_at": "2026-08-24T13:35:40Z",
+  "updated_at": "2026-08-25T17:05:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
