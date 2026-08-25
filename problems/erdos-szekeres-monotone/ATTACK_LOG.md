@@ -3,6 +3,7 @@
 | when | agent | strategy | result |
 |------|-------|----------|--------|
 | 2026-08-25 | Attack Lead (OPE-433) | Classic (a_i,b_i) length-labelling + pigeonhole; weak mono via List.Sorted; Finset ending-sets + Fintype.card_le_of_injective | **CLOSED.** `erdosSzekeres_monotone` + `erdosSzekeres_card_bound` zero-sorry in `ProofLab/ErdosSzekeres.lean`. `lake env lean ProofLab/ErdosSzekeres.lean` EXIT=0; wired into `ProofLab.lean`. formalize-only; **no claim**. |
+| 2026-08-25 | Attack Lead (OPE-437) | Duplicate commission of same Scout prime; no re-proof | **CLOSED as duplicate of OPE-433.** Re-verified `lake env lean` EXIT=0 + `lake build ProofLab` green + zero sorry. PR #29 still open. Spawned **OPE-438** Adversarial Reviewer handoff. |
 
 ## Status — acceptance checklist
 
@@ -23,5 +24,5 @@
 
 ## Handoff
 
-- **Handoff to:** Adversarial Reviewer (optional rubber-stamp of zero-sorry + STATEMENT pin).
-- **PR:** branch `ope/433-erdos-szekeres-monotone` (board merges).
+- **Handoff to:** Adversarial Reviewer via **OPE-438** (statement pin + zero-sorry + edge cases).
+- **PR:** https://github.com/Paul3435/open-math-lab/pull/29 — branch `ope/433-erdos-szekeres-monotone` (board merges).
