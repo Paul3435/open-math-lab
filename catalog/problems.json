@@ -189,20 +189,25 @@
     {
       "id": "schur-partition",
       "title": "Schur partition theorem (formalize-only)",
-      "status": "shortlisted",
+      "status": "attacking",
       "domain": "partition_theory",
       "recommended_prime": true,
-      "sprint": "OPE-21/OPE-26",
+      "sprint": "OPE-21/OPE-26/OPE-424",
       "score": 90,
       "skill_packs": [
         "formalization",
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline.",
+      "note": "OPE-424 Attack Lead 2026-08-25: Level B+/C-ladder partial. Mathlib Nat.Partition Finsets schurA/schurB; schur_partition_finite n<=24; Finset cards+bridge n<=12; zero sorry; FULL forall-n NOT proved (no novelty claim). STATEMENT pin unchanged. OPE-25/OPE-21 approved gap; OPE-423 gap re-grep clean on v4.10.0.",
       "artifacts": [
-        "problems/schur-partition/"
+        "problems/schur-partition/",
+        "proofs/lean-project/ProofLab/Schur.lean",
+        "attacks/schur-partition-20260804-225016/",
+        "attacks/schur-partition-20260825-080400/"
       ],
+      "lean_artifact": "proofs/lean-project/ProofLab/Schur.lean",
+      "issue": "OPE-424",
       "feasibility": {
         "id": "schur-partition",
         "scored_at": "2026-08-04T20:37:22Z",
@@ -221,7 +226,7 @@
         "overall_1_to_5": 5.0
       },
       "director_approved": true,
-      "issue": "OPE-26",
+      "tickets": ["OPE-26", "OPE-424"],
       "expected": "formalize-only"
     },
     {

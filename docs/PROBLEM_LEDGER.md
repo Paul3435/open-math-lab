@@ -53,7 +53,7 @@ already covered upstream; `schur-partition` is the only confirmed gap among prio
 
 | Problem ID | Status | Domain | Notes |
 |------------|--------|--------|-------|
-| **`schur-partition`** | **`shortlisted` → done (OPE-26 attack complete)** | partition theory | OPE-25 recommended; Director approved; STATEMENT pinned (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** attack completed 2026-08-04 — Level A cert (N≤1000, DP+brute force agree) + Level B Lean sorry-free small-n (`ProofLab/Schur.lean`). |
+| **`schur-partition`** | **`attacking` (OPE-424 Level B+/C-ladder; full ∀n open)** | partition theory | OPE-25 recommended; Director approved; STATEMENT pinned (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** Level A (N≤1000) + Level B n≤12. **OPE-424** (2026-08-25): Mathlib `schurA`/`schurB` Finsets; `schur_partition_finite` n≤24; Finset cards + DP bridge n≤12; zero sorry; **universal theorem NOT proved**. |
 | `frobenius-coin-problem` | shortlisted (process-fuel only) / done (OPE-22 complete) | number theory | **SUPERSEDED as gap prime** — already in Mathlib. OPE-22 = compute cert + Lean practice completed (no contribution claim). |
 | `derangement-formula` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`numDerangements` + sum/recurrence/asymp). Dossier gap claim false. Lean-practice only. |
 | `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |

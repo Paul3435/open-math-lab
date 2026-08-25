@@ -1,0 +1,21 @@
+{
+  "problem_id": "schur-partition",
+  "level": "B+/C-ladder",
+  "status": "heuristic",
+  "claim": false,
+  "novelty_claim": false,
+  "full_theorem_proved": false,
+  "verify": {
+    "level_a": "python attacks/schur-partition-20260804-225016/verify_schur.py --N 150",
+    "level_b": "cd proofs/lean-project && lake env lean ProofLab/Schur.lean && lake build ProofLab"
+  },
+  "lean": "proofs/lean-project/ProofLab/Schur.lean",
+  "issues": ["OPE-424", "OPE-26"],
+  "bounds": {
+    "computable_A_eq_B": "n <= 24 (schur_partition_finite, native_decide)",
+    "finset_card_A_eq_B": "n <= 12 (schur_partition_finset_finite, native_decide)",
+    "bridge_A_eq_schurA_card": "n <= 12",
+    "level_a_python": "n <= 150 (default) / n <= 1000 (prior)"
+  },
+  "updated_at": "2026-08-25T08:04Z"
+}
