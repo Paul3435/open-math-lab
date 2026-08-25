@@ -1,0 +1,39 @@
+{
+  "id": "ramsey-multicolor-r333",
+  "title": "Multicolour Ramsey R(3,3,3)=17 (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 14,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "recommendation": "Genuinely NEW proof layer beyond the closed ramsey-r33/r35 infra: multicolour edge colourings (3 colours) instead of graph/complement pairs. Upper bound R(3,3,3)<=17: hand degree-counting (green degree >= 6 forces mono green triangle by ramsey33_on_finset; else all degrees <=5 => 16*5=80 odd sum of 16 odd degrees, contradiction — same parity vocabulary as the OPE-44 R(3,4) argument). Lower bound R(3,3,3)>16: explicit 120-edge certificate over Fin 16 (F_2^4 construction; Scout-verified zero mono triangles offline 2026-08-25), checked in Lean by decidable enumeration — same pattern as vdw24_gt_34. Mathlib gap re-grepped v4.10.0 this run: no Ramsey theorem, no multicolor/MColoring/RamseyNumber content anywhere upstream.",
+  "mathlib_gap_grep_2026_08_25": "grep -ril ramsey over .lake/packages/mathlib/Mathlib hits only HalesJewett.lean / Hindman.lean prose + RingTheory false positives (Hopf algebras); 'multicolor|MColoring|RamseyNumber' => ZERO hits; Turan.lean exists (negative control OK).",
+  "statement_pin_required": {
+    "convention": "Edge k-colouring of the complete graph on Fin n as f : Fin n -> Fin n -> Fin k (symmetric, irreflexive); monochromatic triangle = exists distinct a b c with f a b = f a c = f b c.",
+    "landmines": [
+      "Diagonal convention: pin f a a = default or state irreflexivity explicitly — off-diagonal extraction must not depend on it",
+      "Symmetry: require f a b = f b a for a != b (or use Sym2 encoding); pin ONE and note the other",
+      "Certificate edge order for native_decide: lexicographic (i,j), i<j — same convention as the W(2,4)>34 witness34 string"
+    ],
+    "canonical_source": "Greenwood & Gleason, Combinatorial relations and chromatic graphs, Canadian J. Math. 7 (1955) 1–7 (R(3,3,3)=17; also their R(3,3)=6 method)"
+  },
+  "feasibility_shape": "Level A: definitions + lower bound via certificate + decidable check (1 heartbeat). Level B: upper bound hand argument (parity + ramsey33 pullback) (1 heartbeat). No witness search in Lean; no native_decide blowup (120 edges).",
+  "infra_carry_over": [
+    "ProofLab/Ramsey.lean: RamseyUpper-style predicates, HasClique, ramsey33_fin6 / ramsey33_clique_inside_finset / ramsey33_on_finset (pullback to Finset of size 6 inside Fin 16), extract3/extract4",
+    "ProofLab/VanDerWaerden.lean: witness-string + native_decide pattern from vdw24_gt_34 (OPE-455, PR #33)",
+    "Degree-sum/parity lemmas (sum_degrees_even, not_regular_odd_of_odd_card) — need k-colour generalization (sum over colour classes)"
+  ],
+  "estimated_token_budget": "220k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-25",
+  "scout_probes": [
+    "Random search FAILS to find a K_16 witness (300k trials) — but Greenwood-Gleason F_2^4 construction succeeds deterministically; certificate r333_witness.txt verified independently (zero mono triangles, 3 colours used)",
+    "Do NOT re-prime R(3,3)/R(3,4)/R(4,4) (closed OPE-44) or R(3,5) (OPE-393 branch exists, unmerged on main — Director should merge or retire before assigning)"
+  ]
+}

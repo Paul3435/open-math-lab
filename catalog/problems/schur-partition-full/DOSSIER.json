@@ -1,0 +1,38 @@
+{
+  "id": "schur-partition-full",
+  "title": "Schur partition identity for all n via Glaisher bijection (formalize-only)",
+  "status": "candidate",
+  "domain": "partition_theory",
+  "score": 76,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 18,
+    "attack_surface": 14,
+    "verification_budget": 12,
+    "crackpot_resistance": 17
+  },
+  "expected": "known-classical",
+  "recommendation": "BENCH only (budget risk). Continuation of OPE-440/445/447 Glaisher ladder toward the full forall-n identity: number of partitions of n into distinct parts congruent to 1 or 2 mod 3 equals the number of partitions of n into parts congruent to +/-1 mod 6. The finite-certificate scope is CLOSED (OPE-424/426, PR #27) and the ladder infra exists on unmerged branches ope/440/445/447 — eligible ONLY because lifting finite certs to the universal statement via an explicit Glaisher-style bijection is a genuinely new proof layer (bijection construction + nodup/parts preservation), not a re-warm. Highest infra value in the pool: Mathlib v4.10.0 has Nat.Partition vocabulary but no Euler/Glaisher bijection and no partition generating-function infrastructure.",
+  "mathlib_gap_grep_2026_08_25": "No partition generating-function / Euler distinct-parts identity content in pinned snapshot (reconfirmed by OPE-430 grep: no PowerSeries usage under Combinatorics/, no pentagonal-number theorem).",
+  "statement_pin_required": {
+    "convention": "Reuse STATEMENT pin 2026-08-04 VERBATIM: A(n) = #partitions of n into distinct parts == 1 or 2 mod 3; B(n) = #partitions of n into parts == 1 or 5 mod 6.",
+    "landmines": [
+      "Swapped-pairing landmine fails at n=2 (known from OPE-25 pin)",
+      "Multiset-vs-Finset encoding of partitions must match Nat.Partition upstream API",
+      "Branch state: Levels B/C live on UNMERGED branches ope/445-schur-glaisher-level-b and ope/447-schur-glaisher-level-c — Director must merge or retire them BEFORE assigning this bench"
+    ],
+    "canonical_source": "Glaisher, Messenger of Mathematics 16 (1887); modern statement in Andrews, The Theory of Partitions (1976), Thm 1.5 corollaries"
+  },
+  "feasibility_shape": "Explicit bijection between the two families at fixed n, then card equality by Finset.card_congr. Verbose Multiset manipulation; cap at two levels, fall back to partial with honest forall-n-open label.",
+  "infra_carry_over": [
+    "ProofLab/Schur.lean + ProofLab/SchurNumber.lean conventions",
+    "ope/440-schur-glaisher (Level A infra, zero sorry), ope/445 (Level B maps+Nodup), ope/447 (Level C inverses+schur_partition) — pending merge"
+  ],
+  "estimated_token_budget": "260k",
+  "skill_packs": ["partition-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-25",
+  "scout_probes": [
+    "Not re-primed as prime: budget sink profile (verbose Multiset proofs); ranked below both fresh candidates",
+    "Eligibility justified per commission rule: universal-statement lift = new proof layer beyond closed finite-certificate scope"
+  ]
+}
