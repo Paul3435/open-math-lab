@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-24T00:00:00Z",
+  "last_updated": "2026-08-25T00:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -199,7 +199,7 @@
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline.",
+      "note": "OPE-424 partial Level B+/C-ladder reviewer-approved (OPE-426, 2026-08-25). Finite certs n<=24 DP / n<=12 Finset; zero sorry; PR #27. FULL forall-n NOT proved - do not mark formalized. STATEMENT pin unchanged. formalize-only, no novelty claim. | OPE-430 Scout: full-statement continuation re-scoped as candidate 'schur-partition-full' (score 78); finite-certificate scope closed.",
       "artifacts": [
         "problems/schur-partition/"
       ],
@@ -280,6 +280,42 @@
       "lean_artifact": "proofs/lean-project/ProofLab/VanDerWaerden.lean"
     },
     {
+      "id": "erdos-szekeres-monotone",
+      "title": "Erdos-Szekeres monotone subsequence theorem, finite form (formalize-only)",
+      "status": "candidate",
+      "domain": [
+        "combinatorics_order_theory"
+      ],
+      "source": "mathlib-gap",
+      "score": 91,
+      "note": "OPE-430 Scout RECOMMENDED PRIME. Finite (r-1)(s-1)+1 monotone-subsequence theorem; pure pigeonhole Lean proof, no witness search. Gap re-confirmed v4.10.0 this run: only INFINitary ES lemma exists (OrderIsoNat.lean L182 / WellFoundedSet.lean remark). Definition risk: weak-vs-strict monotone + List.Sorted pin needed in STATEMENT.md before attack.",
+      "expected": "known-classical"
+    },
+    {
+      "id": "schur-partition-full",
+      "title": "Schur partition theorem FULL forall-n identity (formalize-only continuation)",
+      "status": "candidate",
+      "domain": [
+        "partition_theory"
+      ],
+      "source": "mathlib-gap",
+      "score": 78,
+      "note": "OPE-430 Scout: continuation of schur-partition beyond OPE-424 partial ladder. Full forall-n A(n)=B(n) via Glaisher-style bijection or PowerSeries product expansion; Mathlib has Nat.Partition/odds/distincts but NO partition-generating-function infra and no Euler bijection — high infra-build value, high budget. Reuse STATEMENT pin 2026-08-04 (swapped-pairing landmine at n=2). Do not re-prime closed finite-certificate scope (OPE-424/OPE-426).",
+      "expected": "known-classical"
+    },
+    {
+      "id": "van-der-waerden-w24",
+      "title": "Van der Waerden number W(2,4) = 35 (formalize-only bench)",
+      "status": "candidate",
+      "domain": [
+        "additive_combinatorics"
+      ],
+      "source": "mathlib-gap",
+      "score": 79,
+      "note": "OPE-430 Scout BENCH. Carry-over of VanDerWaerden.lean vocabulary from closed W(2,3)=9 to 4-APs over Fin 35/Fin 34. Upper bound is computer-assisted in literature (Chatvatal 1979): native_decide does not scale to 2^35 colourings - needs hand case-analysis transcription or certificate import; timebox mandatory.",
+      "expected": "known-classical"
+    },
+    {
       "id": "mathlib-gap-candidate",
       "title": "Mathlib formalization gap (TBD by Scout)",
       "domain": [
@@ -321,7 +357,7 @@
       "expected": "known-classical"
     }
   ],
-  "updated_at": "2026-08-24T13:35:40Z",
+  "updated_at": "2026-08-25T10:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

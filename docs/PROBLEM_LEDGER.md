@@ -6,7 +6,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-24 (OPE-44 Attack Lead: R(3,3)=6 / R(3,4)=9 / R(4,4)=18 zero-sorry Lean closed; OPE-334 Scout keep-fresh already on main)
+**Last updated:** 2026-08-25 (OPE-430 Scout: fresh post-Schur-partial-close shortlist — erdos-szekeres-monotone RECOMMENDED PRIME; schur-partition-full + van-der-waerden-w24 bench)
 
 ## Lifecycle labels
 
@@ -30,7 +30,7 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 | `erdos-woods` | elem. number theory | OPE-12 attack; OPE-15 hygiene veto; OPE-334 dossier refresh; **OPE-391 Formalist** | **formalize-only, Lean ZERO-sorry** (`ProofLab/ErdosWoodsCorrect.lean`): literature predicate open interval `(a,a+k)`; `isErdosWoodsWitness_16_2184` + `erdos_woods_16` via `interval_cases`+`native_decide` on 15 interiors; `lake env lean ProofLab/ErdosWoodsCorrect.lean` EXIT=0; `ProofLab.lean` EXIT=0. Vetoed wrong draft renamed `ErdosWoodsVetoed.lean` (not imported). Minimality of a=2184 **not** proven (literature/OEIS). **No novelty claim**. Prior OPE-12 claim remains vetoed. | Known (1980) | `problems/erdos-woods/`, Lean `ProofLab/ErdosWoodsCorrect.lean`, `attacks/erdos-woods-20260730-125506/` (+ BOARD_VETO) |
 | `sum-free-subsets` | additive combinatorics | OPE-14 (board may still be open); children OPE-23/32/33/34 | **Classical Erdős (1965)** process demo. **Lean ZERO-sorry** (`sum_free_subset_bound`, wired via `erdos_sum_free_bound`; `lake env lean ProofLab/SumFree.lean` exit 0); Erdős computational verify 200/200. Adversarial veto (2026-07-31, 3 sorries + strategy mismatch) **lifted** by Adversarial Reviewer 2026-08-07. Known theorem — **`informal` / process fuel, not a discovery claim**. `lake build ProofLab` OK | Known theorem | `problems/sum-free-subsets/`, `attacks/sum-free-subsets-20260730-221216/`, Lean `ProofLab/SumFree.lean` (+ `ErdosSumFree.lean`) |
 | `graceful-tree-conjecture` (bounded caterpillars n≤12) | graph theory | OPE-13 attack; OPE-18 review; OPE-20 re-review | **`heuristic`** bounded verify: 560 distinct non-iso caterpillars, 0 search failures after dedup. Family already known graceful for all n (Rosa/Golomb). **Not** full GTC; **not** Lean-gated | Sanity check, not new math | `problems/graceful-tree-conjecture/`, `attacks/graceful-tree-conjecture-20260731-094627/` |
-| `schur-partition` | partitions | OPE-2 seed; OPE-25 shortlist; OPE-21 Director approve | **`shortlisted` prime** — STATEMENT pin 2026-08-04 (distinct parts ≡1,2 mod 3 = parts ≡±1 mod 6). Attack child filed after approval. Formalize-only | Known (1926); **genuine Mathlib gap** (OPE-25 grep) | `problems/schur-partition/` |
+| `schur-partition` | partitions | OPE-2 seed; OPE-25 shortlist; OPE-21 Director approve; OPE-26 Level A+B; **OPE-424 partial ladder** | **`heuristic`** — OPE-424 closed as a **partial ladder** (finite certs n≤24 computable / n≤12 Finset + bridge; zero sorry; PR #27) with Adversarial approval in OPE-426. Full ∀n A(n)=B(n) remains OPEN — finite-certificate scope closed, do not re-prime. STATEMENT pin 2026-08-04 held (distinct parts ≡1,2 mod 3 = parts ≡±1 mod 6). Formalize-only | Known (1926); **genuine Mathlib gap** (OPE-25 + OPE-430 grep) | `problems/schur-partition/`, `ProofLab/Schur.lean`, PR #27 |
 | `frobenius-coin-problem` | number theory | OPE-21/22; OPE-25 | **process-fuel** (not gap prime). Mathlib already has `frobeniusNumber_pair`. Level A/B artifacts under attack dir + `ProofLab/Frobenius.lean` | Known textbook; already-in-Mathlib | `problems/frobenius-coin-problem/`, `attacks/frobenius-coin-problem-20260804-222513/` |
 | `ramsey-r33` | graph theory / combinatorics | OPE-40 scout keep-fresh; OPE-43 shortlist+prime; OPE-44 attack | **`formalized`** (formalize-only). Lean **zero-sorry**, `lake build ProofLab` green: `ramsey33_eq_6`, `ramsey34_eq_9`, `ramsey44_eq_18` (`ProofLab/Ramsey.lean`). Hand pigeonhole R(3,3)≤6; degree-parity R(3,4)≤9; recurrence R(4,4)≤18; lower bounds via C5 / 8-vtx witness / Paley-17. Default **no claim**. Board 2026-08-24: independent `lake env lean ProofLab/Ramsey.lean` EXIT=0. | Known classical; **genuine Mathlib gap** (no Ramsey theorem in v4.10.0) | `problems/ramsey-r33/`, Lean `ProofLab/Ramsey.lean` |
 | `van-der-waerden-w23` | additive combinatorics | OPE-45 (folded into OPE-51) | **formalize-only, Lean ZERO-sorry** (`ProofLab/VanDerWaerden.lean`): `vdw_le_9` (every 2-colouring of `Fin 9` has a mono 3-AP, `native_decide`) + `vdw_gt_8` (witness `11001100` on `Fin 8` with none). ⇒ W(2,3)=9. `lake env lean` exit 0, zero `sorry`. **Gate re-verified by Scout 2026-08-22 (OPE-334)**: independent `lake env lean ProofLab/VanDerWaerden.lean` exit 0 against pinned Lean 4.10.0 + Mathlib v4.10.0 snapshot; grep confirms zero real `sorry`/`admit`/`axiom`; gap re-confirmed — finitary VdW still an explicit TODO in the pinned `Mathlib/Combinatorics/HalesJewett.lean` (~L51) | Known classical; genuine Mathlib TODO (HalesJewett.lean) | `proofs/lean-project/ProofLab/VanDerWaerden.lean`, `problems/van-der-waerden-w23/` |
@@ -53,7 +53,7 @@ already covered upstream; `schur-partition` is the only confirmed gap among prio
 
 | Problem ID | Status | Domain | Notes |
 |------------|--------|--------|-------|
-| **`schur-partition`** | **`shortlisted` → done (OPE-26 attack complete)** | partition theory | OPE-25 recommended; Director approved; STATEMENT pinned (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** attack completed 2026-08-04 — Level A cert (N≤1000, DP+brute force agree) + Level B Lean sorry-free small-n (`ProofLab/Schur.lean`). |
+| **`schur-partition`** | **`heuristic` — OPE-424 partial ladder reviewer-approved (OPE-426); full ∀n open** | partition theory | OPE-25 recommended; Director approved; STATEMENT pinned 2026-08-04 (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6). **OPE-26** Level A+B. **OPE-424** closed as partial ladder: finite certs n≤24 computable / n≤12 Finset + bridge, zero sorry (PR #27); Adversarial approval partial-only in OPE-426. Finite-certificate scope CLOSED — full-statement continuation tracked as new candidate `schur-partition-full` (OPE-430). |
 | `frobenius-coin-problem` | shortlisted (process-fuel only) / done (OPE-22 complete) | number theory | **SUPERSEDED as gap prime** — already in Mathlib. OPE-22 = compute cert + Lean practice completed (no contribution claim). |
 | `derangement-formula` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`numDerangements` + sum/recurrence/asymp). Dossier gap claim false. Lean-practice only. |
 | `catalan-recurrence` | candidate (demoted) | enum. combinatorics | ALREADY in Mathlib (`catalan`, recurrence, centralBinom closed form). Lean-practice only. |
@@ -71,6 +71,57 @@ Previous Scout keep-fresh: **`van-der-waerden-w23`** — finitary Van der Waerde
 **OPE-43 update (2026-08-08):** `ramsey-r33` (PRIME, OPE-44), `van-der-waerden-w23` (OPE-45), and
 `schur-number` (OPE-46) are now **shortlisted / Director-approved** — catalog + ledger updated, attacks
 assigned to Attack Lead in wake-order chain.
+
+**OPE-430 update (2026-08-25, Scout): fresh formalize-only shortlist after Schur partition partial close.**
+
+The OPE-423 shortlist is consumed. Its recommended prime `schur-partition` (full statement) was
+attacked in OPE-424 and closed as a **partial ladder** (finite certificates n≤24 computable /
+n≤12 Finset + bridge; zero sorry) with Adversarial Reviewer approval in OPE-426; full ∀n A(n)=B(n)
+remains OPEN and the finite-certificate scope is closed — do not re-prime it. The two OPE-423 bench
+candidates are not fundable as-is: Ramsey-for-pairs compactness has low marginal contribution over
+the closed ramsey-r33/r35 infra, and `bertrand-postulate-computational`'s theorem already exists in
+Mathlib.
+
+Fresh shortlist (≤3, known-classical / formalize-only, no novelty claims):
+
+1. **`erdos-szekeres-monotone` — RECOMMENDED PRIME (91).** Finite Erdős–Szekeres monotone
+   subsequence theorem: every sequence `f : Fin n → α` on a nonempty linear order with
+   `n ≥ (r−1)(s−1)+1` admits a nondecreasing subsequence of length r or a nonincreasing one of
+   length s. Rationale: the classical proof is a two-line pigeonhole argument labelling each index i
+   with `(a_i, b_i)` = (longest nondecreasing / nonincreasing subsequence ending at i); injectivity
+   on any window forces a monotone run. Fully hand-checkable in Lean with ZERO witness search and no
+   offline compute step — the same profile as the OPE-44 R(3,3) pigeonhole argument that closed green.
+   GENUINE GAP re-grepped against pinned v4.10.0 snapshot this run: only the *infinitary* ES lemma
+   exists (`Mathlib/Order/OrderIsoNat.lean` ~L182) plus an infinitary remark in
+   `Mathlib/Order/WellFoundedSet.lean` (~L26/L389); NO finite monotone-subsequence theorem anywhere.
+   Infra carry-over: `List.Sorted` API + `Fintype.card_le_of_injective` pigeonhole vocabulary from
+   ProofLab work; later reusable for an ES(4)=9 stretch via order-type routing.
+   Definition risk (pin before attack): weak vs strict monotonicity, and List-based subsequences
+   (`List.Sorted` over order-preserving indices). Recommend pinning WEAK monotonicity +
+   `List.Sorted`, matching Mathlib vocabulary; canonical source for STATEMENT.md:
+   Erdős & Szekeres, *A combinatorial problem in geometry*, Compositio Mathematica 2 (1935)
+   463–470. Dossier: `catalog/problems/erdos-szekeres-monotone/DOSSIER.json`.
+2. **`schur-partition-full` (78).** Continuation of schur-partition to the full ∀n identity,
+   scoped as a Glaisher-style explicit bijection between distinct-parts ≡1,2-mod-3 and parts
+   ≡±1-mod-6 families at fixed n, lifted to the universal statement. Highest infra-build value:
+   Mathlib has `Nat.Partition`/`odds`/`distincts` but no Euler bijection and no partition
+   generating-function infrastructure at all (no PowerSeries usage under `Combinatorics/`,
+   no pentagonal-number theorem). Also highest budget risk (Multiset-bijection proofs are verbose);
+   cap at two levels. Reuse STATEMENT pin 2026-08-04 verbatim — swapped-pairing landmine fails at
+   n=2. Dossier: `catalog/problems/schur-partition-full/DOSSIER.json`.
+3. *(bench)* **`van-der-waerden-w24` (79):** W(2,4)=35 via direct carry-over of closed
+   `ProofLab/VanDerWaerden.lean` vocabulary to 4-term APs over `Fin 34`/`Fin 35`. Lower bound =
+   certified 34-colouring witness (Ramsey-wave pattern: offline search, decidable Lean check).
+   Upper bound is the budget sink: the literature value rests on computer assistance (Chvátal 1979),
+   so `native_decide` cannot scale to 2^35 colourings — hand case-analysis transcription or
+   certificate import required; timebox and fall back to a partial ladder if it explodes.
+   Dossier: `catalog/problems/van-der-waerden-w24/DOSSIER.json`.
+
+Negative control recorded per OPE-25 discipline: `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` exists upstream (Turán's theorem proved), so Turán
+is never citable as a gap; frobenius/derangement/catalan demotions reconfirmed by the same grep.
+Considered and rejected: `ramsey-r46` R(4,6)=41 (no hand upper-bound proof, no certified witness in
+repo).
 
 ## Active sprint (from OPE-21)
 
