@@ -121,5 +121,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-04 (OPE-21 Research Director)  
-**Maintained by:** Problem Scout + Research Director
+**Last updated:** 2026-08-27 (OPE-533 Scout: audit + shortlist `erdos-ko-rado` 87 prime / `friendship-windmill` 84). Ledger SoT for history.

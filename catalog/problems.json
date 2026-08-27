@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-24T00:00:00Z",
+  "last_updated": "2026-08-27T21:18:07Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -286,9 +286,10 @@
         "formalization"
       ],
       "source": "mathlib-wishlist",
-      "status": "needs-scout",
+      "status": "archived",
       "feasibility": null,
-      "notes": "Scout replaces with a real, small formalization task."
+      "notes": "Scout replaces with a real, small formalization task.",
+      "note": "OPE-533 catalog audit: leftover seed placeholder (README claimed replacement 2026-08-07). Do not fund. Real gap candidates live as named rows."
     },
     {
       "id": "oeis-finite-check-candidate",
@@ -298,9 +299,10 @@
         "combinatorics"
       ],
       "source": "oeis-style",
-      "status": "needs-scout",
+      "status": "archived",
       "feasibility": null,
-      "notes": "Prefer decidable finite checks with clear bounds."
+      "notes": "Prefer decidable finite checks with clear bounds.",
+      "note": "OPE-533 catalog audit: leftover seed placeholder (README claimed replacement 2026-08-07). Do not fund. Real gap candidates live as named rows."
     },
     {
       "id": "ramsey-r35",
@@ -308,7 +310,7 @@
       "status": "candidate",
       "domain": "graph_theory",
       "score": 86,
-      "note": "OPE-390 Scout: formalize-only follow-on to closed ramsey-r33. Upper bound hand degree-counting; lower bound explicit 13-vtx witness certified via SimpleGraph decidable clique checks. Reuses ProofLab/Ramsey.lean vocabulary (PR #18). Gap re-confirmed v4.10.0: no Ramsey theorem in Mathlib.",
+      "note": "OPE-390 Scout: formalize-only follow-on to closed ramsey-r33. Upper bound hand degree-counting; lower bound explicit 13-vtx witness certified via SimpleGraph decidable clique checks. Reuses ProofLab/Ramsey.lean vocabulary (PR #18). Gap re-confirmed v4.10.0: no Ramsey theorem in Mathlib. | OPE-533: do NOT re-prime — OPE-393 PR #22 still OPEN (formalize R(3,5)=14).",
       "expected": "known-classical"
     },
     {
@@ -317,26 +319,28 @@
       "status": "candidate",
       "domain": "discrete_geometry",
       "score": 78,
-      "note": "OPE-390 Scout: formalize-only. Any 5 points in general position contain a convex 4-gon. Needs new Mathlib orientation/order-type plumbing (itself a contribution). ES(4)=9 stretch only. Gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content.",
+      "note": "OPE-390 Scout: formalize-only. Any 5 points in general position contain a convex 4-gon. Needs new Mathlib orientation/order-type plumbing (itself a contribution). ES(4)=9 stretch only. Gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content. | OPE-533: do NOT re-prime — OPE-403/410 PRs #24/#25 still OPEN.",
       "expected": "known-classical"
     },
     {
       "id": "ramsey-multicolor-r333",
       "title": "Multicolour Ramsey R(3,3,3)=17",
-      "status": "candidate",
+      "status": "in_progress",
       "domain": "graph_theory",
       "score": 84,
-      "note": "OPE-458 Scout RECOMMENDED PRIME: new multicolour proof layer over closed Ramsey infra. Upper hand parity argument; lower F_2^4 certificate verified offline (witness16_certificate.txt). Gap grep clean v4.10.0 (no RamseyNumber/multicolor content). formalize-only, known-classical (Greenwood-Gleason 1955).",
-      "expected": "known-classical"
+      "note": "OPE-458 prime CONSUMED — OPE-461 Formalist DONE (zero-sorry both bounds); PR #36 OPEN MERGEABLE, gate APPROVE. Do NOT re-prime. OPE-533 audit 2026-08-27.",
+      "expected": "known-classical",
+      "issue": "OPE-461"
     },
     {
       "id": "weak-schur-ws2",
       "title": "Weak Schur number WS(2)=8",
-      "status": "candidate",
+      "status": "in_progress",
       "domain": "additive_combinatorics",
       "score": 81,
-      "note": "OPE-458 Scout #2: genuinely new layer (distinct-triple predicate) vs closed S(2)/S(3) strong-Schur scope. Exhaustive probe confirms WS(2)=8 boundary pre-recommendation. Reuses SchurNumber.lean shape. formalize-only.",
-      "expected": "known-classical"
+      "note": "OPE-458 #2 CONSUMED — OPE-462 Attack Lead DONE (zero-sorry WS(2)=8); PR #35 OPEN MERGEABLE, gate APPROVE. Do NOT re-prime. OPE-533 audit 2026-08-27.",
+      "expected": "known-classical",
+      "issue": "OPE-462"
     },
     {
       "id": "schur-partition-full-glaisher",
@@ -344,11 +348,48 @@
       "status": "candidate",
       "domain": "partition_theory",
       "score": 76,
-      "note": "OPE-458 Scout BENCH: forall-n Glaisher-bijection lift of closed finite-cert scope; highest infra value, highest budget risk. Depends on merging ope/440/445/447 ladder branches first. formalize-only.",
+      "note": "OPE-458 bench STILL BENCHED as OPE-463: hard git-history dep on unmerged PRs #30/#31/#32. Unbench only after those merge. OPE-533 audit 2026-08-27.",
       "expected": "known-classical"
+    },
+    {
+      "id": "erdos-ko-rado",
+      "title": "Erdős–Ko–Rado k-uniform intersecting families (formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_set_theory",
+      "score": 87,
+      "note": "OPE-533 Scout RECOMMENDED PRIME: known-classical EKR 1961, genuine Mathlib gap (k-uniform bound; Intersecting.card_le is non-uniform 2^{n-1} only). Katona cycle. formalize-only, no novelty claim. Dossier: catalog/problems/erdos-ko-rado/",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/erdos-ko-rado/",
+        "problems/erdos-ko-rado/"
+      ],
+      "scout_issue": "OPE-533"
+    },
+    {
+      "id": "friendship-windmill",
+      "title": "Friendship theorem (Erdős–Rényi–Sós windmill, formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 84,
+      "note": "OPE-533 Scout #2: known-classical ERS 1966, genuine Mathlib gap (commonNeighbors + IsSRGWith exist; theorem does not). Finite graphs only. formalize-only, no novelty claim. Dossier: catalog/problems/friendship-windmill/",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/friendship-windmill/",
+        "problems/friendship-windmill/"
+      ],
+      "scout_issue": "OPE-533"
     }
   ],
-  "updated_at": "2026-08-24T13:35:40Z",
+  "updated_at": "2026-08-27T21:18:07Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
