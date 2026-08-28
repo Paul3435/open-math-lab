@@ -12,13 +12,15 @@ Kőnig (`χ' = Δ`). Not König's lemma. Not Tutte. Not Dilworth.
 
 Level A (this module): `IsVertexCover`; easy `ν ≤ τ` for *all* finite
 graphs; empty / `K_{1,n}` / complete-bipartite equality.
-Level B residual: full `Colorable 2 → ν = τ` (alternating paths or
-Hall reduction). `K_3` is the load-bearing bipartite counterexample
-(`ν = 1`, `τ = 2`).
+Level B (OPE-596): full `Colorable 2 → ν = τ` via Hall deficiency
+(dummy-vertex reduction). This is a proof of the *graph* min-max, not
+a citation of `hall_hard_inductive` as König. `K_3` remains the
+load-bearing bipartite counterexample (`ν = 1`, `τ = 2`).
 -/
 import Mathlib.Combinatorics.SimpleGraph.Matching
 import Mathlib.Combinatorics.SimpleGraph.Coloring
 import Mathlib.Combinatorics.SimpleGraph.Finite
+import Mathlib.Combinatorics.Hall.Finite
 import Mathlib.Tactic
 
 open Finset Function SimpleGraph
@@ -666,5 +668,484 @@ theorem complete_three_ne :
       vertexCoverNumber (⊤ : SimpleGraph (Fin 3)) := by
   rw [complete_three_matchingNumber, complete_three_vertexCoverNumber]
   decide
+
+end ProofLab.Konig
+
+/-!
+## Level B (OPE-596): `Colorable 2 → ν = τ`
+
+Hall-deficiency reduction of the *graph* statement (Kőnig 1931).
+We do **not** treat `hall_hard_inductive` / SDR Hall as König: Hall is
+used only to produce a matching of size `|L| - def`, after which a
+color-class cover of equal cardinality is exhibited.
+
+Known-classical. Zero `sorry`. Not `χ' = Δ`. Not König's lemma. Not
+Tutte. Not Dilworth. Matching number counts *edges*.
+-/
+
+namespace ProofLab.Konig
+
+variable {V : Type*} [Fintype V] [DecidableEq V]
+variable {G : SimpleGraph V}
+
+/-! ### Color classes of a 2-coloring -/
+
+lemma fin2_eq_zero_or_one (i : Fin 2) : i = 0 ∨ i = 1 := by
+  fin_cases i <;> simp
+
+def leftSet (C : G.Coloring (Fin 2)) : Finset V :=
+  univ.filter fun v => C v = 0
+
+def rightSet (C : G.Coloring (Fin 2)) : Finset V :=
+  univ.filter fun v => C v = 1
+
+lemma mem_leftSet (C : G.Coloring (Fin 2)) {v : V} :
+    v ∈ leftSet C ↔ C v = 0 := by
+  simp [leftSet]
+
+lemma mem_rightSet (C : G.Coloring (Fin 2)) {v : V} :
+    v ∈ rightSet C ↔ C v = 1 := by
+  simp [rightSet]
+
+lemma not_mem_leftSet_iff (C : G.Coloring (Fin 2)) {v : V} :
+    v ∉ leftSet C ↔ C v = 1 := by
+  rw [mem_leftSet]
+  have h := fin2_eq_zero_or_one (C v)
+  constructor
+  · intro hne
+    rcases h with h0 | h1
+    · exact (hne h0).elim
+    · exact h1
+  · intro h1 h0
+    exact zero_ne_one (h0.symm.trans h1)
+
+lemma leftSet_disjoint_rightSet (C : G.Coloring (Fin 2)) :
+    Disjoint (leftSet C) (rightSet C) := by
+  refine disjoint_left.mpr ?_
+  intro x hxL hxR
+  rw [mem_leftSet] at hxL
+  rw [mem_rightSet] at hxR
+  exact zero_ne_one (hxL.symm ▸ hxR)
+
+lemma adj_color_left_of_right (C : G.Coloring (Fin 2)) {u v : V}
+    (h : G.Adj u v) (hu : u ∈ leftSet C) : v ∈ rightSet C := by
+  have hne : C u ≠ C v := C.valid h
+  have hu0 : C u = 0 := (mem_leftSet C).mp hu
+  have hv1 : C v = 1 := (not_mem_leftSet_iff C).mp fun hv0 =>
+    hne (hu0.trans ((mem_leftSet C).mp hv0).symm)
+  exact (mem_rightSet C).mpr hv1
+
+lemma adj_color_right_of_left (C : G.Coloring (Fin 2)) {u v : V}
+    (h : G.Adj u v) (hu : u ∈ rightSet C) : v ∈ leftSet C := by
+  have hne : C u ≠ C v := C.valid h
+  have hu1 : C u = 1 := (mem_rightSet C).mp hu
+  have hv0 : C v = 0 := by
+    rcases fin2_eq_zero_or_one (C v) with hv0 | hv1
+    · exact hv0
+    · exact (hne (hu1.trans hv1.symm)).elim
+  exact (mem_leftSet C).mpr hv0
+
+lemma leftSet_isVertexCover (C : G.Coloring (Fin 2)) :
+    IsVertexCover G (leftSet C) := by
+  intro u v h
+  have hne : C u ≠ C v := C.valid h
+  rcases fin2_eq_zero_or_one (C u) with hu0 | hu1
+  · exact Or.inl ((mem_leftSet C).mpr hu0)
+  · have hv0 : C v = 0 := by
+      rcases fin2_eq_zero_or_one (C v) with hv0 | hv1
+      · exact hv0
+      · exact (hne (hu1.trans hv1.symm)).elim
+    exact Or.inr ((mem_leftSet C).mpr hv0)
+
+/-! ### Open neighbourhoods -/
+
+variable [DecidableRel G.Adj]
+
+def nhd (G : SimpleGraph V) [DecidableRel G.Adj] (S : Finset V) : Finset V :=
+  S.biUnion fun v => G.neighborFinset v
+
+lemma mem_nhd {S : Finset V} {w : V} :
+    w ∈ nhd G S ↔ ∃ v ∈ S, G.Adj v w := by
+  simp [nhd, mem_neighborFinset]
+
+lemma nhd_subset_rightSet (C : G.Coloring (Fin 2)) {S : Finset V}
+    (hS : S ⊆ leftSet C) : nhd G S ⊆ rightSet C := by
+  intro w hw
+  obtain ⟨v, hv, hadj⟩ := mem_nhd.mp hw
+  exact adj_color_left_of_right C hadj (hS hv)
+
+lemma nhd_empty : nhd G (∅ : Finset V) = ∅ := by
+  simp [nhd]
+
+/-- König cover attached to a left subset `S`: unmatched left ∪ `N(S)`. -/
+def konigCover (C : G.Coloring (Fin 2)) (S : Finset V) : Finset V :=
+  (leftSet C \ S) ∪ nhd G S
+
+lemma konigCover_isVertexCover (C : G.Coloring (Fin 2)) {S : Finset V}
+    (_hS : S ⊆ leftSet C) : IsVertexCover G (konigCover C S) := by
+  intro u v h
+  have hne : C u ≠ C v := C.valid h
+  simp only [konigCover, mem_union, mem_sdiff]
+  rcases fin2_eq_zero_or_one (C u) with hu0 | hu1
+  · have huL : u ∈ leftSet C := (mem_leftSet C).mpr hu0
+    by_cases huS : u ∈ S
+    · refine Or.inr (Or.inr ?_)
+      exact mem_nhd.mpr ⟨u, huS, h⟩
+    · exact Or.inl (Or.inl ⟨huL, huS⟩)
+  · have hv0 : C v = 0 := by
+      rcases fin2_eq_zero_or_one (C v) with hv0 | hv1
+      · exact hv0
+      · exact (hne (hu1.trans hv1.symm)).elim
+    have hvL : v ∈ leftSet C := (mem_leftSet C).mpr hv0
+    by_cases hvS : v ∈ S
+    · refine Or.inl (Or.inr ?_)
+      exact mem_nhd.mpr ⟨v, hvS, h.symm⟩
+    · exact Or.inr (Or.inl ⟨hvL, hvS⟩)
+
+lemma konigCover_card (C : G.Coloring (Fin 2)) {S : Finset V}
+    (hS : S ⊆ leftSet C) :
+    (konigCover C S).card = (leftSet C \ S).card + (nhd G S).card := by
+  rw [konigCover, card_union_of_disjoint]
+  refine disjoint_left.mpr ?_
+  intro x hxL hxN
+  have hxR : x ∈ rightSet C := nhd_subset_rightSet C hS hxN
+  have hxLeft : x ∈ leftSet C := (mem_sdiff.mp hxL).1
+  exact disjoint_left.mp (leftSet_disjoint_rightSet C) hxLeft hxR
+
+/-! ### Matching induced by an injective neighbor map -/
+
+def injMatching (s : Finset V) (f : V → V)
+    (hAdj : ∀ x ∈ s, G.Adj x (f x)) : Subgraph G where
+  verts := (s : Set V) ∪ ↑(s.image f)
+  Adj := fun a b => (a ∈ s ∧ f a = b) ∨ (b ∈ s ∧ f b = a)
+  adj_sub := by
+    intro a b h
+    rcases h with ⟨ha, rfl⟩ | ⟨hb, rfl⟩
+    · exact hAdj a ha
+    · exact (hAdj b hb).symm
+  edge_vert := by
+    intro a b h
+    rcases h with ⟨ha, rfl⟩ | ⟨hb, rfl⟩
+    · exact Set.mem_union_left _ ha
+    · exact Set.mem_union_right _ (mem_image.mpr ⟨b, hb, rfl⟩)
+  symm := by
+    intro a b h
+    rcases h with h | h
+    · exact Or.inr h
+    · exact Or.inl h
+
+lemma injMatching_isMatching (s : Finset V) (f : V → V)
+    (hAdj : ∀ x ∈ s, G.Adj x (f x))
+    (hinj : Set.InjOn f s)
+    (hdisj : Disjoint s (s.image f)) :
+    (injMatching s f hAdj).IsMatching := by
+  intro v hv
+  have hv' : v ∈ (s : Set V) ∪ ↑(s.image f) := hv
+  rcases hv' with hvL | hvR
+  · refine ⟨f v, Or.inl ⟨hvL, rfl⟩, ?_⟩
+    intro w hw
+    rcases hw with ⟨_, rfl⟩ | ⟨hw, hfw⟩
+    · rfl
+    · have hinter : v ∈ s ∩ s.image f :=
+        mem_inter.mpr ⟨hvL, mem_image.mpr ⟨w, hw, hfw⟩⟩
+      have hempty : s ∩ s.image f = ∅ := disjoint_iff_inter_eq_empty.mp hdisj
+      simp [hempty] at hinter
+  · obtain ⟨x, hx, rfl⟩ := mem_image.mp (show v ∈ s.image f from hvR)
+    refine ⟨x, Or.inr ⟨hx, rfl⟩, ?_⟩
+    intro w hw
+    rcases hw with ⟨hw, _hfw⟩ | ⟨hw, hfw⟩
+    · have hinter : f x ∈ s ∩ s.image f :=
+        mem_inter.mpr ⟨hw, mem_image.mpr ⟨x, hx, rfl⟩⟩
+      have hempty : s ∩ s.image f = ∅ := disjoint_iff_inter_eq_empty.mp hdisj
+      simp [hempty] at hinter
+    · exact hinj hw hx hfw
+
+lemma injMatching_edgeSet (s : Finset V) (f : V → V)
+    (hAdj : ∀ x ∈ s, G.Adj x (f x)) :
+    (injMatching s f hAdj).edgeSet = ↑(s.image fun x => s(x, f x)) := by
+  ext e
+  refine Sym2.inductionOn e fun a b => ?_
+  constructor
+  · intro he
+    have hadj : (injMatching s f hAdj).Adj a b := mem_edgeSet.mp he
+    rcases hadj with ⟨ha, hfa⟩ | ⟨hb, hfb⟩
+    · exact mem_coe.mpr (mem_image.mpr ⟨a, ha, by rw [hfa]⟩)
+    · have : s(a, b) = s(b, f b) := by rw [hfb, Sym2.eq_swap]
+      exact mem_coe.mpr (mem_image.mpr ⟨b, hb, this.symm⟩)
+  · intro he
+    obtain ⟨x, hx, hxe⟩ := mem_image.mp (mem_coe.mp he)
+    apply mem_edgeSet.mpr
+    rcases (Sym2.eq_iff.mp hxe) with ⟨h1, h2⟩ | ⟨h1, h2⟩
+    · subst h1; subst h2; exact Or.inl ⟨hx, rfl⟩
+    · subst h1; subst h2; exact Or.inr ⟨hx, rfl⟩
+
+lemma injMatching_map_injOn (s : Finset V) (f : V → V)
+    (_hAdj : ∀ x ∈ s, G.Adj x (f x))
+    (_hinj : Set.InjOn f s)
+    (hdisj : Disjoint s (s.image f)) :
+    Set.InjOn (fun x => s(x, f x)) s := by
+  intro x hx y hy hxy
+  rcases (Sym2.eq_iff.mp hxy) with ⟨h1, _⟩ | ⟨h1, _h2⟩
+  · exact h1
+  · have hinter : x ∈ s ∩ s.image f :=
+      mem_inter.mpr ⟨hx, mem_image.mpr ⟨y, hy, h1.symm⟩⟩
+    have hempty : s ∩ s.image f = ∅ := disjoint_iff_inter_eq_empty.mp hdisj
+    simp [hempty] at hinter
+
+lemma injMatching_card (s : Finset V) (f : V → V)
+    (hAdj : ∀ x ∈ s, G.Adj x (f x))
+    (_hinj : Set.InjOn f s)
+    (hdisj : Disjoint s (s.image f)) :
+    matchingCard (injMatching s f hAdj) = s.card := by
+  let M := injMatching s f hAdj
+  have hset : M.edgeSet = ↑(s.image fun x => s(x, f x)) :=
+    injMatching_edgeSet s f hAdj
+  let g : { x // x ∈ s } → M.edgeSet := fun x =>
+    ⟨s(x.1, f x.1), by
+      rw [hset]
+      exact mem_image.mpr ⟨x.1, x.2, rfl⟩⟩
+  have hg_inj : Function.Injective g := by
+    intro x1 x2 hg
+    have h := Subtype.ext_iff.mp hg
+    rcases (Sym2.eq_iff.mp h) with ⟨h1, _⟩ | ⟨h1, _⟩
+    · exact Subtype.ext h1
+    · have hinter : x1.1 ∈ s ∩ s.image f :=
+        mem_inter.mpr ⟨x1.2, mem_image.mpr ⟨x2.1, x2.2, h1.symm⟩⟩
+      have hempty : s ∩ s.image f = ∅ := disjoint_iff_inter_eq_empty.mp hdisj
+      simp [hempty] at hinter
+  have hg_surj : Function.Surjective g := by
+    intro e
+    have he : (e : Sym2 V) ∈ (s.image fun x => s(x, f x) : Set (Sym2 V)) :=
+      hset ▸ e.property
+    obtain ⟨x, hx, hxe⟩ := mem_image.mp (mem_coe.mp he)
+    refine ⟨⟨x, hx⟩, Subtype.ext hxe⟩
+  have hcongr := Fintype.card_congr (Equiv.ofBijective g ⟨hg_inj, hg_surj⟩)
+  simp only [matchingCard, M]
+  exact hcongr.symm.trans (Fintype.card_coe s)
+
+/-! ### Hall family with `d` dummy right vertices -/
+
+def hallFamily (C : G.Coloring (Fin 2)) (d : ℕ)
+    (x : { v // v ∈ leftSet C }) : Finset (V ⊕ Fin d) :=
+  (G.neighborFinset (x : V)).image Sum.inl ∪
+    (univ : Finset (Fin d)).image Sum.inr
+
+lemma disjoint_inl_inr_image (A : Finset V) (d : ℕ) :
+    Disjoint (A.image (Sum.inl : V → V ⊕ Fin d))
+      ((univ : Finset (Fin d)).image Sum.inr) := by
+  refine disjoint_left.mpr ?_
+  intro x hx hy
+  obtain ⟨v, _, hv⟩ := mem_image.mp hx
+  obtain ⟨i, _, hi⟩ := mem_image.mp hy
+  exact Sum.inl_ne_inr (hv.trans hi.symm)
+
+lemma hallFamily_biUnion_eq (C : G.Coloring (Fin 2)) (d : ℕ)
+    (s : Finset { v // v ∈ leftSet C }) (hs : s.Nonempty) :
+    s.biUnion (hallFamily C d) =
+      (nhd G (s.image Subtype.val)).image Sum.inl ∪
+        (univ : Finset (Fin d)).image Sum.inr := by
+  ext y
+  constructor
+  · intro hy
+    obtain ⟨x, hx, hxmem⟩ := mem_biUnion.mp hy
+    simp only [hallFamily, mem_union, mem_image] at hxmem
+    rcases hxmem with ⟨w, hw, rfl⟩ | hD
+    · refine mem_union.mpr (Or.inl ?_)
+      refine mem_image.mpr ⟨w, ?_, rfl⟩
+      exact mem_nhd.mpr ⟨x.1, mem_image.mpr ⟨x, hx, rfl⟩, (mem_neighborFinset _ _ _).mp hw⟩
+    · exact mem_union.mpr (Or.inr (mem_image.mpr hD))
+  · intro hy
+    rw [mem_union] at hy
+    rcases hy with hN | hD
+    · obtain ⟨w, hw, rfl⟩ := mem_image.mp hN
+      obtain ⟨v, hvS, hadj⟩ := mem_nhd.mp hw
+      obtain ⟨x, hx, rfl⟩ := mem_image.mp hvS
+      refine mem_biUnion.mpr ⟨x, hx, ?_⟩
+      refine mem_union.mpr (Or.inl ?_)
+      exact mem_image.mpr ⟨w, (mem_neighborFinset _ _ _).mpr hadj, rfl⟩
+    · obtain ⟨a, ha⟩ := hs
+      exact mem_biUnion.mpr ⟨a, ha, mem_union.mpr (Or.inr hD)⟩
+
+lemma hallFamily_biUnion_card (C : G.Coloring (Fin 2)) (d : ℕ)
+    (s : Finset { v // v ∈ leftSet C }) (hs : s.Nonempty) :
+    (s.biUnion (hallFamily C d)).card =
+      (nhd G (s.image Subtype.val)).card + d := by
+  rw [hallFamily_biUnion_eq C d s hs, card_union_of_disjoint
+      (disjoint_inl_inr_image _ _),
+    card_image_of_injective _ Sum.inl_injective,
+    card_image_of_injective _ Sum.inr_injective, card_univ,
+    Fintype.card_fin]
+
+lemma hall_condition (C : G.Coloring (Fin 2)) {d : ℕ}
+    (hd : ∀ T ⊆ leftSet C, T.card ≤ (nhd G T).card + d)
+    (s : Finset { v // v ∈ leftSet C }) :
+    s.card ≤ (s.biUnion (hallFamily C d)).card := by
+  rcases eq_empty_or_nonempty s with hs | hs
+  · subst hs
+    simp
+  · have hsub : s.image Subtype.val ⊆ leftSet C := by
+      intro x hx
+      obtain ⟨⟨_y, hy⟩, _, rfl⟩ := mem_image.mp hx
+      exact hy
+    have hT := hd _ hsub
+    have hceq : (s.image Subtype.val).card = s.card :=
+      card_image_of_injective s Subtype.coe_injective
+    have hbu := hallFamily_biUnion_card C d s hs
+    have : s.card ≤ (nhd G (s.image Subtype.val)).card + d := by
+      omega
+    exact this.trans_eq hbu.symm
+
+lemma dummy_mapped_card_le {d : ℕ}
+    {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (f : ι → V ⊕ Fin d) (hinj : Injective f) :
+    ((univ : Finset ι).filter fun x => ∃ i, f x = Sum.inr i).card ≤ d := by
+  let s := (univ : Finset ι).filter fun x => ∃ i, f x = Sum.inr i
+  let g' : { x // x ∈ s } → Fin d := fun x =>
+    Classical.choose (mem_filter.mp x.2).2
+  have hg' : Injective g' := by
+    intro x1 x2 hg
+    have h1 := Classical.choose_spec (mem_filter.mp x1.2).2
+    have h2 := Classical.choose_spec (mem_filter.mp x2.2).2
+    have : f x1.1 = f x2.1 := by
+      rw [h1, h2]
+      exact congrArg Sum.inr hg
+    exact Subtype.ext (hinj this)
+  have hle : Fintype.card { x // x ∈ s } ≤ d :=
+    (Fintype.card_le_of_injective g' hg').trans_eq (Fintype.card_fin d)
+  exact (Fintype.card_coe s).symm.trans_le hle
+
+/-- Level B v1: Kőnig min-max on finite 2-colorable graphs. -/
+theorem konig_bipartite (hcol : G.Colorable 2) :
+    matchingNumber G = vertexCoverNumber G := by
+  obtain ⟨C⟩ := hcol
+  let L := leftSet C
+  let defic : Finset V → ℕ := fun T => T.card - (nhd G T).card
+  have hLne : L.powerset.Nonempty := ⟨∅, empty_mem_powerset _⟩
+  obtain ⟨S0, hS0mem, hS0max⟩ := L.powerset.exists_max_image defic hLne
+  have hS0 : S0 ⊆ L := mem_powerset.mp hS0mem
+  let d := defic S0
+  have hdmax : ∀ T ⊆ L, T.card ≤ (nhd G T).card + d := by
+    intro T hT
+    have hle : defic T ≤ d := hS0max T (mem_powerset.mpr hT)
+    have : T.card - (nhd G T).card ≤ d := hle
+    exact (Nat.sub_le_iff_le_add).mp this |>.trans (Nat.le_of_eq (add_comm _ _))
+  let ι := { v : V // v ∈ L }
+  have hHall := hall_condition (C := C) (d := d) hdmax
+  obtain ⟨f, hf_inj, hf_mem⟩ :=
+    (Finset.all_card_le_biUnion_card_iff_existsInjective'
+      (hallFamily C d)).mp hHall
+  let sι : Finset ι := univ.filter fun x => ∃ y, f x = Sum.inl y
+  let s : Finset V := sι.image Subtype.val
+  let mate : V → V := fun x =>
+    if hx : x ∈ L then (f ⟨x, hx⟩).elim id fun _ => x else x
+  have hs_sub : s ⊆ L := by
+    intro x hx
+    obtain ⟨⟨_y, hy⟩, _, rfl⟩ := mem_image.mp hx
+    exact hy
+  have hf_inl : ∀ {x : ι}, x ∈ sι → ∃ y, f x = Sum.inl y := by
+    intro x hx
+    exact (mem_filter.mp hx).2
+  have hmate_spec : ∀ x ∈ s, ∃ hx : x ∈ L, f ⟨x, hx⟩ = Sum.inl (mate x) := by
+    intro x hx
+    obtain ⟨xι, hxι, rfl⟩ := mem_image.mp hx
+    obtain ⟨y, hy⟩ := hf_inl hxι
+    have hxL : (xι : V) ∈ L := xι.property
+    refine ⟨hxL, ?_⟩
+    have hmate : mate (xι : V) = y := by
+      simp only [mate, hxL, ↓reduceDIte, hy, Sum.elim_inl]
+      rfl
+    simpa [hmate] using hy
+  have hAdj : ∀ x ∈ s, G.Adj x (mate x) := by
+    intro x hx
+    obtain ⟨hxL, hfx⟩ := hmate_spec x hx
+    have hmem : Sum.inl (mate x) ∈ hallFamily C d ⟨x, hxL⟩ := by
+      simpa [hfx] using hf_mem ⟨x, hxL⟩
+    have hN : mate x ∈ G.neighborFinset x := by
+      simp only [hallFamily, mem_union, mem_image] at hmem
+      rcases hmem with ⟨w, hw, hwe⟩ | ⟨i, _, hwe⟩
+      · exact (Sum.inl_injective hwe) ▸ hw
+      · cases hwe
+    exact (mem_neighborFinset G x (mate x)).mp hN
+  have hinj : Set.InjOn mate s := by
+    intro x hx y hy hxy
+    obtain ⟨hxL, hfx⟩ := hmate_spec x hx
+    obtain ⟨hyL, hfy⟩ := hmate_spec y hy
+    have : f ⟨x, hxL⟩ = f ⟨y, hyL⟩ := by
+      rw [hfx, hfy, hxy]
+    exact Subtype.ext_iff.mp (hf_inj this)
+  have hdisj : Disjoint s (s.image mate) := by
+    refine disjoint_left.mpr ?_
+    intro z hzs hzim
+    obtain ⟨x, hx, hz⟩ := mem_image.mp hzim
+    have hadj : G.Adj x (mate x) := hAdj x hx
+    have hadj' : G.Adj x z := by simpa [hz] using hadj
+    have hzL : z ∈ L := hs_sub hzs
+    have hxL : x ∈ L := hs_sub hx
+    have hzR : z ∈ rightSet C := adj_color_left_of_right C hadj' hxL
+    exact disjoint_left.mp (leftSet_disjoint_rightSet C) hzL hzR
+  have hνs : s.card ≤ matchingNumber G := by
+    simpa [injMatching_card s mate hAdj hinj hdisj] using
+      le_matchingNumber (injMatching_isMatching s mate hAdj hinj hdisj)
+  have hs_ge : L.card - d ≤ s.card := by
+    have hsc : s.card = sι.card :=
+      card_image_of_injective sι Subtype.coe_injective
+    have hsplit := filter_card_add_filter_neg_card_eq_card
+      (s := (univ : Finset ι)) (p := fun x => ∃ y, f x = Sum.inl y)
+    have hdummy :
+        ((univ : Finset ι).filter fun x => ¬∃ y, f x = Sum.inl y).card ≤ d := by
+      have hsub :
+          ((univ : Finset ι).filter fun x => ¬∃ y, f x = Sum.inl y) ⊆
+            (univ.filter fun x => ∃ i, f x = Sum.inr i) := by
+        intro x hx
+        have hx' := (mem_filter.mp hx).2
+        cases hf : f x with
+        | inl y => exact (hx' ⟨y, hf⟩).elim
+        | inr i => exact mem_filter.mpr ⟨mem_univ _, ⟨i, hf⟩⟩
+      exact (card_le_card hsub).trans (dummy_mapped_card_le f hf_inj)
+    have huniv : (univ : Finset ι).card = L.card := by
+      change Fintype.card { v // v ∈ L } = L.card
+      exact Fintype.card_coe L
+    have hsum : sι.card + ((univ : Finset ι).filter
+        fun x => ¬∃ y, f x = Sum.inl y).card = L.card := by
+      simpa [sι, huniv] using hsplit
+    have hsum' : sι.card =
+        L.card - ((univ : Finset ι).filter fun x => ¬∃ y, f x = Sum.inl y).card := by
+      apply Eq.symm
+      apply Nat.sub_eq_of_eq_add
+      exact hsum.symm
+    have hge : L.card - d ≤ sι.card := by
+      rw [hsum']
+      exact Nat.sub_le_sub_left hdummy L.card
+    exact hsc ▸ hge
+  have hν : L.card - d ≤ matchingNumber G := hs_ge.trans hνs
+  have hle := matchingNumber_le_vertexCoverNumber G
+  by_cases hd0 : d = 0
+  · have hτ : vertexCoverNumber G ≤ L.card :=
+      vertexCoverNumber_le (leftSet_isVertexCover C)
+    have hν0 : L.card ≤ matchingNumber G := by simpa [hd0] using hν
+    exact le_antisymm hle (hτ.trans hν0)
+  · have hpos : 0 < d := Nat.pos_of_ne_zero hd0
+    have hτ : vertexCoverNumber G ≤ (konigCover C S0).card :=
+      vertexCoverNumber_le (konigCover_isVertexCover C hS0)
+    have hcc : (konigCover C S0).card = (L \ S0).card + (nhd G S0).card :=
+      konigCover_card C hS0
+    have hdiff : (L \ S0).card = L.card - S0.card :=
+      card_sdiff hS0
+    have hdef : d = S0.card - (nhd G S0).card := rfl
+    have hleN : (nhd G S0).card ≤ S0.card :=
+      Nat.le_of_lt (tsub_pos_iff_lt.mp (by simpa [hdef] using hpos))
+    have hLS : S0.card ≤ L.card := card_le_card hS0
+    have hS0sum : S0.card = d + (nhd G S0).card := by
+      simpa [hdef] using (Nat.sub_add_cancel hleN).symm
+    have hcover : (konigCover C S0).card = L.card - d := by
+      rw [hcc, hdiff, hS0sum]
+      have hle' : d + (nhd G S0).card ≤ L.card := by simpa [hS0sum] using hLS
+      calc
+        L.card - (d + (nhd G S0).card) + (nhd G S0).card
+            = L.card - d - (nhd G S0).card + (nhd G S0).card := by
+              rw [Nat.sub_add_eq]
+          _ = L.card - d := Nat.sub_add_cancel (Nat.le_sub_of_add_le (by
+              simpa [add_comm] using hle'))
+    exact le_antisymm hle ((hτ.trans_eq hcover).trans hν)
 
 end ProofLab.Konig

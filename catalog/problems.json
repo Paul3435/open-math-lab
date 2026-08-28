@@ -562,10 +562,10 @@
     {
       "id": "konig-bipartite",
       "title": "Kőnig's theorem: bipartite matching number = vertex-cover number (formalize-only)",
-      "status": "in_review",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 87,
-      "note": "OPE-580 Formalist Level A CONSUMED. PR #48 MERGED (9198aa5). Honest partial on main: zero-sorry ProofLab/Konig.lean (IsVertexCover; ν≤τ all finite G; konig_bot / konig_completeBipartite / konig_star; complete_three_ne K3). STATEMENT v1 Colorable 2 → ν=τ NOT closed. OPE-591 Scout independently re-scored Level B (full min-max) as RECOMMENDED PRIME (87) — new proof layer (alternating paths / Hall reduction), not an OPE-574 leftover rubber-stamp. Dilworth still a gap and still blocked on this layer. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A.",
+      "note": "OPE-596 Formalist Level B. theorem konig_bipartite (Colorable 2 → ν=τ) zero-sorry in ProofLab/Konig.lean via Hall deficiency / dummy-vertex reduction of the graph statement (not citing hall_hard_inductive as König). Level A predicates reused (OPE-580 / PR #48). complete_three_ne K3 landmine kept. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A/B. Dilworth out of v1.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -583,10 +583,11 @@
         "OPE-573",
         "OPE-580",
         "OPE-587",
-        "OPE-591"
+        "OPE-591",
+        "OPE-596"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Konig.lean",
-      "formalist_issue": "OPE-580",
+      "formalist_issue": "OPE-596",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/48"
     }
   ],
