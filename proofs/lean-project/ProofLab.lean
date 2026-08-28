@@ -18,3 +18,4 @@ import ProofLab.Friendship
 import ProofLab.EulerPartition
 import ProofLab.Dirac
 import ProofLab.Eulerian
+import ProofLab.Konig
