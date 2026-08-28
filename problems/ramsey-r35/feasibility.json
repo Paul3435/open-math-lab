@@ -1,0 +1,17 @@
+{
+  "id": "ramsey-r35",
+  "scored_at": "2026-08-24T00:00:00Z",
+  "rubric_version": "v0-stub",
+  "dimensions": {
+    "formalizable": 19.0,
+    "partial_progress_paths": 15.0,
+    "literature_clarity": 18.0,
+    "compute_bounded": 16.0,
+    "agent_skill_fit": 18.0,
+    "crackpot_risk": 1.0
+  },
+  "budget_tokens_estimate": 180000,
+  "recommendation": "formalized (formalize-only, OPE-393 closed)",
+  "rationale": "CLOSED OPE-393: Lean zero-sorry R(3,5)=14 in ProofLab/Ramsey.lean (ramsey35_eq_14); lower circulant C13({+/-1,+/-5}); upper R(2,5)+R(3,4)=5+9. lake build ProofLab green. formalize-only known-classical; no novelty claim.",
+  "overall_1_to_5": 5.0
+}

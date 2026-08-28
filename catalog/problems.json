@@ -304,12 +304,23 @@
     },
     {
       "id": "ramsey-r35",
-      "title": "Ramsey number R(3,5)=14",
-      "status": "candidate",
-      "domain": "graph_theory",
+      "title": "Ramsey number R(3,5)=14 (formalize-only)",
+      "status": "formalized",
+      "domain": [
+        "graph_theory"
+      ],
       "score": 86,
-      "note": "OPE-390 Scout: formalize-only follow-on to closed ramsey-r33. Upper bound hand degree-counting; lower bound explicit 13-vtx witness certified via SimpleGraph decidable clique checks. Reuses ProofLab/Ramsey.lean vocabulary (PR #18). Gap re-confirmed v4.10.0: no Ramsey theorem in Mathlib.",
-      "expected": "known-classical"
+      "note": "OPE-393 CLOSED 2026-08-24: R(3,5)=14 zero-sorry in ProofLab/Ramsey.lean (ramsey35_eq_14). Lower: circulant C13({+/-1,+/-5}) native_decide. Upper: R(2,5)+R(3,4)=5+9 via ramsey_two_right + ramsey34_le_9 + ramseyUpper_add. lake build ProofLab green. formalize-only, no claim. Scout prime OPE-390.",
+      "expected": "known-classical",
+      "issue": "OPE-393",
+      "lean_artifact": "proofs/lean-project/ProofLab/Ramsey.lean",
+      "notes": "formalize-only known-classical Greenwood-Gleason 1955; Mathlib gap (no ramsey theorem) remains for upstream packaging",
+      "attack": "attacks/ramsey-r35-20260824",
+      "artifacts": [
+        "problems/ramsey-r35/",
+        "catalog/problems/ramsey-r35/",
+        "proofs/lean-project/ProofLab/Ramsey.lean"
+      ]
     },
     {
       "id": "happy-ending-es3",
@@ -321,7 +332,7 @@
       "expected": "known-classical"
     }
   ],
-  "updated_at": "2026-08-24T13:35:40Z",
+  "updated_at": "2026-08-24T14:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

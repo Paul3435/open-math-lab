@@ -1,14 +1,36 @@
-⚠ [2253/2253] Replayed ProofLab.Ramsey
-warning: .\.\.\.\ProofLab\Ramsey.lean:317:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+ℹ [2243/2264] Replayed ProofLab.Frobenius
+info: .\.\.\.\ProofLab\Frobenius.lean:131:0: Nat.Coprime (m n : ℕ) : Prop
+⚠ [2246/2264] Replayed ProofLab.ErdosSumFree
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:40:40: unused variable `hp`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:77:18: unused variable `hxS`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:78:18: unused variable `hyS`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:79:18: unused variable `hzS`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:106:7: unused variable `hred`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:239:10: unused variable `s`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:297:23: unused variable `t`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:338:9: unused variable `hp2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:344:13: unused variable `hp3`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: .\.\.\.\ProofLab\ErdosSumFree.lean:349:54: unused variable `ht`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2262/2264] Built ProofLab.Ramsey
+warning: .\.\.\.\ProofLab\Ramsey.lean:321:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-warning: .\.\.\.\ProofLab\Ramsey.lean:514:4: try 'simp' instead of 'simpa'
+warning: .\.\.\.\ProofLab\Ramsey.lean:517:4: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-warning: .\.\.\.\ProofLab\Ramsey.lean:709:4: try 'simp' instead of 'simpa'
+warning: .\.\.\.\ProofLab\Ramsey.lean:712:4: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: .\.\.\.\ProofLab\Ramsey.lean:856:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: .\.\.\.\ProofLab\Ramsey.lean:856:30: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2263/2264] Built ProofLab
 Build completed successfully.
-
---- OPE-391 2026-08-24T13:34Z ---
-lake build ProofLab.ErdosWoodsCorrect → success
-lake env lean ProofLab/ErdosWoodsCorrect.lean → EXIT=0
-lake env lean ProofLab.lean → EXIT=0
-zero sorry/admit/axiom in ErdosWoodsCorrect.lean
