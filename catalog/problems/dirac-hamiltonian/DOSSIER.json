@@ -1,7 +1,7 @@
 {
   "id": "dirac-hamiltonian",
   "title": "Dirac's theorem: δ ≥ n/2 ⇒ Hamiltonian (formalize-only)",
-  "status": "candidate",
+  "status": "level_a_partial",
   "domain": "graph_theory",
   "score": 84,
   "scores": {
