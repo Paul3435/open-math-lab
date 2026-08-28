@@ -1,7 +1,7 @@
 {
   "id": "van-der-waerden-w24",
   "title": "Van der Waerden number W(2,4) = 35 (formalize-only)",
-  "status": "candidate",
+  "status": "partial_lower_bound",
   "domain": "additive_combinatorics",
   "scores": {
     "formalizability": 17,
@@ -28,7 +28,9 @@
   "scored_at": "2026-08-25",
   "notes": [
     "Lower witness: known 34-colourings exist in literature (e.g. via SAT archives); offline generation + decidable Lean check is the easy half",
-    "Upper bound is the budget sink; recommend timebox and fall back to partial ladder (W(2,4)<=N for larger N) if case analysis explodes",
+    "OPE-455 (2026-08-25): PARTIAL — vdw24_gt_34 zero-sorry (W(2,4)>34) via witness34; upper W(2,4)<=35 still open",
+    "Witness string 0010001110100100011101001000111011 (mask 14783751620); STATEMENT.md pinned",
+    "Upper bound is the budget sink; Chvátal 1979 computer-assisted — no brute force in Lean",
     "Do NOT re-fund as novel research"
   ]
 }

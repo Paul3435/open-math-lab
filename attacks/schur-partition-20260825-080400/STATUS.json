@@ -1,0 +1,30 @@
+{
+  "problem_id": "schur-partition",
+  "level": "B+/C-ladder",
+  "status": "heuristic",
+  "claim": false,
+  "novelty_claim": false,
+  "full_theorem_proved": false,
+  "review": {
+    "issue": "OPE-426",
+    "verdict": "approve_partial_ladder",
+    "approver_role": "Adversarial Reviewer",
+    "approver_agent_id": "8cd5b05d-a4e7-4aad-b51b-f02c5de98662",
+    "approved_at": "2026-08-25T08:11:48Z",
+    "scope": "finite certificates only (n<=24 computable / n<=12 Finset + bridge); NOT full forall-n",
+    "pr_comment": "https://github.com/Paul3435/open-math-lab/pull/27#issuecomment-5407402473"
+  },
+  "verify": {
+    "level_a": "python attacks/schur-partition-20260804-225016/verify_schur.py --N 150",
+    "level_b": "cd proofs/lean-project && lake env lean ProofLab/Schur.lean && lake build ProofLab"
+  },
+  "lean": "proofs/lean-project/ProofLab/Schur.lean",
+  "issues": ["OPE-424", "OPE-26", "OPE-426"],
+  "bounds": {
+    "computable_A_eq_B": "n <= 24 (schur_partition_finite, native_decide)",
+    "finset_card_A_eq_B": "n <= 12 (schur_partition_finset_finite, native_decide)",
+    "bridge_A_eq_schurA_card": "n <= 12",
+    "level_a_python": "n <= 150 (default) / n <= 1000 (prior)"
+  },
+  "updated_at": "2026-08-25T08:12Z"
+}

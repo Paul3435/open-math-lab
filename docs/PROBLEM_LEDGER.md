@@ -1,4 +1,3 @@
-bash.exe: warning: could not find /tmp, please create!
 # Problem ledger — Open Math Lab
 
 Source of truth for **which mathematical bets we have touched**, their disposition,
@@ -6,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-25 (OPE-430 Scout: fresh post-Schur-partial-close shortlist — erdos-szekeres-monotone RECOMMENDED PRIME; schur-partition-full + van-der-waerden-w24 bench)
+**Last updated:** 2026-08-25 (OPE-430 Scout: erdos-szekeres-monotone recommended prime; OPE-423 schur-partition shortlist; OPE-410 ES(3)=5; OPE-455 W(2,4)>34; OPE-393 R(3,5)=14)
 
 ## Lifecycle labels
 
@@ -32,9 +31,14 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 | `graceful-tree-conjecture` (bounded caterpillars n≤12) | graph theory | OPE-13 attack; OPE-18 review; OPE-20 re-review | **`heuristic`** bounded verify: 560 distinct non-iso caterpillars, 0 search failures after dedup. Family already known graceful for all n (Rosa/Golomb). **Not** full GTC; **not** Lean-gated | Sanity check, not new math | `problems/graceful-tree-conjecture/`, `attacks/graceful-tree-conjecture-20260731-094627/` |
 | `schur-partition` | partitions | OPE-2 seed; OPE-25 shortlist; OPE-21 Director approve; OPE-26 Level A+B; **OPE-424 partial ladder** | **`heuristic`** — OPE-424 closed as a **partial ladder** (finite certs n≤24 computable / n≤12 Finset + bridge; zero sorry; PR #27) with Adversarial approval in OPE-426. Full ∀n A(n)=B(n) remains OPEN — finite-certificate scope closed, do not re-prime. STATEMENT pin 2026-08-04 held (distinct parts ≡1,2 mod 3 = parts ≡±1 mod 6). Formalize-only | Known (1926); **genuine Mathlib gap** (OPE-25 + OPE-430 grep) | `problems/schur-partition/`, `ProofLab/Schur.lean`, PR #27 |
 | `frobenius-coin-problem` | number theory | OPE-21/22; OPE-25 | **process-fuel** (not gap prime). Mathlib already has `frobeniusNumber_pair`. Level A/B artifacts under attack dir + `ProofLab/Frobenius.lean` | Known textbook; already-in-Mathlib | `problems/frobenius-coin-problem/`, `attacks/frobenius-coin-problem-20260804-222513/` |
+| `ramsey-r35` | graph theory / combinatorics | OPE-390 scout prime; **OPE-393** attack | **`formalized`** (formalize-only). Lean **zero-sorry** `ramsey35_eq_14` in `ProofLab/Ramsey.lean`: lower circulant C13({±1,±5}) `native_decide`; upper `R(2,5)+R(3,4)=5+9` via `ramsey_two_right` + `ramsey34_le_9` + `ramseyUpper_add`. `lake build ProofLab` green. Default **no claim**. | Known classical (Greenwood–Gleason 1955); Mathlib gap remains for upstream packaging | `problems/ramsey-r35/`, Lean `ProofLab/Ramsey.lean`, `attacks/ramsey-r35-20260824/` |
 | `ramsey-r33` | graph theory / combinatorics | OPE-40 scout keep-fresh; OPE-43 shortlist+prime; OPE-44 attack | **`formalized`** (formalize-only). Lean **zero-sorry**, `lake build ProofLab` green: `ramsey33_eq_6`, `ramsey34_eq_9`, `ramsey44_eq_18` (`ProofLab/Ramsey.lean`). Hand pigeonhole R(3,3)≤6; degree-parity R(3,4)≤9; recurrence R(4,4)≤18; lower bounds via C5 / 8-vtx witness / Paley-17. Default **no claim**. Board 2026-08-24: independent `lake env lean ProofLab/Ramsey.lean` EXIT=0. | Known classical; **genuine Mathlib gap** (no Ramsey theorem in v4.10.0) | `problems/ramsey-r33/`, Lean `ProofLab/Ramsey.lean` |
+| `ramsey-r35` | graph theory / combinatorics | OPE-390 scout; OPE-393 attack; OPE-410 finish | **`formalized`** (formalize-only). R(3,5)=14 Lean **zero-sorry**: upper bound hand degree-counting; lower bound 13-vtx witness via decidable clique check. Gate-approved PRs #22/#23/#24/#25. Known-classical, no claim. | Known classical; genuine Mathlib gap (no Ramsey theorem in v4.10.0) | `problems/ramsey-r35/`, `ProofLab/Ramsey*.lean` |
+| `happy-ending-es3` | discrete geometry | OPE-403 attack; OPE-410 finish | **`formalized`** (formalize-only). ES(3)=5: any 5 points in general position contain a convex 4-gon. Lean **zero-sorry** with new orientation/order-type plumbing (reusable infra). ES(4)=9 stretch **not** attacked. Gate-approved PRs #23/#24/#25. Known-classical, no claim. | Known classical (Erdős–Szekeres 1935); genuine Mathlib gap (no happyEnding/ErdosSzekeres content v4.10.0) | `problems/happy-ending-es3/`, `ProofLab/` ES files |
 | `van-der-waerden-w23` | additive combinatorics | OPE-45 (folded into OPE-51) | **formalize-only, Lean ZERO-sorry** (`ProofLab/VanDerWaerden.lean`): `vdw_le_9` (every 2-colouring of `Fin 9` has a mono 3-AP, `native_decide`) + `vdw_gt_8` (witness `11001100` on `Fin 8` with none). ⇒ W(2,3)=9. `lake env lean` exit 0, zero `sorry`. **Gate re-verified by Scout 2026-08-22 (OPE-334)**: independent `lake env lean ProofLab/VanDerWaerden.lean` exit 0 against pinned Lean 4.10.0 + Mathlib v4.10.0 snapshot; grep confirms zero real `sorry`/`admit`/`axiom`; gap re-confirmed — finitary VdW still an explicit TODO in the pinned `Mathlib/Combinatorics/HalesJewett.lean` (~L51) | Known classical; genuine Mathlib TODO (HalesJewett.lean) | `proofs/lean-project/ProofLab/VanDerWaerden.lean`, `problems/van-der-waerden-w23/` |
+| `van-der-waerden-w24` | additive combinatorics | Scout OPE-430 bench; Director OPE-454; **OPE-455 Attack Lead** | **PARTIAL ladder (formalize-only)**: STATEMENT pinned; Lean `HasMono4` + `vdw24_gt_34` (`¬ HasMono4 witness34` on Fin 34 colouring `0010001110100100011101001000111011`, `native_decide`) ⇒ **W(2,4)>34**, zero sorry. **Upper `W(2,4)≤35` NOT proved** (Chvátal 1979 computer-assisted; no brute force in Lean; timebox). Exact equality open in Lean. `lake env lean` + `lake build ProofLab` green. **No novelty / no claim.** | Known classical; Mathlib finitary VdW TODO | `problems/van-der-waerden-w24/`, `attacks/van-der-waerden-w24-20260825-ope455/`, Lean `ProofLab/VanDerWaerden.lean` |
 | `schur-number` | additive combinatorics | OPE-46 (folded into OPE-51) | **formalize-only, Lean ZERO-sorry** (`ProofLab/SchurNumber.lean`): `schur2_lower`/`schur2_le_4` ⇒ S(2)=4 (classes {1,4}/{2,3}, least-forcing N=5); `schur3_lower`/`schur3_le_13` ⇒ S(3)=13 (classes {1,4,7,10,13}/{2,3,11,12}/{5,6,8,9}, least-forcing N=14). Convention pinned (x=y allowed, standard). `lake env lean` exit 0, zero `sorry`. **Gate re-verified by Scout 2026-08-22 (OPE-334)**: independent `lake env lean ProofLab/SchurNumber.lean` exit 0 against pinned Lean 4.10.0 + Mathlib v4.10.0 snapshot; grep confirms zero real `sorry`/`admit`/`axiom`; gap re-confirmed — no SchurNumber/additive-Schur content anywhere in the v4.10.0 Mathlib pin | Known classical; genuine Mathlib gap (no SchurNumber content) | `proofs/lean-project/ProofLab/SchurNumber.lean`, `problems/schur-number/` |
+| `happy-ending-es3` | discrete geometry | OPE-390 scout; OPE-402 ratify PRIME; OPE-403 partial; **OPE-410 finish**; **OPE-413 review APPROVED** | **`formalized`** (formalize-only). Full `es_three_eq_five : EsThreeEqFiveStatement` zero-sorry in `ProofLab/HappyEndingES3.lean`: F1 `InConvexPosition4 ↔ ConvexIndependent`, `hullVertices_card_ge_three_of_gp`, hull≥4 case, separating-line interior case (`es_three_eq_five_of_hull_card_eq_three`). OPE-413 adversarial: lake env lean EXIT=0, lake build ProofLab green, axiom audit no `sorryAx` (propext/Classical.choice/Quot.sound only). PR #25 head `d46ca64` (base still PR #24 / F2). **No novelty claim** (classical 1935). ES(4)=9 out of scope. Board merge order #23→#24→#25. | Known classical (1935); Mathlib gap (orientation glue) | `problems/happy-ending-es3/STATEMENT.md`, Lean `ProofLab/HappyEndingES3.lean`, `attacks/happy-ending-es3-20260824-ope410/`, PR #25 |
 
 ## Pipeline / infrastructure (not math bets)
 
@@ -140,14 +144,55 @@ zero-sorry Lean witness while this shortlist was being prepared; Scout independe
 the gate (`lake env lean ProofLab/ErdosWoodsCorrect.lean` EXIT=0; no real `sorry`). It therefore
 drops OUT of the shortlist as an attack candidate. Remaining shortlist (≤3, formalize-only,
 known-classical, no claims):
-1. **`ramsey-r35` R(3,5)=14 — RECOMMENDED PRIME** (86). Direct infrastructure carry-over from
-   merged PR #18 (`ProofLab/Ramsey.lean` vocabulary); upper bound hand degree-counting (one notch
-   above the OPE-44 R(3,4) argument); lower bound via offline-certified 13-vtx witness checked in
-   Lean by decidable clique enumeration. Needs STATEMENT.md pin before attack.
+1. **`ramsey-r35` R(3,5)=14 — RECOMMENDED PRIME (86) → CLOSED OPE-393.** Attack Lead formalized zero-sorry `ramsey35_eq_14` (circulant C13 lower + `R(2,5)+R(3,4)` upper). formalize-only, no claim. PR pending board merge.
 2. **`happy-ending-es3` ES(3)=5** (78). Highest infra risk (orientation/order-type glue is new);
    ES(4)=9 stretch only.
 3. *(bench)* `schur-partition` full statement (parts ≡ ±1 mod 6) remains a fallback gap if the
    Director prefers number-theory continuity over graph-theory carry-over.
+
+**OPE-423 update (2026-08-25, Scout): fresh post-ES(3)=5 formalize-only shortlist.**
+The OPE-390 shortlist is fully consumed: `ramsey-r35` R(3,5)=14 CLOSED (OPE-393, PR #22
+merged) and `happy-ending-es3` ES(3)=5 CLOSED (OPE-403/OPE-410, PRs #23/#24/#25 merged).
+Catalog rows flipped to `formalized` (see `catalog/problems.json`). Fresh shortlist
+(≤3, formalize-only / known-classical only, no novelty claims):
+
+1. **`schur-partition` FULL statement — RECOMMENDED PRIME.** Parts congruent ±1 mod 6
+   (repetitions allowed) = distinct parts ≡ 1,2 mod 3. STATEMENT already pinned 2026-08-04
+   (`problems/schur-partition/STATEMENT.md`) including the swapped-pairing landmine note;
+   literature risk therefore LOW vs fresh pins. Genuine Mathlib gap re-grepped this run:
+   no Schur-partition / partition-congruence content under `Mathlib/Combinatorics/Young/`
+   or elsewhere in the v4.10.0 snapshot. Natural carry-over: OPE-26 Level A cert (N≤1000,
+   DP + brute force agree) + small-n Lean already exist; the full statement is the
+   generating-function identity remaining to be formalized.
+2. **`ramsey-r46` R(4,6)=18? — NO; excluded.** R(4,6)=41 is a different beast (no hand proof,
+   no certified witness in repo); recorded here only to document it was considered and rejected.
+2'. **Mathlib-gap candidate: finitary infinite Ramsey for pairs on `Fin`-indexed graphs**
+    (`SimpleGraph` compactness flavour). Gap confirmed (only HalesJewett/Hindman mention Ramsey);
+    but infra overlap with closed ramsey-r33/r35 makes marginal contribution low — bench only.
+3. *(bench)* `bertrand-postulate-computational`: general theorem already in Mathlib; certificate-only,
+   low value — unchanged from prior demotion.
+
+Recommended prime: **schur-partition full statement**. Needs a Director approval + attack issue;
+STATEMENT pin already exists (2026-08-04), so no re-pin needed unless Director orders one.
+
+## Active sprint (from OPE-402 — post-Ramsey formalize-only wave)
+
+**OPE-402 (Director, 2026-08-24): ratified the OPE-390 shortlist (PR #21 merged).**
+Wave order after R(3,5)=14 closed (OPE-393, PR #22 merged):
+
+| Order | Bet | Role | Disposition |
+|-------|-----|------|-------------|
+| **PRIME** | `happy-ending-es3` (ES(3)=5, score 78) | Attack Lead | Director-approved. STATEMENT pinned `problems/happy-ending-es3/STATEMENT.md` (distinct + general position explicit; convex-position pin; ES(4)=9 out of scope except labeled stretch). Formalize-only, no claim. Highest infra risk: orientation/order-type Mathlib plumbing is new work and itself a genuine contribution. |
+| BENCH | `schur-partition` full statement (parts ≡ ±1 mod 6) | Attack Lead | Fallback if Director prefers number-theory continuity over graph/geometry carry-over. STATEMENT already pinned 2026-08-04. |
+| CLOSED | `ramsey-r35` R(3,5)=14 | Attack Lead | DONE OPE-393. Zero-sorry `ramsey35_eq_14`; PR #22 merged. |
+
+Wake discipline: one specialist at a time; prime attack fires first.
+
+## Active sprint (from OPE-390 / OPE-393)
+
+| Bet | Issue | Owner role | Intent |
+|-----|-------|------------|--------|
+| `ramsey-r35` (R(3,5)=14) | **OPE-393** (Scout prime OPE-390) | Attack Lead | **DONE formalized.** Zero-sorry Lean `ramsey35_eq_14`; `lake build ProofLab` green. formalize-only, no claim. |
 
 ## Active sprint (from OPE-43)
 
