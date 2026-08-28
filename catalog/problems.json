@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-28T16:20:00Z",
+  "last_updated": "2026-08-28T19:11:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -532,10 +532,10 @@
     {
       "id": "eulerian-hierholzer",
       "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
-      "status": "candidate",
+      "status": "in_review",
       "domain": "graph_theory",
-      "score": 88,
-      "note": "OPE-574 Scout RECOMMENDED PRIME. known-classical Euler 1736 / Hierholzer 1873; no novelty. Mathlib Trails.lean has IsEulerian + necessary card_odd_degree; existence is an explicit TODO. Connected is load-bearing. Archive Konigsberg is a negative instance, not this theorem. Do not re-prime Dirac.",
+      "score": 83,
+      "note": "OPE-579 Formalist Level A CONSUMED. PR #47 MERGED. Honest partial on main: zero-sorry ProofLab/Eulerian.lean (eulerian_k1, eulerian_cycle n≥3 ⇒ C_n Eulerian circuit + Connected, eulerian_k2). STATEMENT v1 ∀G Hierholzer NOT closed. OPE-591 Scout independently re-scored Level B (circuit-merging ∀G) as shortlist #2 (83) — new proof layer, not an OPE-574 leftover rubber-stamp. known-classical Euler 1736 / Hierholzer 1873; no novelty. Mathlib Trails.lean L26–29 existence TODO still open. Do NOT re-prime Level A.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -544,21 +544,27 @@
       ],
       "artifacts": [
         "catalog/problems/eulerian-hierholzer/",
-        "problems/eulerian-hierholzer/"
+        "problems/eulerian-hierholzer/",
+        "proofs/lean-project/ProofLab/Eulerian.lean"
       ],
-      "scout_issue": "OPE-574",
+      "scout_issue": "OPE-591",
       "tickets": [
         "OPE-574",
-        "OPE-573"
-      ]
+        "OPE-573",
+        "OPE-579",
+        "OPE-591"
+      ],
+      "lean_artifact": "proofs/lean-project/ProofLab/Eulerian.lean",
+      "formalist_issue": "OPE-579",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/47"
     },
     {
       "id": "konig-bipartite",
       "title": "Kőnig's theorem: bipartite matching number = vertex-cover number (formalize-only)",
-      "status": "candidate",
+      "status": "in_review",
       "domain": "graph_theory",
-      "score": 84,
-      "note": "OPE-574 Scout shortlist #2. known-classical Kőnig 1931; no novelty. Matching defs exist; no vertex cover / no ν=τ. Hall SDR is a different upstream theorem. Dilworth remains a gap and is NOT this bet. Do not re-prime Hall.",
+      "score": 87,
+      "note": "OPE-580 Formalist Level A CONSUMED. PR #48 MERGED (9198aa5). Honest partial on main: zero-sorry ProofLab/Konig.lean (IsVertexCover; ν≤τ all finite G; konig_bot / konig_completeBipartite / konig_star; complete_three_ne K3). STATEMENT v1 Colorable 2 → ν=τ NOT closed. OPE-591 Scout independently re-scored Level B (full min-max) as RECOMMENDED PRIME (87) — new proof layer (alternating paths / Hall reduction), not an OPE-574 leftover rubber-stamp. Dilworth still a gap and still blocked on this layer. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -567,16 +573,23 @@
       ],
       "artifacts": [
         "catalog/problems/konig-bipartite/",
-        "problems/konig-bipartite/"
+        "problems/konig-bipartite/",
+        "proofs/lean-project/ProofLab/Konig.lean"
       ],
-      "scout_issue": "OPE-574",
+      "scout_issue": "OPE-591",
       "tickets": [
         "OPE-574",
-        "OPE-573"
-      ]
+        "OPE-573",
+        "OPE-580",
+        "OPE-587",
+        "OPE-591"
+      ],
+      "lean_artifact": "proofs/lean-project/ProofLab/Konig.lean",
+      "formalist_issue": "OPE-580",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/48"
     }
   ],
-  "updated_at": "2026-08-28T16:20:00Z",
+  "updated_at": "2026-08-28T19:11:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

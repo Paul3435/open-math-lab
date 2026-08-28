@@ -1,7 +1,7 @@
 # Kőnig's theorem — bipartite matching number = vertex-cover number — formalize-only
 
 **id:** `konig-bipartite`
-**ticket:** OPE-574 Scout shortlist #2 (support OPE-573)
+**ticket:** OPE-574 Scout shortlist #2; OPE-580 Formalist Level A MERGED (PR #48); **OPE-591 Scout independently re-scored Level B as RECOMMENDED PRIME** (support OPE-590)
 **expected:** known-classical (Kőnig 1931) — **no novelty claim**
 
 ## Why not classical / why formalize-only
@@ -102,8 +102,13 @@ minimum cover via alternating paths from unsaturated left vertices
 (Berge / König construction), or reduce to Hall on the unmatched
 neighbourhood. Either is human-scale.
 
-Partial: Level A `IsVertexCover` + easy `ν ≤ τ` + `K_{1,n}` / empty /
-complete bipartite equality. Level B bipartite min-max.
+Partial: **Level A LANDED** (OPE-580 / PR #48 MERGED, do not re-prime):
+`IsVertexCover` + easy `ν ≤ τ` for all finite `G` + `konig_bot` /
+`konig_completeBipartite` / `konig_star` + `complete_three_ne`
+(`K_3`: `ν=1`, `τ=2`). **Level B remaining (OPE-591 RECOMMENDED
+PRIME):** full `Colorable 2 → ν = τ` via alternating paths or Hall
+reduction — a new proof layer, not a re-warm of the special cases.
+Dilworth stays out of v1.
 
 ## Lean gate (when attacked)
 

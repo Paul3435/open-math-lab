@@ -1,7 +1,7 @@
 # Euler's theorem — existence of Eulerian trails (Hierholzer) — formalize-only
 
 **id:** `eulerian-hierholzer`
-**ticket:** OPE-574 Scout recommended prime (support OPE-573)
+**ticket:** OPE-574 Scout recommended prime; OPE-579 Formalist Level A MERGED (PR #47); **OPE-591 Scout independently re-scored Level B** (support OPE-590)
 **expected:** known-classical (Euler 1736 / Hierholzer 1873) — **no novelty claim**
 
 ## Why not classical / why formalize-only
@@ -87,9 +87,13 @@ vertices (or a circuit if none). Not required if the two lemmas land.
 - Two odd degrees: add a virtual edge between them (or start at one
   odd vertex); reduce to the even case; delete the virtual edge.
 
-Partial: Level A `K_1` / cycles `C_n` (`n ≥ 3`; every cycle has even
-degrees) + connectedness used; Level B Hierholzer circuit-merging
-for the ∀G claim.
+Partial: **Level A LANDED** (OPE-579 / PR #47 MERGED, do not re-prime):
+`eulerian_k1` (`K_1` nil walk Eulerian), `eulerian_cycle`
+(`n ≥ 3` ⇒ `C_n` Eulerian circuit + `G.Connected`), `eulerian_k2`
+open trail. **Level B remaining (OPE-591 shortlist #2):** Hierholzer
+circuit-merging for the ∀G claim — a new proof layer, not a re-warm
+of the special cases. `IsCircuit` excludes the `K_1` nil walk
+(already in the Lean header).
 
 ## Lean gate (when attacked)
 
