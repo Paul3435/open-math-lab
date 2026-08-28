@@ -15,3 +15,4 @@ import ProofLab.SchurNumber
 import ProofLab.WeakSchur
 import ProofLab.ErdosKoRado
 import ProofLab.Friendship
+import ProofLab.EulerPartition

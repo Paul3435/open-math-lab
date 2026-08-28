@@ -475,10 +475,10 @@
     {
       "id": "euler-odd-distinct",
       "title": "Euler's partition theorem: odd parts = distinct parts (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "partition_theory",
       "score": 87,
-      "note": "OPE-553 Scout RECOMMENDED PRIME: known-classical Euler 1748, genuine Mathlib/** gap (Partition.odds/distincts defs exist; no card equality under Mathlib/**). Archive Wiedijk100 Theorems100.partition_theorem is GF/PowerSeries — disclose, do not transcribe. ProofLab value = Glaisher bijection. NOT a re-prime of schur_partition. Dossier: catalog/problems/euler-odd-distinct/",
+      "note": "OPE-558 Formalist: Lean zero-sorry ProofLab/EulerPartition.lean theorem euler_odd_eq_distinct (Glaisher Finset.card_bij', no Archive GF). known-classical Euler 1748, no novelty. Level A n<=10 native_decide guard + Level B forall n. Do not re-prime schur_partition. Adversarial Reviewer is next gate.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -487,9 +487,17 @@
       ],
       "artifacts": [
         "catalog/problems/euler-odd-distinct/",
-        "problems/euler-odd-distinct/"
+        "problems/euler-odd-distinct/",
+        "proofs/lean-project/ProofLab/EulerPartition.lean"
       ],
-      "scout_issue": "OPE-553"
+      "scout_issue": "OPE-553",
+      "tickets": [
+        "OPE-553",
+        "OPE-557",
+        "OPE-558"
+      ],
+      "lean_artifact": "proofs/lean-project/ProofLab/EulerPartition.lean",
+      "formalist_issue": "OPE-558"
     },
     {
       "id": "dirac-hamiltonian",
