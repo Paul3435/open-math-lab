@@ -1,7 +1,7 @@
 {
   "id": "konig-bipartite",
   "title": "Kőnig's theorem: bipartite matching number = vertex-cover number (formalize-only)",
-  "status": "in_review",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 87,
   "scores": {
@@ -13,7 +13,7 @@
   },
   "expected": "known-classical",
   "why_not_classical": "Kőnig 1931: in a finite bipartite graph the size of a maximum matching equals the size of a minimum vertex cover. Settled min-max theorem. Value is a Mathlib contribution (Matching.lean has IsMatching; still no vertex-cover predicate and no ν=τ in Mathlib v4.10.0). Hall's marriage theorem is already upstream as set-family SDR — different statement. Do NOT re-fund as novel. Dilworth is a poset corollary and is NOT this bet.",
-  "recommendation": "RECOMMENDED PRIME (OPE-591 independent re-score of STATEMENT v1 Level B). NOT an OPE-574 leftover rubber-stamp and NOT a Director-invented continuation. Level A (OPE-580, PR #48 MERGED) closed a different layer: IsVertexCover + easy ν≤τ for all finite G + K_{m,n}/star/bot + K3 landmine. Remaining is a NEW proof layer: Colorable 2 → ν=τ via alternating paths or Hall reduction. Predicates now exist in ProofLab so formalizability rose vs the original 84. Dilworth remains a genuine gap and still should not skip this min-max.",
+  "recommendation": "CONSUMED Level B (OPE-596 Formalist). theorem konig_bipartite : Colorable 2 → matchingNumber = vertexCoverNumber, Hall-deficiency reduction of the graph statement, zero sorry. Level A predicates reused. Do NOT re-prime. Dilworth remains a gap and is NOT this bet.",
   "mathlib_gap_grep_2026_08_28_ope591": "Pin mathlib a719ba5c3115 (v4.10.0). Matching.lean: defs IsMatching / IsPerfectMatching; TODOs Tutte + Hall (Hall already in Combinatorics/Hall/); NO vertexCover / matchingNumber / König graph theorem. rg vertexCover|IsVertexCover|matchingNumber|vertexCoverNumber over Mathlib/**/*.lean → ZERO hits. rg König|Koenig|konig over Mathlib/Combinatorics → ZERO theorem hits (cardinal König is SetTheory.Cardinal, unrelated). Archive Konigsberg is Euler/Königsberg, not Kőnig 1931. HallMarriageTheorem EXISTS in Combinatorics/Hall/Finite.lean — disclosed, different statement. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Dilworth: ZERO hits Mathlib+Archive (still a gap; not slotted — König min-max still blocking).",
   "statement_pin_required": {
     "convention": "Fix G : SimpleGraph V, Fintype V, G.Colorable 2. IsVertexCover C := every edge is incident to C (already in ProofLab/Konig.lean). Claim: matchingNumber = vertexCoverNumber. Easy inequality ν ≤ τ already proved for all finite graphs; equality needs bipartite.",
@@ -27,7 +27,7 @@
     ],
     "canonical_source": "D. Kőnig, Gráfok és mátrixok, Mat. Fiz. Lapok 38 (1931) 116–119. Textbook: Diestel / Bondy–Murty König min-max. Type pin: Mathlib Subgraph.IsMatching + Colorable 2 + ProofLab.Konig.IsVertexCover."
   },
-  "feasibility_shape": "Level A LANDED (do not re-prime): IsVertexCover + matchingNumber_le_vertexCoverNumber + konig_bot / konig_completeBipartite / konig_star + complete_three_ne. Level B (this shortlist): full Colorable 2 → ν=τ via alternating paths from unsaturated vertices (Berge/König) or Hall reduction on neighbourhoods. Cap one additional level. No SAT explosion. Honest partial OK if only one bipartite family beyond K_{m,n} closes.",
+  "feasibility_shape": "Level A LANDED (OPE-580 / PR #48). Level B LANDED (OPE-596): full Colorable 2 → ν=τ via Hall deficiency / dummy vertices. Do not re-prime. Dilworth out of v1.",
   "infra_carry_over": [
     "ProofLab/Konig.lean — IsVertexCover, matchingNumber, vertexCoverNumber, easy ν≤τ, K_{m,n}/star/bot, K3 landmine",
     "Mathlib Combinatorics.SimpleGraph.Matching — IsMatching, IsPerfectMatching, even_card",
