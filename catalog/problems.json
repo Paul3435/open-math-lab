@@ -387,6 +387,33 @@
       "score": 79,
       "note": "OPE-430 Scout BENCH. Carry-over of VanDerWaerden.lean vocabulary from closed W(2,3)=9 to 4-APs over Fin 35/Fin 34. Upper bound is computer-assisted in literature (Chatvatal 1979): native_decide does not scale to 2^35 colourings - needs hand case-analysis transcription or certificate import; timebox mandatory.",
       "expected": "known-classical"
+    },
+    {
+      "id": "ramsey-multicolor-r333",
+      "title": "Multicolour Ramsey R(3,3,3)=17",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 84,
+      "note": "OPE-458 Scout RECOMMENDED PRIME: new multicolour proof layer over closed Ramsey infra. Upper hand parity argument; lower F_2^4 certificate verified offline (witness16_certificate.txt). Gap grep clean v4.10.0 (no RamseyNumber/multicolor content). formalize-only, known-classical (Greenwood-Gleason 1955).",
+      "expected": "known-classical"
+    },
+    {
+      "id": "weak-schur-ws2",
+      "title": "Weak Schur number WS(2)=8",
+      "status": "candidate",
+      "domain": "additive_combinatorics",
+      "score": 81,
+      "note": "OPE-458 Scout #2: genuinely new layer (distinct-triple predicate) vs closed S(2)/S(3) strong-Schur scope. Exhaustive probe confirms WS(2)=8 boundary pre-recommendation. Reuses SchurNumber.lean shape. formalize-only.",
+      "expected": "known-classical"
+    },
+    {
+      "id": "schur-partition-full-glaisher",
+      "title": "Schur partition identity forall-n (Glaisher lift)",
+      "status": "candidate",
+      "domain": "partition_theory",
+      "score": 76,
+      "note": "OPE-458 Scout BENCH: forall-n Glaisher-bijection lift of closed finite-cert scope; highest infra value, highest budget risk. Depends on merging ope/440/445/447 ladder branches first. formalize-only.",
+      "expected": "known-classical"
     }
   ],
   "updated_at": "2026-08-25T10:30:00Z",

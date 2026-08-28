@@ -1,19 +1,22 @@
 {
   "id": "schur-partition-full",
-  "title": "Schur partition theorem FULL forall-n identity (formalize-only continuation)",
+  "title": "Schur partition identity for all n via Glaisher bijection (formalize-only)",
   "status": "candidate",
   "domain": "partition_theory",
+  "score": 76,
   "scores": {
     "formalizability": 15,
     "partial_progress": 18,
     "attack_surface": 14,
-    "verification_budget": 13,
-    "crackpot_resistance": 18
+    "verification_budget": 12,
+    "crackpot_resistance": 17
   },
   "total_score": 78,
+  "expected": "known-classical",
   "flags": [
     "known-classical (Schur 1926); formalize-only — do NOT re-fund as novel",
-    "OPE-424/OPE-426 partial-ladder disposition: finite certificates n<=24 computable / n<=12 Finset + bridge, zero sorry, Adversarial-approved. FULL forall-n A(n)=B(n) remains OPEN — do not re-prime the closed finite-certificate scope."
+    "OPE-424/OPE-426 partial-ladder disposition: finite certificates n<=24 computable / n<=12 Finset + bridge, zero sorry, Adversarial-approved. FULL forall-n A(n)=B(n) remains OPEN — do not re-prime the closed finite-certificate scope.",
+    "OPE-458 scout: Glaisher-ladder continuation scored 76 as BENCH only (budget risk)."
   ],
   "target_statement_shape": [
     "For all n : ℕ, the number A(n) of partitions of n into distinct parts ≡ 1,2 (mod 3)",
@@ -22,13 +25,31 @@
     "   = card {p : Nat.Partition n // ∀ q ∈ p.parts, q % 6 ∈ [1, 5]}",
     "(exact Finset-of-partitions encoding pinned in problems/schur-partition/STATEMENT.md, 2026-08-04)"
   ],
-  "recommendation": "Second candidate. The generating-function route is the honest path to full forall-n: product expansion prod_{k>=1} (1 + x^(3k+1))(1 + x^(3k+2)) = prod_{m>=6, gcd(m,6)=1} (1 - x^m)^(-1)... but Mathlib v4.10.0 has essentially NO partition-generating-function infrastructure (no PowerSeries usage anywhere under Combinatorics/, no Euler pentagonal, no q-series product identities), so the attack would have to BUILD that infra — that is exactly what makes it valuable to Mathlib but expensive for one sprint. Feasibility shape is NOT finite-checkable: equality for all n needs either a coefficient-extraction identity over PowerSeries or a bijection (Glaisher-style map parts <-> multiplicities mod 3). Recommend scoping the attack as: Level A = Glaisher-style explicit bijection between the two Finset families at fixed n via multiplicity arithmetic (decidable per-n, generalizes by pure algebra on Multiset.count), Level B = lift to the universal statement. Definition risk LOW: STATEMENT pin exists since 2026-08-04 including the swapped-pairing landmine (fails at n=2) — reuse it verbatim, do not restate.",
-  "skill_packs": ["partition-theory", "formalization", "number-theory"],
-  "estimated_token_budget": "220k",
-  "expected": "known-classical",
+  "recommendation": "BENCH only (budget risk). Continuation of OPE-440/445/447 Glaisher ladder toward the full forall-n identity: number of partitions of n into distinct parts congruent to 1 or 2 mod 3 equals the number of partitions of n into parts congruent to +/-1 mod 6. The finite-certificate scope is CLOSED (OPE-424/426, PR #27) and the ladder infra exists on unmerged branches ope/440/445/447 — eligible ONLY because lifting finite certs to the universal statement via an explicit Glaisher-style bijection is a genuinely new proof layer (bijection construction + nodup/parts preservation), not a re-warm. Highest infra value in the pool: Mathlib v4.10.0 has Nat.Partition vocabulary but no Euler/Glaisher bijection and no partition generating-function infrastructure.",
+  "mathlib_gap_grep_2026_08_25": "No partition generating-function / Euler distinct-parts identity content in pinned snapshot (reconfirmed by OPE-430 grep: no PowerSeries usage under Combinatorics/, no pentagonal-number theorem).",
   "mathlib_ref": "USE: Mathlib/Combinatorics/Enumerative/Partition.lean (Nat.Partition, odds, distincts, oddDistincts — note oddDistincts exists but odds_card_eq_distincts_card Euler bijection NOT proved; file TODO says only 'link to Young diagrams'). GAP confirmed: grep for schur/partition-congruence content finds nothing (only CategoryTheory Schur lemma etc.) in v4.10.0 snapshot.",
   "literature_pinning": "Schur, 'Zur Additiven Arithmetik ganzer Zahlen und zur Theorie der Partitionen', Sitzungsberichte der Preussischen Akademie der Wissenschaften (1926). STATEMENT.md already pins the congruence conventions; keep them.",
+  "statement_pin_required": {
+    "convention": "Reuse STATEMENT pin 2026-08-04 VERBATIM: A(n) = #partitions of n into distinct parts == 1 or 2 mod 3; B(n) = #partitions of n into parts == 1 or 5 mod 6.",
+    "landmines": [
+      "Swapped-pairing landmine fails at n=2 (known from OPE-25 pin)",
+      "Multiset-vs-Finset encoding of partitions must match Nat.Partition upstream API",
+      "Branch state: Levels B/C live on UNMERGED branches ope/445-schur-glaisher-level-b and ope/447-schur-glaisher-level-c — Director must merge or retire them BEFORE assigning this bench"
+    ],
+    "canonical_source": "Glaisher, Messenger of Mathematics 16 (1887); modern statement in Andrews, The Theory of Partitions (1976), Thm 1.5 corollaries"
+  },
+  "feasibility_shape": "Explicit bijection between the two families at fixed n, then card equality by Finset.card_congr. Verbose Multiset manipulation; cap at two levels, fall back to partial with honest forall-n-open label.",
+  "infra_carry_over": [
+    "ProofLab/Schur.lean + ProofLab/SchurNumber.lean conventions",
+    "ope/440-schur-glaisher (Level A infra, zero sorry), ope/445 (Level B maps+Nodup), ope/447 (Level C inverses+schur_partition) — pending merge"
+  ],
+  "estimated_token_budget": "260k",
+  "skill_packs": ["partition-theory", "formalization", "combinatorics"],
   "scored_at": "2026-08-25",
+  "scout_probes": [
+    "Not re-primed as prime: budget sink profile (verbose Multiset proofs); ranked below both fresh candidates",
+    "Eligibility justified per commission rule: universal-statement lift = new proof layer beyond closed finite-certificate scope"
+  ],
   "notes": [
     "Highest infra-build value of the three (partition generating functions / Euler-style bijections are missing wholesale in Mathlib)",
     "Also unlocks Euler's partition theorem (odds = distincts cardinality) as a free corollary target",

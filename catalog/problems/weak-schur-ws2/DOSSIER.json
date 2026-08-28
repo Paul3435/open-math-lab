@@ -1,0 +1,38 @@
+{
+  "id": "weak-schur-ws2",
+  "title": "Weak Schur number WS(2)=8 (formalize-only)",
+  "status": "candidate",
+  "domain": "additive_combinatorics",
+  "score": 81,
+  "scores": {
+    "formalizability": 19,
+    "partial_progress": 12,
+    "attack_surface": 15,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "recommendation": "GENUINELY NEW PROOF LAYER over the closed schur-number scope — NOT a re-warm. Schur forbids x+y=z with x=y allowed; weak Schur requires DISTINCT x,y,z. The closed S(2)=4/S(3)=13 certificates do not transfer: e.g. {1,4} is Schur-valid but contains the weak violation 1+3=4? no — the point is the weak variant has different extremal sets and value WS(2)=8 vs S(2)=4, so every certificate differs. Scout probe this run: exhaustive 2-colouring scan confirms [1..8] 2-colourable under the weak predicate and [1..9] NOT colourable => WS(2)=8 boundary verified before recommending. Lean shape mirrors SchurNumber.lean exactly (colour classes as Prop-valued predicates on Fin N; least-forcing witness at N=9; native_decide scale trivially small).",
+  "mathlib_gap_grep_2026_08_25": "grep -rin schur over Mathlib/Combinatorics + Mathlib/NumberTheory => ZERO hits (excluding schwarz false positives). No additive-Schur content of any kind, weak or strong, in pinned v4.10.0 snapshot.",
+  "statement_pin_required": {
+    "convention": "Weakly sum-free 2-colouring of {1..n}: colouring c : Fin n -> Bool such that there are NO distinct x,y,z in [1..n] with x+y=z and c x = c y = c z. WS(k) = largest n admitting a weakly sum-free k-colouring. Pin: x,y DISTINCT required (x=y allowed to satisfy x+x=z without violation); domain {1..n} (not Fin n directly — offset landmine); z<=n enforced.",
+    "landmines": [
+      "Distinctness direction: some literature defines weak-Schur triples as pairwise distinct INCLUDING requiring x!=y; others only forbid trivial x=x. PIN: x != y suffices (z=x+y then automatically differs from both since x,y>=1).",
+      "Indexing: {1..n} vs {0..n-1} shifts every equation; STATEMENT.md must fix {1..n} with Fin n + (·+1) translation noted",
+      "Do NOT conflate with the closed schur-partition (partition identity) or schur-number S(k) scopes"
+    ],
+    "canonical_source": "Abbott & Wang, The partition problem of weak Schur numbers, Ars Combinatoria; primary pin: definition as in Handbook of Combinatorics survey of Schur-type numbers; WS(2)=8 classical (Exoo)"
+  },
+  "feasibility_shape": "Single-level: definitions + ws2_le_8 (no valid 2-colouring of Fin 9 shifted) + ws2_gt_7 (explicit witness on [1..8]) + equality statement. Zero offline compute needed beyond the already-run exhaustive probe; everything native_decide-scale.",
+  "infra_carry_over": [
+    "ProofLab/SchurNumber.lean: class predicates, least-forcing pattern, eq-statement shape — reuse verbatim structure, swap predicate",
+    "ProofLab/VanDerWaerden.lean: witness + native_decide discipline"
+  ],
+  "estimated_token_budget": "150k",
+  "skill_packs": ["additive-combinatorics", "formalization"],
+  "scored_at": "2026-08-25",
+  "scout_probes": [
+    "Exhaustive Python scan (this run): N=1..8 colourable, N=9..11 not => WS(2)=8 confirmed before recommendation",
+    "Eligibility per commission: adds new proof layer (distinctness changes the forcing structure entirely); NOT a re-warm of finite-certificate Schur-partition scope nor of S(2)/S(3) strong-Schur scope"
+  ]
+}
