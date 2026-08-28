@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-25 (OPE-430 Scout: erdos-szekeres-monotone recommended prime; OPE-423 schur-partition shortlist; OPE-410 ES(3)=5; OPE-455 W(2,4)>34; OPE-393 R(3,5)=14)
+**Last updated:** 2026-08-25 (OPE-433 erdos-szekeres-monotone formalized; OPE-430 scout shortlist; OPE-410 ES(3)=5; OPE-455 W(2,4)>34; OPE-393 R(3,5)=14)
 
 ## Lifecycle labels
 
@@ -38,6 +38,7 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 | `van-der-waerden-w23` | additive combinatorics | OPE-45 (folded into OPE-51) | **formalize-only, Lean ZERO-sorry** (`ProofLab/VanDerWaerden.lean`): `vdw_le_9` (every 2-colouring of `Fin 9` has a mono 3-AP, `native_decide`) + `vdw_gt_8` (witness `11001100` on `Fin 8` with none). ⇒ W(2,3)=9. `lake env lean` exit 0, zero `sorry`. **Gate re-verified by Scout 2026-08-22 (OPE-334)**: independent `lake env lean ProofLab/VanDerWaerden.lean` exit 0 against pinned Lean 4.10.0 + Mathlib v4.10.0 snapshot; grep confirms zero real `sorry`/`admit`/`axiom`; gap re-confirmed — finitary VdW still an explicit TODO in the pinned `Mathlib/Combinatorics/HalesJewett.lean` (~L51) | Known classical; genuine Mathlib TODO (HalesJewett.lean) | `proofs/lean-project/ProofLab/VanDerWaerden.lean`, `problems/van-der-waerden-w23/` |
 | `van-der-waerden-w24` | additive combinatorics | Scout OPE-430 bench; Director OPE-454; **OPE-455 Attack Lead** | **PARTIAL ladder (formalize-only)**: STATEMENT pinned; Lean `HasMono4` + `vdw24_gt_34` (`¬ HasMono4 witness34` on Fin 34 colouring `0010001110100100011101001000111011`, `native_decide`) ⇒ **W(2,4)>34**, zero sorry. **Upper `W(2,4)≤35` NOT proved** (Chvátal 1979 computer-assisted; no brute force in Lean; timebox). Exact equality open in Lean. `lake env lean` + `lake build ProofLab` green. **No novelty / no claim.** | Known classical; Mathlib finitary VdW TODO | `problems/van-der-waerden-w24/`, `attacks/van-der-waerden-w24-20260825-ope455/`, Lean `ProofLab/VanDerWaerden.lean` |
 | `schur-number` | additive combinatorics | OPE-46 (folded into OPE-51) | **formalize-only, Lean ZERO-sorry** (`ProofLab/SchurNumber.lean`): `schur2_lower`/`schur2_le_4` ⇒ S(2)=4 (classes {1,4}/{2,3}, least-forcing N=5); `schur3_lower`/`schur3_le_13` ⇒ S(3)=13 (classes {1,4,7,10,13}/{2,3,11,12}/{5,6,8,9}, least-forcing N=14). Convention pinned (x=y allowed, standard). `lake env lean` exit 0, zero `sorry`. **Gate re-verified by Scout 2026-08-22 (OPE-334)**: independent `lake env lean ProofLab/SchurNumber.lean` exit 0 against pinned Lean 4.10.0 + Mathlib v4.10.0 snapshot; grep confirms zero real `sorry`/`admit`/`axiom`; gap re-confirmed — no SchurNumber/additive-Schur content anywhere in the v4.10.0 Mathlib pin | Known classical; genuine Mathlib gap (no SchurNumber content) | `proofs/lean-project/ProofLab/SchurNumber.lean`, `problems/schur-number/` |
+| `erdos-szekeres-monotone` | combinatorics / order theory | OPE-430 scout prime; **OPE-433 attack** | **`formalized`** (formalize-only). Lean **zero-sorry**, `lake build ProofLab` green: `erdosSzekeres_monotone` + `erdosSzekeres_card_bound` (`ProofLab/ErdosSzekeres.lean`). Weak mono pin (`List.Sorted (· ≤ ·)` / `(· ≥ ·)`); classic (a_i,b_i) labelling + `Fintype.card_le_of_injective`. `lake env lean ProofLab/ErdosSzekeres.lean` EXIT=0. Default **no claim**. | Known classical (1935); **genuine Mathlib gap** (only infinitary ES in v4.10.0) | `problems/erdos-szekeres-monotone/`, Lean `ProofLab/ErdosSzekeres.lean`, `attacks/erdos-szekeres-monotone-20260825/` |
 | `happy-ending-es3` | discrete geometry | OPE-390 scout; OPE-402 ratify PRIME; OPE-403 partial; **OPE-410 finish**; **OPE-413 review APPROVED** | **`formalized`** (formalize-only). Full `es_three_eq_five : EsThreeEqFiveStatement` zero-sorry in `ProofLab/HappyEndingES3.lean`: F1 `InConvexPosition4 ↔ ConvexIndependent`, `hullVertices_card_ge_three_of_gp`, hull≥4 case, separating-line interior case (`es_three_eq_five_of_hull_card_eq_three`). OPE-413 adversarial: lake env lean EXIT=0, lake build ProofLab green, axiom audit no `sorryAx` (propext/Classical.choice/Quot.sound only). PR #25 head `d46ca64` (base still PR #24 / F2). **No novelty claim** (classical 1935). ES(4)=9 out of scope. Board merge order #23→#24→#25. | Known classical (1935); Mathlib gap (orientation glue) | `problems/happy-ending-es3/STATEMENT.md`, Lean `ProofLab/HappyEndingES3.lean`, `attacks/happy-ending-es3-20260824-ope410/`, PR #25 |
 
 ## Pipeline / infrastructure (not math bets)
@@ -88,23 +89,9 @@ Mathlib.
 
 Fresh shortlist (≤3, known-classical / formalize-only, no novelty claims):
 
-1. **`erdos-szekeres-monotone` — RECOMMENDED PRIME (91).** Finite Erdős–Szekeres monotone
-   subsequence theorem: every sequence `f : Fin n → α` on a nonempty linear order with
-   `n ≥ (r−1)(s−1)+1` admits a nondecreasing subsequence of length r or a nonincreasing one of
-   length s. Rationale: the classical proof is a two-line pigeonhole argument labelling each index i
-   with `(a_i, b_i)` = (longest nondecreasing / nonincreasing subsequence ending at i); injectivity
-   on any window forces a monotone run. Fully hand-checkable in Lean with ZERO witness search and no
-   offline compute step — the same profile as the OPE-44 R(3,3) pigeonhole argument that closed green.
-   GENUINE GAP re-grepped against pinned v4.10.0 snapshot this run: only the *infinitary* ES lemma
-   exists (`Mathlib/Order/OrderIsoNat.lean` ~L182) plus an infinitary remark in
-   `Mathlib/Order/WellFoundedSet.lean` (~L26/L389); NO finite monotone-subsequence theorem anywhere.
-   Infra carry-over: `List.Sorted` API + `Fintype.card_le_of_injective` pigeonhole vocabulary from
-   ProofLab work; later reusable for an ES(4)=9 stretch via order-type routing.
-   Definition risk (pin before attack): weak vs strict monotonicity, and List-based subsequences
-   (`List.Sorted` over order-preserving indices). Recommend pinning WEAK monotonicity +
-   `List.Sorted`, matching Mathlib vocabulary; canonical source for STATEMENT.md:
-   Erdős & Szekeres, *A combinatorial problem in geometry*, Compositio Mathematica 2 (1935)
-   463–470. Dossier: `catalog/problems/erdos-szekeres-monotone/DOSSIER.json`.
+1. **`erdos-szekeres-monotone` — CLOSED OPE-433 (`formalized`).** Was RECOMMENDED PRIME (91).
+   Finite weak Erdős–Szekeres landed zero-sorry in `ProofLab/ErdosSzekeres.lean`
+   (`erdosSzekeres_monotone`); STATEMENT weak-mono pin held. Do not re-prime.
 2. **`schur-partition-full` (78).** Continuation of schur-partition to the full ∀n identity,
    scoped as a Glaisher-style explicit bijection between distinct-parts ≡1,2-mod-3 and parts
    ≡±1-mod-6 families at fixed n, lifted to the universal statement. Highest infra-build value:
