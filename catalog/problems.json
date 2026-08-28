@@ -502,10 +502,10 @@
     {
       "id": "dirac-hamiltonian",
       "title": "Dirac's theorem: min-degree Hamiltonian cycle (formalize-only)",
-      "status": "candidate",
+      "status": "in_progress",
       "domain": "graph_theory",
       "score": 84,
-      "note": "OPE-553 Scout #2: known-classical Dirac 1952, genuine Mathlib gap (Hamiltonian defs exist; no degree sufficient condition). Graph 'dirac' hits are analysis measures. n>=3 and 2*minDegree >= n pin. formalize-only, no novelty. Dossier: catalog/problems/dirac-hamiltonian/",
+      "note": "OPE-559 Formalist Level A partial: n=3 + complete graphs + connectedness from δ, zero-sorry ProofLab/Dirac.lean. Full Dirac longest-path closing residual. known-classical Dirac 1952, no novelty. Do not treat Level A as the 1952 theorem.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -514,9 +514,17 @@
       ],
       "artifacts": [
         "catalog/problems/dirac-hamiltonian/",
-        "problems/dirac-hamiltonian/"
+        "problems/dirac-hamiltonian/",
+        "proofs/lean-project/ProofLab/Dirac.lean"
       ],
-      "scout_issue": "OPE-553"
+      "scout_issue": "OPE-553",
+      "tickets": [
+        "OPE-553",
+        "OPE-557",
+        "OPE-559"
+      ],
+      "lean_artifact": "proofs/lean-project/ProofLab/Dirac.lean",
+      "formalist_issue": "OPE-559"
     }
   ],
   "updated_at": "2026-08-28T12:13:29Z",
