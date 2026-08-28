@@ -71,8 +71,10 @@ Longest-path / longest-cycle argument:
 - That cycle is spanning: a vertex off the cycle adjacent to it would
   yield a longer path.
 
-Partial: Level A `n=3` + complete graphs + connectedness from `δ`.
-Level B longest-path closing.
+Partial: Level A `n=3` + complete graphs + connectedness from `δ`
+landed on PR #44. Level B (OPE-568): longest-path / cycle-closing
+proves the full v1 claim `dirac_hamiltonian` (cycle, not path).
+Ore stretch not attacked.
 
 ## Lean gate (when attacked)
 
