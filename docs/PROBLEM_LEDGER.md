@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-28 (OPE-553 Scout: `euler-odd-distinct` prime / `dirac-hamiltonian` #2; OPE-533 EKR+Friendship consumed; Schur–Glaisher ∀n consumed)
+**Last updated:** 2026-08-28 (OPE-558 Formalist: `euler-odd-distinct` Lean Glaisher ∀n; OPE-553 Scout prime / `dirac-hamiltonian` #2; OPE-533 EKR+Friendship consumed; Schur–Glaisher ∀n consumed)
 
 ## Lifecycle labels
 
@@ -26,6 +26,7 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 
 | Problem ID | Domain | Tickets | Disposition | Novelty | Primary artifacts |
 |------------|--------|---------|-------------|---------|-------------------|
+| `euler-odd-distinct` | partition theory | OPE-553 Scout prime; **OPE-558** Formalist | **`formalized`** (formalize-only, PR open — Adversarial Reviewer is next gate). Lean **zero-sorry** `ProofLab/EulerPartition.lean`: `euler_odd_eq_distinct` (`Finset.card_bij'` Glaisher, no mod-6 filter) + Level A `n≤10` `native_decide` guard. `lake env lean` EXIT=0; `lake build ProofLab` green. Axioms: ∀n = propext/Classical.choice/Quot.sound only (no `sorryAx`, no `ofReduceBool` on the identity). **No novelty claim.** Do **not** import Archive/Theorems100. Do **not** re-prime `schur_partition`. | Known classical (Euler 1748 / Glaisher 1883); Mathlib v4.10.0 has `odds`/`distincts` defs only — card equality was Archive GF, not Mathlib | `catalog/problems/euler-odd-distinct/STATEMENT.md`, Lean `ProofLab/EulerPartition.lean` |
 | `erdos-ko-rado` | extremal set theory | OPE-533 Scout prime; **OPE-534** Level A; **OPE-541** Katona Level B | **`formalized`** (formalize-only). PRs **#39** and **#41 MERGED**. Lean zero-sorry `ProofLab/ErdosKoRado.lean` (`erdos_ko_rado`). Do **not** re-prime. | Known classical (1961); Mathlib gap was k-uniform (non-uniform `Intersecting.card_le` only) | `problems/erdos-ko-rado/STATEMENT.md`, Lean `ProofLab/ErdosKoRado.lean` |
 | `friendship-windmill` | graph theory | OPE-533 Scout #2; **OPE-535** | **`formalized`** (formalize-only). PR **#40 MERGED**. Lean zero-sorry `ProofLab/Friendship.lean`. Finite graphs only. Do **not** re-prime. | Known classical (ERS 1966); Mathlib gap (defs `commonNeighbors`/`IsSRGWith`; theorem was Archive-only) | `problems/friendship-windmill/STATEMENT.md`, Lean `ProofLab/Friendship.lean` |
 | `schur-partition-full-glaisher` | partitions | OPE-458 bench; OPE-440/445/447 ladder; **OPE-463** | **`formalized`** (formalize-only). `theorem schur_partition` in `ProofLab/SchurGlaisher.lean` (`Finset.card_bij'` Glaisher, zero-sorry) on merged main. Unbench criteria met (PRs #30/#31/#32 MERGED) **and** ∀n identity landed — treat as CONSUMED. Do **not** re-prime. | Known classical (Schur 1926 / Glaisher); Mathlib still has no Schur-partition theorem | `ProofLab/SchurGlaisher.lean`, `catalog/problems/schur-partition-full/` |
