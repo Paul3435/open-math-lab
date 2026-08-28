@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-28 (OPE-574 Scout: audit + shortlist `eulerian-hierholzer` 88 prime / `konig-bipartite` 84; OPE-553 euler-odd-distinct PR #43 MERGED + dirac-hamiltonian PR #45 MERGED consumed). Ledger SoT for history.
+**Last updated:** 2026-08-28 (OPE-591 Scout: audit + independent Level B shortlist `konig-bipartite` 87 prime / `eulerian-hierholzer` 83; OPE-574 Level A Euler PR #47 MERGED + König PR #48 MERGED stamped honest-partial)
