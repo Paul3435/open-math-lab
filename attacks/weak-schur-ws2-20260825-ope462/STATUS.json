@@ -1,0 +1,31 @@
+{
+  "issue": "OPE-462",
+  "problem": "weak-schur-ws2",
+  "date": "2026-08-25",
+  "status": "formalized",
+  "ladder": "full_eq",
+  "novelty": false,
+  "claim": false,
+  "proved": [
+    "ProofLab.WeakSchur.ws2_gt_7",
+    "ProofLab.WeakSchur.ws2_le_8",
+    "ProofLab.WeakSchur.ws2_eq_8"
+  ],
+  "not_proved": [],
+  "lean_file": "proofs/lean-project/ProofLab/WeakSchur.lean",
+  "witness": "00101110",
+  "witness_classes": {
+    "0": [1, 2, 4, 8],
+    "1": [3, 5, 6, 7]
+  },
+  "sorry": 0,
+  "verify": [
+    "cd proofs/lean-project && lake env lean ProofLab/WeakSchur.lean",
+    "cd proofs/lean-project && lake build ProofLab"
+  ],
+  "pin": "problems/weak-schur-ws2/STATEMENT.md",
+  "sources": [
+    "Abbott & Wang (weak Schur / Ars Combinatoria)",
+    "Exoo weak Schur tables (WS(2)=8 classical)"
+  ]
+}

@@ -11,3 +11,4 @@ import ProofLab.SchurGlaisher
 import ProofLab.HappyEndingES3
 import ProofLab.VanDerWaerden
 import ProofLab.SchurNumber
+import ProofLab.WeakSchur

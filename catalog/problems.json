@@ -398,14 +398,14 @@
       "expected": "known-classical"
     },
     {
-      "id": "weak-schur-ws2",
-      "title": "Weak Schur number WS(2)=8",
-      "status": "candidate",
-      "domain": "additive_combinatorics",
-      "score": 81,
-      "note": "OPE-458 Scout #2: genuinely new layer (distinct-triple predicate) vs closed S(2)/S(3) strong-Schur scope. Exhaustive probe confirms WS(2)=8 boundary pre-recommendation. Reuses SchurNumber.lean shape. formalize-only.",
-      "expected": "known-classical"
-    },
+          "id": "weak-schur-ws2",
+          "title": "Weak Schur number WS(2)=8",
+          "status": "formalized",
+          "domain": "additive_combinatorics",
+          "score": 81,
+          "note": "OPE-462 Attack Lead: formalize-only CLOSED. Lean zero-sorry ProofLab/WeakSchur.lean — ws2_gt_7 (witness 00101110 / {1,2,4,8}|{3,5,6,7}), ws2_le_8 (native_decide 2^9), ws2_eq_8. STATEMENT pin x≠y + Fin+1. Known-classical (Abbott–Wang/Exoo); no novelty. Scout OPE-458 #2.",
+          "expected": "known-classical"
+        },
     {
       "id": "schur-partition-full-glaisher",
       "title": "Schur partition identity forall-n (Glaisher lift)",
