@@ -1,0 +1,17 @@
+{
+  "issue": "OPE-447",
+  "problem": "schur-partition",
+  "date": "2026-08-25",
+  "level": "C",
+  "status": "formalized",
+  "novelty": false,
+  "claim": false,
+  "theorem": "ProofLab.Schur.schur_partition",
+  "lean_file": "proofs/lean-project/ProofLab/SchurGlaisher.lean",
+  "sorry": 0,
+  "verify": [
+    "cd proofs/lean-project && lake env lean ProofLab/SchurGlaisher.lean",
+    "cd proofs/lean-project && lake build ProofLab"
+  ],
+  "pin": "problems/schur-partition/STATEMENT.md 2026-08-04"
+}

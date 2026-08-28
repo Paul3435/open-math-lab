@@ -1,0 +1,42 @@
+{
+  "id": "erdos-szekeres-monotone",
+  "title": "Erdős–Szekeres monotone subsequence theorem (finite, formalize-only)",
+  "status": "formalized",
+  "domain": "combinatorics_order_theory",
+  "scores": {
+    "formalizability": 19,
+    "partial_progress": 16,
+    "attack_surface": 17,
+    "verification_budget": 19,
+    "crackpot_resistance": 20
+  },
+  "total_score": 91,
+  "flags": [
+    "known-classical (Erdős–Szekeres 1935); formalize-only — do NOT re-fund as novel",
+    "genuine Mathlib gap confirmed v4.10.0 this run: only the INFINitary version exists (Mathlib/Order/WellFoundedSet.lean ~L26/L389 'monotone subsequence' remark; OrderIsoNat.lean L182 infinitary Erdős–Szekeres lemma). NO finite monotone-subsequence theorem anywhere in Mathlib/"
+  ],
+  "target_statement_shape": [
+    "theorem erdosSzekeres_monotone {α : Type*} [LinearOrder α] {r s n : ℕ}",
+    "  (h : (r - 1) * (s - 1) + 1 ≤ n) (f : Fin n → α) :",
+    "  ∃ l : List α, (∀ x ∈ l, x ∈ f) ∧ l.Sorted (· ≤ ·) ∧ r ≤ l.length",
+    "  ∨ ∃ l : List α, (∀ x ∈ l, x ∈ f) ∧ l.Sorted (· ≥ ·) ∧ s ≤ l.length",
+    "(exact pin of monotone vs strictly-monotone convention happens in STATEMENT.md before attack)"
+  ],
+  "recommendation": "RECOMMENDED PRIME. Cleanest remaining known-classical gap with maximal infra carry-over: the classical pigeonhole proof is a two-line argument over Fin r × Fin s labelling each index i by (a_i, b_i) = (longest nondecreasing subsequence ending at i, longest nonincreasing ...); injectivity on any r·s window forces a monotone run of length r or s. Everything is decidable and finite; no witness search, no certified compute, no SAT — the whole proof is hand combinatorics in Lean, the same profile as the OPE-44 R(3,3) pigeonhole argument which closed green. Partial-progress ladder is natural (Level A: exists monotone subsequence of length ≥ ceil(sqrt(n)) for arbitrary sequences; Level B: the full (r-1)(s-1)+1 bound; Level C stretch: strict-monotone variant and the dual ES convexity statement already closed as happy-ending-es3). Definition risk is real but pinnable: must fix whether 'increasing' means weakly monotone or strictly increasing (the bound (r-1)(s-1)+1 holds for weak; for strictly increasing/decreasing the same bound holds by the standard proof applied to distinctness classes) and whether subsequences are Lists (order-preserving indices) or Functions from Fin k. STATEMENT.md should pin List.Sorted-based statement with weak monotonicity, matching Mathlib's Sorted vocabulary.",
+  "skill_packs": [
+    "combinatorics",
+    "formalization",
+    "order-theory"
+  ],
+  "estimated_token_budget": "140k",
+  "expected": "known-classical",
+  "mathlib_ref": "USE: Mathlib/Order/Sorted (List.Sorted API), Mathlib/Logic/Small or Fintype pigeonhole (Fintype.card_le_of_injective), Mathlib/Data/List/*. AVOID claiming as gap: infinitary ES lemma in OrderIsoNat.lean L182. GAP confirmed: no finite erdosSzekeres / monotone_subsequence theorem in v4.10.0 snapshot.",
+  "literature_pinning": "STATEMENT.md must cite Erdős & Szekeres, 'A combinatorial problem in geometry', Compositio Mathematica 2 (1935) 463–470, Theorem (the n > rs version is the standard restatement: every sequence of mn+1 distinct reals has an increasing subsequence of length m+1 or a decreasing one of length n+1). Pin exact inequality convention there.",
+  "scored_at": "2026-08-25",
+  "notes": [
+    "Zero-witness-search candidate: pure Lean proof, no offline compute step — lowest verification budget of all candidates this wave",
+    "Directly reusable later for happy-ending ES(4)=9 stretch via the standard monotone-subsequence route on order types",
+    "Do NOT re-fund as novel research",
+    "OPE-433 Attack Lead: closed formalized zero-sorry (erdosSzekeres_monotone); weak mono STATEMENT pin; lake build ProofLab green; no claim"
+  ]
+}

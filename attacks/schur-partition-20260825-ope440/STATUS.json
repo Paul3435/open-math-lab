@@ -1,0 +1,26 @@
+{
+  "problem_id": "schur-partition",
+  "level": "A-glaisher-infra",
+  "status": "heuristic",
+  "claim": false,
+  "novelty_claim": false,
+  "full_theorem_proved": false,
+  "glaisher_maps_defined": true,
+  "glaisher_sum_preserving": true,
+  "glaisher_finset_bijection": false,
+  "verify": {
+    "level_a_python": "python attacks/schur-partition-20260804-225016/verify_schur.py --N 150",
+    "level_b_lean": "cd proofs/lean-project && lake env lean ProofLab/Schur.lean && lake env lean ProofLab/SchurGlaisher.lean && lake build ProofLab"
+  },
+  "lean": [
+    "proofs/lean-project/ProofLab/Schur.lean",
+    "proofs/lean-project/ProofLab/SchurGlaisher.lean"
+  ],
+  "issues": ["OPE-440", "OPE-424", "OPE-426", "OPE-26"],
+  "bounds": {
+    "computable_A_eq_B": "n <= 24 (schur_partition_finite)",
+    "finset_card_A_eq_B": "n <= 12 (schur_partition_finset_finite)",
+    "glaisher_python_bijection": "n <= 30"
+  },
+  "updated_at": "2026-08-25T12:00Z"
+}
