@@ -1,0 +1,46 @@
+{
+  "id": "konig-bipartite",
+  "title": "Kőnig's theorem: bipartite matching number = vertex-cover number (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Kőnig 1931: in a finite bipartite graph the size of a maximum matching equals the size of a minimum vertex cover. Settled min-max theorem. Value is a Mathlib contribution (Matching.lean has IsMatching; no vertex-cover predicate and no ν=τ). Hall's marriage theorem is already upstream as set-family SDR — different statement. Do NOT re-fund as novel. Dilworth is a poset corollary and is NOT this bet.",
+  "recommendation": "Shortlist #2 — genuinely NEW proof layer over SimpleGraph Matching API (min-max of matching vs vertex cover under Colorable 2), not a re-warm of Hall (Combinatorics/Hall SDR) nor of closed Dirac/Friendship/EKR. Atomic matching primitive that previous Scout waves correctly refused to skip past by rubber-stamping Dilworth.",
+  "mathlib_gap_grep_2026_08_28": "Pin mathlib a719ba5c3115 (v4.10.0). Matching.lean: defs IsMatching / IsPerfectMatching; TODOs Tutte + Hall (Hall already in Combinatorics/Hall/); NO vertexCover / matchingNumber / König. rg vertexCover|IsVertexCover|matchingNumber over Mathlib/**/*.lean → ZERO hits. rg König|Koenig|konig over Mathlib/Combinatorics → ZERO theorem hits (WalkCounting has unrelated 'König' none). Archive Konigsberg is Euler/Königsberg, not Kőnig 1931. HallMarriageTheorem EXISTS in Combinatorics/Hall/Finite.lean — disclosed, different statement. Negative control HIT: Turan.lean. Dilworth: ZERO hits Mathlib+Archive (still a gap; not slotted).",
+  "statement_pin_required": {
+    "convention": "Fix G : SimpleGraph V, Fintype V, G.Colorable 2. IsVertexCover C := every edge is incident to C. Claim: max matching edge-card = min vertex-cover card. Easy inequality ν ≤ τ holds for all graphs; equality needs bipartite.",
+    "landmines": [
+      "Bipartite (Colorable 2) is essential (K3: ν=1, τ=2).",
+      "Do NOT cite HallMarriageTheorem as König — SDR ≠ ν=τ, even if one reduces to the other.",
+      "Not Kőnig's edge-colouring theorem (χ'=Δ bipartite). Not König's lemma (infinite trees). Not Tutte.",
+      "Matching number counts matching EDGES, not |M.verts| (twice as large).",
+      "Do not expand v1 into Dilworth."
+    ],
+    "canonical_source": "D. Kőnig, Gráfok és mátrixok, Mat. Fiz. Lapok 38 (1931) 116–119. Textbook: Diestel / Bondy–Murty König min-max. Type pin: Mathlib Subgraph.IsMatching + Colorable 2."
+  },
+  "feasibility_shape": "Level A: IsVertexCover def + easy ν ≤ τ for all finite G + K_{1,n} / empty / completeBipartite equality. Level B: bipartite min-max via alternating paths or Hall reduction. Cap two levels. No SAT explosion.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Matching — IsMatching, IsPerfectMatching, even_card",
+    "Mathlib Combinatorics.SimpleGraph.Coloring — Colorable 2, CompleteBipartiteGraph.bicoloring",
+    "Mathlib Combinatorics.Hall — optional Hall reduction; do not treat as the claim",
+    "ProofLab/Dirac.lean / Friendship.lean — recent SimpleGraph muscle; do not reuse those hypotheses",
+    "Lab graph-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "180k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-28",
+  "scout_issue": "OPE-574",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: Matching defs only; zero vertexCover/König; Hall exists as SDR and is a different statement",
+    "Eligibility: new matching min-max layer; Dilworth still a gap but larger (needs this primitive) — not rubber-stamped",
+    "Negative control turan → Turan.lean exists"
+  ]
+}

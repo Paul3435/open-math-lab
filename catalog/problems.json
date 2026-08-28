@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-28T12:13:29Z",
+  "last_updated": "2026-08-28T16:20:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -478,7 +478,7 @@
       "status": "formalized",
       "domain": "partition_theory",
       "score": 87,
-      "note": "OPE-558 Formalist: Lean zero-sorry ProofLab/EulerPartition.lean theorem euler_odd_eq_distinct (Glaisher Finset.card_bij', no Archive GF). known-classical Euler 1748, no novelty. Level A n<=10 native_decide guard + Level B forall n. Do not re-prime schur_partition. Adversarial Reviewer is next gate.",
+      "note": "OPE-558 Formalist CONSUMED. PR #43 MERGED. Lean zero-sorry ProofLab/EulerPartition.lean theorem euler_odd_eq_distinct (Glaisher Finset.card_bij', no Archive GF). known-classical Euler 1748, no novelty. Do NOT re-prime. | OPE-574 Scout catalog audit 2026-08-28.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -497,7 +497,8 @@
         "OPE-558"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/EulerPartition.lean",
-      "formalist_issue": "OPE-558"
+      "formalist_issue": "OPE-558",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/43"
     },
     {
       "id": "dirac-hamiltonian",
@@ -505,7 +506,7 @@
       "status": "formalized",
       "domain": "graph_theory",
       "score": 84,
-      "note": "OPE-568 Formalist Level B: full v1 dirac_hamiltonian via longest-path/cycle-closing, zero-sorry ProofLab/Dirac.lean (reuses OPE-559 Level A). known-classical Dirac 1952, no novelty. Ore stretch not attacked. Adversarial Reviewer is next gate.",
+      "note": "OPE-568 Formalist Level B CONSUMED. PRs #44 (Level A) and #45 MERGED (3723b07). Full v1 dirac_hamiltonian via longest-path/cycle-closing, zero-sorry ProofLab/Dirac.lean. known-classical Dirac 1952, no novelty. Ore stretch not attacked and is NOT a leftover re-prime. Do NOT re-prime. | OPE-574 Scout catalog audit 2026-08-28.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -525,10 +526,57 @@
         "OPE-568"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Dirac.lean",
-      "formalist_issue": "OPE-568"
+      "formalist_issue": "OPE-568",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/45"
+    },
+    {
+      "id": "eulerian-hierholzer",
+      "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 88,
+      "note": "OPE-574 Scout RECOMMENDED PRIME. known-classical Euler 1736 / Hierholzer 1873; no novelty. Mathlib Trails.lean has IsEulerian + necessary card_odd_degree; existence is an explicit TODO. Connected is load-bearing. Archive Konigsberg is a negative instance, not this theorem. Do not re-prime Dirac.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/eulerian-hierholzer/",
+        "problems/eulerian-hierholzer/"
+      ],
+      "scout_issue": "OPE-574",
+      "tickets": [
+        "OPE-574",
+        "OPE-573"
+      ]
+    },
+    {
+      "id": "konig-bipartite",
+      "title": "Kőnig's theorem: bipartite matching number = vertex-cover number (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 84,
+      "note": "OPE-574 Scout shortlist #2. known-classical Kőnig 1931; no novelty. Matching defs exist; no vertex cover / no ν=τ. Hall SDR is a different upstream theorem. Dilworth remains a gap and is NOT this bet. Do not re-prime Hall.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/konig-bipartite/",
+        "problems/konig-bipartite/"
+      ],
+      "scout_issue": "OPE-574",
+      "tickets": [
+        "OPE-574",
+        "OPE-573"
+      ]
     }
   ],
-  "updated_at": "2026-08-28T12:13:29Z",
+  "updated_at": "2026-08-28T16:20:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
