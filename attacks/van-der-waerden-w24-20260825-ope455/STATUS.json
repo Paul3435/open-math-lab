@@ -1,0 +1,25 @@
+{
+  "issue": "OPE-455",
+  "problem": "van-der-waerden-w24",
+  "date": "2026-08-25",
+  "status": "partial",
+  "ladder": "lower_bound_only",
+  "novelty": false,
+  "claim": false,
+  "proved": [
+    "ProofLab.VanDerWaerden.vdw24_gt_34"
+  ],
+  "not_proved": [
+    "W(2,4) <= 35",
+    "W(2,4) = 35"
+  ],
+  "lean_file": "proofs/lean-project/ProofLab/VanDerWaerden.lean",
+  "witness": "0010001110100100011101001000111011",
+  "witness34Mask": 14783751620,
+  "sorry": 0,
+  "verify": [
+    "cd proofs/lean-project && lake env lean ProofLab/VanDerWaerden.lean",
+    "cd proofs/lean-project && lake build ProofLab"
+  ],
+  "pin": "problems/van-der-waerden-w24/STATEMENT.md"
+}
