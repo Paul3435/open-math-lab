@@ -189,20 +189,25 @@
     {
       "id": "schur-partition",
       "title": "Schur partition theorem (formalize-only)",
-      "status": "shortlisted",
+      "status": "heuristic",
       "domain": "partition_theory",
       "recommended_prime": true,
-      "sprint": "OPE-21/OPE-26",
+      "sprint": "OPE-21/OPE-26/OPE-424",
       "score": 90,
       "skill_packs": [
         "formalization",
         "partition-theory",
         "combinatorics"
       ],
-      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04: A(n)=# distinct parts ≡1,2 mod 3; B(n)=# parts ≡±1 mod 6 (reps OK). Earlier draft swapped distinctness — that pairing fails at n=2. Formalize-only, no novelty claim. Attack child queued after OPE-22 wake discipline.",
+      "note": "OPE-25 Scout RECOMMENDED PRIME; OPE-21 Director APPROVED. Genuine Mathlib gap vs v4.10.0. STATEMENT pinned 2026-08-04. Formalize-only, no novelty claim. | OPE-402: wave BENCH behind happy-ending-es3. | OPE-424 partial Level B+/C-ladder reviewer-approved (OPE-426, 2026-08-25). Finite certs n<=24 DP / n<=12 Finset; zero sorry; PR #27. FULL forall-n NOT proved — do not mark formalized.",
       "artifacts": [
-        "problems/schur-partition/"
+        "problems/schur-partition/",
+        "proofs/lean-project/ProofLab/Schur.lean",
+        "attacks/schur-partition-20260804-225016/",
+        "attacks/schur-partition-20260825-080400/"
       ],
+      "lean_artifact": "proofs/lean-project/ProofLab/Schur.lean",
+      "issue": "OPE-424",
       "feasibility": {
         "id": "schur-partition",
         "scored_at": "2026-08-04T20:37:22Z",
@@ -221,8 +226,16 @@
         "overall_1_to_5": 5.0
       },
       "director_approved": true,
-      "issue": "OPE-26",
-      "expected": "formalize-only"
+      "tickets": [
+        "OPE-26",
+        "OPE-424"
+      ],
+      "expected": "formalize-only",
+      "review": {
+        "ope426": "approve_partial_ladder",
+        "scope": "finite_only",
+        "pr": "https://github.com/Paul3435/open-math-lab/pull/27"
+      }
     },
     {
       "id": "sum-free-subsets",
@@ -304,20 +317,75 @@
     },
     {
       "id": "ramsey-r35",
-      "title": "Ramsey number R(3,5)=14",
-      "status": "candidate",
-      "domain": "graph_theory",
+      "title": "Ramsey number R(3,5)=14 (formalize-only)",
+      "status": "formalized",
+      "domain": [
+        "graph_theory"
+      ],
       "score": 86,
-      "note": "OPE-390 Scout: formalize-only follow-on to closed ramsey-r33. Upper bound hand degree-counting; lower bound explicit 13-vtx witness certified via SimpleGraph decidable clique checks. Reuses ProofLab/Ramsey.lean vocabulary (PR #18). Gap re-confirmed v4.10.0: no Ramsey theorem in Mathlib.",
-      "expected": "known-classical"
+      "note": "OPE-393 CLOSED 2026-08-24: R(3,5)=14 zero-sorry in ProofLab/Ramsey.lean (ramsey35_eq_14). Lower: circulant C13({+/-1,+/-5}) native_decide. Upper: R(2,5)+R(3,4)=5+9 via ramsey_two_right + ramsey34_le_9 + ramseyUpper_add. lake build ProofLab green. formalize-only, no claim. Scout prime OPE-390.",
+      "expected": "known-classical",
+      "issue": "OPE-393",
+      "lean_artifact": "proofs/lean-project/ProofLab/Ramsey.lean",
+      "notes": "formalize-only known-classical Greenwood-Gleason 1955; Mathlib gap (no ramsey theorem) remains for upstream packaging",
+      "attack": "attacks/ramsey-r35-20260824",
+      "artifacts": [
+        "problems/ramsey-r35/",
+        "catalog/problems/ramsey-r35/",
+        "proofs/lean-project/ProofLab/Ramsey.lean"
+      ]
     },
     {
       "id": "happy-ending-es3",
       "title": "Happy Ending problem ES(3)=5 (Erdos-Szekeres)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "discrete_geometry",
       "score": 78,
-      "note": "OPE-390 Scout: formalize-only. Any 5 points in general position contain a convex 4-gon. Needs new Mathlib orientation/order-type plumbing (itself a contribution). ES(4)=9 stretch only. Gap confirmed v4.10.0: no happyEnding/ErdosSzekeres content.",
+      "note": "OPE-410 full formalize + OPE-413 APPROVED (2026-08-25): es_three_eq_five zero-sorry in ProofLab/HappyEndingES3.lean (F1 iff-glue, hull>=3 GP, hull>=4 + separating-line interior). lake env lean EXIT=0; lake build ProofLab green; axiom audit no sorryAx. PR #25 d46ca64 (stack base PR #24; board merge #23 then #24 then #25). Formalize-only, no claim (classical 1935). STATEMENT pin OPE-402.",
+      "expected": "known-classical",
+      "issue": "OPE-410",
+      "artifacts": [
+        "problems/happy-ending-es3/STATEMENT.md",
+        "proofs/lean-project/ProofLab/HappyEndingES3.lean",
+        "attacks/happy-ending-es3-20260824-ope410/",
+        "attacks/happy-ending-es3-20260824-ope403/"
+      ]
+    },
+    {
+      "id": "erdos-szekeres-monotone",
+      "title": "Erdos-Szekeres monotone subsequence theorem, finite form (formalize-only)",
+      "status": "formalized",
+      "domain": [
+        "combinatorics_order_theory"
+      ],
+      "source": "mathlib-gap",
+      "score": 91,
+      "note": "OPE-433 Attack Lead CLOSED. Lean zero-sorry erdosSzekeres_monotone (weak List.Sorted pin) in ProofLab/ErdosSzekeres.lean; lake build ProofLab green. formalize-only / known-classical 1935; no claim. OPE-430 Scout had recommended as prime (gap: only infinitary ES in v4.10.0).",
+      "expected": "known-classical",
+      "lean_artifact": "proofs/lean-project/ProofLab/ErdosSzekeres.lean"
+    },
+    {
+      "id": "schur-partition-full",
+      "title": "Schur partition theorem FULL forall-n identity (formalize-only continuation)",
+      "status": "candidate",
+      "domain": [
+        "partition_theory"
+      ],
+      "source": "mathlib-gap",
+      "score": 78,
+      "note": "OPE-430 Scout: continuation of schur-partition beyond OPE-424 partial ladder. Full forall-n A(n)=B(n) via Glaisher-style bijection or PowerSeries product expansion; Mathlib has Nat.Partition/odds/distincts but NO partition-generating-function infra and no Euler bijection — high infra-build value, high budget. Reuse STATEMENT pin 2026-08-04 (swapped-pairing landmine at n=2). Do not re-prime closed finite-certificate scope (OPE-424/OPE-426).",
+      "expected": "known-classical"
+    },
+    {
+      "id": "van-der-waerden-w24",
+      "title": "Van der Waerden number W(2,4) = 35 (formalize-only bench)",
+      "status": "candidate",
+      "domain": [
+        "additive_combinatorics"
+      ],
+      "source": "mathlib-gap",
+      "score": 79,
+      "note": "OPE-430 Scout BENCH. Carry-over of VanDerWaerden.lean vocabulary from closed W(2,3)=9 to 4-APs over Fin 35/Fin 34. Upper bound is computer-assisted in literature (Chatvatal 1979): native_decide does not scale to 2^35 colourings - needs hand case-analysis transcription or certificate import; timebox mandatory.",
       "expected": "known-classical"
     },
     {
@@ -330,14 +398,14 @@
       "expected": "known-classical"
     },
     {
-      "id": "weak-schur-ws2",
-      "title": "Weak Schur number WS(2)=8",
-      "status": "candidate",
-      "domain": "additive_combinatorics",
-      "score": 81,
-      "note": "OPE-458 Scout #2: genuinely new layer (distinct-triple predicate) vs closed S(2)/S(3) strong-Schur scope. Exhaustive probe confirms WS(2)=8 boundary pre-recommendation. Reuses SchurNumber.lean shape. formalize-only.",
-      "expected": "known-classical"
-    },
+          "id": "weak-schur-ws2",
+          "title": "Weak Schur number WS(2)=8",
+          "status": "formalized",
+          "domain": "additive_combinatorics",
+          "score": 81,
+          "note": "OPE-462 Attack Lead: formalize-only CLOSED. Lean zero-sorry ProofLab/WeakSchur.lean — ws2_gt_7 (witness 00101110 / {1,2,4,8}|{3,5,6,7}), ws2_le_8 (native_decide 2^9), ws2_eq_8. STATEMENT pin x≠y + Fin+1. Known-classical (Abbott–Wang/Exoo); no novelty. Scout OPE-458 #2.",
+          "expected": "known-classical"
+        },
     {
       "id": "schur-partition-full-glaisher",
       "title": "Schur partition identity forall-n (Glaisher lift)",
