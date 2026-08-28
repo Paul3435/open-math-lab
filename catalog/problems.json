@@ -502,10 +502,10 @@
     {
       "id": "dirac-hamiltonian",
       "title": "Dirac's theorem: min-degree Hamiltonian cycle (formalize-only)",
-      "status": "in_progress",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 84,
-      "note": "OPE-559 Formalist Level A partial: n=3 + complete graphs + connectedness from δ, zero-sorry ProofLab/Dirac.lean. Full Dirac longest-path closing residual. known-classical Dirac 1952, no novelty. Do not treat Level A as the 1952 theorem.",
+      "note": "OPE-568 Formalist Level B: full v1 dirac_hamiltonian via longest-path/cycle-closing, zero-sorry ProofLab/Dirac.lean (reuses OPE-559 Level A). known-classical Dirac 1952, no novelty. Ore stretch not attacked. Adversarial Reviewer is next gate.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -521,10 +521,11 @@
       "tickets": [
         "OPE-553",
         "OPE-557",
-        "OPE-559"
+        "OPE-559",
+        "OPE-568"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Dirac.lean",
-      "formalist_issue": "OPE-559"
+      "formalist_issue": "OPE-568"
     }
   ],
   "updated_at": "2026-08-28T12:13:29Z",
