@@ -27,6 +27,7 @@
   "literature_pinning": "STATEMENT.md must pin: (a) 4-term AP convention {a, a+d, a+2d, a+3d} with d>0; (b) W(2,4) least N such that every 2-colouring of Fin N has a monochromatic 4-AP; cite Chvátal, 'Some hard van der Waerden problems', Theoretical Computer Science (1979) for the value 35 and its computer-assisted nature — flag that the UPPER bound is computer-assisted in literature, so a zero-sorry Lean proof must either reproduce the case analysis or import a certificate.",
   "scored_at": "2026-08-25",
   "notes": [
+    "Lower witness: known 34-colourings exist in literature (e.g. via SAT archives); offline generation + decidable Lean check is the easy half",
     "OPE-455 (2026-08-25): PARTIAL — vdw24_gt_34 zero-sorry (W(2,4)>34) via witness34; upper W(2,4)<=35 still open",
     "Witness string 0010001110100100011101001000111011 (mask 14783751620); STATEMENT.md pinned",
     "Upper bound is the budget sink; Chvátal 1979 computer-assisted — no brute force in Lean",
