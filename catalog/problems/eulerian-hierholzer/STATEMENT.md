@@ -90,10 +90,10 @@ vertices (or a circuit if none). Not required if the two lemmas land.
 Partial: **Level A LANDED** (OPE-579 / PR #47 MERGED, do not re-prime):
 `eulerian_k1` (`K_1` nil walk Eulerian), `eulerian_cycle`
 (`n ≥ 3` ⇒ `C_n` Eulerian circuit + `G.Connected`), `eulerian_k2`
-open trail. **Level B remaining (OPE-591 shortlist #2):** Hierholzer
-circuit-merging for the ∀G claim — a new proof layer, not a re-warm
-of the special cases. `IsCircuit` excludes the `K_1` nil walk
-(already in the Lean header).
+open trail. **Level B (OPE-597):** `eulerian_hierholzer_circuit`
+(connected `G`, 0 odd degrees, nonempty `edgeSet`) +
+`eulerian_complete_odd`. Trail clause (`card oddDeg = 2`) residual.
+`IsCircuit` excludes the `K_1` nil walk (already in the Lean header).
 
 ## Lean gate (when attacked)
 

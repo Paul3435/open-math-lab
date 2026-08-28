@@ -5,17 +5,19 @@ status: known-classical, formalize-only, **no novelty claim**.
 Mathlib v4.10.0 has `Walk.IsEulerian` and the *necessary* parity
 (`IsEulerian.card_odd_degree`). This module is the existence direction.
 
-Pin: `catalog/problems/eulerian-hierholzer/STATEMENT.md` (OPE-579).
+Pin: `catalog/problems/eulerian-hierholzer/STATEMENT.md` (OPE-579 / OPE-597).
 Encoding: Mathlib `SimpleGraph` + `Walk.IsEulerian` / `Walk.IsCircuit`.
 Zero `sorry`. Do not import `Archive.*`. Not Königsberg. Not Dirac.
 
-Level A: `K_1` (nil walk Eulerian) and cycles `C_n` (`n ≥ 3`) Eulerian
-circuits; connectedness used. `K_2` is the open-trail sanity check.
-Level B residual: Hierholzer circuit-merging for the ∀G claim.
+Level A (OPE-579, do not re-prove): `K_1` (nil walk Eulerian) and cycles
+`C_n` (`n ≥ 3`) Eulerian circuits; connectedness used. `K_2` is the
+open-trail sanity check.
 
-Caveat on STATEMENT circuit clause: `Walk.IsCircuit` requires a nonempty
-walk, so the nil walk on `K_1` is Eulerian but not a circuit. The `C_n`
-(`n ≥ 3`) case is a genuine Eulerian circuit.
+Level B (OPE-597): Hierholzer / longest-trail existence for connected `G`
+with 0 odd-degree vertices (circuit) plus the complete-odd family.
+Circuit clause needs a nonempty `edgeSet` because `Walk.IsCircuit`
+excludes the `K_1` nil walk (STATEMENT caveat). Open-trail ∀G (card oddDeg = 2)
+is residual — Walk splice / dummy reduction did not land this heartbeat.
 -/
 import Mathlib.Combinatorics.SimpleGraph.Trails
 import Mathlib.Combinatorics.SimpleGraph.Finite
@@ -308,5 +310,239 @@ theorem eulerian_k2 :
     fin_cases a <;> fin_cases b <;> simp [CycleGraph] at hadj ⊢
   subst this
   simp [Adj.toWalk, Walk.edges_cons, Walk.edges_nil]
+
+/-! ## Level B: Hierholzer / longest trail (OPE-597) -/
+
+lemma trail_length_le_card {u v : V} {p : G.Walk u v} (hp : p.IsTrail) :
+    p.length ≤ G.edgeFinset.card := by
+  have hsub : p.edges.toFinset ⊆ G.edgeFinset := by
+    intro e he
+    exact mem_edgeFinset.mpr (p.edges_subset_edgeSet (List.mem_toFinset.mp he))
+  have hcard : p.edges.toFinset.card = p.edges.length :=
+    List.toFinset_card_of_nodup hp.edges_nodup
+  rw [← Walk.length_edges p]
+  exact hcard ▸ card_le_card hsub
+
+/-- A trail of globally maximal length. Internal tool. -/
+lemma exists_longest_trail (hV : Nonempty V) :
+    ∃ (u v : V) (p : G.Walk u v), p.IsTrail ∧
+      ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.length := by
+  let s : Set ℕ := {k | ∃ (u v : V) (p : G.Walk u v), p.IsTrail ∧ p.length = k}
+  have hsne : s.Nonempty := by
+    obtain ⟨x⟩ := hV
+    exact ⟨0, ⟨x, x, Walk.nil, Walk.IsTrail.nil, rfl⟩⟩
+  have hsfin : s.Finite :=
+    (Set.finite_lt_nat (G.edgeFinset.card + 1)).subset fun k hk => by
+      obtain ⟨_, _, p, hp, rfl⟩ := hk
+      exact Nat.lt_succ_of_le (trail_length_le_card hp)
+  obtain ⟨k, hks, hkmax⟩ := Set.Finite.exists_maximal_wrt (id : ℕ → ℕ) s hsfin hsne
+  obtain ⟨u, v, p, hp, hpk⟩ := hks
+  refine ⟨u, v, p, hp, fun q hq => ?_⟩
+  have hqmem : q.length ∈ s := ⟨_, _, q, hq, rfl⟩
+  cases le_total q.length k with
+  | inl h => simpa [hpk] using h
+  | inr h =>
+    have := hkmax q.length hqmem h
+    simp only [id_eq] at this
+    omega
+
+lemma saturated_end {u v w : V} {p : G.Walk u v} (hp : p.IsTrail)
+    (hmax : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.length)
+    (hw : G.Adj v w) : s(v, w) ∈ p.edges := by
+  by_contra hnotin
+  have hp' : (p.concat hw).IsTrail := concat_isTrail hp hnotin
+  have := hmax (p.concat hw) hp'
+  simp [Walk.length_concat] at this
+
+lemma saturated_start {u v w : V} {p : G.Walk u v} (hp : p.IsTrail)
+    (hmax : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.length)
+    (hw : G.Adj u w) : s(u, w) ∈ p.edges := by
+  have hrev : p.reverse.IsTrail := Walk.IsTrail.reverse p hp
+  have hmax' : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.reverse.length := by
+    intro u' v' q hq
+    simpa [Walk.length_reverse] using hmax q hq
+  simpa [Walk.edges_reverse, List.mem_reverse, Sym2.eq_swap] using
+    saturated_end (w := w) hrev hmax' hw
+
+lemma mem_support_of_mem_edges {u v x : V} :
+    ∀ {p : G.Walk u v} {e : Sym2 V}, e ∈ p.edges → x ∈ e → x ∈ p.support
+  | Walk.nil, e, he, _ => by simp at he
+  | Walk.cons h p, e, he, hx => by
+    rw [Walk.edges_cons, List.mem_cons] at he
+    rw [Walk.support_cons, List.mem_cons]
+    rcases he with he | he
+    · subst e
+      simp only [Sym2.mem_iff] at hx
+      rcases hx with rfl | rfl
+      · exact Or.inl rfl
+      · exact Or.inr (Walk.start_mem_support p)
+    · exact Or.inr (mem_support_of_mem_edges he hx)
+
+lemma countP_eq_degree_of_saturated {u v x : V} {p : G.Walk u v}
+    (hp : p.IsTrail)
+    (hsat : ∀ w, G.Adj x w → s(x, w) ∈ p.edges) :
+    p.edges.countP (fun e => x ∈ e) = G.degree x := by
+  let t := (p.edges.filter (fun e => x ∈ e)).toFinset
+  have hnodup : (p.edges.filter (fun e => x ∈ e)).Nodup :=
+    List.Nodup.filter _ hp.edges_nodup
+  have htlen : t.card = p.edges.countP (fun e => x ∈ e) := by
+    rw [List.countP_eq_length_filter]
+    exact List.toFinset_card_of_nodup hnodup
+  apply le_antisymm
+  · have hsub : t ⊆ G.incidenceFinset x := by
+      intro e he
+      have hf := List.mem_filter.mp (List.mem_toFinset.mp he)
+      simp only [mem_incidenceFinset, mem_incidenceSet]
+      exact ⟨p.edges_subset_edgeSet hf.1, of_decide_eq_true hf.2⟩
+    rw [← htlen, ← card_incidenceFinset_eq_degree]
+    exact card_le_card hsub
+  · have hf : ∀ w ∈ G.neighborFinset x, s(x, w) ∈ t := by
+      intro w hw
+      have hadj : G.Adj x w := (mem_neighborFinset G x w).mp hw
+      have he : s(x, w) ∈ p.edges := hsat w hadj
+      exact List.mem_toFinset.mpr <| List.mem_filter.mpr
+        ⟨he, decide_eq_true ((Sym2.mem_iff).2 (Or.inl rfl))⟩
+    have hinj : (G.neighborFinset x : Set V).InjOn (fun w => (s(x, w) : Sym2 V)) := by
+      intro w hw w' hw' heq
+      have hadj : G.Adj x w := (mem_neighborFinset G x w).mp hw
+      rcases (Sym2.eq_iff).mp heq with ⟨_, rfl⟩ | ⟨rfl, rfl⟩
+      · rfl
+      · exact (hadj.ne rfl).elim
+    have hle := card_le_card_of_injOn (fun w => (s(x, w) : Sym2 V)) hf hinj
+    rw [← htlen, ← card_neighborFinset_eq_degree]
+    exact hle
+
+lemma length_rotate {u v : V} (c : G.Walk v v) (h : u ∈ c.support) :
+    (c.rotate h).length = c.length := by
+  simp only [Walk.rotate, Walk.length_append]
+  have := congr_arg Walk.length (c.take_spec h)
+  rw [Walk.length_append] at this
+  omega
+
+lemma even_of_oddDeg_card_zero
+    (hodd : Fintype.card { v : V | Odd (G.degree v) } = 0) (x : V) :
+    Even (G.degree x) := by
+  by_contra hx
+  have hx' : Odd (G.degree x) := Nat.odd_iff_not_even.mpr hx
+  exact (Fintype.card_eq_zero_iff.mp hodd).elim ⟨x, hx'⟩
+
+lemma longest_closed_of_even {u v : V} {p : G.Walk u v} (hp : p.IsTrail)
+    (hmax : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.length)
+    (heven : ∀ x : V, Even (G.degree x)) : u = v := by
+  by_contra hne
+  have hsat : ∀ w, G.Adj v w → s(v, w) ∈ p.edges := fun w hw =>
+    saturated_end hp hmax hw
+  have hcount : p.edges.countP (fun e => v ∈ e) = G.degree v :=
+    countP_eq_degree_of_saturated hp hsat
+  have hparity := hp.even_countP_edges_iff v
+  have : Even (G.degree v) := heven v
+  rw [hcount] at hparity
+  have : u ≠ v → v ≠ u ∧ v ≠ v := hparity.mp this
+  exact (this hne).2 rfl
+
+lemma saturated_support_of_closed_longest {u x : V} {p : G.Walk u u}
+    (hp : p.IsTrail)
+    (hmax : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.length)
+    (hx : x ∈ p.support) {w : V} (hw : G.Adj x w) : s(x, w) ∈ p.edges := by
+  let r := p.rotate hx
+  have hr : r.IsTrail := hp.rotate hx
+  have hmax' : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ r.length := by
+    intro u' v' q hq
+    rw [length_rotate]
+    exact hmax q hq
+  have : s(x, w) ∈ r.edges := saturated_end hr hmax' hw
+  exact (List.IsRotated.mem_iff (p.rotate_edges hx)).1 this
+
+lemma isEulerian_of_closed_longest (hG : G.Connected) {u : V} {p : G.Walk u u}
+    (hp : p.IsTrail)
+    (hmax : ∀ {u' v' : V} (q : G.Walk u' v'), q.IsTrail → q.length ≤ p.length) :
+    p.IsEulerian := by
+  rw [Walk.isEulerian_iff]
+  refine ⟨hp, ?_⟩
+  intro e
+  revert e
+  refine Sym2.ind ?_
+  intro a b hab
+  by_contra hnotin
+  let S : Set V := {x | x ∈ p.support}
+  have huS : u ∈ S := Walk.start_mem_support p
+  have hsat : ∀ x ∈ S, ∀ w, G.Adj x w → s(x, w) ∈ p.edges := fun x hx w hw =>
+    saturated_support_of_closed_longest hp hmax hx hw
+  have hadj : G.Adj a b := hab
+  have haS : a ∉ S := fun ha => hnotin (hsat a ha b hadj)
+  obtain ⟨q⟩ := hG u a
+  obtain ⟨d, _hd, hdfst, hdsnd⟩ := Walk.exists_boundary_dart q S huS haS
+  have hin : d.edge ∈ p.edges := by
+    simpa [Dart.edge] using hsat d.toProd.1 hdfst d.toProd.2 d.adj
+  have hsnd : d.toProd.2 ∈ S :=
+    mem_support_of_mem_edges hin (by
+      rw [Dart.edge, Sym2.mem_iff]
+      exact Or.inr rfl)
+  exact hdsnd hsnd
+
+/-- STATEMENT circuit clause. `IsCircuit` excludes the edgeless `K_1` nil walk. -/
+theorem eulerian_hierholzer_circuit (hG : G.Connected)
+    (hodd : Fintype.card { v : V | Odd (G.degree v) } = 0)
+    (hE : G.edgeSet.Nonempty) :
+    ∃ u : V, ∃ p : G.Walk u u, p.IsEulerian ∧ p.IsCircuit := by
+  haveI := hG.nonempty
+  have heven : ∀ x : V, Even (G.degree x) := even_of_oddDeg_card_zero hodd
+  obtain ⟨u, v, p, hp, hmax⟩ := exists_longest_trail (G := G) hG.nonempty
+  have huv : u = v := longest_closed_of_even hp hmax heven
+  subst huv
+  have hne : p ≠ Walk.nil := by
+    intro hnil
+    obtain ⟨e, he⟩ := hE
+    revert e
+    refine Sym2.ind ?_
+    intro a b hab
+    have hadj : G.Adj a b := hab
+    have ht : hadj.toWalk.IsTrail := by
+      simp [Adj.toWalk, Walk.isTrail_def]
+    have := hmax hadj.toWalk ht
+    simp [hnil, Adj.toWalk] at this
+  refine ⟨u, p, isEulerian_of_closed_longest hG hp hmax, ⟨hp, hne⟩⟩
+
+/-- Second infinite family: complete graphs of odd order (`n ≥ 3`).
+Corollary of `eulerian_hierholzer_circuit`; not a re-proof of `eulerian_cycle`. -/
+theorem eulerian_complete_odd {n : ℕ} (hodd : Odd n) (hn : 3 ≤ n) :
+    (⊤ : SimpleGraph (Fin n)).Connected ∧
+      Fintype.card { v : Fin n | Odd ((⊤ : SimpleGraph (Fin n)).degree v) } = 0 ∧
+      ∃ u : Fin n, ∃ p : (⊤ : SimpleGraph (Fin n)).Walk u u,
+        p.IsEulerian ∧ p.IsCircuit := by
+  haveI : Nonempty (Fin n) := ⟨⟨0, lt_of_lt_of_le (by decide : 0 < 3) hn⟩⟩
+  have hconn : (⊤ : SimpleGraph (Fin n)).Connected := top_connected
+  have hdeg : ∀ v : Fin n, (⊤ : SimpleGraph (Fin n)).degree v = n - 1 := by
+    intro v
+    change ((⊤ : SimpleGraph (Fin n)).neighborFinset v).card = n - 1
+    have hset : (⊤ : SimpleGraph (Fin n)).neighborFinset v = univ.erase v := by
+      ext w
+      constructor
+      · intro hw
+        exact mem_erase.mpr ⟨((mem_neighborFinset _ _ _).mp hw).ne.symm, mem_univ w⟩
+      · intro hw
+        exact (mem_neighborFinset _ _ _).mpr
+          ((top_adj _ _).mpr (mem_erase.mp hw).1.symm)
+    rw [hset, card_erase_of_mem (mem_univ v), card_univ, Fintype.card_fin]
+  have hodd0 : Fintype.card { v : Fin n | Odd ((⊤ : SimpleGraph (Fin n)).degree v) } = 0 := by
+    apply Fintype.card_eq_zero_iff.mpr
+    refine ⟨fun x => ?_⟩
+    have hv : Odd ((⊤ : SimpleGraph (Fin n)).degree x.1) := x.2
+    rw [hdeg] at hv
+    have : Even (n - 1) := by
+      cases n with
+      | zero =>
+        cases (Nat.not_succ_le_zero 2 hn)
+      | succ k =>
+        change Even k
+        have : (k + 1) % 2 = 1 := Nat.odd_iff.mp hodd
+        exact Nat.even_iff.mpr (by omega)
+    exact Nat.odd_iff_not_even.mp hv this
+  have hE : (⊤ : SimpleGraph (Fin n)).edgeSet.Nonempty := by
+    refine ⟨s((⟨0, lt_of_lt_of_le (by decide : 0 < 3) hn⟩ : Fin n),
+        ⟨1, lt_of_lt_of_le (by decide : 1 < 3) hn⟩), ?_⟩
+    simp [mem_edgeSet, top_adj]
+  obtain ⟨u, p, hEul, hC⟩ := eulerian_hierholzer_circuit hconn hodd0 hE
+  exact ⟨hconn, hodd0, u, p, hEul, hC⟩
 
 end ProofLab.Eulerian
