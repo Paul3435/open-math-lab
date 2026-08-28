@@ -1,0 +1,37 @@
+{
+  "id": "schur-partition-full",
+  "title": "Schur partition theorem FULL forall-n identity (formalize-only continuation)",
+  "status": "candidate",
+  "domain": "partition_theory",
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 18,
+    "attack_surface": 14,
+    "verification_budget": 13,
+    "crackpot_resistance": 18
+  },
+  "total_score": 78,
+  "flags": [
+    "known-classical (Schur 1926); formalize-only — do NOT re-fund as novel",
+    "OPE-424/OPE-426 partial-ladder disposition: finite certificates n<=24 computable / n<=12 Finset + bridge, zero sorry, Adversarial-approved. FULL forall-n A(n)=B(n) remains OPEN — do not re-prime the closed finite-certificate scope."
+  ],
+  "target_statement_shape": [
+    "For all n : ℕ, the number A(n) of partitions of n into distinct parts ≡ 1,2 (mod 3)",
+    "equals the number B(n) of partitions of n into parts ≡ ±1 (mod 6):",
+    "A(n) = B(n), i.e. card {p : Nat.Partition n // ∀ q ∈ p.parts, q % 3 ∈ [1, 2] ∧ p.parts.Nodup}",
+    "   = card {p : Nat.Partition n // ∀ q ∈ p.parts, q % 6 ∈ [1, 5]}",
+    "(exact Finset-of-partitions encoding pinned in problems/schur-partition/STATEMENT.md, 2026-08-04)"
+  ],
+  "recommendation": "Second candidate. The generating-function route is the honest path to full forall-n: product expansion prod_{k>=1} (1 + x^(3k+1))(1 + x^(3k+2)) = prod_{m>=6, gcd(m,6)=1} (1 - x^m)^(-1)... but Mathlib v4.10.0 has essentially NO partition-generating-function infrastructure (no PowerSeries usage anywhere under Combinatorics/, no Euler pentagonal, no q-series product identities), so the attack would have to BUILD that infra — that is exactly what makes it valuable to Mathlib but expensive for one sprint. Feasibility shape is NOT finite-checkable: equality for all n needs either a coefficient-extraction identity over PowerSeries or a bijection (Glaisher-style map parts <-> multiplicities mod 3). Recommend scoping the attack as: Level A = Glaisher-style explicit bijection between the two Finset families at fixed n via multiplicity arithmetic (decidable per-n, generalizes by pure algebra on Multiset.count), Level B = lift to the universal statement. Definition risk LOW: STATEMENT pin exists since 2026-08-04 including the swapped-pairing landmine (fails at n=2) — reuse it verbatim, do not restate.",
+  "skill_packs": ["partition-theory", "formalization", "number-theory"],
+  "estimated_token_budget": "220k",
+  "expected": "known-classical",
+  "mathlib_ref": "USE: Mathlib/Combinatorics/Enumerative/Partition.lean (Nat.Partition, odds, distincts, oddDistincts — note oddDistincts exists but odds_card_eq_distincts_card Euler bijection NOT proved; file TODO says only 'link to Young diagrams'). GAP confirmed: grep for schur/partition-congruence content finds nothing (only CategoryTheory Schur lemma etc.) in v4.10.0 snapshot.",
+  "literature_pinning": "Schur, 'Zur Additiven Arithmetik ganzer Zahlen und zur Theorie der Partitionen', Sitzungsberichte der Preussischen Akademie der Wissenschaften (1926). STATEMENT.md already pins the congruence conventions; keep them.",
+  "scored_at": "2026-08-25",
+  "notes": [
+    "Highest infra-build value of the three (partition generating functions / Euler-style bijections are missing wholesale in Mathlib)",
+    "Also unlocks Euler's partition theorem (odds = distincts cardinality) as a free corollary target",
+    "Budget risk: bijection-over-Multiset proofs are notoriously verbose in Lean; cap at two levels"
+  ]
+}
