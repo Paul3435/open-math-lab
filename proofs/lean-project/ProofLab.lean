@@ -6,3 +6,4 @@ import ProofLab.ErdosWoodsCorrect
 import ProofLab.SumFree
 import ProofLab.Ramsey
 import ProofLab.ErdosKoRado
+import ProofLab.Friendship
