@@ -1,0 +1,25 @@
+{
+  "problem_id": "happy-ending-es3",
+  "issue": "OPE-403",
+  "status": "partial_formalized",
+  "claim": "none",
+  "novelty": "none",
+  "expected": "known-classical",
+  "lean_file": "proofs/lean-project/ProofLab/HappyEndingES3.lean",
+  "zero_sorry": true,
+  "lake_env_lean_exit": 0,
+  "lake_build_ProofLab": "green",
+  "partial": true,
+  "delivered": [
+    "orient_plumbing",
+    "barycentric_triangle_membership",
+    "hull_vertex_extraction",
+    "convexIndependent_hull_vertices",
+    "es_three_eq_five_of_hull_card_ge_four"
+  ],
+  "residual": [
+    "triangle_plus_two_interior_separating_line_case",
+    "full_es_three_eq_five_glue"
+  ],
+  "updated_at": "2026-08-24T18:48:46Z"
+}

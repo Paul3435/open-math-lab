@@ -1,0 +1,21 @@
+{
+  "id": "ramsey-multicolor-r333",
+  "ticket": "OPE-461",
+  "status": "formalized",
+  "partial": false,
+  "bounds": {
+    "lower": "R(3,3,3)>16 via GG witness16 + native_decide",
+    "upper": "R(3,3,3)<=17 pigeonhole + ramsey33 pullback"
+  },
+  "lean_file": "proofs/lean-project/ProofLab/RamseyMulticolor.lean",
+  "theorems": ["r333_gt_16", "r333_le_17", "r333_eq_17"],
+  "zero_sorry": true,
+  "lake_build_ProofLab": "green",
+  "axioms": {
+    "r333_gt_16": ["propext", "Lean.ofReduceBool", "Quot.sound"],
+    "r333_le_17": ["propext", "Classical.choice", "Quot.sound"]
+  },
+  "novelty": "known-classical",
+  "claim": false,
+  "updated_at": "2026-08-25T19:04:00+02:00"
+}
