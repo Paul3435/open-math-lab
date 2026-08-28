@@ -535,7 +535,7 @@
       "status": "in_review",
       "domain": "graph_theory",
       "score": 83,
-      "note": "OPE-579 Formalist Level A CONSUMED. PR #47 MERGED. Honest partial on main: zero-sorry ProofLab/Eulerian.lean (eulerian_k1, eulerian_cycle n≥3 ⇒ C_n Eulerian circuit + Connected, eulerian_k2). STATEMENT v1 ∀G Hierholzer NOT closed. OPE-591 Scout independently re-scored Level B (circuit-merging ∀G) as shortlist #2 (83) — new proof layer, not an OPE-574 leftover rubber-stamp. known-classical Euler 1736 / Hierholzer 1873; no novelty. Mathlib Trails.lean L26–29 existence TODO still open. Do NOT re-prime Level A.",
+      "note": "OPE-597 Formalist Level B honest partial. PR pending. Zero-sorry ProofLab/Eulerian.lean: Level A reused; eulerian_hierholzer_circuit (connected G, 0 odd degrees, nonempty edgeSet) + eulerian_complete_odd (K_n odd n\u22653). STATEMENT trail clause (card oddDeg = 2) NOT closed. lake build ProofLab.Eulerian + lake build ProofLab green. known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A. Do not import Archive.*.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -552,10 +552,11 @@
         "OPE-574",
         "OPE-573",
         "OPE-579",
-        "OPE-591"
+        "OPE-591",
+        "OPE-597"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Eulerian.lean",
-      "formalist_issue": "OPE-579",
+      "formalist_issue": "OPE-597",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/47"
     },
     {
