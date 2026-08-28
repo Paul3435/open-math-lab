@@ -1,0 +1,35 @@
+{
+  "id": "van-der-waerden-w24",
+  "title": "Van der Waerden number W(2,4) = 35 (formalize-only)",
+  "status": "partial_lower_bound",
+  "domain": "additive_combinatorics",
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 15,
+    "attack_surface": 15,
+    "verification_budget": 12,
+    "crackpot_resistance": 20
+  },
+  "total_score": 79,
+  "flags": [
+    "known-classical (Van der Waerden 1927; exact value W(2,4)=35 due to Chvátal 1979 computer-assisted proof); formalize-only — do NOT re-fund as novel",
+    "COMPUTE-HEAVY: lower bound needs a certified 34-colouring witness (offline search + Lean check, Ramsey-wave pattern); upper bound W(2,4)<=35 has no short hand proof — the published argument is a large case analysis. Budget cap mandatory."
+  ],
+  "target_statement_shape": [
+    "theorem w24_le_35 : ∀ (c : Fin 4 → Prop-decision colouring of Fin 35 ...), ∃ a d, mono AP",
+    "(exact shape mirrors ProofLab/VanDerWaerden.lean: vdw_le_9 / vdw_gt_8 lifted from 3-AP to 4-AP over Fin 35 / Fin 34)"
+  ],
+  "recommendation": "Bench candidate. Direct vocabulary carry-over from closed van-der-waerden-w23: same TwoColouring/mono-AP predicates, just k=4 and N=35. The upper-bound half is the risk: native_decide-style exhaustive checking does NOT scale to 2^35 colourings, so W(2,4)<=35 requires either a smart hand case-analysis transcription or SAT-certificate import (DRAT not available in Lean without new infra). Feasibility shape = hand upper bound + certified lower witness (Ramsey-wave pattern), but the hand part is much heavier than R(3,5)'s degree count. Include only as bench if Director wants additive-combinatorics continuity; otherwise defer.",
+  "skill_packs": ["additive-combinatorics", "formalization", "combinatorics"],
+  "estimated_token_budget": "200k",
+  "expected": "known-classical",
+  "mathlib_ref": "USE: ProofLab/VanDerWaerden.lean vocabulary (vdw_le_9/vdw_gt_8 pattern); Mathlib/Combinatorics/Additive/AP/Three/Defs.lean has ThreeAPFree but NO FourAPFree — defining it is trivial glue. GAP confirmed v4.10.0: finitary Van der Waerden still explicit TODO in HalesJewett.lean ~L53; no W(2,k) values anywhere.",
+  "literature_pinning": "STATEMENT.md must pin: (a) 4-term AP convention {a, a+d, a+2d, a+3d} with d>0; (b) W(2,4) least N such that every 2-colouring of Fin N has a monochromatic 4-AP; cite Chvátal, 'Some hard van der Waerden problems', Theoretical Computer Science (1979) for the value 35 and its computer-assisted nature — flag that the UPPER bound is computer-assisted in literature, so a zero-sorry Lean proof must either reproduce the case analysis or import a certificate.",
+  "scored_at": "2026-08-25",
+  "notes": [
+    "OPE-455 (2026-08-25): PARTIAL — vdw24_gt_34 zero-sorry (W(2,4)>34) via witness34; upper W(2,4)<=35 still open",
+    "Witness string 0010001110100100011101001000111011 (mask 14783751620); STATEMENT.md pinned",
+    "Upper bound is the budget sink; Chvátal 1979 computer-assisted — no brute force in Lean",
+    "Do NOT re-fund as novel research"
+  ]
+}
