@@ -5,6 +5,7 @@ import ProofLab.Frobenius
 import ProofLab.ErdosWoodsCorrect
 import ProofLab.SumFree
 import ProofLab.Ramsey
+import ProofLab.RamseyMulticolor
 import ProofLab.ErdosSzekeres
 import ProofLab.Schur
 import ProofLab.SchurGlaisher

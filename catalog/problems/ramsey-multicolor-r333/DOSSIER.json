@@ -1,7 +1,7 @@
 {
   "id": "ramsey-multicolor-r333",
   "title": "Multicolour Ramsey R(3,3,3)=17 (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 84,
   "scores": {
@@ -35,5 +35,7 @@
   "scout_probes": [
     "Random search FAILS to find a K_16 witness (300k trials) — but Greenwood-Gleason F_2^4 construction succeeds deterministically; certificate r333_witness.txt verified independently (zero mono triangles, 3 colours used)",
     "Do NOT re-prime R(3,3)/R(3,4)/R(4,4) (closed OPE-44) or R(3,5) (OPE-393 branch exists, unmerged on main — Director should merge or retire before assigning)"
-  ]
+  ],
+  "formalized_at": "2026-08-25",
+  "formalized_ticket": "OPE-461"
 }
