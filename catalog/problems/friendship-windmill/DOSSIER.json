@@ -1,0 +1,44 @@
+{
+  "id": "friendship-windmill",
+  "title": "Friendship theorem (Erdős–Rényi–Sós windmill) — formalize-only",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Erdős–Rényi–Sós 1966 friendship theorem is completely settled for FINITE graphs: if every two distinct vertices have exactly one common neighbour, then some vertex is adjacent to all others (and the graph is a Dutch windmill of triangles). Infinite counterexamples exist and are OUT OF SCOPE. This is not an open problem. Value is a Mathlib/SimpleGraph contribution. Do NOT re-fund as novel. A 2025 arXiv rewrite via Lovász ϑ is irrelevant — we want the classical finite theorem, not a new proof paper.",
+  "recommendation": "Shortlist #2 — genuinely NEW proof layer over closed Ramsey/clique work. Hypothesis is a common-neighbour condition (card = 1 for EVERY pair, adjacent or not), not a clique-Ramsey statement. Mathlib v4.10.0 already has SimpleGraph.commonNeighbors, card_commonNeighbors, IsSRGWith, and AdjMatrix — none of those files prove the friendship theorem (zero 'friendship'/'windmill' hits). Partial ladder: (A) windmill graphs satisfy the hypothesis; (B) a universal vertex of degree n-1 forces the windmill-of-triangles shape; (C) no-universal-friend ⇒ regular ⇒ SRG with λ=μ=1 ⇒ contradiction. Prefer Huneke-style combinatorial counting; AdjMatrix/SRG path allowed because IsSRGWith.matrix_eq already exists. Cap: do not require a general theory of strongly regular graphs beyond λ=μ=1.",
+  "mathlib_gap_grep_2026_08_27": "Pin mathlib a719ba5c3115 (v4.10.0). rg -li 'friendship theorem|dutch windmill|IsFriendship|windmill graph' over Mathlib/**/*.lean → ZERO hits. Dilworth also ZERO (considered, not shortlisted). Negative controls HIT: turanGraph, erdos_ginzburg_ziv, IsAntichain.sperner, HallMarriageTheorem, Cauchy-Davenport. Infra present but insufficient: SimpleGraph/Basic.lean def commonNeighbors; SimpleGraph/StronglyRegular.lean structure IsSRGWith; SimpleGraph/Hamiltonian.lean (defs only, no Dirac).",
+  "statement_pin_required": {
+    "convention": "G : SimpleGraph V with V finite nonempty. Hypothesis: ∀ {v w : V}, v ≠ w → Fintype.card (G.commonNeighbors v w) = 1. Conclusion (v1): ∃ u, G.degree u = Fintype.card V - 1. Optional v1-b: G is a windmill of triangles (every block a 3-cycle through u, edge-disjoint).",
+    "landmines": [
+      "FINITE is load-bearing — the statement is false for some infinite graphs. Pin Fintype V.",
+      "The condition applies to adjacent AND non-adjacent pairs. Restricting to non-edges is a different theorem.",
+      "Simple graphs only (no loops, no multis). Isolated-vertex / |V|≤2 edge cases must not sneak into the main lemma.",
+      "Do not conflate with Ramsey R(3,3) (cliques under 2-colourings) or with IsSRGWith in general; friendship is the special case λ=μ=1 plus the pre-regularity argument.",
+      "Linear-algebra/eigenvalue proofs are optional; prefer combinatorial Huneke/Mertzios if budget is tight."
+    ],
+    "canonical_source": "P. Erdős, A. Rényi, V. T. Sós, On a problem of graph theory, Studia Sci. Math. Hungar. 1 (1966) 215–235 (Theorem 6). Combinatorial expositions: C. Huneke, The friendship theorem, Amer. Math. Monthly 109 (2002) 192–194."
+  },
+  "feasibility_shape": "Level A: definitions + windmill construction satisfies the hypothesis + small F_n native_decide sanity (optional). Level B: universal-friend ⇒ windmill-of-triangles. Level C: no universal friend ⇒ regular of degree k ⇒ IsSRGWith n k 1 1 ⇒ n = k*k - k + 1 ⇒ contradiction (counting or AdjMatrix). Two-heartbeat cap; stop after universal-friend if Level C overruns.",
+  "infra_carry_over": [
+    "Mathlib SimpleGraph.commonNeighbors / card_commonNeighbors",
+    "Mathlib SimpleGraph.IsSRGWith + AdjMatrix (optional Level C)",
+    "ProofLab/Ramsey.lean clique vocabulary is NOT the right layer — do not force a Ramsey reduction",
+    "Lab graph-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "220k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-27",
+  "scout_issue": "OPE-533",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: zero friendship/windmill hits; commonNeighbors + IsSRGWith present as infra only",
+    "Eligibility: new common-neighbour layer, not a re-warm of ramsey-r33/r35/r333 or Turán (already upstream)"
+  ]
+}

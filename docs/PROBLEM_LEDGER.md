@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-25 (OPE-461 R(3,3,3)=17 both bounds formalized; OPE-462 WS(2)=8 CLOSED; OPE-458 scout; OPE-433 ES-monotone; OPE-410 ES(3)=5; OPE-455 W(2,4)>34; OPE-393 R(3,5)=14)
+**Last updated:** 2026-08-27 (OPE-533 Scout: `erdos-ko-rado` prime / `friendship-windmill` #2; also OPE-461 R(3,3,3)=17; OPE-462 WS(2)=8; OPE-458 scout)
 
 ## Lifecycle labels
 
@@ -244,6 +244,47 @@ strategy nameable — stays bench/skip per commission guidance); ramsey-r46 (no 
 upper bound); happy-ending ES(4)/ES(5) lifts (ES(3)=5 already closed in the OPE-402 wave; higher ES
 values have no hand-scale proof in scope).
 
+**OPE-533 update (2026-08-27, Scout, support OPE-475):** catalog audit + fresh ≤2 shortlist.
+OPE-458 shortlist is fully consumed or still benched — do not re-prime those rows.
+
+Consumption (live `gh pr list` this run; main still at merge of PR #21, 15 PRs open #22–#36):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `ramsey-multicolor-r333` | OPE-461 DONE; PR #36 OPEN / MERGEABLE / gate APPROVE | yes |
+| `weak-schur-ws2` | OPE-462 DONE; PR #35 OPEN / MERGEABLE / gate APPROVE | yes |
+| `schur-partition-full-glaisher` | OPE-463 still **benched** on unmerged PRs #30→#31→#32 | yes until unbench |
+| `ramsey-r35` | OPE-393 PR #22 OPEN | yes |
+| `happy-ending-es3` | OPE-403/410 PRs #24/#25 OPEN | yes |
+
+Catalog hygiene: leftover seeds `mathlib-gap-candidate` / `oeis-finite-check-candidate` marked
+`archived` (README claimed replacement 2026-08-07; rows were still `needs-scout`).
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Already in Mathlib (never cite as
+gap):** Cauchy–Davenport, Erdős–Ginzburg–Ziv, Sperner/LYM, Hall marriage, Wilson, Lucas,
+Zeckendorf, Beatty/Rayleigh, Pythagorean triples classification, Turán, non-uniform
+`Intersecting.card_le` (2^{n−1} only). **Gaps confirmed zero-hit:** EKR (k-uniform), friendship
+theorem, Dilworth, combinatorial Nullstellensatz.
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`erdos-ko-rado` — RECOMMENDED PRIME (87).** Why-not-classical: EKR 1961 is settled; star
+   extremal `C(n-1,k-1)` for intersecting k-subsets when `n≥2k`. Why still a bet: Mathlib has
+   only the *non-uniform* intersecting bound; Katona cycle is a new uniformity layer, not a
+   re-warm of Sperner/Ramsey/Schur. STATEMENT pin: `catalog/problems/erdos-ko-rado/STATEMENT.md`.
+2. **`friendship-windmill` (84).** Why-not-classical: Erdős–Rényi–Sós 1966; finite graphs only
+   (infinite counterexamples exist). Why still a bet: `commonNeighbors` + `IsSRGWith` exist,
+   theorem does not; common-neighbour layer ≠ clique-Ramsey. STATEMENT pin:
+   `catalog/problems/friendship-windmill/STATEMENT.md`.
+
+Considered, not shortlisted (slot cap 2): finite Dilworth (Hall exists; comparability matching is
+a larger budget than EKR/Friendship); combinatorial Nullstellensatz (algebra-heavy; Hilbert NS
+is a different theorem and already upstream); Dirac (Hamiltonian *defs* exist, theorem does not);
+W(2,4)≤35 / ES(4) / ramsey-r46 unchanged rejects; Glaisher forall-n stays benched.
+
+Director assigns after approval. Scout opened **no attack issues**. Merge backlog (#34 then
+#36/#35, plus #22–#33) is still a board problem; this shortlist does not require those merges
+to *start* (new modules), but stacking more unmerged Lean still deepens the PR pile.
 
 ## Active sprint (from OPE-43)
 

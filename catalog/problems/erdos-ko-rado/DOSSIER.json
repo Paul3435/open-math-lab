@@ -1,0 +1,43 @@
+{
+  "id": "erdos-ko-rado",
+  "title": "Erdős–Ko–Rado: k-uniform intersecting families (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_set_theory",
+  "score": 87,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Erdős–Ko–Rado 1961 (announced; proof dating to 1938) is a completely settled landmark of extremal set theory: if n ≥ 2k, every intersecting family of k-subsets of an n-set has size at most C(n-1, k-1), achieved by a star. This is NOT an open problem. Value is a Mathlib contribution (k-uniform intersecting bound), not a discovery. Do NOT re-fund as novel. Uniqueness of stars for n > 2k is classical too — optional stretch, not required for v1.",
+  "recommendation": "RECOMMENDED PRIME — genuinely NEW proof layer over upstream SetFamily infra. Mathlib v4.10.0 already has the NON-UNIFORM intersecting bound (Set.Intersecting.card_le: |F| ≤ 2^{n-1} on a boolean lattice) plus Shadow, LYM, Sperner, Kleitman. It does NOT have the k-uniform EKR bound. Katona's cycle method is a finite double-count (cyclic permutations × interval k-sets) that maps cleanly to Finset/Nat.choose; n=2k complementary pairing is a one-heartbeat partial. Eligibility: not a re-warm of Sperner (antichains vs intersecting k-sets) nor of Intersecting.card_le (wrong uniformity).",
+  "mathlib_gap_grep_2026_08_27": "Pin mathlib a719ba5c3115 (v4.10.0). rg -li 'erdos.?ko.?rado|KoRado|ko_rado' over Mathlib/**/*.lean → ZERO hits. Negative controls HIT: Turan.lean turanGraph; ErdosGinzburgZiv.lean erdos_ginzburg_ziv; LYM.lean IsAntichain.sperner; Hall/Finite.lean HallMarriageTheorem; CauchyDavenport.lean ZMod.min_le_card_add. Adjacent non-EKR content: Combinatorics/SetFamily/Intersecting.lean (non-uniform 2^{n-1} only).",
+  "statement_pin_required": {
+    "convention": "Fix n k : ℕ with 2 * k ≤ n. Let F be a Finset of k-element Finsets of Fin n. Intersecting means ∀ A B ∈ F, A ∩ B ≠ ∅. Claim: F.card ≤ (n-1).choose (k-1). Star construction: for any i : Fin n, {A | i ∈ A} is intersecting of that size.",
+    "landmines": [
+      "n ≥ 2k is ESSENTIAL. If n < 2k every two k-sets intersect and the max is C(n,k), not C(n-1,k-1). Do not state the bound without the hypothesis.",
+      "Do NOT cite Mathlib Intersecting.card_le as EKR — that is the non-uniform boolean-lattice half-power-set bound.",
+      "k = 0 / k > n edge cases: pin k ≥ 1 and k ≤ n (or prove trivially separately).",
+      "Equality uniqueness (stars unique for n > 2k; complementary pairs when n = 2k) is OUT OF v1 scope unless leftover budget."
+    ],
+    "canonical_source": "P. Erdős, C. Ko, R. Rado, Intersection theorems for systems of finite sets, Quart. J. Math. Oxford Ser. (2) 12 (1961) 313–320. Proof pin: Katona cycle method (cyclic permutations; interval k-sets)."
+  },
+  "feasibility_shape": "Level A: definitions + star construction meets the bound + n=2k complementary pairing. Level B: Katona cycle double-count for n ≥ 2k. No SAT/native_decide explosion; no offline witness search.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SetFamily.Intersecting — Intersecting predicate (non-uniform); do not reuse the card_le theorem as the claim",
+    "Mathlib Data.Nat.Choose / Finset.card_powersetCard",
+    "Mathlib Combinatorics.SetFamily.Shadow / LYM — shadows exist if Formalist prefers compression/shifting over Katona",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "180k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-27",
+  "scout_issue": "OPE-533",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: zero EKR hits; Intersecting.card_le confirmed non-uniform only",
+    "Eligibility: new uniformity layer, not a re-warm of Sperner/LYM or of closed Ramsey/Schur/VdW/ES scopes"
+  ]
+}
