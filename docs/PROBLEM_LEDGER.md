@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-28 (OPE-568 Formalist: `dirac-hamiltonian` Level B full v1 `dirac_hamiltonian` longest-path/cycle-closing; OPE-559 Level A reused)
+**Last updated:** 2026-08-28 (OPE-574 Scout: consume OPE-553/Dirac-B; PR #43/#45 MERGED; shortlist `eulerian-hierholzer` 88 prime / `konig-bipartite` 84)
 
 ## Lifecycle labels
 
@@ -26,8 +26,8 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 
 | Problem ID | Domain | Tickets | Disposition | Novelty | Primary artifacts |
 |------------|--------|---------|-------------|---------|-------------------|
-| `dirac-hamiltonian` | graph theory | OPE-553 Scout #2; OPE-559 Level A; **OPE-568** Level B | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Dirac.lean`: `dirac_hamiltonian` (`3 ≤ n → 2 * minDegree ≥ n → IsHamiltonian`) via longest-path / cycle-closing. Reuses Level A `connected_of_dirac`, `isHamiltonian_complete`, `dirac_hamiltonian_card_eq_three`. `lake build ProofLab.Dirac` + `lake build ProofLab` green. **No novelty claim.** n≥3 load-bearing. Cycle, not path. Ore stretch not attacked. Adversarial Reviewer is the next gate — do not self-approve. | Known classical (Dirac 1952); Mathlib v4.10.0 has Hamiltonian defs only | `catalog/problems/dirac-hamiltonian/STATEMENT.md`, Lean `ProofLab/Dirac.lean` |
-| `euler-odd-distinct` | partition theory | OPE-553 Scout prime; **OPE-558** Formalist | **`formalized`** (formalize-only, PR **#43** open — Adversarial Reviewer is next gate). Lean **zero-sorry** `ProofLab/EulerPartition.lean`: `euler_odd_eq_distinct` (`Finset.card_bij'` Glaisher, no mod-6 filter) + Level A `n≤10` `native_decide` guard. `lake env lean` EXIT=0; `lake build ProofLab` green. Axioms: ∀n = propext/Classical.choice/Quot.sound only (no `sorryAx`, no `ofReduceBool` on the identity). **No novelty claim.** Do **not** import Archive/Theorems100. Do **not** re-prime `schur_partition`. | Known classical (Euler 1748 / Glaisher 1883); Mathlib v4.10.0 has `odds`/`distincts` defs only — card equality was Archive GF, not Mathlib | `catalog/problems/euler-odd-distinct/STATEMENT.md`, Lean `ProofLab/EulerPartition.lean` |
+| `dirac-hamiltonian` | graph theory | OPE-553 Scout #2; OPE-559 Level A; **OPE-568** Level B | **`formalized`** (formalize-only). PRs **#44** (Level A) and **#45 MERGED** (`3723b07`, 2026-08-28). Lean **zero-sorry** `ProofLab/Dirac.lean`: `dirac_hamiltonian` (`3 ≤ n → 2 * minDegree ≥ n → IsHamiltonian`) via longest-path / cycle-closing. Reuses Level A `connected_of_dirac`, `isHamiltonian_complete`, `dirac_hamiltonian_card_eq_three`. `lake build ProofLab.Dirac` + `lake build ProofLab` green. **No novelty claim.** n≥3 load-bearing. Cycle, not path. Ore stretch not attacked — not a Scout leftover re-prime. Do **not** re-prime Level A/B. | Known classical (Dirac 1952); Mathlib v4.10.0 has Hamiltonian defs only | `catalog/problems/dirac-hamiltonian/STATEMENT.md`, Lean `ProofLab/Dirac.lean` |
+| `euler-odd-distinct` | partition theory | OPE-553 Scout prime; **OPE-558** Formalist | **`formalized`** (formalize-only). PR **#43 MERGED**. Lean **zero-sorry** `ProofLab/EulerPartition.lean`: `euler_odd_eq_distinct` (`Finset.card_bij'` Glaisher, no mod-6 filter) + Level A `n≤10` `native_decide` guard. `lake env lean` EXIT=0; `lake build ProofLab` green. Axioms: ∀n = propext/Classical.choice/Quot.sound only (no `sorryAx`, no `ofReduceBool` on the identity). **No novelty claim.** Do **not** import Archive/Theorems100. Do **not** re-prime `schur_partition`. | Known classical (Euler 1748 / Glaisher 1883); Mathlib v4.10.0 has `odds`/`distincts` defs only — card equality was Archive GF, not Mathlib | `catalog/problems/euler-odd-distinct/STATEMENT.md`, Lean `ProofLab/EulerPartition.lean` |
 | `erdos-ko-rado` | extremal set theory | OPE-533 Scout prime; **OPE-534** Level A; **OPE-541** Katona Level B | **`formalized`** (formalize-only). PRs **#39** and **#41 MERGED**. Lean zero-sorry `ProofLab/ErdosKoRado.lean` (`erdos_ko_rado`). Do **not** re-prime. | Known classical (1961); Mathlib gap was k-uniform (non-uniform `Intersecting.card_le` only) | `problems/erdos-ko-rado/STATEMENT.md`, Lean `ProofLab/ErdosKoRado.lean` |
 | `friendship-windmill` | graph theory | OPE-533 Scout #2; **OPE-535** | **`formalized`** (formalize-only). PR **#40 MERGED**. Lean zero-sorry `ProofLab/Friendship.lean`. Finite graphs only. Do **not** re-prime. | Known classical (ERS 1966); Mathlib gap (defs `commonNeighbors`/`IsSRGWith`; theorem was Archive-only) | `problems/friendship-windmill/STATEMENT.md`, Lean `ProofLab/Friendship.lean` |
 | `schur-partition-full-glaisher` | partitions | OPE-458 bench; OPE-440/445/447 ladder; **OPE-463** | **`formalized`** (formalize-only). `theorem schur_partition` in `ProofLab/SchurGlaisher.lean` (`Finset.card_bij'` Glaisher, zero-sorry) on merged main. Unbench criteria met (PRs #30/#31/#32 MERGED) **and** ∀n identity landed — treat as CONSUMED. Do **not** re-prime. | Known classical (Schur 1926 / Glaisher); Mathlib still has no Schur-partition theorem | `ProofLab/SchurGlaisher.lean`, `catalog/problems/schur-partition-full/` |
@@ -340,6 +340,71 @@ Re-evaluated, not shortlisted (do not rubber-stamp OPE-533 leftovers):
 - **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
 - **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
   (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
+
+**OPE-574 update (2026-08-28, Scout, support OPE-573):** catalog audit + fresh ≤2 shortlist.
+OPE-553 shortlist **plus** OPE-567 Dirac Level B continuation is **fully consumed on merged main**.
+Zero open PRs at scout start (`origin/main` = merge of PR #45, `3723b07`). Director does not invent primes.
+
+Consumption (live this run):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `euler-odd-distinct` | OPE-558 Formalist; Reviewer APPROVE; PR **#43 MERGED**. `euler_odd_eq_distinct` on main | yes |
+| `dirac-hamiltonian` | OPE-559 Level A PR **#44 MERGED**; OPE-568 Level B PR **#45 MERGED**. Full v1 `dirac_hamiltonian` on main, zero-sorry | yes (not Level A/B; Ore is not a leftover re-prime) |
+| `erdos-ko-rado` / friendship-windmill / schur_partition / schur-partition-full-glaisher | previously consumed | yes |
+| ramsey-r33 / R(3,4) / R(4,4); ramsey-r35; ramsey-multicolor-r333 (PR #36); weak-schur-ws2 (PR #35); S(2)/S(3); W(2,3); ES monotone; ES(3)=5 (PRs #24/#25); EW k=16; frobenius / derangement / catalan / turan | previously closed or already-in-Mathlib | yes |
+
+**Leave OPE-403 alone** (Happy Ending parked on board confirmation since 2026-08-24).
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport,
+EGZ, Sperner/LYM, Hall marriage (`HallMarriageTheorem`), Wilson, Lucas, Zeckendorf, Beatty,
+Pythagorean triples, Turán, non-uniform `Intersecting.card_le`, Hilbert Nullstellensatz
+(`RingTheory/Nullstellensatz.lean` — **not** Alon's combinatorial form), Chevalley–Warning,
+Burnside's lemma (group actions), Lagrange four squares, quadratic reciprocity, Möbius
+inversion, Hamiltonian *definitions* (Dirac theorem now in ProofLab, not Mathlib),
+`Walk.IsEulerian` + necessary `card_odd_degree` (existence TODO remains),
+`Subgraph.IsMatching` (no König / no vertex cover).
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`eulerian-hierholzer` — RECOMMENDED PRIME (88).** Why-not-classical: Euler 1736 /
+   Hierholzer 1873 is settled. Why still a bet: `Trails.lean` has `IsEulerian` and the
+   **necessary** 0-or-2 odd-degree theorem; the module TODO is the **existence**
+   direction. New proof layer vs closed Dirac (edges-once trail ≠ vertices-once cycle).
+   Archive Königsberg is a negative custom-graph instance, not this theorem.
+   STATEMENT pin: `catalog/problems/eulerian-hierholzer/STATEMENT.md`.
+2. **`konig-bipartite` (84).** Why-not-classical: Kőnig 1931 `ν=τ` for bipartite graphs
+   is settled. Why still a bet: Matching defs exist; no vertex-cover predicate and no
+   min-max. Hall SDR is a different upstream theorem. Atomic matching primitive —
+   Dilworth still a gap but is **not** rubber-stamped (needs this layer).
+   STATEMENT pin: `catalog/problems/konig-bipartite/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-553 leftovers):
+
+- **Dilworth:** gap still holds (ZERO hits Mathlib+Archive). Hall + antichains exist;
+  `Matching.lean` still has no König/vertex-cover. Comparability-matching remains a
+  larger first bite than Eulerian (defs+TODO waiting) or König (the primitive). Bench
+  until König lands.
+- **Combinatorial Nullstellensatz:** gap still holds (Hilbert NS ≠ Alon 1999; ZERO
+  combinatorial hits). Chevalley–Warning already upstream, so the finite-field
+  corollary motivation is weaker. Algebra-heavy `MvPolynomial` unused in ProofLab. Bench.
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime.
+- **Ore stretch:** independently a remaining Mathlib gap (Hamiltonian defs only; Ore
+  hits are localization, not Ore's theorem). Proof shape is a re-warm of the just-closed
+  Dirac longest-path argument. **Not slotted** — not a Dirac leftover; slot cap used
+  by fresher bets with explicit TODOs / missing predicates.
+- **Cayley `n^{n-2}`:** gap holds (IsTree exists; no labelled-tree count). Encoding
+  landmine: `SimpleGraph` is a large type, so the claim must go through edge-Finsets /
+  Prüfer codes, not `Fintype.card {G // G.IsTree}`. Bench (definition risk).
+- **Brooks:** gap holds (Colorable / chromaticNumber exist; no greedy `χ ≤ Δ+1` even).
+  Longer critical-graph proof; slot cap used.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 

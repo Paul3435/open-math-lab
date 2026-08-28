@@ -1,0 +1,46 @@
+{
+  "id": "eulerian-hierholzer",
+  "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 88,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 17,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Euler 1736 / Hierholzer 1873: a finite connected graph has an Eulerian circuit iff every degree is even, and an Eulerian trail iff exactly 0 or 2 vertices have odd degree. Completely settled. Value is a Mathlib contribution (Trails.lean has IsEulerian + the necessary parity; the existence TODO is still open). Archive Konigsberg is a negative instance on a custom graph, not this theorem. Do NOT re-fund as novel.",
+  "recommendation": "RECOMMENDED PRIME — genuinely NEW proof layer over SimpleGraph Walk/Trails (existence of a trail from a degree-parity + connectivity hypothesis), not a re-warm of closed Dirac (Hamiltonian = vertices once, not edges once) nor of Archive Königsberg (not Eulerian). Mathlib v4.10.0 Trails.lean L28-29 is an explicit TODO matching the claim. Defs waiting: IsEulerian, card_odd_degree, Connected, DegreeSum.",
+  "mathlib_gap_grep_2026_08_28": "Pin mathlib a719ba5c3115 (v4.10.0). Mathlib/Combinatorics/SimpleGraph/Trails.lean: def IsEulerian; theorems even_degree_iff / card_odd_degree (NECESSARY); TODO L28-29 existence NOT proved; file ends L160. rg Hierholzer|exists.*IsEulerian over Mathlib/**/*.lean → ZERO hits. Archive/Wiedijk100Theorems/Konigsberg.lean HAS a non-Eulerian custom graph — disclosed, not Mathlib, not existence. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Adjacent non-claim: Hamiltonian.lean defs (Dirac closed in ProofLab, different theorem).",
+  "statement_pin_required": {
+    "convention": "Fix G : SimpleGraph V, Fintype V, G.Connected. Let oddDeg = {v | Odd (G.degree v)}. If card oddDeg = 0 then ∃ circuit p, p.IsEulerian. If card oddDeg = 2 then ∃ Eulerian trail between those two vertices. Use Mathlib Walk.IsEulerian / IsCircuit.",
+    "landmines": [
+      "Connectedness is essential (two disjoint even-degree components are a counterexample to '0-or-2 odd degrees ⇒ Eulerian'). Do not copy the Trails.lean TODO without G.Connected.",
+      "SimpleGraph has no parallel edges; do not formalize Königsberg (Archive already did a custom-graph negative instance).",
+      "Eulerian ≠ Hamiltonian. Do not re-prime Dirac.",
+      "0 odd ⇒ circuit; 2 odd ⇒ open trail. Finite only.",
+      "K_1 nil walk is the empty-edge connected case."
+    ],
+    "canonical_source": "L. Euler, Solutio problematis ad geometriam situs pertinentis, Comm. Acad. Sci. Petrop. 8 (1736) 128–140. Constructive pin: C. Hierholzer, Math. Ann. 6 (1873) 30–32. Type pin: Mathlib SimpleGraph.Walk.IsEulerian + SimpleGraph.Connected."
+  },
+  "feasibility_shape": "Level A: K_1 + even cycles + reuse card_odd_degree necessary direction. Level B: Hierholzer circuit-merging / induction on edgeSet.card. Walk API verbosity is the sink (same family as Dirac) — cap two levels; no native_decide on 2^{n^2} graphs.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Trails — IsEulerian, card_odd_degree (necessary)",
+    "Mathlib Combinatorics.SimpleGraph.Path — Connected / Reachable / Walk",
+    "Mathlib Combinatorics.SimpleGraph.DegreeSum — handshaking (odd-degree count even)",
+    "ProofLab/Dirac.lean — recent Walk/degree muscle; do not reuse Hamiltonian hypotheses",
+    "Lab graph-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "170k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-28",
+  "scout_issue": "OPE-574",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: Trails.lean necessary direction only; explicit existence TODO; Archive Konigsberg disclosed as negative instance",
+    "Eligibility: new edge-cover trail layer, not a re-warm of closed Dirac Hamiltonian longest-path",
+    "Negative control turan → Turan.lean exists"
+  ]
+}
