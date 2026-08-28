@@ -1,4 +1,3 @@
-bash.exe: warning: could not find /tmp, please create!
 # mathforge Problem Catalog
 
 This directory contains curated mathematical problems suitable for formalization
@@ -121,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-27 (OPE-533 Scout: audit + shortlist `erdos-ko-rado` 87 prime / `friendship-windmill` 84). Ledger SoT for history.
+**Last updated:** 2026-08-28 (OPE-553 Scout: audit + shortlist `euler-odd-distinct` 87 prime / `dirac-hamiltonian` 84; OPE-533 EKR+Friendship+Glaisher consumed). Ledger SoT for history.
