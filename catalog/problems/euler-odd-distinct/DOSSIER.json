@@ -1,0 +1,44 @@
+{
+  "id": "euler-odd-distinct",
+  "title": "Euler's partition theorem: odd parts = distinct parts (formalize-only)",
+  "status": "candidate",
+  "domain": "partition_theory",
+  "score": 87,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Euler 1748: the number of partitions of n into odd parts equals the number of partitions of n into distinct parts. Completely settled. Value is a Mathlib contribution (the Partition API was built for this theorem and still lacks it under Mathlib/**). Do NOT re-fund as novel. Archive/Wiedijk100Theorems/Partition.lean already has Theorems100.partition_theorem via generating functions — that is NOT a Mathlib theorem and is NOT the ProofLab proof (Glaisher bijection).",
+  "recommendation": "RECOMMENDED PRIME — genuinely NEW identity vs consumed schur_partition (mod-3/mod-6), not a re-warm of that claim. Mathlib v4.10.0 Combinatorics/Enumerative/Partition.lean L25 states the structure exists to show Euler's partition theorem; defs odds/distincts exist; no card equality under Mathlib/** (grep partition_theorem/Theorems100 in Mathlib/ → ZERO). Glaisher bijection is a new proof layer relative to Archive PowerSeries. Infra carry-over: ProofLab/SchurGlaisher.lean oddPart/val2/expandPart/Finset.card_bij'.",
+  "mathlib_gap_grep_2026_08_28": "Pin mathlib a719ba5c3115 (v4.10.0). Mathlib/Combinatorics/Enumerative/Partition.lean: defs odds/distincts/oddDistincts; file ends L182; no card equality. rg partition_theorem|Theorems100 over Mathlib/**/*.lean → ZERO hits. Archive/Wiedijk100Theorems/Partition.lean HAS Theorems100.partition_theorem (GF/PowerSeries) — disclosed, not Mathlib. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Adjacent non-Euler: ProofLab/SchurGlaisher.lean theorem schur_partition (consumed; different identity).",
+  "statement_pin_required": {
+    "convention": "For every n : ℕ, (Nat.Partition.odds n).card = (Nat.Partition.distincts n).card, with Mathlib odds = all parts odd and distincts = parts.Nodup. Proof pin: Glaisher bijection (oddPart * 2^val2 grouping / binary expansion of multiplicities), Finset.card_bij'.",
+    "landmines": [
+      "Do NOT re-prime schur-partition / theorem schur_partition (distinct ≡1,2 mod 3 vs parts ≡±1 mod 6).",
+      "Do NOT transcribe Archive Theorems100 generating-function proof into ProofLab; do not import Archive.*",
+      "oddDistincts (odd AND distinct) is not the claim.",
+      "No zero parts (parts_pos). n=0 empty partition: both cards = 1.",
+      "Distinct means Nodup, not 'distinct modulo m'."
+    ],
+    "canonical_source": "Euler 1748 (GF identity). Combinatorial bijection: J. W. L. Glaisher, A theorem in partitions, Messenger of Math. 12 (1883) 158–170. Type pin: Mathlib Nat.Partition.odds / distincts."
+  },
+  "feasibility_shape": "Level A: oddPart/val2/expandPart without mod-6 filter + n≤10 native_decide card guard. Level B: ∀n Finset.card_bij' Glaisher. No SAT explosion. Cap two levels. Do not import Archive.",
+  "infra_carry_over": [
+    "ProofLab/SchurGlaisher.lean — oddPart, val2, expandPart, collapsePart, Finset.card_bij' (strip mod-6)",
+    "Mathlib Combinatorics.Enumerative.Partition — Partition, odds, distincts, ofMultiset/ofSums",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "160k",
+  "skill_packs": ["combinatorics", "formalization", "partition-theory"],
+  "scored_at": "2026-08-28",
+  "scout_issue": "OPE-553",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: odds/distincts defs only; no Mathlib/** theorem; Archive GF proof disclosed",
+    "Eligibility: new identity vs consumed Schur–Glaisher; Glaisher bijection is a new proof layer vs Archive PowerSeries",
+    "Negative control turan → Turan.lean exists"
+  ]
+}

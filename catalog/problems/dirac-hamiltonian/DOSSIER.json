@@ -1,0 +1,45 @@
+{
+  "id": "dirac-hamiltonian",
+  "title": "Dirac's theorem: δ ≥ n/2 ⇒ Hamiltonian (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Dirac 1952: every simple graph on n≥3 vertices with minimum degree at least n/2 is Hamiltonian. Settled undergraduate theorem. Value is a Mathlib contribution (Hamiltonian defs exist; no degree sufficient condition). Do NOT re-fund as novel. Ore is a classical strengthening — optional stretch, not v1.",
+  "recommendation": "Shortlist #2 — genuinely NEW proof layer over SimpleGraph Hamiltonian API (existence of a cycle from a degree bound), not a re-warm of Friendship (windmill/common-neighbours), EKR (intersecting families), or Ramsey (cliques in colourings). Walk/Path longest-path arguments are fiddly in Lean — that is the budget risk, not the mathematics.",
+  "mathlib_gap_grep_2026_08_28": "Pin mathlib a719ba5c3115 (v4.10.0). Combinatorics/SimpleGraph/Hamiltonian.lean: defs IsHamiltonian (walk), IsHamiltonianCycle, SimpleGraph.IsHamiltonian + connectivity lemmas; file ends L137; NO Dirac/Ore sufficient condition. rg -l -i dirac over Mathlib/**/*.lean hits analysis/measure Dirac, ZERO graph-theory Dirac. rg hamiltonian → Hamiltonian.lean only. Archive: ZERO Dirac/Hamiltonian hits. Ore hits are Ore localization, not Ore's theorem. Negative control HIT: Turan.lean. Infra present but insufficient: Walk/Path/DegreeSum/Hamiltonian defs.",
+  "statement_pin_required": {
+    "convention": "Fix G : SimpleGraph V, Fintype V, n = card V, 3 ≤ n, 2 * G.minDegree ≥ n. Claim: G.IsHamiltonian (Mathlib: exists a Hamiltonian cycle). Integer form of δ ≥ n/2 is 2δ ≥ n.",
+    "landmines": [
+      "n ≥ 3 is essential (K2 is a counterexample to the n≥2 reading).",
+      "Mathlib IsHamiltonian singleton convention must not be used as a fake Dirac proof.",
+      "Claim is Hamiltonian CYCLE, not path; directed Dirac out of scope.",
+      "minDegree vs average; pin 2 * minDegree ≥ n.",
+      "Ore stretch only if leftover budget; not required for v1."
+    ],
+    "canonical_source": "G. A. Dirac, Some theorems on abstract graphs, Proc. London Math. Soc. (3) 2 (1952) 69–81. Proof pin: longest-path closing (Bondy–Murty / Diestel)."
+  },
+  "feasibility_shape": "Level A: n=3 + complete graphs + connectedness from δ. Level B: longest-path / cycle-closing. Walk API verbosity is the sink — cap two levels; no native_decide on 2^{n^2} graphs.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Hamiltonian — IsHamiltonian / IsHamiltonianCycle",
+    "Mathlib Combinatorics.SimpleGraph.Walk / Path / DegreeSum",
+    "ProofLab/Friendship.lean — recent SimpleGraph muscle (commonNeighbors, degrees); do not reuse friendship hypotheses",
+    "Lab graph-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "180k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-28",
+  "scout_issue": "OPE-553",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: Hamiltonian defs only; no Dirac/Ore theorem; Archive empty",
+    "Eligibility: new degree-to-cycle layer, not a re-warm of Friendship/EKR/Ramsey",
+    "Negative control turan → Turan.lean exists"
+  ]
+}

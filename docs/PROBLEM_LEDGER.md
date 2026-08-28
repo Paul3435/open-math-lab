@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-27 (OPE-533 Scout: `erdos-ko-rado` prime / `friendship-windmill` #2; also OPE-461 R(3,3,3)=17; OPE-462 WS(2)=8; OPE-458 scout)
+**Last updated:** 2026-08-28 (OPE-553 Scout: `euler-odd-distinct` prime / `dirac-hamiltonian` #2; OPE-533 EKR+Friendship consumed; Schur–Glaisher ∀n consumed)
 
 ## Lifecycle labels
 
@@ -26,11 +26,14 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 
 | Problem ID | Domain | Tickets | Disposition | Novelty | Primary artifacts |
 |------------|--------|---------|-------------|---------|-------------------|
-| `ramsey-multicolor-r333` | graph theory / combinatorics | OPE-458 Scout prime; **OPE-461 Formalist** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/RamseyMulticolor.lean`: `r333_gt_16` (GG F₂⁴ cert on Fin 16, `native_decide`); `r333_le_17` (pigeonhole deg≥6 + `ramsey33_clique_inside_finset` pullback); `r333_eq_17`. `lake env lean` EXIT=0; `lake build ProofLab` green. Axioms: propext/Quot.sound/Classical.choice/`Lean.ofReduceBool` only. **No novelty claim**. | Known classical (Greenwood–Gleason 1955); Mathlib gap (no multicolour Ramsey) | `problems/ramsey-multicolor-r333/STATEMENT.md`, Lean `ProofLab/RamseyMulticolor.lean`, `attacks/ramsey-multicolor-r333-20260825-ope461/`, cert `catalog/problems/ramsey-multicolor-r333/witness16_certificate.txt` |
+| `erdos-ko-rado` | extremal set theory | OPE-533 Scout prime; **OPE-534** Level A; **OPE-541** Katona Level B | **`formalized`** (formalize-only). PRs **#39** and **#41 MERGED**. Lean zero-sorry `ProofLab/ErdosKoRado.lean` (`erdos_ko_rado`). Do **not** re-prime. | Known classical (1961); Mathlib gap was k-uniform (non-uniform `Intersecting.card_le` only) | `problems/erdos-ko-rado/STATEMENT.md`, Lean `ProofLab/ErdosKoRado.lean` |
+| `friendship-windmill` | graph theory | OPE-533 Scout #2; **OPE-535** | **`formalized`** (formalize-only). PR **#40 MERGED**. Lean zero-sorry `ProofLab/Friendship.lean`. Finite graphs only. Do **not** re-prime. | Known classical (ERS 1966); Mathlib gap (defs `commonNeighbors`/`IsSRGWith`; theorem was Archive-only) | `problems/friendship-windmill/STATEMENT.md`, Lean `ProofLab/Friendship.lean` |
+| `schur-partition-full-glaisher` | partitions | OPE-458 bench; OPE-440/445/447 ladder; **OPE-463** | **`formalized`** (formalize-only). `theorem schur_partition` in `ProofLab/SchurGlaisher.lean` (`Finset.card_bij'` Glaisher, zero-sorry) on merged main. Unbench criteria met (PRs #30/#31/#32 MERGED) **and** ∀n identity landed — treat as CONSUMED. Do **not** re-prime. | Known classical (Schur 1926 / Glaisher); Mathlib still has no Schur-partition theorem | `ProofLab/SchurGlaisher.lean`, `catalog/problems/schur-partition-full/` |
+| `ramsey-multicolor-r333` | graph theory / combinatorics | OPE-458 Scout prime; **OPE-461 Formalist** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/RamseyMulticolor.lean`: `r333_gt_16` (GG F₂⁴ cert on Fin 16, `native_decide`); `r333_le_17` (pigeonhole deg≥6 + `ramsey33_clique_inside_finset` pullback); `r333_eq_17`. `lake env lean` EXIT=0; `lake build ProofLab` green. Axioms: propext/Quot.sound/Classical.choice/`Lean.ofReduceBool` only. **No novelty claim**. PR **#36 MERGED**. | Known classical (Greenwood–Gleason 1955); Mathlib gap (no multicolour Ramsey) | `problems/ramsey-multicolor-r333/STATEMENT.md`, Lean `ProofLab/RamseyMulticolor.lean`, `attacks/ramsey-multicolor-r333-20260825-ope461/`, cert `catalog/problems/ramsey-multicolor-r333/witness16_certificate.txt` |
 | `erdos-woods` | elem. number theory | OPE-12 attack; OPE-15 hygiene veto; OPE-334 dossier refresh; **OPE-391 Formalist** | **formalize-only, Lean ZERO-sorry** (`ProofLab/ErdosWoodsCorrect.lean`): literature predicate open interval `(a,a+k)`; `isErdosWoodsWitness_16_2184` + `erdos_woods_16` via `interval_cases`+`native_decide` on 15 interiors; `lake env lean ProofLab/ErdosWoodsCorrect.lean` EXIT=0; `ProofLab.lean` EXIT=0. Vetoed wrong draft renamed `ErdosWoodsVetoed.lean` (not imported). Minimality of a=2184 **not** proven (literature/OEIS). **No novelty claim**. Prior OPE-12 claim remains vetoed. | Known (1980) | `problems/erdos-woods/`, Lean `ProofLab/ErdosWoodsCorrect.lean`, `attacks/erdos-woods-20260730-125506/` (+ BOARD_VETO) |
 | `sum-free-subsets` | additive combinatorics | OPE-14 (board may still be open); children OPE-23/32/33/34 | **Classical Erdős (1965)** process demo. **Lean ZERO-sorry** (`sum_free_subset_bound`, wired via `erdos_sum_free_bound`; `lake env lean ProofLab/SumFree.lean` exit 0); Erdős computational verify 200/200. Adversarial veto (2026-07-31, 3 sorries + strategy mismatch) **lifted** by Adversarial Reviewer 2026-08-07. Known theorem — **`informal` / process fuel, not a discovery claim**. `lake build ProofLab` OK | Known theorem | `problems/sum-free-subsets/`, `attacks/sum-free-subsets-20260730-221216/`, Lean `ProofLab/SumFree.lean` (+ `ErdosSumFree.lean`) |
 | `graceful-tree-conjecture` (bounded caterpillars n≤12) | graph theory | OPE-13 attack; OPE-18 review; OPE-20 re-review | **`heuristic`** bounded verify: 560 distinct non-iso caterpillars, 0 search failures after dedup. Family already known graceful for all n (Rosa/Golomb). **Not** full GTC; **not** Lean-gated | Sanity check, not new math | `problems/graceful-tree-conjecture/`, `attacks/graceful-tree-conjecture-20260731-094627/` |
-| `schur-partition` | partitions | OPE-2 seed; OPE-25 shortlist; OPE-21 Director approve; OPE-26 Level A+B; **OPE-424 partial ladder** | **`heuristic`** — OPE-424 closed as a **partial ladder** (finite certs n≤24 computable / n≤12 Finset + bridge; zero sorry; PR #27) with Adversarial approval in OPE-426. Full ∀n A(n)=B(n) remains OPEN — finite-certificate scope closed, do not re-prime. STATEMENT pin 2026-08-04 held (distinct parts ≡1,2 mod 3 = parts ≡±1 mod 6). Formalize-only | Known (1926); **genuine Mathlib gap** (OPE-25 + OPE-430 grep) | `problems/schur-partition/`, `ProofLab/Schur.lean`, PR #27 |
+| `schur-partition` | partitions | OPE-2 seed; OPE-25 shortlist; OPE-21 Director approve; OPE-26 Level A+B; **OPE-424 partial ladder**; **OPE-447/463 Glaisher ∀n** | **OPE-424 finite-certificate scope remains `heuristic`** (n≤24 DP / n≤12 Finset; PR #27). **∀n identity CONSUMED** as `theorem schur_partition` in `ProofLab/SchurGlaisher.lean` (zero-sorry Glaisher bijection). Do **not** re-prime either scope. STATEMENT pin 2026-08-04 held. | Known (1926); Mathlib still has no Schur-partition theorem | `problems/schur-partition/`, `ProofLab/Schur.lean`, `ProofLab/SchurGlaisher.lean` |
 | `frobenius-coin-problem` | number theory | OPE-21/22; OPE-25 | **process-fuel** (not gap prime). Mathlib already has `frobeniusNumber_pair`. Level A/B artifacts under attack dir + `ProofLab/Frobenius.lean` | Known textbook; already-in-Mathlib | `problems/frobenius-coin-problem/`, `attacks/frobenius-coin-problem-20260804-222513/` |
 | `ramsey-r35` | graph theory / combinatorics | OPE-390 scout prime; **OPE-393** attack | **`formalized`** (formalize-only). Lean **zero-sorry** `ramsey35_eq_14` in `ProofLab/Ramsey.lean`: lower circulant C13({±1,±5}) `native_decide`; upper `R(2,5)+R(3,4)=5+9` via `ramsey_two_right` + `ramsey34_le_9` + `ramseyUpper_add`. `lake build ProofLab` green. Default **no claim**. | Known classical (Greenwood–Gleason 1955); Mathlib gap remains for upstream packaging | `problems/ramsey-r35/`, Lean `ProofLab/Ramsey.lean`, `attacks/ramsey-r35-20260824/` |
 | `ramsey-r33` | graph theory / combinatorics | OPE-40 scout keep-fresh; OPE-43 shortlist+prime; OPE-44 attack | **`formalized`** (formalize-only). Lean **zero-sorry**, `lake build ProofLab` green: `ramsey33_eq_6`, `ramsey34_eq_9`, `ramsey44_eq_18` (`ProofLab/Ramsey.lean`). Hand pigeonhole R(3,3)≤6; degree-parity R(3,4)≤9; recurrence R(4,4)≤18; lower bounds via C5 / 8-vtx witness / Paley-17. Default **no claim**. Board 2026-08-24: independent `lake env lean ProofLab/Ramsey.lean` EXIT=0. | Known classical; **genuine Mathlib gap** (no Ramsey theorem in v4.10.0) | `problems/ramsey-r33/`, Lean `ProofLab/Ramsey.lean` |
@@ -285,6 +288,58 @@ W(2,4)≤35 / ES(4) / ramsey-r46 unchanged rejects; Glaisher forall-n stays benc
 Director assigns after approval. Scout opened **no attack issues**. Merge backlog (#34 then
 #36/#35, plus #22–#33) is still a board problem; this shortlist does not require those merges
 to *start* (new modules), but stacking more unmerged Lean still deepens the PR pile.
+
+**OPE-553 update (2026-08-28, Scout, support OPE-552):** catalog audit + fresh ≤2 shortlist.
+OPE-533 shortlist is **fully consumed on merged main**. Zero open PRs at scout start
+(`origin/main` = merge of PR #41). Director does not invent primes.
+
+Consumption (live this run):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `erdos-ko-rado` | OPE-534 PR #39 MERGED; OPE-541 PR #41 MERGED; `erdos_ko_rado` on main | yes |
+| `friendship-windmill` | OPE-535 PR #40 MERGED | yes |
+| `schur-partition-full-glaisher` / OPE-463 | unbench criteria met **and** `theorem schur_partition` already on main | yes (consumed, not a new prime) |
+| ramsey-r33 / r35 / r333; WS(2); S(2)/S(3); W(2,3); ES monotone; ES(3)=5; EW k=16; frobenius / derangement / catalan / turan | previously closed or already-in-Mathlib | yes |
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport,
+EGZ, Sperner/LYM, Hall marriage, Wilson, Lucas, Zeckendorf, Beatty, Pythagorean triples,
+Turán, non-uniform `Intersecting.card_le`, Hilbert Nullstellensatz
+(`RingTheory/Nullstellensatz.lean` — **not** Alon's combinatorial form), Hamiltonian
+*definitions* (not Dirac), `Nat.Partition.odds`/`distincts` *definitions* (not Euler).
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`euler-odd-distinct` — RECOMMENDED PRIME (87).** Why-not-classical: Euler 1748
+   odd-parts = distinct-parts is settled. Why still a bet: Mathlib
+   `Combinatorics/Enumerative/Partition.lean` defines `odds`/`distincts` and the module
+   docstring says the API exists to show Euler's theorem, but **no** card equality lives
+   under `Mathlib/**` (`partition_theorem`/`Theorems100` → ZERO in Mathlib). Archive
+   `Wiedijk100Theorems/Partition.lean` already has `Theorems100.partition_theorem` via
+   **generating functions** — disclose; ProofLab value is a **Glaisher bijection**
+   (`Finset.card_bij'`), a new proof layer vs Archive PowerSeries and a **different
+   identity** vs consumed `theorem schur_partition`. STATEMENT pin:
+   `catalog/problems/euler-odd-distinct/STATEMENT.md`.
+2. **`dirac-hamiltonian` (84).** Why-not-classical: Dirac 1952 `δ ≥ n/2 ⇒` Hamiltonian
+   (n≥3) is settled. Why still a bet: `SimpleGraph.IsHamiltonian` exists; no degree
+   sufficient-condition (graph `dirac` hits are analysis measures). New proof layer vs
+   Friendship/EKR/Ramsey. STATEMENT pin: `catalog/problems/dirac-hamiltonian/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-533 leftovers):
+
+- **Dilworth:** gap still holds (ZERO hits Mathlib+Archive). Hall + antichains exist;
+  `Matching.lean` still has no König/vertex-cover. Comparability-matching construction
+  remains a larger first bite than Euler (defs waiting) or Dirac (defs waiting). Bench.
+- **Combinatorial Nullstellensatz:** gap still holds (Hilbert NS ≠ Alon 1999; ZERO
+  combinatorial hits). Algebra-heavy `MvPolynomial` surface unused in ProofLab. Bench.
+- **ES(4)=9:** still no human-scale hand proof. Reject.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 
 ## Active sprint (from OPE-43)
 
