@@ -1,0 +1,12 @@
+{
+  "problem_id": "erdos-szekeres-monotone",
+  "level": "full",
+  "status": "formalized",
+  "claim": false,
+  "verify": "cd proofs/lean-project && lake env lean ProofLab/ErdosSzekeres.lean && lake build ProofLab",
+  "lean": "proofs/lean-project/ProofLab/ErdosSzekeres.lean (erdosSzekeres_monotone, zero sorry)",
+  "issues": ["OPE-433", "OPE-437", "OPE-430", "OPE-438"],
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/29",
+  "updated_at": "2026-08-25T13:10:00Z",
+  "notes": "formalize-only; known-classical 1935; weak mono List.Sorted pin; OPE-437 = duplicate commission of OPE-433, re-verified green this heartbeat; OPE-438 adversarial review"
+}
