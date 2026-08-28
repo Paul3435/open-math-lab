@@ -1,0 +1,22 @@
+{
+  "problem_id": "ramsey-r35",
+  "issue": "OPE-393",
+  "status": "formalized",
+  "claim": "none",
+  "expected": "known-classical",
+  "lean_artifact": "proofs/lean-project/ProofLab/Ramsey.lean",
+  "theorems": [
+    "not_ramsey35_13",
+    "ramsey35_gt_13",
+    "ramsey35_le_14",
+    "ramsey35_eq_14",
+    "ramsey_two_right",
+    "ramsey25_le_5"
+  ],
+  "verify": [
+    "cd proofs/lean-project && lake env lean ProofLab/Ramsey.lean",
+    "cd proofs/lean-project && lake build ProofLab"
+  ],
+  "agent": "Attack Lead",
+  "closed_at": "2026-08-24"
+}

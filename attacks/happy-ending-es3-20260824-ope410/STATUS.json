@@ -1,0 +1,35 @@
+{
+  "problem_id": "happy-ending-es3",
+  "issue": "OPE-410",
+  "status": "formalized",
+  "claim": "none",
+  "novelty": "none",
+  "expected": "known-classical",
+  "lean_file": "proofs/lean-project/ProofLab/HappyEndingES3.lean",
+  "zero_sorry": true,
+  "lake_env_lean_exit": 0,
+  "lake_build_ProofLab": "green",
+  "partial": false,
+  "delivered": [
+    "inConvexPosition4_iff_convexIndependent_F1",
+    "exists_convexIndependent_of_inConvexPosition4",
+    "exists_hull_vertex_min",
+    "proj_orient_sums_max_orient_hull_vertex",
+    "exists_third_hull_vertex",
+    "hullVertices_card_ge_two",
+    "hullVertices_card_ge_three_of_gp",
+    "isHullVertex_of_orient_nonneg_nonpos",
+    "both_sides_of_non_hull",
+    "inConvexPosition4_of_same_side_pair",
+    "es_three_eq_five_of_hull_card_eq_three",
+    "es_three_eq_five",
+    "prior_ope403_plumbing_and_hull_ge_four"
+  ],
+  "residual": [
+    "ES4_eq_9_out_of_scope",
+    "board_merge_order_F2_PR23_then_24_then_25"
+  ],
+  "base_branch": "ope/403-happy-ending-es3",
+  "note_f2": "board merges PR#23 then #24; no agent merges",
+  "updated_at": "2026-08-24T22:00:00Z"
+}

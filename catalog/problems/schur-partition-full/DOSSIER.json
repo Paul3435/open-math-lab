@@ -11,9 +11,24 @@
     "verification_budget": 12,
     "crackpot_resistance": 17
   },
+  "total_score": 78,
   "expected": "known-classical",
+  "flags": [
+    "known-classical (Schur 1926); formalize-only — do NOT re-fund as novel",
+    "OPE-424/OPE-426 partial-ladder disposition: finite certificates n<=24 computable / n<=12 Finset + bridge, zero sorry, Adversarial-approved. FULL forall-n A(n)=B(n) remains OPEN — do not re-prime the closed finite-certificate scope.",
+    "OPE-458 scout: Glaisher-ladder continuation scored 76 as BENCH only (budget risk)."
+  ],
+  "target_statement_shape": [
+    "For all n : ℕ, the number A(n) of partitions of n into distinct parts ≡ 1,2 (mod 3)",
+    "equals the number B(n) of partitions of n into parts ≡ ±1 (mod 6):",
+    "A(n) = B(n), i.e. card {p : Nat.Partition n // ∀ q ∈ p.parts, q % 3 ∈ [1, 2] ∧ p.parts.Nodup}",
+    "   = card {p : Nat.Partition n // ∀ q ∈ p.parts, q % 6 ∈ [1, 5]}",
+    "(exact Finset-of-partitions encoding pinned in problems/schur-partition/STATEMENT.md, 2026-08-04)"
+  ],
   "recommendation": "BENCH only (budget risk). Continuation of OPE-440/445/447 Glaisher ladder toward the full forall-n identity: number of partitions of n into distinct parts congruent to 1 or 2 mod 3 equals the number of partitions of n into parts congruent to +/-1 mod 6. The finite-certificate scope is CLOSED (OPE-424/426, PR #27) and the ladder infra exists on unmerged branches ope/440/445/447 — eligible ONLY because lifting finite certs to the universal statement via an explicit Glaisher-style bijection is a genuinely new proof layer (bijection construction + nodup/parts preservation), not a re-warm. Highest infra value in the pool: Mathlib v4.10.0 has Nat.Partition vocabulary but no Euler/Glaisher bijection and no partition generating-function infrastructure.",
   "mathlib_gap_grep_2026_08_25": "No partition generating-function / Euler distinct-parts identity content in pinned snapshot (reconfirmed by OPE-430 grep: no PowerSeries usage under Combinatorics/, no pentagonal-number theorem).",
+  "mathlib_ref": "USE: Mathlib/Combinatorics/Enumerative/Partition.lean (Nat.Partition, odds, distincts, oddDistincts — note oddDistincts exists but odds_card_eq_distincts_card Euler bijection NOT proved; file TODO says only 'link to Young diagrams'). GAP confirmed: grep for schur/partition-congruence content finds nothing (only CategoryTheory Schur lemma etc.) in v4.10.0 snapshot.",
+  "literature_pinning": "Schur, 'Zur Additiven Arithmetik ganzer Zahlen und zur Theorie der Partitionen', Sitzungsberichte der Preussischen Akademie der Wissenschaften (1926). STATEMENT.md already pins the congruence conventions; keep them.",
   "statement_pin_required": {
     "convention": "Reuse STATEMENT pin 2026-08-04 VERBATIM: A(n) = #partitions of n into distinct parts == 1 or 2 mod 3; B(n) = #partitions of n into parts == 1 or 5 mod 6.",
     "landmines": [
@@ -34,5 +49,10 @@
   "scout_probes": [
     "Not re-primed as prime: budget sink profile (verbose Multiset proofs); ranked below both fresh candidates",
     "Eligibility justified per commission rule: universal-statement lift = new proof layer beyond closed finite-certificate scope"
+  ],
+  "notes": [
+    "Highest infra-build value of the three (partition generating functions / Euler-style bijections are missing wholesale in Mathlib)",
+    "Also unlocks Euler's partition theorem (odds = distincts cardinality) as a free corollary target",
+    "Budget risk: bijection-over-Multiset proofs are notoriously verbose in Lean; cap at two levels"
   ]
 }

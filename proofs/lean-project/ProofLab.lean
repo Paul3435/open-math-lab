@@ -5,3 +5,9 @@ import ProofLab.Frobenius
 import ProofLab.ErdosWoodsCorrect
 import ProofLab.SumFree
 import ProofLab.Ramsey
+import ProofLab.ErdosSzekeres
+import ProofLab.Schur
+import ProofLab.SchurGlaisher
+import ProofLab.HappyEndingES3
+import ProofLab.VanDerWaerden
+import ProofLab.SchurNumber
