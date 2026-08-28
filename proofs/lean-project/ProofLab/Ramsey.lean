@@ -11,7 +11,8 @@ open SimpleGraph Finset
 namespace ProofLab.Ramsey
 
 /-!
-# Finite graph Ramsey numbers — R(3,3)=6 / R(3,4)=9 / R(4,4)=18 (formalize-only, OPE-44)
+# Finite graph Ramsey numbers — R(3,3)=6 / R(3,4)=9 / R(4,4)=18 / R(3,5)=14
+(formalize-only, OPE-44 + OPE-393)
 
 A red/blue edge-colouring of the complete graph `K_n` is represented by a
 `SimpleGraph (Fin n)` (the "red" edges); the complement graph is "blue".
@@ -33,7 +34,10 @@ A red/blue edge-colouring of the complete graph `K_n` is represented by a
   8-vertex lower witness).
 * `ramsey44_eq_18` / `ramsey44_le_18`: `R(4,4) = 18` (recurrence via
   `ramseyUpper_add` + Paley-17 lower).
-* Infra: `ramseyUpper_swap`, Fin-6/finset clique transfer, handshake parity.
+* `ramsey35_eq_14` / `ramsey35_le_14` / `ramsey35_gt_13`: `R(3,5) = 14`
+  (recurrence `R(2,5)+R(3,4)=5+9` + circulant `C₁₃({±1,±5})` lower).
+* Infra: `ramseyUpper_swap`, `ramsey_two_right`, Fin-6/finset clique transfer,
+  handshake parity.
 * Known-classical formalize-only; **no novelty claim**.
 -/
 
@@ -825,5 +829,113 @@ theorem ramsey44_eq_18 : (¬ RamseyUpper 4 4 17) ∧ RamseyUpper 4 4 18 :=
 /-- **R(3,3) = 6** as a pair of bounds. -/
 theorem ramsey33_eq_6 : (¬ RamseyUpper 3 3 5) ∧ RamseyUpper 3 3 6 :=
   ⟨ramsey33_gt_5, ramsey33_fin6⟩
+
+/-! ## Trivial row: `R(2,l) = l`
+
+If the red graph on `l` vertices has no edge, the blue graph is complete, so it
+contains a blue `K_l`.  Hence every colouring of `K_l` has a red `K_2` or a blue
+`K_l`, i.e. `R(2,l) ≤ l`.  (Combined with the matching lower bound this is
+equality, but only the upper bound is needed for the recurrence below.) -/
+
+/-- **`R(2,l) ≤ l`**: every red/blue colouring of `K_l` has a red edge or a blue
+`K_l`. -/
+theorem ramsey_two_right (l : ℕ) : RamseyUpper 2 l l := by
+  classical
+  intro G
+  letI : DecidableRel G.Adj := Classical.decRel _
+  by_cases h : ∃ u v : Fin l, G.Adj u v
+  · -- red edge ⇒ red 2-clique
+    rcases h with ⟨u, v, huv⟩
+    have hne : u ≠ v := G.ne_of_adj huv
+    refine Or.inl ⟨({u, v} : Finset (Fin l)), ?_⟩
+    rw [SimpleGraph.isNClique_iff]
+    constructor
+    · intro x hx y hy hxy
+      simp at hx hy
+      rcases hx with rfl | rfl <;> rcases hy with rfl | rfl <;> simp_all
+        <;> try (apply G.symm <;> simp_all)
+    · simp [hne]
+  · -- no red edge ⇒ blue is complete on Fin l
+    push_neg at h
+    refine Or.inr ⟨(univ : Finset (Fin l)), ?_⟩
+    rw [SimpleGraph.isNClique_iff]
+    constructor
+    · intro x _hx y _hy hxy
+      rw [SimpleGraph.compl_adj]
+      exact ⟨hxy, h x y⟩
+    · simp [card_univ, Fintype.card_fin]
+
+/-- Specialisation used by the R(3,5) recurrence: `R(2,5) ≤ 5`. -/
+theorem ramsey25_le_5 : RamseyUpper 2 5 5 := ramsey_two_right 5
+
+/-! ## R(3,5) = 14 (OPE-393)
+
+Upper bound via the classical recurrence already in `ramseyUpper_add`:
+`R(3,5) ≤ R(2,5) + R(3,4) = 5 + 9 = 14`.
+
+Lower bound via the circulant graph `C₁₃({±1, ±5})` on `ℤ/13ℤ` — the unique
+(up to isomorphism) critical colouring of `K_13` with no red triangle and no
+blue `K_5` (Greenwood–Gleason 1955). -/
+
+/-- Connection set of the circulant R(3,5)>13 witness: `{±1, ±5} mod 13`. -/
+def circ13S : List Nat := [1, 5, 8, 12]
+
+/-- Circular distance `(v - u) mod 13` in `{0,…,12}`. -/
+def circ13Dist (u v : Fin 13) : Nat := (13 + v.val - u.val) % 13
+
+/-- Circulant adjacency on `Fin 13`: red edge iff the circular distance is in
+`{1,5,8,12}`.  The set is closed under negation, so checking both orientations
+makes symmetry of the relation immediate. -/
+def circ13Adj (u v : Fin 13) : Prop :=
+  u ≠ v ∧ (circ13Dist u v ∈ circ13S ∨ circ13Dist v u ∈ circ13S)
+
+/-- The `K_13` colouring witnessing `R(3,5) > 13` (red = circulant `{±1,±5}`). -/
+def Ramsey35Wit : SimpleGraph (Fin 13) where
+  Adj := circ13Adj
+  symm := by
+    intro u v h
+    rcases h with ⟨hne, hrel⟩
+    exact ⟨hne.symm, by simpa [or_comm] using hrel⟩
+  loopless := by
+    intro u hu
+    exact (hu.1 rfl).elim
+
+instance : DecidableRel (Ramsey35Wit.Adj) := by
+  unfold Ramsey35Wit circ13Adj
+  infer_instance
+
+/-- **R(3,5) > 13**, certified: the circulant colouring of `K_13` has no red
+triangle and no blue `K_5`.  Zero `sorry`. -/
+theorem not_ramsey35_13 :
+    ¬(Ramsey35Wit.cliqueFinset 3).Nonempty ∧
+      ¬(Ramsey35Witᶜ.cliqueFinset 5).Nonempty := by
+  native_decide
+
+/-- **R(3,5) > 13** in the `RamseyUpper` vocabulary. -/
+theorem ramsey35_gt_13 : ¬ RamseyUpper 3 5 13 := by
+  intro h
+  have hred : ¬HasClique Ramsey35Wit 3 := by
+    have hc := (not_ramsey35_13).1
+    intro hcl
+    exact hc (by simpa using (hasClique_iff_cliqueFinset Ramsey35Wit 3).1 hcl)
+  have hblue : ¬HasClique (Ramsey35Witᶜ) 5 := by
+    have hc := (not_ramsey35_13).2
+    intro hcl
+    exact hc (by simpa using (hasClique_iff_cliqueFinset (Ramsey35Witᶜ) 5).1 hcl)
+  rcases h Ramsey35Wit with hcor | hcor
+  · exact hred hcor
+  · exact hblue hcor
+
+/-- **R(3,5) ≤ 14** via `R(3,5) ≤ R(2,5) + R(3,4) = 5 + 9`. -/
+theorem ramsey35_le_14 : RamseyUpper 3 5 14 := by
+  have h25 : RamseyUpper 2 5 5 := ramsey25_le_5
+  have h34 : RamseyUpper 3 4 9 := ramsey34_le_9
+  -- ramseyUpper_add : R(k,l) ≤ R(k-1,l) + R(k,l-1) with a=5, b=9
+  simpa using ramseyUpper_add (k := 3) (l := 5) (a := 5) (b := 9)
+    (by norm_num) (by norm_num) (by norm_num) h25 h34
+
+/-- **R(3,5) = 14** as a pair of bounds (`> 13` and `≤ 14`). -/
+theorem ramsey35_eq_14 : (¬ RamseyUpper 3 5 13) ∧ RamseyUpper 3 5 14 :=
+  ⟨ramsey35_gt_13, ramsey35_le_14⟩
 
 end ProofLab.Ramsey
