@@ -1,14 +1,19 @@
 /-
-Glaisher infrastructure for Schur partition theorem (OPE-440).
+Glaisher infrastructure for Schur partition theorem
+(OPE-440 Level A · OPE-445 Level B · OPE-447 Level C).
 Builds on ProofLab.Schur. STATEMENT pin 2026-08-04 frozen.
 
 Level A: recursive oddPart/val2, expandPart/collapsePart (sum + residues),
 multiset Glaisher maps (sum-preserving), partition-level sum-preserving maps.
+Level B: Nodup of expand on B-legal; one-way Finset maps schurB↔schurA.
+Level C: Glaisher inverses + `schur_partition : ∀ n, card(schurA n)=card(schurB n)`.
 
 formalize-only / known-classical / no novelty / zero sorry.
 -/
 import ProofLab.Schur
 import Mathlib.Data.Nat.Bitwise
+import Mathlib.Data.Nat.BitIndices
+import Mathlib.Combinatorics.Colex
 import Mathlib.Algebra.BigOperators.Group.Finset
 import Mathlib.Tactic
 
@@ -346,10 +351,9 @@ def glaisherAtoB_parts (p : Partition n) : Partition n :=
 
 /-! ## Level B — counts, Nodup, residue maps (OPE-445)
 
-Partial lift toward `∀ n, (schurA n).card = (schurB n).card`.
-This section closes Nodup of Glaisher expand on B-multisets and the one-way
-Finset maps `schurB → schurA` and `schurA → schurB`. Inverse/count bijection
-for card equality remains open (no sorry planted for the universal theorem).
+Nodup of Glaisher expand on B-multisets and the one-way Finset maps
+`schurB → schurA` and `schurA → schurB`. Level C (below) closes inverses and
+`schur_partition` card equality.
 -/
 
 theorem B_part_odd {m : ℕ} (hm : m % 6 = 1 ∨ m % 6 = 5) : m % 2 = 1 := by omega
@@ -491,12 +495,376 @@ theorem glaisherAtoB_mem_schurB {n : ℕ} {p : Partition n} (hp : p ∈ schurA n
   rw [hparts] at hi
   exact glaisherCollapse_parts_mod6 hA hi
 
-/-!
-### Remaining for full `schur_partition` (card equality)
-1. `glaisherCollapse (glaisherExpand s) = s` on B-legal multisets (binary bit-sum inverse).
-2. `glaisherExpand (glaisherCollapse s) = s` on Nodup A-legal multisets.
-3. Conclude `(schurA n).card = (schurB n).card` via `Finset.card_bij'`.
-No `sorry` is planted for those goals.
+/-! ## Level C — Glaisher inverses + ∀ n card equality (OPE-447)
+
+1. `glaisherCollapse ∘ glaisherExpand = id` on B-legal multisets
+2. `glaisherExpand ∘ glaisherCollapse = id` on Nodup A-legal multisets
+3. `schur_partition` via `Finset.card_bij'`
 -/
+
+/-! ### collapse ∘ expand on one odd kernel (binary reconstruction) -/
+
+/-- Collapse of the Glaisher expand of multiplicity `c` at shifted odd kernel `m*2^k`
+recovers `c * 2^k` copies of the odd kernel `m`. -/
+theorem bind_collapse_expandPart_pow {m : ℕ} (hm : 0 < m) (hodd : m % 2 = 1)
+    (k c : ℕ) :
+    (expandPart (m * 2 ^ k) c).bind collapsePart =
+      Multiset.replicate (c * 2 ^ k) m := by
+  revert k
+  induction c using Nat.strong_induction_on with
+  | h c ih =>
+    intro k
+    unfold expandPart
+    split_ifs with hc hbit
+    · subst hc
+      simp [Multiset.replicate_zero]
+    · have hlt : c / 2 < c := Nat.div_lt_self (Nat.pos_of_ne_zero hc) (by decide)
+      have hhead : collapsePart (m * 2 ^ k) = Multiset.replicate (2 ^ k) m := by
+        have hne : m * 2 ^ k ≠ 0 :=
+          Nat.mul_ne_zero hm.ne' (Nat.pow_pos (by decide)).ne'
+        unfold collapsePart
+        simp only [hne, ↓reduceIte]
+        rw [oddPart_mul_pow_odd hm hodd, val2_mul_pow_odd hm hodd]
+      have hrest :
+          (expandPart (2 * (m * 2 ^ k)) (c / 2)).bind collapsePart =
+            Multiset.replicate ((c / 2) * 2 ^ (k + 1)) m := by
+        have hpow : 2 * (m * 2 ^ k) = m * 2 ^ (k + 1) := by
+          rw [pow_succ]; ring
+        rw [hpow]
+        exact ih (c / 2) hlt (k + 1)
+      rw [Multiset.cons_bind, hhead, hrest, add_comm (Multiset.replicate (2 ^ k) m),
+        ← Multiset.replicate_add]
+      have hcount : c / 2 * 2 ^ (k + 1) + 2 ^ k = c * 2 ^ k := by
+        have hpow : 2 ^ (k + 1) = 2 * 2 ^ k := by rw [pow_succ, Nat.mul_comm]
+        have hc' : c / 2 * 2 + 1 = c := by
+          have := Nat.div_add_mod c 2; omega
+        rw [hpow]
+        calc
+          c / 2 * (2 * 2 ^ k) + 2 ^ k
+              = (c / 2 * 2 + 1) * 2 ^ k := by ring
+          _ = c * 2 ^ k := by rw [hc']
+      rw [hcount]
+    · have hlt : c / 2 < c := Nat.div_lt_self (Nat.pos_of_ne_zero hc) (by decide)
+      have hrest :
+          (expandPart (2 * (m * 2 ^ k)) (c / 2)).bind collapsePart =
+            Multiset.replicate ((c / 2) * 2 ^ (k + 1)) m := by
+        have hpow : 2 * (m * 2 ^ k) = m * 2 ^ (k + 1) := by
+          rw [pow_succ]; ring
+        rw [hpow]
+        exact ih (c / 2) hlt (k + 1)
+      rw [hrest]
+      have hcount : c / 2 * 2 ^ (k + 1) = c * 2 ^ k := by
+        have h0 : c % 2 = 0 := Nat.mod_two_ne_one.mp hbit
+        have hc_even : c / 2 * 2 = c := by
+          have := Nat.mul_div_cancel' (Nat.dvd_of_mod_eq_zero h0)
+          omega
+        have hpow : 2 ^ (k + 1) = 2 * 2 ^ k := by rw [pow_succ, Nat.mul_comm]
+        rw [hpow]
+        calc
+          c / 2 * (2 * 2 ^ k) = (c / 2 * 2) * 2 ^ k := by ring
+          _ = c * 2 ^ k := by rw [hc_even]
+      rw [hcount]
+
+theorem bind_collapse_expandPart {m c : ℕ} (hm : 0 < m) (hodd : m % 2 = 1) :
+    (expandPart m c).bind collapsePart = Multiset.replicate c m := by
+  simpa [pow_zero, mul_one] using bind_collapse_expandPart_pow hm hodd 0 c
+
+/-! ### Multiset reconstruction: bind replicate counts -/
+
+theorem dedup_bind_replicate_count (s : Multiset ℕ) :
+    s.dedup.bind (fun m => Multiset.replicate (s.count m) m) = s := by
+  classical
+  ext x
+  rw [Multiset.count_bind]
+  simp_rw [Multiset.count_replicate]
+  have hdedup : s.dedup = s.toFinset.val := by simp [Multiset.toFinset]
+  rw [hdedup]
+  have hsum :
+      Multiset.sum (s.toFinset.val.map fun m => if x = m then s.count m else 0) =
+        ∑ m ∈ s.toFinset, if x = m then s.count m else 0 := by
+    simp [Finset.sum_eq_multiset_sum]
+  rw [hsum, Finset.sum_ite_eq]
+  by_cases hx : x ∈ s.toFinset
+  · simp [hx]
+  · have : s.count x = 0 :=
+      Multiset.count_eq_zero.mpr (by simpa [Multiset.mem_toFinset] using hx)
+    simp [hx, this]
+
+/-- B-legal multiset: expand then collapse recovers the multiset. -/
+theorem glaisherCollapse_glaisherExpand {s : Multiset ℕ}
+    (hB : ∀ m ∈ s, m % 6 = 1 ∨ m % 6 = 5) :
+    glaisherCollapse (glaisherExpand s) = s := by
+  classical
+  unfold glaisherCollapse glaisherExpand
+  rw [Multiset.bind_assoc]
+  have hbind :
+      (s.dedup.bind fun m => (expandPart m (s.count m)).bind collapsePart) =
+        s.dedup.bind fun m => Multiset.replicate (s.count m) m := by
+    refine Multiset.bind_congr ?_
+    intro m hm
+    have hBm := hB m (Multiset.mem_dedup.mp hm)
+    exact bind_collapse_expandPart (B_part_pos hBm) (B_part_odd hBm)
+  rw [hbind, dedup_bind_replicate_count]
+
+/-! ### Bit indices ↔ testBit -/
+
+theorem mem_bitIndices_iff_testBit (n j : ℕ) :
+    j ∈ n.bitIndices ↔ n.testBit j = true := by
+  induction n using Nat.binaryRec generalizing j with
+  | z =>
+    simp [Nat.zero_testBit]
+  | f b n ih =>
+    cases j with
+    | zero =>
+      cases b with
+      | false =>
+        simp [Nat.bit_false, Nat.bitIndices_two_mul, Nat.testBit_zero]
+      | true =>
+        simp [Nat.bit_true, Nat.bitIndices_two_mul_add_one, Nat.testBit_zero]
+        omega
+    | succ j =>
+      cases b with
+      | false =>
+        have hdiv : 2 * n / 2 = n := by
+          rw [Nat.mul_comm, Nat.mul_div_left n (by decide : 0 < 2)]
+        simp only [Nat.bit_false, Nat.bitIndices_two_mul, List.mem_map, Nat.testBit_succ, hdiv]
+        constructor
+        · rintro ⟨j', hj', hjeq⟩
+          cases hjeq
+          exact (ih j).mp hj'
+        · intro hj
+          exact ⟨j, (ih j).mpr hj, rfl⟩
+      | true =>
+        have hdiv : (2 * n + 1) / 2 = n := by omega
+        simp only [Nat.bit_true, Nat.bitIndices_two_mul_add_one, List.mem_cons, List.mem_map,
+          Nat.succ_ne_zero, false_or, Nat.testBit_succ, hdiv]
+        constructor
+        · rintro ⟨j', hj', hjeq⟩
+          cases hjeq
+          exact (ih j).mp hj'
+        · intro hj
+          exact ⟨j, (ih j).mpr hj, rfl⟩
+
+theorem testBit_sum_two_pow_finset (s : Finset ℕ) (j : ℕ) :
+    (∑ i ∈ s, 2 ^ i).testBit j = true ↔ j ∈ s := by
+  rw [← mem_bitIndices_iff_testBit]
+  constructor
+  · intro hj
+    have : j ∈ (∑ i ∈ s, 2 ^ i).bitIndices.toFinset := List.mem_toFinset.mpr hj
+    rwa [Finset.toFinset_bitIndices_twoPowSum s] at this
+  · intro hj
+    have : j ∈ (∑ i ∈ s, 2 ^ i).bitIndices.toFinset := by
+      rwa [Finset.toFinset_bitIndices_twoPowSum s]
+    exact List.mem_toFinset.mp this
+
+/-! ### count formulas for collapse -/
+
+theorem count_glaisherCollapse (s : Multiset ℕ) (m : ℕ) :
+    Multiset.count m (glaisherCollapse s) =
+      Multiset.sum
+        (s.map fun p => if p = 0 then 0 else if m = oddPart p then 2 ^ val2 p else 0) := by
+  unfold glaisherCollapse
+  rw [Multiset.count_bind]
+  refine congr_arg Multiset.sum (Multiset.map_congr rfl fun p _ => by rw [count_collapsePart])
+
+theorem eq_mul_pow_of_oddPart_val2 (p : ℕ) :
+    p = oddPart p * 2 ^ val2 p :=
+  (oddPart_mul_pow p).symm
+
+theorem val2_inj_of_oddPart_eq {p q : ℕ} (_hp : 0 < p) (_hq : 0 < q)
+    (hodd : oddPart p = oddPart q) (hval : val2 p = val2 q) : p = q := by
+  calc
+    p = oddPart p * 2 ^ val2 p := eq_mul_pow_of_oddPart_val2 p
+    _ = oddPart q * 2 ^ val2 q := by rw [hodd, hval]
+    _ = q := (eq_mul_pow_of_oddPart_val2 q).symm
+
+/-- Exponents of a fixed odd kernel appearing in a multiset. -/
+def kernelExponents (s : Multiset ℕ) (m : ℕ) : Multiset ℕ :=
+  (s.filter (fun p => oddPart p = m)).map val2
+
+theorem kernelExponents_nodup {s : Multiset ℕ} (hs : s.Nodup)
+    (hpos : ∀ p ∈ s, 0 < p) (m : ℕ) :
+    (kernelExponents s m).Nodup := by
+  classical
+  unfold kernelExponents
+  refine Multiset.Nodup.map_on ?_ (Multiset.Nodup.filter (fun p => oddPart p = m) hs)
+  intro p hp q hq hval
+  have hp' : p ∈ s := (Multiset.mem_filter.mp hp).1
+  have hq' : q ∈ s := (Multiset.mem_filter.mp hq).1
+  have hop : oddPart p = m := (Multiset.mem_filter.mp hp).2
+  have hoq : oddPart q = m := (Multiset.mem_filter.mp hq).2
+  exact val2_inj_of_oddPart_eq (hpos p hp') (hpos q hq') (hop.trans hoq.symm) hval
+
+theorem count_glaisherCollapse_nodup {s : Multiset ℕ}
+    (hpos : ∀ p ∈ s, 0 < p) (m : ℕ) :
+    Multiset.count m (glaisherCollapse s) =
+      Multiset.sum ((kernelExponents s m).map fun i => 2 ^ i) := by
+  classical
+  rw [count_glaisherCollapse]
+  have hmap :
+      s.map (fun p => if p = 0 then 0 else if m = oddPart p then 2 ^ val2 p else 0) =
+        s.map (fun p => if oddPart p = m then 2 ^ val2 p else 0) := by
+    refine Multiset.map_congr rfl ?_
+    intro p hp
+    have : p ≠ 0 := (hpos p hp).ne'
+    simp [this, eq_comm (a := m)]
+  rw [hmap]
+  unfold kernelExponents
+  have hsum :
+      Multiset.sum (s.map fun p => if oddPart p = m then 2 ^ val2 p else 0) =
+        Multiset.sum ((s.filter fun p => oddPart p = m).map fun p => 2 ^ val2 p) := by
+    refine Multiset.induction_on s (by simp) ?_
+    intro a t ih
+    rw [Multiset.map_cons, Multiset.sum_cons, Multiset.filter_cons, ih]
+    by_cases ha : oddPart a = m
+    · simp [ha]
+    · simp [ha]
+  rw [hsum, Multiset.map_map]
+  rfl
+
+theorem sum_map_two_pow_eq_finset_sum {t : Multiset ℕ} (ht : t.Nodup) :
+    Multiset.sum (t.map fun i => 2 ^ i) = ∑ i ∈ t.toFinset, 2 ^ i := by
+  classical
+  have hdedup : t.dedup = t := Multiset.dedup_eq_self.mpr ht
+  rw [Finset.sum_eq_multiset_sum]
+  change _ = Multiset.sum (t.toFinset.val.map fun i => 2 ^ i)
+  simp [Multiset.toFinset, hdedup]
+
+theorem testBit_count_glaisherCollapse {s : Multiset ℕ} (hs : s.Nodup)
+    (hpos : ∀ p ∈ s, 0 < p) (m j : ℕ) :
+    (Multiset.count m (glaisherCollapse s)).testBit j = true ↔
+      ∃ p ∈ s, oddPart p = m ∧ val2 p = j := by
+  classical
+  rw [count_glaisherCollapse_nodup hpos m,
+    sum_map_two_pow_eq_finset_sum (kernelExponents_nodup hs hpos m),
+    testBit_sum_two_pow_finset]
+  constructor
+  · intro hj
+    have hj' : j ∈ kernelExponents s m := Multiset.mem_toFinset.mp hj
+    unfold kernelExponents at hj'
+    rcases Multiset.mem_map.mp hj' with ⟨p, hp, rfl⟩
+    rcases Multiset.mem_filter.mp hp with ⟨hps, hop⟩
+    exact ⟨p, hps, hop, rfl⟩
+  · rintro ⟨p, hps, hop, rfl⟩
+    refine Multiset.mem_toFinset.mpr ?_
+    unfold kernelExponents
+    exact Multiset.mem_map.mpr ⟨p, Multiset.mem_filter.mpr ⟨hps, hop⟩, rfl⟩
+
+/-! ### expand membership via odd kernel bits -/
+
+theorem mem_glaisherExpand_iff_bit {t : Multiset ℕ}
+    (hB : ∀ m ∈ t, m % 6 = 1 ∨ m % 6 = 5) {q : ℕ} :
+    q ∈ glaisherExpand t ↔
+      0 < q ∧ (t.count (oddPart q)).testBit (val2 q) = true ∧
+        oddPart q ∈ t := by
+  classical
+  constructor
+  · intro hq
+    have hqpos := glaisherExpand_pos hB hq
+    simp only [glaisherExpand, Multiset.mem_bind] at hq
+    rcases hq with ⟨m, hm, hq'⟩
+    have hBm := hB m (Multiset.mem_dedup.mp hm)
+    rcases exists_bit_of_mem_expandPart hq' with ⟨i, rfl, hbit⟩
+    have hop := oddPart_mul_pow_odd (B_part_pos hBm) (B_part_odd hBm) (j := i)
+    have hv := val2_mul_pow_odd (B_part_pos hBm) (B_part_odd hBm) (j := i)
+    refine ⟨Nat.mul_pos (B_part_pos hBm) (Nat.pow_pos (by decide)), ?_, ?_⟩
+    · simpa [hop, hv] using hbit
+    · simpa [hop] using Multiset.mem_dedup.mp hm
+  · rintro ⟨_hqpos, hbit, hm⟩
+    refine Multiset.mem_bind.mpr ?_
+    refine ⟨oddPart q, Multiset.mem_dedup.mpr hm, ?_⟩
+    have hqeq : q = oddPart q * 2 ^ val2 q := eq_mul_pow_of_oddPart_val2 q
+    have hmem :
+        oddPart q * 2 ^ val2 q ∈ expandPart (oddPart q) (t.count (oddPart q)) :=
+      mem_expandPart_of_bit hbit
+    rwa [← hqeq] at hmem
+
+/-- Nodup A-legal multiset: collapse then expand recovers the multiset. -/
+theorem glaisherExpand_glaisherCollapse {s : Multiset ℕ} (hs : s.Nodup)
+    (hA : ∀ p ∈ s, 0 < p ∧ (p % 3 = 1 ∨ p % 3 = 2)) :
+    glaisherExpand (glaisherCollapse s) = s := by
+  classical
+  have hpos : ∀ p ∈ s, 0 < p := fun p hp => (hA p hp).1
+  have hB : ∀ m ∈ glaisherCollapse s, m % 6 = 1 ∨ m % 6 = 5 :=
+    fun m hm => glaisherCollapse_parts_mod6 (fun p hp => hA p hp) hm
+  have hnodupE : (glaisherExpand (glaisherCollapse s)).Nodup :=
+    glaisherExpand_nodup hB
+  rw [Multiset.Nodup.ext hnodupE hs]
+  intro q
+  constructor
+  · intro hq
+    rcases (mem_glaisherExpand_iff_bit hB).mp hq with ⟨_hqpos, hbit, _hm⟩
+    have hbit' :=
+      (testBit_count_glaisherCollapse hs hpos (oddPart q) (val2 q)).mp hbit
+    rcases hbit' with ⟨p, hps, hop, hval⟩
+    have hpq : p = q := by
+      calc
+        p = oddPart p * 2 ^ val2 p := eq_mul_pow_of_oddPart_val2 p
+        _ = oddPart q * 2 ^ val2 q := by rw [hop, hval]
+        _ = q := (eq_mul_pow_of_oddPart_val2 q).symm
+    rwa [← hpq]
+  · intro hq
+    refine (mem_glaisherExpand_iff_bit hB).mpr ?_
+    have hqpos := hpos q hq
+    refine ⟨hqpos, ?_, ?_⟩
+    · exact (testBit_count_glaisherCollapse hs hpos (oddPart q) (val2 q)).mpr
+        ⟨q, hq, rfl, rfl⟩
+    · refine Multiset.mem_bind.mpr ⟨q, hq, ?_⟩
+      rw [collapsePart_eq_odd hqpos]
+      exact Multiset.mem_replicate.mpr ⟨(Nat.pow_pos (by decide)).ne', rfl⟩
+
+/-! ### Partition-level inverses + card bijection -/
+
+theorem glaisherAtoB_parts_eq {n : ℕ} {p : Partition n} (hp : p ∈ schurA n) :
+    (glaisherAtoB_parts p).parts = glaisherCollapse p.parts := by
+  classical
+  have hmod := schurA_mod3 hp
+  have hA : ∀ q ∈ p.parts, 0 < q ∧ (q % 3 = 1 ∨ q % 3 = 2) :=
+    fun q hq => ⟨p.parts_pos hq, hmod q hq⟩
+  have hpos' : ∀ x ∈ glaisherCollapse p.parts, 0 < x :=
+    fun x hx => glaisherCollapse_pos (fun q hq => (hA q hq).1) hx
+  exact ofSums_parts_eq_of_pos _ hpos'
+
+theorem glaisherBtoA_parts_eq {n : ℕ} {p : Partition n} (hp : p ∈ schurB n) :
+    (glaisherBtoA_parts p).parts = glaisherExpand p.parts := by
+  classical
+  have hB : ∀ m ∈ p.parts, m % 6 = 1 ∨ m % 6 = 5 := schurB_mod6 hp
+  exact ofSums_parts_eq_of_pos _ (fun x hx => glaisherExpand_pos hB hx)
+
+theorem glaisherBtoA_AtoB_eq {n : ℕ} {p : Partition n} (hp : p ∈ schurA n) :
+    glaisherBtoA_parts (glaisherAtoB_parts p) = p := by
+  classical
+  have hAB := glaisherAtoB_mem_schurB hp
+  have hpartsA := glaisherAtoB_parts_eq hp
+  have hpartsB := glaisherBtoA_parts_eq hAB
+  have hmod := schurA_mod3 hp
+  have hA : ∀ q ∈ p.parts, 0 < q ∧ (q % 3 = 1 ∨ q % 3 = 2) :=
+    fun q hq => ⟨p.parts_pos hq, hmod q hq⟩
+  have hs : p.parts.Nodup := schurA_nodup hp
+  apply Partition.ext
+  rw [hpartsB, hpartsA, glaisherExpand_glaisherCollapse hs hA]
+
+theorem glaisherAtoB_BtoA_eq {n : ℕ} {p : Partition n} (hp : p ∈ schurB n) :
+    glaisherAtoB_parts (glaisherBtoA_parts p) = p := by
+  classical
+  have hBA := glaisherBtoA_mem_schurA hp
+  have hpartsB := glaisherBtoA_parts_eq hp
+  have hpartsA := glaisherAtoB_parts_eq hBA
+  have hB : ∀ m ∈ p.parts, m % 6 = 1 ∨ m % 6 = 5 := schurB_mod6 hp
+  apply Partition.ext
+  rw [hpartsA, hpartsB, glaisherCollapse_glaisherExpand hB]
+
+/-- Schur's partition theorem: `|A(n)| = |B(n)|` for all `n` (Glaisher bijection).
+
+formalize-only / known-classical (Schur 1926) / no novelty claim. -/
+theorem schur_partition (n : ℕ) : (schurA n).card = (schurB n).card := by
+  classical
+  refine Finset.card_bij'
+    (fun p _ => glaisherAtoB_parts p)
+    (fun q _ => glaisherBtoA_parts q)
+    (fun p hp => glaisherAtoB_mem_schurB hp)
+    (fun q hq => glaisherBtoA_mem_schurA hq)
+    (fun p hp => glaisherBtoA_AtoB_eq hp)
+    (fun q hq => glaisherAtoB_BtoA_eq hq)
 
 end ProofLab.Schur
