@@ -534,8 +534,8 @@
       "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
       "status": "in_review",
       "domain": "graph_theory",
-      "score": 83,
-      "note": "OPE-597 Formalist Level B honest partial. PR pending. Zero-sorry ProofLab/Eulerian.lean: Level A reused; eulerian_hierholzer_circuit (connected G, 0 odd degrees, nonempty edgeSet) + eulerian_complete_odd (K_n odd n\u22653). STATEMENT trail clause (card oddDeg = 2) NOT closed. lake build ProofLab.Eulerian + lake build ProofLab green. known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A. Do not import Archive.*.",
+      "score": 81,
+      "note": "OPE-597 Formalist Level B honest partial. PR #51 MERGED (396e2a6, 2026-08-28T21:35:36Z). Zero-sorry ProofLab/Eulerian.lean: Level A reused; eulerian_hierholzer_circuit (connected G, 0 odd degrees, nonempty edgeSet) + eulerian_complete_odd (K_n odd n≥3). STATEMENT trail clause (card oddDeg = 2) NOT closed — OPE-613 independently re-scored as shortlist #2 (start-at-odd longest trail; no dummy-edge). known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A or Level B circuit/complete-odd. Do not import Archive.*.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -547,17 +547,18 @@
         "problems/eulerian-hierholzer/",
         "proofs/lean-project/ProofLab/Eulerian.lean"
       ],
-      "scout_issue": "OPE-591",
+      "scout_issue": "OPE-613",
       "tickets": [
         "OPE-574",
         "OPE-573",
         "OPE-579",
         "OPE-591",
-        "OPE-597"
+        "OPE-597",
+        "OPE-613"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Eulerian.lean",
       "formalist_issue": "OPE-597",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/47"
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/51"
     },
     {
       "id": "konig-bipartite",
@@ -565,7 +566,7 @@
       "status": "formalized",
       "domain": "graph_theory",
       "score": 87,
-      "note": "OPE-596 Formalist Level B. theorem konig_bipartite (Colorable 2 → ν=τ) zero-sorry in ProofLab/Konig.lean via Hall deficiency / dummy-vertex reduction of the graph statement (not citing hall_hard_inductive as König). Level A predicates reused (OPE-580 / PR #48). complete_three_ne K3 landmine kept. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A/B. Dilworth out of v1.",
+      "note": "OPE-596 Formalist Level B. PR #50 MERGED (684316b, 2026-08-28T21:06:32Z). theorem konig_bipartite (Colorable 2 → ν=τ) zero-sorry in ProofLab/Konig.lean via Hall deficiency / dummy-vertex reduction of the graph statement (not citing hall_hard_inductive as König). Level A predicates reused (OPE-580 / PR #48). complete_three_ne K3 landmine kept. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A/B. Dilworth is a separate unblocked candidate (dilworth-poset, OPE-613 prime), not this row.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -584,14 +585,39 @@
         "OPE-580",
         "OPE-587",
         "OPE-591",
-        "OPE-596"
+        "OPE-596",
+        "OPE-613"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Konig.lean",
       "formalist_issue": "OPE-596",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/48"
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/50"
+    },
+    {
+      "id": "dilworth-poset",
+      "title": "Dilworth's theorem: min chain partition = max antichain (finite posets, formalize-only)",
+      "status": "candidate",
+      "domain": "order_theory",
+      "score": 84,
+      "note": "OPE-613 Scout RECOMMENDED PRIME. known-classical Dilworth 1950; no novelty. Genuine Mathlib+Archive gap (word-regexp dilworth → ZERO vs pin v4.10.0). König Colorable 2 → ν=τ CLOSED PR #50 — blocking layer gone; independent re-score, not leftover rubber-stamp. STATEMENT pin catalog/problems/dilworth-poset/STATEMENT.md (Fulkerson split α ⊕ α, strict <, not comparability graph, not Mirsky). Formalize-only.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/dilworth-poset/",
+        "problems/dilworth-poset/"
+      ],
+      "scout_issue": "OPE-613",
+      "tickets": [
+        "OPE-613",
+        "OPE-612"
+      ],
+      "parent_issue": "OPE-612"
     }
   ],
-  "updated_at": "2026-08-28T19:11:00Z",
+  "updated_at": "2026-08-29T09:10:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

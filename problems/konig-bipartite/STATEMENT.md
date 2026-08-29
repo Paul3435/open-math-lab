@@ -5,9 +5,10 @@ Authoritative pin: `catalog/problems/konig-bipartite/STATEMENT.md`.
 **expected:** known-classical (Kőnig 1931). No novelty claim.
 
 Finite `G.Colorable 2` ⇒ matching number = vertex-cover number.
-Hall SDR is a different upstream theorem. Dilworth is out of v1 scope.
+Hall SDR is a different upstream theorem.
 
 **Level A (OPE-580 / PR #48 MERGED):** `IsVertexCover`, easy `ν≤τ`,
 `K_{m,n}` / star / bot, `K_3` landmine, zero-sorry. Do not re-prime.
-**Level B (OPE-591 RECOMMENDED PRIME):** full `Colorable 2 → ν=τ`.
-New proof layer (alternating paths / Hall reduction).
+**Level B (OPE-596 / PR #50 MERGED):** full `Colorable 2 → ν=τ`
+(`konig_bipartite`). **CONSUMED. Do not re-prime A/B.**
+Dilworth is a *new* poset layer (OPE-613 prime), not this bet.

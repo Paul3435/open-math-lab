@@ -1,7 +1,7 @@
 # Kőnig's theorem — bipartite matching number = vertex-cover number — formalize-only
 
 **id:** `konig-bipartite`
-**ticket:** OPE-574 Scout shortlist #2; OPE-580 Formalist Level A MERGED (PR #48); OPE-591 Scout Level B prime; **OPE-596 Formalist Level B** (`konig_bipartite`)
+**ticket:** OPE-574 Scout shortlist #2; OPE-580 Formalist Level A MERGED (PR #48); OPE-591 Scout Level B prime; **OPE-596 Formalist Level B MERGED (PR #50)** (`konig_bipartite`). **Do not re-prime Level A/B.**
 **expected:** known-classical (Kőnig 1931) — **no novelty claim**
 
 ## Why not classical / why formalize-only

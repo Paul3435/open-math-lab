@@ -11,4 +11,9 @@ and the necessary `card_odd_degree`; existence is the Trails.lean TODO.
 
 **Level A (OPE-579 / PR #47 MERGED):** `K_1` / `C_n` / `K_2` special
 cases, zero-sorry. Do not re-prime.
-**Level B (OPE-591 shortlist #2):** ∀G circuit-merging. New proof layer.
+**Level B (OPE-597 / PR #51 MERGED):** honest partial —
+`eulerian_hierholzer_circuit` + `eulerian_complete_odd`. Do not
+re-prime circuit / complete-odd.
+**Trail residual (OPE-613 shortlist #2):** `card oddDeg = 2` ∀G.
+Independent re-score. Encoding pin: start-at-odd longest trail; **no
+dummy-edge**.
