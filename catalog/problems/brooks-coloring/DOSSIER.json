@@ -44,6 +44,7 @@
   "scout_issue": "OPE-640",
   "parent_issue": "OPE-639",
   "formalist_issue": "OPE-658",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/59",
   "lean_artifact": "proofs/lean-project/ProofLab/Brooks.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO brooks; ZERO cycleGraph; defs Colorable/maxDegree/chromaticNumber_top HIT",
