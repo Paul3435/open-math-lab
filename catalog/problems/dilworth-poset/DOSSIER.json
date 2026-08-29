@@ -1,7 +1,7 @@
 {
   "id": "dilworth-poset",
   "title": "Dilworth's theorem: min chain partition = max antichain (finite posets, formalize-only)",
-  "status": "candidate",
+  "status": "in_review",
   "domain": "order_theory",
   "score": 84,
   "scores": {
@@ -29,7 +29,7 @@
     ],
     "canonical_source": "R. P. Dilworth, A decomposition theorem for partially ordered sets, Ann. of Math. 51 (1950) 161–166. Matching pin: Fulkerson, Proc. Amer. Math. Soc. 7 (1956) 701–702. Type pin: Mathlib IsChain / IsAntichain + ProofLab.Konig.konig_bipartite."
   },
-  "feasibility_shape": "Level A: easy inequality + empty / 2-element / total-chain / antichain-poset specials. Level B: Fulkerson split + reuse konig_bipartite. Split-graph encoding on Sum α α is the sink (similar to König dummy-vertex, which DID land). Cap two levels. No native_decide on 2^{n^2} posets. Honest partial OK if Level A + one infinite family (e.g. chains / Boolean lattice n≤k) closes without full ∀.",
+  "feasibility_shape": "Level A LANDED (OPE-619): easy inequality + empty / 2-element / total-chain / antichain-poset specials, zero sorry. Fulkerson splitGraph + Colorable 2 + uncovered antichain lemmas present. Level B ∀ finite poset NOT closed (matching→chain-partition overran). Cap two levels. No native_decide on 2^{n^2} posets.",
   "infra_carry_over": [
     "ProofLab/Konig.lean — IsVertexCover, matchingNumber, vertexCoverNumber, konig_bipartite, complete_three_ne; DO NOT re-prove",
     "Mathlib Order.Chain — IsChain",

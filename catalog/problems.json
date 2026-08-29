@@ -595,10 +595,10 @@
     {
       "id": "dilworth-poset",
       "title": "Dilworth's theorem: min chain partition = max antichain (finite posets, formalize-only)",
-      "status": "candidate",
+      "status": "in_review",
       "domain": "order_theory",
       "score": 84,
-      "note": "OPE-613 Scout RECOMMENDED PRIME. known-classical Dilworth 1950; no novelty. Genuine Mathlib+Archive gap (word-regexp dilworth → ZERO vs pin v4.10.0). König Colorable 2 → ν=τ CLOSED PR #50 — blocking layer gone; independent re-score, not leftover rubber-stamp. STATEMENT pin catalog/problems/dilworth-poset/STATEMENT.md (Fulkerson split α ⊕ α, strict <, not comparability graph, not Mirsky). Formalize-only.",
+      "note": "OPE-619 Formalist Level A honest partial. Lean zero-sorry ProofLab/Dilworth.lean: width_le_chainPartition + empty/chain/antichain/2-element specials; Fulkerson splitGraph (strict <) Colorable 2 + uncovered antichain lemmas; reuse ProofLab.Konig (not re-proved). Level B ∀ finite poset NOT closed. known-classical Dilworth 1950; no novelty. STATEMENT pin catalog/problems/dilworth-poset/STATEMENT.md. Not König/Hall/Mirsky/comparability.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -607,17 +607,22 @@
       ],
       "artifacts": [
         "catalog/problems/dilworth-poset/",
-        "problems/dilworth-poset/"
+        "problems/dilworth-poset/",
+        "proofs/lean-project/ProofLab/Dilworth.lean"
       ],
       "scout_issue": "OPE-613",
       "tickets": [
         "OPE-613",
-        "OPE-612"
+        "OPE-612",
+        "OPE-618",
+        "OPE-619"
       ],
-      "parent_issue": "OPE-612"
+      "parent_issue": "OPE-612",
+      "lean_artifact": "proofs/lean-project/ProofLab/Dilworth.lean",
+      "formalist_issue": "OPE-619"
     }
   ],
-  "updated_at": "2026-08-29T09:10:00Z",
+  "updated_at": "2026-08-29T10:40:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
