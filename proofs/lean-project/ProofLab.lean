@@ -23,3 +23,4 @@ import ProofLab.Dilworth
 import ProofLab.GreedyChromatic
 import ProofLab.Brooks
 import ProofLab.HavelHakimi
+import ProofLab.Menger

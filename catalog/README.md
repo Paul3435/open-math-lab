@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-671 Formalist: `havel-hakimi` Level A + reverse, status `informal` (namesake iff residual: switching). Scout OPE-666 shortlist still has `menger-vertex` #2 unassigned.)
+**Last updated:** 2026-08-30 (OPE-678 Formalist: `menger-vertex` Level A, status `informal` (namesake residual: Diestel `|E|` induction).)

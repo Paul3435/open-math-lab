@@ -1,7 +1,7 @@
 {
   "id": "menger-vertex",
   "title": "Menger's theorem: min A–B vertex separator = max disjoint A–B paths (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "graph_theory",
   "score": 80,
   "scores": {
