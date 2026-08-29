@@ -535,7 +535,7 @@
       "status": "in_review",
       "domain": "graph_theory",
       "score": 81,
-      "note": "OPE-597 Formalist Level B honest partial. PR #51 MERGED (396e2a6, 2026-08-28T21:35:36Z). Zero-sorry ProofLab/Eulerian.lean: Level A reused; eulerian_hierholzer_circuit (connected G, 0 odd degrees, nonempty edgeSet) + eulerian_complete_odd (K_n odd n≥3). STATEMENT trail clause (card oddDeg = 2) NOT closed — OPE-613 independently re-scored as shortlist #2 (start-at-odd longest trail; no dummy-edge). known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A or Level B circuit/complete-odd. Do not import Archive.*.",
+      "note": "OPE-633 Formalist trail clause. Zero-sorry ProofLab/Eulerian.lean: Level A reused; Level B circuit consumed; theorem eulerian_hierholzer_trail (connected G, card oddDeg = 2 → open Eulerian trail between the two odd vertices). Encoding: start-at-odd longest trail + unused even-detour splice; no dummy-edge. lake env lean ProofLab/Eulerian.lean EXIT=0; lake build ProofLab green. axioms = propext / Classical.choice / Quot.sound (no sorryAx). known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A, Level B circuit/complete-odd, or this trail theorem. Do not import Archive.*. Awaiting Adversarial Reviewer.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -554,10 +554,11 @@
         "OPE-579",
         "OPE-591",
         "OPE-597",
-        "OPE-613"
+        "OPE-613",
+        "OPE-633"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Eulerian.lean",
-      "formalist_issue": "OPE-597",
+      "formalist_issue": "OPE-633",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/51"
     },
     {

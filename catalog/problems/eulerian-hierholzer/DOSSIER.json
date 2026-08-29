@@ -13,7 +13,7 @@
   },
   "expected": "known-classical",
   "why_not_classical": "Euler 1736 / Hierholzer 1873: a finite connected graph has an Eulerian circuit iff every degree is even, and an Eulerian trail iff exactly 0 or 2 vertices have odd degree. Completely settled. Value is a Mathlib contribution (Trails.lean has IsEulerian + the necessary parity; the existence TODO is still open for the 2-odd trail). Archive Konigsberg is a negative instance on a custom graph, not this theorem. Do NOT re-fund as novel.",
-  "recommendation": "Shortlist #2 (OPE-613 independent re-score of STATEMENT trail clause). NOT an OPE-591 leftover rubber-stamp and NOT a Director-invented Eulerian-C. Level A (PR #47) and Level B circuit (PR #51 MERGED, eulerian_hierholzer_circuit + eulerian_complete_odd) are CONSUMED — do NOT re-prime those clauses. Remaining is a NEW proof layer: card oddDeg = 2 ∀G open Eulerian trail. Mathlib Trails.lean L26–29 existence TODO still open. Score dropped vs OPE-591's 83 because circuit machinery already landed and OPE-597 dummy-edge/Walk-splice failed. Named encoding that addresses the failure: longest trail starting at an odd-degree vertex; forbid dummy-edge (SimpleGraph cannot add an already-present edge).",
+  "recommendation": "Trail clause LANDED (OPE-633). NOT an OPE-591 leftover rubber-stamp and NOT a Director-invented Eulerian-C. Level A (PR #47) and Level B circuit (PR #51 MERGED) remain CONSUMED. New theorem ProofLab.Eulerian.eulerian_hierholzer_trail: card oddDeg = 2 → open Eulerian trail between the two odd-degree vertices. Encoding: longest trail from an odd-degree start; Hierholzer splice of unused even detour; no dummy-edge. Awaiting Adversarial Reviewer — Formalist does not self-approve.",
   "mathlib_gap_grep_2026_08_29_ope613": "Pin mathlib a719ba5c3115 (v4.10.0). Mathlib/Combinatorics/SimpleGraph/Trails.lean: def IsEulerian; theorems even_degree_iff / card_odd_degree (NECESSARY); TODO L26–29 'Prove that there exists an Eulerian trail when the conclusion to card_odd_degree holds' NOT proved. ProofLab/Eulerian.lean has the 0-odd circuit; 2-odd ∀G trail still missing. Archive/Wiedijk100Theorems/Konigsberg.lean HAS a non-Eulerian custom graph — disclosed, not Mathlib, not existence. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph.",
   "statement_pin_required": {
     "convention": "Fix G : SimpleGraph V, Fintype V, G.Connected. Let oddDeg = {v | Odd (G.degree v)}. TRAIL CLAUSE ONLY: card oddDeg = 2 → ∃ u ≠ v odd-degree with an Eulerian Walk u v. Use Mathlib Walk.IsEulerian. Encoding: Hierholzer / longest trail from an odd-degree start. Do NOT dummy-edge.",
@@ -28,7 +28,7 @@
     ],
     "canonical_source": "L. Euler, Solutio problematis ad geometriam situs pertinentis, Comm. Acad. Sci. Petrop. 8 (1736) 128–140. Constructive pin: C. Hierholzer, Math. Ann. 6 (1873) 30–32. Type pin: Mathlib SimpleGraph.Walk.IsEulerian + SimpleGraph.Connected. Encoding pin: start-at-odd longest trail (not dummy-edge)."
   },
-  "feasibility_shape": "Level A LANDED (do not re-prime). Level B circuit LANDED honest-partial (do not re-prime). Trail Level C (this shortlist): longest trail from an odd-degree vertex, reuse exists_longest_trail / saturation lemmas in ProofLab/Eulerian.lean. Walk API verbosity remains the sink — cap one additional level. Honest partial OK if an infinite family (e.g. paths P_n, complete-even minus a matching) closes without full ∀G.",
+  "feasibility_shape": "Level A LANDED (do not re-prime). Level B circuit LANDED (do not re-prime). Trail Level C LANDED (OPE-633): eulerian_hierholzer_trail, longest trail from an odd-degree vertex + unused even-detour splice. No dummy-edge. Full ∀G (finite connected SimpleGraph), not an infinite-family honest partial.",
   "infra_carry_over": [
     "ProofLab/Eulerian.lean — oddDeg, exists_longest_trail, saturated_end/start, eulerian_hierholzer_circuit (reuse, do not re-prove)",
     "Mathlib Combinatorics.SimpleGraph.Trails — IsEulerian, card_odd_degree (necessary)",
@@ -43,7 +43,8 @@
   "scout_issue": "OPE-613",
   "prior_scout_issue": "OPE-591",
   "formalist_level_a": "OPE-579 / PR #47 MERGED",
-  "formalist_level_b": "OPE-597 / PR #51 MERGED (honest partial: circuit + complete-odd; trail residual)",
+  "formalist_level_b": "OPE-597 / PR #51 MERGED (circuit + complete-odd)",
+  "formalist_level_c": "OPE-633 / PR pending (eulerian_hierholzer_trail; start-at-odd; no dummy-edge)",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: Trails.lean necessary direction only; explicit existence TODO L26–29 still open; Archive Konigsberg disclosed",
     "Independent re-score: STATEMENT trail clause is a new layer vs landed circuit — not an OPE-591 leftover",
