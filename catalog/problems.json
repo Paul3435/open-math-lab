@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-29T16:45:00Z",
+  "last_updated": "2026-08-29T15:47:33Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -634,10 +634,10 @@
     {
       "id": "greedy-chromatic",
       "title": "Greedy colouring: χ ≤ Δ+1 (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 89,
-      "note": "OPE-640 Scout RECOMMENDED PRIME. known-classical Diestel/greedy, no novelty. Mathlib has Colorable/chromaticNumber/maxDegree; ZERO Colorable (maxDegree+1), ZERO Brooks. STATEMENT pin catalog/problems/greedy-chromatic/STATEMENT.md. Not Brooks / Vizing / 4CT. Not a re-prime of Dilworth/Eulerian/König/Dirac.",
+      "note": "OPE-645 Formalist Level A+B CONSUMED. theorem greedy_colorable : G.Colorable (G.maxDegree + 1) zero-sorry in ProofLab/GreedyChromatic.lean (induction on card V; Coloring.mk on Fin (Δ+1)). chromaticNumber_le_maxDegree_add_one cheap corollary. Tightness on nonempty ⊤. known-classical Diestel/greedy, no novelty. Not Brooks / Vizing / 4CT. Do NOT re-prime. Do NOT prove Brooks in this id. | OPE-640 Scout RECOMMENDED PRIME.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -646,14 +646,20 @@
       ],
       "artifacts": [
         "catalog/problems/greedy-chromatic/",
-        "problems/greedy-chromatic/"
+        "problems/greedy-chromatic/",
+        "proofs/lean-project/ProofLab/GreedyChromatic.lean"
       ],
       "scout_issue": "OPE-640",
       "tickets": [
         "OPE-640",
-        "OPE-639"
+        "OPE-639",
+        "OPE-644",
+        "OPE-645"
       ],
-      "parent_issue": "OPE-639"
+      "parent_issue": "OPE-639",
+      "lean_artifact": "proofs/lean-project/ProofLab/GreedyChromatic.lean",
+      "formalist_issue": "OPE-645",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/57"
     },
     {
       "id": "brooks-coloring",

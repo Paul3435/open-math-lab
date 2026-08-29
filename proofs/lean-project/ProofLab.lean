@@ -20,3 +20,4 @@ import ProofLab.Dirac
 import ProofLab.Eulerian
 import ProofLab.Konig
 import ProofLab.Dilworth
+import ProofLab.GreedyChromatic

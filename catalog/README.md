@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-640 Scout: catalog audit + ≤2 shortlist after Dilworth A/B #53+#54 and Eulerian trail #55 MERGED. Prime `greedy-chromatic`. Dilworth/Eulerian stamped `formalized`.)
+**Last updated:** 2026-08-29 (OPE-645 Formalist: `greedy-chromatic` Level A+B zero-sorry `theorem greedy_colorable`. Not Brooks. No novelty.)
