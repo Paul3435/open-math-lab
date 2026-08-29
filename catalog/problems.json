@@ -725,10 +725,10 @@
     {
       "id": "menger-vertex",
       "title": "Menger's theorem: min A–B vertex separator = max disjoint A–B paths (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "graph_theory",
       "score": 80,
-      "note": "OPE-666 Scout shortlist #2, NOT the prime. Independent re-score of OPE-640 considered-not-slotted Menger — not a rubber-stamp. Colouring slots now consumed. known-classical Menger 1927, no novelty. Mathlib has Walk/Reachable/Connected; ZERO Menger. Do NOT assign before havel-hakimi unless Director swaps. Do NOT re-prime König/Dilworth/greedy/Brooks. Do NOT prove edge-Menger / max-flow / infinite Erdős–Menger.",
+      "note": "OPE-678 Formalist honest partial. Level A zero-sorry in ProofLab/Menger.lean (p ≤ s; A ∩ B trivial paths; singleton edge; no-path p=s=0; ⊥ base). Namesake residual: Diestel |E| induction. known-classical Menger 1927, no novelty. Do NOT re-prime König/Dilworth/greedy/Brooks/Eulerian/Dirac/Havel–Hakimi. Do NOT prove edge-Menger / max-flow / infinite Erdős–Menger.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -737,17 +737,22 @@
       ],
       "artifacts": [
         "catalog/problems/menger-vertex/",
-        "problems/menger-vertex/"
+        "problems/menger-vertex/",
+        "proofs/lean-project/ProofLab/Menger.lean"
       ],
       "scout_issue": "OPE-666",
       "tickets": [
         "OPE-666",
-        "OPE-665"
+        "OPE-665",
+        "OPE-677",
+        "OPE-678"
       ],
-      "parent_issue": "OPE-665"
+      "parent_issue": "OPE-665",
+      "lean_artifact": "proofs/lean-project/ProofLab/Menger.lean",
+      "formalist_issue": "OPE-678"
     }
   ],
-  "updated_at": "2026-08-29T21:30:00Z",
+  "updated_at": "2026-08-30T12:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
