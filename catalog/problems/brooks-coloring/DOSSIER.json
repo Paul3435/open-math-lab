@@ -28,7 +28,7 @@
     ],
     "canonical_source": "R. L. Brooks, On colouring the nodes of a network, Proc. Cambridge Philos. Soc. 37 (1941) 194–197. Textbook: Diestel, Graph Theory, Brooks' theorem. Type pin: Mathlib Colorable + maxDegree + ⊤. Odd-cycle pin: 2-regular connected + odd card."
   },
-  "feasibility_shape": "Level A: exception families (⊤ via chromaticNumber_top; odd cycle χ=3) + greedy lemma (depend on greedy-chromatic if present). Level B: theorem brooks_colorable for connected G. Cap two levels. Longer than greedy; score 78 not 89 for that reason. No list-colouring Brooks.",
+  "feasibility_shape": "Level A CONSUMED (OPE-651 / PR #58): exception families (⊤ via chromaticNumber_top; odd cycle χ=3) + greedy lemma reused. Level B OPE-658 honest partial LANDED: brooks_colorable_of_maxDegree_le_two (connected, not ⊤, not IsOddCycle, Δ≤2 ⇒ Colorable Δ). Namesake brooks_colorable residual on Δ-regular Δ≥3 (Kempe/Lovász sink). Cap two levels. No list-colouring Brooks. Status informal until namesake.",
   "infra_carry_over": [
     "catalog/problems/greedy-chromatic — Δ+1 lemma; do not re-prove as Brooks",
     "Mathlib Combinatorics.SimpleGraph.Coloring — Colorable, chromaticNumber_top",
@@ -43,7 +43,7 @@
   "scored_at": "2026-08-29",
   "scout_issue": "OPE-640",
   "parent_issue": "OPE-639",
-  "formalist_issue": "OPE-651",
+  "formalist_issue": "OPE-658",
   "lean_artifact": "proofs/lean-project/ProofLab/Brooks.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO brooks; ZERO cycleGraph; defs Colorable/maxDegree/chromaticNumber_top HIT",

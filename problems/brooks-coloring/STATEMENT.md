@@ -15,6 +15,11 @@ Dirac. Do not label greedy as Brooks.
 
 **OPE-651 Formalist (2026-08-29):** Level A landed zero-sorry in
 `ProofLab/Brooks.lean` (`IsOddCycle` pin; `⊤` and odd-cycle exceptions
-`χ = Δ+1`; greedy reused). Namesake `brooks_colorable` residual
-(Kempe / critical-graph sink; named Brooks 1941 / Diestel / Lovász;
+`χ = Δ+1`; greedy reused).
+
+**OPE-658 Formalist (2026-08-29):** Level B Diestel first family
+landed zero-sorry: `brooks_colorable_of_maxDegree_le_two` (connected,
+`G ≠ ⊤`, `¬ IsOddCycle`, `Δ ≤ 2` ⇒ `Colorable Δ`). Even cycles along
+the Hierholzer circuit; paths by deleting a degree-1 vertex. Namesake
+`brooks_colorable` residual on Δ-regular Δ ≥ 3 (Kempe / Lovász sink;
 not sorry-ed). Catalog status `informal`. No novelty claim.
