@@ -1,7 +1,7 @@
 # Euler's theorem — existence of Eulerian trails (Hierholzer) — formalize-only
 
 **id:** `eulerian-hierholzer`
-**ticket:** OPE-574 Scout recommended prime; OPE-579 Formalist Level A MERGED (PR #47); OPE-591 Scout Level B; **OPE-597 Formalist Level B circuit MERGED (PR #51)**; **OPE-613 Scout independently re-scored trail residual** (support OPE-612)
+**ticket:** OPE-574 Scout recommended prime; OPE-579 Formalist Level A MERGED (PR #47); OPE-591 Scout Level B; **OPE-597 Formalist Level B circuit MERGED (PR #51)**; **OPE-613 Scout independently re-scored trail residual**; **OPE-633 Formalist trail clause**
 **expected:** known-classical (Euler 1736 / Hierholzer 1873) — **no novelty claim**
 
 ## Why not classical / why formalize-only
@@ -96,14 +96,12 @@ MERGED**, do not re-prime circuit / complete-odd):
 `edgeSet`) + `eulerian_complete_odd`. `IsCircuit` excludes the `K_1`
 nil walk (already in the Lean header).
 
-**Trail residual (OPE-613 independent re-score, not an OPE-591 leftover):**
-STATEMENT clause `card oddDeg = 2` ∀G is **not** closed. Walk splice /
-dummy-edge reduction did **not** land on OPE-597 (SimpleGraph cannot
-add an edge that already exists; adjacent odd-pair is the dummy
-landmine). **Encoding pin for a trail attack:** Hierholzer / longest
-trail **starting at an odd-degree vertex**. Do **not** dummy-edge.
-Do **not** re-prime the landed circuit clause, complete-odd family, or
-Level A specials.
+**Trail clause LANDED** (OPE-633, this heartbeat): STATEMENT
+`card oddDeg = 2` ∀ finite connected simple `G` as
+`eulerian_hierholzer_trail`. Encoding: longest trail starting at an
+odd-degree vertex; Hierholzer splice of a closed unused even-degree
+detour. **No dummy-edge.** Zero `sorry`. Do **not** re-prime Level A,
+Level B circuit / complete-odd, or this trail theorem.
 
 ## Lean gate (when attacked)
 
