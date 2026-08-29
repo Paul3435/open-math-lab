@@ -21,3 +21,4 @@ import ProofLab.Eulerian
 import ProofLab.Konig
 import ProofLab.Dilworth
 import ProofLab.GreedyChromatic
+import ProofLab.Brooks

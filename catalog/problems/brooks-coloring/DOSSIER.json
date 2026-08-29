@@ -1,7 +1,7 @@
 {
   "id": "brooks-coloring",
   "title": "Brooks' theorem: χ ≤ Δ except complete graphs and odd cycles (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "graph_theory",
   "score": 78,
   "scores": {
@@ -43,6 +43,8 @@
   "scored_at": "2026-08-29",
   "scout_issue": "OPE-640",
   "parent_issue": "OPE-639",
+  "formalist_issue": "OPE-651",
+  "lean_artifact": "proofs/lean-project/ProofLab/Brooks.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO brooks; ZERO cycleGraph; defs Colorable/maxDegree/chromaticNumber_top HIT",
     "Independent re-score: Brooks remains a genuine gap but budget is worse than greedy; slotted as #2 not prime",
