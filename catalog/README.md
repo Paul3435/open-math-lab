@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-678 Formalist: `menger-vertex` Level A, status `informal` (namesake residual: Diestel `|E|` induction).)
+**Last updated:** 2026-08-30 (OPE-683 Scout: next shortlist prime `cayley-trees`; Menger PR **#62 MERGED**, status `informal`.)

@@ -1,0 +1,50 @@
+{
+  "id": "mycielski-triangle-free",
+  "title": "Mycielski: triangle-free graphs of arbitrarily high χ (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 82,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Mycielski 1955: there exist triangle-free finite simple graphs of arbitrarily large chromatic number. Completely settled. Value is a Mathlib contribution (CliqueFree / Colorable / chromaticNumber / odd-loop χ≥3 exist; ZERO Mycielski, ZERO unbounded-χ-among-triangle-free in Mathlib+Archive). Do NOT re-fund as novel. Brooks is χ vs Δ — different theorem.",
+  "recommendation": "OPE-683 shortlist #2, NOT the prime. Fresh id — never previously shortlisted. Not a Brooks leftover (Director declined namesake Kempe / Brooks C / list-colouring). Havel #61 + Menger #62 consumed. Score 82 (not 85) because μ(G) on V⊕V⊕Unit is new encoding. Do NOT assign before cayley-trees unless Director swaps. Do NOT prove Grötzsch / Hajós / Kneser / Vizing / 4CT/5CT. Do NOT re-prime greedy / Brooks A/B / havel-hakimi / menger-vertex / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope683": "Pin mathlib a719ba5c3115 (v4.10.0). rg Mycielski / Grötzsch-as-χ-unbounded / Hajós / Kneser-chromatic over Mathlib/** + Archive/** → ZERO. Defs HIT: CliqueFree (Clique.lean:261), Colorable / chromaticNumber (Coloring.lean), Walk.three_le_chromaticNumber_of_odd_loop (ConcreteColorings.lean:68). Coloring.lean TODO lists planar / chromatic polynomials / trees — not Mycielski. Negative control HIT: Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. HallMarriageTheorem EXISTS. Hilbert NS EXISTS (not combinatorial). ChevalleyWarning EXISTS. IsHamiltonian DEFS only. ZERO chromaticIndex / LineGraph / Vizing. ZERO planar. ProofLab has greedy χ≤Δ+1 and Brooks Δ≤2 family — not this theorem, not a re-prime.",
+  "statement_pin_required": {
+    "convention": "CliqueFree 3 = triangle-free. Claim: ∀ k, ∃ n, ∃ G : SimpleGraph (Fin n), G.CliqueFree 3 ∧ ¬ G.Colorable k. Engine: Mycielski μ(G) on V ⊕ V ⊕ Unit. Level A may reuse odd-loop χ≥3 on C5, not labelled Mycielski.",
+    "landmines": [
+      "CliqueFree 3 not CliqueFree 2.",
+      "Not Brooks (χ vs Δ). Not greedy. Not Grötzsch (planar). Not Hajós. Not Kneser. Not Vizing. Not 4CT/5CT.",
+      "Odd-loop lemma is already upstream — glue, not the namesake.",
+      "Finite only. Vertex-set encoding V⊕V⊕Unit is load-bearing.",
+      "Do not re-prime greedy / Brooks / havel-hakimi / menger-vertex / König / Dirac / Eulerian / Dilworth.",
+      "No Archive import."
+    ],
+    "canonical_source": "J. Mycielski, Sur le coloriage des graphes, Colloq. Math. 3 (1955) 161–162. Textbook: Diestel, Graph Theory, Mycielski construction. Type pin: Mathlib CliqueFree 3 + Colorable. Grötzsch / Hajós / Kneser / Vizing / 4CT are different theorems, not this claim."
+  },
+  "feasibility_shape": "Level A: C5 triangle-free + ¬ Colorable 2, reuse Walk.three_le_chromaticNumber_of_odd_loop, zero sorry. Level B: theorem mycielski_unbounded by iterating μ (triangle-free preserved; χ bump). Cap two levels. No Grötzsch / Hajós / Kneser / Vizing / 4CT. Construction encoding is the budget sink.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Clique — CliqueFree",
+    "Mathlib Combinatorics.SimpleGraph.Coloring — Colorable, chromaticNumber",
+    "Mathlib Combinatorics.SimpleGraph.ConcreteColorings — three_le_chromaticNumber_of_odd_loop (Level A glue only)",
+    "ProofLab/GreedyChromatic.lean / Brooks.lean — colouring muscle; DO NOT reuse those claims / DO NOT label this Brooks",
+    "ProofLab/HavelHakimi.lean / Menger.lean / Konig.lean / Dirac.lean / Eulerian.lean / Dilworth.lean — do not re-prove",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "170k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-683",
+  "parent_issue": "OPE-682",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Mycielski; defs CliqueFree/Colorable/odd-loop HIT",
+    "Fresh id after colouring+Havel+Menger slots consumed; not a Brooks leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Brooks / greedy / Grötzsch / Vizing / 4CT disclosed as different theorems"
+  ]
+}

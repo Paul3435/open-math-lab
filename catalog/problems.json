@@ -699,7 +699,7 @@
       "status": "informal",
       "domain": "graph_theory",
       "score": 86,
-      "note": "OPE-671 Formalist honest partial. Level A + reverse-reduction zero-sorry in ProofLab/HavelHakimi.lean. Namesake iff forward residual: Havel switching. known-classical Havel 1955 / Hakimi 1962, no novelty. Do NOT re-prime greedy/Brooks/Dilworth/Eulerian/König/Dirac. Do NOT prove Erdős–Gállai / Gale–Ryser / Tutte in this id.",
+      "note": "OPE-671 Formalist Level A + reverse PR **#61 MERGED** (9dab9a5, 2026-08-29T22:06:24Z). Honest partial. Zero-sorry ProofLab/HavelHakimi.lean. Reverse-reduction isGraphic_of_reduce LANDED. Namesake iff forward residual: Havel switching (not sorry-ed). known-classical Havel 1955 / Hakimi 1962, no novelty. Status stays informal until namesake. Do NOT re-prime. Do NOT prove Erdős–Gállai / Gale–Ryser / Tutte in this id.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -720,7 +720,8 @@
       ],
       "parent_issue": "OPE-665",
       "lean_artifact": "proofs/lean-project/ProofLab/HavelHakimi.lean",
-      "formalist_issue": "OPE-671"
+      "formalist_issue": "OPE-671",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/61"
     },
     {
       "id": "menger-vertex",
@@ -728,7 +729,7 @@
       "status": "informal",
       "domain": "graph_theory",
       "score": 80,
-      "note": "OPE-678 Formalist honest partial. Level A zero-sorry in ProofLab/Menger.lean (p ≤ s; A ∩ B trivial paths; singleton edge; no-path p=s=0; ⊥ base). Namesake residual: Diestel |E| induction. known-classical Menger 1927, no novelty. Do NOT re-prime König/Dilworth/greedy/Brooks/Eulerian/Dirac/Havel–Hakimi. Do NOT prove edge-Menger / max-flow / infinite Erdős–Menger.",
+      "note": "OPE-678 Formalist Level A PR **#62 MERGED** (abf60474, 2026-08-29T23:05:43Z). Honest partial. Zero-sorry ProofLab/Menger.lean. Level A LANDED: p ≤ s; A ∩ B trivial paths; singleton edge; no-path p=s=0; menger_bot on ⊥. Namesake residual: Diestel |E| induction (not sorry-ed). known-classical Menger 1927, no novelty. Status stays informal until namesake. Do NOT re-prime. Do NOT prove edge-Menger / max-flow / infinite Erdős–Menger. Do NOT auto-promote namesake as a leftover.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -749,10 +750,59 @@
       ],
       "parent_issue": "OPE-665",
       "lean_artifact": "proofs/lean-project/ProofLab/Menger.lean",
-      "formalist_issue": "OPE-678"
+      "formalist_issue": "OPE-678",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/62"
+    },
+    {
+      "id": "cayley-trees",
+      "title": "Cayley's formula: n^{n-2} labelled trees (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 85,
+      "note": "OPE-683 Scout RECOMMENDED PRIME. Independent re-score of OPE-666 considered-not-slotted Cayley — encoding now pinned (edge-Finsets, not {G // G.IsTree}). known-classical Cayley 1889 / Prüfer 1918, no novelty. Do NOT re-prime havel-hakimi / menger-vertex / greedy / Brooks. Do NOT prove Kirchhoff / Tutte / unlabelled A000055. Not group Cayley, not Cayley–Hamilton.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/cayley-trees/",
+        "problems/cayley-trees/"
+      ],
+      "scout_issue": "OPE-683",
+      "tickets": [
+        "OPE-683",
+        "OPE-682"
+      ],
+      "parent_issue": "OPE-682"
+    },
+    {
+      "id": "mycielski-triangle-free",
+      "title": "Mycielski: triangle-free graphs of arbitrarily high χ (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 82,
+      "note": "OPE-683 Scout shortlist #2, NOT the prime. Fresh id. known-classical Mycielski 1955, no novelty. Not a Brooks leftover. Do NOT assign before cayley-trees unless Director swaps. Do NOT prove Grötzsch / Hajós / Kneser / Vizing / 4CT/5CT. Do NOT re-prime greedy / Brooks A/B / havel-hakimi / menger-vertex.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/mycielski-triangle-free/",
+        "problems/mycielski-triangle-free/"
+      ],
+      "scout_issue": "OPE-683",
+      "tickets": [
+        "OPE-683",
+        "OPE-682"
+      ],
+      "parent_issue": "OPE-682"
     }
   ],
-  "updated_at": "2026-08-30T12:00:00Z",
+  "updated_at": "2026-08-30T01:45:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
