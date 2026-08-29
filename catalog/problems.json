@@ -664,10 +664,10 @@
     {
       "id": "brooks-coloring",
       "title": "Brooks' theorem: χ ≤ Δ except complete graphs and odd cycles (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "graph_theory",
       "score": 78,
-      "note": "OPE-640 Scout shortlist #2 (not the prime). known-classical Brooks 1941, no novelty. ZERO brooks in Mathlib+Archive. Odd-cycle pin: 2-regular connected + odd card (no cycleGraph in pin). Do not assign before greedy-chromatic unless Director swaps. Do not label greedy as Brooks.",
+      "note": "OPE-651 Formalist Level A honest partial. Zero-sorry ProofLab/Brooks.lean: IsOddCycle pin (connected+odd card+2-regular, no cycleGraph); ⊤ exception χ=Δ+1 via chromaticNumber_top; odd-cycle exception χ=3=Δ+1 via Hierholzer odd loop + three_le_chromaticNumber_of_odd_loop + greedy Colorable 3. greedy_colorable reused, not labelled Brooks. Namesake brooks_colorable residual (Kempe/critical-graph sink; named Brooks 1941/Diestel/Lovász; not sorry-ed). known-classical, no novelty. Do NOT re-prime greedy/Dilworth/Eulerian/König/Dirac. Do NOT mark formalized until namesake lands.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -676,17 +676,22 @@
       ],
       "artifacts": [
         "catalog/problems/brooks-coloring/",
-        "problems/brooks-coloring/"
+        "problems/brooks-coloring/",
+        "proofs/lean-project/ProofLab/Brooks.lean"
       ],
       "scout_issue": "OPE-640",
       "tickets": [
         "OPE-640",
-        "OPE-639"
+        "OPE-639",
+        "OPE-650",
+        "OPE-651"
       ],
-      "parent_issue": "OPE-639"
+      "parent_issue": "OPE-639",
+      "lean_artifact": "proofs/lean-project/ProofLab/Brooks.lean",
+      "formalist_issue": "OPE-651"
     }
   ],
-  "updated_at": "2026-08-29T16:45:00Z",
+  "updated_at": "2026-08-29T16:49:23Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
