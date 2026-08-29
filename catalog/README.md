@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-613 Scout: audit + independent shortlist `dilworth-poset` 84 prime / `eulerian-hierholzer` trail 81; König B PR #50 MERGED + Eulerian B PR #51 MERGED stamped honest-partial)
+**Last updated:** 2026-08-29 (OPE-626 Formalist: Dilworth Level B `theorem dilworth` ∀ finite poset; Level A PR #53 MERGED. König B PR #50 + Eulerian B PR #51 consumed.)
