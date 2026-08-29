@@ -1,7 +1,7 @@
 {
   "id": "greedy-chromatic",
   "title": "Greedy colouring: χ ≤ Δ+1 (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 89,
   "scores": {
@@ -43,6 +43,8 @@
   "scored_at": "2026-08-29",
   "scout_issue": "OPE-640",
   "parent_issue": "OPE-639",
+  "formalist_issue": "OPE-645",
+  "lean_artifact": "proofs/lean-project/ProofLab/GreedyChromatic.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO brooks; ZERO Colorable (maxDegree+1); defs Colorable/chromaticNumber/maxDegree HIT",
     "Independent re-score: last Scout said greedy would score well on budget but slot cap used by Dilworth+Eulerian trail — both consumed; not a rubber-stamp leftover",
