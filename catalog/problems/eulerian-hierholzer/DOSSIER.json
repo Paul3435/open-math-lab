@@ -3,49 +3,51 @@
   "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
   "status": "in_review",
   "domain": "graph_theory",
-  "score": 83,
+  "score": 81,
   "scores": {
     "formalizability": 17,
-    "partial_progress": 15,
+    "partial_progress": 14,
     "attack_surface": 17,
-    "verification_budget": 14,
+    "verification_budget": 13,
     "crackpot_resistance": 20
   },
   "expected": "known-classical",
-  "why_not_classical": "Euler 1736 / Hierholzer 1873: a finite connected graph has an Eulerian circuit iff every degree is even, and an Eulerian trail iff exactly 0 or 2 vertices have odd degree. Completely settled. Value is a Mathlib contribution (Trails.lean has IsEulerian + the necessary parity; the existence TODO is still open). Archive Konigsberg is a negative instance on a custom graph, not this theorem. Do NOT re-fund as novel.",
-  "recommendation": "Shortlist #2 (OPE-591 independent re-score of STATEMENT v1 Level B). NOT an OPE-574 leftover rubber-stamp and NOT a Director-invented continuation. Level A (OPE-579, PR #47 MERGED) closed a different layer: K_1 nil walk, C_n (n≥3) Eulerian circuit + Connected, K_2 open trail. Remaining is a NEW proof layer: Hierholzer circuit-merging for ∀G. Mathlib Trails.lean L26–29 existence TODO still open. Score dropped vs original 88 because Walk-induction budget is the known sink (Dirac took two levels) and special cases already landed — still a genuine gap with defs waiting.",
-  "mathlib_gap_grep_2026_08_28_ope591": "Pin mathlib a719ba5c3115 (v4.10.0). Mathlib/Combinatorics/SimpleGraph/Trails.lean: def IsEulerian; theorems even_degree_iff / card_odd_degree (NECESSARY); TODO L26–29 'Prove that there exists an Eulerian trail when the conclusion to card_odd_degree holds' NOT proved; file ends L160. rg Hierholzer|exists.*IsEulerian over Mathlib/**/*.lean → ZERO existence hits. Archive/Wiedijk100Theorems/Konigsberg.lean HAS a non-Eulerian custom graph — disclosed, not Mathlib, not existence. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Adjacent non-claim: Hamiltonian.lean defs only (Dirac closed in ProofLab, different theorem).",
+  "why_not_classical": "Euler 1736 / Hierholzer 1873: a finite connected graph has an Eulerian circuit iff every degree is even, and an Eulerian trail iff exactly 0 or 2 vertices have odd degree. Completely settled. Value is a Mathlib contribution (Trails.lean has IsEulerian + the necessary parity; the existence TODO is still open for the 2-odd trail). Archive Konigsberg is a negative instance on a custom graph, not this theorem. Do NOT re-fund as novel.",
+  "recommendation": "Shortlist #2 (OPE-613 independent re-score of STATEMENT trail clause). NOT an OPE-591 leftover rubber-stamp and NOT a Director-invented Eulerian-C. Level A (PR #47) and Level B circuit (PR #51 MERGED, eulerian_hierholzer_circuit + eulerian_complete_odd) are CONSUMED — do NOT re-prime those clauses. Remaining is a NEW proof layer: card oddDeg = 2 ∀G open Eulerian trail. Mathlib Trails.lean L26–29 existence TODO still open. Score dropped vs OPE-591's 83 because circuit machinery already landed and OPE-597 dummy-edge/Walk-splice failed. Named encoding that addresses the failure: longest trail starting at an odd-degree vertex; forbid dummy-edge (SimpleGraph cannot add an already-present edge).",
+  "mathlib_gap_grep_2026_08_29_ope613": "Pin mathlib a719ba5c3115 (v4.10.0). Mathlib/Combinatorics/SimpleGraph/Trails.lean: def IsEulerian; theorems even_degree_iff / card_odd_degree (NECESSARY); TODO L26–29 'Prove that there exists an Eulerian trail when the conclusion to card_odd_degree holds' NOT proved. ProofLab/Eulerian.lean has the 0-odd circuit; 2-odd ∀G trail still missing. Archive/Wiedijk100Theorems/Konigsberg.lean HAS a non-Eulerian custom graph — disclosed, not Mathlib, not existence. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph.",
   "statement_pin_required": {
-    "convention": "Fix G : SimpleGraph V, Fintype V, G.Connected. Let oddDeg = {v | Odd (G.degree v)}. If card oddDeg = 0 then ∃ circuit p, p.IsEulerian (with IsCircuit caveat: K_1 nil walk is Eulerian but not a circuit). If card oddDeg = 2 then ∃ Eulerian trail between those two vertices. Use Mathlib Walk.IsEulerian / IsCircuit.",
+    "convention": "Fix G : SimpleGraph V, Fintype V, G.Connected. Let oddDeg = {v | Odd (G.degree v)}. TRAIL CLAUSE ONLY: card oddDeg = 2 → ∃ u ≠ v odd-degree with an Eulerian Walk u v. Use Mathlib Walk.IsEulerian. Encoding: Hierholzer / longest trail from an odd-degree start. Do NOT dummy-edge.",
     "landmines": [
-      "Connectedness is essential (two disjoint even-degree components are a counterexample to '0-or-2 odd degrees ⇒ Eulerian'). Do not copy the Trails.lean TODO without G.Connected.",
-      "SimpleGraph has no parallel edges; do not formalize Königsberg (Archive already did a custom-graph negative instance).",
+      "Connectedness is essential. Do not copy the Trails.lean TODO without G.Connected.",
+      "Do NOT dummy-edge: SimpleGraph has no parallel edges and cannot add an edge that already exists (the OPE-597 failure mode when the two odd vertices are already adjacent).",
+      "SimpleGraph has no parallel edges; do not formalize Königsberg.",
       "Eulerian ≠ Hamiltonian. Do not re-prime Dirac.",
-      "0 odd ⇒ circuit; 2 odd ⇒ open trail. Finite only.",
-      "IsCircuit excludes the K_1 nil walk (STATEMENT caveat already in ProofLab/Eulerian.lean header).",
-      "Do NOT re-prime Level A K_1 / C_n / K_2."
+      "Do NOT re-prime Level A K_1 / C_n / K_2.",
+      "Do NOT re-prime Level B circuit clause / eulerian_complete_odd / nonempty-edgeSet circuit.",
+      "IsCircuit excludes the K_1 nil walk — irrelevant to the open-trail clause."
     ],
-    "canonical_source": "L. Euler, Solutio problematis ad geometriam situs pertinentis, Comm. Acad. Sci. Petrop. 8 (1736) 128–140. Constructive pin: C. Hierholzer, Math. Ann. 6 (1873) 30–32. Type pin: Mathlib SimpleGraph.Walk.IsEulerian + SimpleGraph.Connected."
+    "canonical_source": "L. Euler, Solutio problematis ad geometriam situs pertinentis, Comm. Acad. Sci. Petrop. 8 (1736) 128–140. Constructive pin: C. Hierholzer, Math. Ann. 6 (1873) 30–32. Type pin: Mathlib SimpleGraph.Walk.IsEulerian + SimpleGraph.Connected. Encoding pin: start-at-odd longest trail (not dummy-edge)."
   },
-  "feasibility_shape": "Level A LANDED (do not re-prime): eulerian_k1, eulerian_cycle, eulerian_k2. Level B (this shortlist): Hierholzer circuit-merging / induction on edgeSet.card for connected G with 0 or 2 odd degrees. Walk API verbosity is the sink — cap one additional level; no native_decide on 2^{n^2} graphs. Honest partial OK if a second infinite family (e.g. complete graphs of odd order) closes without full ∀G.",
+  "feasibility_shape": "Level A LANDED (do not re-prime). Level B circuit LANDED honest-partial (do not re-prime). Trail Level C (this shortlist): longest trail from an odd-degree vertex, reuse exists_longest_trail / saturation lemmas in ProofLab/Eulerian.lean. Walk API verbosity remains the sink — cap one additional level. Honest partial OK if an infinite family (e.g. paths P_n, complete-even minus a matching) closes without full ∀G.",
   "infra_carry_over": [
-    "ProofLab/Eulerian.lean — oddDeg, CycleGraph, eulerian_k1 / eulerian_cycle / eulerian_k2",
+    "ProofLab/Eulerian.lean — oddDeg, exists_longest_trail, saturated_end/start, eulerian_hierholzer_circuit (reuse, do not re-prove)",
     "Mathlib Combinatorics.SimpleGraph.Trails — IsEulerian, card_odd_degree (necessary)",
     "Mathlib Combinatorics.SimpleGraph.Path — Connected / Reachable / Walk",
-    "Mathlib Combinatorics.SimpleGraph.DegreeSum — handshaking (odd-degree count even)",
-    "ProofLab/Dirac.lean / Konig.lean — recent Walk/degree/matching muscle; do not reuse Hamiltonian or König hypotheses",
+    "Mathlib Combinatorics.SimpleGraph.DegreeSum — handshaking",
+    "ProofLab/Dirac.lean / Konig.lean — recent Walk/degree muscle; do not reuse Hamiltonian or König hypotheses",
     "Lab graph-theory + formalization skill packs"
   ],
-  "estimated_token_budget": "190k",
+  "estimated_token_budget": "170k",
   "skill_packs": ["graph-theory", "formalization", "combinatorics"],
-  "scored_at": "2026-08-28",
-  "scout_issue": "OPE-591",
-  "prior_scout_issue": "OPE-574",
+  "scored_at": "2026-08-29",
+  "scout_issue": "OPE-613",
+  "prior_scout_issue": "OPE-591",
   "formalist_level_a": "OPE-579 / PR #47 MERGED",
+  "formalist_level_b": "OPE-597 / PR #51 MERGED (honest partial: circuit + complete-odd; trail residual)",
   "scout_probes": [
-    "Mathlib gap grep vs pinned v4.10.0 this run: Trails.lean necessary direction only; explicit existence TODO L26–29 still open; Archive Konigsberg disclosed as negative instance",
-    "Independent re-score: STATEMENT v1 ∀G Hierholzer is a new circuit-merging layer vs landed K_1/C_n/K_2 — not an OPE-574 leftover",
-    "Budget worse than König B (Walk induction sink) → #2 not prime",
+    "Mathlib gap grep vs pinned v4.10.0 this run: Trails.lean necessary direction only; explicit existence TODO L26–29 still open; Archive Konigsberg disclosed",
+    "Independent re-score: STATEMENT trail clause is a new layer vs landed circuit — not an OPE-591 leftover",
+    "Budget: dummy-edge failed OPE-597 → named start-at-odd strategy; score 81 not prime",
     "Negative control turan → Turan.lean exists"
   ]
 }

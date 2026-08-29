@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-28 (OPE-591 Scout: audit + independent Level B shortlist `konig-bipartite` 87 prime / `eulerian-hierholzer` 83; OPE-574 Level A Euler PR #47 MERGED + König PR #48 MERGED stamped honest-partial)
+**Last updated:** 2026-08-29 (OPE-613 Scout: audit + independent shortlist `dilworth-poset` 84 prime / `eulerian-hierholzer` trail 81; König B PR #50 MERGED + Eulerian B PR #51 MERGED stamped honest-partial)

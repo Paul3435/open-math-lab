@@ -1,0 +1,53 @@
+{
+  "id": "dilworth-poset",
+  "title": "Dilworth's theorem: min chain partition = max antichain (finite posets, formalize-only)",
+  "status": "candidate",
+  "domain": "order_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 18,
+    "verification_budget": 14,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Dilworth 1950: in a finite poset the minimum number of chains in a chain partition equals the size of a maximum antichain. Settled min-max theorem. Value is a Mathlib contribution (IsChain / IsAntichain exist; ZERO Dilworth / width / chain-partition number in Mathlib+Archive). König ν=τ is the engine, now in ProofLab (PR #50), not the claim. Do NOT re-fund as novel.",
+  "recommendation": "RECOMMENDED PRIME (OPE-613 independent re-score). NOT an OPE-591 leftover rubber-stamp. Prior Scout runs benched Dilworth because the König Colorable-2 → ν=τ layer was still blocking. That layer CLOSED on merged main (OPE-596 / PR #50, konig_bipartite). Gap still holds (word-regexp dilworth → ZERO Mathlib+Archive this run). New proof layer = finite poset min-max via Fulkerson split graph on α ⊕ α, reusing ProofLab.Konig. Independently wins a ≤2 slot on carry-over + unblocked primitive, not because it was mentioned last time.",
+  "mathlib_gap_grep_2026_08_29_ope613": "Pin mathlib a719ba5c3115 (v4.10.0). rg --word-regexp dilworth over Mathlib/** + Archive/** → ZERO. IsChain lives in Order/Chain.lean; IsAntichain in Order/Antichain.lean — defs only, no width, no chain-partition number, no Dilworth. HallMarriageTheorem EXISTS (Combinatorics/Hall/Finite.lean) — disclosed, different statement. ProofLab.Konig.konig_bipartite EXISTS (PR #50) — engine, not the claim. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Hilbert Nullstellensatz EXISTS (RingTheory/Nullstellensatz.lean) — not combinatorial, not Dilworth.",
+  "statement_pin_required": {
+    "convention": "Fix finite PartialOrder α. Chain/antichain = Mathlib IsChain/IsAntichain on Finsets. Claim: there is a chain partition of univ of size width (= max antichain card). Easy inequality width ≤ partition size is Level A. König reduction uses SimpleGraph on α ⊕ α with Adj (inl a) (inr b) ↔ a < b (strict), then konig_bipartite.",
+    "landmines": [
+      "Finite only (Fintype α). Infinite Dilworth is out of scope.",
+      "PartialOrder not Preorder.",
+      "Not König (do not re-prime konig-bipartite A/B). Not Hall. Not Mirsky (dual).",
+      "Split graph uses strict <, not ≤ (SimpleGraph Adj is irreflexive).",
+      "Do NOT apply König to the comparability graph (not bipartite in general).",
+      "Do not cite konig_bipartite or hall_hard_inductive as Dilworth.",
+      "Empty poset width 0; chain poset width 1; antichain poset width = card.",
+      "No Greene / Greene–Kleitman extension in v1."
+    ],
+    "canonical_source": "R. P. Dilworth, A decomposition theorem for partially ordered sets, Ann. of Math. 51 (1950) 161–166. Matching pin: Fulkerson, Proc. Amer. Math. Soc. 7 (1956) 701–702. Type pin: Mathlib IsChain / IsAntichain + ProofLab.Konig.konig_bipartite."
+  },
+  "feasibility_shape": "Level A: easy inequality + empty / 2-element / total-chain / antichain-poset specials. Level B: Fulkerson split + reuse konig_bipartite. Split-graph encoding on Sum α α is the sink (similar to König dummy-vertex, which DID land). Cap two levels. No native_decide on 2^{n^2} posets. Honest partial OK if Level A + one infinite family (e.g. chains / Boolean lattice n≤k) closes without full ∀.",
+  "infra_carry_over": [
+    "ProofLab/Konig.lean — IsVertexCover, matchingNumber, vertexCoverNumber, konig_bipartite, complete_three_ne; DO NOT re-prove",
+    "Mathlib Order.Chain — IsChain",
+    "Mathlib Order.Antichain — IsAntichain",
+    "Mathlib Combinatorics.SimpleGraph.Matching / Coloring — Colorable 2 on the split graph",
+    "Mathlib Combinatorics.Hall — optional; do not treat as the claim",
+    "ProofLab/Eulerian.lean / Dirac.lean — recent SimpleGraph muscle; do not reuse those hypotheses",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "180k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-29",
+  "scout_issue": "OPE-613",
+  "parent_issue": "OPE-612",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO dilworth in Mathlib+Archive; IsChain/IsAntichain defs only",
+    "König blocking layer CLOSED (PR #50 konig_bipartite) — Dilworth independently re-scored, not rubber-stamped as leftover",
+    "Negative control turan → Turan.lean exists",
+    "Hall / Hilbert NS disclosed as different theorems already upstream"
+  ]
+}

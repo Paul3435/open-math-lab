@@ -1,7 +1,7 @@
 # Euler's theorem — existence of Eulerian trails (Hierholzer) — formalize-only
 
 **id:** `eulerian-hierholzer`
-**ticket:** OPE-574 Scout recommended prime; OPE-579 Formalist Level A MERGED (PR #47); **OPE-591 Scout independently re-scored Level B** (support OPE-590)
+**ticket:** OPE-574 Scout recommended prime; OPE-579 Formalist Level A MERGED (PR #47); OPE-591 Scout Level B; **OPE-597 Formalist Level B circuit MERGED (PR #51)**; **OPE-613 Scout independently re-scored trail residual** (support OPE-612)
 **expected:** known-classical (Euler 1736 / Hierholzer 1873) — **no novelty claim**
 
 ## Why not classical / why formalize-only
@@ -90,10 +90,20 @@ vertices (or a circuit if none). Not required if the two lemmas land.
 Partial: **Level A LANDED** (OPE-579 / PR #47 MERGED, do not re-prime):
 `eulerian_k1` (`K_1` nil walk Eulerian), `eulerian_cycle`
 (`n ≥ 3` ⇒ `C_n` Eulerian circuit + `G.Connected`), `eulerian_k2`
-open trail. **Level B (OPE-597):** `eulerian_hierholzer_circuit`
-(connected `G`, 0 odd degrees, nonempty `edgeSet`) +
-`eulerian_complete_odd`. Trail clause (`card oddDeg = 2`) residual.
-`IsCircuit` excludes the `K_1` nil walk (already in the Lean header).
+open trail. **Level B LANDED as honest partial** (OPE-597 / PR **#51
+MERGED**, do not re-prime circuit / complete-odd):
+`eulerian_hierholzer_circuit` (connected `G`, 0 odd degrees, nonempty
+`edgeSet`) + `eulerian_complete_odd`. `IsCircuit` excludes the `K_1`
+nil walk (already in the Lean header).
+
+**Trail residual (OPE-613 independent re-score, not an OPE-591 leftover):**
+STATEMENT clause `card oddDeg = 2` ∀G is **not** closed. Walk splice /
+dummy-edge reduction did **not** land on OPE-597 (SimpleGraph cannot
+add an edge that already exists; adjacent odd-pair is the dummy
+landmine). **Encoding pin for a trail attack:** Hierholzer / longest
+trail **starting at an odd-degree vertex**. Do **not** dummy-edge.
+Do **not** re-prime the landed circuit clause, complete-odd family, or
+Level A specials.
 
 ## Lean gate (when attacked)
 
