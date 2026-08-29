@@ -667,7 +667,7 @@
       "status": "informal",
       "domain": "graph_theory",
       "score": 78,
-      "note": "OPE-651 Formalist Level A honest partial. Zero-sorry ProofLab/Brooks.lean: IsOddCycle pin (connected+odd card+2-regular, no cycleGraph); ⊤ exception χ=Δ+1 via chromaticNumber_top; odd-cycle exception χ=3=Δ+1 via Hierholzer odd loop + three_le_chromaticNumber_of_odd_loop + greedy Colorable 3. greedy_colorable reused, not labelled Brooks. Namesake brooks_colorable residual (Kempe/critical-graph sink; named Brooks 1941/Diestel/Lovász; not sorry-ed). known-classical, no novelty. Do NOT re-prime greedy/Dilworth/Eulerian/König/Dirac. Do NOT mark formalized until namesake lands.",
+      "note": "OPE-658 Formalist Level B honest partial. Zero-sorry ProofLab/Brooks.lean. Level A consumed (PR #58): IsOddCycle pin; ⊤ / odd-cycle exceptions χ=Δ+1; greedy reused, not labelled Brooks. Level B Diestel first family LANDED: brooks_colorable_of_maxDegree_le_two (connected, G≠⊤, ¬IsOddCycle, Δ≤2 ⇒ Colorable Δ). Named: even 2-regular along Hierholzer circuit (index mod 2); paths by deleting a degree-1 vertex; Δ≤1 vacuous (connected Δ≤1 graphs are complete). Cheap corollary chromaticNumber_le_maxDegree_of_maxDegree_le_two. #print axioms = propext/Classical.choice/Quot.sound (no sorryAx). Namesake brooks_colorable residual (Δ-regular Δ≥3 not-complete; Kempe/Lovász sink; not sorry-ed). known-classical, no novelty. Status stays informal until namesake. Do NOT re-prime greedy/Dilworth/Eulerian/König/Dirac/Level A. Do NOT mark formalized until namesake lands.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -684,14 +684,15 @@
         "OPE-640",
         "OPE-639",
         "OPE-650",
-        "OPE-651"
+        "OPE-651",
+        "OPE-658"
       ],
       "parent_issue": "OPE-639",
       "lean_artifact": "proofs/lean-project/ProofLab/Brooks.lean",
-      "formalist_issue": "OPE-651"
+      "formalist_issue": "OPE-658"
     }
   ],
-  "updated_at": "2026-08-29T16:49:23Z",
+  "updated_at": "2026-08-29T18:51:35Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

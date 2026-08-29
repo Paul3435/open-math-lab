@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-645 Formalist: `greedy-chromatic` Level A+B zero-sorry `theorem greedy_colorable`. Not Brooks. No novelty.)
+**Last updated:** 2026-08-29 (OPE-658 Formalist: `brooks-coloring` Level B Δ≤2 family zero-sorry `brooks_colorable_of_maxDegree_le_two`. Namesake residual. No novelty.)

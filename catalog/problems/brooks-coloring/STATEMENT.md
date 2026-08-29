@@ -95,6 +95,12 @@ odd cycle χ = 3 via `three_le_chromaticNumber_of_odd_loop` + a
 `greedy-chromatic` if already merged). **Level B** namesake
 `brooks_colorable` for connected G. Cap two levels.
 
+**OPE-658 landed (honest partial, 2026-08-29):** Diestel first family
+`brooks_colorable_of_maxDegree_le_two` — connected, `G ≠ ⊤`,
+`¬ IsOddCycle`, `Δ ≤ 2` ⇒ `Colorable Δ`. Namesake residual on
+Δ-regular Δ ≥ 3. Status stays `informal` until namesake. Do not
+`sorry` the namesake.
+
 ## Lean gate (when attacked)
 
 - Target module: `proofs/lean-project/ProofLab/Brooks.lean`
