@@ -1,7 +1,7 @@
 {
   "id": "dilworth-poset",
   "title": "Dilworth's theorem: min chain partition = max antichain (finite posets, formalize-only)",
-  "status": "in_review",
+  "status": "formalized",
   "domain": "order_theory",
   "score": 84,
   "scores": {
@@ -13,7 +13,7 @@
   },
   "expected": "known-classical",
   "why_not_classical": "Dilworth 1950: in a finite poset the minimum number of chains in a chain partition equals the size of a maximum antichain. Settled min-max theorem. Value is a Mathlib contribution (IsChain / IsAntichain exist; ZERO Dilworth / width / chain-partition number in Mathlib+Archive). König ν=τ is the engine, now in ProofLab (PR #50), not the claim. Do NOT re-fund as novel.",
-  "recommendation": "CONSUMED Level A+B pending Reviewer (OPE-619 PR #53 MERGED + OPE-626 Level B theorem dilworth). NOT a new Scout prime. Prior Scout runs benched Dilworth because the König Colorable-2 → ν=τ layer was still blocking. That layer CLOSED on merged main (OPE-596 / PR #50). Level A easy inequality + specials CLOSED PR #53. Level B namesake ∀ finite poset LANDED this ticket (matching in splitGraph → chain-partition of size width; konig_bipartite is the engine, not the claim). Do NOT re-prime A/B. Do not invent a third catalog id. Awaiting Adversarial Reviewer — no self-approve.",
+  "recommendation": "CONSUMED Level A+B (OPE-619 PR #53 MERGED + OPE-626 PR #54 MERGED, OPE-628 APPROVE). theorem dilworth on main. NOT a new Scout prime. Do NOT re-prime A/B. Do not invent Level C / Mirsky / Greene. Director OPE-632 DECLINED Dilworth residual — residual EMPTY.",
   "mathlib_gap_grep_2026_08_29_ope613": "Pin mathlib a719ba5c3115 (v4.10.0). rg --word-regexp dilworth over Mathlib/** + Archive/** → ZERO. IsChain lives in Order/Chain.lean; IsAntichain in Order/Antichain.lean — defs only, no width, no chain-partition number, no Dilworth. HallMarriageTheorem EXISTS (Combinatorics/Hall/Finite.lean) — disclosed, different statement. ProofLab.Konig.konig_bipartite EXISTS (PR #50) — engine, not the claim. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Hilbert Nullstellensatz EXISTS (RingTheory/Nullstellensatz.lean) — not combinatorial, not Dilworth.",
   "statement_pin_required": {
     "convention": "Fix finite PartialOrder α. Chain/antichain = Mathlib IsChain/IsAntichain on Finsets. Claim: there is a chain partition of univ of size width (= max antichain card). Easy inequality width ≤ partition size is Level A. König reduction uses SimpleGraph on α ⊕ α with Adj (inl a) (inr b) ↔ a < b (strict), then konig_bipartite.",
@@ -29,7 +29,7 @@
     ],
     "canonical_source": "R. P. Dilworth, A decomposition theorem for partially ordered sets, Ann. of Math. 51 (1950) 161–166. Matching pin: Fulkerson, Proc. Amer. Math. Soc. 7 (1956) 701–702. Type pin: Mathlib IsChain / IsAntichain + ProofLab.Konig.konig_bipartite."
   },
-  "feasibility_shape": "Level A CONSUMED (OPE-619 / PR #53): easy inequality + empty / 2-element / total-chain / antichain-poset specials, zero sorry. Fulkerson splitGraph + Colorable 2 + uncovered antichain lemmas. Level B LANDED (OPE-626): theorem dilworth — matching in splitGraph → chain-partition of size width; konig_bipartite is the engine. Cap two levels. No infinite Dilworth / Mirsky / Greene. Awaiting Adversarial Reviewer.",
+  "feasibility_shape": "Level A CONSUMED (OPE-619 / PR #53): easy inequality + empty / 2-element / total-chain / antichain-poset specials, zero sorry. Fulkerson splitGraph + Colorable 2 + uncovered antichain lemmas. Level B LANDED (OPE-626 / PR #54 MERGED): theorem dilworth — matching in splitGraph → chain-partition of size width; konig_bipartite is the engine. Cap two levels. No infinite Dilworth / Mirsky / Greene. Status formalized after OPE-628 APPROVE.",
   "infra_carry_over": [
     "ProofLab/Konig.lean — IsVertexCover, matchingNumber, vertexCoverNumber, konig_bipartite, complete_three_ne; DO NOT re-prove",
     "Mathlib Order.Chain — IsChain",
