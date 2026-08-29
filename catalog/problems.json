@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-28T19:11:00Z",
+  "last_updated": "2026-08-29T16:45:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -532,10 +532,10 @@
     {
       "id": "eulerian-hierholzer",
       "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
-      "status": "in_review",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 81,
-      "note": "OPE-633 Formalist trail clause. Zero-sorry ProofLab/Eulerian.lean: Level A reused; Level B circuit consumed; theorem eulerian_hierholzer_trail (connected G, card oddDeg = 2 → open Eulerian trail between the two odd vertices). Encoding: start-at-odd longest trail + unused even-detour splice; no dummy-edge. lake env lean ProofLab/Eulerian.lean EXIT=0; lake build ProofLab green. axioms = propext / Classical.choice / Quot.sound (no sorryAx). known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A, Level B circuit/complete-odd, or this trail theorem. Do not import Archive.*. Awaiting Adversarial Reviewer.",
+      "note": "OPE-633 Formalist trail clause CONSUMED. PR #55 MERGED (6c32a467, 2026-08-29T14:05:51Z) after Adversarial OPE-634 APPROVE + PRG OPE-637. theorem eulerian_hierholzer_trail on main at Eulerian.lean:914 (G.Connected, card oddDeg = 2 → open Eulerian trail between the two odd-degree vertices). Encoding: start-at-odd longest trail; no dummy-edge. Level A PR #47 + Level B circuit PR #51 remain consumed. known-classical Euler 1736 / Hierholzer 1873; no novelty. Do NOT re-prime Level A, Level B circuit/complete-odd, or this trail theorem. Do not import Archive.*. | OPE-640 Scout catalog audit 2026-08-29: stamped MERGED / formalized (was PR #51 + in_review).",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -555,11 +555,14 @@
         "OPE-591",
         "OPE-597",
         "OPE-613",
-        "OPE-633"
+        "OPE-633",
+        "OPE-634",
+        "OPE-637",
+        "OPE-640"
       ],
       "lean_artifact": "proofs/lean-project/ProofLab/Eulerian.lean",
       "formalist_issue": "OPE-633",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/51"
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/55"
     },
     {
       "id": "konig-bipartite",
@@ -567,7 +570,7 @@
       "status": "formalized",
       "domain": "graph_theory",
       "score": 87,
-      "note": "OPE-596 Formalist Level B. PR #50 MERGED (684316b, 2026-08-28T21:06:32Z). theorem konig_bipartite (Colorable 2 → ν=τ) zero-sorry in ProofLab/Konig.lean via Hall deficiency / dummy-vertex reduction of the graph statement (not citing hall_hard_inductive as König). Level A predicates reused (OPE-580 / PR #48). complete_three_ne K3 landmine kept. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A/B. Dilworth is a separate unblocked candidate (dilworth-poset, OPE-613 prime), not this row.",
+      "note": "OPE-596 Formalist Level B. PR #50 MERGED (684316b, 2026-08-28T21:06:32Z). theorem konig_bipartite (Colorable 2 → ν=τ) zero-sorry in ProofLab/Konig.lean via Hall deficiency / dummy-vertex reduction of the graph statement (not citing hall_hard_inductive as König). Level A predicates reused (OPE-580 / PR #48). complete_three_ne K3 landmine kept. known-classical Kőnig 1931; no novelty. Mathlib still has no vertexCover / no ν=τ. Do NOT re-prime Level A/B. Dilworth is a separate consumed id (dilworth-poset, PRs #53+#54 MERGED), not this row. Do NOT re-prime König A/B.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -596,10 +599,10 @@
     {
       "id": "dilworth-poset",
       "title": "Dilworth's theorem: min chain partition = max antichain (finite posets, formalize-only)",
-      "status": "in_review",
+      "status": "formalized",
       "domain": "order_theory",
       "score": 84,
-      "note": "OPE-626 Formalist Level B. theorem dilworth (∀ finite PartialOrder: chain partition of univ of size width) zero-sorry in ProofLab/Dilworth.lean via Fulkerson splitGraph matching → chains + König ν=τ engine (not citing konig_bipartite as Dilworth). Level A consumed (OPE-619 / PR #53 MERGED). known-classical Dilworth 1950; no novelty. Awaiting Adversarial Reviewer. STATEMENT pin catalog/problems/dilworth-poset/STATEMENT.md. Not König/Hall/Mirsky/comparability.",
+      "note": "OPE-626 Formalist Level B CONSUMED. PR #54 MERGED (622d076, 2026-08-29T12:35:09Z) after Adversarial OPE-628 APPROVE; Level A PR #53 MERGED (5e81caf). theorem ProofLab.Dilworth.dilworth on main (∀ finite PartialOrder, chain partition of univ of size width) via Fulkerson splitGraph + König ν=τ engine (not citing konig_bipartite as Dilworth). known-classical Dilworth 1950; no novelty. Do NOT re-prime Level A, Level B, or invent Level C / Mirsky / Greene. Director OPE-632 DECLINED Dilworth residual. Dilworth residual is EMPTY. | OPE-640 Scout catalog audit 2026-08-29: stamped MERGED / formalized (was in_review / awaiting Reviewer).",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -618,14 +621,66 @@
         "OPE-618",
         "OPE-619",
         "OPE-625",
-        "OPE-626"
+        "OPE-626",
+        "OPE-628",
+        "OPE-632",
+        "OPE-640"
       ],
       "parent_issue": "OPE-612",
       "lean_artifact": "proofs/lean-project/ProofLab/Dilworth.lean",
-      "formalist_issue": "OPE-626"
+      "formalist_issue": "OPE-626",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/54"
+    },
+    {
+      "id": "greedy-chromatic",
+      "title": "Greedy colouring: χ ≤ Δ+1 (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 89,
+      "note": "OPE-640 Scout RECOMMENDED PRIME. known-classical Diestel/greedy, no novelty. Mathlib has Colorable/chromaticNumber/maxDegree; ZERO Colorable (maxDegree+1), ZERO Brooks. STATEMENT pin catalog/problems/greedy-chromatic/STATEMENT.md. Not Brooks / Vizing / 4CT. Not a re-prime of Dilworth/Eulerian/König/Dirac.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/greedy-chromatic/",
+        "problems/greedy-chromatic/"
+      ],
+      "scout_issue": "OPE-640",
+      "tickets": [
+        "OPE-640",
+        "OPE-639"
+      ],
+      "parent_issue": "OPE-639"
+    },
+    {
+      "id": "brooks-coloring",
+      "title": "Brooks' theorem: χ ≤ Δ except complete graphs and odd cycles (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 78,
+      "note": "OPE-640 Scout shortlist #2 (not the prime). known-classical Brooks 1941, no novelty. ZERO brooks in Mathlib+Archive. Odd-cycle pin: 2-regular connected + odd card (no cycleGraph in pin). Do not assign before greedy-chromatic unless Director swaps. Do not label greedy as Brooks.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/brooks-coloring/",
+        "problems/brooks-coloring/"
+      ],
+      "scout_issue": "OPE-640",
+      "tickets": [
+        "OPE-640",
+        "OPE-639"
+      ],
+      "parent_issue": "OPE-639"
     }
   ],
-  "updated_at": "2026-08-29T12:00:00Z",
+  "updated_at": "2026-08-29T16:45:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

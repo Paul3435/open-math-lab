@@ -1,7 +1,7 @@
 {
   "id": "eulerian-hierholzer",
   "title": "Euler's theorem: existence of Eulerian trails (Hierholzer, formalize-only)",
-  "status": "in_review",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 81,
   "scores": {
@@ -12,8 +12,8 @@
     "crackpot_resistance": 20
   },
   "expected": "known-classical",
-  "why_not_classical": "Euler 1736 / Hierholzer 1873: a finite connected graph has an Eulerian circuit iff every degree is even, and an Eulerian trail iff exactly 0 or 2 vertices have odd degree. Completely settled. Value is a Mathlib contribution (Trails.lean has IsEulerian + the necessary parity; the existence TODO is still open for the 2-odd trail). Archive Konigsberg is a negative instance on a custom graph, not this theorem. Do NOT re-fund as novel.",
-  "recommendation": "Trail clause LANDED (OPE-633). NOT an OPE-591 leftover rubber-stamp and NOT a Director-invented Eulerian-C. Level A (PR #47) and Level B circuit (PR #51 MERGED) remain CONSUMED. New theorem ProofLab.Eulerian.eulerian_hierholzer_trail: card oddDeg = 2 → open Eulerian trail between the two odd-degree vertices. Encoding: longest trail from an odd-degree start; Hierholzer splice of unused even detour; no dummy-edge. Awaiting Adversarial Reviewer — Formalist does not self-approve.",
+  "why_not_classical": "Euler 1736 / Hierholzer 1873: a finite connected graph has an Eulerian circuit iff every degree is even, and an Eulerian trail iff exactly 0 or 2 vertices have odd degree. Completely settled. Value is a Mathlib contribution (Trails.lean has IsEulerian + the necessary parity; ProofLab now has circuit + 2-odd trail existence). Archive Konigsberg is a negative instance on a custom graph, not this theorem. Do NOT re-fund as novel.",
+  "recommendation": "Trail clause LANDED and MERGED (OPE-633 / PR #55, OPE-634 APPROVE, PRG OPE-637). NOT an OPE-591 leftover rubber-stamp and NOT a Director-invented Eulerian-C. Level A (PR #47) and Level B circuit (PR #51 MERGED) remain CONSUMED. theorem ProofLab.Eulerian.eulerian_hierholzer_trail on main. Do NOT re-prime Level A, circuit/complete-odd, or this trail theorem.",
   "mathlib_gap_grep_2026_08_29_ope613": "Pin mathlib a719ba5c3115 (v4.10.0). Mathlib/Combinatorics/SimpleGraph/Trails.lean: def IsEulerian; theorems even_degree_iff / card_odd_degree (NECESSARY); TODO L26–29 'Prove that there exists an Eulerian trail when the conclusion to card_odd_degree holds' NOT proved. ProofLab/Eulerian.lean has the 0-odd circuit; 2-odd ∀G trail still missing. Archive/Wiedijk100Theorems/Konigsberg.lean HAS a non-Eulerian custom graph — disclosed, not Mathlib, not existence. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph.",
   "statement_pin_required": {
     "convention": "Fix G : SimpleGraph V, Fintype V, G.Connected. Let oddDeg = {v | Odd (G.degree v)}. TRAIL CLAUSE ONLY: card oddDeg = 2 → ∃ u ≠ v odd-degree with an Eulerian Walk u v. Use Mathlib Walk.IsEulerian. Encoding: Hierholzer / longest trail from an odd-degree start. Do NOT dummy-edge.",
@@ -44,7 +44,7 @@
   "prior_scout_issue": "OPE-591",
   "formalist_level_a": "OPE-579 / PR #47 MERGED",
   "formalist_level_b": "OPE-597 / PR #51 MERGED (circuit + complete-odd)",
-  "formalist_level_c": "OPE-633 / PR pending (eulerian_hierholzer_trail; start-at-odd; no dummy-edge)",
+  "formalist_level_c": "OPE-633 / PR #55 MERGED (eulerian_hierholzer_trail; start-at-odd; no dummy-edge)",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: Trails.lean necessary direction only; explicit existence TODO L26–29 still open; Archive Konigsberg disclosed",
     "Independent re-score: STATEMENT trail clause is a new layer vs landed circuit — not an OPE-591 leftover",

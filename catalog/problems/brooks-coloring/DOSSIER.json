@@ -1,0 +1,51 @@
+{
+  "id": "brooks-coloring",
+  "title": "Brooks' theorem: χ ≤ Δ except complete graphs and odd cycles (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 78,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 14,
+    "attack_surface": 16,
+    "verification_budget": 13,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Brooks 1941: a connected finite simple graph that is not complete and not an odd cycle has χ ≤ Δ. Settled. Value is a Mathlib contribution (Colorable/maxDegree exist; ZERO brooks in Mathlib+Archive). Greedy χ ≤ Δ+1 is a different theorem (shortlist prime greedy-chromatic), not this claim. Do NOT re-fund as novel.",
+  "recommendation": "OPE-640 shortlist #2, NOT the prime. Independent re-score of the OPE-613 considered-not-slotted Brooks/greedy line — not a rubber-stamp. Score 78 because the critical-graph / Kempe budget is the known sink (Dirac-scale) and Mathlib has no cycleGraph (odd-cycle exception must be pinned as 2-regular connected + odd order). Do NOT assign before greedy-chromatic unless Director swaps. Do NOT treat greedy Δ+1 as Brooks.",
+  "mathlib_gap_grep_2026_08_29_ope640": "Pin mathlib a719ba5c3115 (v4.10.0). rg --word-regexp brooks Mathlib/** + Archive/** → ZERO. rg cycleGraph → ZERO. Defs HIT: Colorable, chromaticNumber, maxDegree, chromaticNumber_top (complete), Walk.three_le_chromaticNumber_of_odd_loop (ConcreteColorings.lean:68, odd loop ⇒ χ≥3 — not Brooks). Coloring.lean TODO is trees/planar/chromatic polynomials, not Brooks. Negative control HIT: Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph.",
+  "statement_pin_required": {
+    "convention": "Fix connected G : SimpleGraph V, Fintype V. Claim: if G ≠ ⊤ and G is not an odd cycle, then G.Colorable G.maxDegree. Odd cycle pin: Connected ∧ Odd (card V) ∧ ∀ v, degree v = 2. Complete pin: G = ⊤.",
+    "landmines": [
+      "Exceptions load-bearing: K_n and odd cycles have χ = Δ+1.",
+      "No cycleGraph in Mathlib — do not claim a missing constructor as the gap.",
+      "Connected is v1; disconnected is stretch.",
+      "Not greedy (Δ+1 always). Not Vizing. Not 4CT/5CT (no planarity).",
+      "Critical-graph / Kempe is the budget sink — name a human-scale proof or stop.",
+      "Do not assign as the prime. Prefer depending on greedy-chromatic if merged.",
+      "No Archive import."
+    ],
+    "canonical_source": "R. L. Brooks, On colouring the nodes of a network, Proc. Cambridge Philos. Soc. 37 (1941) 194–197. Textbook: Diestel, Graph Theory, Brooks' theorem. Type pin: Mathlib Colorable + maxDegree + ⊤. Odd-cycle pin: 2-regular connected + odd card."
+  },
+  "feasibility_shape": "Level A: exception families (⊤ via chromaticNumber_top; odd cycle χ=3) + greedy lemma (depend on greedy-chromatic if present). Level B: theorem brooks_colorable for connected G. Cap two levels. Longer than greedy; score 78 not 89 for that reason. No list-colouring Brooks.",
+  "infra_carry_over": [
+    "catalog/problems/greedy-chromatic — Δ+1 lemma; do not re-prove as Brooks",
+    "Mathlib Combinatorics.SimpleGraph.Coloring — Colorable, chromaticNumber_top",
+    "Mathlib Combinatorics.SimpleGraph.Finite — maxDegree",
+    "Mathlib Combinatorics.SimpleGraph.ConcreteColorings — three_le_chromaticNumber_of_odd_loop",
+    "Mathlib Combinatorics.SimpleGraph.Hamiltonian — IsHamiltonianCycle optional for the odd-cycle pin",
+    "ProofLab/Konig.lean / Dirac.lean — Colorable / degree muscle; do not reuse those claims",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "200k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-29",
+  "scout_issue": "OPE-640",
+  "parent_issue": "OPE-639",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO brooks; ZERO cycleGraph; defs Colorable/maxDegree/chromaticNumber_top HIT",
+    "Independent re-score: Brooks remains a genuine gap but budget is worse than greedy; slotted as #2 not prime",
+    "Negative control turan → Turan.lean exists"
+  ]
+}

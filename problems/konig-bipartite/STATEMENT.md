@@ -11,4 +11,4 @@ Hall SDR is a different upstream theorem.
 `K_{m,n}` / star / bot, `K_3` landmine, zero-sorry. Do not re-prime.
 **Level B (OPE-596 / PR #50 MERGED):** full `Colorable 2 → ν=τ`
 (`konig_bipartite`). **CONSUMED. Do not re-prime A/B.**
-Dilworth is a *new* poset layer (OPE-613 prime), not this bet.
+Dilworth is a *consumed* poset layer (OPE-613 prime; PRs **#53+#54 MERGED**), not this bet.

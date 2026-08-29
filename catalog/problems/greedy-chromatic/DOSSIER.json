@@ -1,0 +1,52 @@
+{
+  "id": "greedy-chromatic",
+  "title": "Greedy colouring: χ ≤ Δ+1 (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 89,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 17,
+    "attack_surface": 18,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Folklore / Diestel: every finite simple graph is (Δ+1)-colourable via greedy colouring. Completely settled. Value is a Mathlib contribution (Colorable / Coloring / chromaticNumber / maxDegree exist; ZERO Colorable (maxDegree+1), ZERO chromaticNumber_le_maxDegree, ZERO greedy construction, ZERO Brooks). Do NOT re-fund as novel.",
+  "recommendation": "OPE-640 RECOMMENDED PRIME. Independent re-score of the OPE-613 considered-not-slotted 'Brooks / greedy χ ≤ Δ+1' line — not a rubber-stamp. Last Scout benched greedy because the slot cap was used by Dilworth + Eulerian trail; both are now CONSUMED on merged main (PRs #53/#54/#55). Defs are waiting (unlike Cayley / Nullstellensatz). Brooks is a different named theorem (shortlist #2) — do NOT prove Brooks in this id. Do NOT re-prime König Colorable-2, Dirac, Eulerian, Dilworth.",
+  "mathlib_gap_grep_2026_08_29_ope640": "Pin mathlib a719ba5c3115 (v4.10.0). rg --word-regexp brooks over Mathlib/** + Archive/** → ZERO. rg chromaticNumber_le_maxDegree / 'Colorable (G.maxDegree + 1)' / greedy-in-SimpleGraph → ZERO. Defs HIT: Colorable (Coloring.lean:127), chromaticNumber (L149), maxDegree (Finite.lean:343), chromaticNumber_top (Coloring.lean:377), Colorable.chromaticNumber_le (L247). Coloring.lean TODO L43–55 = trees / planar / chromatic polynomials / partial colourings — not greedy, not Brooks. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. HallMarriageTheorem EXISTS. Hilbert Nullstellensatz EXISTS (RingTheory/Nullstellensatz.lean) — not combinatorial, not this. ChevalleyWarning EXISTS. IsHamiltonian DEFS only. IsEulerian + card_odd_degree necessary only. IsMatching, no vertexCover in Mathlib. IsChain/IsAntichain defs only.",
+  "statement_pin_required": {
+    "convention": "Fix G : SimpleGraph V, Fintype V, DecidableRel G.Adj. Claim: G.Colorable (G.maxDegree + 1). chromaticNumber form is the same heartbeat if cheap. Encoding: Mathlib Coloring.mk on Fin (maxDegree+1). Any vertex order; Welsh–Powell is not the theorem.",
+    "landmines": [
+      "Finite only (Fintype V). Infinite colouring out of scope.",
+      "Not Brooks (χ ≤ Δ with exceptions). Not Vizing (edge-chromatic). Not 4CT/5CT (no planarity).",
+      "chromaticNumber is ℕ∞ — prove Colorable first.",
+      "Empty graph maxDegree 0; Colorable 1 is the claim, Colorable 0 also holds for IsEmpty.",
+      "Tight on complete graphs (reuse chromaticNumber_top). Do not treat tightness as Brooks.",
+      "Do not re-prime König / Dirac / Eulerian / Dilworth.",
+      "No Archive import."
+    ],
+    "canonical_source": "Diestel, Graph Theory (GTM), corollary every graph is (Δ+1)-colourable, stated before Brooks. Constructive pin: greedy colouring along an arbitrary vertex order. Type pin: Mathlib SimpleGraph.Colorable + maxDegree. Brooks 1941 is catalog id brooks-coloring, not this claim."
+  },
+  "feasibility_shape": "Level A: empty / edgeless / complete (⊤) / card=1 specials + degree_le_maxDegree glue, zero sorry. Level B: theorem greedy_colorable by induction on card V (delete a vertex; ≤Δ neighbours leave one colour). Cap two levels. No Brooks / no list-colouring / no planar. Human-scale; no native_decide explosion.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Coloring — Colorable, Coloring, chromaticNumber, chromaticNumber_top, Colorable.chromaticNumber_le",
+    "Mathlib Combinatorics.SimpleGraph.Finite — maxDegree, degree_le_maxDegree",
+    "Mathlib Combinatorics.SimpleGraph.ConcreteColorings — pathGraph χ=2, odd-loop ⇒ χ≥3 (do not treat as this bound)",
+    "ProofLab/Konig.lean — Colorable 2 muscle; DO NOT reuse König hypotheses or re-prove ν=τ",
+    "ProofLab/Dirac.lean — minDegree muscle; Hamiltonian ≠ chromatic",
+    "ProofLab/Friendship.lean / Ramsey.lean — recent Coloring use; do not reuse those claims",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-29",
+  "scout_issue": "OPE-640",
+  "parent_issue": "OPE-639",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO brooks; ZERO Colorable (maxDegree+1); defs Colorable/chromaticNumber/maxDegree HIT",
+    "Independent re-score: last Scout said greedy would score well on budget but slot cap used by Dilworth+Eulerian trail — both consumed; not a rubber-stamp leftover",
+    "Negative control turan → Turan.lean exists",
+    "Hall / Hilbert NS / Chevalley–Warning / Hamiltonian defs / IsEulerian necessary / IsMatching / IsChain disclosed as different already-upstream facts"
+  ]
+}

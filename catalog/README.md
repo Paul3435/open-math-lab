@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-626 Formalist: Dilworth Level B `theorem dilworth` ∀ finite poset; Level A PR #53 MERGED. König B PR #50 + Eulerian B PR #51 consumed.)
+**Last updated:** 2026-08-29 (OPE-640 Scout: catalog audit + ≤2 shortlist after Dilworth A/B #53+#54 and Eulerian trail #55 MERGED. Prime `greedy-chromatic`. Dilworth/Eulerian stamped `formalized`.)

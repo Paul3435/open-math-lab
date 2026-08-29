@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-29 (OPE-633 Formalist: Eulerian trail residual `card oddDeg = 2` ∀G — start-at-odd longest trail, no dummy-edge. PR pending Reviewer. No novelty.)
+**Last updated:** 2026-08-29 (OPE-640 Scout: catalog audit + ≤2 shortlist after Dilworth #53+#54 and Eulerian trail #55 MERGED. Prime `greedy-chromatic`. Dilworth/Eulerian rows stamped `formalized`. No novelty.)
 
 ## Lifecycle labels
 
@@ -26,9 +26,9 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 
 | Problem ID | Domain | Tickets | Disposition | Novelty | Primary artifacts |
 |------------|--------|---------|-------------|---------|-------------------|
-| `dilworth-poset` | order theory / combinatorics | OPE-613 Scout prime; **OPE-618** Director assign; **OPE-619** Formalist Level A (PR **#53 MERGED**, `5e81caf`); **OPE-626** Formalist Level B | **`in_review`** (formalize-only). Lean **zero-sorry** `ProofLab/Dilworth.lean`: Level A consumed (`width_le_chainPartition` + empty/chain/antichain/2-element + Fulkerson `splitGraph`). **Level B namesake LANDED:** `theorem dilworth` — ∀ finite `PartialOrder` there is a chain partition of `univ` of size `width`, via matching successors in `splitGraph` (strict `<` on `α ⊕ α`) + König `ν=τ` as *engine* (`konig_bipartite`, not cited as Dilworth). `#print axioms dilworth` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Dilworth.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Not König A/B. Not Hall. Not Mirsky. Not comparability graph. Finite only. Awaiting Adversarial Reviewer — Formalist does not self-approve. | Known classical (Dilworth 1950 / Fulkerson 1956); Mathlib v4.10.0 has `IsChain`/`IsAntichain` defs only | `catalog/problems/dilworth-poset/STATEMENT.md`, Lean `ProofLab/Dilworth.lean` |
-| `eulerian-hierholzer` | graph theory | OPE-574 Scout prime; **OPE-579** Formalist Level A; **OPE-591** Scout Level B re-score (#2); **OPE-597** Formalist Level B circuit (PR **#51 MERGED**, `396e2a6`); **OPE-613** Scout trail residual #2; **OPE-633** Formalist trail | **`in_review`** (formalize-only). Lean **zero-sorry** `ProofLab/Eulerian.lean`: Level A reused (`eulerian_k1` / `eulerian_cycle` / `eulerian_k2`). Level B circuit consumed (`eulerian_hierholzer_circuit` + `eulerian_complete_odd`). **Trail clause LANDED:** `theorem eulerian_hierholzer_trail` — finite connected `SimpleGraph`, `card oddDeg = 2` → open Eulerian trail between the two odd-degree vertices. Encoding: longest trail **starting at an odd-degree vertex**; Hierholzer splice of a closed unused even-degree detour. **No dummy-edge.** `#print axioms eulerian_hierholzer_trail` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Eulerian.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Do **not** import `Archive.*`. Not Königsberg. Not Dirac. **Do not re-prime Level A, Level B circuit/complete-odd, or this trail theorem.** Awaiting Adversarial Reviewer — Formalist does not self-approve. | Known classical (Euler 1736 / Hierholzer 1873); Mathlib v4.10.0 has `IsEulerian` + necessary `card_odd_degree` only; Trails.lean L26–29 existence TODO is the Mathlib gap this theorem fills on the 2-odd side | `catalog/problems/eulerian-hierholzer/STATEMENT.md`, Lean `ProofLab/Eulerian.lean` |
-| `konig-bipartite` | graph theory | OPE-574 Scout #2; **OPE-580** Formalist Level A; **OPE-591** Scout Level B re-score (PRIME); **OPE-596** Formalist Level B (PR **#50 MERGED**, `684316b`) | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Konig.lean`: Level A predicates reused; **`konig_bipartite`** (`G.Colorable 2 → matchingNumber = vertexCoverNumber`) via Hall deficiency / dummy-vertex reduction of the *graph* min-max (not citing `hall_hard_inductive` as König). `complete_three_ne` remains the load-bearing `K_3` landmine. Encoding Mathlib `Subgraph.IsMatching` + `Colorable 2` + ProofLab `IsVertexCover`. `lake env lean ProofLab/Konig.lean` EXIT=0. **No novelty claim.** Not `χ'=Δ`. Not König's lemma. Not Tutte. **Do not re-prime Level A/B.** Dilworth is a *separate* unblocked candidate (`dilworth-poset`, OPE-613 prime), not this row. | Known classical (Kőnig 1931); Mathlib v4.10.0 has `IsMatching`, no vertex cover / no `ν=τ` | `catalog/problems/konig-bipartite/STATEMENT.md`, Lean `ProofLab/Konig.lean` |
+| `dilworth-poset` | order theory / combinatorics | OPE-613 Scout prime; **OPE-618** Director assign; **OPE-619** Formalist Level A (PR **#53 MERGED**, `5e81caf`); **OPE-626** Formalist Level B (PR **#54 MERGED**, `622d076`); Adversarial **OPE-628 APPROVE** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Dilworth.lean`: Level A consumed (`width_le_chainPartition` + empty/chain/antichain/2-element + Fulkerson `splitGraph`). **Level B namesake LANDED:** `theorem dilworth` — ∀ finite `PartialOrder` there is a chain partition of `univ` of size `width`, via matching successors in `splitGraph` (strict `<` on `α ⊕ α`) + König `ν=τ` as *engine* (`konig_bipartite`, not cited as Dilworth). `#print axioms dilworth` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Dilworth.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Not König A/B. Not Hall. Not Mirsky. Not comparability graph. Finite only. **Do not re-prime Level A, Level B, or invent Level C / Mirsky / Greene.** Director OPE-632 DECLINED Dilworth residual — residual EMPTY. | Known classical (Dilworth 1950 / Fulkerson 1956); Mathlib v4.10.0 has `IsChain`/`IsAntichain` defs only | `catalog/problems/dilworth-poset/STATEMENT.md`, Lean `ProofLab/Dilworth.lean` |
+| `eulerian-hierholzer` | graph theory | OPE-574 Scout prime; **OPE-579** Formalist Level A; **OPE-591** Scout Level B re-score (#2); **OPE-597** Formalist Level B circuit (PR **#51 MERGED**, `396e2a6`); **OPE-613** Scout trail residual #2; **OPE-633** Formalist trail (PR **#55 MERGED**, `6c32a467`); Adversarial **OPE-634 APPROVE**; PRG **OPE-637** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Eulerian.lean`: Level A reused (`eulerian_k1` / `eulerian_cycle` / `eulerian_k2`). Level B circuit consumed (`eulerian_hierholzer_circuit` + `eulerian_complete_odd`). **Trail clause LANDED:** `theorem eulerian_hierholzer_trail` — finite connected `SimpleGraph`, `card oddDeg = 2` → open Eulerian trail between the two odd-degree vertices. Encoding: longest trail **starting at an odd-degree vertex**; Hierholzer splice of a closed unused even-degree detour. **No dummy-edge.** `#print axioms eulerian_hierholzer_trail` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Eulerian.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Do **not** import `Archive.*`. Not Königsberg. Not Dirac. **Do not re-prime Level A, Level B circuit/complete-odd, or this trail theorem.** | Known classical (Euler 1736 / Hierholzer 1873); Mathlib v4.10.0 has `IsEulerian` + necessary `card_odd_degree` only; Trails.lean L26–29 existence TODO is the Mathlib gap this theorem fills on the 2-odd side | `catalog/problems/eulerian-hierholzer/STATEMENT.md`, Lean `ProofLab/Eulerian.lean` |
+| `konig-bipartite` | graph theory | OPE-574 Scout #2; **OPE-580** Formalist Level A; **OPE-591** Scout Level B re-score (PRIME); **OPE-596** Formalist Level B (PR **#50 MERGED**, `684316b`) | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Konig.lean`: Level A predicates reused; **`konig_bipartite`** (`G.Colorable 2 → matchingNumber = vertexCoverNumber`) via Hall deficiency / dummy-vertex reduction of the *graph* min-max (not citing `hall_hard_inductive` as König). `complete_three_ne` remains the load-bearing `K_3` landmine. Encoding Mathlib `Subgraph.IsMatching` + `Colorable 2` + ProofLab `IsVertexCover`. `lake env lean ProofLab/Konig.lean` EXIT=0. **No novelty claim.** Not `χ'=Δ`. Not König's lemma. Not Tutte. **Do not re-prime Level A/B.** Dilworth is a *separate consumed* id (`dilworth-poset`, PRs **#53+#54 MERGED**), not this row. | Known classical (Kőnig 1931); Mathlib v4.10.0 has `IsMatching`, no vertex cover / no `ν=τ` | `catalog/problems/konig-bipartite/STATEMENT.md`, Lean `ProofLab/Konig.lean` |
 | `dirac-hamiltonian` | graph theory | OPE-553 Scout #2; OPE-559 Level A; **OPE-568** Level B | **`formalized`** (formalize-only). PRs **#44** (Level A) and **#45 MERGED** (`3723b07`, 2026-08-28). Lean **zero-sorry** `ProofLab/Dirac.lean`: `dirac_hamiltonian` (`3 ≤ n → 2 * minDegree ≥ n → IsHamiltonian`) via longest-path / cycle-closing. Reuses Level A `connected_of_dirac`, `isHamiltonian_complete`, `dirac_hamiltonian_card_eq_three`. `lake build ProofLab.Dirac` + `lake build ProofLab` green. **No novelty claim.** n≥3 load-bearing. Cycle, not path. Ore stretch not attacked — not a Scout leftover re-prime. Do **not** re-prime Level A/B. | Known classical (Dirac 1952); Mathlib v4.10.0 has Hamiltonian defs only | `catalog/problems/dirac-hamiltonian/STATEMENT.md`, Lean `ProofLab/Dirac.lean` |
 | `euler-odd-distinct` | partition theory | OPE-553 Scout prime; **OPE-558** Formalist | **`formalized`** (formalize-only). PR **#43 MERGED**. Lean **zero-sorry** `ProofLab/EulerPartition.lean`: `euler_odd_eq_distinct` (`Finset.card_bij'` Glaisher, no mod-6 filter) + Level A `n≤10` `native_decide` guard. `lake env lean` EXIT=0; `lake build ProofLab` green. Axioms: ∀n = propext/Classical.choice/Quot.sound only (no `sorryAx`, no `ofReduceBool` on the identity). **No novelty claim.** Do **not** import Archive/Theorems100. Do **not** re-prime `schur_partition`. | Known classical (Euler 1748 / Glaisher 1883); Mathlib v4.10.0 has `odds`/`distincts` defs only — card equality was Archive GF, not Mathlib | `catalog/problems/euler-odd-distinct/STATEMENT.md`, Lean `ProofLab/EulerPartition.lean` |
 | `erdos-ko-rado` | extremal set theory | OPE-533 Scout prime; **OPE-534** Level A; **OPE-541** Katona Level B | **`formalized`** (formalize-only). PRs **#39** and **#41 MERGED**. Lean zero-sorry `ProofLab/ErdosKoRado.lean` (`erdos_ko_rado`). Do **not** re-prime. | Known classical (1961); Mathlib gap was k-uniform (non-uniform `Intersecting.card_le` only) | `problems/erdos-ko-rado/STATEMENT.md`, Lean `ProofLab/ErdosKoRado.lean` |
@@ -562,6 +562,83 @@ Re-evaluated, not shortlisted (do not rubber-stamp OPE-591 leftovers):
   ZERO Brooks; ZERO greedy). Coloring.lean TODO is gather-material / trees / planar / chromatic
   polynomials, not Brooks. Greedy would score well on budget; slot cap used by Dilworth
   (unblocked König corollary) + Eulerian trail (named Mathlib TODO residual). Not slotted.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
+
+**OPE-640 update (2026-08-29, Scout, support OPE-639):** catalog audit + fresh ≤2 shortlist.
+OPE-613 shortlist **plus** the OPE-618/OPE-632 Formalist assignment wave is **fully consumed on merged main**.
+Zero open PRs at scout start (`origin/main` = merge of PR #55, `6c32a467`). Director does not invent primes.
+This is **not** a Director-invented Dilworth-C / Eulerian-C / Ore / König continuation: greedy Δ+1 and Brooks were independently re-scored as new proof layers.
+
+Consumption (live this run):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `dilworth-poset` Level A+B | OPE-619 PR **#53 MERGED**; OPE-626 PR **#54 MERGED** (`622d076`); OPE-628 APPROVE. `theorem dilworth` on main | yes (A **and** B). Residual EMPTY. Do not invent Level C / Mirsky / Greene |
+| `eulerian-hierholzer` trail | OPE-633 Formalist; OPE-634 APPROVE; PRG OPE-637; PR **#55 MERGED** (`6c32a467`). `eulerian_hierholzer_trail` on main | yes (Level A, circuit/complete-odd, **and** this trail). Do not re-prime |
+| `konig-bipartite` Level A+B | PRs **#48** / **#50 MERGED** | yes |
+| `eulerian-hierholzer` Level A / circuit | PRs **#47** / **#51 MERGED** | yes |
+| Scout shortlist PRs **#46** / **#49** / **#52** | MERGED | yes |
+| `euler-odd-distinct` / Dirac A+B / EKR / friendship / schur_partition / Glaisher | previously consumed | yes |
+| ramsey-r33 / R(3,4) / R(4,4); ramsey-r35; ramsey-multicolor-r333 (PR #36); weak-schur-ws2 (PR #35); S(2)/S(3); W(2,3); ES monotone; ES(3)=5 (PRs #24/#25); EW k=16; frobenius / derangement / catalan / turan | previously closed or already-in-Mathlib | yes |
+
+**Leave OPE-403 alone** (Happy Ending parked on board confirmation since 2026-08-24).
+
+Catalog hygiene this run: Eulerian `problems.json` stamped **PR #55 MERGED** + `formalized` (was PR #51 / `in_review`). Dilworth stamped **PR #54 MERGED** + `formalized` (was awaiting Reviewer). Ledger last-updated no longer says “PR pending Reviewer”.
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport,
+EGZ, Sperner/LYM, Hall marriage (`HallMarriageTheorem` / `hall_hard_inductive`), Wilson, Lucas,
+Zeckendorf, Beatty, Pythagorean triples, Turán, non-uniform `Intersecting.card_le`, Hilbert
+Nullstellensatz (`RingTheory/Nullstellensatz.lean` — **not** Alon's combinatorial form),
+Chevalley–Warning (`FieldTheory/ChevalleyWarning.lean`), Burnside (group actions), Lagrange
+four squares, quadratic reciprocity, Möbius inversion, Hamiltonian *definitions* (Dirac theorem
+now in ProofLab, not Mathlib), `Walk.IsEulerian` + necessary `card_odd_degree` (existence TODO
+L26–29 remains upstream; ProofLab filled circuit + 2-odd trail), `Subgraph.IsMatching` (no König
+/ no vertex cover in Mathlib — ProofLab has both), cardinal König (`SetTheory.Cardinal`, unrelated),
+`IsChain` / `IsAntichain` *definitions* (Dilworth now in ProofLab), `Colorable` /
+`chromaticNumber` / `maxDegree` / `chromaticNumber_top` (no Brooks, no greedy `χ ≤ Δ+1`).
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`greedy-chromatic` — RECOMMENDED PRIME (89).** Independent re-score, **not** an OPE-613
+   leftover rubber-stamp. Why-not-classical: every finite simple graph is (Δ+1)-colourable
+   (Diestel corollary / greedy algorithm) is settled. Why still a bet / why a new layer:
+   Dilworth + Eulerian trail (the previous slot-cap occupiers) are **closed**. Mathlib has
+   `Colorable` / `chromaticNumber` / `maxDegree`; ZERO `Colorable (maxDegree+1)`, ZERO
+   `chromaticNumber_le_maxDegree`, ZERO Brooks. Proof shape: induction on `card V`, colour
+   `G−v`, extend at `v` (≤Δ neighbours leave one colour in `Fin (Δ+1)`). Human-scale; defs
+   waiting. Brooks is a *different* named theorem (shortlist #2) — do **not** prove Brooks
+   in this id. STATEMENT pin: `catalog/problems/greedy-chromatic/STATEMENT.md`.
+2. **`brooks-coloring` (78).** Independent re-score, **not** an OPE-613 leftover rubber-stamp.
+   Why-not-classical: Brooks 1941 `χ ≤ Δ` except complete graphs and odd cycles is settled.
+   Why still a bet / why a new layer: greedy is the cheap lemma; Brooks is the namesake with
+   exceptions. Score 78 (not 89) because critical-graph / Kempe is the known sink and Mathlib
+   has **no** `cycleGraph` (odd-cycle pin: 2-regular connected + odd `card V`). Do **not**
+   assign before greedy unless Director swaps. Do **not** label greedy as Brooks.
+   STATEMENT pin: `catalog/problems/brooks-coloring/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-613 leftovers):
+
+- **Combinatorial Nullstellensatz:** gap still holds (Hilbert NS ≠ Alon 1999; ZERO combinatorial
+  ident hits). Chevalley–Warning already upstream. Algebra-heavy `MvPolynomial` unused in
+  ProofLab. Bench.
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime.
+- **Ore stretch:** independently a remaining Mathlib gap (Hamiltonian defs only; Ore hits in
+  Mathlib are localization, not Ore's theorem). Proof shape is a re-warm of closed Dirac
+  longest-path. **Not slotted.**
+- **Cayley `n^{n-2}`:** gap holds (`IsTree` exists, including `card_edgeFinset`; no labelled-tree
+  count / no Prüfer). Encoding landmine remains: `SimpleGraph` is a large type, so the claim
+  must go through edge-Finsets / Prüfer codes, not `Fintype.card {G // G.IsTree}`. Group
+  Cayley and Cayley–Hamilton are different already-upstream theorems. Bench (definition risk).
+- **Tutte's theorem:** explicit Matching.lean TODO, ZERO theorem. Classical but a substantially
+  larger first bite than greedy (Tutte sets / barriers). Bench.
+- **Menger:** ZERO Mathlib+Archive. Classical min-cut / disjoint-paths; needs new cut predicates.
+  Slot cap used by colouring defs that already exist. Bench.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 
