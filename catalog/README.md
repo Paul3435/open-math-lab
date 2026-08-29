@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-658 Formalist: `brooks-coloring` Level B Δ≤2 family zero-sorry `brooks_colorable_of_maxDegree_le_two`. Namesake residual. No novelty.)
+**Last updated:** 2026-08-29 (OPE-666 Scout: catalog audit + ≤2 shortlist `havel-hakimi` prime / `menger-vertex` #2. Brooks Level B stamped PR **#59 MERGED**, status stays `informal` (namesake residual). Greedy already `formalized` / #57.)

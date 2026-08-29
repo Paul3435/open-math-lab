@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-29T15:47:33Z",
+  "last_updated": "2026-08-29T20:14:26Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -667,7 +667,7 @@
       "status": "informal",
       "domain": "graph_theory",
       "score": 78,
-      "note": "OPE-658 Formalist Level B honest partial. Zero-sorry ProofLab/Brooks.lean. Level A consumed (PR #58): IsOddCycle pin; ⊤ / odd-cycle exceptions χ=Δ+1; greedy reused, not labelled Brooks. Level B Diestel first family LANDED: brooks_colorable_of_maxDegree_le_two (connected, G≠⊤, ¬IsOddCycle, Δ≤2 ⇒ Colorable Δ). Named: even 2-regular along Hierholzer circuit (index mod 2); paths by deleting a degree-1 vertex; Δ≤1 vacuous (connected Δ≤1 graphs are complete). Cheap corollary chromaticNumber_le_maxDegree_of_maxDegree_le_two. #print axioms = propext/Classical.choice/Quot.sound (no sorryAx). Namesake brooks_colorable residual (Δ-regular Δ≥3 not-complete; Kempe/Lovász sink; not sorry-ed). known-classical, no novelty. Status stays informal until namesake. Do NOT re-prime greedy/Dilworth/Eulerian/König/Dirac/Level A. Do NOT mark formalized until namesake lands.",
+      "note": "OPE-658 Formalist Level B PR **#59 MERGED** (ea69b7b, 2026-08-29T19:35:43Z). OPE-658 Formalist Level B honest partial. Zero-sorry ProofLab/Brooks.lean. Level A consumed (PR #58): IsOddCycle pin; ⊤ / odd-cycle exceptions χ=Δ+1; greedy reused, not labelled Brooks. Level B Diestel first family LANDED: brooks_colorable_of_maxDegree_le_two (connected, G≠⊤, ¬IsOddCycle, Δ≤2 ⇒ Colorable Δ). Named: even 2-regular along Hierholzer circuit (index mod 2); paths by deleting a degree-1 vertex; Δ≤1 vacuous (connected Δ≤1 graphs are complete). Cheap corollary chromaticNumber_le_maxDegree_of_maxDegree_le_two. #print axioms = propext/Classical.choice/Quot.sound (no sorryAx). Namesake brooks_colorable residual (Δ-regular Δ≥3 not-complete; Kempe/Lovász sink; not sorry-ed). known-classical, no novelty. Status stays informal until namesake. Do NOT re-prime greedy/Dilworth/Eulerian/König/Dirac/Level A. Do NOT mark formalized until namesake lands.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -685,14 +685,64 @@
         "OPE-639",
         "OPE-650",
         "OPE-651",
-        "OPE-658"
+        "OPE-658",
+        "OPE-663"
       ],
       "parent_issue": "OPE-639",
       "lean_artifact": "proofs/lean-project/ProofLab/Brooks.lean",
-      "formalist_issue": "OPE-658"
+      "formalist_issue": "OPE-658",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/59"
+    },
+    {
+      "id": "havel-hakimi",
+      "title": "Havel–Hakimi: graphic sequences (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 86,
+      "note": "OPE-666 Scout RECOMMENDED PRIME. known-classical Havel 1955 / Hakimi 1962, no novelty. Mathlib v4.10.0 has degree/handshaking; ZERO IsGraphic/Havel/Hakimi. New proof layer after greedy #57 + Brooks A #58 + Brooks B #59 consumed. Do NOT re-prime greedy/Brooks/Dilworth/Eulerian/König/Dirac. Do NOT prove Erdős–Gállai / Gale–Ryser / Tutte in this id.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/havel-hakimi/",
+        "problems/havel-hakimi/"
+      ],
+      "scout_issue": "OPE-666",
+      "tickets": [
+        "OPE-666",
+        "OPE-665"
+      ],
+      "parent_issue": "OPE-665"
+    },
+    {
+      "id": "menger-vertex",
+      "title": "Menger's theorem: min A–B vertex separator = max disjoint A–B paths (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 80,
+      "note": "OPE-666 Scout shortlist #2, NOT the prime. Independent re-score of OPE-640 considered-not-slotted Menger — not a rubber-stamp. Colouring slots now consumed. known-classical Menger 1927, no novelty. Mathlib has Walk/Reachable/Connected; ZERO Menger. Do NOT assign before havel-hakimi unless Director swaps. Do NOT re-prime König/Dilworth/greedy/Brooks. Do NOT prove edge-Menger / max-flow / infinite Erdős–Menger.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "graph-theory",
+        "formalization",
+        "combinatorics"
+      ],
+      "artifacts": [
+        "catalog/problems/menger-vertex/",
+        "problems/menger-vertex/"
+      ],
+      "scout_issue": "OPE-666",
+      "tickets": [
+        "OPE-666",
+        "OPE-665"
+      ],
+      "parent_issue": "OPE-665"
     }
   ],
-  "updated_at": "2026-08-29T18:51:35Z",
+  "updated_at": "2026-08-29T20:14:26Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

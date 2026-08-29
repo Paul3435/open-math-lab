@@ -1,0 +1,53 @@
+{
+  "id": "menger-vertex",
+  "title": "Menger's theorem: min A–B vertex separator = max disjoint A–B paths (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 80,
+  "scores": {
+    "formalizability": 14,
+    "partial_progress": 15,
+    "attack_surface": 16,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Menger 1927: in a finite graph the minimum number of vertices separating A from B equals the maximum number of pairwise vertex-disjoint A–B paths. Settled min-max. Value is a Mathlib contribution (Walk / Reachable / Connected / IsPath exist; ZERO Menger, ZERO graph IsSeparator / vertexCut in Mathlib+Archive). König ν=τ is a different theorem (matchings), now in ProofLab — optional engine, not the claim. Do NOT re-fund as novel.",
+  "recommendation": "OPE-666 shortlist #2, NOT the prime. Independent re-score of the OPE-640 considered-not-slotted Menger line — not a rubber-stamp. Last Scout benched Menger because the slot cap was used by colouring defs that already existed; greedy + Brooks A/B are now CONSUMED (PRs #57/#58/#59). Gap still holds. Named human-scale proof: Diestel induction on |E|. Score 80 (not 86) because separator / A–B-path predicates are new and Walk-induction is the known sink. Do NOT assign before havel-hakimi unless Director swaps. Do NOT prove edge-Menger / max-flow / infinite Erdős–Menger. Do NOT re-prime König / Dilworth / greedy / Brooks.",
+  "mathlib_gap_grep_2026_08_29_ope666": "Pin mathlib a719ba5c3115 (v4.10.0). rg --word-regexp Menger / menger over Mathlib/** + Archive/** → ZERO. rg IsSeparator in SimpleGraph → ZERO (category-theory IsDetector.isSeparator is unrelated). Defs HIT: Walk.support (Walk.lean:455), Reachable (Path.lean:628), Connected (Path.lean:731), IsPath. Negative control HIT: Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. HallMarriageTheorem EXISTS. ProofLab.Konig.konig_bipartite EXISTS — different min-max. Matching.lean TODO lists Tutte (not Menger). Hilbert NS EXISTS (not combinatorial). ChevalleyWarning EXISTS. Colorable/maxDegree exist; ZERO Brooks in Mathlib.",
+  "statement_pin_required": {
+    "convention": "Fix finite G : SimpleGraph V, A B : Set V. An A–B path starts in A, ends in B, internals avoid A ∪ B. S separates A from B when every A–B path meets S. Claim: min |S| = max number of pairwise vertex-disjoint A–B paths. v1 is this global form (Diestel). Local κ(u,v) is the same heartbeat if cheap, not required. Encoding: Mathlib Walk / IsPath / Walk.support.",
+    "landmines": [
+      "Finite only. Infinite / Erdős–Menger out of scope.",
+      "A ∩ B is load-bearing (trivial paths + every separator contains it).",
+      "Global form uses fully vertex-disjoint paths; local u–v form uses internally disjoint. v1 is global.",
+      "Not König ν=τ. Optional König engine on an auxiliary graph; do not re-prime konig-bipartite.",
+      "Not edge-Menger, not max-flow, not Tutte, not Whitney κ ≤ λ ≤ δ, not 4CT/5CT.",
+      "Walk-induction is the budget sink — name Diestel |E| induction or stop.",
+      "Do not re-prime greedy / Brooks A/B / Dilworth / Eulerian / Dirac / König.",
+      "No Archive import."
+    ],
+    "canonical_source": "K. Menger, Zur allgemeinen Kurventheorie, Fund. Math. 10 (1927) 96–115. Textbook: Diestel, Graph Theory, Menger's theorem (min vertices separating A from B = max disjoint A–B paths). Type pin: Mathlib Walk / IsPath / Walk.support. Edge-Menger and max-flow min-cut are different theorems, not this claim."
+  },
+  "feasibility_shape": "Level A: A ∩ B nonempty (trivial paths); singleton A,B joined by an edge; no A–B path ⇒ p = s = 0; easy p ≤ s; zero sorry. Level B: theorem menger_vertex by Diestel |E| induction (or König reduction). Cap two levels. No edge-Menger / no flows / no infinite.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Walk — Walk.support",
+    "Mathlib Combinatorics.SimpleGraph.Path — Reachable, Connected, IsPath",
+    "ProofLab/Konig.lean — optional engine; DO NOT re-prove ν=τ",
+    "ProofLab/Dilworth.lean — split-graph min-max pattern; DO NOT re-prove Dilworth",
+    "ProofLab/Eulerian.lean — Walk/trail muscle; trails ≠ A–B paths",
+    "ProofLab/GreedyChromatic.lean / Brooks.lean — do not reuse colouring claims",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "180k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-29",
+  "scout_issue": "OPE-666",
+  "parent_issue": "OPE-665",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Menger; ZERO graph IsSeparator; defs Walk/Reachable/Connected HIT",
+    "Independent re-score: last Scout benched Menger because colouring defs occupied the slot cap — greedy+Brooks now consumed; not a rubber-stamp leftover",
+    "Negative control turan → Turan.lean exists",
+    "König / Dilworth disclosed as different already-ProofLab min-max theorems"
+  ]
+}

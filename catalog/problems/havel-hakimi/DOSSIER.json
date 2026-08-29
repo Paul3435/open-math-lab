@@ -1,0 +1,52 @@
+{
+  "id": "havel-hakimi",
+  "title": "Havel–Hakimi: graphic sequences (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 16,
+    "attack_surface": 17,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Havel 1955 / Hakimi 1962: a nonincreasing sequence of nonnegative integers is graphic iff the Havel–Hakimi reduction is graphic. Completely settled. Value is a Mathlib contribution (degree / neighborFinset / handshaking exist; ZERO IsGraphic, ZERO Havel, ZERO Hakimi, ZERO degreeSequence in Mathlib+Archive). Do NOT re-fund as novel.",
+  "recommendation": "OPE-666 RECOMMENDED PRIME. Fresh id — not an OPE-640 leftover rubber-stamp. Last Scout's slot cap was greedy + Brooks; both are now CONSUMED on merged main (PRs #57/#58/#59). Defs are waiting (unlike Cayley encoding / Nullstellensatz MvPolynomial). Erdős–Gállai / Gale–Ryser / Tutte are different theorems — do NOT prove them in this id. Do NOT re-prime greedy / Brooks A/B / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_29_ope666": "Pin mathlib a719ba5c3115 (v4.10.0). rg --word-regexp Havel / Hakimi / IsGraphic / degreeSequence over Mathlib/** + Archive/** → ZERO. Defs HIT: degree (Finite.lean:197), maxDegree (L343), minDegree (L314), sum_degrees_eq_twice_card_edges / even_card_odd_degree_vertices (DegreeSum.lean — handshaking, necessary only). fromEdgeSet EXISTS (Basic.lean:553) — construction helper, not the characterisation. Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. HallMarriageTheorem EXISTS. Hilbert Nullstellensatz EXISTS (RingTheory/Nullstellensatz.lean) — not combinatorial, not this. ChevalleyWarning EXISTS. IsHamiltonian DEFS only. IsEulerian + card_odd_degree necessary only. IsMatching, no vertexCover in Mathlib (ProofLab has König). IsChain/IsAntichain defs only (ProofLab has Dilworth). Colorable/chromaticNumber/maxDegree exist; ZERO Brooks / ZERO Colorable (maxDegree+1) in Mathlib (ProofLab has greedy + Brooks Δ≤2).",
+  "statement_pin_required": {
+    "convention": "Fix n : ℕ, d : Fin n → ℕ nonincreasing. IsGraphic d := ∃ G : SimpleGraph (Fin n), ∀ i, G.degree i = d i. reduce d deletes the max-degree entry, decrements the next (d 0) entries, re-sorts nonincreasing. Claim: IsGraphic d ↔ IsGraphic (reduce d), with failed reduction (negative / d 0 ≥ n) ⇒ ¬ IsGraphic d. Encoding: Mathlib degree on Fin n. Existence only — not isomorphism classes.",
+    "landmines": [
+      "Simple graphs only. d i ≤ n-1 is necessary; d 0 ≥ n is immediately non-graphic.",
+      "Re-sort after reduction is load-bearing.",
+      "Even sum is necessary, not sufficient. (2,2,0,0) is the landmine. Handshaking already in DegreeSum.lean.",
+      "Not Erdős–Gállai. Not Gale–Ryser. Not Tutte.",
+      "Not greedy / Brooks / Vizing / 4CT. Degree sequence ≠ chromatic number.",
+      "n=0 empty graphic; (1) on n=1 not graphic; constant n-1 is ⊤.",
+      "Do not re-prime greedy / Brooks / König / Dirac / Eulerian / Dilworth.",
+      "No Archive import."
+    ],
+    "canonical_source": "V. Havel, Poznámka o existenci konečných grafů, Časopis Pěst. Mat. 80 (1955) 477–480. S. L. Hakimi, On realizability of a set of integers as degrees of the vertices of a linear graph. I, J. SIAM 10 (1962) 496–506. Textbook: Diestel, Graph Theory, graphic sequences. Type pin: Mathlib SimpleGraph.degree on Fin n. Erdős–Gállai is a different theorem, not this claim."
+  },
+  "feasibility_shape": "Level A: empty / all-zeros (⊥) / complete (⊤) / K2=(1,1) / non-graphic (1) and (2,2,0,0) + d i ≤ n-1 glue, zero sorry. Level B: theorem havel_hakimi (iff + constructive reverse-reduction). Cap two levels. No Erdős–Gállai / Gale–Ryser / Tutte. Human-scale induction; no native_decide explosion.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Finite — degree, maxDegree, minDegree",
+    "Mathlib Combinatorics.SimpleGraph.DegreeSum — handshaking (necessary only; do not claim sufficient)",
+    "Mathlib Combinatorics.SimpleGraph.Basic — fromEdgeSet optional construction",
+    "ProofLab/GreedyChromatic.lean / Brooks.lean — recent degree muscle; DO NOT reuse those claims",
+    "ProofLab/Konig.lean / Dirac.lean / Eulerian.lean / Dilworth.lean — do not re-prove",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "150k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-29",
+  "scout_issue": "OPE-666",
+  "parent_issue": "OPE-665",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Havel/Hakimi/IsGraphic/degreeSequence; defs degree/handshaking HIT",
+    "Fresh id after colouring slots consumed; not a leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Hall / Hilbert NS / Chevalley–Warning / Hamiltonian defs / IsEulerian necessary / IsMatching / IsChain disclosed as different already-upstream facts"
+  ]
+}
