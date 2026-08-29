@@ -9,9 +9,10 @@ no chain-partition number, no Dilworth. ProofLab `konig_bipartite` is the
 Finite only. `PartialOrder`, not `Preorder`. Split graph uses strict `<`.
 Do not König the comparability graph.
 
-Pin: `catalog/problems/dilworth-poset/STATEMENT.md` (OPE-619 / Scout OPE-613).
+Pin: `catalog/problems/dilworth-poset/STATEMENT.md` (OPE-619 / OPE-626 / Scout OPE-613).
 Level A: easy inequality + empty / 2-element / total-chain / antichain-poset.
-Level B: ∀ finite poset via Fulkerson split + `ProofLab.Konig.konig_bipartite`.
+Level B (this module, OPE-626): ∀ finite poset via Fulkerson split + matching
+→ chain partition; `ProofLab.Konig.konig_bipartite` is the *engine*, not the claim.
 Zero `sorry`. Do not import `Archive.*`.
 -/
 import Mathlib.Order.Chain
@@ -21,6 +22,7 @@ import Mathlib.Combinatorics.SimpleGraph.Coloring
 import Mathlib.Combinatorics.SimpleGraph.Matching
 import Mathlib.Data.Fintype.Card
 import Mathlib.Data.List.Sort
+import Mathlib.Logic.Relation
 import Mathlib.Tactic
 import ProofLab.Konig
 
@@ -342,5 +344,284 @@ lemma le_uncovered_card (C : Finset (α ⊕ α)) :
   have h := uncovered_card_add C
   have hle := card_touched_le C
   omega
+
+/-! ## Level B: matching in `splitGraph` → chain partition of size `width`
+
+Fulkerson: a matching edge `inl a — inr b` (so `a < b`) is a successor step.
+The functional graph of that successor is a disjoint union of paths (no cycles:
+strict `<`). Unmatched-on-the-right vertices are sources of those paths. The
+number of paths is `|α| − ν(splitGraph)`. König `ν = τ` on the split graph
+(engine, not the claim) plus the uncovered antichain gives `|chains| = width`.
+-/
+
+open Relation
+
+section MatchingChains
+
+variable {M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))}
+
+lemma split_adj_form {u v : α ⊕ α}
+    (h : (splitGraph : SimpleGraph (α ⊕ α)).Adj u v) :
+    ∃ a b : α, a < b ∧
+      ((u = Sum.inl a ∧ v = Sum.inr b) ∨ (u = Sum.inr b ∧ v = Sum.inl a)) := by
+  cases u with
+  | inl a =>
+    cases v with
+    | inl _ => simp [splitGraph, splitAdj] at h
+    | inr b =>
+      refine ⟨a, b, ?_, Or.inl ⟨rfl, rfl⟩⟩
+      simpa [splitGraph, splitAdj] using h
+  | inr b =>
+    cases v with
+    | inl a =>
+      refine ⟨a, b, ?_, Or.inr ⟨rfl, rfl⟩⟩
+      simpa [splitGraph, splitAdj] using h
+    | inr _ => simp [splitGraph, splitAdj] at h
+
+/-- Successor along a matching: `a ↦ b` when `inl a` is matched to `inr b`. -/
+def succRel (M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))) (a b : α) : Prop :=
+  M.Adj (Sum.inl a) (Sum.inr b)
+
+def hasPred (M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))) (x : α) : Prop :=
+  ∃ a, succRel M a x
+
+/-- Right-unmatched ground vertices: sources of Fulkerson chains. -/
+def sources (M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))) : Finset α :=
+  univ.filter fun x => ¬ hasPred M x
+
+def matchedRight (M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))) : Finset α :=
+  univ.filter fun x => hasPred M x
+
+/-- Elements reachable from `s` by following matching successors. -/
+def chainFrom (M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))) (s : α) : Finset α :=
+  univ.filter fun y => ReflTransGen (succRel M) s y
+
+lemma succRel_lt {a b : α} (h : succRel M a b) : a < b := by
+  have := M.adj_sub h
+  simpa [splitGraph, splitAdj] using this
+
+lemma succRel_right_unique (hM : M.IsMatching) :
+    Relator.RightUnique (succRel M) := by
+  intro a b c hb hc
+  have hv : Sum.inl a ∈ M.verts := M.edge_vert hb
+  obtain ⟨w, _hw, huniq⟩ := hM hv
+  have hb' := huniq (Sum.inr b) hb
+  have hc' := huniq (Sum.inr c) hc
+  exact Sum.inr.inj (hb'.trans hc'.symm)
+
+lemma succRel_left_unique (hM : M.IsMatching) :
+    Relator.LeftUnique (succRel M) := by
+  intro a a' b ha ha'
+  have hv : Sum.inr b ∈ M.verts := M.edge_vert (M.symm ha)
+  obtain ⟨w, _hw, huniq⟩ := hM hv
+  have h1 := huniq (Sum.inl a) (M.symm ha)
+  have h2 := huniq (Sum.inl a') (M.symm ha')
+  exact Sum.inl.inj (h1.trans h2.symm)
+
+lemma rtg_le {a b : α} (h : ReflTransGen (succRel M) a b) : a ≤ b := by
+  induction h with
+  | refl => exact le_rfl
+  | tail _ hab ih => exact ih.trans (le_of_lt (succRel_lt hab))
+
+lemma exists_inl_inr_of_mem_edgeSet {e : Sym2 (α ⊕ α)} (he : e ∈ M.edgeSet) :
+    ∃ a b : α, e = s(Sum.inl a, Sum.inr b) ∧ M.Adj (Sum.inl a) (Sum.inr b) := by
+  revert he
+  refine Sym2.inductionOn e fun u v he => ?_
+  have hadj : M.Adj u v := SimpleGraph.Subgraph.mem_edgeSet.mp he
+  have hG := M.adj_sub hadj
+  cases u with
+  | inl a =>
+    cases v with
+    | inl _ => simp [splitGraph, splitAdj] at hG
+    | inr b => exact ⟨a, b, rfl, hadj⟩
+  | inr b =>
+    cases v with
+    | inl a =>
+      refine ⟨a, b, Sym2.eq_swap, M.symm hadj⟩
+    | inr _ => simp [splitGraph, splitAdj] at hG
+
+noncomputable def leftOfEdge (e : M.edgeSet) : α :=
+  (exists_inl_inr_of_mem_edgeSet e.2).choose
+
+noncomputable def rightOfEdge (e : M.edgeSet) : α :=
+  (exists_inl_inr_of_mem_edgeSet e.2).choose_spec.choose
+
+lemma left_right_of_edge (e : M.edgeSet) :
+    (e : Sym2 (α ⊕ α)) = s(Sum.inl (leftOfEdge e), Sum.inr (rightOfEdge e)) ∧
+      M.Adj (Sum.inl (leftOfEdge e)) (Sum.inr (rightOfEdge e)) :=
+  (exists_inl_inr_of_mem_edgeSet e.2).choose_spec.choose_spec
+
+lemma matchingCard_eq_matchedRight (hM : M.IsMatching) :
+    ProofLab.Konig.matchingCard M = (matchedRight M).card := by
+  let pickR : { x // x ∈ matchedRight M } → M.edgeSet := fun ⟨x, hx⟩ =>
+    ⟨s(Sum.inl (Classical.choose (mem_filter.mp hx).2), Sum.inr x),
+      SimpleGraph.Subgraph.mem_edgeSet.mpr (Classical.choose_spec (mem_filter.mp hx).2)⟩
+  have hinjR : Injective pickR := by
+    rintro ⟨x, hx⟩ ⟨y, hy⟩ h
+    apply Subtype.ext
+    have hv : (pickR ⟨x, hx⟩ : Sym2 (α ⊕ α)) = pickR ⟨y, hy⟩ := congrArg Subtype.val h
+    rw [Sym2.eq_iff] at hv
+    rcases hv with ⟨_, hxy⟩ | ⟨hbad, _⟩
+    · exact Sum.inr.inj hxy
+    · cases hbad
+  let pickE : M.edgeSet → { x // x ∈ matchedRight M } := fun e =>
+    ⟨rightOfEdge e,
+      mem_filter.mpr ⟨mem_univ _, ⟨leftOfEdge e, (left_right_of_edge e).2⟩⟩⟩
+  have hinjE : Injective pickE := by
+    intro e1 e2 h
+    apply Subtype.ext
+    have hr : rightOfEdge e1 = rightOfEdge e2 := congrArg Subtype.val h
+    have h1 := left_right_of_edge e1
+    have h2 := left_right_of_edge e2
+    have ha : leftOfEdge e1 = leftOfEdge e2 :=
+      succRel_left_unique hM h1.2 (hr ▸ h2.2)
+    calc (e1 : Sym2 (α ⊕ α))
+        = s(Sum.inl (leftOfEdge e1), Sum.inr (rightOfEdge e1)) := h1.1
+      _ = s(Sum.inl (leftOfEdge e2), Sum.inr (rightOfEdge e2)) := by rw [ha, hr]
+      _ = e2 := h2.1.symm
+  have hle1 := Fintype.card_le_of_injective pickR hinjR
+  have hle2 := Fintype.card_le_of_injective pickE hinjE
+  apply le_antisymm
+  · simpa [ProofLab.Konig.matchingCard, Fintype.card_coe] using hle2
+  · simpa [ProofLab.Konig.matchingCard, Fintype.card_coe] using hle1
+
+lemma sources_card_add_matchedRight :
+    (sources M).card + (matchedRight M).card = Fintype.card α := by
+  have := filter_card_add_filter_neg_card_eq_card
+    (s := (univ : Finset α)) (p := hasPred M)
+  simpa [sources, matchedRight, card_univ, add_comm] using this
+
+lemma sources_card_add_matching (hM : M.IsMatching) :
+    (sources M).card + ProofLab.Konig.matchingCard M = Fintype.card α := by
+  rw [matchingCard_eq_matchedRight hM, sources_card_add_matchedRight]
+
+lemma chainFrom_isChain (hM : M.IsMatching) (s : α) :
+    IsChainSet (chainFrom M s) := by
+  intro x hx y hy _hne
+  have hx' : ReflTransGen (succRel M) s x := (mem_filter.mp hx).2
+  have hy' : ReflTransGen (succRel M) s y := (mem_filter.mp hy).2
+  rcases ReflTransGen.total_of_right_unique (succRel_right_unique hM) hx' hy' with h | h
+  · exact Or.inl (rtg_le h)
+  · exact Or.inr (rtg_le h)
+
+lemma source_unique (hM : M.IsMatching) {s : α} (hs : ¬ hasPred M s) :
+    ∀ {y t : α}, ReflTransGen (succRel M) s y → ¬ hasPred M t →
+      ReflTransGen (succRel M) t y → s = t := by
+  intro y t hsy
+  induction hsy generalizing t with
+  | refl =>
+    intro _ht hty
+    rcases ReflTransGen.cases_tail hty with h | ⟨c, _, hcs⟩
+    · exact h
+    · exact (hs ⟨c, hcs⟩).elim
+  | tail _hpath hstep ih =>
+    intro ht hty
+    rcases ReflTransGen.cases_tail hty with h | ⟨c, htc, hcy⟩
+    · subst h
+      exact (ht ⟨_, hstep⟩).elim
+    · have hc := succRel_left_unique hM hcy hstep
+      subst hc
+      exact ih ht htc
+
+lemma chainFrom_disjoint (hM : M.IsMatching) {s t : α}
+    (hs : ¬ hasPred M s) (ht : ¬ hasPred M t) (hst : s ≠ t) :
+    Disjoint (chainFrom M s) (chainFrom M t) := by
+  refine disjoint_left.mpr ?_
+  intro y hys hyt
+  have hy1 : ReflTransGen (succRel M) s y := (mem_filter.mp hys).2
+  have hy2 : ReflTransGen (succRel M) t y := (mem_filter.mp hyt).2
+  exact (hst (source_unique hM hs hy1 ht hy2)).elim
+
+lemma exists_source (x : α) :
+    ∃ s, ¬ hasPred M s ∧ ReflTransGen (succRel M) s x := by
+  let S : Finset α := univ.filter fun y => ReflTransGen (succRel M) y x
+  have hx : x ∈ S := mem_filter.mpr ⟨mem_univ x, ReflTransGen.refl⟩
+  obtain ⟨s, hsS, hmin⟩ :=
+    S.exists_min_image (fun y : α => (univ.filter fun z : α => z < y).card) ⟨x, hx⟩
+  have hs : ReflTransGen (succRel M) s x := (mem_filter.mp hsS).2
+  refine ⟨s, ?_, hs⟩
+  rintro ⟨a, ha⟩
+  have hlt : a < s := succRel_lt ha
+  have haS : a ∈ S :=
+    mem_filter.mpr ⟨mem_univ a, ReflTransGen.head ha hs⟩
+  have hle : (univ.filter fun z : α => z < s).card ≤
+      (univ.filter fun z : α => z < a).card := hmin a haS
+  have hsub : (univ.filter fun z : α => z < a) ⊆
+      univ.filter fun z : α => z < s := by
+    intro z hz
+    exact mem_filter.mpr ⟨mem_univ z, lt_trans (mem_filter.mp hz).2 hlt⟩
+  have hanot : a ∉ univ.filter (fun z : α => z < a) := by
+    intro hz
+    exact lt_irrefl a (mem_filter.mp hz).2
+  have hnotsub : ¬ (univ.filter fun z : α => z < s) ⊆
+      univ.filter fun z : α => z < a := by
+    intro hts
+    exact hanot (hts (mem_filter.mpr ⟨mem_univ a, hlt⟩))
+  have hssub : (univ.filter fun z : α => z < a) ⊂
+      univ.filter fun z : α => z < s := ⟨hsub, hnotsub⟩
+  exact (Nat.not_le.mpr (card_lt_card hssub)) hle
+
+lemma mem_chainFrom_source (x : α) :
+    ∃ s ∈ sources M, x ∈ chainFrom M s := by
+  obtain ⟨s, hs, hrtg⟩ := exists_source (M := M) x
+  exact ⟨s, mem_filter.mpr ⟨mem_univ s, hs⟩, mem_filter.mpr ⟨mem_univ x, hrtg⟩⟩
+
+noncomputable def sourceEquiv (M : Subgraph (splitGraph : SimpleGraph (α ⊕ α))) :
+    { x // x ∈ sources M } ≃ Fin (sources M).card :=
+  Fintype.equivFinOfCardEq (Fintype.card_coe (sources M))
+
+lemma matching_isChainPartition (hM : M.IsMatching) :
+    IsChainPartition (fun i : Fin (sources M).card =>
+      chainFrom M ((sourceEquiv M).symm i).1) := by
+  refine ⟨?hchain, ?hdisj, ?hcov⟩
+  · intro i
+    exact chainFrom_isChain hM _
+  · intro i j hij
+    have hsi : ¬ hasPred M ((sourceEquiv M).symm i).1 :=
+      (mem_filter.mp ((sourceEquiv M).symm i).2).2
+    have hsj : ¬ hasPred M ((sourceEquiv M).symm j).1 :=
+      (mem_filter.mp ((sourceEquiv M).symm j).2).2
+    have hne : ((sourceEquiv M).symm i).1 ≠ ((sourceEquiv M).symm j).1 := by
+      intro h
+      exact hij ((sourceEquiv M).symm.injective (Subtype.ext h))
+    exact chainFrom_disjoint hM hsi hsj hne
+  · intro x
+    obtain ⟨s, hs, hx⟩ := mem_chainFrom_source (M := M) x
+    refine ⟨sourceEquiv M ⟨s, hs⟩, ?_⟩
+    simpa using hx
+
+end MatchingChains
+
+/-- Dilworth 1950, finite posets: a chain partition of `univ` of size `width`.
+Fulkerson split + maximum matching builds the chains; König `ν=τ` on
+`splitGraph` is the *engine* (not a citation of König/Hall as Dilworth).
+Not Mirsky. Not comparability-graph König. Finite `PartialOrder` only. -/
+theorem dilworth :
+    ∃ (n : ℕ) (chains : Fin n → Finset α) (A : Finset α),
+      IsChainPartition chains ∧ IsAntichainSet A ∧ A.card = n ∧ n = width (α := α) := by
+  obtain ⟨M, hM, hMcard⟩ := exists_max_matching (splitGraph : SimpleGraph (α ⊕ α))
+  obtain ⟨C, hC, hCcard⟩ := exists_min_cover (splitGraph : SimpleGraph (α ⊕ α))
+  have hντ :
+      ProofLab.Konig.matchingNumber (splitGraph : SimpleGraph (α ⊕ α)) =
+        ProofLab.Konig.vertexCoverNumber (splitGraph : SimpleGraph (α ⊕ α)) :=
+    ProofLab.Konig.konig_bipartite splitGraph_colorable
+  have hMc : ProofLab.Konig.matchingCard M = C.card := by
+    rw [hMcard, hντ, hCcard]
+  let S := sources M
+  let chains : Fin S.card → Finset α := fun i =>
+    chainFrom M ((sourceEquiv M).symm i).1
+  have hP : IsChainPartition chains := matching_isChainPartition hM
+  have hA : IsAntichainSet (uncovered C) := uncovered_isAntichain hC
+  have hsum : S.card + C.card = Fintype.card α := by
+    simpa [S, hMc] using sources_card_add_matching hM
+  have hleA : S.card ≤ (uncovered C).card := by
+    have huc := le_uncovered_card C
+    omega
+  have hwidth_le : width (α := α) ≤ S.card := width_le_chainPartition hP
+  have hle_width : S.card ≤ width (α := α) := hleA.trans (le_width hA)
+  have hn : S.card = width (α := α) := le_antisymm hle_width hwidth_le
+  have hAcard : (uncovered C).card = S.card :=
+    le_antisymm ((le_width hA).trans_eq hn.symm) hleA
+  exact ⟨S.card, chains, uncovered C, hP, hA, hAcard, hn⟩
 
 end ProofLab.Dilworth
