@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-29 (OPE-666 Scout: catalog audit + ≤2 shortlist `havel-hakimi` prime / `menger-vertex` #2. Brooks Level B stamped PR **#59 MERGED**, status stays `informal` (namesake residual). Greedy already `formalized` / #57.)
+**Last updated:** 2026-08-29 (OPE-671 Formalist: `havel-hakimi` Level A + reverse, status `informal` (namesake iff residual: switching). Scout OPE-666 shortlist still has `menger-vertex` #2 unassigned.)
