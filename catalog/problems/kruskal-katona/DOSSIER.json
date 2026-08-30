@@ -1,0 +1,52 @@
+{
+  "id": "kruskal-katona",
+  "title": "Kruskal–Katona: colex initial segments minimise the shadow (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_set_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 18,
+    "verification_budget": 14,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Kruskal 1963 / Katona 1968: among r-uniform families of a given size, the colex initial segment has the smallest shadow. Completely settled. Value is a Mathlib contribution (shadow / IsInitSeg / UV.card_shadow_compression_le exist and were written for this theorem; ZERO Kruskal-Katona theorem ident in Mathlib+Archive). Do NOT re-fund as novel. Sperner/LYM are different theorems already upstream.",
+  "recommendation": "OPE-702 RECOMMENDED PRIME. Independent new id — never previously shortlisted. Not a Dilworth leftover (Director declined Mirsky / Greene / Level C). Not Sperner/LYM (already in Mathlib LYM.lean). Cayley #64 + Mycielski #65 consumed. Score 86 because defs are waiting (formalizability 18 / attack 18) but the colex-minimiser glue is the budget sink (verification 14). Do NOT assign oddtown first unless Director swaps. Do NOT prove Hilton-Milner / Oddtown / Eventown / Lovász-ℝ binomial in this id. Do NOT re-prime cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope702": "Pin mathlib a719ba5c3115 (v4.10.0). rg KruskalKatona / Kruskal-Katona theorem ident over Mathlib/** + Archive/** → ZERO theorem; Colex.lean L23 and UV.lean L16/L29/L291/L397 mention the name as motivation only. Defs HIT: Finset.shadow (Shadow.lean), Finset.IsInitSeg / initSeg (Colex.lean:434/458), UV.card_shadow_compression_le (Compression/UV.lean:398). Sperner HIT: IsAntichain.sperner (LYM.lean:214) — different theorem, never cite as this gap. Local LYM HIT. Negative control HIT: Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. HallMarriageTheorem EXISTS. Hilbert NS EXISTS (not combinatorial). ChevalleyWarning EXISTS. CauchyDavenport EXISTS. EGZ EXISTS. Intersecting.card_le EXISTS (non-uniform). ZERO Oddtown / Eventown / Berlekamp. ZERO HiltonMilner. ZERO chromaticIndex / LineGraph / Vizing. ZERO planar. ProofLab has Dilworth / EKR / Mycielski / Cayley — not this theorem, not a re-prime.",
+  "statement_pin_required": {
+    "convention": "Sized r uniform families on Fin n. Claim: IsInitSeg 𝒞 r and 𝒞.card = 𝒜.card ⇒ (shadow 𝒞).card ≤ (shadow 𝒜).card. Engine: UV-compression until colex-compressed. Level A may reuse UV.card_shadow_compression_le, not labelled Kruskal-Katona.",
+    "landmines": [
+      "Not Sperner. Not LYM. Both already in LYM.lean.",
+      "Not Dilworth / Mirsky / Greene. Not EKR. Not Hilton-Milner.",
+      "Colex not lex. Uniform Sized r is load-bearing.",
+      "UV-compression glue is already upstream — glue, not the namesake.",
+      "Finite only. Lovász ℝ-binomial form out of v1.",
+      "Do not prove Oddtown / Eventown in this id.",
+      "Do not re-prime cayley-trees / mycielski / havel-hakimi / menger-vertex / König / Dirac / Eulerian / Dilworth.",
+      "No Archive import."
+    ],
+    "canonical_source": "J. B. Kruskal, The number of simplices in a complex, Mathematical Optimization Techniques (1963) 251–278; G. O. H. Katona, A theorem of finite sets, Theory of Graphs (1968) 187–207. Textbook: Bollobás, Combinatorics. Type pin: Mathlib Finset.shadow + Finset.IsInitSeg. Sperner / LYM / Dilworth / EKR / Hilton-Milner are different theorems, not this claim."
+  },
+  "feasibility_shape": "Level A: empty / singleton r-set / r≤1 + UV-compression glue, zero sorry. Level B: theorem kruskal_katona by compressing to a colex init segment. Cap two levels. No Lovász-ℝ form / Hilton-Milner / Oddtown. Colex-minimiser glue is the budget sink — timebox namesake; honest partial is allowed.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.Colex — IsInitSeg, initSeg",
+    "Mathlib Combinatorics.SetFamily.Shadow — shadow, Sized",
+    "Mathlib Combinatorics.SetFamily.Compression.UV — card_shadow_compression_le (Level A glue only)",
+    "Mathlib Combinatorics.SetFamily.LYM — Sperner/LYM already upstream; DO NOT re-prove / DO NOT label this Sperner",
+    "ProofLab/ErdosKoRado.lean / Dilworth.lean / Mycielski.lean / CayleyTrees.lean — do not re-prove",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "180k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-702",
+  "parent_issue": "OPE-701",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Kruskal-Katona theorem; defs shadow/IsInitSeg/UV-compression HIT",
+    "Fresh id after Cayley #64 + Mycielski #65 consumed; defs-waiting heuristic, not a Dilworth/Sperner leftover",
+    "Negative control turan → Turan.lean exists",
+    "Sperner / LYM / Dilworth / EKR / Hilton-Milner disclosed as different theorems"
+  ]
+}

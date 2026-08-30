@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-30T01:00:00Z",
+  "last_updated": "2026-08-30T15:16:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -781,7 +781,8 @@
       "parent_issue": "OPE-682",
       "lean_artifact": "proofs/lean-project/ProofLab/CayleyTrees.lean",
       "formalist_issue": "OPE-688",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/64"
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/64",
+      "scout_hygiene_ope702": "verified informal + PR #64 MERGED; namesake residual not a re-prime"
     },
     {
       "id": "mycielski-triangle-free",
@@ -789,7 +790,7 @@
       "status": "formalized",
       "domain": "graph_theory",
       "score": 82,
-      "note": "OPE-695 Formalist Level A+B CONSUMED. theorem mycielski_unbounded zero-sorry in ProofLab/Mycielski.lean: ∀ k ∃ G : SimpleGraph (Fin n), CliqueFree 3 ∧ ¬ Colorable k. Level A: C5 triangle-free + ¬ Colorable 2 via Walk.three_le_chromaticNumber_of_odd_loop (not labelled Mycielski). Level B: μ(G) on V ⊕ V ⊕ Unit (first copy / shadow / u), triangle-free preserved, χ bump, iterate from K2, map along Fintype.equivFin. known-classical Mycielski 1955, no novelty. Not Brooks / greedy / Grötzsch / Hajós / Kneser / Vizing / 4CT. Do NOT re-prime. Do NOT re-prime cayley-trees / havel-hakimi / menger-vertex.",
+      "note": "OPE-695 Formalist Level A+B; PR **#65 MERGED** (`cb6cad3b`, 2026-08-30T12:35:07Z). OPE-695 Formalist Level A+B CONSUMED. theorem mycielski_unbounded zero-sorry in ProofLab/Mycielski.lean: ∀ k ∃ G : SimpleGraph (Fin n), CliqueFree 3 ∧ ¬ Colorable k. Level A: C5 triangle-free + ¬ Colorable 2 via Walk.three_le_chromaticNumber_of_odd_loop (not labelled Mycielski). Level B: μ(G) on V ⊕ V ⊕ Unit (first copy / shadow / u), triangle-free preserved, χ bump, iterate from K2, map along Fintype.equivFin. known-classical Mycielski 1955, no novelty. Not Brooks / greedy / Grötzsch / Hajós / Kneser / Vizing / 4CT. Do NOT re-prime. Do NOT re-prime cayley-trees / havel-hakimi / menger-vertex.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -811,10 +812,57 @@
       "parent_issue": "OPE-682",
       "lean_artifact": "proofs/lean-project/ProofLab/Mycielski.lean",
       "formalist_issue": "OPE-695",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/65"
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/65",
+      "scout_hygiene_ope702": "verified formalized + PR #65 MERGED on origin/main cb6cad3"
+    },
+    {
+      "id": "kruskal-katona",
+      "title": "Kruskal–Katona: colex initial segments minimise the shadow (formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_set_theory",
+      "score": 86,
+      "note": "OPE-702 Scout RECOMMENDED PRIME (support OPE-701; post Cayley #64 + Mycielski #65). known-classical Kruskal 1963 / Katona 1968, no novelty. Genuine Mathlib gap: shadow/IsInitSeg/UV-compression exist; ZERO Kruskal-Katona theorem. Not Sperner/LYM (already upstream). Not Dilworth. Do NOT prove Hilton-Milner / Oddtown / Lovász-ℝ form in this id.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/kruskal-katona/",
+        "problems/kruskal-katona/"
+      ],
+      "scout_issue": "OPE-702",
+      "tickets": [
+        "OPE-702",
+        "OPE-701"
+      ],
+      "parent_issue": "OPE-701"
+    },
+    {
+      "id": "oddtown",
+      "title": "Oddtown: odd sets, even intersections, at most n of them (formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_set_theory",
+      "score": 84,
+      "note": "OPE-702 Scout leftover slot #2, NOT the prime. known-classical Berlekamp 1969, no novelty. Genuine Mathlib gap: LinearIndependent/ZMod exist; ZERO Oddtown/Eventown/Berlekamp. Not EKR (ProofLab already has erdos_ko_rado). Do NOT assign before kruskal-katona unless Director swaps. Do NOT prove Eventown / Fisher / Hilton-Milner in this id.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/oddtown/",
+        "problems/oddtown/"
+      ],
+      "scout_issue": "OPE-702",
+      "tickets": [
+        "OPE-702",
+        "OPE-701"
+      ],
+      "parent_issue": "OPE-701"
     }
   ],
-  "updated_at": "2026-08-30T12:00:00Z",
+  "updated_at": "2026-08-30T15:16:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
