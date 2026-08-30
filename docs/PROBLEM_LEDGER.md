@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-30 (OPE-678 Formalist: `menger-vertex` Level A, honest partial. Namesake residual: Diestel `|E|` induction.)
+**Last updated:** 2026-08-30 (OPE-683 Scout: catalog audit + ≤2 shortlist post Havel #61 + Menger #62. Prime `cayley-trees`. Hygiene: Menger PR **#62 MERGED** + honest `informal`.)
 
 ## Lifecycle labels
 
@@ -26,8 +26,8 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 
 | Problem ID | Domain | Tickets | Disposition | Novelty | Primary artifacts |
 |------------|--------|---------|-------------|---------|-------------------|
-| `menger-vertex` | graph theory | OPE-666 Scout #2; **OPE-677** Director approve remaining slot after Havel; **OPE-678** Formalist Level A | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/Menger.lean`. **Level A LANDED:** Diestel A–B path / `IsABSeparator` / `HasPack` / `p` / `s` (global form, fully vertex-disjoint including ends). Easy `p ≤ s` (`packingNumber_le_separatorNumber`). `A ∩ B` load-bearing: trivial `Walk.nil` packing + every separator contains the intersection (`packingNumber_ge_inter`, `separatorNumber_ge_inter`, `inter_nonempty_bounds`). Singleton `A={a}`, `B={b}` joined by an edge ⇒ `p = s = 1` (`menger_vertex_singletons_adj`). No A–B path (hence `A ∩ B = ∅`) ⇒ `p = s = 0` (`menger_vertex_no_path`). Diestel `|E|=0` base `menger_bot`: `p = s = |A ∩ B|` on `⊥`. `#print axioms` on Level A theorems = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Menger.lean` EXIT=0; `lake build ProofLab` green. **Namesake residual:** `menger_vertex` (`s = p`) needs Diestel induction on `card G.edgeFinset` (critical-edge / separator-split + glue); **not** sorry-ed. Named engine this heartbeat. Optional König split-graph reduction not attacked. **No novelty claim.** Finite only. Global form, not local `κ(u,v)`. Not König `ν=τ`. Not edge-Menger. Not max-flow. Not infinite Erdős–Menger. Not Tutte / Whitney. Do **not** re-prime greedy / Brooks / Dilworth / Eulerian / Dirac / König / Havel–Hakimi. Leave OPE-403 alone. | Known classical (Menger 1927 / Diestel 3.3.1); Mathlib v4.10.0 has `Walk`/`IsPath`/`Reachable` only; ZERO `Menger` / graph `IsSeparator` | `catalog/problems/menger-vertex/STATEMENT.md`, Lean `ProofLab/Menger.lean` |
-| `havel-hakimi` | graph theory | OPE-666 Scout prime; **OPE-670** Director approve; **OPE-671** Formalist Level A + reverse | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/HavelHakimi.lean`. **Level A LANDED:** empty / all-zeros (`⊥`) / complete (`⊤`) / `K₂=(1,1)` / non-graphic `(1)` on `n=1` and `(2,2,0,0)` landmine + `d i < n` glue + handshaking necessary (`graphic_even_sum`, not sufficient). **Reverse-reduction LANDED:** `isGraphic_of_reduce` — `ReduceOK d` + `IsGraphic (reduce d h)` ⇒ `IsGraphic d` by inserting a vertex adjacent to the first `s = d 0` of the remainder (unsorted) after unsorting via `isGraphic_sortNoninc`. Failed reduction ⇒ `¬ IsGraphic` (`not_graphic_of_not_reduceOK`). Encoding: labelled `SimpleGraph (Fin n)`; `reduce` only on `ReduceOK` (failed reduction is not passed to `IsGraphic`). Re-sort after reduction is load-bearing (`sortNoninc`). `#print axioms isGraphic_of_reduce` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/HavelHakimi.lean` EXIT=0; `lake build ProofLab` green. **Namesake residual:** `havel_hakimi` iff forward (`IsGraphic d → IsGraphic (reduce d h)`) needs Havel switching so vertex `0` is adjacent to the next `s` vertices, then delete; **not** sorry-ed. **No novelty claim.** Not Erdős–Gállai. Not Gale–Ryser. Not Tutte. Do **not** re-prime greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Havel 1955 / Hakimi 1962); Mathlib v4.10.0 has `degree`/`handshaking` only; ZERO `IsGraphic`/`Havel`/`Hakimi` | `catalog/problems/havel-hakimi/STATEMENT.md`, Lean `ProofLab/HavelHakimi.lean` |
+| `menger-vertex` | graph theory | OPE-666 Scout #2; **OPE-677** Director approve remaining slot after Havel; **OPE-678** Formalist Level A; PR **#62 MERGED** (`abf60474`, 2026-08-29T23:05:43Z) | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/Menger.lean`. **Level A LANDED:** Diestel A–B path / `IsABSeparator` / `HasPack` / `p` / `s` (global form, fully vertex-disjoint including ends). Easy `p ≤ s` (`packingNumber_le_separatorNumber`). `A ∩ B` load-bearing: trivial `Walk.nil` packing + every separator contains the intersection (`packingNumber_ge_inter`, `separatorNumber_ge_inter`, `inter_nonempty_bounds`). Singleton `A={a}`, `B={b}` joined by an edge ⇒ `p = s = 1` (`menger_vertex_singletons_adj`). No A–B path (hence `A ∩ B = ∅`) ⇒ `p = s = 0` (`menger_vertex_no_path`). Diestel `|E|=0` base `menger_bot`: `p = s = |A ∩ B|` on `⊥`. `#print axioms` on Level A theorems = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Menger.lean` EXIT=0; `lake build ProofLab` green. **Namesake residual:** `menger_vertex` (`s = p`) needs Diestel induction on `card G.edgeFinset` (critical-edge / separator-split + glue); **not** sorry-ed. Named engine this heartbeat. Optional König split-graph reduction not attacked. **No novelty claim.** Finite only. Global form, not local `κ(u,v)`. Not König `ν=τ`. Not edge-Menger. Not max-flow. Not infinite Erdős–Menger. Not Tutte / Whitney. Do **not** re-prime greedy / Brooks / Dilworth / Eulerian / Dirac / König / Havel–Hakimi. Leave OPE-403 alone. | Known classical (Menger 1927 / Diestel 3.3.1); Mathlib v4.10.0 has `Walk`/`IsPath`/`Reachable` only; ZERO `Menger` / graph `IsSeparator` | `catalog/problems/menger-vertex/STATEMENT.md`, Lean `ProofLab/Menger.lean` |
+| `havel-hakimi` | graph theory | OPE-666 Scout prime; **OPE-670** Director approve; **OPE-671** Formalist Level A + reverse; PR **#61 MERGED** (`9dab9a5`, 2026-08-29T22:06:24Z) | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/HavelHakimi.lean`. **Level A LANDED:** empty / all-zeros (`⊥`) / complete (`⊤`) / `K₂=(1,1)` / non-graphic `(1)` on `n=1` and `(2,2,0,0)` landmine + `d i < n` glue + handshaking necessary (`graphic_even_sum`, not sufficient). **Reverse-reduction LANDED:** `isGraphic_of_reduce` — `ReduceOK d` + `IsGraphic (reduce d h)` ⇒ `IsGraphic d` by inserting a vertex adjacent to the first `s = d 0` of the remainder (unsorted) after unsorting via `isGraphic_sortNoninc`. Failed reduction ⇒ `¬ IsGraphic` (`not_graphic_of_not_reduceOK`). Encoding: labelled `SimpleGraph (Fin n)`; `reduce` only on `ReduceOK` (failed reduction is not passed to `IsGraphic`). Re-sort after reduction is load-bearing (`sortNoninc`). `#print axioms isGraphic_of_reduce` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/HavelHakimi.lean` EXIT=0; `lake build ProofLab` green. **Namesake residual:** `havel_hakimi` iff forward (`IsGraphic d → IsGraphic (reduce d h)`) needs Havel switching so vertex `0` is adjacent to the next `s` vertices, then delete; **not** sorry-ed. **No novelty claim.** Not Erdős–Gállai. Not Gale–Ryser. Not Tutte. Do **not** re-prime greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Havel 1955 / Hakimi 1962); Mathlib v4.10.0 has `degree`/`handshaking` only; ZERO `IsGraphic`/`Havel`/`Hakimi` | `catalog/problems/havel-hakimi/STATEMENT.md`, Lean `ProofLab/HavelHakimi.lean` |
 | `brooks-coloring` | graph theory | OPE-640 Scout #2; **OPE-650** Director approve unused slot; **OPE-651** Formalist Level A; **OPE-658** Formalist Level B Δ≤2; PR **#59 MERGED** (`ea69b7b`) | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/Brooks.lean`. Level A consumed (PR **#58**): `IsOddCycle` pin; `⊤` / odd-cycle exceptions `χ=Δ+1`; greedy reused not labelled Brooks. **Level B Diestel first family LANDED:** `brooks_colorable_of_maxDegree_le_two` — connected, `G ≠ ⊤`, `¬ IsOddCycle`, `Δ ≤ 2` ⇒ `Colorable Δ`. Named: even 2-regular along Hierholzer circuit (index mod 2); paths by deleting a degree-1 vertex and extending a 2-colouring; `Δ ≤ 1` vacuous (those connected graphs are complete). Cheap corollary `chromaticNumber_le_maxDegree_of_maxDegree_le_two`. `#print axioms brooks_colorable_of_maxDegree_le_two` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake build ProofLab.Brooks` + `lake build ProofLab` green. **Namesake residual:** `brooks_colorable` (no Δ bound) not proved — remaining family is Δ-regular Δ≥3 not-complete (Kempe / Lovász contraction sink); **not** sorry-ed. **No novelty claim.** Not greedy. Not Vizing. Not 4CT/5CT. Do **not** re-prime greedy / Dilworth / Eulerian / König / Dirac / Level A. Do **not** expand into list-colouring Brooks. | Known classical (Brooks 1941 / Diestel); Mathlib v4.10.0 has `Colorable`/`maxDegree`/`chromaticNumber_top`/`three_le_chromaticNumber_of_odd_loop` defs only; ZERO `brooks` | `catalog/problems/brooks-coloring/STATEMENT.md`, Lean `ProofLab/Brooks.lean` |
 | `greedy-chromatic` | graph theory | OPE-640 Scout prime; **OPE-644** Director approve; **OPE-645** Formalist Level A+B | **`formalized`** (formalize-only, PR **#57**). Lean **zero-sorry** `ProofLab/GreedyChromatic.lean`: Level A empty / edgeless (`maxDegree = 0`) / complete (`⊤`) / `card = 1` + `degree_le_maxDegree` glue. **Level B namesake LANDED:** `theorem greedy_colorable` — `G.Colorable (G.maxDegree + 1)` by induction on `Fintype.card V` (delete `v`; IH colours `G−v`; `degree v ≤ Δ` neighbours leave one colour in `Fin (Δ+1)`). Encoding Mathlib `Coloring.mk` on `Fin (G.maxDegree + 1)`. Cheap corollary `chromaticNumber_le_maxDegree_add_one`. Stretch tightness `χ = Δ+1` on nonempty `⊤` (reuse `chromaticNumber_top`). `#print axioms greedy_colorable` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake build ProofLab.GreedyChromatic` + `lake build ProofLab` green. **No novelty claim.** Finite only. `DecidableRel G.Adj` load-bearing. **Not Brooks** (`χ ≤ Δ` except `⊤` / odd cycles). Not Vizing. Not 4CT/5CT. **Do not re-prime. Do not expand into Brooks / list-colouring.** | Known classical (Diestel / greedy folklore); Mathlib v4.10.0 has `Colorable`/`chromaticNumber`/`maxDegree` defs only | `catalog/problems/greedy-chromatic/STATEMENT.md`, Lean `ProofLab/GreedyChromatic.lean` |
 | `dilworth-poset` | order theory / combinatorics | OPE-613 Scout prime; **OPE-618** Director assign; **OPE-619** Formalist Level A (PR **#53 MERGED**, `5e81caf`); **OPE-626** Formalist Level B (PR **#54 MERGED**, `622d076`); Adversarial **OPE-628 APPROVE** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Dilworth.lean`: Level A consumed (`width_le_chainPartition` + empty/chain/antichain/2-element + Fulkerson `splitGraph`). **Level B namesake LANDED:** `theorem dilworth` — ∀ finite `PartialOrder` there is a chain partition of `univ` of size `width`, via matching successors in `splitGraph` (strict `<` on `α ⊕ α`) + König `ν=τ` as *engine* (`konig_bipartite`, not cited as Dilworth). `#print axioms dilworth` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Dilworth.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Not König A/B. Not Hall. Not Mirsky. Not comparability graph. Finite only. **Do not re-prime Level A, Level B, or invent Level C / Mirsky / Greene.** Director OPE-632 DECLINED Dilworth residual — residual EMPTY. | Known classical (Dilworth 1950 / Fulkerson 1956); Mathlib v4.10.0 has `IsChain`/`IsAntichain` defs only | `catalog/problems/dilworth-poset/STATEMENT.md`, Lean `ProofLab/Dilworth.lean` |
@@ -729,6 +729,106 @@ Re-evaluated, not shortlisted (do not rubber-stamp OPE-640 leftovers):
   larger first bite than Havel–Hakimi (Tutte sets / barriers). Bench.
 - **Namesake Kempe / Brooks Level C / list-colouring Brooks / Vizing / 4CT / Dilworth-C /
   Eulerian-C:** Director declined. Do not invent.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
+
+**OPE-683 update (2026-08-30, Scout, support OPE-682):** catalog audit + fresh ≤2 shortlist.
+OPE-666 shortlist **plus** the OPE-670/OPE-677 Formalist assignment wave is **fully consumed on merged main**.
+Zero open PRs at scout start (`origin/main` = merge of PR #62, `abf60474`). Director does not invent primes.
+This is **not** a Director-invented Dilworth-C / Eulerian-C / Ore / Vizing / 4CT / list-colouring Brooks / namesake Kempe / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser / Tutte / Whitney continuation: Cayley is an independent re-score of a leftover whose *encoding* bench reason no longer holds; Mycielski is a fresh id (χ vs ω, not Brooks χ vs Δ).
+
+Consumption (live this run):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `havel-hakimi` Level A + reverse | OPE-671 Formalist; PR **#61 MERGED** (`9dab9a5`). `isGraphic_of_reduce` on main. Namesake forward switching **not** sorry-ed | yes. Do not expand into Erdős–Gállai / Gale–Ryser / Tutte |
+| `menger-vertex` Level A | OPE-678 Formalist; PRG OPE-680; PR **#62 MERGED** (`abf60474`). `p ≤ s` / `A ∩ B` / singleton edge / no-path / `menger_bot` on main. Namesake `s = p` **not** sorry-ed | yes (Level A). Do **not** invent namesake Diestel induction / edge-Menger / max-flow / infinite Erdős–Menger as a leftover. Status stays `informal` |
+| `greedy-chromatic` Level A+B | PR **#57 MERGED** | yes. Do not expand into Brooks / list-colouring |
+| `brooks-coloring` Level A/B | PRs **#58** / **#59 MERGED**. Namesake residual is a comment (Kempe / Lovász) | yes. Do **not** invent namesake Kempe / Level C / list-colouring Brooks |
+| `dilworth-poset` Level A+B | PRs **#53** / **#54 MERGED**. Residual EMPTY | yes. Do not invent Level C / Mirsky / Greene |
+| `eulerian-hierholzer` A / circuit / trail | PRs **#47** / **#51** / **#55 MERGED** | yes. Do not invent Eulerian-C |
+| `konig-bipartite` Level A+B | PRs **#48** / **#50 MERGED** | yes |
+| Scout shortlist PRs **#46** / **#49** / **#52** / **#56** / **#60** | MERGED | yes |
+| `euler-odd-distinct` / Dirac A+B / EKR / friendship / schur_partition / Glaisher | previously consumed | yes |
+| ramsey-r33 / R(3,4) / R(4,4); ramsey-r35; ramsey-multicolor-r333 (PR #36); weak-schur-ws2 (PR #35); S(2)/S(3); W(2,3); ES monotone; ES(3)=5 (PRs #24/#25); EW k=16; frobenius / derangement / catalan / turan | previously closed or already-in-Mathlib | yes |
+
+**Leave OPE-403 alone** (Happy Ending parked on board confirmation since 2026-08-24).
+
+Catalog hygiene this run: Menger `problems.json` stamped **PR #62 MERGED** + honest `informal` (namesake residual). Havel stamped **PR #61 MERGED** + honest `informal`. Not a new proof layer.
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport
+(`Combinatorics/SetFamily/CauchyDavenport.lean`), EGZ, Sperner/LYM, Hall marriage
+(`HallMarriageTheorem` / `hall_hard_inductive`), Wilson, Lucas, Zeckendorf, Beatty,
+Pythagorean triples, Turán, non-uniform `Intersecting.card_le`, Hilbert Nullstellensatz
+(`RingTheory/Nullstellensatz.lean` — **not** Alon's combinatorial form), Chevalley–Warning
+(`FieldTheory/ChevalleyWarning.lean`), Burnside (group actions), Lagrange four squares,
+quadratic reciprocity, Möbius inversion, group Cayley's theorem
+(`GroupTheory/Perm/Subgroup.lean` — embed in `Sym`; **not** labelled trees), Cayley–Hamilton
+(`LinearAlgebra/Matrix/Charpoly` — **not** labelled trees), Configuration `HasLines.card_le`
+(de Bruijn–Erdős incidence form), Hamiltonian *definitions* (Dirac theorem now in ProofLab,
+not Mathlib), `Walk.IsEulerian` + necessary `card_odd_degree` (existence filled in ProofLab
+circuit + 2-odd trail), `Subgraph.IsMatching` (no König / no vertex cover in Mathlib —
+ProofLab has both), cardinal König (`SetTheory.Cardinal`, unrelated), `IsChain` /
+`IsAntichain` *definitions* (Dilworth now in ProofLab), `Colorable` / `chromaticNumber` /
+`maxDegree` / `chromaticNumber_top` / `Walk.three_le_chromaticNumber_of_odd_loop` (no Brooks
+in Mathlib; greedy `χ ≤ Δ+1` and Brooks Δ≤2 family now in ProofLab, not upstream), `degree`
+/ handshaking (`sum_degrees_eq_twice_card_edges`) — **not** Havel–Hakimi (ProofLab),
+`Walk` / `Reachable` / `Connected` — **not** Menger (ProofLab), `IsTree` /
+`IsTree.card_edgeFinset` / `fromEdgeSet` — **not** Cayley's `n^{n-2}` count, `CliqueFree` —
+**not** Mycielski unbounded-χ, `lapMatrix` (kernel rank = components) — **not** Kirchhoff
+matrix-tree.
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`cayley-trees` — RECOMMENDED PRIME (85).** Independent re-score of the OPE-666
+   considered-not-slotted Cayley line — **not** a rubber-stamp. Why-not-classical: Cayley
+   1889 / Prüfer 1918 labelled-tree count `n^{n-2}` is settled. Why still a bet / why a new
+   layer: last Scout benched it because `SimpleGraph` is a large type; this run **pins**
+   `LabelledTree n := {s : Finset (Sym2 (Fin n)) // (fromEdgeSet ↑s).IsTree}`, so that
+   bench reason no longer holds. Mathlib has `IsTree` / `fromEdgeSet` /
+   `IsTree.card_edgeFinset`; ZERO Prüfer, ZERO labelled-tree cardinality (the only "Prüfer"
+   hit is the unrelated Prüfer *subgroup*). Proof shape: Prüfer bijection, human-scale.
+   Group Cayley and Cayley–Hamilton are *different* already-upstream theorems. Kirchhoff
+   matrix-tree is a *different* theorem (`K_n` special case) — do **not** prove it in this
+   id. STATEMENT pin: `catalog/problems/cayley-trees/STATEMENT.md`.
+2. **`mycielski-triangle-free` (82).** Fresh id — never previously shortlisted. Why-not-classical:
+   Mycielski 1955 triangle-free graphs of arbitrarily high `χ` is settled. Why still a bet /
+   why a new layer: colouring slots (greedy + Brooks A/B) are consumed; this is `χ` versus
+   `ω` (`CliqueFree 3`), **not** Brooks `χ` versus `Δ` and **not** namesake Kempe. Mathlib
+   has `CliqueFree` / `Colorable` / odd-loop `χ ≥ 3`; ZERO `Mycielski`. Proof shape: `C5`
+   Level A glue (reuse odd-loop lemma, not labelled Mycielski) then iterate `μ(G)` on
+   `V ⊕ V ⊕ Unit`. Score 82 because the construction encoding is new. Do **not** assign
+   before `cayley-trees` unless Director swaps. Do **not** prove Grötzsch / Hajós / Kneser /
+   Vizing / 4CT/5CT. STATEMENT pin:
+   `catalog/problems/mycielski-triangle-free/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-666 leftovers):
+
+- **Combinatorial Nullstellensatz:** gap still holds (Hilbert NS ≠ Alon 1999; ZERO combinatorial
+  ident hits). Re-eval vs last bench: `MvPolynomial` **is** in Mathlib (Chevalley–Warning
+  already uses it), so "unused in ProofLab" is weaker than OPE-666 stated. Still **bench**:
+  Chevalley–Warning already upstream (finite-field counting corollary that often motivates
+  CNS); slot cap used by graph-infra bets with defs waiting (`IsTree`, `CliqueFree`). Not a
+  rubber-stamp.
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime.
+- **Ore stretch:** independently a remaining Mathlib gap (Hamiltonian defs only; Ore hits in
+  Mathlib are localization, not Ore's theorem). Proof shape is a re-warm of closed Dirac
+  longest-path. **Not slotted.** Do not invent Ore as a leftover.
+- **Tutte's theorem:** explicit Matching.lean TODO, ZERO theorem. Classical but banned as a
+  leftover this commission. Bench.
+- **Kirchhoff matrix-tree:** `LapMatrix` exists; ZERO spanning-tree count. Would be the
+  `K_n` generalisation of the Cayley prime — do **not** invent as a leftover of `cayley-trees`.
+- **König edge-chromatic `χ'=Δ`:** ZERO `chromaticIndex` / `LineGraph`. Looks like inventing
+  Vizing (banned). Bench.
+- **Five colour / planar:** Coloring.lean TODO lists planar; ZERO planar defs. Bench.
+- **Namesake Kempe / Brooks Level C / list-colouring Brooks / Vizing / 4CT / Dilworth-C /
+  Eulerian-C / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser /
+  Whitney:** Director declined. Do not invent.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 

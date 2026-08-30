@@ -1,0 +1,50 @@
+{
+  "id": "cayley-trees",
+  "title": "Cayley's formula: n^{n-2} labelled trees (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 85,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 17,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Cayley 1889 / Prüfer 1918: the number of trees on n labelled vertices is n^{n-2}. Completely settled. Value is a Mathlib contribution (IsTree / fromEdgeSet / IsTree.card_edgeFinset exist; ZERO labelled-tree count, ZERO Prüfer code in Mathlib+Archive combinatorics). Do NOT re-fund as novel. Group Cayley and Cayley–Hamilton are different already-upstream theorems.",
+  "recommendation": "OPE-683 RECOMMENDED PRIME. Independent re-score of the OPE-666 considered-not-slotted Cayley line — NOT a rubber-stamp. Last Scout benched it for encoding risk (SimpleGraph is a large type). This run pins LabelledTree as {s : Finset (Sym2 (Fin n)) // (fromEdgeSet ↑s).IsTree}, so that bench reason no longer holds. Gap + budget still hold. Havel #61 + Menger #62 are CONSUMED — this is a new counting layer, not a leftover of those ids. Do NOT prove Kirchhoff/matrix-tree / Tutte / unlabelled A000055 in this id. Do NOT re-prime havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope683": "Pin mathlib a719ba5c3115 (v4.10.0). rg Prufer/Prüfer over Mathlib/** + Archive/** combinatorics → ZERO (unrelated Prüfer subgroup in Data/Set/Pointwise/Iterate.lean). rg labelled tree / n^(n-2) / numTrees / IsSpanningTree → ZERO. Defs HIT: IsTree (Acyclic.lean:54 connected+acyclic), IsTree.card_edgeFinset (L150: |E|+1=|V|), fromEdgeSet (Basic.lean:553). Negative control HIT: Combinatorics/SimpleGraph/Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Group Cayley HIT: GroupTheory/Perm/Subgroup.lean 'Cayley's theorem' (embed in Sym) — different. CayleyHamilton HIT: LinearAlgebra/Matrix/Charpoly — different. LapMatrix EXISTS (kernel rank = components) but ZERO spanning-tree count / ZERO Kirchhoff formula. HallMarriageTheorem EXISTS. Hilbert Nullstellensatz EXISTS (RingTheory/Nullstellensatz.lean) — not combinatorial, not this. ChevalleyWarning EXISTS. IsHamiltonian DEFS only. IsEulerian + card_odd_degree necessary only. IsMatching, no vertexCover in Mathlib (ProofLab has König). IsChain/IsAntichain defs only (ProofLab has Dilworth). Colorable/chromaticNumber/maxDegree exist; ZERO Brooks / ZERO Colorable (maxDegree+1) in Mathlib (ProofLab has greedy + Brooks Δ≤2). degree/handshaking HIT — not Havel (ProofLab). Walk/Reachable HIT — not Menger (ProofLab).",
+  "statement_pin_required": {
+    "convention": "Fix n ≥ 1. LabelledTree n := { s : Finset (Sym2 (Fin n)) // (fromEdgeSet ↑s).IsTree }. Claim: Fintype.card (LabelledTree n) = n ^ (n-2). Nat: n=1 gives 1^0=1. Encoding: edge-Finsets, NOT {G // G.IsTree}. Prüfer bijection is an allowed Level B engine.",
+    "landmines": [
+      "SimpleGraph is a large type. Never Fintype.card {G // G.IsTree}.",
+      "Not group Cayley (already Mathlib). Not Cayley–Hamilton (already Mathlib). Not Cayley graphs.",
+      "Not Kirchhoff/matrix-tree. Not Tutte. Not unlabelled A000055.",
+      "fromEdgeSet drops loops. n=0 out of scope.",
+      "Do not re-prime havel-hakimi / menger-vertex / greedy / Brooks / König / Dirac / Eulerian / Dilworth.",
+      "No Archive import."
+    ],
+    "canonical_source": "A. Cayley, A theorem on trees, Quart. J. Pure Appl. Math. 23 (1889) 376–378. H. Prüfer, Neuer Beweis eines Satzes über Permutationen, Arch. Math. Phys. 27 (1918) 742–744. Textbook: Aigner–Ziegler, Proofs from THE BOOK, Cayley's formula. Type pin: Mathlib IsTree + fromEdgeSet on Finset (Sym2 (Fin n)). Group Cayley and Cayley–Hamilton are different theorems, not this claim."
+  },
+  "feasibility_shape": "Level A: n=1 empty tree; n=2 K2; n=3 three labelled paths; glue IsTree.card_edgeFinset (|E|=n-1); zero sorry. Level B: theorem cayley_formula via Prüfer bijection (or equivalent induction). Cap two levels. No matrix-tree / no Tutte / no unlabelled count. Human-scale bijection; no native_decide explosion.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Acyclic — IsTree, IsTree.card_edgeFinset",
+    "Mathlib Combinatorics.SimpleGraph.Basic — fromEdgeSet",
+    "Mathlib Combinatorics.SimpleGraph.Finite — edgeFinset",
+    "ProofLab/HavelHakimi.lean / Menger.lean — recent graph muscle; DO NOT reuse those claims",
+    "ProofLab/GreedyChromatic.lean / Brooks.lean / Konig.lean / Dirac.lean / Eulerian.lean / Dilworth.lean — do not re-prove",
+    "Lab graph-theory + formalization + combinatorics skill packs"
+  ],
+  "estimated_token_budget": "160k",
+  "skill_packs": ["graph-theory", "formalization", "combinatorics"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-683",
+  "parent_issue": "OPE-682",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Prüfer/labelled-tree count; defs IsTree/fromEdgeSet/card_edgeFinset HIT",
+    "Independent re-score: last Scout benched Cayley for encoding risk — STATEMENT now pins edge-Finsets; not a rubber-stamp leftover",
+    "Negative control turan → Turan.lean exists",
+    "Group Cayley / Cayley–Hamilton / Hall / Hilbert NS / Chevalley–Warning disclosed as different already-upstream facts"
+  ]
+}
