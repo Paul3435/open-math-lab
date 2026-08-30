@@ -25,3 +25,4 @@ import ProofLab.Brooks
 import ProofLab.HavelHakimi
 import ProofLab.Menger
 import ProofLab.CayleyTrees
+import ProofLab.Mycielski

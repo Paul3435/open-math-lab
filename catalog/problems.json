@@ -786,10 +786,10 @@
     {
       "id": "mycielski-triangle-free",
       "title": "Mycielski: triangle-free graphs of arbitrarily high χ (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 82,
-      "note": "OPE-683 Scout shortlist #2, NOT the prime. Fresh id. known-classical Mycielski 1955, no novelty. Not a Brooks leftover. Do NOT assign before cayley-trees unless Director swaps. Do NOT prove Grötzsch / Hajós / Kneser / Vizing / 4CT/5CT. Do NOT re-prime greedy / Brooks A/B / havel-hakimi / menger-vertex.",
+      "note": "OPE-695 Formalist Level A+B CONSUMED. theorem mycielski_unbounded zero-sorry in ProofLab/Mycielski.lean: ∀ k ∃ G : SimpleGraph (Fin n), CliqueFree 3 ∧ ¬ Colorable k. Level A: C5 triangle-free + ¬ Colorable 2 via Walk.three_le_chromaticNumber_of_odd_loop (not labelled Mycielski). Level B: μ(G) on V ⊕ V ⊕ Unit (first copy / shadow / u), triangle-free preserved, χ bump, iterate from K2, map along Fintype.equivFin. known-classical Mycielski 1955, no novelty. Not Brooks / greedy / Grötzsch / Hajós / Kneser / Vizing / 4CT. Do NOT re-prime. Do NOT re-prime cayley-trees / havel-hakimi / menger-vertex.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -798,17 +798,22 @@
       ],
       "artifacts": [
         "catalog/problems/mycielski-triangle-free/",
-        "problems/mycielski-triangle-free/"
+        "problems/mycielski-triangle-free/",
+        "proofs/lean-project/ProofLab/Mycielski.lean"
       ],
       "scout_issue": "OPE-683",
       "tickets": [
         "OPE-683",
-        "OPE-682"
+        "OPE-682",
+        "OPE-694",
+        "OPE-695"
       ],
-      "parent_issue": "OPE-682"
+      "parent_issue": "OPE-682",
+      "lean_artifact": "proofs/lean-project/ProofLab/Mycielski.lean",
+      "formalist_issue": "OPE-695"
     }
   ],
-  "updated_at": "2026-08-30T01:45:00Z",
+  "updated_at": "2026-08-30T12:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
