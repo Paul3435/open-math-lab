@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-722 Formalist: `sunflower-erdos-rado` Level A+B namesake `formalized`; CNS leftover still unassigned.)
+**Last updated:** 2026-08-30 (OPE-735 Scout: sunflower PR **#70 MERGED** `formalized`; combinatorial Nullstellensatz PR **#71 MERGED** `formalized`; next shortlist `kovari-sos-turan` prime + `pentagonal-number-theorem` leftover.)

@@ -1,0 +1,55 @@
+{
+  "id": "kovari-sos-turan",
+  "title": "Kővári–Sós–Turán: Zarankiewicz integer counting form (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_graph_theory",
+  "score": 88,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Kővári–Sós–Turán 1954 Zarankiewicz counting lemma is settled: a bipartite graph with no K_{s,t} (s-side in α, t-side in β) satisfies ∑_b binom(deg b, s) ≤ (t-1) binom(|α|, s). Completely classical. Exact Zarankiewicz numbers z(m,n;s,t) are OPEN for most parameters and are OUT OF SCOPE — pinning the integer counting form is not a novelty claim and not an attack on Zarankiewicz. Value is a Mathlib contribution (SimpleGraph / completeBipartiteGraph / neighborFinset / Nat.choose exist; Turán's theorem exists as a DIFFERENT already-upstream clique-free theorem; ZERO KST / Zarankiewicz ident in Mathlib+Archive). Do NOT re-fund as novel. Mantel is a Turán corollary (upstream). Sunflower / Kruskal–Katona / Oddtown / EKR are different set-system theorems (ProofLab already has them).",
+  "recommendation": "OPE-735 RECOMMENDED PRIME. Fresh id — never previously shortlisted. Not a Turán leftover (Director's OPE-25 negative control is 'never cite Turán as a gap' because Turán IS in Mathlib; KST is the bipartite forbidden-subgraph bound, not clique-free). Not a sunflower / KK / Oddtown / EKR leftover. Sunflower #70 + combinatorial Nullstellensatz #71 consumed. Score 88 because SimpleGraph encoding is native (formalizability 18) but there is no dedicated KST scaffolding (attack 16, same shape as sunflower vs KK's ready Colex/UV). verification 16: double counting is short; we pin the integer form so Jensen/real-exponent is OUT of v1. Do NOT assign pentagonal-number-theorem first unless Director swaps. Do NOT prove exact Zarankiewicz / real-exponent edge form / Erdős–Stone / Mantel / Turán in this id. Do NOT re-prime sunflower-erdos-rado / combinatorial-nullstellensatz / kruskal-katona / oddtown / cayley-trees / mycielski / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope735": "Pin mathlib a719ba5c3115 (v4.10.0). rg zarankiewicz / kovari / KovariSos over Mathlib/** + Archive/** → ZERO files. Defs HIT: completeBipartiteGraph (Basic.lean), neighborFinset/degree/commonNeighbors (Finite.lean), Nat.choose, DoubleCounting.lean. Turán HIT as a DIFFERENT theorem (Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph) — negative control, never cite as this gap. Triangle/Removal.lean EXISTS (triangle removal — DIFFERENT, already upstream). ZERO Mantel ident (Mantel is Turán r=2). ProofLab Sunflower / KruskalKatona / Oddtown / ErdosKoRado HIT — different theorems, not re-primes. HallMarriageTheorem EXISTS. Hilbert NS EXISTS (not combinatorial). ChevalleyWarning EXISTS. CauchyDavenport EXISTS. EGZ EXISTS. Sperner/LYM EXIST (set-system, not Sperner's lemma). Configuration HasLines.card_le EXISTS. HalesJewett + Hindman EXIST. PluenneckeRuzsa EXISTS. RuzsaCovering EXISTS. Radon/Caratheodory EXIST (Analysis.Convex). Sauer–Shelah EXISTS (Shatter.lean). ZERO pentagonal / Franklin. ZERO combinatorial Nullstellensatz / sunflower in Mathlib (those are ProofLab, consumed). ZERO HiltonMilner. ZERO chromaticIndex / Vizing. ZERO planar. ZERO tournament / Rédei. ZERO hook-length theorem (YoungDiagram defs only).",
+  "statement_pin_required": {
+    "convention": "G : SimpleGraph (α ⊕ β), IsBipartiteSum (no internal edges). NoKst G s t = every s-set in α has ≤ t-1 common neighbours in β. Claim: 1 ≤ s → 1 ≤ t → ∑ b : β, Nat.choose (G.degree (.inr b)) s ≤ (t-1) * Nat.choose (Fintype.card α) s. Level A may land s=t=2 / empty / edgeless, not labelled KST.",
+    "landmines": [
+      "Not Turán (already in Mathlib). Not Mantel.",
+      "Not exact Zarankiewicz (open, out of v1).",
+      "Not sunflower / Kruskal–Katona / Oddtown / EKR.",
+      "1 ≤ t load-bearing for ℕ subtraction.",
+      "Do not prove the real-exponent edge form / Erdős–Stone.",
+      "Do not re-prime sunflower-erdos-rado / combinatorial-nullstellensatz.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "T. Kővári, V. T. Sós, and P. Turán, On a problem of K. Zarankiewicz, Colloquium Mathematicum 3 (1954) 50–57. Textbook: Bollobás, Extremal Graph Theory; Jukna, Extremal Combinatorics (double counting). Type pin: SimpleGraph (α ⊕ β) + IsBipartiteSum + NoKst. Turán / Mantel / sunflower / exact Zarankiewicz are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: s=t=2 counting (no K_{2,2}/C4 between parts) + empty/edgeless landmines, zero sorry, not labelled KST. Optional cheap e² Cauchy–Schwarz corollary, not labelled KST. Level B: theorem kovari_sos_turan by double counting pairs (S,b) with S ⊆ N(b) ∩ α, |S|=s. Cap two levels. No real-exponent / Turán / exact Zarankiewicz. SimpleGraph encoding is already in ProofLab; namesake is short.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Basic (completeBipartiteGraph)",
+    "Mathlib Combinatorics.SimpleGraph.Finite (neighborFinset, degree, commonNeighbors)",
+    "Mathlib Data.Nat.Choose.Basic / Combinatorics.Enumerative.DoubleCounting",
+    "Mathlib Combinatorics.SimpleGraph.Turan — DO NOT re-prove / DO NOT label this Turán",
+    "Mathlib Combinatorics.SimpleGraph.Triangle.Removal — DIFFERENT, already upstream",
+    "ProofLab/Sunflower.lean / KruskalKatona.lean / Oddtown.lean / ErdosKoRado.lean — do not re-prove",
+    "ProofLab/Konig.lean Colorable 2 is ν=τ, DO NOT relabel as KST parts",
+    "ProofLab/CombinatorialNullstellensatz.lean / Sunflower.lean — consumed this wave; do not re-prime",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-735",
+  "parent_issue": "OPE-734",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO zarankiewicz/kovari; Turán HIT as a different theorem (negative control); completeBipartiteGraph/neighborFinset/Nat.choose HIT",
+    "Fresh id after sunflower #70 + combinatorial Nullstellensatz #71 consumed; not a Turán leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Exact Zarankiewicz / Mantel / sunflower / KK / Oddtown / EKR disclosed as different statements"
+  ]
+}
