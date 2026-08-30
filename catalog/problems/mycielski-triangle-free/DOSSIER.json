@@ -1,7 +1,7 @@
 {
   "id": "mycielski-triangle-free",
   "title": "Mycielski: triangle-free graphs of arbitrarily high χ (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 82,
   "scores": {
@@ -39,6 +39,8 @@
   "estimated_token_budget": "170k",
   "skill_packs": ["graph-theory", "formalization", "combinatorics"],
   "scored_at": "2026-08-30",
+  "formalist_issue": "OPE-695",
+  "director_issue": "OPE-694",
   "scout_issue": "OPE-683",
   "parent_issue": "OPE-682",
   "scout_probes": [
