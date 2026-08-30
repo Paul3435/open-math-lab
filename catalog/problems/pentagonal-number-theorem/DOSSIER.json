@@ -1,0 +1,53 @@
+{
+  "id": "pentagonal-number-theorem",
+  "title": "Euler pentagonal number theorem: partition recurrence (formalize-only)",
+  "status": "candidate",
+  "domain": "partition_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 14,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Euler 1750 pentagonal number theorem (finite p(n) recurrence; Franklin 1881 involution) is settled. Completely classical. Value is a Mathlib contribution (Nat.Partition + Fintype instance exist; file header even lists Euler's partition theorem as motivation; ZERO pentagonal / Franklin ident in Mathlib+Archive). Archive Wiedijk100Theorems/Partition.lean is Euler ODD=DISTINCT via generating functions — a DIFFERENT theorem, already consumed in ProofLab as euler_odd_eq_distinct (Glaisher, PR #43). Schur partition / Glaisher congruence is a DIFFERENT identity, also consumed. Do NOT re-fund as novel. Do NOT re-prime euler-odd-distinct / schur-partition.",
+  "recommendation": "OPE-735 leftover slot #2, NOT the prime. Fresh id — never previously shortlisted. Independent of the OPE-717 considered-not-slotted benches (those still fail: ES(4)=9 / ramsey-r46 / W(2,4)≤35 / Ore / Tutte / Kirchhoff / König χ'=Δ / five-colour / Hilton–Milner / Rédei / hook-length / Sauer–Shelah). Not an euler-odd-distinct leftover (Director declined Prüfer-style namesake residuals as re-primes; this is a different Euler theorem with a different engine — Franklin involution, not Glaisher). Score 84 (not 88) because Franklin's involution is new encoding even though Fintype Partition exists (formalizability 16 / verification 14, same sink class as Glaisher which DID land). Do NOT assign before kovari-sos-turan unless Director swaps. Do NOT prove odd=distinct / Schur / Rogers–Ramanujan / PowerSeries generating-function form in this id. Do NOT import Archive.*. Do NOT re-prime sunflower-erdos-rado / combinatorial-nullstellensatz / euler-odd-distinct / schur-partition / kruskal-katona / oddtown.",
+  "mathlib_gap_grep_2026_08_30_ope735": "Pin mathlib a719ba5c3115 (v4.10.0). rg pentagonal / franklin involution over Mathlib/** + Archive/** → ZERO files. Defs HIT: Nat.Partition + Fintype.ofSurjective ofComposition (Partition.lean L165); odds/distincts Finsets. Archive HIT is Theorems100 partition_theorem = odd=distinct GF proof — WRONG theorem. ProofLab EulerPartition / SchurGlaisher HIT — different theorems, not re-primes. PowerSeries HIT (RingTheory) — stretch out of v1, not required. Negative control HIT: Turan.lean. HalesJewett EXISTS (so general VdW existence is NOT a gap). Hindman EXISTS. Sauer–Shelah EXISTS. PluenneckeRuzsa EXISTS. Radon/Caratheodory EXIST. ZERO zarankiewicz/kovari. ZERO combinatorial Nullstellensatz / sunflower in Mathlib (ProofLab, consumed). ZERO HiltonMilner. ZERO chromaticIndex / Vizing. ZERO planar. ZERO tournament. ZERO hook-length theorem.",
+  "statement_pin_required": {
+    "convention": "partitionFunction n := Fintype.card (Nat.Partition n). pentagonal k = k*(3*k-1)/2, pentagonal' k = k*(3*k+1)/2 for k≥1. ℕ equation: p(n) + even-k terms = odd-k terms, sums over Finset.range (n+1) with 0<k and ω(k)≤n. Level A may land exact-division glue / p(0)=1 / n≤10 native_decide, not labelled pentagonal.",
+    "landmines": [
+      "Not euler-odd-distinct (Glaisher, ProofLab).",
+      "Not schur-partition / Glaisher congruence.",
+      "Not Archive Theorems100 partition_theorem (odd=distinct GF).",
+      "ℕ division k*(3*k-1)/2 is exact; 1≤k load-bearing.",
+      "Do not prove Rogers–Ramanujan / Jacobi / PowerSeries form.",
+      "Do not re-prime sunflower-erdos-rado / combinatorial-nullstellensatz / euler-odd-distinct.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "L. Euler, Demonstratio theorematis circa ordinem in summis divisorum, Novi Commentarii 5 (1760/1750). Combinatorial engine: F. Franklin, Comptes Rendus 92 (1881) 448–450. Textbook: Andrews, The Theory of Partitions; Hardy–Wright §19.11. Type pin: Nat.Partition + Fintype.card + ℕ recurrence. Euler odd=distinct / Schur partition / Archive Theorems100 partition are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: pentagonal/pentagonal' exact division + p(0)=1 + n≤10 native_decide guard, zero sorry, not labelled pentagonal. Level B: theorem pentagonal_number by Franklin sign-reversing involution on Nat.Partition n (smallest part vs consecutive staircase; fixed points = pentagonal staircases). Cap two levels. No PowerSeries / Rogers–Ramanujan / Glaisher. Fintype Partition is waiting; Franklin bookkeeping is the Lean sink.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.Enumerative.Partition (Nat.Partition, Fintype, odds, distincts)",
+    "ProofLab/EulerPartition.lean — odd=distinct Glaisher; DO NOT reuse those claims / DO NOT label this euler_odd_eq_distinct",
+    "ProofLab/SchurGlaisher.lean — congruence identity; DO NOT re-prove",
+    "Archive/Wiedijk100Theorems/Partition.lean — WRONG theorem (odd=distinct GF); DO NOT import Archive.*",
+    "Mathlib RingTheory.PowerSeries — stretch out of v1, not required",
+    "ProofLab/Sunflower.lean / CombinatorialNullstellensatz.lean — consumed this wave; do not re-prime",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "160k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-735",
+  "parent_issue": "OPE-734",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO pentagonal/Franklin; Partition.lean Fintype HIT; Archive Partition HIT is odd=distinct (wrong theorem)",
+    "Fresh id; not a rubber-stamp of OPE-717 benches (those still fail); not an euler-odd-distinct leftover",
+    "Negative control turan → Turan.lean exists",
+    "euler-odd-distinct / schur-partition / Archive Theorems100 partition disclosed as different theorems"
+  ]
+}
