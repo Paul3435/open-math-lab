@@ -1,0 +1,54 @@
+{
+  "id": "combinatorial-nullstellensatz",
+  "title": "Combinatorial Nullstellensatz: Alon non-vanishing (formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorial_algebra",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 14,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Alon 1999 combinatorial Nullstellensatz (non-vanishing form) is settled. Completely classical polynomial method. Value is a Mathlib contribution (MvPolynomial.coeff / degreeOf / eval exist; Hilbert NS and Chevalley–Warning exist as DIFFERENT theorems; ZERO combinatorial Nullstellensatz ident in Mathlib+Archive). Do NOT re-fund as novel. Hilbert NS ≠ Alon (OPE-25 hard stop already draws this distinction, i.e. the combinatorial form is the allowed gap). Chevalley–Warning is already upstream (finite-field counting); EGZ is a CW corollary. Univariate n=1 is Polynomial root bounds (Level A glue, not the namesake).",
+  "recommendation": "OPE-717 leftover slot #2, NOT the prime. Independent re-score of the OPE-702 considered-not-slotted CNS line — not a rubber-stamp. OPE-702 benched CNS because Kruskal–Katona had ready Colex/Shadow/UV scaffolding; that competitor is now consumed (PR #67). Gap still holds. Score 84 (not 88) because MvPolynomial is unused in ProofLab (formalizability 16 / attack 16) and the multivariate division/induction is the Lean sink (verification 14). Do NOT assign before sunflower-erdos-rado unless Director swaps. Do NOT prove Hilbert NS / Chevalley–Warning / EGZ / Alon–Füredi / cap sets in this id. Do NOT re-prime kruskal-katona / oddtown / cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope717": "Pin mathlib a719ba5c3115 (v4.10.0). rg combinatorialNullstellensatz / CombinatorialNullstellensatz / alon_nullstellensatz over Mathlib/** + Archive/** → ZERO files. Nullstellensatz HIT is Hilbert (RingTheory/Nullstellensatz.lean) — WRONG theorem. ChevalleyWarning HIT — WRONG theorem (counting). EGZ HIT (uses CW). MvPolynomial HIT: coeff (Basic.lean), degreeOf (Degrees.lean), eval (Basic.lean RingHom). Polynomial univariate root bounds HIT — Level A glue, not CNS. Negative control HIT: Turan.lean. HalesJewett EXISTS (so general VdW existence is NOT a gap). Hindman EXISTS. Sauer–Shelah EXISTS (Shatter.lean). ZERO sunflower. ZERO HiltonMilner. ZERO chromaticIndex / Vizing. ZERO planar. ZERO tournament.",
+  "statement_pin_required": {
+    "convention": "f : MvPolynomial (Fin n) F, t : Fin n → ℕ, S : Fin n → Finset F. Hypotheses: ∀ i, degreeOf i f ≤ t i; ∀ i, t i < (S i).card; coeff (Finsupp.equivFunOnFinite.symm t) f ≠ 0. Claim: ∃ x, (∀ i, x i ∈ S i) ∧ eval x f ≠ 0. Level A may land n=0 / n=1 / constants, not labelled CNS.",
+    "landmines": [
+      "Not Hilbert Nullstellensatz.",
+      "Not Chevalley–Warning. Not EGZ.",
+      "degreeOf per variable, not totalDegree.",
+      "Univariate n=1 is not the namesake.",
+      "Do not prove Alon–Füredi / cap sets.",
+      "Do not re-prime kruskal-katona / oddtown / sunflower-erdos-rado.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "N. Alon, Combinatorial Nullstellensatz, Combinatorics, Probability and Computing 8 (1999) 7–29, Theorem 1.2 (non-vanishing form). Textbook: Alon–Spencer, The Probabilistic Method. Type pin: MvPolynomial (Fin n) F + degreeOf + coeff. Hilbert NS / Chevalley–Warning / EGZ are different theorems, not this claim."
+  },
+  "feasibility_shape": "Level A: n=0 constants / n=1 univariate root bound glue, zero sorry, not labelled CNS. Level B: theorem combinatorial_nullstellensatz by induction on n (reduce in x_n modulo ∏ (x_n - a), preserve leading coeff, IH). Cap two levels. No CW / Alon–Füredi. MvPolynomial encoding is the only new ProofLab API; namesake is short on paper and fiddly in Lean.",
+  "infra_carry_over": [
+    "Mathlib Algebra.MvPolynomial.Basic (coeff, eval)",
+    "Mathlib Algebra.MvPolynomial.Degrees (degreeOf)",
+    "Mathlib Algebra.Polynomial — univariate roots; Level A glue only",
+    "Mathlib FieldTheory.ChevalleyWarning — DO NOT re-prove / DO NOT label this CW",
+    "Mathlib Combinatorics.Additive.ErdosGinzburgZiv — DO NOT re-prove",
+    "Mathlib RingTheory.Nullstellensatz — Hilbert, WRONG theorem",
+    "ProofLab/Oddtown.lean / KruskalKatona.lean / ErdosKoRado.lean — do not re-prove",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "160k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-717",
+  "parent_issue": "OPE-716",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO combinatorial Nullstellensatz; Hilbert NS HIT (wrong theorem); ChevalleyWarning HIT (wrong theorem); MvPolynomial.coeff/degreeOf/eval HIT",
+    "OPE-702 bench reason (KK ready scaffolding) is now consumed; independent re-score, not a rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Hilbert NS / CW / EGZ disclosed as different theorems"
+  ]
+}

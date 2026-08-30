@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-30 (OPE-712 Formalist: Oddtown Level A+B `formalized`, namesake `oddtown` zero-sorry.)
+**Last updated:** 2026-08-30 (OPE-717 Scout: catalog audit + ≤2 shortlist after Kruskal #67 + Oddtown #68 consumed; hygiene stamped both PRs.)
 
 ## Lifecycle labels
 
@@ -26,8 +26,8 @@ status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 
 | Problem ID | Domain | Tickets | Disposition | Novelty | Primary artifacts |
 |------------|--------|---------|-------------|---------|-------------------|
-| `oddtown` | extremal set theory | OPE-702 Scout leftover slot #2; **OPE-711** Director approve leftover; **OPE-712** Formalist Level A+B | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Oddtown.lean`. **Level A LANDED:** empty family `card ≤ n`; `n=0` no odd subset / odd family empty; `n=1` odd subset is `{0}` so family ⊆ `{{0}}` and `card ≤ 1`; `n` singletons odd, pairwise empty (even) intersection, card `n` (tightness). **Not labelled Oddtown.** **Level B namesake LANDED:** `theorem oddtown` — `Oddtown 𝒜 → 𝒜.card ≤ n`. Engine: `charVec s : Fin n → ZMod 2`; Gram `∑ i, charVec s i * charVec t i = |s ∩ t|` in `ZMod 2` is identity (`⟨v_s,v_s⟩=1`, `⟨v_s,v_t⟩=0` for `s≠t`); `LinearIndependent (ZMod 2)` of `{charVec s | s ∈ 𝒜}` then `fintype_card_le_finrank` + `finrank_pi` ⇒ `m ≤ n`. `#print axioms oddtown` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Oddtown.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Finite only. **Not EKR** (`erdos_ko_rado` already in ProofLab). Not Eventown / Fisher / BIBD / Hilton–Milner. Not Sperner / LYM. **Not Kruskal–Katona** (consumed OPE-707). Characteristic vectors over `ZMod 2`, not `ℝ`. Graph `incMatrix` not used. Do **not** re-prime kruskal-katona / cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Berlekamp 1969 / Babai–Frankl); Mathlib v4.10.0 has `LinearIndependent`/`ZMod`/`Finset` only; ZERO Oddtown / Eventown / Berlekamp | `catalog/problems/oddtown/STATEMENT.md`, Lean `ProofLab/Oddtown.lean` |
-| `kruskal-katona` | extremal set theory | OPE-702 Scout prime; **OPE-706** Director approve; **OPE-707** Formalist Level A+B | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/KruskalKatona.lean`. **Level A LANDED:** empty family; singleton `r`-set (`(shadow {s}).card = s.card`); `r=0` shadow empty; nonempty `r=1` ⇒ `shadow = {∅}`; UV glue `card_shadow_uv_compression_le` (Mathlib `UV.card_shadow_compression_le`, **not** labelled KK). **Level B namesake LANDED:** `theorem kruskal_katona` — `(𝒜 : Set (Finset (Fin n))).Sized r` vs colex `IsInitSeg 𝒞 r` of equal card ⇒ `(shadow 𝒞).card ≤ (shadow 𝒜).card`. Engine: useful UV-compressions (`max U < max V`) until fully compressed; a fully compressed `r`-uniform family is a colex initial segment (`isInitSeg_of_compressed`); compression does not increase `|∂|`. Named existence lemma `exists_initSeg` (Mathlib `IsInitSeg.exists_initSeg`), not a second theorem. `#print axioms kruskal_katona` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake build ProofLab.KruskalKatona` + `lake build ProofLab` green. **No novelty claim.** Finite only. Colex, not lex. Uniform `Sized r` load-bearing. **Not Sperner / LYM** (already upstream). Not Dilworth / EKR / Hilton–Milner / Oddtown / Eventown. Lovász-ℝ binomial out of v1. Do **not** re-prime cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Kruskal 1963 / Katona 1968); Mathlib v4.10.0 has `shadow`/`IsInitSeg`/`UV.card_shadow_compression_le` only; ZERO KruskalKatona theorem | `catalog/problems/kruskal-katona/STATEMENT.md`, Lean `ProofLab/KruskalKatona.lean` |
+| `oddtown` | extremal set theory | OPE-702 Scout leftover slot #2; **OPE-711** Director approve leftover; **OPE-712** Formalist Level A+B; PR **#68 MERGED** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Oddtown.lean`. **Level A LANDED:** empty family `card ≤ n`; `n=0` no odd subset / odd family empty; `n=1` odd subset is `{0}` so family ⊆ `{{0}}` and `card ≤ 1`; `n` singletons odd, pairwise empty (even) intersection, card `n` (tightness). **Not labelled Oddtown.** **Level B namesake LANDED:** `theorem oddtown` — `Oddtown 𝒜 → 𝒜.card ≤ n`. Engine: `charVec s : Fin n → ZMod 2`; Gram `∑ i, charVec s i * charVec t i = |s ∩ t|` in `ZMod 2` is identity (`⟨v_s,v_s⟩=1`, `⟨v_s,v_t⟩=0` for `s≠t`); `LinearIndependent (ZMod 2)` of `{charVec s | s ∈ 𝒜}` then `fintype_card_le_finrank` + `finrank_pi` ⇒ `m ≤ n`. `#print axioms oddtown` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Oddtown.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Finite only. **Not EKR** (`erdos_ko_rado` already in ProofLab). Not Eventown / Fisher / BIBD / Hilton–Milner. Not Sperner / LYM. **Not Kruskal–Katona** (consumed OPE-707). Characteristic vectors over `ZMod 2`, not `ℝ`. Graph `incMatrix` not used. Do **not** re-prime kruskal-katona / cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Berlekamp 1969 / Babai–Frankl); Mathlib v4.10.0 has `LinearIndependent`/`ZMod`/`Finset` only; ZERO Oddtown / Eventown / Berlekamp | `catalog/problems/oddtown/STATEMENT.md`, Lean `ProofLab/Oddtown.lean` |
+| `kruskal-katona` | extremal set theory | OPE-702 Scout prime; **OPE-706** Director approve; **OPE-707** Formalist Level A+B; PR **#67 MERGED** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/KruskalKatona.lean`. **Level A LANDED:** empty family; singleton `r`-set (`(shadow {s}).card = s.card`); `r=0` shadow empty; nonempty `r=1` ⇒ `shadow = {∅}`; UV glue `card_shadow_uv_compression_le` (Mathlib `UV.card_shadow_compression_le`, **not** labelled KK). **Level B namesake LANDED:** `theorem kruskal_katona` — `(𝒜 : Set (Finset (Fin n))).Sized r` vs colex `IsInitSeg 𝒞 r` of equal card ⇒ `(shadow 𝒞).card ≤ (shadow 𝒜).card`. Engine: useful UV-compressions (`max U < max V`) until fully compressed; a fully compressed `r`-uniform family is a colex initial segment (`isInitSeg_of_compressed`); compression does not increase `|∂|`. Named existence lemma `exists_initSeg` (Mathlib `IsInitSeg.exists_initSeg`), not a second theorem. `#print axioms kruskal_katona` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake build ProofLab.KruskalKatona` + `lake build ProofLab` green. **No novelty claim.** Finite only. Colex, not lex. Uniform `Sized r` load-bearing. **Not Sperner / LYM** (already upstream). Not Dilworth / EKR / Hilton–Milner / Oddtown / Eventown. Lovász-ℝ binomial out of v1. Do **not** re-prime cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Kruskal 1963 / Katona 1968); Mathlib v4.10.0 has `shadow`/`IsInitSeg`/`UV.card_shadow_compression_le` only; ZERO KruskalKatona theorem | `catalog/problems/kruskal-katona/STATEMENT.md`, Lean `ProofLab/KruskalKatona.lean` |
 | `mycielski-triangle-free` | graph theory | OPE-683 Scout #2; **OPE-694** Director approve leftover slot; **OPE-695** Formalist Level A+B; PR **#65** | **`formalized`** (formalize-only). Lean **zero-sorry** `ProofLab/Mycielski.lean`. **Level A LANDED:** `C5` on `Fin 5` is `CliqueFree 3` and `¬ Colorable 2` via Mathlib `Walk.three_le_chromaticNumber_of_odd_loop` on the length-5 closed walk (odd-loop glue, **not** labelled Mycielski). Corollary `mycielski_unbounded_of_le_two`. **Level B namesake LANDED:** `theorem mycielski_unbounded` — ∀ `k`, ∃ finite labelled `G : SimpleGraph (Fin n)` with `G.CliqueFree 3 ∧ ¬ G.Colorable k`. Engine: `μ(G)` on `V ⊕ V ⊕ Unit` (Lean right-assoc: first copy `inl`, shadow `inr ∘ inl`, extra `u = inr (inr ())` — copies not identified). Named facts: triangle-freeness preserved; `¬ Colorable k` ⇒ `μ` not `Colorable (k+1)` (recolour first copy by shadow colour when it used `u`'s class). Iterate from `K₂`; transport via `SimpleGraph.map` along `Fintype.equivFin`. `#print axioms mycielski_unbounded` = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Mycielski.lean` EXIT=0; `lake build ProofLab` green. **No novelty claim.** Finite only. **Not Brooks** (`χ` vs `Δ`). Not greedy. Not Grötzsch / Hajós / Kneser / Vizing / 4CT/5CT. Do **not** re-prime cayley-trees / havel-hakimi / menger-vertex / greedy / Brooks A/B / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Mycielski 1955); Mathlib v4.10.0 has `CliqueFree`/`Colorable`/`chromaticNumber`/`three_le_chromaticNumber_of_odd_loop` only; ZERO `Mycielski` | `catalog/problems/mycielski-triangle-free/STATEMENT.md`, Lean `ProofLab/Mycielski.lean` |
 | `cayley-trees` | graph theory | OPE-683 Scout prime; **OPE-687** Director approve; **OPE-688** Formalist Level A; PR **#64** | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/CayleyTrees.lean`. **Level A LANDED:** encoding `LabelledTree n := { s : Finset (Sym2 (Fin n)) // (∀ e ∈ s, ¬ e.IsDiag) ∧ (fromEdgeSet ↑s).IsTree }` (nodiag conjunct is load-bearing: `fromEdgeSet` drops loops). Glue `labelledTree_card_edges` (`|E| = n-1` via `IsTree.card_edgeFinset`). `n=1` empty/`⊥` (`cayley_formula_one`, `1^(1-2)=1`); `n=2` `K₂` (`cayley_formula_two`); `n=3` three labelled paths (`cayley_formula_three`); bundled `cayley_formula_of_le_three`. `#print axioms` on Level A theorems = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/CayleyTrees.lean` EXIT=0; `lake build ProofLab` green. **Namesake residual:** `cayley_formula` (`Fintype.card (LabelledTree n) = n^(n-2)` for all `n≥1`) needs Prüfer bijection `LabelledTree n ≃ Fin (n-2) → Fin n` for `n≥2` (or equivalent induction); **not** sorry-ed. **No novelty claim.** Not group Cayley. Not Cayley–Hamilton. Not Cayley graphs. Not Kirchhoff / matrix-tree. Not Tutte / Whitney / unlabelled A000055. Do **not** re-prime havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac. Leave OPE-403 alone. | Known classical (Cayley 1889 / Prüfer 1918); Mathlib v4.10.0 has `IsTree`/`fromEdgeSet`/`card_edgeFinset` only; ZERO Prüfer / labelled-tree count | `catalog/problems/cayley-trees/STATEMENT.md`, Lean `ProofLab/CayleyTrees.lean` |
 | `menger-vertex` | graph theory | OPE-666 Scout #2; **OPE-677** Director approve remaining slot after Havel; **OPE-678** Formalist Level A; PR **#62 MERGED** (`abf60474`, 2026-08-29T23:05:43Z) | **`informal`** (formalize-only, honest partial). Lean **zero-sorry** `ProofLab/Menger.lean`. **Level A LANDED:** Diestel A–B path / `IsABSeparator` / `HasPack` / `p` / `s` (global form, fully vertex-disjoint including ends). Easy `p ≤ s` (`packingNumber_le_separatorNumber`). `A ∩ B` load-bearing: trivial `Walk.nil` packing + every separator contains the intersection (`packingNumber_ge_inter`, `separatorNumber_ge_inter`, `inter_nonempty_bounds`). Singleton `A={a}`, `B={b}` joined by an edge ⇒ `p = s = 1` (`menger_vertex_singletons_adj`). No A–B path (hence `A ∩ B = ∅`) ⇒ `p = s = 0` (`menger_vertex_no_path`). Diestel `|E|=0` base `menger_bot`: `p = s = |A ∩ B|` on `⊥`. `#print axioms` on Level A theorems = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/Menger.lean` EXIT=0; `lake build ProofLab` green. **Namesake residual:** `menger_vertex` (`s = p`) needs Diestel induction on `card G.edgeFinset` (critical-edge / separator-split + glue); **not** sorry-ed. Named engine this heartbeat. Optional König split-graph reduction not attacked. **No novelty claim.** Finite only. Global form, not local `κ(u,v)`. Not König `ν=τ`. Not edge-Menger. Not max-flow. Not infinite Erdős–Menger. Not Tutte / Whitney. Do **not** re-prime greedy / Brooks / Dilworth / Eulerian / Dirac / König / Havel–Hakimi. Leave OPE-403 alone. | Known classical (Menger 1927 / Diestel 3.3.1); Mathlib v4.10.0 has `Walk`/`IsPath`/`Reachable` only; ZERO `Menger` / graph `IsSeparator` | `catalog/problems/menger-vertex/STATEMENT.md`, Lean `ProofLab/Menger.lean` |
@@ -940,6 +940,125 @@ Re-evaluated, not shortlisted (do not rubber-stamp OPE-683 leftovers):
   Eulerian-C / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser /
   Whitney / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake:** Director declined.
   Do not invent.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
+
+**OPE-717 update (2026-08-30, Scout, support OPE-716):** catalog audit + fresh ≤2 shortlist.
+OPE-702 shortlist **plus** the OPE-706/OPE-711 Formalist assignment wave is **fully consumed on merged main**.
+Zero open PRs at scout start (`origin/main` = merge of PR #68, `0b531ef`). Director does not invent primes.
+This is **not** a Director-invented Dilworth-C / Eulerian-C / Ore / Vizing / 4CT / list-colouring Brooks / namesake Kempe / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser / Tutte / Whitney / Kirchhoff / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake / Eventown / Fisher / BIBD / Hilton–Milner / Sperner/LYM / Kruskal–Katona-C / Oddtown-C continuation: sunflower is a fresh Δ-system id (not intersecting / not parity / not shadows); combinatorial Nullstellensatz is a polynomial-method id (not Hilbert NS, not Chevalley–Warning).
+
+Consumption (live this run):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `kruskal-katona` Level A+B namesake | OPE-707 Formalist; PRG OPE-709; PR **#67 MERGED** (`a00d323`). `kruskal_katona` on main. Zero-sorry | yes. Status `formalized`. Hygiene this run: catalog `pr` stamped #67. Do **not** invent Kruskal–Katona-C / Lovász-ℝ binomial / Sperner/LYM |
+| `oddtown` Level A+B namesake | OPE-712 Formalist; PRG OPE-714; PR **#68 MERGED** (`0b531ef`). `oddtown` on main. Zero-sorry | yes. Status `formalized`. Hygiene this run: catalog `pr` stamped #68. Do **not** invent Oddtown-C / Eventown / Fisher / BIBD / Hilton–Milner |
+| `cayley-trees` Level A | PR **#64 MERGED**. Namesake Prüfer **not** sorry-ed | yes. Status stays `informal`. Do **not** invent Prüfer-namesake / Kirchhoff / Tutte / Whitney / unlabelled A000055 |
+| `mycielski-triangle-free` Level A+B namesake | PR **#65 MERGED**. `mycielski_unbounded` on main | yes. Do **not** invent Mycielski-C / Grötzsch / Hajós / Kneser / Vizing / 4CT |
+| `havel-hakimi` Level A + reverse | PR **#61 MERGED**. Namesake forward switching **not** sorry-ed | yes. Do not expand into Erdős–Gállai / Gale–Ryser / Tutte |
+| `menger-vertex` Level A | PR **#62 MERGED**. Namesake `s = p` **not** sorry-ed | yes. Do **not** invent namesake Diestel / edge-Menger / max-flow / infinite Erdős–Menger |
+| `greedy-chromatic` Level A+B | PR **#57 MERGED** | yes. Do not expand into Brooks / list-colouring |
+| `brooks-coloring` Level A/B | PRs **#58** / **#59 MERGED**. Namesake residual is a comment (Kempe / Lovász) | yes. Do **not** invent namesake Kempe / Level C / list-colouring Brooks |
+| `dilworth-poset` Level A+B | PRs **#53** / **#54 MERGED**. Residual EMPTY | yes. Do not invent Level C / Mirsky / Greene |
+| `eulerian-hierholzer` A / circuit / trail | PRs **#47** / **#51** / **#55 MERGED** | yes. Do not invent Eulerian-C |
+| `konig-bipartite` Level A+B | PRs **#48** / **#50 MERGED** | yes |
+| Scout shortlist PRs **#46** / **#49** / **#52** / **#56** / **#60** / **#63** / **#66** | MERGED | yes |
+| `euler-odd-distinct` / Dirac A+B / EKR / friendship / schur_partition / Glaisher | previously consumed | yes |
+| ramsey-r33 / R(3,4) / R(4,4); ramsey-r35; ramsey-multicolor-r333 (PR #36); weak-schur-ws2 (PR #35); S(2)/S(3); W(2,3); ES monotone; ES(3)=5 (PRs #24/#25); EW k=16; frobenius / derangement / catalan / turan | previously closed or already-in-Mathlib | yes |
+
+**Leave OPE-403 alone** (Happy Ending parked on board confirmation since 2026-08-24).
+
+Catalog hygiene this run: Kruskal–Katona `problems.json` stamped **PR #67 MERGED** + `formalized` (namesake landed). Oddtown stamped **PR #68 MERGED** + `formalized`. Not a new proof layer.
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport
+(`Combinatorics/SetFamily/CauchyDavenport.lean`), EGZ, Sperner/LYM (`IsAntichain.sperner`),
+Hall marriage (`HallMarriageTheorem` / `hall_hard_inductive`), Wilson, Lucas, Zeckendorf, Beatty,
+Pythagorean triples, Turán, non-uniform `Intersecting.card_le`, Hilbert Nullstellensatz
+(`RingTheory/Nullstellensatz.lean` — **not** Alon's combinatorial form), Chevalley–Warning
+(`FieldTheory/ChevalleyWarning.lean`), Hales–Jewett (`Line.exists_mono_in_high_dimension`) +
+homothetic VdW existence (`exists_mono_homothetic_copy`; finitary exact W(2,k) still a TODO),
+Hindman, Sauer–Shelah / Pajor (`SetFamily/Shatter.lean` `card_le_card_shatterer` + `vcDim`),
+Four Functions / Ahlswede–Zhang / Harris–Kleitman, Burnside (group actions), Lagrange four squares,
+quadratic reciprocity, Möbius inversion, group Cayley's theorem
+(`GroupTheory/Perm/Subgroup.lean` — **not** labelled trees), Cayley–Hamilton
+(`LinearAlgebra/Matrix/Charpoly` — **not** labelled trees), Configuration `HasLines.card_le`
+(de Bruijn–Erdős incidence form), Hamiltonian *definitions* (Dirac theorem now in ProofLab,
+not Mathlib), `Walk.IsEulerian` + necessary `card_odd_degree` (existence filled in ProofLab
+circuit + 2-odd trail), `Subgraph.IsMatching` (no König / no vertex cover in Mathlib —
+ProofLab has both), cardinal König (`SetTheory.Cardinal`, unrelated), `IsChain` /
+`IsAntichain` *definitions* (Dilworth now in ProofLab), `Colorable` / `chromaticNumber` /
+`maxDegree` / `chromaticNumber_top` / `Walk.three_le_chromaticNumber_of_odd_loop` (no Brooks
+in Mathlib; greedy `χ ≤ Δ+1`, Brooks Δ≤2 family, and Mycielski unbounded-χ now in ProofLab,
+not upstream), `degree` / handshaking — **not** Havel–Hakimi (ProofLab), `Walk` / `Reachable`
+— **not** Menger (ProofLab), `IsTree` / `fromEdgeSet` / `card_edgeFinset` — **not** Cayley's
+`n^{n-2}` count (ProofLab Level A), `CliqueFree` — **not** Mycielski (ProofLab), `lapMatrix`
+(kernel rank = components) — **not** Kirchhoff matrix-tree, `Finset.shadow` / `IsInitSeg` /
+`UV.card_shadow_compression_le` — **not** Kruskal–Katona (ProofLab namesake),
+`LinearIndependent` / `ZMod` / graph `incMatrix` — **not** Oddtown (ProofLab namesake;
+`incMatrix` is the wrong matrix), `YoungDiagram` / `SemistandardYoungTableau` *definitions*
+— **not** hook-length (no theorem), `MvPolynomial.coeff` / `degreeOf` / `eval` — **not**
+combinatorial Nullstellensatz (the non-vanishing lemma is the gap).
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`sunflower-erdos-rado` — RECOMMENDED PRIME (88).** Fresh id — never previously
+   shortlisted. Why-not-classical: Erdős–Rado 1960 sunflower / Δ-system bound is settled.
+   Why still a bet / why a new layer: Kruskal–Katona (shadows) and Oddtown (GF(2) parity)
+   are consumed; this is a *Δ-system* configuration theorem, **not** intersecting families,
+   **not** parity, **not** colex shadows. Mathlib has `Finset` and already-upstream
+   Sauer–Shelah (`card_le_card_shatterer`); ZERO sunflower ident. The **sunflower
+   conjecture** is open and is **out of v1**. Proof shape: Level A `k=1`/`r≤1`/empty;
+   Level B namesake `r! (k-1)^r < |𝒜| ⇒ ∃ k-petals sunflower`. Score 88 because Finset
+   encoding is native (formalizability 18) but there is no dedicated scaffolding written
+   for this theorem (attack 16). Do **not** assign `combinatorial-nullstellensatz` first
+   unless Director swaps. Do **not** prove the conjecture / ALWZ / Eventown / Fisher /
+   Hilton–Milner in this id. STATEMENT pin:
+   `catalog/problems/sunflower-erdos-rado/STATEMENT.md`.
+2. **`combinatorial-nullstellensatz` (84).** Independent re-score of the OPE-702
+   considered-not-slotted CNS line — **not** a rubber-stamp. Why-not-classical: Alon 1999
+   non-vanishing form is settled. Why still a bet / why a new layer: OPE-702 benched CNS
+   because Kruskal–Katona had ready Colex/Shadow/UV scaffolding; that competitor is now
+   consumed. Hilbert NS and Chevalley–Warning remain *different* already-upstream theorems.
+   Mathlib has `MvPolynomial.coeff` / `degreeOf` / `eval`; ZERO combinatorial Nullstellensatz
+   ident. Proof shape: Level A `n≤1` univariate glue (not labelled CNS); Level B namesake
+   non-vanishing on a box. Score 84 because MvPolynomial is unused in ProofLab and the
+   multivariate division/induction is the Lean sink (verification 14). Do **not** assign
+   before `sunflower-erdos-rado` unless Director swaps. Do **not** prove Hilbert NS / CW /
+   EGZ / Alon–Füredi. STATEMENT pin:
+   `catalog/problems/combinatorial-nullstellensatz/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-702 leftovers):
+
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime. General VdW
+  *existence* is already in Mathlib (`exists_mono_homothetic_copy` via Hales–Jewett) —
+  not a gap.
+- **Ore stretch:** independently a remaining Mathlib gap (Hamiltonian defs only). Proof shape
+  is a re-warm of closed Dirac longest-path. **Not slotted.** Do not invent Ore as a leftover.
+- **Tutte's theorem:** explicit Matching.lean TODO, ZERO theorem. Banned as a leftover this
+  commission. Bench.
+- **Kirchhoff matrix-tree:** `LapMatrix` exists; ZERO spanning-tree count. Would be the `K_n`
+  generalisation of consumed Cayley — do **not** invent as a leftover of `cayley-trees`.
+- **König edge-chromatic `χ'=Δ`:** ZERO `chromaticIndex` / `LineGraph`. Looks like inventing
+  Vizing (banned). Bench.
+- **Five colour / planar:** Coloring.lean TODO lists planar; ZERO planar defs. Bench.
+- **Hilton–Milner:** ZERO theorem (gap holds) but it is the uniqueness companion of consumed
+  EKR — do **not** invent as an `erdos-ko-rado` leftover. Bench.
+- **Rédei / tournaments:** ZERO `IsTournament`; Hamiltonian *path* defs exist. Encoding-from-scratch,
+  same class as the planar bench. Bench.
+- **Hook-length formula:** `YoungDiagram` / `SemistandardYoungTableau` defs waiting, ZERO theorem.
+  Proof is a known sink (GNW probabilistic / Nijenhuis–Wilf / RSK) — worse than Cayley's Prüfer
+  residual. Bench; do not invent as a “defs waiting” prime this wave.
+- **Sauer–Shelah:** already in Mathlib (`card_le_card_shatterer`). Never cite as a gap.
+- **Namesake Kempe / Brooks Level C / list-colouring Brooks / Vizing / 4CT / Dilworth-C /
+  Eulerian-C / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser /
+  Whitney / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake / Eventown / Fisher /
+  BIBD / Kruskal–Katona-C / Oddtown-C:** Director declined. Do not invent.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 

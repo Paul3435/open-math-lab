@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-30T15:20:00Z",
+  "last_updated": "2026-08-30T18:15:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -841,7 +841,9 @@
       ],
       "parent_issue": "OPE-701",
       "lean_artifact": "proofs/lean-project/ProofLab/KruskalKatona.lean",
-      "formalist_issue": "OPE-707"
+      "formalist_issue": "OPE-707",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/67",
+      "scout_hygiene_ope717": "verified formalized + PR #67 MERGED on origin/main a00d323"
     },
     {
       "id": "oddtown",
@@ -869,10 +871,58 @@
       ],
       "parent_issue": "OPE-701",
       "lean_artifact": "proofs/lean-project/ProofLab/Oddtown.lean",
-      "formalist_issue": "OPE-712"
+      "formalist_issue": "OPE-712",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/68",
+      "scout_hygiene_ope717": "verified formalized + PR #68 MERGED on origin/main 0b531ef"
+    },
+    {
+      "id": "sunflower-erdos-rado",
+      "title": "Erdős–Rado sunflower lemma: r! (k-1)^r bound (formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_set_theory",
+      "score": 88,
+      "note": "OPE-717 Scout RECOMMENDED PRIME. Fresh id after Kruskal #67 + Oddtown #68 consumed. Classical Erdős–Rado 1960 factorial bound, NOT the open sunflower conjecture (out of v1). known-classical, no novelty. Not EKR / Oddtown / Eventown / Fisher / BIBD / Hilton–Milner / Kruskal–Katona / Sauer–Shelah. Mathlib v4.10.0 ZERO sunflower ident; Sauer–Shelah already upstream as a different theorem.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/sunflower-erdos-rado/",
+        "problems/sunflower-erdos-rado/"
+      ],
+      "scout_issue": "OPE-717",
+      "tickets": [
+        "OPE-717",
+        "OPE-716"
+      ],
+      "parent_issue": "OPE-716"
+    },
+    {
+      "id": "combinatorial-nullstellensatz",
+      "title": "Combinatorial Nullstellensatz: Alon non-vanishing (formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorial_algebra",
+      "score": 84,
+      "note": "OPE-717 Scout leftover slot #2. Independent re-score of the OPE-702 considered-not-slotted CNS line (KK scaffolding competitor now consumed). Alon 1999 non-vanishing form. known-classical, no novelty. NOT Hilbert Nullstellensatz (already upstream). NOT Chevalley–Warning (already upstream). NOT EGZ. Mathlib v4.10.0 has MvPolynomial.coeff/degreeOf/eval; ZERO combinatorial Nullstellensatz ident.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/combinatorial-nullstellensatz/",
+        "problems/combinatorial-nullstellensatz/"
+      ],
+      "scout_issue": "OPE-717",
+      "tickets": [
+        "OPE-717",
+        "OPE-716"
+      ],
+      "parent_issue": "OPE-716"
     }
   ],
-  "updated_at": "2026-08-30T16:30:00Z",
+  "updated_at": "2026-08-30T18:15:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
