@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-717 Scout: Kruskal PR **#67 MERGED** `formalized`; Oddtown PR **#68 MERGED** `formalized`; next shortlist `sunflower-erdos-rado` prime + `combinatorial-nullstellensatz` leftover.)
+**Last updated:** 2026-08-30 (OPE-722 Formalist: `sunflower-erdos-rado` Level A+B namesake `formalized`; CNS leftover still unassigned.)

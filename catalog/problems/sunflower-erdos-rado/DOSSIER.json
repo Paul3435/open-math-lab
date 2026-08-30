@@ -1,7 +1,7 @@
 {
   "id": "sunflower-erdos-rado",
   "title": "Erdős–Rado sunflower lemma: r! (k-1)^r bound (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_set_theory",
   "score": 88,
   "scores": {
@@ -42,6 +42,9 @@
   "scored_at": "2026-08-30",
   "scout_issue": "OPE-717",
   "parent_issue": "OPE-716",
+  "formalist_issue": "OPE-722",
+  "lean_artifact": "proofs/lean-project/ProofLab/Sunflower.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/70",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO sunflower/Δ-system; Finset HIT; Sauer–Shelah HIT as a different theorem",
     "Fresh id after Kruskal #67 + Oddtown #68 consumed; not an Oddtown leftover rubber-stamp",
