@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-735 Scout: sunflower PR **#70 MERGED** `formalized`; combinatorial Nullstellensatz PR **#71 MERGED** `formalized`; next shortlist `kovari-sos-turan` prime + `pentagonal-number-theorem` leftover.)
+**Last updated:** 2026-08-30 (OPE-740 Formalist: `kovari-sos-turan` Level A+B namesake, Lean zero-sorry `ProofLab/KovariSosTuran.lean`. Prior OPE-735 Scout shortlist: sunflower #70 + CNS #71 consumed; leftover `pentagonal-number-theorem` unassigned.)

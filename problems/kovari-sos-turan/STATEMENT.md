@@ -1,7 +1,7 @@
 # Kővári–Sós–Turán — Zarankiewicz integer counting form (formalize-only)
 
 **id:** `kovari-sos-turan`
-**ticket:** OPE-735 Scout recommended prime (support OPE-734; post sunflower #70 + combinatorial Nullstellensatz #71)
+**ticket:** OPE-740 Formalist (Scout OPE-735 prime; Director OPE-739; support OPE-734; post sunflower #70 + combinatorial Nullstellensatz #71)
 **expected:** known-classical (Kővári–Sós–Turán 1954) — **no novelty claim**
 
 ## Why not classical / why formalize-only

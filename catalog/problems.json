@@ -936,10 +936,10 @@
     {
       "id": "kovari-sos-turan",
       "title": "Kővári–Sós–Turán: Zarankiewicz integer counting form (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_graph_theory",
       "score": 88,
-      "note": "OPE-735 Scout RECOMMENDED PRIME. Classical Kővári–Sós–Turán 1954 integer counting form, NOT exact Zarankiewicz (open, out of v1), NOT Turán (already in Mathlib), NOT Mantel. known-classical, no novelty. Fresh id after sunflower #70 + combinatorial Nullstellensatz #71 consumed. Not sunflower / KK / Oddtown / EKR.",
+      "note": "OPE-740 Formalist Level A+B namesake. Scout OPE-735 prime; Director OPE-739 approve. Classical Kővári–Sós–Turán 1954 integer counting form, NOT exact Zarankiewicz (open, out of v1), NOT Turán (already in Mathlib), NOT Mantel. known-classical, no novelty. Lean zero-sorry ProofLab/KovariSosTuran.lean. Not sunflower / KK / Oddtown / EKR / combinatorial Nullstellensatz.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -947,14 +947,20 @@
       ],
       "artifacts": [
         "catalog/problems/kovari-sos-turan/",
-        "problems/kovari-sos-turan/"
+        "problems/kovari-sos-turan/",
+        "proofs/lean-project/ProofLab/KovariSosTuran.lean"
       ],
       "scout_issue": "OPE-735",
       "tickets": [
         "OPE-735",
-        "OPE-734"
+        "OPE-734",
+        "OPE-739",
+        "OPE-740"
       ],
-      "parent_issue": "OPE-734"
+      "parent_issue": "OPE-734",
+      "lean_artifact": "proofs/lean-project/ProofLab/KovariSosTuran.lean",
+      "formalist_issue": "OPE-740",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/73"
     },
     {
       "id": "pentagonal-number-theorem",

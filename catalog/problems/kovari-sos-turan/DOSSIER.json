@@ -1,7 +1,7 @@
 {
   "id": "kovari-sos-turan",
   "title": "Kővári–Sós–Turán: Zarankiewicz integer counting form (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_graph_theory",
   "score": 88,
   "scores": {
