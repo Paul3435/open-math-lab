@@ -1,0 +1,51 @@
+{
+  "id": "sunflower-erdos-rado",
+  "title": "Erdős–Rado sunflower lemma: r! (k-1)^r bound (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_set_theory",
+  "score": 88,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Erdős–Rado 1960 sunflower / Δ-system lemma is settled: an r-uniform family larger than r! (k-1)^r contains a k-petals sunflower. Completely classical. The sunflower CONJECTURE is open and is OUT OF SCOPE — pinning the classical factorial bound is not a novelty claim and not an attack on the conjecture. Value is a Mathlib contribution (Finset exists; ZERO sunflower / delta-system theorem in Mathlib+Archive). Sauer–Shelah (Shatter.lean card_le_card_shatterer) is a different already-upstream theorem. Do NOT re-fund as novel. EKR / Oddtown / Kruskal–Katona are different theorems (ProofLab already has them).",
+  "recommendation": "OPE-717 RECOMMENDED PRIME. Fresh id — never previously shortlisted. Not an Oddtown leftover (Director declined Eventown / Fisher / BIBD / Hilton–Milner). Not EKR. Not Kruskal–Katona-C. Kruskal #67 + Oddtown #68 consumed. Score 88 because Finset encoding is native (formalizability 18) but there is no dedicated Mathlib scaffolding written for this theorem (attack 16, unlike KK's Colex/UV). verification 16: inductive proof is short; r! (k-1)^r bookkeeping is the only sink. Do NOT assign combinatorial-nullstellensatz first unless Director swaps. Do NOT prove the sunflower conjecture / ALWZ bound / Eventown / Fisher / Hilton–Milner in this id. Do NOT re-prime kruskal-katona / oddtown / cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope717": "Pin mathlib a719ba5c3115 (v4.10.0). rg sunflower / delta-system / IsSunflower over Mathlib/** + Archive/** → ZERO files. Defs HIT: Finset, SetFamily/Shadow, SetFamily/Shatter (Pajor Sauer-Shelah card_le_card_shatterer — DIFFERENT theorem, already upstream). ProofLab ErdosKoRado / Oddtown / KruskalKatona HIT — different theorems, not re-primes. Negative control HIT: Turan.lean. HallMarriageTheorem EXISTS. Hilbert NS EXISTS (not combinatorial). ChevalleyWarning EXISTS. CauchyDavenport EXISTS. EGZ EXISTS. Sperner/LYM EXIST. Configuration HasLines.card_le EXISTS (de Bruijn–Erdős incidence). HalesJewett + Hindman EXIST. FOUR Functions / AhlswedeZhang / HarrisKleitman EXIST. ZERO combinatorial Nullstellensatz. ZERO HiltonMilner. ZERO Fisher/BIBD. ZERO chromaticIndex / Vizing. ZERO planar. ZERO tournament / Rédei. ZERO hook-length theorem (YoungDiagram defs only).",
+  "statement_pin_required": {
+    "convention": "𝒜 : Finset (Finset α) r-uniform. IsSunflower = ∃ core, pairwise intersections equal core. Claim: r! * (k-1)^r < 𝒜.card ∧ 1 ≤ k ⇒ ∃ 𝒮 ⊆ 𝒜, 𝒮.card = k ∧ IsSunflower 𝒮. Level A may land k=1 / r=0 / r=1 / empty, not labelled Erdős–Rado.",
+    "landmines": [
+      "Not the sunflower conjecture (open, out of v1).",
+      "Not EKR. Not Oddtown/Eventown. Not Fisher/BIBD. Not Kruskal–Katona. Not Sauer–Shelah. Not Hilton–Milner.",
+      "1 ≤ k load-bearing for ℕ subtraction.",
+      "Do not prove ALWZ 2021 bound.",
+      "Do not re-prime kruskal-katona / oddtown / cayley-trees / mycielski / Dilworth.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "P. Erdős and R. Rado, Intersection theorems for systems of sets, J. London Math. Soc. 35 (1960) 85–90. Textbook: Jukna, Extremal Combinatorics (sunflower / Δ-system); Alon–Spencer, The Probabilistic Method. Type pin: Finset (Finset α) + IsSunflower. EKR / Oddtown / Kruskal–Katona / Sauer–Shelah / the sunflower conjecture are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: k=1 / r=0 / r=1 singletons / empty, zero sorry. Level B: theorem erdos_rado_sunflower by induction on r (popular element → traces; otherwise greedy disjoint petals). Cap two levels. No conjecture / ALWZ / Eventown. Finset encoding is already in ProofLab; namesake is short.",
+  "infra_carry_over": [
+    "Mathlib Data.Finset / Nat.factorial / Nat.pow",
+    "Mathlib Combinatorics.SetFamily.Shatter — Sauer–Shelah already upstream; DO NOT reuse those claims / DO NOT label this Sauer–Shelah",
+    "ProofLab/ErdosKoRado.lean — intersecting k-uniform; DO NOT reuse those claims / DO NOT label this EKR",
+    "ProofLab/Oddtown.lean / KruskalKatona.lean — consumed; do not re-prove",
+    "ProofLab/CayleyTrees.lean / Mycielski.lean — do not re-prove",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-717",
+  "parent_issue": "OPE-716",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO sunflower/Δ-system; Finset HIT; Sauer–Shelah HIT as a different theorem",
+    "Fresh id after Kruskal #67 + Oddtown #68 consumed; not an Oddtown leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Sunflower conjecture / EKR / Oddtown / Kruskal–Katona / Sauer–Shelah disclosed as different statements"
+  ]
+}
