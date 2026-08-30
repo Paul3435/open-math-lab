@@ -959,7 +959,8 @@
       ],
       "parent_issue": "OPE-734",
       "lean_artifact": "proofs/lean-project/ProofLab/KovariSosTuran.lean",
-      "formalist_issue": "OPE-740"
+      "formalist_issue": "OPE-740",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/73"
     },
     {
       "id": "pentagonal-number-theorem",
