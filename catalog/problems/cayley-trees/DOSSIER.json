@@ -1,7 +1,7 @@
 {
   "id": "cayley-trees",
   "title": "Cayley's formula: n^{n-2} labelled trees (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "graph_theory",
   "score": 85,
   "scores": {
