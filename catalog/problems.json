@@ -930,7 +930,8 @@
       ],
       "parent_issue": "OPE-716",
       "lean_artifact": "proofs/lean-project/ProofLab/CombinatorialNullstellensatz.lean",
-      "formalist_issue": "OPE-729"
+      "formalist_issue": "OPE-729",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/71"
     }
   ],
   "updated_at": "2026-08-30T18:51:50Z",
