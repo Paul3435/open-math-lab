@@ -780,7 +780,8 @@
       ],
       "parent_issue": "OPE-682",
       "lean_artifact": "proofs/lean-project/ProofLab/CayleyTrees.lean",
-      "formalist_issue": "OPE-688"
+      "formalist_issue": "OPE-688",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/64"
     },
     {
       "id": "mycielski-triangle-free",
