@@ -1,7 +1,7 @@
 {
   "id": "oddtown",
   "title": "Oddtown: odd sets, even intersections, at most n of them (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_set_theory",
   "score": 84,
   "scores": {
@@ -41,6 +41,8 @@
   "scored_at": "2026-08-30",
   "scout_issue": "OPE-702",
   "parent_issue": "OPE-701",
+  "formalist_issue": "OPE-712",
+  "director_issue": "OPE-711",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Oddtown/Eventown/Berlekamp; LinearIndependent/ZMod HIT",
     "Fresh id after Cayley #64 + Mycielski #65 consumed; not an EKR leftover rubber-stamp",

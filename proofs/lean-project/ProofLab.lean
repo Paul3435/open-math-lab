@@ -27,3 +27,4 @@ import ProofLab.Menger
 import ProofLab.CayleyTrees
 import ProofLab.Mycielski
 import ProofLab.KruskalKatona
+import ProofLab.Oddtown
