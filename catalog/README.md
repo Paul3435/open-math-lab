@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-702 Scout: next shortlist prime `kruskal-katona`; leftover `oddtown`; Cayley PR **#64 MERGED** `informal`; Mycielski PR **#65 MERGED** `formalized`.)
+**Last updated:** 2026-08-30 (OPE-707 Formalist: `kruskal-katona` Level A+B **formalized**; leftover `oddtown` still candidate; Cayley PR **#64 MERGED** `informal`; Mycielski PR **#65 MERGED** `formalized`.)

@@ -818,10 +818,10 @@
     {
       "id": "kruskal-katona",
       "title": "Kruskal–Katona: colex initial segments minimise the shadow (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_set_theory",
       "score": 86,
-      "note": "OPE-702 Scout RECOMMENDED PRIME (support OPE-701; post Cayley #64 + Mycielski #65). known-classical Kruskal 1963 / Katona 1968, no novelty. Genuine Mathlib gap: shadow/IsInitSeg/UV-compression exist; ZERO Kruskal-Katona theorem. Not Sperner/LYM (already upstream). Not Dilworth. Do NOT prove Hilton-Milner / Oddtown / Lovász-ℝ form in this id.",
+      "note": "OPE-707 Formalist Level A+B CONSUMED. theorem kruskal_katona zero-sorry in ProofLab/KruskalKatona.lean: Sized r family vs colex IsInitSeg of equal card ⇒ (shadow C).card ≤ (shadow A).card. Level A: empty / singleton r-set / r≤1 / UV.card_shadow_compression_le glue (not labelled KK). Level B: useful UV-compressions until colex-compressed. known-classical Kruskal 1963 / Katona 1968, no novelty. Not Sperner/LYM (already upstream). Not Dilworth / EKR / Hilton-Milner / Oddtown. Do NOT re-prime cayley-trees / mycielski-triangle-free.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -829,14 +829,19 @@
       ],
       "artifacts": [
         "catalog/problems/kruskal-katona/",
-        "problems/kruskal-katona/"
+        "problems/kruskal-katona/",
+        "proofs/lean-project/ProofLab/KruskalKatona.lean"
       ],
       "scout_issue": "OPE-702",
       "tickets": [
         "OPE-702",
-        "OPE-701"
+        "OPE-701",
+        "OPE-706",
+        "OPE-707"
       ],
-      "parent_issue": "OPE-701"
+      "parent_issue": "OPE-701",
+      "lean_artifact": "proofs/lean-project/ProofLab/KruskalKatona.lean",
+      "formalist_issue": "OPE-707"
     },
     {
       "id": "oddtown",
@@ -862,7 +867,7 @@
       "parent_issue": "OPE-701"
     }
   ],
-  "updated_at": "2026-08-30T15:16:00Z",
+  "updated_at": "2026-08-30T16:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

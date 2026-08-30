@@ -1,7 +1,7 @@
 {
   "id": "kruskal-katona",
   "title": "Kruskal–Katona: colex initial segments minimise the shadow (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_set_theory",
   "score": 86,
   "scores": {
