@@ -907,10 +907,10 @@
     {
       "id": "combinatorial-nullstellensatz",
       "title": "Combinatorial Nullstellensatz: Alon non-vanishing (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorial_algebra",
       "score": 84,
-      "note": "OPE-717 Scout leftover slot #2. Independent re-score of the OPE-702 considered-not-slotted CNS line (KK scaffolding competitor now consumed). Alon 1999 non-vanishing form. known-classical, no novelty. NOT Hilbert Nullstellensatz (already upstream). NOT Chevalley–Warning (already upstream). NOT EGZ. Mathlib v4.10.0 has MvPolynomial.coeff/degreeOf/eval; ZERO combinatorial Nullstellensatz ident.",
+      "note": "OPE-729 Formalist Level A+B namesake. Scout OPE-717 leftover slot #2; Director OPE-728 assign leftover. Classical Alon 1999 non-vanishing (Theorem 1.2), NOT Hilbert NS, NOT Chevalley–Warning, NOT EGZ, NOT Alon–Füredi. known-classical, no novelty. Lean zero-sorry ProofLab/CombinatorialNullstellensatz.lean. Per-variable degreeOf, not totalDegree.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -918,17 +918,23 @@
       ],
       "artifacts": [
         "catalog/problems/combinatorial-nullstellensatz/",
-        "problems/combinatorial-nullstellensatz/"
+        "problems/combinatorial-nullstellensatz/",
+        "proofs/lean-project/ProofLab/CombinatorialNullstellensatz.lean"
       ],
       "scout_issue": "OPE-717",
       "tickets": [
         "OPE-717",
-        "OPE-716"
+        "OPE-716",
+        "OPE-728",
+        "OPE-729"
       ],
-      "parent_issue": "OPE-716"
+      "parent_issue": "OPE-716",
+      "lean_artifact": "proofs/lean-project/ProofLab/CombinatorialNullstellensatz.lean",
+      "formalist_issue": "OPE-729",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/71"
     }
   ],
-  "updated_at": "2026-08-30T17:25:02Z",
+  "updated_at": "2026-08-30T18:51:50Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
