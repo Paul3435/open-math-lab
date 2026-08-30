@@ -24,3 +24,4 @@ import ProofLab.GreedyChromatic
 import ProofLab.Brooks
 import ProofLab.HavelHakimi
 import ProofLab.Menger
+import ProofLab.CayleyTrees

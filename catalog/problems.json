@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-29T21:30:00Z",
+  "last_updated": "2026-08-30T01:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -756,10 +756,10 @@
     {
       "id": "cayley-trees",
       "title": "Cayley's formula: n^{n-2} labelled trees (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "graph_theory",
       "score": 85,
-      "note": "OPE-683 Scout RECOMMENDED PRIME. Independent re-score of OPE-666 considered-not-slotted Cayley — encoding now pinned (edge-Finsets, not {G // G.IsTree}). known-classical Cayley 1889 / Prüfer 1918, no novelty. Do NOT re-prime havel-hakimi / menger-vertex / greedy / Brooks. Do NOT prove Kirchhoff / Tutte / unlabelled A000055. Not group Cayley, not Cayley–Hamilton.",
+      "note": "OPE-688 Formalist Level A honest partial. Zero-sorry ProofLab/CayleyTrees.lean. n=1 empty/⊥; n=2 K2; n=3 three labelled paths; card_edgeFinset glue. Namesake cayley_formula Prüfer residual not sorry-ed. Status stays informal until namesake. known-classical Cayley 1889 / Prüfer 1918, no novelty. Do NOT re-prime havel-hakimi / menger-vertex / greedy / Brooks. Do NOT prove Kirchhoff / Tutte / unlabelled A000055. Not group Cayley, not Cayley–Hamilton.",
       "expected": "known-classical",
       "skill_packs": [
         "graph-theory",
@@ -768,14 +768,20 @@
       ],
       "artifacts": [
         "catalog/problems/cayley-trees/",
-        "problems/cayley-trees/"
+        "problems/cayley-trees/",
+        "proofs/lean-project/ProofLab/CayleyTrees.lean"
       ],
       "scout_issue": "OPE-683",
       "tickets": [
         "OPE-683",
-        "OPE-682"
+        "OPE-682",
+        "OPE-687",
+        "OPE-688"
       ],
-      "parent_issue": "OPE-682"
+      "parent_issue": "OPE-682",
+      "lean_artifact": "proofs/lean-project/ProofLab/CayleyTrees.lean",
+      "formalist_issue": "OPE-688",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/64"
     },
     {
       "id": "mycielski-triangle-free",
