@@ -53,5 +53,6 @@
     "Negative control turan → Turan.lean exists",
     "euler-odd-distinct / schur-partition / Archive Theorems100 partition disclosed as different theorems"
   ],
-  "formalist_issue": "OPE-745"
+  "formalist_issue": "OPE-745",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/74"
 }
