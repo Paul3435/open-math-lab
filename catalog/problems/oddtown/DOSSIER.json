@@ -1,0 +1,50 @@
+{
+  "id": "oddtown",
+  "title": "Oddtown: odd sets, even intersections, at most n of them (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_set_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 18,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Berlekamp 1969 / Babai–Frankl linear algebra method: a family of odd-cardinality subsets of [n] with even pairwise intersections has size ≤ n. Completely settled. Value is a Mathlib contribution (LinearIndependent / ZMod 2 / Finset exist; ZERO Oddtown / Eventown / Berlekamp set theorem in Mathlib+Archive). Do NOT re-fund as novel. EKR is a different theorem (ProofLab already has it).",
+  "recommendation": "OPE-702 leftover slot #2, NOT the prime. Fresh id — never previously shortlisted. Not an EKR leftover (do not re-prime erdos-ko-rado). Not Kruskal-Katona. Score 84 (not 86) because charVec over ZMod 2 is new encoding in ProofLab even though the namesake proof is short. Do NOT assign before kruskal-katona unless Director swaps. Do NOT prove Eventown / Fisher / BIBD / Hilton-Milner in this id. Do NOT re-prime erdos-ko-rado / friendship / cayley-trees / mycielski-triangle-free / havel-hakimi / menger-vertex / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_30_ope702": "Pin mathlib a719ba5c3115 (v4.10.0). rg oddtown / eventown / Berlekamp over Mathlib/** + Archive/** → ZERO. Defs HIT: LinearIndependent (LinearAlgebra/LinearIndependent.lean), ZMod, Finset. Graph incMatrix HIT (SimpleGraph/IncMatrix.lean) — vertex-edge incidence, WRONG matrix, do not cite as this theorem. Intersecting.card_le HIT (non-uniform EKR-style) — different theorem. ProofLab ErdosKoRado.lean HIT — k-uniform intersecting, different theorem, not a re-prime. Negative control HIT: Turan.lean. HallMarriageTheorem EXISTS. Hilbert NS EXISTS (not combinatorial). ChevalleyWarning EXISTS. CauchyDavenport EXISTS. EGZ EXISTS. Sperner/LYM EXIST. Configuration HasLines.card_le EXISTS (de Bruijn–Erdős incidence). ZERO Kruskal-Katona theorem. ZERO HiltonMilner. ZERO Fisher/BIBD/BlockDesign. ZERO chromaticIndex / Vizing. ZERO planar.",
+  "statement_pin_required": {
+    "convention": "𝒜 : Finset (Finset (Fin n)). Oddtown = every member odd card and pairwise intersections even card. Claim: 𝒜.card ≤ n. Engine: charVec s : Fin n → ZMod 2 are linearly independent (Gram = identity). Level A may land empty / n≤1 / n singletons tightness, not labelled Oddtown.",
+    "landmines": [
+      "Not EKR. Not Eventown. Not Fisher/BIBD. Not Sperner/LYM. Not Kruskal-Katona.",
+      "Characteristic vectors over ZMod 2, not ℝ.",
+      "Graph incMatrix is the wrong matrix.",
+      "Finite only. Eventown out of v1.",
+      "Do not re-prime erdos-ko-rado / friendship / cayley-trees / mycielski / Dilworth.",
+      "No Archive import."
+    ],
+    "canonical_source": "E. R. Berlekamp, On subsets with intersections of even cardinality, J. Combinatorial Theory 6 (1969) 298–301. Textbook: Babai–Frankl, Linear Algebra Methods in Combinatorics (Oddtown); Jukna, Extremal Combinatorics. Type pin: Finset (Finset (Fin n)) + ZMod 2 charVec. EKR / Eventown / Fisher / Sperner / Kruskal-Katona are different theorems, not this claim."
+  },
+  "feasibility_shape": "Level A: empty / n=0 / n=1 / n singletons tightness, zero sorry. Level B: theorem oddtown by LinearIndependent of charVec over ZMod 2. Cap two levels. No Eventown / Fisher / EKR. charVec encoding is the only new def; namesake is short.",
+  "infra_carry_over": [
+    "Mathlib LinearAlgebra.LinearIndependent",
+    "Mathlib Data.ZMod.Basic / Finset",
+    "Mathlib Combinatorics.SimpleGraph.IncMatrix — DO NOT reuse as charVec",
+    "ProofLab/ErdosKoRado.lean — intersecting k-uniform; DO NOT reuse those claims / DO NOT label this EKR",
+    "ProofLab/Dilworth.lean / KruskalKatona (sibling shortlist) / CayleyTrees.lean / Mycielski.lean — do not re-prove",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-30",
+  "scout_issue": "OPE-702",
+  "parent_issue": "OPE-701",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Oddtown/Eventown/Berlekamp; LinearIndependent/ZMod HIT",
+    "Fresh id after Cayley #64 + Mycielski #65 consumed; not an EKR leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "EKR / Eventown / Fisher / Sperner / Kruskal-Katona disclosed as different theorems"
+  ]
+}
