@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-30T18:15:00Z",
+  "last_updated": "2026-08-30T17:25:02Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -878,10 +878,10 @@
     {
       "id": "sunflower-erdos-rado",
       "title": "Erdős–Rado sunflower lemma: r! (k-1)^r bound (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_set_theory",
       "score": 88,
-      "note": "OPE-717 Scout RECOMMENDED PRIME. Fresh id after Kruskal #67 + Oddtown #68 consumed. Classical Erdős–Rado 1960 factorial bound, NOT the open sunflower conjecture (out of v1). known-classical, no novelty. Not EKR / Oddtown / Eventown / Fisher / BIBD / Hilton–Milner / Kruskal–Katona / Sauer–Shelah. Mathlib v4.10.0 ZERO sunflower ident; Sauer–Shelah already upstream as a different theorem.",
+      "note": "OPE-722 Formalist Level A+B namesake. Scout OPE-717 prime; Director OPE-721 approve. Classical Erdős–Rado 1960 factorial bound, NOT the open sunflower conjecture (out of v1). known-classical, no novelty. Lean zero-sorry ProofLab/Sunflower.lean. Not EKR / Oddtown / Eventown / Fisher / BIBD / Hilton–Milner / Kruskal–Katona / Sauer–Shelah / combinatorial Nullstellensatz.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -889,14 +889,19 @@
       ],
       "artifacts": [
         "catalog/problems/sunflower-erdos-rado/",
-        "problems/sunflower-erdos-rado/"
+        "problems/sunflower-erdos-rado/",
+        "proofs/lean-project/ProofLab/Sunflower.lean"
       ],
       "scout_issue": "OPE-717",
       "tickets": [
         "OPE-717",
-        "OPE-716"
+        "OPE-716",
+        "OPE-721",
+        "OPE-722"
       ],
-      "parent_issue": "OPE-716"
+      "parent_issue": "OPE-716",
+      "lean_artifact": "proofs/lean-project/ProofLab/Sunflower.lean",
+      "formalist_issue": "OPE-722"
     },
     {
       "id": "combinatorial-nullstellensatz",
@@ -922,7 +927,7 @@
       "parent_issue": "OPE-716"
     }
   ],
-  "updated_at": "2026-08-30T18:15:00Z",
+  "updated_at": "2026-08-30T17:25:02Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

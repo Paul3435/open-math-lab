@@ -1,7 +1,7 @@
 # Erdős–Rado sunflower lemma — classical factorial bound (formalize-only)
 
 **id:** `sunflower-erdos-rado`
-**ticket:** OPE-717 Scout recommended prime (support OPE-716; post kruskal-katona #67 + oddtown #68)
+**ticket:** OPE-722 Formalist (Scout OPE-717 recommended prime; Director OPE-721)
 **expected:** known-classical (Erdős–Rado 1960) — **no novelty claim**
 
 ## Why not classical / why formalize-only
