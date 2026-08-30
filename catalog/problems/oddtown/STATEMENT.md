@@ -1,7 +1,7 @@
 # Oddtown — odd sets, even intersections, at most `n` of them (formalize-only)
 
 **id:** `oddtown`
-**ticket:** OPE-702 Scout leftover slot (support OPE-701; post cayley-trees #64 + mycielski-triangle-free #65)
+**ticket:** OPE-712 Formalist (Scout OPE-702 leftover slot #2; Director OPE-711; support OPE-701)
 **expected:** known-classical (Berlekamp 1969 / linear algebra method) — **no novelty claim**
 
 ## Why not classical / why formalize-only

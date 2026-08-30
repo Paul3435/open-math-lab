@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-30T15:16:00Z",
+  "last_updated": "2026-08-30T15:20:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -846,10 +846,10 @@
     {
       "id": "oddtown",
       "title": "Oddtown: odd sets, even intersections, at most n of them (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_set_theory",
       "score": 84,
-      "note": "OPE-702 Scout leftover slot #2, NOT the prime. known-classical Berlekamp 1969, no novelty. Genuine Mathlib gap: LinearIndependent/ZMod exist; ZERO Oddtown/Eventown/Berlekamp. Not EKR (ProofLab already has erdos_ko_rado). Do NOT assign before kruskal-katona unless Director swaps. Do NOT prove Eventown / Fisher / Hilton-Milner in this id.",
+      "note": "OPE-712 Formalist Level A+B CONSUMED. theorem oddtown zero-sorry in ProofLab/Oddtown.lean: Oddtown family on Fin n ⇒ 𝒜.card ≤ n. Level A: empty / n=0 / n=1 / n singletons tightness (not labelled Oddtown). Level B: LinearIndependent of charVec over ZMod 2 (Gram = identity). known-classical Berlekamp 1969, no novelty. Not EKR (ProofLab already has erdos_ko_rado). Not Eventown / Fisher / Hilton-Milner / Sperner/LYM / Kruskal-Katona. Do NOT re-prime kruskal-katona / cayley-trees / mycielski.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -857,14 +857,19 @@
       ],
       "artifacts": [
         "catalog/problems/oddtown/",
-        "problems/oddtown/"
+        "problems/oddtown/",
+        "proofs/lean-project/ProofLab/Oddtown.lean"
       ],
       "scout_issue": "OPE-702",
       "tickets": [
         "OPE-702",
-        "OPE-701"
+        "OPE-701",
+        "OPE-711",
+        "OPE-712"
       ],
-      "parent_issue": "OPE-701"
+      "parent_issue": "OPE-701",
+      "lean_artifact": "proofs/lean-project/ProofLab/Oddtown.lean",
+      "formalist_issue": "OPE-712"
     }
   ],
   "updated_at": "2026-08-30T16:30:00Z",
