@@ -1075,7 +1075,8 @@
       ],
       "parent_issue": "OPE-769",
       "lean_artifact": "proofs/lean-project/ProofLab/BipartiteOddCycle.lean",
-      "formalist_issue": "OPE-775"
+      "formalist_issue": "OPE-775",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/79"
     },
     {
       "id": "euclid-euler-perfect",
