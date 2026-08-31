@@ -47,6 +47,7 @@
   "scout_issue": "OPE-788",
   "formalist_issue": "OPE-793",
   "director_issue": "OPE-792",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/82",
   "parent_issue": "OPE-787",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO vosper/critical-pair/inverse-CD; ZMod.min_le_card_add + e-transform HIT; ThreeAPFree HIT as a different predicate",

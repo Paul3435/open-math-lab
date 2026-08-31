@@ -1133,7 +1133,8 @@
       ],
       "parent_issue": "OPE-787",
       "lean_artifact": "proofs/lean-project/ProofLab/Vosper.lean",
-      "formalist_issue": "OPE-793"
+      "formalist_issue": "OPE-793",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/82"
     },
     {
       "id": "heron-formula",
