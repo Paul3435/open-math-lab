@@ -1,0 +1,53 @@
+{
+  "id": "stirling-second-kind",
+  "title": "Stirling numbers of the second kind: set-partition count (formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Stirling second-kind S(n,k) (number of partitions of an n-set into k nonempty unlabeled blocks) is settled, with recurrence S(n+1,k+1) = (k+1) S(n,k+1) + S(n,k). Completely classical. Value is a Mathlib contribution (Finpartition / Setoid.IsPartition exist; ZERO S(n,k) ident). Do NOT re-fund as novel. Stirling's formula for n! is a DIFFERENT already-upstream analytic theorem (name collision only). Catalan is already in Mathlib (OPE-25 demotion). Integer partitions Nat.Partition are consumed as Euler odd=distinct / Schur / pentagonal — different (summands of n, not blocks of a set).",
+  "recommendation": "OPE-754 leftover slot #2, NOT the prime. Fresh id — never previously shortlisted. Independent of the OPE-735 considered-not-slotted benches (those still fail: ES(4)=9 / ramsey-r46 / W(2,4)≤35 / Ore / Tutte / Kirchhoff / König χ'=Δ / five-colour / Hilton–Milner / Rédei / hook-length / Sauer–Shelah). Not a pentagonal leftover (integer vs set partitions). Not Catalan (already Mathlib). Not Stirling's n! formula (already Mathlib). Score 86 because Finpartition encoding is native but Fintype of the subtype {P // parts.card = k} may need to be built (formalizability 16). verification 16: the block-containing-n bijection is short. Do NOT assign before moore-degree-girth unless Director swaps. Do NOT prove first-kind / Bell EGF / inclusion-exclusion / n! Stirling in this id. Do NOT re-prime pentagonal-number-theorem / euler-odd-distinct / schur-partition / catalan-recurrence / kovari-sos-turan.",
+  "mathlib_gap_grep_2026_08_31_ope754": "Pin mathlib a719ba5c3115 (v4.10.0). rg stirlingSecond / stirling_second / Nat.bell over Mathlib/** + Archive/** → ZERO combinatorics hits. Stirling HIT is Analysis/SpecialFunctions/Stirling.lean stirlingSeq (n! approximation) — WRONG theorem, already upstream, never cite as this gap. Catalan HIT (Enumerative/Catalan.lean) — DIFFERENT sequence, already upstream (OPE-25). Defs HIT: Finpartition (Order/Partition/Finpartition.lean), Setoid.IsPartition. Nat.Partition HIT — integer partitions, consumed as pentagonal / euler-odd-distinct / schur-partition, WRONG object. Negative control turan → Turan.lean exists. ZERO moore bound/cage. ZERO zarankiewicz/kovari/pentagonal/Franklin. ZERO sylvester/gallai (only Sylvester inertia, different). Already-in-Mathlib this run: Hall, Gershgorin, Nat.Prime.sq_add_sq, padicValNat_factorial / Kummer, sum_totient, CauchyDavenport, EGZ, Sperner/LYM, Sauer–Shelah, Hilbert NS, ChevalleyWarning.",
+  "statement_pin_required": {
+    "convention": "stirlingSecond recursive ℕ function as above. StirlingPartition n k := {P : Finpartition (univ : Finset (Fin n)) // P.parts.card = k}. Claim: Fintype.card (StirlingPartition n k) = stirlingSecond n k. Level A may land the recursive def + S(n,1)/S(n,n)/S(n,2), not labelled stirling_second.",
+    "landmines": [
+      "Not Stirling's formula n! (already in Mathlib).",
+      "Not Catalan (already in Mathlib).",
+      "Not Nat.Partition / pentagonal / Euler odd=distinct / Schur.",
+      "Not Szemerédi regularity (Finpartition carrier already upstream).",
+      "Not Stirling first kind / Bell EGF / inclusion-exclusion (out of v1).",
+      "Do not re-prime pentagonal-number-theorem / euler-odd-distinct / catalan-recurrence / kovari-sos-turan.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, 2nd ed., Cambridge 2011, §1.4. Also Graham–Knuth–Patashnik, Concrete Mathematics. Type pin: stirlingSecond + Finpartition (univ : Finset (Fin n)). Stirling n! formula / Catalan / Nat.Partition / first-kind are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: recursive stirlingSecond + S(n,1)=1 / S(n,n)=1 / S(n,2)=2^{n-1}-1, zero sorry, not labelled Stirling. Level B: theorem stirling_second by isolating the block containing n (singleton vs not). Cap two levels. No first-kind / Bell EGF / inclusion-exclusion. Fintype instance is the possible Lean sink — stay on ℕ until it exists.",
+  "infra_carry_over": [
+    "Mathlib Order.Partition.Finpartition",
+    "Mathlib Data.Setoid.Partition (Setoid.IsPartition)",
+    "Mathlib Combinatorics.Enumerative.Catalan — DO NOT re-prove / DO NOT label this Catalan",
+    "Mathlib Analysis.SpecialFunctions.Stirling — WRONG theorem (n!), already upstream",
+    "Mathlib Combinatorics.Enumerative.Partition (Nat.Partition) — integer partitions, DO NOT relabel",
+    "ProofLab/Pentagonal.lean / EulerPartition.lean / SchurGlaisher.lean — consumed integer-partition identities, do not re-prove",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-31",
+  "scout_issue": "OPE-754",
+  "parent_issue": "OPE-753",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO stirlingSecond; Stirling HIT is n! formula (wrong theorem); Catalan HIT (already upstream); Finpartition HIT",
+    "Fresh id after KST #73 + pentagonal #74 consumed; not a pentagonal / Catalan / n!-Stirling leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Integer partitions / Catalan / Stirling n! / first-kind disclosed as different statements"
+  ]
+}
