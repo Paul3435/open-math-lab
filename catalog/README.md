@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-770 Scout: post Moore #76 + Stirling #77. Fresh shortlist `bipartite-odd-cycle` + `euclid-euler-perfect`.)
+**Last updated:** 2026-08-31 (OPE-775 Formalist: `bipartite-odd-cycle` namesake landed, zero-sorry. Leftover `euclid-euler-perfect` still unassigned.)
