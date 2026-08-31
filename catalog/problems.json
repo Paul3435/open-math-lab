@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-31T12:00:00Z",
+  "last_updated": "2026-08-31T18:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1052,10 +1052,10 @@
     {
       "id": "bipartite-odd-cycle",
       "title": "Bipartite ⇔ no odd closed walk (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 89,
-      "note": "OPE-770 Scout RECOMMENDED PRIME (support OPE-769; post Moore #76 + Stirling #77). Classical König 1916 / Diestel 1.6.1 Colorable 2 iff no odd closed walk. NOT König ν=τ (consumed), NOT Brooks/Kempe, NOT greedy, NOT Mycielski, NOT Vizing/4CT/planar. known-classical, no novelty. Mathlib v4.10.0 has Colorable/Walk/odd_loop; ZERO IsBipartite / colorable_two_iff.",
+      "note": "OPE-775 Formalist Level A+B (Scout OPE-770 prime; Director OPE-774). Classical König 1916 / Diestel 1.6.1 Colorable 2 iff no odd closed walk, NOT König ν=τ (consumed), NOT Brooks/Kempe, NOT greedy, NOT Mycielski, NOT Vizing/4CT/planar. known-classical, no novelty. theorem colorable_two_iff_no_odd_walk zero-sorry.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1063,14 +1063,19 @@
       ],
       "artifacts": [
         "catalog/problems/bipartite-odd-cycle/",
-        "problems/bipartite-odd-cycle/"
+        "problems/bipartite-odd-cycle/",
+        "proofs/lean-project/ProofLab/BipartiteOddCycle.lean"
       ],
       "scout_issue": "OPE-770",
       "tickets": [
         "OPE-770",
-        "OPE-769"
+        "OPE-769",
+        "OPE-774",
+        "OPE-775"
       ],
-      "parent_issue": "OPE-769"
+      "parent_issue": "OPE-769",
+      "lean_artifact": "proofs/lean-project/ProofLab/BipartiteOddCycle.lean",
+      "formalist_issue": "OPE-775"
     },
     {
       "id": "euclid-euler-perfect",

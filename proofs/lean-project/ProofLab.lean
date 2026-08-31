@@ -34,3 +34,4 @@ import ProofLab.KovariSosTuran
 import ProofLab.Pentagonal
 import ProofLab.MooreDegreeGirth
 import ProofLab.StirlingSecondKind
+import ProofLab.BipartiteOddCycle

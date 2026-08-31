@@ -1,7 +1,7 @@
 {
   "id": "bipartite-odd-cycle",
   "title": "Bipartite ⇔ no odd closed walk (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 89,
   "scores": {
@@ -48,6 +48,7 @@
   "skill_packs": ["combinatorics", "formalization"],
   "scored_at": "2026-08-31",
   "scout_issue": "OPE-770",
+  "formalist_issue": "OPE-775",
   "parent_issue": "OPE-769",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO IsBipartite/colorable_two_iff; Colorable/Walk/odd_loop HIT; complete-bipartite χ=2 HIT as a different special case; Turán HIT as negative control",
