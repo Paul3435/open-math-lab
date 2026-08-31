@@ -1168,10 +1168,10 @@
     {
       "id": "lovasz-local-lemma",
       "title": "Symmetric Lovász Local Lemma (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "probabilistic_combinatorics",
       "score": 83,
-      "note": "OPE-804 Scout RECOMMENDED PRIME (support OPE-803; post Vosper #82 + Heron #83). Classical Erdős–Lovász 1975 symmetric LLL, counting 4d form. NOT Chernoff (already Mathlib measure_ge_le_exp_cgf), NOT Markov/Chebyshev, NOT Borel–Cantelli, NOT Azuma/Hoeffding (out of v1), NOT Ramsey/Schur application, NOT lopsided/Shearer/Moser–Tardos. known-classical, no novelty. Fresh mill: probabilistic combinatorics.",
+      "note": "OPE-810 Formalist Level A+B namesake landed. Scout OPE-804 RECOMMENDED PRIME; Director OPE-809. Classical Erdős–Lovász 1975 symmetric LLL, counting 4d form. NOT Chernoff (already Mathlib measure_ge_le_exp_cgf), NOT Markov/Chebyshev, NOT Borel–Cantelli, NOT Azuma/Hoeffding (out of v1), NOT Ramsey/Schur application, NOT lopsided/Shearer/Moser–Tardos. known-classical, no novelty. Lean zero-sorry ProofLab/LovaszLocalLemma.lean. Level A union_bound_complements + empty_index + independent_complements; Level B theorem lovasz_local_lemma.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1179,14 +1179,20 @@
       ],
       "artifacts": [
         "catalog/problems/lovasz-local-lemma/",
-        "problems/lovasz-local-lemma/"
+        "problems/lovasz-local-lemma/",
+        "proofs/lean-project/ProofLab/LovaszLocalLemma.lean"
       ],
       "scout_issue": "OPE-804",
       "tickets": [
         "OPE-804",
-        "OPE-803"
+        "OPE-803",
+        "OPE-809",
+        "OPE-810"
       ],
-      "parent_issue": "OPE-803"
+      "parent_issue": "OPE-803",
+      "lean_artifact": "proofs/lean-project/ProofLab/LovaszLocalLemma.lean",
+      "formalist_issue": "OPE-810",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/85"
     },
     {
       "id": "korselt-carmichael",
