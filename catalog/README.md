@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-765 Formalist: `stirling-second-kind` Level A honest partial. Moore leftover consumed.)
+**Last updated:** 2026-08-31 (OPE-770 Scout: post Moore #76 + Stirling #77. Fresh shortlist `bipartite-odd-cycle` + `euclid-euler-perfect`.)

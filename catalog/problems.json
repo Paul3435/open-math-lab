@@ -1048,9 +1048,55 @@
       "lean_artifact": "proofs/lean-project/ProofLab/StirlingSecondKind.lean",
       "formalist_issue": "OPE-765",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/77"
+    },
+    {
+      "id": "bipartite-odd-cycle",
+      "title": "Bipartite ⇔ no odd closed walk (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 89,
+      "note": "OPE-770 Scout RECOMMENDED PRIME (support OPE-769; post Moore #76 + Stirling #77). Classical König 1916 / Diestel 1.6.1 Colorable 2 iff no odd closed walk. NOT König ν=τ (consumed), NOT Brooks/Kempe, NOT greedy, NOT Mycielski, NOT Vizing/4CT/planar. known-classical, no novelty. Mathlib v4.10.0 has Colorable/Walk/odd_loop; ZERO IsBipartite / colorable_two_iff.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/bipartite-odd-cycle/",
+        "problems/bipartite-odd-cycle/"
+      ],
+      "scout_issue": "OPE-770",
+      "tickets": [
+        "OPE-770",
+        "OPE-769"
+      ],
+      "parent_issue": "OPE-769"
+    },
+    {
+      "id": "euclid-euler-perfect",
+      "title": "Euclid–Euler even perfect numbers (formalize-only)",
+      "status": "candidate",
+      "domain": "elementary_number_theory",
+      "score": 85,
+      "note": "OPE-770 Scout leftover slot #2 (support OPE-769; post Moore #76 + Stirling #77). Independent re-eval of OPE-735/754 bench — NOT a rubber-stamp. Classical Euclid IX.36 / Euler even-perfect iff, NOT odd perfect (open), NOT Lucas–Lehmer (already Mathlib), NOT Frobenius/Catalan. known-classical, no novelty. Mathlib v4.10.0 has Nat.Perfect/mersenne/σ; theorem Archive-only (do not import).",
+      "expected": "known-classical",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/euclid-euler-perfect/",
+        "problems/euclid-euler-perfect/"
+      ],
+      "scout_issue": "OPE-770",
+      "tickets": [
+        "OPE-770",
+        "OPE-769"
+      ],
+      "parent_issue": "OPE-769"
     }
   ],
-  "updated_at": "2026-08-31T12:00:00Z",
+  "updated_at": "2026-08-31T14:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

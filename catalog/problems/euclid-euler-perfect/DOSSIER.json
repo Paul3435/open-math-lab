@@ -1,0 +1,54 @@
+{
+  "id": "euclid-euler-perfect",
+  "title": "Euclid–Euler even perfect numbers (formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 85,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 15,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Euclid IX.36 + Euler even-perfect converse is settled: even n is perfect iff n = 2^k * mersenne(k+1) with mersenne(k+1) prime. Completely classical. Odd perfect numbers are OPEN and OUT OF SCOPE. Value is a Mathlib contribution (Nat.Perfect / mersenne / σ multiplicativity exist; ZERO Euclid–Euler theorem in Mathlib/; Archive Wiedijk100 PerfectNumbers is Archive-only and must not be imported). Do NOT re-fund as novel. Lucas–Lehmer is already upstream (do not re-prove). Frobenius / Catalan / derangement / Stirling n! are already Mathlib (OPE-25).",
+  "recommendation": "OPE-770 leftover slot #2. Independent re-score of the OPE-735/OPE-754 bench — NOT a rubber-stamp. Gap+budget still hold this run (Nat.Perfect def HIT; theorem ZERO in Mathlib/; Archive-only Wiedijk 70). Mill NOW supports the slot: OPE-754 leftover was enumerative Stirling (just consumed #77); another enumerative leftover is refused; an NT leftover after a graph prime is the 2-slot diversification the previous mill skip was protecting. Score 85 because defs are waiting (formalizability 16) but σ / 2-adic splitting is fiddly (attack 15) and we cannot import Archive. Do NOT assign before bipartite-odd-cycle unless Director swaps. Do NOT prove odd-perfect / Lucas–Lehmer / amicable numbers. Do NOT re-prime frobenius / catalan / stirling / pentagonal / euler-odd-distinct.",
+  "mathlib_gap_grep_2026_08_31_ope770": "Pin mathlib a719ba5c3115 (v4.10.0). rg even_perfect / perfect_two_pow / euclid_euler over Mathlib/** → ZERO files. Defs HIT: Nat.Perfect (Divisors.lean), mersenne / LucasLehmer (LucasLehmer.lean), σ 1 / isMultiplicative_sigma / sigma_one_apply (ArithmeticFunction.lean). Theorem HIT only in Archive/Wiedijk100Theorems/PerfectNumbers.lean (Theorems100.Nat.perfect_two_pow_mul_mersenne_of_prime + eq_two_pow_mul_prime_mersenne_of_even_perfect) — Archive is NOT Mathlib; do not import. Negative control turan → Turan.lean. Already-in-Mathlib this run (never cite as gap): frobeniusNumber_pair, catalan, numDerangements, Stirling n! formula, Wilson, Fermat-Euler pow_totient, hockey-stick, composition_card, CauchyDavenport, EGZ, Hall, Sperner/LYM, Sauer–Shelah, Hilbert NS, Hindman, Hales–Jewett homothetic VdW, LucasLehmer, Nat.Perfect *definition*.",
+  "statement_pin_required": {
+    "convention": "Euclid: Prime (mersenne (k+1)) → Perfect (2^k * mersenne (k+1)). Euler: Even n ∧ Perfect n → ∃ k, Prime (mersenne (k+1)) ∧ n = 2^k * mersenne (k+1). Level A may land only Euclid, not labelled the full namesake.",
+    "landmines": [
+      "No Archive import (Wiedijk100 PerfectNumbers is the same statement, still forbidden).",
+      "Do not re-prove Lucas–Lehmer (already Mathlib).",
+      "Odd perfect numbers are OPEN — out of v1. Even is load-bearing.",
+      "Not Frobenius / Catalan / derangement / Stirling n! (already Mathlib).",
+      "σ multiplicativity is already Mathlib — use it, do not re-prove as this namesake.",
+      "Do not re-prime stirling-second-kind / pentagonal / euler-odd-distinct / schur / frobenius / catalan / moore.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Euclid, Elements, Book IX, Proposition 36. Euler even-perfect converse (standard NT form). Type pin: Nat.Perfect + mersenne. Wiedijk 100 Theorem 70 is the same statement (Archive-only at this pin) — do not import. Odd perfect / Lucas–Lehmer / Frobenius / Catalan are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: Euclid direction via σ multiplicativity + geom-sum σ(2^k) = mersenne(k+1), not labelled the full namesake. Level B: Euler converse by writing n = 2^k * m (m odd) and forcing σ(m) = m+1. Cap two levels. No odd-perfect / Lucas–Lehmer / abundance. Archive proof is a sketch to transcribe, not an import.",
+  "infra_carry_over": [
+    "Mathlib NumberTheory.Divisors (Nat.Perfect, perfect_iff_sum_divisors_eq_two_mul)",
+    "Mathlib NumberTheory.LucasLehmer (mersenne) — DO NOT re-prove Lucas–Lehmer",
+    "Mathlib NumberTheory.ArithmeticFunction (σ 1, isMultiplicative_sigma, sigma_one_apply)",
+    "Mathlib NumberTheory.FrobeniusNumber — DO NOT re-prove / DO NOT cite as this gap",
+    "Mathlib Combinatorics.Enumerative.Catalan — DO NOT cite as this gap",
+    "Archive/Wiedijk100Theorems/PerfectNumbers.lean — DO NOT import; transcription sketch only",
+    "ProofLab/Frobenius.lean — process-fuel, already-in-Mathlib, DO NOT re-prime",
+    "ProofLab/StirlingSecondKind.lean / Pentagonal.lean / EulerPartition.lean — different enumerative/partition ids, DO NOT re-prime",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["number-theory", "formalization"],
+  "scored_at": "2026-08-31",
+  "scout_issue": "OPE-770",
+  "parent_issue": "OPE-769",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO euclid-euler theorem in Mathlib/; Nat.Perfect + mersenne + σ HIT; Archive Wiedijk100 HIT (do not import)",
+    "Independent re-eval of OPE-735/754 bench: gap+budget still hold; mill reason changed (Stirling enumerative leftover just consumed — NT leftover is the diversification, not a third enumerative)",
+    "Negative control turan → Turan.lean exists",
+    "Odd perfect / Lucas–Lehmer / Frobenius / Catalan disclosed as different statements"
+  ]
+}
