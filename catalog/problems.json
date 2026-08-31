@@ -1139,10 +1139,10 @@
     {
       "id": "heron-formula",
       "title": "Heron's formula (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "euclidean_geometry",
       "score": 83,
-      "note": "OPE-788 Scout leftover slot #2 (support OPE-787). Fresh id. Classical Heron / Wiedijk 57, Archive-only at this pin (do not import). NOT law of cosines (already Mathlib), NOT Sylvester–Gallai, NOT Pick, NOT planar five-colour. known-classical, no novelty.",
+      "note": "OPE-799 Formalist Level A+B namesake landed. Scout OPE-788 leftover slot #2; Director OPE-798. Classical Heron / Wiedijk 57, Archive-only at this pin (do not import). NOT law of cosines (already Mathlib law_cos — used, not re-proved), NOT Sylvester–Gallai, NOT Pick, NOT planar five-colour, NOT Vosper (#82). known-classical, no novelty. Lean zero-sorry ProofLab/Heron.lean. Level A cos_eq_sides + one_sub_cos_sq; Level B theorem heron. PR #83.",
       "expected": "known-classical",
       "skill_packs": [
         "analysis",
@@ -1150,17 +1150,23 @@
       ],
       "artifacts": [
         "catalog/problems/heron-formula/",
-        "problems/heron-formula/"
+        "problems/heron-formula/",
+        "proofs/lean-project/ProofLab/Heron.lean"
       ],
       "scout_issue": "OPE-788",
       "tickets": [
         "OPE-788",
-        "OPE-787"
+        "OPE-787",
+        "OPE-798",
+        "OPE-799"
       ],
-      "parent_issue": "OPE-787"
+      "parent_issue": "OPE-787",
+      "lean_artifact": "proofs/lean-project/ProofLab/Heron.lean",
+      "formalist_issue": "OPE-799",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/83"
     }
   ],
-  "updated_at": "2026-08-31T17:10:00Z",
+  "updated_at": "2026-08-31T18:13:37Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

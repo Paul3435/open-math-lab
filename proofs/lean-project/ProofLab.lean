@@ -37,3 +37,4 @@ import ProofLab.StirlingSecondKind
 import ProofLab.BipartiteOddCycle
 import ProofLab.EuclidEulerPerfect
 import ProofLab.Vosper
+import ProofLab.Heron

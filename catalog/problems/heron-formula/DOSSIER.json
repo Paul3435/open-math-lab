@@ -1,7 +1,7 @@
 {
   "id": "heron-formula",
   "title": "Heron's formula (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "euclidean_geometry",
   "score": 83,
   "scores": {
@@ -13,7 +13,7 @@
   },
   "expected": "known-classical",
   "why_not_classical": "Heron of Alexandria / Wiedijk 100 no. 57 is settled: triangle area = √(s(s-a)(s-b)(s-c)) with s=(a+b+c)/2. Completely classical. Value is a Mathlib contribution (law_cos / ∠ / Real.sin / Real.sqrt exist; ZERO Heron theorem in Mathlib/; Archive Wiedijk100 HeronsFormula is Archive-only and must not be imported). Do NOT re-fund as novel. Law of cosines is already upstream (do not re-prove). Sylvester–Gallai is a DIFFERENT Euclidean statement (Kelly closest-point sink, still benched). Not Pick / planar five-colour / de Bruijn–Erdős incidence (HasLines.card_le already Mathlib).",
-  "recommendation": "OPE-788 leftover slot #2. Fresh id — never previously shortlisted or benched. NOT a rubber-stamp of Sylvester–Gallai (different statement: algebraic trig identity from law_cos, not closest-point). Gap+budget hold (law_cos HIT; heron ZERO in Mathlib/; Archive-only Wiedijk 57). Mill: geometry/analysis leftover after an additive prime — not a third additive theorem (Mann/Heilbronn refused as mill-duplicate of Vosper). Score 83 because defs are waiting (formalizability 17) but the lab mill is combinatorics-first (attack 14) and we cannot import Archive. Do NOT assign before vosper-cauchy-davenport unless Director swaps. Do NOT prove Pick / Sylvester–Gallai / Ceva / Morley / planar five-colour.",
+  "recommendation": "OPE-799 Formalist Level A+B namesake landed (Scout OPE-788 leftover slot #2; Director OPE-798 leftover approve). Lean zero-sorry ProofLab/Heron.lean: Level A cos_eq_sides + one_sub_cos_sq (not labelled Heron); Level B theorem heron matching Archive Theorems100.heron without importing it. Do NOT re-prove law of cosines. Do NOT prove Pick / Sylvester–Gallai / Ceva / Morley / planar five-colour. Do NOT re-prime vosper-cauchy-davenport (#82).",
   "mathlib_gap_grep_2026_08_31_ope788": "Pin mathlib a719ba5c3115 (v4.10.0). rg heron / semiperimeter over Mathlib/** → ZERO Heron theorem (Euler–Mascheroni γ hits are a different word). Defs HIT: law_cos / dist_sq_eq_dist_sq_add_dist_sq_sub_two_mul_dist_mul_dist_mul_cos_angle (Triangle.lean), ∠ / sin / sin_eq_sqrt_one_sub_cos_sq / Real.sqrt / dist. Theorem HIT only in Archive/Wiedijk100Theorems/HeronsFormula.lean (Theorems100.heron) — Archive is NOT Mathlib; do not import. Negative control turan → Turan.lean. Already-in-Mathlib this run (never cite as gap): law_cos (NOT Heron), HasLines.card_le (de Bruijn–Erdős incidence, NOT Sylvester–Gallai), CauchyDavenport, EGZ, Bertrand, IsCyclic Rˣ, Catalan, Stirling n!, Nat.Perfect *def*, and the OPE-770 already-in-Mathlib list. ProofLab already has bipartite Colorable-2 iff no odd closed walk and Euclid–Euler even-perfect iff — NOT re-primes.",
   "statement_pin_required": {
     "convention": "Match Archive Theorems100.heron without importing: ½ab sin(∠ p1 p2 p3) = √(s(s-a)(s-b)(s-c)) on a Euclidean affine space, p1≠p2, p3≠p2. Level A may land the cos-rule rewrite via law_cos, not labelled Heron.",
