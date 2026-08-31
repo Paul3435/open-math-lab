@@ -1,7 +1,7 @@
 {
   "id": "moore-degree-girth",
   "title": "Moore degree–girth bound: odd-girth BFS counting (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_graph_theory",
   "score": 88,
   "scores": {
@@ -46,6 +46,8 @@
   "scored_at": "2026-08-31",
   "scout_issue": "OPE-754",
   "parent_issue": "OPE-753",
+  "formalist_issue": "OPE-759",
+  "lean_artifact": "proofs/lean-project/ProofLab/MooreDegreeGirth.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO moore bound/cage; Turán HIT as a different theorem (negative control); egirth/minDegree/dist HIT",
     "Fresh id after KST #73 + pentagonal #74 consumed; not a Turán / KST / Friendship / Mycielski leftover rubber-stamp",
