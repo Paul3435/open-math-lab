@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-31 (OPE-781 Formalist: `euclid-euler-perfect` namesake `even_perfect_iff` zero-sorry. Scout OPE-770 leftover slot #2; Director OPE-780.)
+**Last updated:** 2026-08-31 (OPE-788 Scout: post bipartite #79 + Euclid–Euler #80. OPE-770 shortlist fully consumed. Fresh formalize-only shortlist `vosper-cauchy-davenport` prime + `heron-formula` leftover.)
 
 ## Lifecycle labels
 
@@ -1497,6 +1497,145 @@ Re-evaluated, not shortlisted (do not rubber-stamp OPE-754 leftovers; do not inv
   BIBD / Kruskal–Katona-C / Oddtown-C / sunflower-C / combinatorial-Nullstellensatz-C /
   Franklin-namesake / pentagonal-B / kst-C / Moore-C / cages / HS uniqueness / 57-regular /
   even girth / stirling-B / first-kind / Bell EGF:** Director declined. Do not invent.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
+
+**OPE-788 update (2026-08-31, Scout): fresh formalize-only shortlist after bipartite #79 + Euclid–Euler #80 consume the OPE-770 wave.**
+
+Consumption check against live `origin/main` = `9bc46cb0112f34f6f53fe5db4546e180382be7ad` (independent of the Director heartbeat, re-fetched this run). `git merge-base --is-ancestor 9bc46cb origin/main` exit 0. `gh pr view 80 --json state,mergedAt,mergeCommit,title` = MERGED 2026-08-31T15:04:50Z (`9bc46cb`), title "OPE-781: Euclid-Euler even perfect characterization (formalize-only)". `gh pr view 79` = MERGED 2026-08-31T13:36:00Z (`436818db`). `gh pr list --state open` = empty. OPE-770 slots:
+
+| Slot | Id | Disposition | Re-prime? |
+|------|----|-------------|-----------|
+| prime | `bipartite-odd-cycle` | PR **#79 MERGED**, catalog `formalized`, Lean zero-sorry `ProofLab/BipartiteOddCycle.lean`; namesake `colorable_two_iff_no_odd_walk` | **no.** Not König ν=τ (consumed). Not Brooks/Kempe/greedy/Mycielski. Do not invent bipartite-C / even-cycle leftover / list-colouring / chromatic-index |
+| leftover | `euclid-euler-perfect` | PR **#80 MERGED**, catalog `formalized`, Lean zero-sorry `ProofLab/EuclidEulerPerfect.lean`; namesake `even_perfect_iff` | **no.** Not odd-perfect (open, out of v1). Not Lucas–Lehmer (already Mathlib). Do not import Archive.*. Do not invent odd-perfect / aliquot / deficient-abundant leftover |
+
+Prior consumed (do not re-prime): moore-degree-girth #76; stirling-second-kind #77 (honest `informal`; namesake residual is a comment, not a sorry); Scout #78; kovari-sos-turan #73; pentagonal #74 (Franklin residual not sorry-ed); Scout #75; sunflower #70; combinatorial-nullstellensatz #71; kruskal-katona #67; oddtown #68; cayley-trees #64 (Prüfer residual not sorry-ed); mycielski #65; havel-hakimi #61; menger-vertex #62; greedy #57; Brooks A/B #58/#59 (Kempe residual is a comment); Dilworth A/B #53/#54 (residual EMPTY); Eulerian trail/circuit/A #55/#51/#47; König A/B #48/#50; Scout shortlists #46/#49/#52/#56/#60/#63/#66/#69/#72; euler-odd-distinct #43; Dirac A/B #44/#45; friendship #40; EKR; ramsey-r33/r35/r333; weak-schur-ws2; S(2)/S(3); W(2,3); ES monotone; ES(3)=5; EW k=16; frobenius / derangement / catalan / turan; schur_partition.
+
+Catalog hygiene this run: bipartite already stamped **PR #79 MERGED** + `formalized`. Euclid–Euler already stamped **PR #80 MERGED** + `formalized`. Verified, not re-layered. Not a new proof layer. Not a Formalist residual.
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport
+(`ZMod.min_le_card_add`), EGZ, Sperner/LYM (`IsAntichain.sperner`), Hall marriage, Wilson,
+Lucas, Zeckendorf, Beatty, Pythagorean triples, Turán, non-uniform `Intersecting.card_le`,
+Hilbert Nullstellensatz, Chevalley–Warning, Hales–Jewett + homothetic VdW existence, Hindman,
+Sauer–Shelah / Pajor, Four Functions / Ahlswede–Zhang / Harris–Kleitman, Plünnecke–Ruzsa,
+Ruzsa covering, Radon / Carathéodory / Helly, Burnside, Lagrange four squares, quadratic
+reciprocity, Möbius inversion, group Cayley's theorem, Cayley–Hamilton, Configuration
+`HasLines.card_le` (de Bruijn–Erdős incidence form), triangle removal, Minkowski geometry
+of numbers, Dirichlet approximation, Nim / Sprague–Grundy, Hamming **distance** (not the
+sphere-packing bound), **Gershgorin**, **Fermat two-squares**, **Legendre `v_p(n!)` /
+Kummer**, **`sum_totient`**, **Catalan**, **Stirling's formula for `n!`**, **hockey-stick /
+Zhu Shijie**, **`composition_card`**, Fermat–Euler `pow_totient`, `frobeniusNumber_pair`,
+`numDerangements`, **Bertrand** `exists_prime_lt_and_le_two_mul`, **`IsCyclic Rˣ`** (finite
+integral-domain units), **`law_cos`** (law of cosines — **not** Heron), Hamiltonian
+*definitions* (Dirac theorem now in ProofLab, not Mathlib),
+`Walk.IsEulerian` + necessary `card_odd_degree`, `Subgraph.IsMatching` (no König in Mathlib —
+ProofLab has it), `IsChain` / `IsAntichain` *definitions* (Dilworth now in ProofLab),
+`Colorable` / `chromaticNumber` / `maxDegree` (greedy `χ ≤ Δ+1`, Brooks Δ≤2, Mycielski
+unbounded-χ, **and** bipartite `Colorable 2` iff no odd closed walk now in ProofLab;
+complete-bipartite `χ = 2` and `pathGraph.bicoloring` are Mathlib special cases), `degree` /
+handshaking — **not** Havel–Hakimi (ProofLab), `Walk` / `Reachable` / `dist` / `egirth` /
+`minDegree` — **not** Moore (ProofLab), `IsTree` / `fromEdgeSet` — **not** Cayley's `n^{n-2}`
+(ProofLab Level A), `CliqueFree` — **not** Mycielski (ProofLab), `lapMatrix` — **not**
+Kirchhoff matrix-tree, `Finset.shadow` / `IsInitSeg` — **not** Kruskal–Katona (ProofLab),
+`LinearIndependent` / `ZMod` — **not** Oddtown (ProofLab), `YoungDiagram` *definitions* —
+**not** hook-length, `MvPolynomial.coeff` / `degreeOf` / `eval` — **not** combinatorial
+Nullstellensatz (ProofLab), `Finset` / `Nat.factorial` — **not** sunflower (ProofLab),
+`completeBipartiteGraph` / `neighborFinset` / `Nat.choose` — **not** Kővári–Sós–Turán
+(ProofLab), `Nat.Partition` / `Fintype (Partition n)` — **not** pentagonal (ProofLab Level A),
+`Finpartition` / `Setoid.IsPartition` — **not** Stirling second kind (ProofLab Level A),
+`Nat.Perfect` *definition* + `mersenne` + Lucas–Lehmer — **not** Euclid–Euler (ProofLab
+namesake `even_perfect_iff` now on main). `ThreeAPFree` is 3-AP-free Roth, **not** `IsAP`.
+`schnirelmannDensity` is the **definition**; Mann / Schnirelmann *theorems* are still a TODO.
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`vosper-cauchy-davenport` — RECOMMENDED PRIME (87).** Independent re-eval of the
+   OPE-770 "fresh future candidate" — **not** a rubber-stamp. Why-not-classical: Vosper
+   1956 inverse Cauchy–Davenport is settled. Why still a bet / why mill NOW: gap+budget
+   still hold (`ZMod.min_le_card_add` / e-transform HIT; theorem ZERO in `Mathlib/` +
+   `Archive/`). Previous skip was leftover-cap used by Euclid–Euler; that leftover is
+   **now consumed** (#80), so an additive-inverse prime after a graph-colouring prime +
+   NT leftover is the diversification, not a CNS leftover. Proof shape: Level A AP-with-
+   same-difference ⇒ CD equality (not labelled Vosper); Level B namesake `vosper` by
+   e-transform until an interval. Score 87 because CD + e-transform are waiting (attack
+   17) but `IsAP` is a new predicate (formalizability 16). Do **not** assign
+   `heron-formula` first unless Director swaps. Do **not** re-prove Cauchy–Davenport /
+   EGZ. Do **not** prove Mann / Schnirelmann / Heilbronn / additive Kneser / Freiman
+   `3k-4` / Alon–Füredi in this id. STATEMENT pin:
+   `catalog/problems/vosper-cauchy-davenport/STATEMENT.md`.
+2. **`heron-formula` (83).** Fresh id — never previously shortlisted. Why-not-classical:
+   Heron of Alexandria / Wiedijk 100 no. 57 is settled. Why still a bet / why mill NOW:
+   gap+budget hold (`law_cos` HIT; theorem ZERO in `Mathlib/`; Archive Wiedijk 57 only).
+   Previous Archive-transcription leftover (Euclid–Euler) is consumed, so a geometry
+   leftover after an additive prime is the 2-slot diversification — **not** a third
+   additive theorem (Mann/Heilbronn refused as mill-duplicate of Vosper). **Not**
+   Sylvester–Gallai (Kelly closest-point sink; different statement; algebraic trig
+   identity from `law_cos`, not closest-point). Proof shape: Level A cosine-rule rewrite
+   (not labelled Heron); Level B namesake matching Archive `Theorems100.heron` without
+   importing it. Score 83 because defs are waiting (formalizability 17) but the lab mill
+   is combinatorics-first (attack 14) and Archive must not be imported. Do **not** assign
+   before `vosper-cauchy-davenport` unless Director swaps. Do **not** prove Pick /
+   Sylvester–Gallai / Ceva / Morley / planar five-colour. STATEMENT pin:
+   `catalog/problems/heron-formula/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-770 leftovers; do not invent a third):
+
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime. General VdW
+  *existence* is already in Mathlib (`exists_mono_homothetic_copy`) — not a gap.
+- **Ore stretch:** independently a remaining Mathlib gap (Hamiltonian defs only). Proof shape
+  is a re-warm of closed Dirac longest-path. **Not slotted.** Do not invent Ore as a leftover.
+- **Tutte's theorem:** explicit Matching.lean TODO, ZERO theorem. Banned as a leftover this
+  commission. Bench.
+- **Kirchhoff matrix-tree:** `LapMatrix` exists; ZERO spanning-tree count. Would be the `K_n`
+  generalisation of consumed Cayley — do **not** invent as a leftover of `cayley-trees`.
+- **König edge-chromatic `χ'=Δ`:** ZERO `chromaticIndex` / `LineGraph`. Looks like inventing
+  Vizing (banned). Bench.
+- **Five colour / planar:** Coloring.lean TODO lists planar; ZERO planar defs. Bench.
+- **Hilton–Milner:** ZERO theorem (gap holds) but it is the uniqueness companion of consumed
+  EKR — do **not** invent as an `erdos-ko-rado` leftover. Bench.
+- **Rédei / tournaments:** ZERO `IsTournament`; Hamiltonian *path* defs exist. Encoding-from-scratch,
+  same class as the planar bench. Bench.
+- **Hook-length formula:** `YoungDiagram` / `SemistandardYoungTableau` defs waiting, ZERO theorem.
+  Proof is a known sink. Bench.
+- **Sauer–Shelah:** already in Mathlib (`card_le_card_shatterer`). Never cite as a gap.
+- **Sperner's lemma** (combinatorial topology): gap holds (only set-system `IsAntichain.sperner`
+  / LYM are upstream) but the commission bans inventing Sperner/LYM leftovers. Not slotted;
+  name collision with the banned set-system theorem. **Bollobás two-families** also not slotted
+  (implies a weighted LYM; same leftover-risk class).
+- **Ballot theorem:** Archive-only (Wiedijk100). Catalan already in Mathlib. Encoding overlap
+  with the demoted `catalan-recurrence` seed. Bench.
+- **Nash-Williams arboricity:** `IsAcyclic` exists; Mathlib matroid `Sum` is disjoint sum, **not**
+  matroid union. Namesake is a sink without union. Bench.
+- **Sylvester–Gallai:** gap holds (only Sylvester *inertia* upstream). Kelly closest-point proof
+  is a Euclidean-metric glue sink. **Not slotted** — budget, not gap. Heron is a *different*
+  Euclidean identity (algebra from `law_cos`); do not treat Heron as unblocking SG.
+- **Hamming sphere-packing / Singleton / Kraft:** `hammingDist` exists; ZERO code / ball /
+  bound. Encoding-from-scratch. Bench.
+- **Chromatic polynomial:** Coloring.lean TODO lists it; ZERO ident. Looks like inventing
+  Tutte / Whitney (banned as Cayley leftovers). Bench.
+- **Mann / Schnirelmann density sumset covering:** explicit Schnirelmann.lean TODO. Additive
+  mill-duplicate of the Vosper prime; still fiddly infimum glue. **Not slotted** (leftover
+  cap went to Heron for mill diversification).
+- **Erdős–Heilbronn / additive Kneser / Freiman `3k-4`:** genuine-looking inverse/sumset
+  cousins of Vosper. Additive mill-duplicate + additive-Kneser name-collides with banned
+  graph-Kneser. Not slotted.
+- **Bertrand / Catalan / derangement / Stirling `n!` / Wilson / Fermat–Euler totient /
+  hockey-stick / `composition_card` / Gershgorin / Fermat two-squares / Legendre `v_p(n!)` /
+  Kummer / `sum_totient` / `IsCyclic Rˣ` / `law_cos`:** already in Mathlib this run. Never
+  cite as gaps. (`bertrand-postulate-computational` catalog row is certificate technique
+  on an already-upstream theorem — not a gap prime.)
+- **Namesake Kempe / Brooks Level C / list-colouring Brooks / Vizing / 4CT / Dilworth-C /
+  Eulerian-C / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser /
+  Whitney / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake / Eventown / Fisher /
+  BIBD / Kruskal–Katona-C / Oddtown-C / sunflower-C / combinatorial-Nullstellensatz-C /
+  Franklin-namesake / pentagonal-B / kst-C / Moore-C / cages / HS uniqueness / 57-regular /
+  even girth / stirling-B / first-kind / Bell EGF / odd-perfect / aliquot / bipartite-C:**
+  Director declined. Do not invent.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 

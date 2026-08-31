@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-781 Formalist: `euclid-euler-perfect` namesake `even_perfect_iff` zero-sorry. Scout OPE-770 leftover slot #2; Director OPE-780.)
+**Last updated:** 2026-08-31 (OPE-788 Scout: post bipartite #79 + Euclid–Euler #80. Fresh shortlist `vosper-cauchy-davenport` + `heron-formula`.)
