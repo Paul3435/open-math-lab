@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-745 Formalist: `pentagonal-number-theorem` Level A honest partial, Lean zero-sorry `ProofLab/Pentagonal.lean`. Scout OPE-735 leftover; Director OPE-744. Prior: OPE-740 KST #73.)
+**Last updated:** 2026-08-31 (OPE-754 Scout: catalog audit + ≤2 shortlist after KST #73 + pentagonal #74 consumed. RECOMMENDED PRIME `moore-degree-girth`; leftover `stirling-second-kind`. No Formalist assign.)

@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-30T21:00:00Z",
+  "last_updated": "2026-08-31T10:47:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -990,9 +990,55 @@
       "lean_artifact": "proofs/lean-project/ProofLab/Pentagonal.lean",
       "formalist_issue": "OPE-745",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/74"
+    },
+    {
+      "id": "moore-degree-girth",
+      "title": "Moore degree–girth bound: odd-girth BFS counting (formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_graph_theory",
+      "score": 88,
+      "note": "OPE-754 Scout RECOMMENDED PRIME (support OPE-753; post KST #73 + pentagonal #74). Classical Moore / Hoffman–Singleton counting, NOT cages (open, out of v1), NOT Hoffman–Singleton uniqueness, NOT 57-regular (open), NOT Turán (already in Mathlib), NOT Friendship / Mycielski / KST. known-classical, no novelty. Fresh id.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/moore-degree-girth/",
+        "problems/moore-degree-girth/"
+      ],
+      "scout_issue": "OPE-754",
+      "tickets": [
+        "OPE-754",
+        "OPE-753"
+      ],
+      "parent_issue": "OPE-753"
+    },
+    {
+      "id": "stirling-second-kind",
+      "title": "Stirling numbers of the second kind: set-partition count (formalize-only)",
+      "status": "candidate",
+      "domain": "enumerative_combinatorics",
+      "score": 86,
+      "note": "OPE-754 Scout leftover slot #2 (support OPE-753; post KST #73 + pentagonal #74). Classical S(n,k) set-partition count, NOT Stirling n! formula (already in Mathlib), NOT Catalan (already in Mathlib), NOT Nat.Partition / pentagonal / euler-odd-distinct / Schur. known-classical, no novelty. Fresh id.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/stirling-second-kind/",
+        "problems/stirling-second-kind/"
+      ],
+      "scout_issue": "OPE-754",
+      "tickets": [
+        "OPE-754",
+        "OPE-753"
+      ],
+      "parent_issue": "OPE-753"
     }
   ],
-  "updated_at": "2026-08-30T22:30:00Z",
+  "updated_at": "2026-08-31T10:47:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

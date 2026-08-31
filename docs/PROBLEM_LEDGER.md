@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-08-30 (OPE-745 Formalist: `pentagonal-number-theorem` Level A honest partial, Lean zero-sorry `ProofLab/Pentagonal.lean`. Scout OPE-735 leftover; Director OPE-744 assign. Prior: OPE-740 KST #73; OPE-735 Scout shortlist.)
+**Last updated:** 2026-08-31 (OPE-754 Scout: catalog audit + ≤2 shortlist after KST #73 + pentagonal #74 consumed. RECOMMENDED PRIME `moore-degree-girth`; leftover `stirling-second-kind`. No Formalist assign.)
 
 ## Lifecycle labels
 
@@ -1209,6 +1209,153 @@ Re-evaluated, not shortlisted (do not rubber-stamp OPE-717 leftovers):
   Whitney / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake / Eventown / Fisher /
   BIBD / Kruskal–Katona-C / Oddtown-C / sunflower-C / combinatorial-Nullstellensatz-C:**
   Director declined. Do not invent.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
+
+**OPE-754 update (2026-08-31, Scout, support OPE-753):** catalog audit + fresh ≤2 shortlist.
+OPE-735 shortlist **plus** the OPE-739/OPE-744 Formalist assignment wave is **fully consumed on merged main**.
+Zero open PRs at scout start (`origin/main` = merge of PR #74, `bd1aee22`). Director does not invent primes.
+This is **not** a Director-invented Dilworth-C / Eulerian-C / Ore / Vizing / 4CT / list-colouring Brooks / namesake Kempe / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser / Tutte / Whitney / Kirchhoff / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake / Eventown / Fisher / BIBD / Hilton–Milner / Sperner/LYM / Kruskal–Katona-C / Oddtown-C / sunflower-C / combinatorial-Nullstellensatz-C / Franklin-namesake / pentagonal-B / kst-C / real-exponent / Erdős–Stone / non-bipartite K_{s,t} continuation: the Moore degree–girth bound is a fresh BFS counting id (not clique-free Turán, not bipartite KST, not Friendship, not Mycielski); Stirling second kind is a set-partition counting id (not integer partitions / pentagonal / Glaisher, not Catalan, not Stirling's n! formula).
+
+Consumption (live this run):
+
+| Prior slot | Disposition | Do not re-prime? |
+|------------|-------------|------------------|
+| `kovari-sos-turan` Level A+B namesake | OPE-740 Formalist; PRG merged PR **#73**. `kovari_sos_turan` on main. Zero-sorry | yes. Status `formalized`. Catalog `pr` already stamped #73. Do **not** invent kst-C / real-exponent / Erdős–Stone / non-bipartite K_{s,t} / Turán / Mantel / exact Zarankiewicz |
+| `pentagonal-number-theorem` Level A honest partial | OPE-745 Formalist; Adversarial OPE-747 APPROVE; PRG merged PR **#74** (`bd1aee22`, 2026-08-31T08:05:10Z). Lean zero-sorry `ProofLab/Pentagonal.lean`. Namesake residual is a **comment, not a sorry** | yes. Status stays `informal`. Do **not** invent Franklin-namesake / pentagonal-B / pentagonal-C. Not euler-odd-distinct / schur-partition / Archive Theorems100 `partition_theorem` |
+| `sunflower-erdos-rado` Level A+B namesake | PR **#70 MERGED**. Zero-sorry | yes. Do **not** invent sunflower-C / ALWZ / Eventown / Fisher / Hilton–Milner |
+| `combinatorial-nullstellensatz` Level A+B namesake | PR **#71 MERGED**. Zero-sorry | yes. Do **not** invent combinatorial-Nullstellensatz-C / Hilbert NS / Chevalley–Warning / EGZ / Alon–Füredi / cap sets |
+| `kruskal-katona` / `oddtown` | PRs **#67** / **#68 MERGED** | yes |
+| `cayley-trees` Level A / `mycielski-triangle-free` | PRs **#64** / **#65 MERGED**. Prüfer namesake **not** sorry-ed | yes. Do **not** invent Prüfer-namesake / Kirchhoff / Tutte / Whitney / Mycielski-C / Grötzsch / Hajós / Kneser |
+| `havel-hakimi` / `menger-vertex` | PRs **#61** / **#62 MERGED**. Namesake residuals comments, not sorry | yes. Do not expand into Erdős–Gállai / Gale–Ryser / Tutte / namesake Diestel / edge-Menger / max-flow |
+| `greedy-chromatic` / Brooks A/B | PRs **#57** / **#58** / **#59 MERGED**. Kempe residual is a comment | yes. Do **not** invent namesake Kempe / Level C / list-colouring Brooks |
+| `dilworth-poset` A/B; Eulerian A/circuit/trail; König A/B; Dirac A/B; euler-odd-distinct | previously consumed | yes. Do not invent Dilworth-C / Eulerian-C / Ore |
+| Scout shortlist PRs **#46** / **#49** / **#52** / **#56** / **#60** / **#63** / **#66** / **#69** / **#72** | MERGED | yes |
+| ramsey-r33 / R(3,4) / R(4,4); ramsey-r35; ramsey-multicolor-r333 (PR #36); weak-schur-ws2 (PR #35); S(2)/S(3); W(2,3); ES monotone; ES(3)=5; EW k=16; frobenius / derangement / catalan / turan; erdos-ko-rado; friendship-windmill; schur_partition | previously closed or already-in-Mathlib | yes |
+
+**Leave OPE-403 alone** (Happy Ending parked on board confirmation since 2026-08-24).
+Do **not** mass-close leftover blocked watchdog ticks (OPE-610…OPE-482).
+
+Catalog hygiene this run: KST `problems.json` already stamped **PR #73 MERGED** + `formalized`. Pentagonal already stamped **PR #74 MERGED** + `informal` (honest partial). Verified, not re-layered. Not a new proof layer.
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0`. **Negative control:** `turan` →
+`Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph`)
+⇒ never cite Turán as a gap. **Already in Mathlib (never cite as gap):** Cauchy–Davenport,
+EGZ, Sperner/LYM (`IsAntichain.sperner`), Hall marriage, Wilson, Lucas, Zeckendorf, Beatty,
+Pythagorean triples, Turán, non-uniform `Intersecting.card_le`, Hilbert Nullstellensatz,
+Chevalley–Warning, Hales–Jewett + homothetic VdW existence, Hindman, Sauer–Shelah / Pajor,
+Four Functions / Ahlswede–Zhang / Harris–Kleitman, Plünnecke–Ruzsa, Ruzsa covering,
+Radon / Carathéodory / Helly, Burnside, Lagrange four squares, quadratic reciprocity,
+Möbius inversion, group Cayley's theorem, Cayley–Hamilton, Configuration `HasLines.card_le`
+(de Bruijn–Erdős incidence form), triangle removal, Minkowski geometry of numbers,
+Dirichlet approximation, Nim / Sprague–Grundy, Hamming **distance** (not the sphere-packing
+bound), **Gershgorin** (`LinearAlgebra/Matrix/Gershgorin.lean`), **Fermat two-squares**
+(`Nat.Prime.sq_add_sq`), **Legendre `v_p(n!)` / Kummer** (`padicValNat_factorial` /
+`padicValNat_choose`), **`sum_totient`**, **Catalan**, **Stirling's formula for `n!`**
+(`Analysis/SpecialFunctions/Stirling.lean` — **not** second-kind numbers),
+Hamiltonian *definitions* (Dirac theorem now in ProofLab, not Mathlib),
+`Walk.IsEulerian` + necessary `card_odd_degree`, `Subgraph.IsMatching` (no König in Mathlib —
+ProofLab has it), `IsChain` / `IsAntichain` *definitions* (Dilworth now in ProofLab),
+`Colorable` / `chromaticNumber` / `maxDegree` (greedy `χ ≤ Δ+1`, Brooks Δ≤2, Mycielski
+unbounded-χ now in ProofLab), `degree` / handshaking — **not** Havel–Hakimi (ProofLab),
+`Walk` / `Reachable` / `dist` / `egirth` / `minDegree` — **not** Moore (the BFS bound is
+the gap), `IsTree` / `fromEdgeSet` — **not** Cayley's `n^{n-2}` (ProofLab Level A),
+`CliqueFree` — **not** Mycielski (ProofLab), `lapMatrix` — **not** Kirchhoff matrix-tree,
+`Finset.shadow` / `IsInitSeg` — **not** Kruskal–Katona (ProofLab), `LinearIndependent` /
+`ZMod` — **not** Oddtown (ProofLab), `YoungDiagram` *definitions* — **not** hook-length,
+`MvPolynomial.coeff` / `degreeOf` / `eval` — **not** combinatorial Nullstellensatz (ProofLab,
+consumed), `Finset` / `Nat.factorial` — **not** sunflower (ProofLab, consumed),
+`completeBipartiteGraph` / `neighborFinset` / `Nat.choose` — **not** Kővári–Sós–Turán
+(ProofLab, consumed), `Nat.Partition` / `Fintype (Partition n)` — **not** pentagonal
+(ProofLab Level A, consumed as honest partial), `Finpartition` / `Setoid.IsPartition` —
+**not** Stirling second kind (the set-partition *count* is the gap; regularity lemma
+already upstream). `Nat.Perfect` *definition* — Euclid–Euler theorem is Archive-only
+(still a gap; not slotted this wave, same mill reason as OPE-735).
+
+Fresh shortlist (≤2, known-classical / formalize-only, no novelty claims):
+
+1. **`moore-degree-girth` — RECOMMENDED PRIME (88).** Fresh id — never previously
+   shortlisted. Why-not-classical: Moore / Hoffman–Singleton 1960 degree–girth
+   counting bound is settled. Why still a bet / why a new layer: KST (bipartite
+   forbidden subgraphs) and pentagonal (integer-partition recurrence) are consumed;
+   this is a *BFS ball-size lower bound from min-degree + odd girth*, **not**
+   clique-free Turán (already upstream), **not** KST, **not** Friendship (unique
+   common neighbour), **not** Mycielski (unbounded `χ`). Mathlib has `egirth`,
+   `minDegree`, `dist`, `Walk.IsCycle`; ZERO Moore / cage ident. Cage numbers
+   and 57-regular Moore-graph existence are **open** and **out of v1**. Proof
+   shape: Level A `t=1` star bound / `k=2,t=2` `n≥5` with C5 comment; Level B
+   namesake `1 + k Σ_{i<t} (k−1)^i ≤ n`. Score 88 because SimpleGraph encoding
+   is native (formalizability 18) but there is no dedicated Moore scaffolding
+   (attack 16). Do **not** assign `stirling-second-kind` first unless Director
+   swaps. Do **not** prove cages / Hoffman–Singleton uniqueness / 57-regular /
+   even girth / degree–diameter upper bound in this id. STATEMENT pin:
+   `catalog/problems/moore-degree-girth/STATEMENT.md`.
+2. **`stirling-second-kind` (86).** Fresh id — never previously shortlisted.
+   Why-not-classical: Stirling second-kind `S(n,k)` (set partitions into `k`
+   blocks) is settled. Why still a bet / why a new layer: pentagonal / Euler
+   odd=distinct / Schur are *integer* partitions (consumed); Catalan is already
+   in Mathlib; Stirling's **`n!` formula** is already in Mathlib (name collision
+   only, same class as group Cayley vs labelled trees). This is a *set-partition
+   count*, **not** `Nat.Partition`. Mathlib has `Finpartition` +
+   `Setoid.IsPartition`; ZERO `S(n,k)` ident. Proof shape: Level A recursive
+   `stirlingSecond` + `S(n,1)` / `S(n,n)` / `S(n,2)` (not labelled Stirling);
+   Level B namesake `Fintype.card {P // parts.card = k} = stirlingSecond n k`.
+   Score 86 because the `Fintype` subtype instance may need to be built
+   (formalizability 16). Do **not** assign before `moore-degree-girth` unless
+   Director swaps. Do **not** prove first-kind / Bell EGF / inclusion-exclusion /
+   `n!` Stirling. STATEMENT pin:
+   `catalog/problems/stirling-second-kind/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp OPE-735 leftovers):
+
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness in repo. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip
+  (standing OPE-458/533 rule). Closed `vdw24_gt_34` is not a re-prime. General VdW
+  *existence* is already in Mathlib (`exists_mono_homothetic_copy`) — not a gap.
+- **Ore stretch:** independently a remaining Mathlib gap (Hamiltonian defs only). Proof shape
+  is a re-warm of closed Dirac longest-path. **Not slotted.** Do not invent Ore as a leftover.
+- **Tutte's theorem:** explicit Matching.lean TODO, ZERO theorem. Banned as a leftover this
+  commission. Bench.
+- **Kirchhoff matrix-tree:** `LapMatrix` exists; ZERO spanning-tree count. Would be the `K_n`
+  generalisation of consumed Cayley — do **not** invent as a leftover of `cayley-trees`.
+- **König edge-chromatic `χ'=Δ`:** ZERO `chromaticIndex` / `LineGraph`. Looks like inventing
+  Vizing (banned). Bench.
+- **Five colour / planar:** Coloring.lean TODO lists planar; ZERO planar defs. Bench.
+- **Hilton–Milner:** ZERO theorem (gap holds) but it is the uniqueness companion of consumed
+  EKR — do **not** invent as an `erdos-ko-rado` leftover. Bench.
+- **Rédei / tournaments:** ZERO `IsTournament`; Hamiltonian *path* defs exist. Encoding-from-scratch,
+  same class as the planar bench. Bench.
+- **Hook-length formula:** `YoungDiagram` / `SemistandardYoungTableau` defs waiting, ZERO theorem.
+  Proof is a known sink. Bench; do not invent as a “defs waiting” prime this wave.
+- **Sauer–Shelah:** already in Mathlib (`card_le_card_shatterer`). Never cite as a gap.
+- **Sperner's lemma** (combinatorial topology): gap holds (only set-system `IsAntichain.sperner`
+  / LYM are upstream) but the commission bans inventing Sperner/LYM leftovers. Not slotted;
+  name collision with the banned set-system theorem.
+- **Ballot theorem:** Archive-only (Wiedijk100). Catalan already in Mathlib. Encoding overlap
+  with the demoted `catalan-recurrence` seed. Bench.
+- **Nash-Williams arboricity:** `IsAcyclic` exists; Mathlib matroid `Sum` is disjoint sum, **not**
+  matroid union. Namesake is a sink without union. Bench.
+- **Euclid–Euler even perfect numbers:** `Nat.Perfect` def in Mathlib; theorem is Archive-only
+  (`Archive/Wiedijk100Theorems/PerfectNumbers.lean`). Gap+budget still hold; still off the
+  combinatorics mill after a graph prime + enumerative leftover. **Not slotted** (do not
+  rubber-stamp the OPE-735 bench). `mersenne` + Lucas–Lehmer already upstream.
+- **Sylvester–Gallai:** gap holds (only Sylvester *inertia* upstream; `Collinear` defs exist
+  in `LinearAlgebra/AffineSpace/FiniteDimensional.lean`; Euclidean geometry is rich). Kelly
+  closest-point proof is a Euclidean-metric glue sink (same class as hook-length “defs waiting
+  but proof is a sink”). Not ES(4); not planar five-colour; not de Bruijn–Erdős incidence
+  (`HasLines.card_le` already upstream). **Not slotted this wave** — budget, not gap.
+- **Hamming sphere-packing / Singleton / Kraft:** `hammingDist` exists; ZERO code / ball /
+  bound. Encoding-from-scratch (same class as Rédei / planar). Bench.
+- **Chromatic polynomial:** Coloring.lean TODO lists it; ZERO ident. Looks like inventing
+  Tutte / Whitney (banned as Cayley leftovers). Bench.
+- **Gershgorin / Fermat two-squares / Legendre `v_p(n!)` / Kummer / `sum_totient` / Catalan /
+  Stirling `n!`:** already in Mathlib this run. Never cite as gaps.
+- **Namesake Kempe / Brooks Level C / list-colouring Brooks / Vizing / 4CT / Dilworth-C /
+  Eulerian-C / edge-Menger / max-flow / infinite Erdős–Menger / Erdős–Gállai / Gale–Ryser /
+  Whitney / Grötzsch / Hajós / Kneser / Mycielski-C / Prüfer-namesake / Eventown / Fisher /
+  BIBD / Kruskal–Katona-C / Oddtown-C / sunflower-C / combinatorial-Nullstellensatz-C /
+  Franklin-namesake / pentagonal-B / kst-C:** Director declined. Do not invent.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim.
 

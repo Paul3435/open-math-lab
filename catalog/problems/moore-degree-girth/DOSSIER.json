@@ -1,0 +1,55 @@
+{
+  "id": "moore-degree-girth",
+  "title": "Moore degree–girth bound: odd-girth BFS counting (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_graph_theory",
+  "score": 88,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Moore / Hoffman–Singleton 1960 degree–girth counting bound is settled: minDegree ≥ k ≥ 2 and egirth ≥ 2t+1 ⇒ n ≥ 1 + k Σ_{i<t} (k−1)^i. Completely classical. Cage numbers n(k,g) and 57-regular Moore-graph existence are OPEN and OUT OF SCOPE — pinning the integer lower bound is not a novelty claim and not an attack on cages. Value is a Mathlib contribution (egirth / minDegree / dist / Walk.IsCycle exist; ZERO Moore / cage ident in Mathlib+Archive). Do NOT re-fund as novel. Turán / Mantel are already upstream (clique-free). Friendship / Mycielski / KST are different ProofLab theorems.",
+  "recommendation": "OPE-754 RECOMMENDED PRIME. Fresh id — never previously shortlisted or benched. Not a Turán leftover (OPE-25 negative control: Turán IS in Mathlib). Not a KST leftover (KST is bipartite K_{s,t}-free counting, consumed #73). Not Friendship (unique common neighbour, consumed #40). Not Mycielski (unbounded χ, consumed #65). Not pentagonal. Score 88 because SimpleGraph encoding is native (formalizability 18) but there is no dedicated Moore scaffolding (attack 16, same shape as KST vs Turán's ready file). verification 16: BFS non-collision is short; we pin odd girth so even-girth / diameter-upper / cages are OUT of v1. Do NOT assign stirling-second-kind first unless Director swaps. Do NOT prove cages / Hoffman–Singleton uniqueness / 57-regular / even girth / degree–diameter upper bound in this id. Do NOT re-prime kovari-sos-turan / pentagonal-number-theorem / sunflower / combinatorial-nullstellensatz / friendship / mycielski.",
+  "mathlib_gap_grep_2026_08_31_ope754": "Pin mathlib a719ba5c3115 (v4.10.0). rg moore bound / MooreBound / cage over Mathlib/** + Archive/** → ZERO files. Defs HIT: egirth/girth (Girth.lean), minDegree/maxDegree/degree/neighborFinset (Finite.lean), dist/edist (Metric.lean), Walk.IsCycle. Turán HIT as a DIFFERENT theorem (Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph) — negative control, never cite as this gap. ZERO zarankiewicz/kovari/pentagonal/Franklin. ZERO tournament/Rédei. ZERO chromaticIndex/Vizing. ZERO planar. ZERO hook-length theorem (YoungDiagram defs only). Friendship is ProofLab not Mathlib. Already-in-Mathlib this run (never cite as gap): HallMarriageTheorem, Gershgorin, Nat.Prime.sq_add_sq, padicValNat_factorial / Kummer, sum_totient, Catalan, Stirling's formula n! (Analysis.SpecialFunctions.Stirling — NOT second-kind numbers), CauchyDavenport, EGZ, Sperner/LYM, Sauer–Shelah, Hilbert NS, ChevalleyWarning, HalesJewett, Hindman.",
+  "statement_pin_required": {
+    "convention": "G : SimpleGraph V finite. Claim: 2 ≤ k → 1 ≤ t → k ≤ G.minDegree → 2*t+1 ≤ G.egirth → 1 + k * ∑ i ∈ range t, (k-1)^i ≤ card V. Level A may land t=1 star bound / k=2 t=2 n≥5 with C5 comment, not labelled Moore.",
+    "landmines": [
+      "Not Turán (already in Mathlib). Not Mantel.",
+      "Not cages / Hoffman–Singleton uniqueness / 57-regular (open, out of v1).",
+      "Not Friendship / Mycielski / KST.",
+      "2 ≤ k load-bearing for ℕ subtraction.",
+      "Odd girth only; even girth / degree–diameter upper bound out of v1.",
+      "Do not re-prime kovari-sos-turan / pentagonal-number-theorem / friendship / mycielski.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "A. J. Hoffman and R. R. Singleton, On Moore graphs with diameters 2 and 3, IBM J. Res. Develop. 4 (1960) 497–504 (classification NOT v1). Textbook: Biggs, Algebraic Graph Theory, §23; Diestel, Graph Theory (BFS unfolding). Type pin: SimpleGraph + minDegree + egirth. Cages / Friendship / Mycielski / KST / Turán are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: t=1 star bound n ≥ 1+minDegree (not labelled Moore) + k=2 t=2 n≥5 with C5 tightness comment (Mycielski C5, not labelled Moore) + k=3 t=2 n≥10 Petersen comment not uniqueness. Level B: theorem moore_bound_odd_girth by BFS non-collision inside radius t. Cap two levels. No even girth / cages / HS uniqueness. SimpleGraph encoding is already in ProofLab; namesake is short.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Girth (egirth, girth)",
+    "Mathlib Combinatorics.SimpleGraph.Finite (minDegree, maxDegree, degree, neighborFinset)",
+    "Mathlib Combinatorics.SimpleGraph.Metric (dist, edist)",
+    "Mathlib Combinatorics.SimpleGraph.Turan — DO NOT re-prove / DO NOT label this Turán",
+    "ProofLab/Mycielski.lean C5 — tightness comment only, DO NOT relabel Moore",
+    "ProofLab/Friendship.lean — DO NOT re-prove / DO NOT relabel Moore",
+    "ProofLab/KovariSosTuran.lean — consumed this wave; different theorem",
+    "ProofLab/GreedyChromatic.lean / Brooks.lean — χ vs Δ, not girth",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-31",
+  "scout_issue": "OPE-754",
+  "parent_issue": "OPE-753",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO moore bound/cage; Turán HIT as a different theorem (negative control); egirth/minDegree/dist HIT",
+    "Fresh id after KST #73 + pentagonal #74 consumed; not a Turán / KST / Friendship / Mycielski leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "Cages / Hoffman–Singleton / 57-regular / Friendship / Mycielski / KST disclosed as different statements"
+  ]
+}
