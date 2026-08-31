@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-759 Formalist: `moore-degree-girth` Level A+B namesake landed. Scout leftover `stirling-second-kind` unassigned.)
+**Last updated:** 2026-08-31 (OPE-765 Formalist: `stirling-second-kind` Level A honest partial. Moore leftover consumed.)

@@ -1,7 +1,7 @@
 {
   "id": "stirling-second-kind",
   "title": "Stirling numbers of the second kind: set-partition count (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "enumerative_combinatorics",
   "score": 86,
   "scores": {
@@ -43,6 +43,7 @@
   "skill_packs": ["combinatorics", "formalization"],
   "scored_at": "2026-08-31",
   "scout_issue": "OPE-754",
+  "formalist_issue": "OPE-765",
   "parent_issue": "OPE-753",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO stirlingSecond; Stirling HIT is n! formula (wrong theorem); Catalan HIT (already upstream); Finpartition HIT",
