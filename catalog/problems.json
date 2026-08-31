@@ -965,10 +965,10 @@
     {
       "id": "pentagonal-number-theorem",
       "title": "Euler pentagonal number theorem: partition recurrence (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "partition_theory",
       "score": 84,
-      "note": "OPE-735 Scout leftover slot #2, NOT the prime. Classical Euler 1750 / Franklin 1881 recurrence, NOT euler-odd-distinct (ProofLab Glaisher), NOT schur-partition, NOT Archive Theorems100 partition_theorem (odd=distinct GF). known-classical, no novelty. Fresh id. Do not assign before kovari-sos-turan unless Director swaps.",
+      "note": "OPE-745 Formalist Level A honest partial. Scout OPE-735 leftover; Director OPE-744 assign. Classical Euler 1750 / Franklin 1881 recurrence, NOT euler-odd-distinct (ProofLab Glaisher), NOT schur-partition, NOT Archive Theorems100 partition_theorem (odd=distinct GF). known-classical, no novelty. Lean zero-sorry ProofLab/Pentagonal.lean. Namesake pentagonal_number residual (not sorry-ed).",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -976,17 +976,23 @@
       ],
       "artifacts": [
         "catalog/problems/pentagonal-number-theorem/",
-        "problems/pentagonal-number-theorem/"
+        "problems/pentagonal-number-theorem/",
+        "proofs/lean-project/ProofLab/Pentagonal.lean"
       ],
       "scout_issue": "OPE-735",
       "tickets": [
         "OPE-735",
-        "OPE-734"
+        "OPE-734",
+        "OPE-744",
+        "OPE-745"
       ],
-      "parent_issue": "OPE-734"
+      "parent_issue": "OPE-734",
+      "lean_artifact": "proofs/lean-project/ProofLab/Pentagonal.lean",
+      "formalist_issue": "OPE-745",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/74"
     }
   ],
-  "updated_at": "2026-08-30T21:00:00Z",
+  "updated_at": "2026-08-30T22:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

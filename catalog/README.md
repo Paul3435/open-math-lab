@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-30 (OPE-740 Formalist: `kovari-sos-turan` Level A+B namesake, Lean zero-sorry `ProofLab/KovariSosTuran.lean`. Prior OPE-735 Scout shortlist: sunflower #70 + CNS #71 consumed; leftover `pentagonal-number-theorem` unassigned.)
+**Last updated:** 2026-08-30 (OPE-745 Formalist: `pentagonal-number-theorem` Level A honest partial, Lean zero-sorry `ProofLab/Pentagonal.lean`. Scout OPE-735 leftover; Director OPE-744. Prior: OPE-740 KST #73.)

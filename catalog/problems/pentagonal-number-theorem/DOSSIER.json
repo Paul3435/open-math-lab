@@ -1,7 +1,7 @@
 {
   "id": "pentagonal-number-theorem",
   "title": "Euler pentagonal number theorem: partition recurrence (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "partition_theory",
   "score": 84,
   "scores": {
@@ -40,14 +40,19 @@
     "Lab combinatorics + formalization skill packs"
   ],
   "estimated_token_budget": "160k",
-  "skill_packs": ["combinatorics", "formalization"],
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
   "scored_at": "2026-08-30",
   "scout_issue": "OPE-735",
-  "parent_issue": "OPE-734",
+  "parent_issue": "OPE-744",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO pentagonal/Franklin; Partition.lean Fintype HIT; Archive Partition HIT is odd=distinct (wrong theorem)",
     "Fresh id; not a rubber-stamp of OPE-717 benches (those still fail); not an euler-odd-distinct leftover",
     "Negative control turan → Turan.lean exists",
     "euler-odd-distinct / schur-partition / Archive Theorems100 partition disclosed as different theorems"
-  ]
+  ],
+  "formalist_issue": "OPE-745",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/74"
 }

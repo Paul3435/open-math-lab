@@ -31,3 +31,4 @@ import ProofLab.Oddtown
 import ProofLab.Sunflower
 import ProofLab.CombinatorialNullstellensatz
 import ProofLab.KovariSosTuran
+import ProofLab.Pentagonal
