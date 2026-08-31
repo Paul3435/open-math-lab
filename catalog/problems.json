@@ -1081,10 +1081,10 @@
     {
       "id": "euclid-euler-perfect",
       "title": "Euclid–Euler even perfect numbers (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "elementary_number_theory",
       "score": 85,
-      "note": "OPE-770 Scout leftover slot #2 (support OPE-769; post Moore #76 + Stirling #77). Independent re-eval of OPE-735/754 bench — NOT a rubber-stamp. Classical Euclid IX.36 / Euler even-perfect iff, NOT odd perfect (open), NOT Lucas–Lehmer (already Mathlib), NOT Frobenius/Catalan. known-classical, no novelty. Mathlib v4.10.0 has Nat.Perfect/mersenne/σ; theorem Archive-only (do not import).",
+      "note": "OPE-781 Formalist Level A+B (Scout OPE-770 leftover slot #2; Director OPE-780). Classical Euclid IX.36 / Euler even-perfect iff, NOT odd perfect (open), NOT Lucas–Lehmer (already Mathlib), NOT Frobenius/Catalan, NOT bipartite-odd-cycle (consumed #79). known-classical, no novelty. theorem even_perfect_iff zero-sorry.",
       "expected": "known-classical",
       "skill_packs": [
         "number-theory",
@@ -1092,17 +1092,22 @@
       ],
       "artifacts": [
         "catalog/problems/euclid-euler-perfect/",
-        "problems/euclid-euler-perfect/"
+        "problems/euclid-euler-perfect/",
+        "proofs/lean-project/ProofLab/EuclidEulerPerfect.lean"
       ],
       "scout_issue": "OPE-770",
       "tickets": [
         "OPE-770",
-        "OPE-769"
+        "OPE-769",
+        "OPE-780",
+        "OPE-781"
       ],
-      "parent_issue": "OPE-769"
+      "parent_issue": "OPE-769",
+      "lean_artifact": "proofs/lean-project/ProofLab/EuclidEulerPerfect.lean",
+      "formalist_issue": "OPE-781"
     }
   ],
-  "updated_at": "2026-08-31T14:00:00Z",
+  "updated_at": "2026-08-31T14:12:52Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

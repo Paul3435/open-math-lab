@@ -35,3 +35,4 @@ import ProofLab.Pentagonal
 import ProofLab.MooreDegreeGirth
 import ProofLab.StirlingSecondKind
 import ProofLab.BipartiteOddCycle
+import ProofLab.EuclidEulerPerfect
