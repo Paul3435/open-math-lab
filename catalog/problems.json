@@ -1220,7 +1220,8 @@
       ],
       "parent_issue": "OPE-803",
       "lean_artifact": "proofs/lean-project/ProofLab/KorseltCarmichael.lean",
-      "formalist_issue": "OPE-815"
+      "formalist_issue": "OPE-815",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/86"
     }
   ],
   "updated_at": "2026-08-31T22:10:00Z",
