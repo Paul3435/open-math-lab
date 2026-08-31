@@ -994,10 +994,10 @@
     {
       "id": "moore-degree-girth",
       "title": "Moore degree–girth bound: odd-girth BFS counting (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_graph_theory",
       "score": 88,
-      "note": "OPE-754 Scout RECOMMENDED PRIME (support OPE-753; post KST #73 + pentagonal #74). Classical Moore / Hoffman–Singleton counting, NOT cages (open, out of v1), NOT Hoffman–Singleton uniqueness, NOT 57-regular (open), NOT Turán (already in Mathlib), NOT Friendship / Mycielski / KST. known-classical, no novelty. Fresh id.",
+      "note": "OPE-759 Formalist Level A+B (Scout OPE-754 prime; Director OPE-758). Classical Moore / Hoffman–Singleton odd-girth BFS bound, NOT cages (open, out of v1), NOT Hoffman–Singleton uniqueness, NOT 57-regular (open), NOT Turán (already in Mathlib), NOT Friendship / Mycielski / KST. known-classical, no novelty. theorem moore_bound_odd_girth zero-sorry.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1005,14 +1005,20 @@
       ],
       "artifacts": [
         "catalog/problems/moore-degree-girth/",
-        "problems/moore-degree-girth/"
+        "problems/moore-degree-girth/",
+        "proofs/lean-project/ProofLab/MooreDegreeGirth.lean"
       ],
       "scout_issue": "OPE-754",
       "tickets": [
         "OPE-754",
-        "OPE-753"
+        "OPE-753",
+        "OPE-758",
+        "OPE-759"
       ],
-      "parent_issue": "OPE-753"
+      "parent_issue": "OPE-753",
+      "lean_artifact": "proofs/lean-project/ProofLab/MooreDegreeGirth.lean",
+      "formalist_issue": "OPE-759",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/76"
     },
     {
       "id": "stirling-second-kind",

@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-754 Scout: catalog audit + ≤2 shortlist after KST #73 + pentagonal #74 consumed. RECOMMENDED PRIME `moore-degree-girth`; leftover `stirling-second-kind`. No Formalist assign.)
+**Last updated:** 2026-08-31 (OPE-759 Formalist: `moore-degree-girth` Level A+B namesake landed. Scout leftover `stirling-second-kind` unassigned.)
