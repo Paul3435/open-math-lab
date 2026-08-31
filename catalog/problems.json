@@ -1046,7 +1046,8 @@
       ],
       "parent_issue": "OPE-753",
       "lean_artifact": "proofs/lean-project/ProofLab/StirlingSecondKind.lean",
-      "formalist_issue": "OPE-765"
+      "formalist_issue": "OPE-765",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/77"
     }
   ],
   "updated_at": "2026-08-31T12:00:00Z",
