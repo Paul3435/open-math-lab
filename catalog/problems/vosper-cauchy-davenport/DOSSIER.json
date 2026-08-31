@@ -1,7 +1,7 @@
 {
   "id": "vosper-cauchy-davenport",
   "title": "Vosper inverse Cauchy–Davenport (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "additive_combinatorics",
   "score": 87,
   "scores": {
@@ -13,7 +13,7 @@
   },
   "expected": "known-classical",
   "why_not_classical": "Vosper 1956 is settled: nonempty A,B ⊆ ℤ/pℤ with |A+B| = |A|+|B|-1 < p are arithmetic progressions with the same difference. Completely classical. Value is a Mathlib contribution (ZMod.min_le_card_add / Finset pointwise + / e-transforms exist; ZERO Vosper / IsAP / inverse-CD theorem in Mathlib+Archive). Do NOT re-fund as novel. Cauchy–Davenport itself is already upstream (never cite as this gap). EGZ already Mathlib. Combinatorial Nullstellensatz is a different ProofLab theorem (consumed #71).",
-  "recommendation": "OPE-788 RECOMMENDED PRIME. Independent re-eval of the OPE-770 'fresh future candidate' — NOT a rubber-stamp. Gap+budget still hold this run (CD HIT as ZMod.min_le_card_add; e-transform HIT; vosper ZERO). Mill NOW supports the slot: leftover cap that previously went to Euclid–Euler is consumed (#80); an additive-inverse prime after a graph-colouring prime + NT leftover is the 2-slot diversification, not a CNS leftover. Score 87 because CD + e-transform are waiting (attack 17) but IsAP is a new predicate (formalizability 16). Do NOT assign heron-formula first unless Director swaps. Do NOT prove Mann/Schnirelmann / Heilbronn / additive Kneser / Freiman 3k-4 / Alon–Füredi. Do NOT re-prove Cauchy–Davenport.",
+  "recommendation": "OPE-793 Formalist Level A honest partial (Scout OPE-788 prime; Director OPE-792 approve). Lean zero-sorry ProofLab/Vosper.lean: IsAP + isAP_sum_card landed (not labelled Vosper). Namesake vosper residual — unguarded pin is false for a singleton + non-AP partner; e-transform inverse not completed; do NOT sorry-in. Do NOT assign heron-formula here. Do NOT prove Mann/Schnirelmann / Heilbronn / additive Kneser / Freiman 3k-4 / Alon–Füredi. Do NOT re-prove Cauchy–Davenport.",
   "mathlib_gap_grep_2026_08_31_ope788": "Pin mathlib a719ba5c3115 (v4.10.0). rg vosper / critical pair / inverse cauchy over Mathlib/** + Archive/** → ZERO files. Defs HIT: ZMod.min_le_card_add (CauchyDavenport.lean), Finset pointwise +, addDysonETransform / mulDysonETransform.subset/.card (ETransform.lean; card invariance already proved). ThreeAPFree HIT as a DIFFERENT predicate (AP/Three/Defs.lean — 3-AP-free, not IsAP). Negative control turan → Turan.lean. Already-in-Mathlib this run (never cite as gap): CauchyDavenport, EGZ, Sperner/LYM, Hall, Wilson, Lucas, Zeckendorf, Beatty, Pythagorean triples, Turán, non-uniform Intersecting.card_le, Hilbert NS, Chevalley–Warning, Hales–Jewett + homothetic VdW, Hindman, Sauer–Shelah, Four Functions / AZ / Harris–Kleitman, Plünnecke–Ruzsa, Ruzsa covering, Radon / Carathéodory / Helly, Burnside, Lagrange four squares, quadratic reciprocity, Möbius inversion, group Cayley, Cayley–Hamilton, HasLines.card_le (de Bruijn–Erdős incidence), triangle removal, Minkowski, Dirichlet approximation, Nim / Sprague–Grundy, Hamming distance, Gershgorin, Fermat two-squares, Legendre v_p(n!)/Kummer, sum_totient, Catalan, Stirling n! formula, hockey-stick, composition_card, Fermat–Euler pow_totient, frobeniusNumber_pair, numDerangements, Bertrand exists_prime_lt_and_le_two_mul, IsCyclic Rˣ (finite-field units), law_cos (NOT Heron), Nat.Perfect *definition* + mersenne + LucasLehmer (Euclid–Euler now ProofLab), Colorable/Walk/dist/egirth/minDegree/IsTree/CliqueFree/shadow/IsInitSeg/LinearIndependent/MvPolynomial.coeff/completeBipartiteGraph/Nat.Partition/Finpartition defs. ProofLab already has greedy/Brooks Δ≤2/Havel/Menger A/Cayley A/Mycielski/KK/Oddtown/sunflower/CNS/KST/pentagonal A/Moore/Stirling A/bipartite Colorable-2 iff no odd closed walk/Euclid–Euler even-perfect iff — those are NOT Mathlib and NOT re-primes.",
   "statement_pin_required": {
     "convention": "p prime, s t : Finset (ZMod p) nonempty, |s+t| = |s|+|t|-1 < p ⇒ ∃ d, IsAP s d ∧ IsAP t d. IsAP is a new predicate (image of Fin n along a + k•d), NOT ThreeAPFree. Level A may land only the direct AP-extremal for CD equality, not labelled Vosper.",
@@ -45,6 +45,8 @@
   "skill_packs": ["combinatorics", "formalization"],
   "scored_at": "2026-08-31",
   "scout_issue": "OPE-788",
+  "formalist_issue": "OPE-793",
+  "director_issue": "OPE-792",
   "parent_issue": "OPE-787",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO vosper/critical-pair/inverse-CD; ZMod.min_le_card_add + e-transform HIT; ThreeAPFree HIT as a different predicate",

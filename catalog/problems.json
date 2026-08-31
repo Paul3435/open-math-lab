@@ -1110,10 +1110,10 @@
     {
       "id": "vosper-cauchy-davenport",
       "title": "Vosper inverse Cauchy–Davenport (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "additive_combinatorics",
       "score": 87,
-      "note": "OPE-788 Scout RECOMMENDED PRIME (support OPE-787; post bipartite #79 + Euclid–Euler #80). Independent re-eval of the OPE-770 future candidate — NOT a rubber-stamp. Classical Vosper 1956 inverse CD, NOT Cauchy–Davenport (already Mathlib), NOT EGZ, NOT CNS leftover, NOT Mann/Heilbronn. known-classical, no novelty.",
+      "note": "OPE-793 Formalist Level A honest partial. Scout OPE-788 prime; Director OPE-792. Classical Vosper 1956 inverse CD, NOT Cauchy–Davenport (already Mathlib ZMod.min_le_card_add), NOT EGZ, NOT CNS leftover (#71), NOT Mann/Heilbronn/Kneser/Freiman, NOT ThreeAPFree. known-classical, no novelty. Lean zero-sorry ProofLab/Vosper.lean. Level A isAP_sum_card landed. Namesake vosper residual (not sorry-ed).",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1121,14 +1121,19 @@
       ],
       "artifacts": [
         "catalog/problems/vosper-cauchy-davenport/",
-        "problems/vosper-cauchy-davenport/"
+        "problems/vosper-cauchy-davenport/",
+        "proofs/lean-project/ProofLab/Vosper.lean"
       ],
       "scout_issue": "OPE-788",
       "tickets": [
         "OPE-788",
-        "OPE-787"
+        "OPE-787",
+        "OPE-792",
+        "OPE-793"
       ],
-      "parent_issue": "OPE-787"
+      "parent_issue": "OPE-787",
+      "lean_artifact": "proofs/lean-project/ProofLab/Vosper.lean",
+      "formalist_issue": "OPE-793"
     },
     {
       "id": "heron-formula",
@@ -1154,7 +1159,7 @@
       "parent_issue": "OPE-787"
     }
   ],
-  "updated_at": "2026-08-31T15:50:00Z",
+  "updated_at": "2026-08-31T17:10:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

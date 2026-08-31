@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-788 Scout: post bipartite #79 + Euclid–Euler #80. Fresh shortlist `vosper-cauchy-davenport` + `heron-formula`.)
+**Last updated:** 2026-08-31 (OPE-793 Formalist: `vosper-cauchy-davenport` Level A honest partial. heron-formula leftover still unassigned.)
