@@ -1,7 +1,7 @@
 {
   "id": "lovasz-local-lemma",
   "title": "Symmetric Lovász Local Lemma (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "probabilistic_combinatorics",
   "score": 83,
   "scores": {
