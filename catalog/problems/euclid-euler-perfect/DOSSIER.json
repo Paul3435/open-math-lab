@@ -44,6 +44,7 @@
   "skill_packs": ["number-theory", "formalization"],
   "scored_at": "2026-08-31",
   "formalist_issue": "OPE-781",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/80",
   "director_issue": "OPE-780",
   "scout_issue": "OPE-770",
   "parent_issue": "OPE-769",
