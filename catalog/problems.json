@@ -1017,7 +1017,8 @@
       ],
       "parent_issue": "OPE-753",
       "lean_artifact": "proofs/lean-project/ProofLab/MooreDegreeGirth.lean",
-      "formalist_issue": "OPE-759"
+      "formalist_issue": "OPE-759",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/76"
     },
     {
       "id": "stirling-second-kind",
