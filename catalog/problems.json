@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-31T15:50:00Z",
+  "last_updated": "2026-08-31T21:30:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1164,9 +1164,55 @@
       "lean_artifact": "proofs/lean-project/ProofLab/Heron.lean",
       "formalist_issue": "OPE-799",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/83"
+    },
+    {
+      "id": "lovasz-local-lemma",
+      "title": "Symmetric Lovász Local Lemma (formalize-only)",
+      "status": "candidate",
+      "domain": "probabilistic_combinatorics",
+      "score": 83,
+      "note": "OPE-804 Scout RECOMMENDED PRIME (support OPE-803; post Vosper #82 + Heron #83). Classical Erdős–Lovász 1975 symmetric LLL, counting 4d form. NOT Chernoff (already Mathlib measure_ge_le_exp_cgf), NOT Markov/Chebyshev, NOT Borel–Cantelli, NOT Azuma/Hoeffding (out of v1), NOT Ramsey/Schur application, NOT lopsided/Shearer/Moser–Tardos. known-classical, no novelty. Fresh mill: probabilistic combinatorics.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/lovasz-local-lemma/",
+        "problems/lovasz-local-lemma/"
+      ],
+      "scout_issue": "OPE-804",
+      "tickets": [
+        "OPE-804",
+        "OPE-803"
+      ],
+      "parent_issue": "OPE-803"
+    },
+    {
+      "id": "korselt-carmichael",
+      "title": "Korselt criterion for Carmichael numbers (formalize-only)",
+      "status": "candidate",
+      "domain": "elementary_number_theory",
+      "score": 89,
+      "note": "OPE-804 Scout leftover slot #2 (support OPE-803; post Vosper #82 + Heron #83). Classical Korselt 1899 / Carmichael 1910 iff. NOT infinitude (AGP 1994 out of v1), NOT λ(n), NOT Euclid–Euler (consumed #80), NOT odd-perfect/aliquot/Lucas–Lehmer, NOT FLT n=3/4 (already Mathlib), NOT FermatPsp fixed-base infinitude (already Mathlib). known-classical, no novelty. FermatPsp.lean explicitly: Carmichael numbers 'not yet defined'.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/korselt-carmichael/",
+        "problems/korselt-carmichael/"
+      ],
+      "scout_issue": "OPE-804",
+      "tickets": [
+        "OPE-804",
+        "OPE-803"
+      ],
+      "parent_issue": "OPE-803"
     }
   ],
-  "updated_at": "2026-08-31T18:13:37Z",
+  "updated_at": "2026-08-31T21:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

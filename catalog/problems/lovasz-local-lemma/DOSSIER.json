@@ -1,0 +1,55 @@
+{
+  "id": "lovasz-local-lemma",
+  "title": "Symmetric Lovász Local Lemma (formalize-only)",
+  "status": "candidate",
+  "domain": "probabilistic_combinatorics",
+  "score": 83,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Erdős–Lovász 1975 is settled: if each bad event has probability ≤ p and depends on at most d ≥ 1 others and 4dp ≤ 1, then P(none) > 0. Completely classical. Value is a Mathlib contribution (Fintype/Finset/SimpleGraph.degree exist; condCount/iIndepSet optional; ZERO Local Lemma / Lovász LLL theorem in Mathlib+Archive). Do NOT re-fund as novel. Chernoff tails are already upstream (never cite as this gap). Markov/Chebyshev already upstream. Borel–Cantelli already upstream.",
+  "recommendation": "OPE-804 RECOMMENDED PRIME. Fresh id — never previously shortlisted or benched. Gap+budget hold this run (degree/card HIT; lovasz/LocalLemma ZERO in Mathlib+Archive; Jacobian 'Local lemmas' is a section title). Mill NOW: probabilistic combinatorics after additive Vosper (#82 CONSUMED) + geometry Heron (#83 CONSUMED) — not a matching leftover (Berge/Tutte refused), not a third additive theorem (Mann/Heilbronn refused), not Chernoff. Score 83 because counting IndepOfOthers is a new predicate (formalizability 15) but SimpleGraph + Finset are waiting (attack 16); v1 pins the ℕ 4d form so Formalist does not drown in MeasureTheory. Do NOT assign korselt-carmichael first unless Director swaps. Do NOT prove lopsided/Shearer/Moser–Tardos/Azuma. Do NOT re-prove Chernoff.",
+  "mathlib_gap_grep_2026_08_31_ope804": "Pin mathlib a719ba5c3115 (v4.10.0). rg 'local lemma|LocalLemma|lovasz' over Mathlib/** + Archive/** → ZERO LLL theorem (Jacobian.lean 'Local lemmas' section title only). Defs HIT: Fintype.card, Finset.card/biUnion, SimpleGraph.degree/Adj, ProbabilityTheory.condCount, iIndepSet/IndepSet. Already-in this run (never cite as gap): Chernoff measure_ge_le_exp_cgf / measure_ge_le_exp_mul_mgf (Moments.lean), ChebyshevMarkov, BorelCantelli, turan (negative control Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph), CauchyDavenport ZMod.min_le_card_add, EGZ, law_cos, Nat.Perfect *def*, FermatPsp *defs* (not Carmichael), pow_totient, FLT Three/Four, Ptolemy, Lucas binomial, Euler criterion, rearrangement, Pell, Vandermonde, Cramer, Roth 3AP / corners, two-set card_union. ProofLab already has greedy/Brooks Δ≤2/Havel/Menger A/Cayley A/Mycielski/KK/Oddtown/sunflower/CNS/KST/pentagonal A/Moore/Stirling A/bipartite Colorable-2 iff no odd closed walk/Euclid–Euler even-perfect iff/Vosper Level A isAP_sum_card/Heron namesake — those are NOT Mathlib and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "Finite Ω, B : ι → Finset Ω, G : SimpleGraph ι, d ≥ 1, degree ≤ d, IndepOfOthers counting identity, 4*d*|B i| ≤ |Ω| ⇒ ∃ ω, ∀ i, ω ∉ B i. Level A may land only union bound + G=⊥ independent case, not labelled LLL.",
+    "landmines": [
+      "Do not re-prove Chernoff (already measure_ge_le_exp_cgf).",
+      "Do not re-prove Markov/Chebyshev (already ChebyshevMarkov).",
+      "Do not re-prove Borel–Cantelli.",
+      "Azuma/Hoeffding/McDiarmid out of v1.",
+      "No general MeasureTheory LLL; counting form only.",
+      "Not a Ramsey/Schur/VdW application (those are consumed ProofLab theorems).",
+      "Not lopsided/Shearer/Moser–Tardos.",
+      "Do not re-prime vosper / heron / euclid-euler / bipartite / moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac / EKR.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Erdős–Lovász 1975; Alon–Spencer symmetric LLL. Type pin: Fintype Ω + ι → Finset Ω + SimpleGraph ι + counting IndepOfOthers. v1 uses 4d not e(d+1)p. Chernoff / Markov / Borel–Cantelli / Ramsey applications are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: union bound via card_biUnion_le; G=⊥ product of complement ratios via IndepOfOthers; not labelled LLL. Level B: namesake lovasz_local_lemma by the standard inductive conditional-counting bound P(B i | ∩_{j∈S} B_j^c) ≤ 2p under 4dp ≤ 1. Cap two levels. No lopsided / Shearer / Moser–Tardos / Chernoff re-proof. IndepOfOthers is the only new def.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph (degree, Adj) — dependency graph",
+    "Mathlib Data.Finset (card, biUnion, filter) — counting form",
+    "Mathlib Probability.CondCount — OPTIONAL glue, do not require in namesake",
+    "Mathlib Probability.Independence.Basic (iIndepSet) — OPTIONAL transcription",
+    "Mathlib Probability.Moments Chernoff — DO NOT re-prove / DO NOT cite as this gap",
+    "ProofLab/Vosper.lean / Heron.lean — consumed #82/#83, DO NOT re-prime",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "150k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-31",
+  "scout_issue": "OPE-804",
+  "parent_issue": "OPE-803",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO lovasz/LocalLemma theorem; degree/card/condCount HIT; Chernoff HIT as a DIFFERENT theorem",
+    "Fresh id: never in OPE-788/770 considered lists; mill reason is post-Vosper/Heron diversification into probabilistic method",
+    "Negative control turan → Turan.lean exists",
+    "Chernoff / Markov / Borel–Cantelli / Azuma disclosed as different statements"
+  ]
+}
