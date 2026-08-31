@@ -1197,10 +1197,10 @@
     {
       "id": "korselt-carmichael",
       "title": "Korselt criterion for Carmichael numbers (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "elementary_number_theory",
       "score": 89,
-      "note": "OPE-804 Scout leftover slot #2 (support OPE-803; post Vosper #82 + Heron #83). Classical Korselt 1899 / Carmichael 1910 iff. NOT infinitude (AGP 1994 out of v1), NOT λ(n), NOT Euclid–Euler (consumed #80), NOT odd-perfect/aliquot/Lucas–Lehmer, NOT FLT n=3/4 (already Mathlib), NOT FermatPsp fixed-base infinitude (already Mathlib). known-classical, no novelty. FermatPsp.lean explicitly: Carmichael numbers 'not yet defined'.",
+      "note": "OPE-815 Formalist Level A+B namesake landed. Scout OPE-804 leftover slot #2; Director OPE-814. Classical Korselt 1899 / Carmichael 1910 iff. NOT infinitude (AGP 1994 out of v1), NOT λ(n), NOT Euclid–Euler (consumed #80), NOT odd-perfect/aliquot/Lucas–Lehmer, NOT FLT n=3/4 (already Mathlib), NOT FermatPsp fixed-base infinitude (already Mathlib), NOT totient re-proof, NOT LLL (consumed #85). known-classical, no novelty. Lean zero-sorry ProofLab/KorseltCarmichael.lean. Level A isCarmichael_squarefree + isCarmichael_prime_sub_one_dvd + isCarmichael_imp_korselt; Level B korselt_imp_isCarmichael + namesake korselt.",
       "expected": "known-classical",
       "skill_packs": [
         "number-theory",
@@ -1208,17 +1208,22 @@
       ],
       "artifacts": [
         "catalog/problems/korselt-carmichael/",
-        "problems/korselt-carmichael/"
+        "problems/korselt-carmichael/",
+        "proofs/lean-project/ProofLab/KorseltCarmichael.lean"
       ],
       "scout_issue": "OPE-804",
       "tickets": [
         "OPE-804",
-        "OPE-803"
+        "OPE-803",
+        "OPE-814",
+        "OPE-815"
       ],
-      "parent_issue": "OPE-803"
+      "parent_issue": "OPE-803",
+      "lean_artifact": "proofs/lean-project/ProofLab/KorseltCarmichael.lean",
+      "formalist_issue": "OPE-815"
     }
   ],
-  "updated_at": "2026-08-31T21:30:00Z",
+  "updated_at": "2026-08-31T22:10:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

@@ -1,7 +1,7 @@
 {
   "id": "korselt-carmichael",
   "title": "Korselt criterion for Carmichael numbers (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "elementary_number_theory",
   "score": 89,
   "scores": {
@@ -46,6 +46,7 @@
   "scored_at": "2026-08-31",
   "scout_issue": "OPE-804",
   "parent_issue": "OPE-803",
+  "formalist_issue": "OPE-815",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO IsCarmichael/Korselt; FermatPsp.lean explicit 'not yet defined'; Squarefree+CRT+pow_totient HIT",
     "Fresh leftover after Euclid–Euler NT leftover consumed #80 and Heron geometry leftover consumed #83; NOT odd-perfect",
