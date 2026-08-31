@@ -1,0 +1,58 @@
+{
+  "id": "bipartite-odd-cycle",
+  "title": "Bipartite ⇔ no odd closed walk (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 89,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 18,
+    "attack_surface": 17,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "König 1916 / Diestel Prop. 1.6.1 is settled: a finite simple graph is 2-colourable iff it has no odd-length closed walk. Completely classical. Infinite 2-colourability / list-colouring / planar 5-colour are OUT OF SCOPE. Value is a Mathlib contribution (Colorable / Walk / three_le_chromaticNumber_of_odd_loop exist; ZERO IsBipartite / colorable_two_iff_no_odd_walk in Mathlib+Archive). Do NOT re-fund as novel. Complete-bipartite χ=2 and pathGraph.bicoloring are already upstream (special cases, not this theorem). König ν=τ / Brooks / greedy / Mycielski are different ProofLab theorems.",
+  "recommendation": "OPE-770 RECOMMENDED PRIME. Fresh id — never previously shortlisted or benched. Not a König leftover (König assumes Colorable 2; this characterizes it). Not Brooks-C / Kempe (no Δ bound; not 2-regular). Not greedy. Not Mycielski. Not Vizing / 4CT / planar / χ'=Δ. Score 89 because Colorable + Walk + odd-loop glue is native (formalizability 18) and Moore BFS / König Colorable 2 / Brooks IsOddCycle / Mycielski C5 carry over (attack 17); verification 16 because component-wise dist-parity needs Reachable glue. Do NOT assign euclid-euler-perfect first unless Director swaps. Do NOT prove list-colouring / Brooks namesake / planar / edge-colouring in this id. Do NOT re-prime moore-degree-girth / stirling-second-kind / kovari-sos-turan / pentagonal / sunflower / CNS / kruskal-katona / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+  "mathlib_gap_grep_2026_08_31_ope770": "Pin mathlib a719ba5c3115 (v4.10.0). rg IsBipartite / colorable_two_iff / no_odd_cycle / ColorableTwo over Mathlib/** + Archive/** → ZERO files. Defs HIT: Colorable/chromaticNumber (Coloring.lean), Walk/Reachable/Preconnected (Walk.lean/Path.lean), three_le_chromaticNumber_of_odd_loop + odd_length_iff_not_congr (ConcreteColorings.lean), completeBipartiteGraph.chromaticNumber=2 and pathGraph.bicoloring as DIFFERENT special-case theorems (never cite as this gap). Turán HIT as a DIFFERENT theorem (Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph) — negative control, never cite as this gap. ZERO chromaticIndex/Vizing/planar/IsTournament/Rédei. ZERO vosper. ZERO even_perfect/euclid_euler in Mathlib/ (Archive Wiedijk100 PerfectNumbers is Archive-only). Already-in-Mathlib this run (never cite as gap): HallMarriageTheorem, IsAntichain.sperner / LYM, Sauer–Shelah card_le_card_shatterer, Hilbert Nullstellensatz, Hindman, exists_mono_homothetic_copy (Hales–Jewett), frobeniusNumber_pair, numDerangements, catalan, CauchyDavenport (ZMod.min_le_card_add), EGZ, Wilson, Fermat-Euler pow_totient, hockey-stick / Zhu Shijie, composition_card, Gershgorin, Nat.Prime.sq_add_sq, padicValNat_factorial / Kummer, sum_totient, Stirling n! formula (NOT second-kind), Nat.Perfect *definition* (NOT the Euclid–Euler theorem), mersenne / LucasLehmer, Colorable/chromaticNumber/maxDegree defs, Walk/Reachable/dist/egirth/minDegree defs, IsMatching (no König in Mathlib — ProofLab has it), IsChain/IsAntichain defs, CliqueFree, completeBipartiteGraph.",
+  "statement_pin_required": {
+    "convention": "G : SimpleGraph V finite. Claim: Colorable 2 ↔ ∀ closed Walk p, ¬ Odd p.length. Walk pin (not a separate IsCycle pin) to match three_le_chromaticNumber_of_odd_loop. Encoding is Colorable 2, not a new IsBipartite. Level A may land the easy direction + K2/C4/K3 landmine, not labelled namesake.",
+    "landmines": [
+      "Not König ν=τ (consumed #48/#50). König assumes Colorable 2.",
+      "Not Brooks / namesake Kempe / list-colouring Brooks.",
+      "Not greedy / Mycielski / Vizing / 4CT / planar / χ'=Δ.",
+      "completeBipartiteGraph.chromaticNumber=2 and pathGraph.bicoloring are already Mathlib special cases — glue, not this gap.",
+      "K3 is the load-bearing negative.",
+      "Finite only. Odd closed Walk, not a second cycle-extraction namesake.",
+      "Do not re-prime moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Dénes König, Über Graphen und ihre Anwendung auf Determinantentheorie und Mengenlehre, Math. Ann. 77 (1916) 453–465. Textbook: Diestel, Graph Theory, 5th ed., Prop. 1.6.1. Type pin: finite SimpleGraph + Colorable 2 + odd-length closed Walk. König ν=τ / Brooks / greedy / Mycielski / Vizing / complete-bipartite χ=2 are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: Colorable 2 → no odd closed walk via three_le_chromaticNumber_of_odd_loop (not labelled namesake) + empty/edgeless + K2 + C4 + K3 landmine. Level B: theorem colorable_two_iff_no_odd_walk by dist-parity (or Walk-parity) colouring per connected component. Cap two levels. No list-colouring / Brooks namesake / planar / edge-colouring. SimpleGraph encoding is already in ProofLab; namesake is short.",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.Coloring (Colorable, chromaticNumber)",
+    "Mathlib Combinatorics.SimpleGraph.ConcreteColorings (three_le_chromaticNumber_of_odd_loop, odd_length_iff_not_congr, pathGraph.bicoloring — DO NOT relabel namesake)",
+    "Mathlib Combinatorics.SimpleGraph.Path (Walk, Reachable, Preconnected)",
+    "Mathlib Combinatorics.SimpleGraph.Metric (dist, edist) — optional BFS engine, same as Moore",
+    "Mathlib Combinatorics.SimpleGraph.Turan — DO NOT re-prove / DO NOT label this Turán",
+    "ProofLab/Konig.lean Colorable 2 — different theorem (ν=τ); this characterizes the hypothesis",
+    "ProofLab/Brooks.lean IsOddCycle — 2-regular exception, DO NOT relabel this namesake",
+    "ProofLab/GreedyChromatic.lean — χ ≤ Δ+1, not 2-colour characterization",
+    "ProofLab/Mycielski.lean C5 odd-loop — landmine comment only",
+    "ProofLab/MooreDegreeGirth.lean BFS / dist — engine carry-over, different theorem",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "130k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-08-31",
+  "scout_issue": "OPE-770",
+  "parent_issue": "OPE-769",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO IsBipartite/colorable_two_iff; Colorable/Walk/odd_loop HIT; complete-bipartite χ=2 HIT as a different special case; Turán HIT as negative control",
+    "Fresh id after Moore #76 + Stirling #77 consumed; not a König / Brooks / greedy / Mycielski leftover rubber-stamp",
+    "Negative control turan → Turan.lean exists",
+    "König ν=τ / Brooks IsOddCycle / complete-bipartite χ=2 / path bicoloring disclosed as different statements"
+  ]
+}
