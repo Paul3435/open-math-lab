@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-793 Formalist: `vosper-cauchy-davenport` Level A honest partial. heron-formula leftover still unassigned.)
+**Last updated:** 2026-08-31 (OPE-804 Scout: post Vosper #82 + Heron #83. Fresh shortlist `lovasz-local-lemma` + `korselt-carmichael`.)

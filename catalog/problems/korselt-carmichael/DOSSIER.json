@@ -1,0 +1,55 @@
+{
+  "id": "korselt-carmichael",
+  "title": "Korselt criterion for Carmichael numbers (formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 89,
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 18,
+    "attack_surface": 17,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Korselt 1899 / Carmichael 1910 is settled: composite n>1 is a Carmichael number (Fermat psp to every coprime base) iff n is squarefree and p-1 | n-1 for every prime p|n. Completely classical. Value is a Mathlib contribution (Nat.FermatPsp / Squarefree / ZMod.chineseRemainder / pow_totient exist; ZERO IsCarmichael / Korselt theorem; FermatPsp.lean explicitly says Carmichael numbers are 'not yet defined'). Do NOT re-fund as novel. Do NOT prove infinitude (AGP 1994 is a different theorem). FermatPsp-to-a-fixed-base infinitude is already upstream. Euclid–Euler even-perfect is a different ProofLab theorem (consumed #80).",
+  "recommendation": "OPE-804 leftover slot #2. Fresh id — never previously shortlisted or benched. NOT a rubber-stamp of Euclid–Euler (different statement: pseudoprimes vs even perfect; odd-perfect/aliquot stay banned). Gap+budget hold (FermatPsp HIT as single-base defs + explicit 'not yet defined' comment; Squarefree HIT; CRT HIT; pow_totient HIT; Carmichael/Korselt ZERO). Mill: elementary-NT characterization leftover after a combinatorial prime — not a third additive theorem, not Heron-C. Score 89 because FermatPsp+CRT+Squarefree are waiting (attack 17) and only IsCarmichael is new (formalizability 17). Do NOT assign before lovasz-local-lemma unless Director swaps. Do NOT prove infinitude / λ(n) / odd-perfect / FLT.",
+  "mathlib_gap_grep_2026_08_31_ope804": "Pin mathlib a719ba5c3115 (v4.10.0). rg Carmichael/korselt over Mathlib/** + Archive/** → ONE hit: FermatPsp.lean L20 'not yet defined in this file'. Defs HIT: Nat.FermatPsp / Nat.ProbablePrime, Squarefree, ZMod.chineseRemainder, Nat.chineseRemainder, Nat.ModEq.pow_totient / ZMod.pow_totient, IsCyclic (ZMod p)ˣ. Already-in this run (never cite as gap): exists_infinite_pseudoprimes (fixed-base FermatPsp infinitude — DIFFERENT), FLT Three/Four, Wilson, Lucas binomial, Euler criterion, quadratic reciprocity, Bertrand, Nat.Perfect *def* + mersenne + LucasLehmer (Euclid–Euler now ProofLab), CauchyDavenport, EGZ, law_cos, Chernoff, turan (negative control). ProofLab Euclid–Euler even_perfect_iff / Vosper Level A / Heron namesake — NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "IsCarmichael n := 1<n ∧ ¬Prime n ∧ ∀ a, Coprime a n → ProbablePrime n a. Korselt n := Squarefree n ∧ ¬Prime n ∧ 1<n ∧ ∀ p Prime, p∣n → p-1∣n-1. Namesake: IsCarmichael ↔ Korselt. Level A may land only IsCarmichael → Korselt (or → Squarefree), not labelled korselt.",
+    "landmines": [
+      "Do not prove infinitude of Carmichael numbers (AGP 1994 out of v1).",
+      "Do not re-prove Nat.exists_infinite_pseudoprimes (already Mathlib; fixed-base, different).",
+      "Not the Carmichael function λ(n).",
+      "Not Euclid–Euler / odd-perfect / aliquot / Lucas–Lehmer (consumed #80 / banned leftovers).",
+      "Not FLT n=3/4 (already NumberTheory/FLT).",
+      "Do not re-prove pow_totient.",
+      "Do not re-prime vosper / heron / euclid-euler / bipartite / moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac / EKR.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Korselt 1899; Carmichael 1910. Type pin: Nat.ProbablePrime / Nat.FermatPsp + new IsCarmichael + Squarefree + p-1∣n-1. FermatPsp fixed-base infinitude / totient / Euclid–Euler / FLT / λ(n) are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: IsCarmichael → Squarefree (p²∣n fails Fermat to a suitable base) and IsCarmichael → ∀ p∣n, p-1∣n-1 via primitive root mod p (IsCyclic (ZMod p)ˣ already Mathlib); not labelled Korselt. Level B: converse via iterated CRT + Fermat/totient, bundled namesake korselt. Cap two levels. No infinitude / λ(n) / odd-perfect. IsCarmichael is the only new def.",
+  "infra_carry_over": [
+    "Mathlib NumberTheory.FermatPsp (Nat.FermatPsp, Nat.ProbablePrime, exists_infinite_pseudoprimes) — use defs; DO NOT re-prove fixed-base infinitude; DO NOT cite the missing Carmichael def as already-upstream",
+    "Mathlib Data.Nat.Squarefree",
+    "Mathlib Data.ZMod.Basic chineseRemainder / Data.Nat.ChineseRemainder",
+    "Mathlib FieldTheory.Finite.Basic Nat.ModEq.pow_totient — DO NOT re-prove",
+    "Mathlib IsCyclic (ZMod p)ˣ — finite-field units, DO NOT cite as this gap",
+    "ProofLab/EuclidEulerPerfect.lean — consumed #80, DO NOT re-prime / DO NOT treat Korselt as odd-perfect leftover",
+    "ProofLab/Vosper.lean / Heron.lean — consumed #82/#83, DO NOT re-prime",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "120k",
+  "skill_packs": ["number-theory", "formalization"],
+  "scored_at": "2026-08-31",
+  "scout_issue": "OPE-804",
+  "parent_issue": "OPE-803",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO IsCarmichael/Korselt; FermatPsp.lean explicit 'not yet defined'; Squarefree+CRT+pow_totient HIT",
+    "Fresh leftover after Euclid–Euler NT leftover consumed #80 and Heron geometry leftover consumed #83; NOT odd-perfect",
+    "Negative control turan → Turan.lean exists",
+    "exists_infinite_pseudoprimes / pow_totient / FLT 3+4 / Euclid–Euler disclosed as different statements"
+  ]
+}
