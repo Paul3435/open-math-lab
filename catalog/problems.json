@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-08-31T10:47:00Z",
+  "last_updated": "2026-08-31T12:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1023,10 +1023,10 @@
     {
       "id": "stirling-second-kind",
       "title": "Stirling numbers of the second kind: set-partition count (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "enumerative_combinatorics",
       "score": 86,
-      "note": "OPE-754 Scout leftover slot #2 (support OPE-753; post KST #73 + pentagonal #74). Classical S(n,k) set-partition count, NOT Stirling n! formula (already in Mathlib), NOT Catalan (already in Mathlib), NOT Nat.Partition / pentagonal / euler-odd-distinct / Schur. known-classical, no novelty. Fresh id.",
+      "note": "OPE-765 Formalist Level A honest partial. Scout OPE-754 leftover slot #2; Director OPE-764 assign. Classical S(n,k) set-partition count, NOT Stirling n! formula (already in Mathlib), NOT Catalan (already in Mathlib), NOT Nat.Partition / pentagonal / euler-odd-distinct / Schur. known-classical, no novelty. Lean zero-sorry ProofLab/StirlingSecondKind.lean. Namesake stirling_second residual (not sorry-ed).",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1034,17 +1034,22 @@
       ],
       "artifacts": [
         "catalog/problems/stirling-second-kind/",
-        "problems/stirling-second-kind/"
+        "problems/stirling-second-kind/",
+        "proofs/lean-project/ProofLab/StirlingSecondKind.lean"
       ],
       "scout_issue": "OPE-754",
       "tickets": [
         "OPE-754",
-        "OPE-753"
+        "OPE-753",
+        "OPE-764",
+        "OPE-765"
       ],
-      "parent_issue": "OPE-753"
+      "parent_issue": "OPE-753",
+      "lean_artifact": "proofs/lean-project/ProofLab/StirlingSecondKind.lean",
+      "formalist_issue": "OPE-765"
     }
   ],
-  "updated_at": "2026-08-31T10:47:00Z",
+  "updated_at": "2026-08-31T12:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
