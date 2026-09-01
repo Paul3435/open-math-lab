@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-832 Formalist: `wolstenholme-theorem` Level A landed, namesake residual.)
+**Last updated:** 2026-09-01 (OPE-838 Scout: post n-fold PIE #88 + Wolstenholme #89. Fresh shortlist `descartes-rule-of-signs` + `e-irrational`.)

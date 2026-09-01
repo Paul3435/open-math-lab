@@ -1,0 +1,53 @@
+{
+  "id": "descartes-rule-of-signs",
+  "title": "Descartes' rule of signs (formalize-only)",
+  "status": "candidate",
+  "domain": "algebra",
+  "score": 88,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Descartes 1637 rule of signs is settled: the number of positive real roots, counted with multiplicity, is at most the number of sign changes in the coefficient list (zeros skipped). Completely classical. Value is a Mathlib contribution (Polynomial.coeff/roots/IsRoot and Real.sign exist; ZERO named Descartes / signChanges bound in Mathlib+Archive; Wiedijk 100.yaml #100 has only an external github link, not a Mathlib decl). Do NOT re-fund as novel. Rational-root / Eisenstein / Gauss lemma / FTA / Rolle / Chebyshev T_n(cos) are already upstream (never cite as this gap).",
+  "recommendation": "OPE-838 RECOMMENDED PRIME. Fresh id as a funded slot — OPE-821 funded pair (n-fold PIE + Wolstenholme) is now CONSUMED (#88 namesake landed, #89 honest Level A). NOT a rubber-stamp of PIE, NOT a Wolstenholme leftover, NOT a third slot. Gap+budget hold (Polynomial.coeff/roots HIT; named Descartes ZERO in Mathlib+Archive; 100.yaml #100 has no Mathlib decl). Mill NOW: real-polynomial algebra after enumerative PIE (#88 CONSUMED) + NT Wolstenholme (#89 CONSUMED) — same Wiedijk-100-with-no-Mathlib-decl pattern as PIE #96 → Descartes #100. Score 88 because Polynomial+roots are waiting (formalizability 18) and only signChanges is new; Level A vanishing is cheap (partial 17). v1 pins Multiset.roots filter 0<x ≤ signChanges (zeros skipped). Do NOT assign e-irrational first unless Director swaps. Do NOT prove Budan–Fourier / Sturm / Gauss–Lucas / Niven cosine / e-transcendental.",
+  "mathlib_gap_grep_2026_09_01_ope838": "Pin mathlib a719ba5c3115 (v4.10.0). rg descartes/rule_of_signs/signChange/sign_changes over Mathlib/** + Archive/** → ZERO. Defs HIT: Polynomial.coeff, natDegree, eval, IsRoot, Polynomial.roots (Multiset), Real.sign. Already-in this run (never cite as gap): turan (negative control Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph), binomial add_pow, Vandermonde, Cramer, rational root (RationalRoot.lean), Eisenstein (irreducible_of_eisenstein_criterion), Gauss lemma, cyclotomic.irreducible, FTA Complex.exists_root, Rolle/MVT exists_deriv_eq_slope, AM-GM, Chebyshev T + T_real_cos (NOT Descartes), two-set card_union, n-fold PIE (ProofLab #88), Wilson, Lucas binomial, harmonic def + harmonic_not_int, CauchyDavenport, EGZ, law_cos, Ptolemy, law of sines (Sphere.lean), Nat.Perfect *def*, pow_totient, FLT 3+4, Pell, Roth 3AP, numDerangements, catalan, frobeniusNumber_pair, Bertrand, Zeckendorf, quadratic reciprocity, Möbius inversion, Burnside, Lagrange four squares, Fermat two-squares, LittleWedderburn, Jordan-Hölder, Maschke, Birkhoff representation, Szpilrajn/extend_partialOrder, Knaster-Tarski, Sprague-Grundy, exp_eq_tsum_div (series, NOT irrationality of e). ProofLab already has greedy/Brooks Δ≤2/Havel/Menger A/Cayley A/Mycielski/KK/Oddtown/sunflower/CNS/KST/pentagonal A/Moore/Stirling A/bipartite Colorable-2 iff no odd closed walk/Euclid–Euler even-perfect iff/Vosper Level A isAP_sum_card/Heron namesake/LLL namesake/Korselt namesake/n-fold PIE namesake/Wolstenholme Level A — those are NOT Mathlib and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "((p.roots.filter (0 < ·)).card) ≤ signChanges p for p ≠ 0. Zeros in the coefficient list skipped. Multiplicity via Multiset.roots is load-bearing. Level A may land only same-sign ⇒ no positive root, not labelled descartes_rule_of_signs.",
+    "landmines": [
+      "Do not re-prove FTA / Rolle / MVT / binomial / Vandermonde / rational-root / Eisenstein / Gauss lemma / cyclotomic irreducibility.",
+      "Chebyshev T_n(cos θ)=cos(nθ) is already Mathlib — not this theorem.",
+      "No Budan–Fourier / Sturm / Eneström–Kakeya / Gauss–Lucas.",
+      "Do not prove Niven cosine / π-irrational / e-transcendental.",
+      "Not n-fold PIE (consumed #88) / Wolstenholme (consumed #89 honest partial).",
+      "Do not re-prime lovasz-local-lemma / korselt-carmichael / vosper / heron / euclid-euler / bipartite / moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac / EKR.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Wiedijk 100 #100; Wikipedia Descartes' rule of signs (inequality; even-difference optional). Type pin: ℝ[X] + Polynomial.roots filter 0<x + signChanges on nonzero coeff. Timeroot external Lean is not Mathlib. Rational-root / Eisenstein / FTA / Rolle / Chebyshev T_n / PIE / Wolstenholme are different statements."
+  },
+  "feasibility_shape": "Level A: same-sign coefficients ⇒ no positive root, via eval positivity; not labelled Descartes. Level B: namesake descartes_rule_of_signs by stripping a positive root / Rolle / grouping. Cap two levels. No Sturm chain. signChanges is the only new def.",
+  "infra_carry_over": [
+    "Mathlib Algebra.Polynomial.Basic coeff / natDegree / eval — USE; DO NOT re-prove",
+    "Mathlib Algebra.Polynomial.Roots IsRoot / roots Multiset — USE; multiplicity is load-bearing",
+    "Mathlib Data.Real.Sign — optional; 0 ≤ coeff i * coeff j also works",
+    "Mathlib Analysis.Calculus.MeanValue exists_deriv_eq_slope — Rolle already upstream; USE if needed, DO NOT re-prove, DO NOT cite as this gap",
+    "Mathlib RingTheory.Polynomial.Chebyshev + T_real_cos — DIFFERENT theorem",
+    "ProofLab/InclusionExclusion.lean / Wolstenholme.lean — consumed #88/#89, DO NOT re-prime",
+    "ProofLab/CombinatorialNullstellensatz.lean — MvPolynomial, different theorem; univariate Polynomial is simpler",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["algebra", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-838",
+  "parent_issue": "OPE-837",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO descartes/rule_of_signs/signChange theorem; 100.yaml #100 has no Mathlib decl",
+    "Fresh funded slot: OPE-821 pair fully consumed (#88+#89); mill reason is Wiedijk-100 continuation PIE #96 → Descartes #100 after enumerative+NT mill closed",
+    "Negative control turan → Turan.lean exists",
+    "rational-root / Eisenstein / Gauss lemma / FTA / Rolle / Chebyshev T_n / PIE / Wolstenholme disclosed as different statements"
+  ]
+}
