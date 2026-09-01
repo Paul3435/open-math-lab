@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-853 Scout: catalog audit + ≤2 shortlist `erdos-ramsey-lower` + `zsigmondy-theorem`.)
+**Last updated:** 2026-09-01 (OPE-858 Formalist: erdos-ramsey-lower Level A+B landed, zero sorry. No novelty claim.)

@@ -1343,10 +1343,10 @@
     {
       "id": "erdos-ramsey-lower",
       "title": "Erdős probabilistic Ramsey lower bound (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "probabilistic_combinatorics",
       "score": 87,
-      "note": "OPE-853 Scout RECOMMENDED PRIME. Fresh funded slot after Descartes #91 + e-irrational #92 CONSUMED. Classical Erdős 1947 first-moment: n.choose k * 2 < 2^(k.choose 2) ⇒ R(k,k) > n, hence R(k,k) > 2^(k/2) for k≥3. NOT ramsey-r33/r35/r333 re-prime (reuse ProofLab RamseyUpper as encoding). NOT R(4,6). NOT infinite Ramsey (Wiedijk #31 external). NOT finite existence wrap of ramseyUpper_add (Cassini-class). NOT LLL-B. known-classical, no novelty.",
+      "note": "OPE-858 Formalist Level A+B landed. Scout OPE-853 prime; Director OPE-857. Classical Erdős 1947 first-moment / union bound. Level A: ramsey_union_bound (n.choose k * 2 < 2^(k.choose 2) ⇒ ¬ RamseyUpper k k n), not labelled Erdős. Level B namesake erdos_ramsey_lower: ¬ RamseyUpper k k (2^(k/2)) for 3≤k via choose * k! ≤ n^k. NOT ramsey-r33/r35/r333 re-prime (reuse ProofLab RamseyUpper as encoding). NOT R(4,6). NOT infinite Ramsey (Wiedijk #31 external). NOT finite existence wrap of ramseyUpper_add (Cassini-class). NOT LLL-B. known-classical, no novelty. Lean zero-sorry ProofLab/ErdosRamseyLower.lean.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1354,14 +1354,19 @@
       ],
       "artifacts": [
         "catalog/problems/erdos-ramsey-lower/",
-        "problems/erdos-ramsey-lower/"
+        "problems/erdos-ramsey-lower/",
+        "proofs/lean-project/ProofLab/ErdosRamseyLower.lean"
       ],
       "scout_issue": "OPE-853",
       "tickets": [
         "OPE-853",
-        "OPE-852"
+        "OPE-852",
+        "OPE-857",
+        "OPE-858"
       ],
-      "parent_issue": "OPE-852"
+      "parent_issue": "OPE-852",
+      "lean_artifact": "proofs/lean-project/ProofLab/ErdosRamseyLower.lean",
+      "formalist_issue": "OPE-858"
     },
     {
       "id": "zsigmondy-theorem",

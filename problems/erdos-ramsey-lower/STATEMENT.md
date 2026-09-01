@@ -1,7 +1,7 @@
 # Erdős probabilistic Ramsey lower bound (formalize-only)
 
 **id:** `erdos-ramsey-lower`
-**ticket:** OPE-853 Scout RECOMMENDED PRIME (Director OPE-852; post Descartes #91 + e-irrational #92)
+**ticket:** OPE-858 Formalist Level A+B (Scout OPE-853 prime; Director OPE-857; post Descartes #91 + e-irrational #92)
 **expected:** known-classical (Erdős 1947 first-moment / union bound) — **no novelty claim**
 
 ## Why not classical / why formalize-only
