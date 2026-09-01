@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-08-31 (OPE-804 Scout: post Vosper #82 + Heron #83. Fresh shortlist `lovasz-local-lemma` + `korselt-carmichael`.)
+**Last updated:** 2026-09-01 (OPE-821 Scout: post LLL #85 + Korselt #86. Fresh shortlist `n-fold-inclusion-exclusion` + `wolstenholme-theorem`.)

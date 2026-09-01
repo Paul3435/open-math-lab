@@ -1,0 +1,53 @@
+{
+  "id": "n-fold-inclusion-exclusion",
+  "title": "n-fold inclusion-exclusion (formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 90,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 18,
+    "attack_surface": 17,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "de Moivre / Whitney PIE is settled: |⋃ A_i| = ∑_{∅≠J} (-1)^{|J|+1} |⋂_{j∈J} A_j|. Completely classical. Value is a Mathlib contribution (Finset.card/union/inter/biUnion/powerset/inf' exist; two-set card_union already upstream; ZERO named n-fold inclusion-exclusion in Mathlib+Archive; Wiedijk 100.yaml #96 has only an external Lean 3 link, not a Mathlib decl). Do NOT re-fund as novel. Two-set union is already upstream (never cite as this gap). Disjoint card_biUnion is a different theorem. Derangement/Catalan already upstream.",
+  "recommendation": "OPE-821 RECOMMENDED PRIME. Fresh id as a funded slot — OPE-804 considered-not-slotted only because leftover cap went to Korselt (now CONSUMED #86). NOT a rubber-stamp of Korselt, NOT a Stirling-B leftover, NOT a third slot. Gap+budget hold (two-set card_union HIT; disjoint card_biUnion HIT as a DIFFERENT theorem; named PIE ZERO in Mathlib+Archive; 100.yaml #96 has no Mathlib decl). Mill NOW: enumerative combinatorics after probabilistic LLL (#85 CONSUMED) + NT Korselt (#86 CONSUMED) — not a second NT prime, not LLL-B/Azuma, not matching leftover. Score 90 because Finset+two-set are waiting (formalizability 18, attack 17) and only signed n-fold is new. v1 pins ℤ signed sum + inf' on nonempty index (no Fintype α). Do NOT assign wolstenholme-theorem first unless Director swaps. Do NOT re-prove two-set union / derangement / Catalan. Do NOT prove Bonferroni.",
+  "mathlib_gap_grep_2026_09_01_ope821": "Pin mathlib a719ba5c3115 (v4.10.0). rg inclusion.exclusion/InclusionExclusion over Mathlib/** + Archive/** → ZERO. Defs HIT: Finset.card, union, inter, biUnion, powerset, inf'. Two-set HIT: card_union_add_card_inter / card_union (Card.lean) — NEVER cite as this gap. Disjoint card_biUnion HIT (pairwise-disjoint hyp) — DIFFERENT theorem. Wiedijk 100.yaml #96 title 'Principle of Inclusion/Exclusion' with github link to Neil Strickland lean_lib only (no Mathlib decl). Already-in this run (never cite as gap): turan (negative control Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph), Chernoff measure_ge_le_exp_cgf, Markov/Chebyshev, Borel-Cantelli, two-set card_union, Nat.FermatPsp/ProbablePrime defs + exists_infinite_pseudoprimes, Wilson, Lucas binomial, harmonic def + harmonic_not_int + harmonic-series divergence, CauchyDavenport, EGZ, law_cos, Nat.Perfect *def*, pow_totient, FLT Three/Four, Ptolemy, Euler criterion, rearrangement, Pell, Vandermonde, Cramer, Roth 3AP, numDerangements, catalan, frobeniusNumber_pair, Bertrand, Zeckendorf, quadratic reciprocity, Möbius inversion, Burnside, Lagrange four squares, Fermat two-squares. ProofLab already has greedy/Brooks Δ≤2/Havel/Menger A/Cayley A/Mycielski/KK/Oddtown/sunflower/CNS/KST/pentagonal A/Moore/Stirling A/bipartite Colorable-2 iff no odd closed walk/Euclid–Euler even-perfect iff/Vosper Level A isAP_sum_card/Heron namesake/LLL namesake/Korselt namesake — those are NOT Mathlib and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "((s.biUnion A).card : ℤ) = ∑ t ∈ s.powerset.erase ∅, (-1)^{t.card+1} * (t.inf' h A).card. No Fintype α. Level A may land only the three-set identity, not labelled inclusion_exclusion.",
+    "landmines": [
+      "Do not re-prove two-set card_union / card_union_add_card_inter (already Mathlib).",
+      "Disjoint card_biUnion is not this theorem.",
+      "No Bonferroni / truncated PIE / sieve remainder.",
+      "Do not re-prove derangement / Catalan (already Mathlib).",
+      "Not Stirling-B / first-kind / Bell EGF (consumed #77 leftover class).",
+      "No Archive import (ballot / birthday are Archive-only, different theorems).",
+      "Do not re-prime lovasz-local-lemma / korselt-carmichael / vosper / heron / euclid-euler / bipartite / moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac / EKR.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Wiedijk 100 #96; Wikipedia compact form |⋃ A_i| = ∑_{∅≠J} (-1)^{|J|+1} |⋂_{j∈J} A_j|. Type pin: Finset.biUnion + powerset.erase ∅ + inf' + ℤ signs. Two-set card_union / disjoint card_biUnion / derangement / Catalan / ballot / birthday / LLL / Korselt are different statements, not this claim. Strickland external Lean 3 is not Mathlib."
+  },
+  "feasibility_shape": "Level A: three-set identity via two-set card_union twice; not labelled PIE. Level B: namesake inclusion_exclusion by induction on s.card (insert + two-set split of the signed sum). Cap two levels. No Bonferroni / derangement re-proof. interOver/inf' is the only new def. Empty index is 0=0.",
+  "infra_carry_over": [
+    "Mathlib Data.Finset.Card card_union_add_card_inter / card_union — USE; DO NOT re-prove; DO NOT cite as this gap",
+    "Mathlib Algebra.BigOperators.Group.Finset card_biUnion (disjoint) / card_biUnion_le — DIFFERENT theorems",
+    "Mathlib Data.Finset.Powerset / Lattice inf'",
+    "Mathlib Combinatorics.Derangements / Enumerative.Catalan — DO NOT re-prove",
+    "ProofLab/LovaszLocalLemma.lean / KorseltCarmichael.lean — consumed #85/#86, DO NOT re-prime",
+    "ProofLab/StirlingSecondKind.lean — consumed #77 honest informal; DO NOT invent stirling-B as this leftover",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-821",
+  "parent_issue": "OPE-820",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO inclusion.exclusion theorem; two-set card_union HIT as a DIFFERENT theorem; 100.yaml #96 has no Mathlib decl",
+    "Fresh funded slot: OPE-804 benched only because leftover cap went to Korselt; Korselt now CONSUMED #86; mill reason is post-LLL/Korselt diversification into enumerative combinatorics",
+    "Negative control turan → Turan.lean exists",
+    "two-set card_union / disjoint card_biUnion / derangement / Catalan / LLL / Korselt disclosed as different statements"
+  ]
+}
