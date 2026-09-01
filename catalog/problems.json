@@ -1401,10 +1401,10 @@
     {
       "id": "mason-stothers",
       "title": "Mason–Stothers theorem (polynomial ABC) (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "algebra",
       "score": 87,
-      "note": "OPE-870 Scout RECOMMENDED PRIME. Fresh funded slot after erdos-ramsey-lower #94 + zsigmondy-theorem #95 CONSUMED. Classical Stothers 1981 / Mason 1984 / Snyder AMM 2000 Wronskian: coprime a+b=c in CharZero+IsAlgClosed k[X], not all constant, ⇒ max deg + 1 ≤ n₀(abc). NOT Descartes (#91, different theorem). NOT Sturm/Budan/Gauss–Lucas. NOT CNS/Schwartz–Zippel/Alon–Füredi. NOT Zsigmondy/Bang/LTE/Artin. NOT integer abc (open). NOT number-theoretic FLT. known-classical, no novelty.",
+      "note": "OPE-876 Formalist Level A+B landed. Scout OPE-870 prime; Director OPE-875. Classical Stothers 1981 / Mason 1984 / Snyder AMM 2000 Wronskian. Level A: wronskian_ne_zero_of_coprime (not labelled Mason). Level B namesake mason_stothers: max deg + 1 ≤ (a*b*c).roots.toFinset.card over CharZero+IsAlgClosed. NOT integer abc. NOT FLT. NOT Descartes (#91). NOT Sturm. NOT CNS. NOT Zsigmondy (#95). NOT erdos-ramsey-lower (#94). NOT expander-mixing. known-classical, no novelty. Lean zero-sorry ProofLab/MasonStothers.lean.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -1412,14 +1412,20 @@
       ],
       "artifacts": [
         "catalog/problems/mason-stothers/",
-        "problems/mason-stothers/"
+        "problems/mason-stothers/",
+        "proofs/lean-project/ProofLab/MasonStothers.lean"
       ],
       "scout_issue": "OPE-870",
       "tickets": [
         "OPE-870",
-        "OPE-869"
+        "OPE-869",
+        "OPE-875",
+        "OPE-876"
       ],
-      "parent_issue": "OPE-869"
+      "parent_issue": "OPE-869",
+      "lean_artifact": "proofs/lean-project/ProofLab/MasonStothers.lean",
+      "formalist_issue": "OPE-876",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/97"
     },
     {
       "id": "expander-mixing",
