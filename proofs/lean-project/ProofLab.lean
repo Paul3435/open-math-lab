@@ -42,3 +42,4 @@ import ProofLab.LovaszLocalLemma
 import ProofLab.KorseltCarmichael
 import ProofLab.InclusionExclusion
 import ProofLab.Wolstenholme
+import ProofLab.Descartes

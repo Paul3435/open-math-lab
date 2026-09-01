@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-838 Scout: post n-fold PIE #88 + Wolstenholme #89. Fresh shortlist `descartes-rule-of-signs` + `e-irrational`.)
+**Last updated:** 2026-09-01 (OPE-843 Formalist: descartes-rule-of-signs Level A honest partial.)
