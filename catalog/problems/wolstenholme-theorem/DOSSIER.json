@@ -1,0 +1,56 @@
+{
+  "id": "wolstenholme-theorem",
+  "title": "Wolstenholme's theorem (formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 15,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Wolstenholme 1862 is settled: for prime p≥5, (2p−1).choose (p−1) ≡ 1 (mod p³). Completely classical. Value is a Mathlib contribution (Nat.choose / ModEq / harmonic *def* exist; ZERO Wolstenholme / p³ binomial congruence in Mathlib+Archive). Do NOT re-fund as novel. Wilson, Lucas binomial, harmonic_not_int, and harmonic-series divergence are already upstream (never cite as this gap). Korselt/Carmichael is a different ProofLab theorem (consumed #86).",
+  "recommendation": "OPE-821 leftover slot #2. Fresh funded slot — OPE-804 considered-not-slotted only as NT mill-duplicate of then-unassigned Korselt (leftover cap). Korselt now CONSUMED #86. NOT a Korselt leftover, NOT infinitude / λ(n) / odd-perfect, NOT a second NT prime. Gap+budget hold (choose/ModEq/harmonic def HIT; wolstenholme ZERO; Wilson/Lucas HIT as DIFFERENT theorems). Mill: elementary-NT congruence leftover after a combinatorial prime — same 2-slot pattern as Korselt after LLL. Score 84 because choose+ModEq are waiting (formalizability 16) but p³ lifting is real work and Bernoulli is a sink if they wander (verification 15). v1 pins ℕ binomial mod p³, not harmonic-in-ℚ, not Bernoulli. Do NOT assign before n-fold-inclusion-exclusion unless Director swaps. Do NOT prove Wolstenholme primes / mod p^4 / Bernoulli.",
+  "mathlib_gap_grep_2026_09_01_ope821": "Pin mathlib a719ba5c3115 (v4.10.0). rg wolstenholme over Mathlib/** + Archive/** → ZERO. Defs HIT: Nat.choose, Nat.ModEq, harmonic : ℕ → ℚ (NumberTheory/Harmonic/Defs.lean). Already-in this run (never cite as gap): Wilson wilsons_lemma, Lucas binomial Data/Nat/Choose/Lucas.lean, harmonic_not_int, Wiedijk #34 harmonic-series divergence (Real.tendsto_sum_range_one_div_nat_succ_atTop), pow_totient, Euler criterion, quadratic reciprocity, FLT Three/Four, Nat.FermatPsp / ProbablePrime *defs* + exists_infinite_pseudoprimes (not Carmichael — ProofLab korselt now), Nat.Perfect *def* + mersenne + LucasLehmer (Euclid–Euler now ProofLab), turan (negative control), Chernoff, CauchyDavenport, EGZ, law_cos, Bertrand, catalan, numDerangements, two-set card_union. ProofLab Euclid–Euler even_perfect_iff / Korselt namesake / LLL namesake / Vosper Level A / Heron namesake — NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "p.Prime → 5 ≤ p → (2*p-1).choose (p-1) ≡ 1 [MOD p^3]. Level A may land only the p² form (3 ≤ p), not labelled wolstenholme.",
+    "landmines": [
+      "Do not prove Wolstenholme primes / mod p^4 (out of v1).",
+      "No Bernoulli / p-adic zeta / irregular primes.",
+      "Do not re-prove Wilson (already wilsons_lemma).",
+      "Do not re-prove Lucas binomial (already Data/Nat/Choose/Lucas.lean).",
+      "Do not re-prove harmonic_not_int / harmonic-series divergence (already Mathlib; different statements).",
+      "Not Korselt / Carmichael infinitude / λ(n) / odd-perfect (consumed #86 / banned leftovers).",
+      "Not Euclid–Euler / FLT / totient re-proof.",
+      "Do not re-prime lovasz-local-lemma / korselt-carmichael / vosper / heron / euclid-euler / bipartite / moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac / EKR.",
+      "No Archive import.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "J. Wolstenholme, On certain properties of prime numbers, Q.J. Pure Appl. Math. 5 (1862), 35–39. Type pin: Nat.choose + Nat.ModEq + p.Prime + 5 ≤ p. Wilson / Lucas / harmonic_not_int / harmonic divergence / Korselt / Euclid–Euler / FLT / totient are different statements, not this claim."
+  },
+  "feasibility_shape": "Level A: (2p−1).choose (p−1) ≡ 1 [MOD p^2] for p≥3 via pairing / product expansion; not labelled Wolstenholme. Level B: lift to p^3 for p≥5, bundled namesake wolstenholme. Cap two levels. No Bernoulli / mod p^4 / Wolstenholme primes. Stay on ℕ; harmonic form is an optional corollary only.",
+  "infra_carry_over": [
+    "Mathlib Data.Nat.Choose.Basic (Nat.choose) — USE",
+    "Mathlib Data.Nat.Choose.Lucas — DO NOT re-prove; DO NOT cite as this gap",
+    "Mathlib NumberTheory.Wilson wilsons_lemma — DO NOT re-prove",
+    "Mathlib NumberTheory.Harmonic.Defs harmonic — definition only; harmonic_not_int is a DIFFERENT theorem",
+    "ProofLab/KorseltCarmichael.lean — consumed #86, DO NOT re-prime / DO NOT treat Wolstenholme as a Korselt leftover",
+    "ProofLab/EuclidEulerPerfect.lean — consumed #80, DO NOT re-prime",
+    "ProofLab/LovaszLocalLemma.lean — consumed #85, DO NOT re-prime",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "140k",
+  "skill_packs": ["number-theory", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-821",
+  "parent_issue": "OPE-820",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO wolstenholme; choose/ModEq/harmonic def HIT; Wilson/Lucas HIT as DIFFERENT theorems",
+    "Fresh leftover after Korselt NT leftover consumed #86; NOT odd-perfect / λ(n) / infinitude; NOT a Korselt leftover",
+    "Negative control turan → Turan.lean exists",
+    "Wilson / Lucas / harmonic_not_int / harmonic divergence / Korselt / Euclid–Euler disclosed as different statements"
+  ]
+}
