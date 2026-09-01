@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-01T07:30:00Z",
+  "last_updated": "2026-09-01T11:21:42Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1280,9 +1280,56 @@
       "lean_artifact": "proofs/lean-project/ProofLab/Wolstenholme.lean",
       "formalist_issue": "OPE-832",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/89"
+    },
+    {
+      "id": "descartes-rule-of-signs",
+      "title": "Descartes' rule of signs (formalize-only)",
+      "status": "candidate",
+      "domain": "algebra",
+      "score": 88,
+      "note": "OPE-838 Scout RECOMMENDED PRIME (support OPE-837; post n-fold PIE #88 + Wolstenholme #89). Classical Descartes 1637, Wiedijk 100 #100. NOT rational-root / Eisenstein / Gauss lemma / FTA / Rolle / Chebyshev T_n(cos) (already Mathlib), NOT Budan–Fourier / Sturm / Gauss–Lucas, NOT n-fold PIE (consumed #88), NOT Wolstenholme (consumed #89 honest partial), NOT e-transcendental. OPE-821 pair fully consumed; fresh algebra prime, not a PIE leftover. known-classical, no novelty.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/descartes-rule-of-signs/",
+        "problems/descartes-rule-of-signs/"
+      ],
+      "scout_issue": "OPE-838",
+      "tickets": [
+        "OPE-838",
+        "OPE-837"
+      ],
+      "parent_issue": "OPE-837"
+    },
+    {
+      "id": "e-irrational",
+      "title": "Irrationality of e (formalize-only)",
+      "status": "candidate",
+      "domain": "analysis",
+      "score": 84,
+      "note": "OPE-838 Scout leftover slot #2 (support OPE-837; post n-fold PIE #88 + Wolstenholme #89). Classical Euler/Fourier series remainder: Irrational (Real.exp 1). NOT e-transcendental (Wiedijk 67 external, different theorem), NOT π-irrational (Niven integral sink; leftover cap), NOT Liouville (already Mathlib; e is not Liouville), NOT harmonic_not_int / Wilson / Wolstenholme, NOT Descartes (the prime). Fresh analysis leftover after algebra prime, not a Wolstenholme leftover. known-classical, no novelty.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "analysis",
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/e-irrational/",
+        "problems/e-irrational/"
+      ],
+      "scout_issue": "OPE-838",
+      "tickets": [
+        "OPE-838",
+        "OPE-837"
+      ],
+      "parent_issue": "OPE-837"
     }
   ],
-  "updated_at": "2026-09-01T07:30:00Z",
+  "updated_at": "2026-09-01T11:21:42Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
