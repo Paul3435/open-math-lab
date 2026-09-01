@@ -1249,7 +1249,8 @@
       ],
       "parent_issue": "OPE-820",
       "lean_artifact": "proofs/lean-project/ProofLab/InclusionExclusion.lean",
-      "formalist_issue": "OPE-827"
+      "formalist_issue": "OPE-827",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/88"
     },
     {
       "id": "wolstenholme-theorem",
