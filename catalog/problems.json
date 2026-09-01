@@ -1278,7 +1278,8 @@
       ],
       "parent_issue": "OPE-820",
       "lean_artifact": "proofs/lean-project/ProofLab/Wolstenholme.lean",
-      "formalist_issue": "OPE-832"
+      "formalist_issue": "OPE-832",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/89"
     }
   ],
   "updated_at": "2026-09-01T07:30:00Z",
