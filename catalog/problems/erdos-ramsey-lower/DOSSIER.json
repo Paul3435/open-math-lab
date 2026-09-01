@@ -1,0 +1,54 @@
+{
+  "id": "erdos-ramsey-lower",
+  "title": "Erdős probabilistic Ramsey lower bound (formalize-only)",
+  "status": "candidate",
+  "domain": "probabilistic_combinatorics",
+  "score": 87,
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Erdős 1947 first-moment / union bound: if n.choose k * 2 < 2^(k.choose 2) then R(k,k) > n, hence R(k,k) > 2^(k/2) for k≥3. Completely classical. Value is a Mathlib/ProofLab contribution (SimpleGraph / IsNClique / Fintype (SimpleGraph V) / Nat.choose exist; ProofLab RamseyUpper exists as encoding; ZERO named diagonal first-moment lower bound in Mathlib+Archive). Do NOT re-fund as novel. Small Ramsey numbers in ProofLab are different statements. Infinite Ramsey (Wiedijk #31 external) is a different theorem.",
+  "recommendation": "OPE-853 RECOMMENDED PRIME. Fresh id as a funded slot — OPE-838 funded pair (Descartes + e-irrational) is now CONSUMED (#91 honest Level A, #92 namesake landed). NOT a rubber-stamp of R(3,3)=6, NOT a Descartes leftover, NOT an e-irrational leftover, NOT a third slot, NOT LLL-B, NOT ramsey-r46, NOT infinite Ramsey, NOT the finite-existence wrap of ramseyUpper_add (Cassini-class). Gap+budget hold (SimpleGraph/IsNClique/Fintype SimpleGraph HIT; named Ramsey theorem ZERO in Mathlib+Archive; 100.yaml #31 has no Mathlib decl). Mill NOW: probabilistic-combinatorics counting after polynomial algebra (#91 CONSUMED) + analysis (#92 CONSUMED) — ProofLab RamseyUpper is waiting the same way Polynomial.coeff waited for Descartes. Score 87 because RamseyUpper+choose+Fintype graphs are waiting (formalizability 17) and only the counting criterion is new; Level A union bound is cheap (partial 17). v1 pins the binomial criterion plus 2^(k/2) corollary. Do NOT assign zsigmondy-theorem first unless Director swaps. Do NOT prove R(4,6) / infinite Ramsey / LLL-from-this.",
+  "mathlib_gap_grep_2026_09_01_ope853": "Pin mathlib a719ba5c3115 (v4.10.0). rg ramsey over Mathlib/Combinatorics + Archive → ZERO graph-Ramsey theorems (Hindman / HalesJewett / exists_mono_homothetic_copy are DIFFERENT). SimpleGraph/ → ZERO Ramsey. Fintype (SimpleGraph V) HIT (Basic.lean). IsNClique HIT. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Already-in this run (never cite as gap): turan, Hales–Jewett, homothetic VdW existence, Hindman, AM-GM, Gershgorin, Hadamard-as-abs_volumeForm_apply_le (Orientation.lean — NOT a gap), Matrix.det_le (n! entrywise bound, NOT Hadamard), Hilbert basis Polynomial.isNoetherianRing, Nakayama, primitive element, Galois correspondence, Cauchy integral, Liouville entire, max modulus, Young/Jensen, spectral_theorem, Cayley–Hamilton, Vandermonde, Cramer, quadratic reciprocity, Zeckendorf, Wilson, Lucas, four/two squares, Bertrand, Catalan, derangement, exp_eq_tsum_div, Chebyshev T_n(cos), Eisenstein, rational-root, Gauss lemma, infinite_setOf_prime_modEq_one (≡1 mod k, NOT 3 mod 4, NOT Zsigmondy). ProofLab already has Ramsey numbers / greedy / Brooks Δ≤2 / LLL / Descartes Level A / e-irrational namesake — those are NOT Mathlib and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "¬ RamseyUpper k k n whenever n.choose k * 2 < 2^(k.choose 2). Namesake erdos_ramsey_lower: ¬ RamseyUpper k k (2^(k/2)) for 3≤k. Level A may land only the counting criterion, not labelled Erdős.",
+    "landmines": [
+      "Do not re-prove IsNClique / Fintype SimpleGraph / Nat.choose / Hindman / HJ / Turán.",
+      "Not ramsey-r33 / r35 / r333 / R(3,4) / R(4,4) re-primes. Reuse RamseyUpper as encoding.",
+      "Not R(4,6). Not infinite Ramsey. Not finite existence wrap of ramseyUpper_add.",
+      "Not LLL / Chernoff / Azuma. Union bound is the engine.",
+      "Not Descartes (#91) / e-irrational (#92) / PIE (#88) / Wolstenholme (#89).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Erdős Bull. AMS 53 (1947); Alon–Spencer first-moment R(k,k)>2^(k/2). Type pin: ProofLab RamseyUpper. Wiedijk #31 infinite Ramsey external is not this claim."
+  },
+  "feasibility_shape": "Level A: union-bound criterion via Fintype.card (SimpleGraph (Fin n)) vs k-sets × 2 × 2^(binom n 2 − binom k 2); not labelled Erdős. Glue: card of SimpleGraph = 2^(n.choose 2). Level B: namesake at n = 2^(k/2) via choose ≤ pow. Cap two levels. No Spencer off-diagonal, no LLL.",
+  "infra_carry_over": [
+    "ProofLab/Ramsey.lean RamseyUpper / HasClique — USE as encoding; DO NOT re-prime small numbers",
+    "Mathlib Combinatorics.SimpleGraph.Clique IsNClique / cliqueFinset — USE",
+    "Mathlib Combinatorics.SimpleGraph.Basic Fintype (SimpleGraph V) — USE",
+    "Mathlib Data.Nat.Choose Nat.choose — USE",
+    "Mathlib Combinatorics.HalesJewett exists_mono_homothetic_copy — DIFFERENT theorem (VdW existence)",
+    "ProofLab/LovaszLocalLemma.lean — consumed #85, union bound is NOT LLL, DO NOT re-prime",
+    "ProofLab/Descartes.lean / EIrrational.lean — consumed #91/#92, DO NOT re-prime",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-853",
+  "parent_issue": "OPE-852",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO graph Ramsey theorem; Fintype SimpleGraph HIT; 100.yaml #31 has no Mathlib decl (infinite, external)",
+    "Fresh funded slot: OPE-838 pair fully consumed (#91+#92); mill reason is probabilistic counting after algebra+analysis mill closed; ProofLab RamseyUpper waiting",
+    "Negative control turan → Turan.lean exists",
+    "Hadamard abs_volumeForm_apply_le disclosed as already-in (never cite as gap)",
+    "Small Ramsey numbers / infinite Ramsey / ramseyUpper_add existence wrap / LLL disclosed as different statements"
+  ]
+}

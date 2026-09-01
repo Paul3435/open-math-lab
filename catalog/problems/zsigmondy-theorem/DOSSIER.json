@@ -1,0 +1,52 @@
+{
+  "id": "zsigmondy-theorem",
+  "title": "Zsigmondy's theorem, Bang case (formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Bang 1886 / Zsigmondy 1892: for a≥2, n≥3 except (2,6), a^n−1 has a primitive prime divisor (order of a mod p equals n). Completely classical. Value is a Mathlib contribution (cyclotomic.eval and orderOf exist; ZERO named Bang/Zsigmondy / primitive prime divisor in Mathlib+Archive). Do NOT re-fund as novel. infinite_setOf_prime_modEq_one is already upstream and is a DIFFERENT theorem (infinitude ≡1 mod k, not a primitive divisor of a particular a^n−1). Full a^n−b^n for b>1 is out of v1.",
+  "recommendation": "OPE-853 leftover slot #2. Fresh id as a funded slot after OPE-838 pair CONSUMED (#91+#92). NOT a Wolstenholme leftover, NOT a Korselt leftover, NOT a third slot, NOT infinitude ≡3 mod 4 (Cassini-class), NOT Dirichlet AP (analytic sink), NOT infinite_setOf_prime_modEq_one (already Mathlib). Gap+budget hold (cyclotomic.eval HIT; size bound sub_one_lt_natAbs_cyclotomic_eval HIT; named Bang/Zsigmondy ZERO). Mill NOW: elementary-NT leftover after a combinatorics prime (erdos-ramsey-lower) — cyclotomic eval is waiting, analogous to e-irrational after Descartes. Score 84 because cyclotomic+orderOf are waiting (formalizability 16) but the (2,6) exception and Φ_n vs a^d−1 divisibility are real work (attack 16, verification 16). v1 pins Bang b=1 only. Do NOT assign before erdos-ramsey-lower unless Director swaps. Do NOT prove full a^n−b^n / Artin primitive-root conjecture.",
+  "mathlib_gap_grep_2026_09_01_ope853": "Pin mathlib a719ba5c3115 (v4.10.0). rg zsigmondy/bang.?theorem/primitivePrime over Mathlib/** + Archive/** → ZERO. Defs HIT: Polynomial.cyclotomic, cyclotomic.eval, sub_one_lt_natAbs_cyclotomic_eval, orderOf, IsCyclic (ZMod p)ˣ. Already-in this run (never cite as gap): infinite_setOf_prime_modEq_one (PrimesCongruentOne.lean — DIFFERENT), Wilson, Lucas binomial, harmonic_not_int, pow_totient, Bertrand, Zeckendorf, quadratic reciprocity, four/two squares, FLT 3+4, Pell, Eisenstein, Gauss lemma, cyclotomic.irreducible, turan negative control. ProofLab Wolstenholme Level A / Korselt / Euclid–Euler are NOT this theorem and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem bang: 2≤a → 3≤n → ¬(a=2 ∧ n=6) → ∃ p, p.Prime ∧ ¬p ∣ a ∧ orderOf (a : ZMod p) = n. Level A may land only Φ_n(a) has a prime factor, not labelled Bang.",
+    "landmines": [
+      "Do not re-prove cyclotomic.eval / cyclotomic size bounds / IsCyclic (ZMod p)ˣ / infinite_setOf_prime_modEq_one.",
+      "Not infinitude ≡1 mod k (already Mathlib). Not ≡3 mod 4 (Cassini-class).",
+      "Not Dirichlet AP. Not Wolstenholme / Korselt / odd-perfect / λ(n) / Carmichael-infinitude.",
+      "Not full a^n−b^n. Not Artin primitive-root conjecture.",
+      "Not erdos-ramsey-lower (the prime). Do not assign first unless Director swaps.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Bang 1886; Zsigmondy 1892. Wikipedia Zsigmondy's theorem. v1 pins b=1, n≥3, exception (2,6) only. Type pin: orderOf (a : ZMod p) = n. PrimesCongruentOne is a different statement."
+  },
+  "feasibility_shape": "Level A: |Φ_n(a)| > 1 via Mathlib cyclotomic size bound, hence a prime factor; not labelled Bang. Level B: namesake — a prime factor of Φ_n(a) has order n. Exception (2,6) load-bearing. Cap two levels. No b>1.",
+  "infra_carry_over": [
+    "Mathlib RingTheory.Polynomial.Cyclotomic.Eval cyclotomic.eval / sub_one_lt_natAbs_cyclotomic_eval — USE; DO NOT re-prove",
+    "Mathlib Algebra.Group.OrderOf orderOf — USE",
+    "Mathlib NumberTheory.PrimesCongruentOne infinite_setOf_prime_modEq_one — DIFFERENT theorem; uses the same size bound as engine",
+    "Mathlib FieldTheory / ZMod units IsCyclic (ZMod p)ˣ — USE (already used by ProofLab Korselt)",
+    "ProofLab/Wolstenholme.lean / KorseltCarmichael.lean / EuclidEulerPerfect.lean — consumed, DO NOT re-prime",
+    "ProofLab/Ramsey.lean — encoding for the PRIME, not this leftover",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["number-theory", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-853",
+  "parent_issue": "OPE-852",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO zsigmondy/bang theorem; cyclotomic.eval HIT; PrimesCongruentOne disclosed as different",
+    "Fresh funded leftover: mill reason is NT leftover after combinatorics Erdős-Ramsey prime; Wolstenholme/Korselt consumed, not re-warmed",
+    "Negative control turan → Turan.lean exists",
+    "infinite_setOf_prime_modEq_one / ≡3 mod 4 / Dirichlet / Wolstenholme / Artin disclosed as different statements"
+  ]
+}
