@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-01T20:57:32Z",
+  "last_updated": "2026-09-01T21:53:28Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1433,7 +1433,7 @@
       "status": "informal",
       "domain": "spectral_graph_theory",
       "score": 84,
-      "note": "OPE-881 Formalist Level A + Level B engine landed (honest partial). Scout OPE-870 leftover; Director OPE-880. Classical Alon–Chung 1988 / Alon–Spencer. Level A: adjMatrix_isHermitian / adjMatrix_mulVec_allOnes / orth_allOnes_invariant (not labelled expander). Level B engine: mixing_identity + residual ℓ² bound. Namesake expander_mixing residual: pin μ ≠ d does not bound extra d-eigenvectors in 1^⊥; not sorry-ed. NOT Ramsey leftover (#94). NOT Friendship/Moore. NOT Kirchhoff/lapMatrix. NOT Wilf. NOT mason-stothers (#97). known-classical, no novelty. Lean zero-sorry ProofLab/ExpanderMixing.lean.",
+      "note": "OPE-881 Formalist Level A + Level B engine landed (honest partial). Scout OPE-870 leftover; Director OPE-880. Classical Alon–Chung 1988 / Alon–Spencer. Level A: adjMatrix_isHermitian / adjMatrix_mulVec_allOnes / orth_allOnes_invariant (not labelled expander). Level B engine: mixing_identity + residual ℓ² bound. Namesake expander_mixing residual: pin μ ≠ d does not bound extra d-eigenvectors in 1^⊥; not sorry-ed. NOT Ramsey leftover (#94). NOT Friendship/Moore. NOT Kirchhoff/lapMatrix. NOT Wilf. NOT mason-stothers (#97). known-classical, no novelty. Lean zero-sorry ProofLab/ExpanderMixing.lean. Catalog pr stamped PR #98 MERGED (OPE-886 Scout hygiene; not a new proof layer).",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1453,10 +1453,57 @@
       ],
       "parent_issue": "OPE-869",
       "lean_artifact": "proofs/lean-project/ProofLab/ExpanderMixing.lean",
-      "formalist_issue": "OPE-881"
+      "formalist_issue": "OPE-881",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/98"
+    },
+    {
+      "id": "frobenius-real-division",
+      "title": "Frobenius theorem on real division algebras (formalize-only)",
+      "status": "shortlisted",
+      "domain": "algebra",
+      "score": 87,
+      "note": "OPE-886 Scout RECOMMENDED PRIME (Director OPE-885). Fresh funded slot after mason-stothers #97 + expander-mixing #98 CONSUMED. Classical Frobenius 1878 / Palais AMM 1968. Finite-dimensional associative real division algebras ≃ ℝ, ℂ, or ℍ. NOT Gelfand–Mazur (already Mathlib, complex Banach). NOT Mason–Stothers (#97). NOT expander-mixing (#98). NOT frobenius-coin-problem (OPE-25 Mathlib). NOT Frobenius endomorphism. NOT Artin–Wedderburn (proof_wanted, leftover-risk). NOT Hurwitz 1-2-4-8 / octonions. known-classical, no novelty.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/frobenius-real-division/",
+        "problems/frobenius-real-division/"
+      ],
+      "scout_issue": "OPE-886",
+      "tickets": [
+        "OPE-886",
+        "OPE-885"
+      ],
+      "parent_issue": "OPE-885"
+    },
+    {
+      "id": "noether-normalization",
+      "title": "Noether normalization lemma (formalize-only)",
+      "status": "shortlisted",
+      "domain": "algebra",
+      "score": 82,
+      "note": "OPE-886 Scout leftover slot #2 (Director OPE-885). Fresh funded leftover after mason-stothers #97 + expander-mixing #98 CONSUMED. Classical Noether 1926 / Atiyah–Macdonald 5.16. Finite-type k-algebra is module-finite over a polynomial subalgebra on an algebraically independent family. NOT Algebra.IsIntegral.finite (already Mathlib infra). NOT Hilbert basis / Nullstellensatz / primitive element (already Mathlib). NOT Mason–Stothers (#97). NOT CNS (#71). NOT frobenius-real-division (the prime). NOT going-up leftover. known-classical, no novelty.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/noether-normalization/",
+        "problems/noether-normalization/"
+      ],
+      "scout_issue": "OPE-886",
+      "tickets": [
+        "OPE-886",
+        "OPE-885"
+      ],
+      "parent_issue": "OPE-885"
     }
   ],
-  "updated_at": "2026-09-01T20:57:32Z",
+  "updated_at": "2026-09-01T21:53:28Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

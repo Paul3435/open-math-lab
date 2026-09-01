@@ -1,0 +1,52 @@
+{
+  "id": "noether-normalization",
+  "title": "Noether normalization lemma (formalize-only)",
+  "status": "shortlisted",
+  "domain": "algebra",
+  "score": 82,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Noether 1926 / Atiyah–Macdonald 5.16: a finitely generated algebra A over a field k is module-finite over a polynomial subalgebra k[y1,…,yd] on an algebraically independent family. Completely classical. Value is a Mathlib/ProofLab contribution (Algebra.FiniteType / Algebra.IsIntegral.finite / MvPolynomial exist; ZERO named Noether normalization in Mathlib+Archive). Do NOT re-fund as novel. Algebra.IsIntegral.finite is a DIFFERENT fact (infra — integral+finite-type ⇒ Module.Finite). Hilbert basis / Nullstellensatz / primitive element are DIFFERENT already-upstream theorems. Mason–Stothers is a DIFFERENT polynomial theorem.",
+  "recommendation": "OPE-886 leftover slot #2. Fresh id as a funded leftover after OPE-870 pair CONSUMED (#97+#98). NOT a Mason leftover, NOT a Descartes leftover, NOT a CNS leftover, NOT a third slot, NOT going-up / lying-over / Krull PIT, NOT Nullstellensatz. Gap+budget hold (FiniteType HIT; IsIntegral.finite HIT as DIFFERENT infra; named Noether normalization ZERO). Mill NOW: commutative finite-type leftover after an associative-division prime (frobenius-real-division) — Finiteness.lean is waiting the same way cyclotomic.eval waited for Zsigmondy. Score 82 because FiniteType+MvPolynomial are waiting (formalizability 15) but the change-of-variables induction is real work (attack 15). v1 pins FiniteType over a field, Module.Finite over MvPolynomial (Fin d). Infinite-k linear change is an acceptable v1 cap. Do NOT assign before frobenius-real-division unless Director swaps. Do NOT prove going-up / Nullstellensatz.",
+  "mathlib_gap_grep_2026_09_01_ope886": "Pin mathlib a719ba5c3115 (v4.10.0). rg noether.?normal / normalization.?lemma over Mathlib/RingTheory + Archive → ZERO. Defs HIT: Algebra.FiniteType, Algebra.IsIntegral.finite, Module.Finite ↔ IsIntegral ∧ FiniteType (IsIntegralClosure/Basic.lean L167–174 — DIFFERENT fact, USE), MvPolynomial, Hilbert basis, Artin–Tate fg_of_fg_of_fg. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Already-in this run: see frobenius-real-division dossier already-in block. ProofLab already has Mason namesake / expander Level A+engine / CNS namesake — those are NOT this theorem and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem noether_normalization: Algebra.FiniteType k A → ∃ d y, AlgebraicIndependent k y ∧ Module.Finite (MvPolynomial (Fin d) k) A. Level A may land only the identity polynomial-ring case + one-step integral substitution, not labelled Noether.",
+    "landmines": [
+      "Do not re-prove Hilbert basis / Nakayama / Algebra.IsIntegral.finite / primitive element / Galois / Artin–Tate / Nullstellensatz.",
+      "Not Mason–Stothers (#97) / Descartes (#91) / CNS (#71) / Schwartz–Zippel / Alon–Füredi.",
+      "Not frobenius-real-division (the prime). Do not assign first unless Director swaps.",
+      "Not going-up / lying-over / Krull PIT as extra namesakes.",
+      "Not expander-mixing (#98) / Cheeger / integer abc / FLT / π-irrational leftover.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Noether 1926; Atiyah–Macdonald Theorem 5.16; Eisenbud Theorem 13.3. Wikipedia Noether normalization lemma. Type pin: Algebra.FiniteType / AlgebraicIndependent / MvPolynomial / Module.Finite. Algebra.IsIntegral.finite is infra, not this claim."
+  },
+  "feasibility_shape": "Level A: polynomial ring finite over itself; one-step integral substitution; not labelled Noether. Level B: namesake by induction on generators + change of variables (infinite k linear form acceptable v1 cap; finite k power trick is residual). Cap two levels. No Nullstellensatz, no going-up namesake. Honest partial allowed (comment residual, not sorry).",
+  "infra_carry_over": [
+    "Mathlib RingTheory.Finiteness Algebra.FiniteType / Module.Finite — USE; DO NOT re-prove",
+    "Mathlib RingTheory.IntegralClosure Algebra.IsIntegral.finite — USE; DO NOT cite as this gap",
+    "Mathlib MvPolynomial aeval / adjoin / AlgebraicIndependent — USE",
+    "Mathlib Hilbert basis / Nakayama / Artin–Tate — DIFFERENT; DO NOT re-prove",
+    "ProofLab/MasonStothers.lean — consumed #97, different theorem, DO NOT re-prime",
+    "ProofLab/CombinatorialNullstellensatz.lean — consumed #71, different theorem, DO NOT re-prime",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["algebra", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-886",
+  "parent_issue": "OPE-885",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Noether normalization; IsIntegral.finite HIT as infra only",
+    "Fresh funded leftover: OPE-870 pair fully consumed (#97+#98); mill reason is FiniteType commutative leftover after division-algebra prime",
+    "Negative control turan → Turan.lean exists",
+    "Mason / CNS / Hilbert basis / Nullstellensatz / going-up disclosed as different statements"
+  ]
+}
