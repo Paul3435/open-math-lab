@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-827 Formalist: `n-fold-inclusion-exclusion` Level A+B namesake landed. Leftover `wolstenholme-theorem` unassigned.)
+**Last updated:** 2026-09-01 (OPE-832 Formalist: `wolstenholme-theorem` Level A landed, namesake residual.)

@@ -1255,10 +1255,10 @@
     {
       "id": "wolstenholme-theorem",
       "title": "Wolstenholme's theorem (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "elementary_number_theory",
       "score": 84,
-      "note": "OPE-821 Scout leftover slot #2 (support OPE-820; post LLL #85 + Korselt #86). Classical Wolstenholme 1862 binomial (2p-1).choose(p-1) ≡ 1 mod p³ for p≥5. NOT Wilson (already Mathlib), NOT Lucas binomial (already), NOT harmonic_not_int / harmonic-series divergence (already), NOT Korselt (#86), NOT infinitude/λ(n)/odd-perfect, NOT Euclid–Euler (#80), NOT Bernoulli/mod p^4/Wolstenholme primes. OPE-804 benched only as NT mill-duplicate of then-unassigned Korselt; now a FRESH leftover, not a Korselt leftover. known-classical, no novelty.",
+      "note": "OPE-832 Formalist Level A landed (honest partial). Scout OPE-821 leftover slot #2; Director OPE-831. Classical Wolstenholme 1862 binomial (2p-1).choose(p-1) ≡ 1 mod p³ for p≥5. Level A: choose_mod_p_sq (mod p², p≥3), not labelled Wolstenholme. Level B namesake residual (mod p³ lift not closed; not sorry-ed). NOT Wilson, NOT Lucas binomial, NOT harmonic_not_int / harmonic-series divergence, NOT Korselt (#86), NOT n-fold PIE (#88), NOT Bernoulli/mod p^4/Wolstenholme primes. known-classical, no novelty. Lean zero-sorry ProofLab/Wolstenholme.lean.",
       "expected": "known-classical",
       "skill_packs": [
         "number-theory",
@@ -1266,14 +1266,19 @@
       ],
       "artifacts": [
         "catalog/problems/wolstenholme-theorem/",
-        "problems/wolstenholme-theorem/"
+        "problems/wolstenholme-theorem/",
+        "proofs/lean-project/ProofLab/Wolstenholme.lean"
       ],
       "scout_issue": "OPE-821",
       "tickets": [
         "OPE-821",
-        "OPE-820"
+        "OPE-820",
+        "OPE-831",
+        "OPE-832"
       ],
-      "parent_issue": "OPE-820"
+      "parent_issue": "OPE-820",
+      "lean_artifact": "proofs/lean-project/ProofLab/Wolstenholme.lean",
+      "formalist_issue": "OPE-832"
     }
   ],
   "updated_at": "2026-09-01T07:30:00Z",
