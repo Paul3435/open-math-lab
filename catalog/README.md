@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-821 Scout: post LLL #85 + Korselt #86. Fresh shortlist `n-fold-inclusion-exclusion` + `wolstenholme-theorem`.)
+**Last updated:** 2026-09-01 (OPE-827 Formalist: `n-fold-inclusion-exclusion` Level A+B namesake landed. Leftover `wolstenholme-theorem` unassigned.)
