@@ -1307,7 +1307,8 @@
       ],
       "parent_issue": "OPE-837",
       "lean_artifact": "proofs/lean-project/ProofLab/Descartes.lean",
-      "formalist_issue": "OPE-843"
+      "formalist_issue": "OPE-843",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/91"
     },
     {
       "id": "e-irrational",
