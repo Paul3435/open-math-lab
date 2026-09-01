@@ -1,7 +1,7 @@
 {
   "id": "wolstenholme-theorem",
   "title": "Wolstenholme's theorem (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "elementary_number_theory",
   "score": 84,
   "scores": {
