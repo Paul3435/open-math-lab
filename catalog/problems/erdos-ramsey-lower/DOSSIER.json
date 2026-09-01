@@ -1,7 +1,7 @@
 {
   "id": "erdos-ramsey-lower",
   "title": "Erdős probabilistic Ramsey lower bound (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "probabilistic_combinatorics",
   "score": 87,
   "scores": {
@@ -43,6 +43,7 @@
   "skill_packs": ["combinatorics", "formalization"],
   "scored_at": "2026-09-01",
   "scout_issue": "OPE-853",
+  "formalist_issue": "OPE-858",
   "parent_issue": "OPE-852",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO graph Ramsey theorem; Fintype SimpleGraph HIT; 100.yaml #31 has no Mathlib decl (infinite, external)",
