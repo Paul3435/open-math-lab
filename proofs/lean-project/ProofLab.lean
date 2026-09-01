@@ -45,3 +45,4 @@ import ProofLab.Wolstenholme
 import ProofLab.Descartes
 import ProofLab.EIrrational
 import ProofLab.ErdosRamseyLower
+import ProofLab.Zsigmondy
