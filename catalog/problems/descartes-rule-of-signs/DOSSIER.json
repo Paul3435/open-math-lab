@@ -1,7 +1,7 @@
 {
   "id": "descartes-rule-of-signs",
   "title": "Descartes' rule of signs (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "algebra",
   "score": 88,
   "scores": {
@@ -43,6 +43,7 @@
   "skill_packs": ["algebra", "formalization"],
   "scored_at": "2026-09-01",
   "scout_issue": "OPE-838",
+  "formalist_issue": "OPE-843",
   "parent_issue": "OPE-837",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO descartes/rule_of_signs/signChange theorem; 100.yaml #100 has no Mathlib decl",

@@ -1,7 +1,7 @@
 # Descartes' rule of signs (formalize-only)
 
 **id:** `descartes-rule-of-signs`
-**ticket:** OPE-838 Scout RECOMMENDED PRIME (support OPE-837; post n-fold PIE #88 + Wolstenholme #89)
+**ticket:** OPE-843 Formalist Level A (Scout OPE-838 RECOMMENDED PRIME; Director OPE-842; support OPE-837; post n-fold PIE #88 + Wolstenholme #89)
 **expected:** known-classical (Descartes 1637; Wiedijk 100 #100) — **no novelty claim**
 
 ## Why not classical / why formalize-only

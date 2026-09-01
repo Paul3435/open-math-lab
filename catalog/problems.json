@@ -1284,10 +1284,10 @@
     {
       "id": "descartes-rule-of-signs",
       "title": "Descartes' rule of signs (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "algebra",
       "score": 88,
-      "note": "OPE-838 Scout RECOMMENDED PRIME (support OPE-837; post n-fold PIE #88 + Wolstenholme #89). Classical Descartes 1637, Wiedijk 100 #100. NOT rational-root / Eisenstein / Gauss lemma / FTA / Rolle / Chebyshev T_n(cos) (already Mathlib), NOT Budan–Fourier / Sturm / Gauss–Lucas, NOT n-fold PIE (consumed #88), NOT Wolstenholme (consumed #89 honest partial), NOT e-transcendental. OPE-821 pair fully consumed; fresh algebra prime, not a PIE leftover. known-classical, no novelty.",
+      "note": "OPE-843 Formalist Level A landed (honest partial). Scout OPE-838 recommended prime; Director OPE-842. Classical Descartes 1637 / Wiedijk 100 #100. Level A: same_sign_coeff_no_positive_root (same-sign nonzero coeffs ⇒ no positive root), not labelled Descartes. Level B namesake residual (Segner / stripping a positive root not closed; not sorry-ed). NOT rational-root / Eisenstein / Gauss lemma / FTA / Rolle / Chebyshev T_n(cos), NOT Budan–Fourier / Sturm / Gauss–Lucas, NOT n-fold PIE (consumed #88), NOT Wolstenholme (consumed #89 honest partial), NOT e-transcendental. known-classical, no novelty. Lean zero-sorry ProofLab/Descartes.lean.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -1295,14 +1295,19 @@
       ],
       "artifacts": [
         "catalog/problems/descartes-rule-of-signs/",
-        "problems/descartes-rule-of-signs/"
+        "problems/descartes-rule-of-signs/",
+        "proofs/lean-project/ProofLab/Descartes.lean"
       ],
       "scout_issue": "OPE-838",
       "tickets": [
         "OPE-838",
-        "OPE-837"
+        "OPE-837",
+        "OPE-842",
+        "OPE-843"
       ],
-      "parent_issue": "OPE-837"
+      "parent_issue": "OPE-837",
+      "lean_artifact": "proofs/lean-project/ProofLab/Descartes.lean",
+      "formalist_issue": "OPE-843"
     },
     {
       "id": "e-irrational",
@@ -1329,7 +1334,7 @@
       "parent_issue": "OPE-837"
     }
   ],
-  "updated_at": "2026-09-01T11:21:42Z",
+  "updated_at": "2026-09-01T12:23:41Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
