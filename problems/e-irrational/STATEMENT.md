@@ -1,7 +1,7 @@
 # Irrationality of e (formalize-only)
 
 **id:** `e-irrational`
-**ticket:** OPE-838 Scout leftover slot #2 (support OPE-837; post n-fold PIE #88 + Wolstenholme #89)
+**ticket:** OPE-848 Formalist Level A+B (Scout OPE-838 leftover slot #2; Director OPE-847; support OPE-837; post Descartes #91)
 **expected:** known-classical (Euler / Fourier series remainder) — **no novelty claim**
 
 ## Why not classical / why formalize-only

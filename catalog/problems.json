@@ -1313,10 +1313,10 @@
     {
       "id": "e-irrational",
       "title": "Irrationality of e (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "analysis",
       "score": 84,
-      "note": "OPE-838 Scout leftover slot #2 (support OPE-837; post n-fold PIE #88 + Wolstenholme #89). Classical Euler/Fourier series remainder: Irrational (Real.exp 1). NOT e-transcendental (Wiedijk 67 external, different theorem), NOT π-irrational (Niven integral sink; leftover cap), NOT Liouville (already Mathlib; e is not Liouville), NOT harmonic_not_int / Wilson / Wolstenholme, NOT Descartes (the prime). Fresh analysis leftover after algebra prime, not a Wolstenholme leftover. known-classical, no novelty.",
+      "note": "OPE-848 Formalist Level A+B landed. Scout OPE-838 leftover slot #2; Director OPE-847. Classical Euler/Fourier series remainder. Level A: 0 < exp 1 − s n < 2/(n+1)! via exp_eq_tsum_div tail, not labelled irrational. Level B namesake irrational_exp_one: Irrational (Real.exp 1). NOT e-transcendental (Wiedijk 67 external, different theorem), NOT π-irrational (Niven integral sink), NOT Liouville (already Mathlib; e is not Liouville), NOT harmonic_not_int / Wilson / Wolstenholme (consumed #89), NOT Descartes (consumed #91 honest Level A), NOT n-fold PIE (consumed #88). known-classical, no novelty. Lean zero-sorry ProofLab/EIrrational.lean.",
       "expected": "known-classical",
       "skill_packs": [
         "analysis",
@@ -1325,17 +1325,22 @@
       ],
       "artifacts": [
         "catalog/problems/e-irrational/",
-        "problems/e-irrational/"
+        "problems/e-irrational/",
+        "proofs/lean-project/ProofLab/EIrrational.lean"
       ],
       "scout_issue": "OPE-838",
       "tickets": [
         "OPE-838",
-        "OPE-837"
+        "OPE-837",
+        "OPE-847",
+        "OPE-848"
       ],
-      "parent_issue": "OPE-837"
+      "parent_issue": "OPE-837",
+      "lean_artifact": "proofs/lean-project/ProofLab/EIrrational.lean",
+      "formalist_issue": "OPE-848"
     }
   ],
-  "updated_at": "2026-09-01T12:23:41Z",
+  "updated_at": "2026-09-01T15:20:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
