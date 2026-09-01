@@ -1,0 +1,55 @@
+{
+  "id": "expander-mixing",
+  "title": "Expander mixing lemma (formalize-only)",
+  "status": "candidate",
+  "domain": "spectral_graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Alon–Chung 1988 / folklore expander mixing: d-regular G on n vertices, λ = nontrivial spectral radius of adjMatrix, then |e(S,T) − (d/n)|S||T|| ≤ λ √(|S||T|). Completely classical. Value is a Mathlib/ProofLab contribution (adjMatrix / IsRegularOfDegree / IsHermitian.eigenvalues / spectral_theorem exist; ZERO named mixing lemma in Mathlib+Archive). Do NOT re-fund as novel. Erdős–Ramsey first-moment is a DIFFERENT theorem (counting). Friendship / Moore / Kirchhoff are DIFFERENT theorems. Wilf χ ≤ 1+λ_max is Cassini-class (greedy + Gershgorin).",
+  "recommendation": "OPE-870 leftover slot #2. Fresh id as a funded leftover after OPE-853 pair CONSUMED (#94+#95). NOT a Ramsey leftover, NOT a Friendship leftover, NOT a Kirchhoff leftover, NOT a third slot, NOT LLL-B / Azuma, NOT Wilf/Hoffman–Singleton. Gap+budget hold (adjMatrix HIT; spectral_theorem HIT as a DIFFERENT fact; named mixing lemma ZERO). Mill NOW: spectral-graph leftover after an algebra prime (mason-stothers) — adjMatrix+spectral_theorem waiting, analogous to e-irrational after Descartes. Score 84 because adjMatrix+Hermitian eigenvalues are waiting (formalizability 16) but 1^⊥ Cauchy–Schwarz glue is real work (attack 16). v1 pins d-regular undirected form only. Do NOT assign before mason-stothers unless Director swaps. Do NOT prove Cheeger / Alon–Boppana / Kirchhoff / matrix-tree.",
+  "mathlib_gap_grep_2026_09_01_ope870": "Pin mathlib a719ba5c3115 (v4.10.0). rg expander / mixing lemma / expanderMixing over Mathlib/Combinatorics + Archive → ZERO theorems. Defs HIT: SimpleGraph.adjMatrix, isSymm_adjMatrix, IsRegularOfDegree, adjMatrix_mulVec (all-ones eigenvector), Matrix.IsHermitian.eigenvalues, eigenvectorBasis, spectral_theorem (Spectrum.lean — DIFFERENT fact, USE). lapMatrix HIT as Laplacian — DIFFERENT, never cite as this gap, never invent Kirchhoff. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Already-in this run (never cite as gap): everything in the mason-stothers already-in block, plus Gershgorin, Rayleigh, PosDef, Burnside, orbit-stabilizer. ProofLab already has Erdős–Ramsey namesake / Friendship / Moore / greedy / Brooks Δ≤2 / Cayley Level A — those are NOT this theorem and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem expander_mixing: IsRegularOfDegree d → (∀ eigenvalue μ ≠ d, |μ| ≤ λ) → |e(S,T) − (d/n)|S||T|| ≤ λ √(|S||T|). Level A may land only Hermitian + eigenvalue d on all-ones + 1^⊥ invariant, not labelled expander.",
+    "landmines": [
+      "Do not re-prove adjMatrix / isSymm_adjMatrix / adjMatrix_mulVec / spectral_theorem / IsHermitian.eigenvalues / Gershgorin.",
+      "Not erdos-ramsey-lower (#94). Not infinite Ramsey / R(4,6) / ramseyUpper_add existence wrap.",
+      "Not Friendship / Moore / Mycielski / KST / greedy / Brooks.",
+      "Not Kirchhoff / Cayley namesake / Cauchy–Binet spanning-tree wrap. lapMatrix is different.",
+      "Not Wilf χ ≤ 1+λ_max (Cassini-class). Not Hoffman–Singleton / cages.",
+      "Not LLL / Azuma / expander Chernoff.",
+      "Not mason-stothers (the prime). Do not assign first unless Director swaps.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Alon–Chung Discrete Math. 72 (1988); Alon–Spencer expander mixing lemma; Hoory–Linial–Wigderson Bull. AMS 43 (2006) §2. Type pin: SimpleGraph.adjMatrix ℝ + IsHermitian.eigenvalues. spectral_theorem is a different fact."
+  },
+  "feasibility_shape": "Level A: adjMatrix ℝ Hermitian; d-eigenvalue on all-ones (upstream adjMatrix_mulVec); 1^⊥ invariant; not labelled expander. Level B: namesake via spectral decomposition of 1_S and Cauchy–Schwarz on 1^⊥. Cap two levels. No Cheeger, no Kirchhoff. Honest partial allowed (comment residual, not sorry).",
+  "infra_carry_over": [
+    "Mathlib Combinatorics.SimpleGraph.AdjMatrix adjMatrix / isSymm_adjMatrix / adjMatrix_mulVec — USE; DO NOT re-prove",
+    "Mathlib Combinatorics.SimpleGraph.Finite IsRegularOfDegree — USE",
+    "Mathlib LinearAlgebra.Matrix.Spectrum IsHermitian.eigenvalues / eigenvectorBasis / spectral_theorem — USE; DO NOT cite as this gap",
+    "Mathlib Combinatorics.SimpleGraph.LapMatrix lapMatrix — DIFFERENT (Laplacian); DO NOT invent Kirchhoff",
+    "ProofLab/ErdosRamseyLower.lean — consumed #94, counting not spectral, DO NOT re-prime",
+    "ProofLab/Friendship.lean / MooreDegreeGirth.lean / GreedyChromatic.lean / CayleyTrees.lean — consumed, DO NOT re-prime",
+    "ProofLab/LovaszLocalLemma.lean — consumed #85, mixing is NOT LLL, DO NOT re-prime",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-870",
+  "parent_issue": "OPE-869",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO expander mixing lemma; adjMatrix HIT; spectral_theorem HIT as a DIFFERENT fact",
+    "Fresh funded leftover: mill reason is spectral graph after algebra Mason–Stothers prime; Ramsey/Friendship/Kirchhoff disclosed as different",
+    "Negative control turan → Turan.lean exists",
+    "Wilf disclosed as Cassini-class (greedy + Gershgorin); lapMatrix disclosed as Kirchhoff-risk not this gap"
+  ]
+}
