@@ -1424,7 +1424,8 @@
       ],
       "parent_issue": "OPE-869",
       "lean_artifact": "proofs/lean-project/ProofLab/MasonStothers.lean",
-      "formalist_issue": "OPE-876"
+      "formalist_issue": "OPE-876",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/97"
     },
     {
       "id": "expander-mixing",
