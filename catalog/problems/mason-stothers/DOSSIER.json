@@ -1,7 +1,7 @@
 {
   "id": "mason-stothers",
   "title": "Mason–Stothers theorem (polynomial ABC) (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "algebra",
   "score": 87,
   "scores": {

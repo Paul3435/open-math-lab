@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-870 Scout: catalog audit + ≤2 formalize-only shortlist after #94+#95. Prime mason-stothers; leftover expander-mixing. No novelty claim.)
+**Last updated:** 2026-09-01 (OPE-876 Formalist: mason-stothers Level A+B namesake landed. No novelty claim.)
