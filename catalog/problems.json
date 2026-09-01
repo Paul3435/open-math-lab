@@ -1372,10 +1372,10 @@
     {
       "id": "zsigmondy-theorem",
       "title": "Zsigmondy's theorem, Bang case (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "elementary_number_theory",
       "score": 84,
-      "note": "OPE-853 Scout leftover slot #2. Fresh funded leftover after Descartes #91 + e-irrational #92 CONSUMED. Classical Bang 1886 / Zsigmondy 1892 b=1: a≥2, n≥3 except (2,6) ⇒ a^n−1 has a primitive prime divisor. NOT infinite_setOf_prime_modEq_one (already Mathlib, different). NOT ≡3 mod 4 (Cassini-class). NOT Dirichlet AP. NOT Wolstenholme/Korselt leftover. NOT full a^n−b^n. known-classical, no novelty.",
+      "note": "OPE-864 Formalist honest partial. Level A cyclotomic_eval_prime_factor landed zero-sorry. Namesake bang residual (intrinsic p|n / (2,6)). NOT infinite_setOf_prime_modEq_one (already Mathlib, different). NOT ≡3 mod 4. NOT Dirichlet. NOT full a^n-b^n. known-classical, no novelty.",
       "expected": "known-classical",
       "skill_packs": [
         "number-theory",
@@ -1383,14 +1383,19 @@
       ],
       "artifacts": [
         "catalog/problems/zsigmondy-theorem/",
-        "problems/zsigmondy-theorem/"
+        "problems/zsigmondy-theorem/",
+        "proofs/lean-project/ProofLab/Zsigmondy.lean"
       ],
       "scout_issue": "OPE-853",
       "tickets": [
         "OPE-853",
-        "OPE-852"
+        "OPE-852",
+        "OPE-863",
+        "OPE-864"
       ],
-      "parent_issue": "OPE-852"
+      "parent_issue": "OPE-852",
+      "lean_artifact": "proofs/lean-project/ProofLab/Zsigmondy.lean",
+      "formalist_issue": "OPE-864"
     }
   ],
   "updated_at": "2026-09-01T14:30:00Z",
