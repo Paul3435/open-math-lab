@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-01T18:21:00Z",
+  "last_updated": "2026-09-01T20:57:32Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1430,10 +1430,10 @@
     {
       "id": "expander-mixing",
       "title": "Expander mixing lemma (formalize-only)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "spectral_graph_theory",
       "score": 84,
-      "note": "OPE-870 Scout leftover slot #2. Fresh funded leftover after erdos-ramsey-lower #94 + zsigmondy-theorem #95 CONSUMED. Classical Alon–Chung 1988 / Alon–Spencer: d-regular |e(S,T)−(d/n)|S||T|| ≤ λ √(|S||T|). NOT Ramsey leftover (#94). NOT Friendship/Moore. NOT Kirchhoff/lapMatrix (different). NOT Wilf (Cassini-class greedy+Gershgorin). NOT LLL-B. known-classical, no novelty.",
+      "note": "OPE-881 Formalist Level A + Level B engine landed (honest partial). Scout OPE-870 leftover; Director OPE-880. Classical Alon–Chung 1988 / Alon–Spencer. Level A: adjMatrix_isHermitian / adjMatrix_mulVec_allOnes / orth_allOnes_invariant (not labelled expander). Level B engine: mixing_identity + residual ℓ² bound. Namesake expander_mixing residual: pin μ ≠ d does not bound extra d-eigenvectors in 1^⊥; not sorry-ed. NOT Ramsey leftover (#94). NOT Friendship/Moore. NOT Kirchhoff/lapMatrix. NOT Wilf. NOT mason-stothers (#97). known-classical, no novelty. Lean zero-sorry ProofLab/ExpanderMixing.lean.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1441,17 +1441,22 @@
       ],
       "artifacts": [
         "catalog/problems/expander-mixing/",
-        "problems/expander-mixing/"
+        "problems/expander-mixing/",
+        "proofs/lean-project/ProofLab/ExpanderMixing.lean"
       ],
       "scout_issue": "OPE-870",
       "tickets": [
         "OPE-870",
-        "OPE-869"
+        "OPE-869",
+        "OPE-880",
+        "OPE-881"
       ],
-      "parent_issue": "OPE-869"
+      "parent_issue": "OPE-869",
+      "lean_artifact": "proofs/lean-project/ProofLab/ExpanderMixing.lean",
+      "formalist_issue": "OPE-881"
     }
   ],
-  "updated_at": "2026-09-01T18:21:00Z",
+  "updated_at": "2026-09-01T20:57:32Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

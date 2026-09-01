@@ -1,7 +1,7 @@
 {
   "id": "expander-mixing",
   "title": "Expander mixing lemma (formalize-only)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "spectral_graph_theory",
   "score": 84,
   "scores": {
@@ -46,6 +46,8 @@
   "scored_at": "2026-09-01",
   "scout_issue": "OPE-870",
   "parent_issue": "OPE-869",
+  "formalist_issue": "OPE-881",
+  "lean_artifact": "proofs/lean-project/ProofLab/ExpanderMixing.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO expander mixing lemma; adjMatrix HIT; spectral_theorem HIT as a DIFFERENT fact",
     "Fresh funded leftover: mill reason is spectral graph after algebra Mason–Stothers prime; Ramsey/Friendship/Kirchhoff disclosed as different",
