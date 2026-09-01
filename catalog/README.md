@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-843 Formalist: descartes-rule-of-signs Level A honest partial.)
+**Last updated:** 2026-09-01 (OPE-853 Scout: catalog audit + ≤2 shortlist `erdos-ramsey-lower` + `zsigmondy-theorem`.)

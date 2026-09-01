@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-01T11:21:42Z",
+  "last_updated": "2026-09-01T14:30:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1339,9 +1339,55 @@
       "lean_artifact": "proofs/lean-project/ProofLab/EIrrational.lean",
       "formalist_issue": "OPE-848",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/92"
+    },
+    {
+      "id": "erdos-ramsey-lower",
+      "title": "Erdős probabilistic Ramsey lower bound (formalize-only)",
+      "status": "candidate",
+      "domain": "probabilistic_combinatorics",
+      "score": 87,
+      "note": "OPE-853 Scout RECOMMENDED PRIME. Fresh funded slot after Descartes #91 + e-irrational #92 CONSUMED. Classical Erdős 1947 first-moment: n.choose k * 2 < 2^(k.choose 2) ⇒ R(k,k) > n, hence R(k,k) > 2^(k/2) for k≥3. NOT ramsey-r33/r35/r333 re-prime (reuse ProofLab RamseyUpper as encoding). NOT R(4,6). NOT infinite Ramsey (Wiedijk #31 external). NOT finite existence wrap of ramseyUpper_add (Cassini-class). NOT LLL-B. known-classical, no novelty.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/erdos-ramsey-lower/",
+        "problems/erdos-ramsey-lower/"
+      ],
+      "scout_issue": "OPE-853",
+      "tickets": [
+        "OPE-853",
+        "OPE-852"
+      ],
+      "parent_issue": "OPE-852"
+    },
+    {
+      "id": "zsigmondy-theorem",
+      "title": "Zsigmondy's theorem, Bang case (formalize-only)",
+      "status": "candidate",
+      "domain": "elementary_number_theory",
+      "score": 84,
+      "note": "OPE-853 Scout leftover slot #2. Fresh funded leftover after Descartes #91 + e-irrational #92 CONSUMED. Classical Bang 1886 / Zsigmondy 1892 b=1: a≥2, n≥3 except (2,6) ⇒ a^n−1 has a primitive prime divisor. NOT infinite_setOf_prime_modEq_one (already Mathlib, different). NOT ≡3 mod 4 (Cassini-class). NOT Dirichlet AP. NOT Wolstenholme/Korselt leftover. NOT full a^n−b^n. known-classical, no novelty.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/zsigmondy-theorem/",
+        "problems/zsigmondy-theorem/"
+      ],
+      "scout_issue": "OPE-853",
+      "tickets": [
+        "OPE-853",
+        "OPE-852"
+      ],
+      "parent_issue": "OPE-852"
     }
   ],
-  "updated_at": "2026-09-01T15:20:00Z",
+  "updated_at": "2026-09-01T14:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
