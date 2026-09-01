@@ -1,0 +1,54 @@
+{
+  "id": "mason-stothers",
+  "title": "Mason–Stothers theorem (polynomial ABC) (formalize-only)",
+  "status": "candidate",
+  "domain": "algebra",
+  "score": 87,
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Stothers 1981 / Mason 1984: coprime a+b=c in k[X] (CharZero, IsAlgClosed), not all constant, implies max(deg a, deg b, deg c)+1 ≤ n₀(abc) (distinct-root count). Completely classical. Value is a Mathlib/ProofLab contribution (Polynomial.wronskian / wronskian_eq_of_sum_zero / degree_wronskian_lt_add exist; ZERO named Mason–Stothers / polynomial ABC in Mathlib+Archive). Do NOT re-fund as novel. Descartes rule of signs is a DIFFERENT theorem (coeff sign changes). Integer abc is OPEN (refuse). Number-theoretic FLT is a DIFFERENT theorem (Wiedijk 33).",
+  "recommendation": "OPE-870 RECOMMENDED PRIME. Fresh id as a funded slot — OPE-853 funded pair (erdos-ramsey-lower + zsigmondy-theorem) is now CONSUMED (#94 namesake landed, #95 honest Level A). NOT a Descartes leftover, NOT a Zsigmondy leftover, NOT a third slot, NOT Sturm/Budan/Gauss–Lucas, NOT Schwartz–Zippel/Alon–Füredi, NOT integer abc / FLT. Gap+budget hold (wronskian HIT; named Mason–Stothers ZERO in Mathlib+Archive). Mill NOW: univariate polynomial algebra after probabilistic combinatorics (#94 CONSUMED) + elementary NT (#95 CONSUMED) — Wronskian.lean is waiting the same way cyclotomic.eval waited for Zsigmondy. Score 87 because Wronskian+derivative+roots are waiting (formalizability 17) and only the n₀ bound is new; Level A wronskian ≠ 0 is cheap (partial 17). v1 pins affine max deg + 1 ≤ n₀(abc) over CharZero+IsAlgClosed. Do NOT assign expander-mixing first unless Director swaps. Do NOT prove integer abc / number-theoretic FLT / Sturm.",
+  "mathlib_gap_grep_2026_09_01_ope870": "Pin mathlib a719ba5c3115 (v4.10.0). rg stothers / MasonStothers / mason_stothers over Mathlib/** + Archive/** → ZERO. wronskian → ONLY RingTheory/Polynomial/Wronskian.lean (34 matches; degree_wronskian_lt_add / wronskian_eq_of_sum_zero HIT; TODO n-tuple Wronskian, NOT Mason). Polynomial radical / n₀ ZERO (Ideal.radical is a DIFFERENT def). Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Already-in this run (never cite as gap): turan, wronskian (the def), Separable ↔ IsCoprime f f.derivative, Eisenstein, rational-root, Gauss lemma, cyclotomic.irreducible, FTA Complex.exists_root, Newton identities, Lagrange interpolation, Chebyshev T_n(cos), Hilbert basis, Nakayama, primitive element, Galois correspondence, Cauchy integral, Liouville entire, max modulus, Young/Jensen, spectral_theorem, Cayley–Hamilton, Vandermonde, Cramer, Hadamard-as-abs_volumeForm_apply_le, infinite_setOf_prime_modEq_one, Hales–Jewett, exists_mono_homothetic_copy, Burnside lemma, orbit-stabilizer, Dirichlet approximation, Kummer padicValNat_choose, Legendre padicValNat_factorial, Euler criterion, quadratic reciprocity, Zeckendorf, Wilson, Lucas, four/two squares, Bertrand, Catalan, derangement, exp_eq_tsum_div, Wallis, Gamma_one_half, Hilbert90, implicit function, Banach fixed point. ProofLab already has Descartes Level A / e-irrational namesake / Erdős–Ramsey namesake / Zsigmondy Level A — those are NOT Mathlib and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem mason_stothers: a+b=c → IsCoprime a b → (a.natDegree ≠ 0 ∨ b.natDegree ≠ 0) → max deg + 1 ≤ (a*b*c).roots.toFinset.card, over CharZero + IsAlgClosed. Level A may land only wronskian a b ≠ 0, not labelled Mason.",
+    "landmines": [
+      "Do not re-prove wronskian / wronskian_eq_of_sum_zero / degree_wronskian_lt_add / Separable / Eisenstein / FTA.",
+      "Not Descartes (#91) / Sturm / Budan–Fourier / Gauss–Lucas / Niven cosine.",
+      "Not CNS (#71) / Schwartz–Zippel / Alon–Füredi.",
+      "Not Zsigmondy (#95) / Bang / LTE / Artin / full a^n−b^n.",
+      "Not integer abc (open). Not number-theoretic FLT (Wiedijk 33).",
+      "Not erdos-ramsey-lower (#94). Not expander-mixing (the leftover).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Stothers Quart. J. Math. 1981; Mason LMS 96 1984; Snyder Amer. Math. Monthly 107 (2000) Wronskian proof. Wikipedia Mason–Stothers theorem. Type pin: Polynomial.roots.toFinset.card. Wronskian.lean is infra, not this claim."
+  },
+  "feasibility_shape": "Level A: wronskian a b ≠ 0 for coprime not-both-constant; glue wronskian_eq_of_sum_zero; not labelled Mason. Level B: namesake via Snyder multiplicity counting (deg W + 1 ≤ n₀(abc)). Cap two levels. Optional polynomial Fermat n≥3 corollary not required. Honest partial allowed (comment residual, not sorry).",
+  "infra_carry_over": [
+    "Mathlib RingTheory.Polynomial.Wronskian wronskian / wronskian_eq_of_sum_zero / degree_wronskian_lt_add — USE; DO NOT re-prove; DO NOT cite as this gap",
+    "Mathlib Algebra.Polynomial derivative / roots / rootMultiplicity / natDegree — USE",
+    "Mathlib FieldTheory.Separable Separable ↔ IsCoprime f (derivative f) — USE",
+    "Mathlib IsAlgClosed / CharZero / IsCoprime — USE",
+    "ProofLab/Descartes.lean — consumed #91, different theorem (sign changes), DO NOT re-prime",
+    "ProofLab/Zsigmondy.lean — consumed #95, different theorem, DO NOT re-prime",
+    "ProofLab/ErdosRamseyLower.lean / CombinatorialNullstellensatz.lean — consumed, DO NOT re-prime",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["algebra", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-870",
+  "parent_issue": "OPE-869",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Mason–Stothers; wronskian HIT as infra only; 100.yaml has no Mason entry",
+    "Fresh funded slot: OPE-853 pair fully consumed (#94+#95); mill reason is Wronskian algebra after combinatorics+NT mill closed",
+    "Negative control turan → Turan.lean exists",
+    "Descartes / CNS / Zsigmondy / integer abc / FLT disclosed as different statements"
+  ]
+}

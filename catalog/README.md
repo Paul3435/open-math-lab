@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-858 Formalist: erdos-ramsey-lower Level A+B landed, zero sorry. No novelty claim.)
+**Last updated:** 2026-09-01 (OPE-870 Scout: catalog audit + ≤2 formalize-only shortlist after #94+#95. Prime mason-stothers; leftover expander-mixing. No novelty claim.)
