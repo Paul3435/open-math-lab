@@ -1,7 +1,7 @@
 {
   "id": "n-fold-inclusion-exclusion",
   "title": "n-fold inclusion-exclusion (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "enumerative_combinatorics",
   "score": 90,
   "scores": {

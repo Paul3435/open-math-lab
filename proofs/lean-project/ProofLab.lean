@@ -40,3 +40,4 @@ import ProofLab.Vosper
 import ProofLab.Heron
 import ProofLab.LovaszLocalLemma
 import ProofLab.KorseltCarmichael
+import ProofLab.InclusionExclusion

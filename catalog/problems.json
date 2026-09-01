@@ -1226,10 +1226,10 @@
     {
       "id": "n-fold-inclusion-exclusion",
       "title": "n-fold inclusion-exclusion (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "enumerative_combinatorics",
       "score": 90,
-      "note": "OPE-821 Scout RECOMMENDED PRIME (support OPE-820; post LLL #85 + Korselt #86). Classical de Moivre/Whitney PIE, Wiedijk 100 #96. NOT two-set card_union (already Mathlib — use, do not re-prove), NOT disjoint card_biUnion, NOT Bonferroni, NOT derangement/Catalan (already Mathlib), NOT Stirling-B, NOT ballot/birthday Archive, NOT LLL (#85), NOT Korselt (#86). OPE-804 benched only because leftover cap went to Korselt; now a FRESH prime, not a Korselt leftover. known-classical, no novelty.",
+      "note": "OPE-827 Formalist Level A+B namesake landed. Scout OPE-821 RECOMMENDED PRIME; Director OPE-826. Classical de Moivre/Whitney PIE, Wiedijk 100 #96. NOT two-set card_union (already Mathlib — used, not re-proved), NOT disjoint card_biUnion, NOT Bonferroni, NOT derangement/Catalan (already Mathlib), NOT Stirling-B, NOT ballot/birthday Archive, NOT LLL (#85), NOT Korselt (#86). known-classical, no novelty. Lean zero-sorry ProofLab/InclusionExclusion.lean. Level A card_union_three; Level B namesake inclusion_exclusion.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1237,14 +1237,19 @@
       ],
       "artifacts": [
         "catalog/problems/n-fold-inclusion-exclusion/",
-        "problems/n-fold-inclusion-exclusion/"
+        "problems/n-fold-inclusion-exclusion/",
+        "proofs/lean-project/ProofLab/InclusionExclusion.lean"
       ],
       "scout_issue": "OPE-821",
       "tickets": [
         "OPE-821",
-        "OPE-820"
+        "OPE-820",
+        "OPE-826",
+        "OPE-827"
       ],
-      "parent_issue": "OPE-820"
+      "parent_issue": "OPE-820",
+      "lean_artifact": "proofs/lean-project/ProofLab/InclusionExclusion.lean",
+      "formalist_issue": "OPE-827"
     },
     {
       "id": "wolstenholme-theorem",
