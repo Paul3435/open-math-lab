@@ -120,4 +120,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-876 Formalist: mason-stothers Level A+B namesake landed. No novelty claim.)
+**Last updated:** 2026-09-01 (OPE-886 Scout: frobenius-real-division prime + noether-normalization leftover; expander-mixing PR #98 stamped. No novelty claim.)

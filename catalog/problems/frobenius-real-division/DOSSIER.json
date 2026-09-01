@@ -1,0 +1,55 @@
+{
+  "id": "frobenius-real-division",
+  "title": "Frobenius theorem on real division algebras (formalize-only)",
+  "status": "shortlisted",
+  "domain": "algebra",
+  "score": 87,
+  "scores": {
+    "formalizability": 17,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Frobenius 1878: every finite-dimensional associative division algebra D over ℝ is ℝ-algebra isomorphic to ℝ, ℂ, or ℍ. Completely classical. Value is a Mathlib/ProofLab contribution (Quaternion / DivisionRing ℍ[R] / finrank_eq_four / QuaternionAlgebra.Basis.lift / Complex.finrank_real_complex exist; ZERO named real-division classification in Mathlib+Archive). Do NOT re-fund as novel. Gelfand–Mazur is a DIFFERENT theorem (complex Banach, already Mathlib). Mason–Stothers is a DIFFERENT theorem (polynomial ABC). Frobenius coin / Frobenius endomorphism are DIFFERENT. Artin–Wedderburn is a DIFFERENT theorem (proof_wanted stub, too heavy).",
+  "recommendation": "OPE-886 RECOMMENDED PRIME. Fresh id as a funded slot — OPE-870 funded pair (mason-stothers + expander-mixing) is now CONSUMED (#97 namesake landed, #98 honest Level A+engine). NOT a Mason leftover, NOT an expander leftover, NOT a third slot, NOT Gelfand–Mazur, NOT Artin–Wedderburn, NOT Hurwitz 1-2-4-8 / octonions, NOT frobenius-coin-problem. Gap+budget hold (ℍ[ℝ] HIT; finrank_eq_four HIT as infra; Basis.lift HIT; named classification ZERO). Mill NOW: associative real-algebra classification after univariate-polynomial (#97 CONSUMED) + spectral-graph (#98 CONSUMED) — Quaternion.lean is waiting the same way Wronskian.lean waited for Mason. Score 87 because Quaternion+finrank+lift are waiting (formalizability 17) and only the trichotomy is new; Level A rank 1|2|4 is cheap (partial 17). v1 pins associative FiniteDimensional DivisionRing over ℝ. Do NOT assign noether-normalization first unless Director swaps. Do NOT prove octonions / AW / Gelfand–Mazur.",
+  "mathlib_gap_grep_2026_09_01_ope886": "Pin mathlib a719ba5c3115 (v4.10.0). rg 'real division algebra' / frobenius_real / finrank.*1.*2.*4 over Mathlib/** + Archive/** → ZERO. Quaternion.lean HIT: DivisionRing ℍ[R] (L1236), finrank_eq_four (L989). QuaternionBasis.lean HIT: lift / liftHom (universal property). Complex.finrank_real_complex HIT (= 2). Gelfand–Mazur HIT as DIFFERENT fact (NormedRing.algEquivComplexOfComplete — complex Banach). Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph. Already-in this run (never cite as gap): turan, wronskian (the def), spectral_theorem, adjMatrix, Gelfand–Mazur, Quaternion (the def), finrank_eq_four, Complex.finrank_real_complex, Algebra.IsIntegral.finite, Hilbert basis, Nakayama, primitive element, Galois correspondence, LittleWedderburn, Maschke, Jordan–Hölder, Jordan–Chevalley, Cayley–Hamilton, Nielsen–Schreier, Beatty/Rayleigh, Helly, Radon, Carathéodory convex, Minkowski geometry of numbers, Stone–Weierstrass, Plünnecke–Ruzsa, FiniteAbelian, hasSum_zeta_two, Mazur–Ulam, Hahn–Banach, Burnside, orbit-stabilizer, Dirichlet approximation, Kummer, Legendre factorial, Euler criterion, quadratic reciprocity, Zeckendorf, Wilson, Lucas, four/two squares, Bertrand, Catalan, derangement, exp_eq_tsum_div, Wallis, Hilbert90, implicit/inverse function, Banach fixed point, Picard–Lindelöf, Arzelà–Ascoli. ProofLab already has Mason namesake / expander Level A+engine — those are NOT Mathlib and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem frobenius_real_division: FiniteDimensional ℝ D + DivisionRing D + Algebra ℝ D → Nonempty (D ≃ₐ[ℝ] ℝ) ∨ Nonempty (D ≃ₐ[ℝ] ℂ) ∨ Nonempty (D ≃ₐ[ℝ] ℍ[ℝ]). Level A may land only finrank ∈ {1,2,4}, not labelled Frobenius.",
+    "landmines": [
+      "Do not re-prove Quaternion / DivisionRing ℍ[R] / finrank_eq_four / Basis.lift / Complex.finrank_real_complex / minpoly / Gelfand–Mazur.",
+      "Not Gelfand–Mazur (already Mathlib, different theorem).",
+      "Not Mason–Stothers (#97) / Sturm / integer abc / FLT / Descartes / CNS.",
+      "Not expander-mixing (#98) / Cheeger / Alon–Boppana / Wilf / Perron–Frobenius / Kirchhoff.",
+      "Not frobenius-coin-problem / Frobenius endomorphism / Euclid–Euler (#80).",
+      "Not Artin–Wedderburn / Hurwitz 1-2-4-8 / octonions.",
+      "Not noether-normalization (the leftover).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Frobenius J. Reine Angew. Math. 84 (1878); Palais Amer. Math. Monthly 75 (1968) 366–368. Wikipedia Frobenius theorem (real division algebras). Type pin: DivisionRing + Algebra ℝ + FiniteDimensional + ℍ[ℝ]. Gelfand–Mazur is a different fact."
+  },
+  "feasibility_shape": "Level A: finrank ∈ {1,2,4} via minpoly degree 2 + complementary j; not labelled Frobenius. Level B: namesake AlgEquiv via Complex.lift / QuaternionAlgebra.Basis.lift. Cap two levels. No octonions, no AW, no Gelfand–Mazur re-proof. Honest partial allowed (comment residual, not sorry).",
+  "infra_carry_over": [
+    "Mathlib Algebra.Quaternion DivisionRing ℍ[R] / finrank_eq_four — USE; DO NOT re-prove; DO NOT cite as this gap",
+    "Mathlib Algebra.QuaternionBasis Basis.lift / liftHom — USE",
+    "Mathlib Data.Complex.FiniteDimensional Complex.finrank_real_complex — USE",
+    "Mathlib FieldTheory.Minpoly / FiniteDimensional / Algebra ℝ — USE",
+    "Mathlib Analysis.Normed.Algebra.Spectrum Gelfand–Mazur — DIFFERENT theorem; DO NOT re-prove; DO NOT cite as this gap",
+    "ProofLab/MasonStothers.lean — consumed #97, different theorem, DO NOT re-prime",
+    "ProofLab/ExpanderMixing.lean — consumed #98, different theorem, DO NOT re-prime",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": ["algebra", "formalization"],
+  "scored_at": "2026-09-01",
+  "scout_issue": "OPE-886",
+  "parent_issue": "OPE-885",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO real-division classification; Quaternion HIT as infra only; Gelfand–Mazur HIT as a DIFFERENT theorem",
+    "Fresh funded slot: OPE-870 pair fully consumed (#97+#98); mill reason is Quaternion algebra after polynomial+spectral mill closed",
+    "Negative control turan → Turan.lean exists",
+    "Mason / expander / Gelfand–Mazur / AW / coin-Frobenius / octonions disclosed as different statements"
+  ]
+}
