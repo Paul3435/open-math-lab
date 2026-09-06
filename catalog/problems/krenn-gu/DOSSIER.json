@@ -54,6 +54,7 @@
   "parent_issue": "OPE-1032",
   "formalist_issue": "OPE-1033",
   "lean_artifact": "proofs/lean-project/ProofLab/KrennGu.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/101",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Krenn/EqSystemN; IsMatching HIT as infra only",
     "Sponsor page fetched 2026-09-06: EUR 3000 still offered; 2026-07-23 Lean + AlphaProof d>=n news",

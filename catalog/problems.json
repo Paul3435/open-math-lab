@@ -1532,7 +1532,8 @@
       },
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/KrennGu.lean",
-      "formalist_issue": "OPE-1033"
+      "formalist_issue": "OPE-1033",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/101"
     },
     {
       "id": "hou-zeng-pfc",
