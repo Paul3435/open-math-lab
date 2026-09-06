@@ -1,7 +1,7 @@
 {
   "id": "hou-zeng-pfc",
   "title": "Hou–Zeng odd prime + Fibonacci + Catalan (open; $1000 / $200 live cash)",
-  "status": "candidate",
+  "status": "heuristic",
   "domain": "elementary_number_theory",
   "score": 84,
   "scores": {
@@ -49,7 +49,9 @@
   "mathlib_gap": true,
   "scored_at": "2026-09-06",
   "scout_issue": "OPE-1028",
-  "parent_issue": "OPE-1028",
+  "parent_issue": "OPE-1042",
+  "formalist_issue": "OPE-1043",
+  "lean_artifact": "proofs/lean-project/ProofLab/HouZeng.lean",
   "scout_probes": [
     "Mathlib gap grep: ZERO Hou-Zeng; fib+catalan+Prime HIT as infra",
     "OEIS A154404 fetched 2026-09-06: a(n)>0 conjectured; McNeil 5e13; prize note",
