@@ -1505,10 +1505,10 @@
     {
       "id": "krenn-gu",
       "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
-      "status": "candidate",
+      "status": "informal",
       "domain": "graph_theory",
       "score": 80,
-      "note": "OPE-1028 Scout RECOMMENDED PRIME (board prize-money hunt). Open Krenn–Gu inherited-vertex / monochromatic quantum-graph equation system. Live €3000 from Mario Krenn + Dominik Leitner (proof in a refereed journal OR software-confirmable counterexample; no deadline). PPL 007 verified open. Mathlib v4.10.0 gap: IsMatching HIT as infra; ZERO Krenn/EqSystemN. v1 is finite slice (Level A encoding+known witness; Level B one finite nonexistence XOR timeboxed (8,3) search) — namesake prize OUT of v1. Do NOT claim €3000. Do NOT import formal-conjectures. Do NOT re-prove AlphaProof d>=n / Bogdanov / Kevin M. n=4 d>=4 as namesake. Not Ramsey/König/expander/mason/frobenius-real-division. RSA 2007 ended; Millennium/Beal out of v1 as a solve.",
+      "note": "OPE-1033 Formalist Level A landed (Scout OPE-1028 prime; Director OPE-1032). Open Krenn–Gu inherited-vertex equation system. Live €3000 Krenn+Leitner — do NOT claim. Lean zero-sorry ProofLab/KrennGu.lean: EqSystem/pmSum over Z; cycle4_eqSystem (C4 d=2). Namesake prize OUT of v1, not sorry-ed. Level B out of this ticket. Do NOT import formal-conjectures. Do NOT re-prove AlphaProof d>=n / Bogdanov / Kevin M. n=4 d>=4 as namesake. Not Ramsey/König/expander/mason/frobenius-real-division. Not hou-zeng-pfc / sun-135. RSA 2007 ended; Millennium/Beal out of v1 as a solve.",
       "expected": "open",
       "skill_packs": [
         "combinatorics",
@@ -1516,18 +1516,24 @@
       ],
       "artifacts": [
         "catalog/problems/krenn-gu/",
-        "problems/krenn-gu/"
+        "problems/krenn-gu/",
+        "proofs/lean-project/ProofLab/KrennGu.lean"
       ],
       "scout_issue": "OPE-1028",
       "tickets": [
-        "OPE-1028"
+        "OPE-1028",
+        "OPE-1032",
+        "OPE-1033"
       ],
       "prize": {
         "amount": "EUR 3000",
         "payer": "Mario Krenn and Dominik Leitner",
         "url": "https://mariokrenn.wordpress.com/graph-theory-question/"
       },
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/KrennGu.lean",
+      "formalist_issue": "OPE-1033",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/101"
     },
     {
       "id": "hou-zeng-pfc",
