@@ -1,7 +1,7 @@
 {
   "id": "krenn-gu",
   "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
-  "status": "candidate",
+  "status": "informal",
   "domain": "graph_theory",
   "score": 80,
   "scores": {
@@ -51,7 +51,9 @@
   "mathlib_gap": true,
   "scored_at": "2026-09-06",
   "scout_issue": "OPE-1028",
-  "parent_issue": "OPE-1028",
+  "parent_issue": "OPE-1032",
+  "formalist_issue": "OPE-1033",
+  "lean_artifact": "proofs/lean-project/ProofLab/KrennGu.lean",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Krenn/EqSystemN; IsMatching HIT as infra only",
     "Sponsor page fetched 2026-09-06: EUR 3000 still offered; 2026-07-23 Lean + AlphaProof d>=n news",

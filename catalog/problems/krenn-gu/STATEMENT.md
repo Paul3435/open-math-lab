@@ -1,7 +1,7 @@
 # Krenn–Gu monochromatic quantum graphs (open; live cash)
 
 **id:** `krenn-gu`
-**ticket:** OPE-1028 Scout RECOMMENDED PRIME (board prize-money hunt)
+**ticket:** OPE-1028 Scout RECOMMENDED PRIME; Director OPE-1032; Formalist OPE-1033 Level A
 **expected:** `open` — **no prize claim this ticket; no novelty claim until a software-checked
 counterexample or a refereed proof exists**
 **cash:** €3,000 — Mario Krenn and Dominik Leitner (personal offer, still advertised
@@ -78,6 +78,8 @@ Encoding sketch (Formalist may refine; pin the *shape*):
 *positive* witness (`N=4,D=2` or `N=4,D=3` on `K_4`, and/or even cycle `D=2`).
 Zero `sorry`. `#print axioms` = `propext` / `Classical.choice` / `Quot.sound`
 and, if a finite `native_decide` witness is used, `Lean.ofReduceBool` only.
+**OPE-1033 landed:** `ProofLab/KrennGu.lean` — `EqSystem` over `ℤ` + `cycle4_eqSystem`.
+Not the prize.
 
 **Level B (still not the prize):** exactly one of:
 

@@ -130,4 +130,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-06 (OPE-1028 Scout: prize-money shortlist — `krenn-gu` RECOMMENDED PRIME, `hou-zeng-pfc` leftover, `sun-135` bench. No Lean this run. No prize claim.)
+**Last updated:** 2026-09-06 (OPE-1033 Formalist: krenn-gu Level A encoding + C₄ d=2 witness. No prize claim.)
