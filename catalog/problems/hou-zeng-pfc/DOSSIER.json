@@ -1,0 +1,58 @@
+{
+  "id": "hou-zeng-pfc",
+  "title": "Hou–Zeng odd prime + Fibonacci + Catalan (open; $1000 / $200 live cash)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 18
+  },
+  "expected": "open",
+  "prize": {
+    "amount_proof_usd": 1000,
+    "amount_counterexample_usd": 200,
+    "payer": "Qing-Hu Hou and Jiang Zeng",
+    "url": "https://oeis.org/A154404",
+    "terms_recorded_in": "https://arxiv.org/abs/0901.3075",
+    "ppl": "https://prizeproblems.org/problems/013/",
+    "status": "open (source-stated personal offer)",
+    "deadline": "none advertised",
+    "win": "$1000: first positive solution in a well-known journal; $200: first computer-verifiable counterexample"
+  },
+  "why_not_classical": "Open as a theorem. Verified computationally to 5e13 (McNeil, OEIS A154404). Not in Mathlib. A bounded certificate is formalize-adjacent process fuel, not a prize win.",
+  "recommendation": "OPE-1028 leftover slot #2, NOT the prime. Higher rubric score than krenn-gu because fib+catalan+Prime are waiting and small-n verify is cheap — but that score measures lab progress, not prize-win probability. Counterexample prize is a mirage after 5e13. Full proof is Goldbach-class. Director: only promote ahead of krenn-gu if the board wants a cheap NT bounded-verify rather than a live finite open frontier.",
+  "mathlib_gap_grep_2026_09_06_ope1028": "Pin mathlib a719ba5c3115 (v4.10.0). rg Hou.Zeng / A154404 / prime.*Fibonacci.*Catalan over Mathlib/** + Archive/** → ZERO. Infra HIT: Nat.Prime, Nat.fib (Data/Nat/Fib/Basic.lean), catalan (Combinatorics/Enumerative/Catalan.lean). Negative control turan → Turan.lean.",
+  "statement_pin_required": {
+    "convention": "v1 bounded: 5≤n≤N → ∃ odd prime p, s, t with n = p + Nat.fib s + catalan t. Align fib indexing with OEIS Maple landmine. Level A n≤30 witnesses, not labelled Hou-Zeng. Namesake forall n>4 OUT of v1.",
+    "landmines": [
+      "Nat.fib vs OEIS Fibo indexing (Fibo(2)=2 = Nat.fib 3).",
+      "Not Sun two-Fibonacci n=p+F_s+F_t.",
+      "Not Goldbach / Crocker.",
+      "Do not claim $1000/$200.",
+      "Do not re-prove catalan / Nat.fib.",
+      "Not krenn-gu (the prime). Not sun-135.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "OEIS A154404; Sun arXiv:0901.3075; PPL 013."
+  },
+  "feasibility_shape": "Level A encoding+small n is one-wave easy. Level B Python overlap. Prize win is not the acceptance criterion.",
+  "infra_carry_over": [
+    "Mathlib Nat.fib / catalan / Nat.Prime — USE; DO NOT re-prove; DO NOT cite as this gap",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "80k",
+  "skill_packs": ["number-theory", "formalization"],
+  "mathlib_gap": true,
+  "scored_at": "2026-09-06",
+  "scout_issue": "OPE-1028",
+  "parent_issue": "OPE-1028",
+  "scout_probes": [
+    "Mathlib gap grep: ZERO Hou-Zeng; fib+catalan+Prime HIT as infra",
+    "OEIS A154404 fetched 2026-09-06: a(n)>0 conjectured; McNeil 5e13; prize note",
+    "PPL 013 source-stated $1000/$200"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-01T21:53:28Z",
+  "last_updated": "2026-09-06T19:50:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1501,9 +1501,92 @@
         "OPE-885"
       ],
       "parent_issue": "OPE-885"
+    },
+    {
+      "id": "krenn-gu",
+      "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 80,
+      "note": "OPE-1028 Scout RECOMMENDED PRIME (board prize-money hunt). Open Krenn–Gu inherited-vertex / monochromatic quantum-graph equation system. Live €3000 from Mario Krenn + Dominik Leitner (proof in a refereed journal OR software-confirmable counterexample; no deadline). PPL 007 verified open. Mathlib v4.10.0 gap: IsMatching HIT as infra; ZERO Krenn/EqSystemN. v1 is finite slice (Level A encoding+known witness; Level B one finite nonexistence XOR timeboxed (8,3) search) — namesake prize OUT of v1. Do NOT claim €3000. Do NOT import formal-conjectures. Do NOT re-prove AlphaProof d>=n / Bogdanov / Kevin M. n=4 d>=4 as namesake. Not Ramsey/König/expander/mason/frobenius-real-division. RSA 2007 ended; Millennium/Beal out of v1 as a solve.",
+      "expected": "open",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/krenn-gu/",
+        "problems/krenn-gu/"
+      ],
+      "scout_issue": "OPE-1028",
+      "tickets": [
+        "OPE-1028"
+      ],
+      "prize": {
+        "amount": "EUR 3000",
+        "payer": "Mario Krenn and Dominik Leitner",
+        "url": "https://mariokrenn.wordpress.com/graph-theory-question/"
+      },
+      "mathlib_gap": true
+    },
+    {
+      "id": "hou-zeng-pfc",
+      "title": "Hou–Zeng odd prime + Fibonacci + Catalan (open; $1000 / $200 live cash)",
+      "status": "candidate",
+      "domain": "elementary_number_theory",
+      "score": 84,
+      "note": "OPE-1028 Scout leftover slot #2. Open Hou–Zeng: every n>4 is odd prime + positive Fibonacci + Catalan. $1000 journal proof / $200 computer counterexample from Qing-Hu Hou and Jiang Zeng (OEIS A154404; Sun arXiv:0901.3075; PPL 013). Verified to 5e13 (McNeil) so counterexample prize is not a one-wave target. Mathlib gap: Nat.fib + catalan + Nat.Prime HIT as infra; ZERO Hou–Zeng theorem. v1 bounded n≤N verify, namesake forall n OUT of v1. Fibonacci indexing landmine vs OEIS Maple. Not Sun two-Fibonacci. Not the prime (krenn-gu).",
+      "expected": "open",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/hou-zeng-pfc/",
+        "problems/hou-zeng-pfc/"
+      ],
+      "scout_issue": "OPE-1028",
+      "tickets": [
+        "OPE-1028"
+      ],
+      "prize": {
+        "amount_proof_usd": 1000,
+        "amount_counterexample_usd": 200,
+        "payer": "Qing-Hu Hou and Jiang Zeng",
+        "url": "https://oeis.org/A154404"
+      },
+      "mathlib_gap": true
+    },
+    {
+      "id": "sun-135",
+      "title": "Sun 1–3–5 four-square conjecture (open; $1350 source-stated cash)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 72,
+      "note": "OPE-1028 Scout bench #3. Open Sun: n = x²+y²+z²+w² with x+3y+5z a square. PPL 006 source-stated US$1350 from Zhi-Wei Sun slides; PDF fetch FAILED this run — re-confirm before stronger cash language. Lagrange four-square already Mathlib (different theorem). v1 bounded search. Not the prime.",
+      "expected": "open",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/sun-135/",
+        "problems/sun-135/"
+      ],
+      "scout_issue": "OPE-1028",
+      "tickets": [
+        "OPE-1028"
+      ],
+      "prize": {
+        "amount_usd": 1350,
+        "payer": "Zhi-Wei Sun",
+        "url": "https://maths.nju.edu.cn/~zwsun/Square-sum.pdf",
+        "hygiene": "source-stated; slides PDF not independently fetched 2026-09-06"
+      },
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-01T21:53:28Z",
+  "updated_at": "2026-09-06T19:50:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
