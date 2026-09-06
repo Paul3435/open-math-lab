@@ -1,0 +1,250 @@
+{
+  "issue": "OPE-1038",
+  "problem_id": "krenn-gu",
+  "method": "exhaustive-on-a-tiny-weight-set + heuristic local search",
+  "ring": "{-1,0,1}",
+  "encoding": "ProofLab.KrennGu EqSystem / pmSum / Weight (i<j first)",
+  "claim": "none",
+  "prize_claim": false,
+  "started_unix": 1788731155.6400218,
+  "arms": [
+    {
+      "arm": "sanity_cycle_d2",
+      "checks": [
+        {
+          "n": 4,
+          "d": 2,
+          "ok": true,
+          "n_matchings": 3,
+          "n_colorings": 16,
+          "fast_mono_residual": 0,
+          "construction": "even_cycle_alternating_mono_unit"
+        },
+        {
+          "n": 6,
+          "d": 2,
+          "ok": true,
+          "n_matchings": 15,
+          "n_colorings": 64,
+          "fast_mono_residual": 0,
+          "construction": "even_cycle_alternating_mono_unit"
+        },
+        {
+          "n": 8,
+          "d": 2,
+          "ok": true,
+          "n_matchings": 105,
+          "n_colorings": 256,
+          "fast_mono_residual": 0,
+          "construction": "even_cycle_alternating_mono_unit"
+        }
+      ],
+      "all_ok": true
+    },
+    {
+      "arm": "exhaustive_signed_one_factors_mono",
+      "n": 8,
+      "d": 3,
+      "ring": "{-1,1} on support, 0 elsewhere",
+      "n_factors": 7,
+      "n_factor_tuples": 35,
+      "n_sign_bits": 12,
+      "sign_patterns_per_tuple": 4096,
+      "tried": 143360,
+      "skipped_constant_fail": 125440,
+      "witnesses": [],
+      "exhausted": true,
+      "timeout": false,
+      "best_residual": 2,
+      "best_desc": {
+        "factors": [
+          0,
+          1,
+          2
+        ],
+        "signs": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "n_support_pms": 5,
+        "first_bad": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          2,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "arm": "cycle_d2_plus_signed_1factor_color2",
+      "n": 8,
+      "d": 3,
+      "ring": "{-1,0,1}",
+      "tried": 112,
+      "witnesses": [],
+      "exhausted": true,
+      "timeout": false,
+      "best_residual": 2,
+      "best_desc": {
+        "extra_factor": 3,
+        "signs": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "first_bad": [
+          0,
+          0,
+          2,
+          2,
+          2,
+          1,
+          1,
+          2
+        ],
+        "n_support_pms": 5
+      }
+    },
+    {
+      "arm": "local_mono_83",
+      "n": 8,
+      "d": 3,
+      "ring": "{-1,0,1}",
+      "bichromatic": false,
+      "method": "heuristic_hillclimb",
+      "restarts": 48,
+      "steps": 1182,
+      "witnesses": [],
+      "timeout": true,
+      "best_residual": 1,
+      "best_desc": {
+        "first_bad": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "checked": 6561
+      }
+    },
+    {
+      "arm": "exhaustive_signed_one_factors_mono",
+      "n": 6,
+      "d": 3,
+      "ring": "{-1,1} on support, 0 elsewhere",
+      "n_factors": 5,
+      "n_factor_tuples": 10,
+      "n_sign_bits": 9,
+      "sign_patterns_per_tuple": 512,
+      "tried": 5120,
+      "skipped_constant_fail": 4480,
+      "witnesses": [],
+      "exhausted": true,
+      "timeout": false,
+      "best_residual": 1,
+      "best_desc": {
+        "factors": [
+          0,
+          1,
+          2
+        ],
+        "signs": [
+          -1,
+          -1,
+          1,
+          -1,
+          -1,
+          1,
+          -1,
+          -1,
+          1
+        ],
+        "n_support_pms": 4,
+        "first_bad": [
+          2,
+          1,
+          0,
+          0,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "arm": "cycle_d2_plus_signed_1factor_color2",
+      "n": 6,
+      "d": 3,
+      "ring": "{-1,0,1}",
+      "tried": 40,
+      "witnesses": [],
+      "exhausted": true,
+      "timeout": false,
+      "best_residual": 1,
+      "best_desc": {
+        "extra_factor": 2,
+        "signs": [
+          -1,
+          -1,
+          1
+        ],
+        "first_bad": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          2
+        ],
+        "n_support_pms": 4
+      }
+    },
+    {
+      "arm": "local_bichrome_63",
+      "n": 6,
+      "d": 3,
+      "ring": "{-1,0,1}",
+      "bichromatic": true,
+      "method": "heuristic_hillclimb",
+      "restarts": 881,
+      "steps": 22020,
+      "witnesses": [],
+      "timeout": true,
+      "best_residual": 1,
+      "best_desc": {
+        "first_bad": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "checked": 729
+      }
+    }
+  ],
+  "n8d3_witness": false,
+  "n6d3_witness": false,
+  "elapsed_sec": 165.085,
+  "status": "exhausted",
+  "outcome": "no_witness_on_stated_finite_weight_sets"
+}

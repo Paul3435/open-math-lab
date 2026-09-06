@@ -1505,10 +1505,10 @@
     {
       "id": "krenn-gu",
       "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
-      "status": "informal",
+      "status": "heuristic",
       "domain": "graph_theory",
       "score": 80,
-      "note": "OPE-1033 Formalist Level A landed (Scout OPE-1028 prime; Director OPE-1032). Open Krenn–Gu inherited-vertex equation system. Live €3000 Krenn+Leitner — do NOT claim. Lean zero-sorry ProofLab/KrennGu.lean: EqSystem/pmSum over Z; cycle4_eqSystem (C4 d=2). Namesake prize OUT of v1, not sorry-ed. Level B out of this ticket. Do NOT import formal-conjectures. Do NOT re-prove AlphaProof d>=n / Bogdanov / Kevin M. n=4 d>=4 as namesake. Not Ramsey/König/expander/mason/frobenius-real-division. Not hou-zeng-pfc / sun-135. RSA 2007 ended; Millennium/Beal out of v1 as a solve.",
+      "note": "OPE-1038 Attack Lead Level B option 2 (Scout OPE-1028 prime; Director OPE-1032/1037 CONTINUE; Formalist OPE-1033 Level A). Open Krenn–Gu inherited-vertex equation system. Live €3000 Krenn+Leitner — do NOT claim. Lean zero-sorry ProofLab/KrennGu.lean: EqSystem/pmSum over Z; cycle4_eqSystem (C4 d=2). Level B: timeboxed (8,3) over {-1,0,1}; signed 1-factor triples exhausted, 0 witnesses; fallback (6,3) 0 witnesses. attacks/krenn-gu-20260906-ope1038/. Namesake prize OUT of v1, not sorry-ed. Do NOT import formal-conjectures. Do NOT re-prove AlphaProof d>=n / Bogdanov / Kevin M. n=4 d>=4 as namesake. Not Ramsey/König/expander/mason/frobenius-real-division. Not hou-zeng-pfc / sun-135. RSA 2007 ended; Millennium/Beal out of v1 as a solve.",
       "expected": "open",
       "skill_packs": [
         "combinatorics",
@@ -1517,13 +1517,16 @@
       "artifacts": [
         "catalog/problems/krenn-gu/",
         "problems/krenn-gu/",
-        "proofs/lean-project/ProofLab/KrennGu.lean"
+        "proofs/lean-project/ProofLab/KrennGu.lean",
+        "attacks/krenn-gu-20260906-ope1038/"
       ],
       "scout_issue": "OPE-1028",
       "tickets": [
         "OPE-1028",
         "OPE-1032",
-        "OPE-1033"
+        "OPE-1033",
+        "OPE-1037",
+        "OPE-1038"
       ],
       "prize": {
         "amount": "EUR 3000",
@@ -1533,6 +1536,7 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/KrennGu.lean",
       "formalist_issue": "OPE-1033",
+      "attack_issue": "OPE-1038",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/101"
     },
     {
