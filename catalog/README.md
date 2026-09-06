@@ -130,4 +130,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-06 (OPE-1033 Formalist: krenn-gu Level A encoding + C₄ d=2 witness. No prize claim.)
+**Last updated:** 2026-09-06 (OPE-1038 Attack Lead: krenn-gu Level B timeboxed (8,3) search log. No prize claim.)

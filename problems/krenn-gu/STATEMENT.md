@@ -1,7 +1,7 @@
 # Krenn–Gu monochromatic quantum graphs (open; live cash)
 
 **id:** `krenn-gu`
-**ticket:** OPE-1028 Scout RECOMMENDED PRIME; Director OPE-1032; Formalist OPE-1033 Level A
+**ticket:** OPE-1028 Scout RECOMMENDED PRIME; Director OPE-1032 / OPE-1037; Formalist OPE-1033 Level A; Attack Lead OPE-1038 Level B
 **expected:** `open` — **no prize claim this ticket; no novelty claim until a software-checked
 counterexample or a refereed proof exists**
 **cash:** €3,000 — Mario Krenn and Dominik Leitner (personal offer, still advertised
@@ -88,6 +88,11 @@ Not the prize.
    a stated coefficient ring, **or**
 2. a bounded search log for `(N,D)=(8,3)` with `attacks/.../STATUS.json` +
    `RESULTS.md` (heuristic / SAT / Gröbner). Honest partial allowed.
+
+**OPE-1038 landed (option 2):** `attacks/krenn-gu-20260906-ope1038/`. Ring
+`{-1,0,1}`. Method: exhaustive-on-a-tiny-weight-set + heuristic local search.
+No witness at `(8,3)` on the stated finite supports; fallback `(6,3)` same
+ring, no witness. Not Lean nonexistence (XOR not taken). Not the prize.
 
 Cap two levels. Namesake `∀ even N≥6, ∀ D≥3, ¬ ∃ W, EqSystem N D W` is **out
 of v1**. Do **not** `sorry` it.

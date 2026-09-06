@@ -1,7 +1,7 @@
 {
   "id": "krenn-gu",
   "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
-  "status": "informal",
+  "status": "heuristic",
   "domain": "graph_theory",
   "score": 80,
   "scores": {
@@ -26,7 +26,7 @@
   "recommendation": "OPE-1028 RECOMMENDED PRIME. Live named cash + software-confirmable counterexample path + Mathlib gap (matching infra HIT, equation system ZERO) + graph-theory skill pack. One Formalist/Attack wave = encoding + known witness (Level A) and either a finite nonexistence or a timeboxed (8,3) search log (Level B). Do NOT collect the prize this wave. Do NOT import formal-conjectures. Prefer this over Hou–Zeng because Hou–Zeng is already checked to 5e13 (counterexample prize is a mirage) and over Sun 1-3-5 because the Krenn encoding is closer to existing ProofLab graph mill. If Director wants a cheaper NT bounded-verify instead, swap to hou-zeng-pfc.",
   "mathlib_gap_grep_2026_09_06_ope1028": "Pin mathlib a719ba5c3115 (v4.10.0). rg krenn / KrennGu / inherited vertex / EqSystemN / monochromatic quantum / GHZ graph over Mathlib/** + Archive/** → ZERO files. Infra HIT: SimpleGraph.Subgraph.IsMatching (Matching.lean). Negative control turan → Turan.lean (already-in; never cite as this gap). Already-in this run (never cite as gap): matching defs, Complex, Fin, catalan, Nat.fib, Quaternion, wronskian, adjMatrix, spectral_theorem.",
   "statement_pin_required": {
-    "convention": "v1 is finite slice, not namesake. Level A: EqSystem encoding + known positive witness (K4 d=2/3 or even cycle d=2), not labelled Krenn-Gu. Level B: one finite nonexistence XOR bounded (8,3) search log. Namesake forall even N>=6, D>=3, no W is OUT of v1; do not sorry it.",
+    "convention": "v1 is finite slice, not namesake. Level A: EqSystem encoding + known positive witness (K4 d=2/3 or even cycle d=2), not labelled Krenn-Gu. Level B option 2 LANDED OPE-1038: bounded (8,3) search log over {-1,0,1}, no witness on stated finite weight-sets; fallback (6,3) no witness. Namesake forall even N>=6, D>=3, no W is OUT of v1; do not sorry it.",
     "landmines": [
       "Do not import Archive.* or google-deepmind/formal-conjectures.",
       "Do not re-prove AlphaProof d>=n or Kevin M. n=4 d>=4 as namesake.",
@@ -53,7 +53,9 @@
   "scout_issue": "OPE-1028",
   "parent_issue": "OPE-1032",
   "formalist_issue": "OPE-1033",
+  "attack_issue": "OPE-1038",
   "lean_artifact": "proofs/lean-project/ProofLab/KrennGu.lean",
+  "attack_artifact": "attacks/krenn-gu-20260906-ope1038/",
   "pr": "https://github.com/Paul3435/open-math-lab/pull/101",
   "scout_probes": [
     "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Krenn/EqSystemN; IsMatching HIT as infra only",

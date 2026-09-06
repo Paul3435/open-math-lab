@@ -1,0 +1,35 @@
+{
+  "problem_id": "krenn-gu",
+  "issue": "OPE-1038",
+  "parent": "OPE-1037",
+  "status": "exhausted",
+  "scope": "stated_finite_weight_sets",
+  "unrestricted_cube": "not_enumerated",
+  "N": 8,
+  "D": 3,
+  "ring": "{-1,0,1}",
+  "outcome": "no_witness_on_stated_finite_weight_sets",
+  "n8d3_witness": false,
+  "fallback": {
+    "N": 6,
+    "D": 3,
+    "ring": "{-1,0,1}",
+    "reason": "no (8,3) witness on searched sets (ticket fall-back-once)",
+    "witness": false
+  },
+  "method": "exhaustive-on-a-tiny-weight-set + heuristic local search",
+  "not_used": ["SAT", "Groebner", "unrestricted Complex"],
+  "claim": "none",
+  "prize_claim": false,
+  "novelty": false,
+  "encoding": "proofs/lean-project/ProofLab/KrennGu.lean",
+  "encoding_touched": false,
+  "lake": "optional_skipped",
+  "elapsed_sec": 165.085,
+  "seed": 1038,
+  "verify": [
+    "python attacks/krenn-gu-20260906-ope1038/search_eqsystem.py --timebox-83 120 --timebox-63 45 --seed 1038 --out attacks/krenn-gu-20260906-ope1038/search_report.json"
+  ],
+  "agent": "Attack Lead",
+  "closed_at": "2026-09-06"
+}
