@@ -1,0 +1,61 @@
+{
+  "id": "krenn-gu",
+  "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 80,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 18,
+    "attack_surface": 16,
+    "verification_budget": 12,
+    "crackpot_resistance": 18
+  },
+  "expected": "open",
+  "prize": {
+    "amount": "EUR 3000",
+    "payer": "Mario Krenn and Dominik Leitner",
+    "url": "https://mariokrenn.wordpress.com/graph-theory-question/",
+    "ppl": "https://prizeproblems.org/problems/007/",
+    "status": "open",
+    "deadline": "none advertised",
+    "win": "refereed proof of the conjecture, or a software-confirmable counterexample",
+    "best_paper_award": "EUR 1000 Quantum-Graph Best-Paper — sponsor page still lists next deadline End of August 2024; treat as not live unless Director re-confirms"
+  },
+  "why_not_classical": "Open since MO 311325 (2018). Special cases known (Bogdanov positive reals; deg<=3; n=4 d>=4; AlphaProof d>=n even n, May 2026). Full d>2 for n>4 still open. Reported window 2<=C(8)<=3 is the finite frontier. Not a textbook restatement.",
+  "recommendation": "OPE-1028 RECOMMENDED PRIME. Live named cash + software-confirmable counterexample path + Mathlib gap (matching infra HIT, equation system ZERO) + graph-theory skill pack. One Formalist/Attack wave = encoding + known witness (Level A) and either a finite nonexistence or a timeboxed (8,3) search log (Level B). Do NOT collect the prize this wave. Do NOT import formal-conjectures. Prefer this over Hou–Zeng because Hou–Zeng is already checked to 5e13 (counterexample prize is a mirage) and over Sun 1-3-5 because the Krenn encoding is closer to existing ProofLab graph mill. If Director wants a cheaper NT bounded-verify instead, swap to hou-zeng-pfc.",
+  "mathlib_gap_grep_2026_09_06_ope1028": "Pin mathlib a719ba5c3115 (v4.10.0). rg krenn / KrennGu / inherited vertex / EqSystemN / monochromatic quantum / GHZ graph over Mathlib/** + Archive/** → ZERO files. Infra HIT: SimpleGraph.Subgraph.IsMatching (Matching.lean). Negative control turan → Turan.lean (already-in; never cite as this gap). Already-in this run (never cite as gap): matching defs, Complex, Fin, catalan, Nat.fib, Quaternion, wronskian, adjMatrix, spectral_theorem.",
+  "statement_pin_required": {
+    "convention": "v1 is finite slice, not namesake. Level A: EqSystem encoding + known positive witness (K4 d=2/3 or even cycle d=2), not labelled Krenn-Gu. Level B: one finite nonexistence XOR bounded (8,3) search log. Namesake forall even N>=6, D>=3, no W is OUT of v1; do not sorry it.",
+    "landmines": [
+      "Do not import Archive.* or google-deepmind/formal-conjectures.",
+      "Do not re-prove AlphaProof d>=n or Kevin M. n=4 d>=4 as namesake.",
+      "Do not re-prove Bogdanov positive-reals as namesake.",
+      "Do not claim EUR 3000 / Best-Paper EUR 1000.",
+      "Not Ramsey / König / Friendship / expander-mixing / mason-stothers.",
+      "Not frobenius-real-division / noether-normalization (OPE-886 mill).",
+      "Not RSA (ended 2007) / Millennium / Beal.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Krenn MO 311325 (2018-09-24); sponsor page mariokrenn.wordpress.com/graph-theory-question/; Mixon 2021-01-18; PPL 007."
+  },
+  "feasibility_shape": "Level A encoding+witness is one-wave realistic (graph mill + Complex). Level B (8,3) unrestricted C may explode — timebox to Z or {-1,0,1} or fall back to n=6. Honest partial OK. Prize win is NOT the acceptance criterion.",
+  "infra_carry_over": [
+    "Mathlib SimpleGraph.Subgraph.IsMatching — USE; DO NOT re-prove; DO NOT cite as this gap",
+    "Mathlib Data.Complex / Fin — USE",
+    "ProofLab Ramsey / König / expander — consumed, different theorems, DO NOT re-prime",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "120k",
+  "skill_packs": ["combinatorics", "formalization"],
+  "mathlib_gap": true,
+  "scored_at": "2026-09-06",
+  "scout_issue": "OPE-1028",
+  "parent_issue": "OPE-1028",
+  "scout_probes": [
+    "Mathlib gap grep vs pinned v4.10.0 this run: ZERO Krenn/EqSystemN; IsMatching HIT as infra only",
+    "Sponsor page fetched 2026-09-06: EUR 3000 still offered; 2026-07-23 Lean + AlphaProof d>=n news",
+    "PPL 007 verified open, last checked 2026-07-26",
+    "RSA 2007 / Millennium / Beal disclosed as out of v1"
+  ]
+}

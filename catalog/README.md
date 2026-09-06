@@ -100,6 +100,16 @@ Every `problems.json` entry must carry an `expected` tag set by Scout during the
 
 Fuller enum in `problems.json` → `expected_taxonomy`.
 
+## Prize-money shortlist (OPE-1028, 2026-09-06)
+
+Board asked for one *open* problem with *live cash*. Scout did **not** solve and did **not** open Lean.
+
+1. **`krenn-gu` — RECOMMENDED PRIME (80).** €3,000 Krenn+Leitner (PPL 007). v1 finite slice, not the prize.
+2. **`hou-zeng-pfc` leftover (84 lab-score).** $1,000/$200 Hou+Zeng (OEIS A154404). Bounded verify only.
+3. **`sun-135` bench (72).** $1,350 Sun personal (PPL 006 source-stated; slides PDF not fetched this run).
+
+RSA Factoring Challenge **ended 2007**. Millennium / Beal $1M **out of v1 as a solve**. No prize claim.
+
 ## Shortlist (post OPE-21)
 
 1. **Frobenius (two coins)** — OPE-22 in flight  
@@ -120,4 +130,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-01 (OPE-886 Scout: frobenius-real-division prime + noether-normalization leftover; expander-mixing PR #98 stamped. No novelty claim.)
+**Last updated:** 2026-09-06 (OPE-1028 Scout: prize-money shortlist — `krenn-gu` RECOMMENDED PRIME, `hou-zeng-pfc` leftover, `sun-135` bench. No Lean this run. No prize claim.)
