@@ -1,7 +1,7 @@
 # Hou–Zeng: odd prime + Fibonacci + Catalan (open; live cash)
 
 **id:** `hou-zeng-pfc`
-**ticket:** OPE-1028 Scout leftover slot #2 (board prize-money hunt)
+**ticket:** OPE-1028 Scout leftover slot #2; OPE-1042 Director leftover approve; OPE-1043 Formalist Level A
 **expected:** `open` — computationally verified to huge bounds; **no prize claim**
 **cash:** US$1,000 for the first positive solution published in a well-known
 mathematical journal; US$200 for the first explicit counterexample the sponsors

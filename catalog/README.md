@@ -105,7 +105,7 @@ Fuller enum in `problems.json` → `expected_taxonomy`.
 Board asked for one *open* problem with *live cash*. Scout did **not** solve and did **not** open Lean.
 
 1. **`krenn-gu` — RECOMMENDED PRIME (80).** €3,000 Krenn+Leitner (PPL 007). v1 finite slice, not the prize.
-2. **`hou-zeng-pfc` leftover (84 lab-score).** $1,000/$200 Hou+Zeng (OEIS A154404). Bounded verify only.
+2. **`hou-zeng-pfc` leftover (84 lab-score).** $1,000/$200 Hou+Zeng (OEIS A154404). Bounded verify only. **Level A landed OPE-1043** (`ProofLab/HouZeng.lean`, n≤30 witnesses; not the prize).
 3. **`sun-135` bench (72).** $1,350 Sun personal (PPL 006 source-stated; slides PDF not fetched this run).
 
 RSA Factoring Challenge **ended 2007**. Millennium / Beal $1M **out of v1 as a solve**. No prize claim.

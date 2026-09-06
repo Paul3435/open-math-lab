@@ -1542,10 +1542,10 @@
     {
       "id": "hou-zeng-pfc",
       "title": "Hou–Zeng odd prime + Fibonacci + Catalan (open; $1000 / $200 live cash)",
-      "status": "candidate",
+      "status": "heuristic",
       "domain": "elementary_number_theory",
       "score": 84,
-      "note": "OPE-1028 Scout leftover slot #2. Open Hou–Zeng: every n>4 is odd prime + positive Fibonacci + Catalan. $1000 journal proof / $200 computer counterexample from Qing-Hu Hou and Jiang Zeng (OEIS A154404; Sun arXiv:0901.3075; PPL 013). Verified to 5e13 (McNeil) so counterexample prize is not a one-wave target. Mathlib gap: Nat.fib + catalan + Nat.Prime HIT as infra; ZERO Hou–Zeng theorem. v1 bounded n≤N verify, namesake forall n OUT of v1. Fibonacci indexing landmine vs OEIS Maple. Not Sun two-Fibonacci. Not the prime (krenn-gu).",
+      "note": "OPE-1043 Formalist Level A (Scout OPE-1028 leftover slot #2; Director OPE-1042 leftover approve). Open Hou–Zeng: every n>4 is odd prime + positive Fibonacci + Catalan. $1000 journal proof / $200 computer counterexample from Qing-Hu Hou and Jiang Zeng (OEIS A154404; Sun arXiv:0901.3075; PPL 013) — do NOT claim. Verified to 5e13 (McNeil) so counterexample prize is not a one-wave target. Lean zero-sorry ProofLab/HouZeng.lean: IsOddPrimeFibCatalan; s>=2 positivity; OEIS Fibo(2)=2 = Nat.fib 3 table; hou_zeng_five (5=3+1+1); hou_zeng_le_N for 5<=n<=30 via explicit witnesses + native_decide. Level B Python overlap OUT of this ticket. Namesake forall n>4 OUT of v1, not sorry-ed. Not Sun two-Fibonacci. Not krenn-gu / sun-135.",
       "expected": "open",
       "skill_packs": [
         "number-theory",
@@ -1553,11 +1553,14 @@
       ],
       "artifacts": [
         "catalog/problems/hou-zeng-pfc/",
-        "problems/hou-zeng-pfc/"
+        "problems/hou-zeng-pfc/",
+        "proofs/lean-project/ProofLab/HouZeng.lean"
       ],
       "scout_issue": "OPE-1028",
       "tickets": [
-        "OPE-1028"
+        "OPE-1028",
+        "OPE-1042",
+        "OPE-1043"
       ],
       "prize": {
         "amount_proof_usd": 1000,
@@ -1565,7 +1568,10 @@
         "payer": "Qing-Hu Hou and Jiang Zeng",
         "url": "https://oeis.org/A154404"
       },
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/HouZeng.lean",
+      "formalist_issue": "OPE-1043",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/103"
     },
     {
       "id": "sun-135",
@@ -1596,7 +1602,7 @@
       "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-06T19:50:00Z",
+  "updated_at": "2026-09-06T22:46:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
