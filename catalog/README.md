@@ -128,7 +128,7 @@ OPE-1078 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1078 mill consumed (#108+#109). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`ore-hamiltonian` — RECOMMENDED PRIME (86).** Fresh id. Ore 1960: `n ≥ 3` + nonadjacent `deg u + deg v ≥ n` ⇒ `IsHamiltonian`. Named theorem ZERO; `IsHamiltonian`/`degree` infra HIT. Not Dirac (consumed special case). Not Bondy–Chvátal.
+1. **`ore-hamiltonian` — RECOMMENDED PRIME (86).** Fresh id. Ore 1960: `n ≥ 3` + nonadjacent `deg u + deg v ≥ n` ⇒ `IsHamiltonian`. **OPE-1100 Formalist Level A landed** (`ProofLab/OreHamiltonian.lean`; not labelled Ore). Namesake residual. Named theorem ZERO; `IsHamiltonian`/`degree` infra HIT. Not Dirac (consumed special case). Not Bondy–Chvátal.
 2. **`bipartite-chromatic-index` leftover (85).** Fresh id. König 1916 line-colouring: `Colorable 2` ⇒ `χ' = Δ`. Named theorem ZERO; Colorable/maxDegree/IsMatching infra HIT. Not König matching `ν=τ`. Not Vizing.
 
 Director assigns after approval. Scout opened **no attack issues**.
@@ -153,4 +153,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1095 Scout: catalog-audit shortlist after #108+#109 consumed — `ore-hamiltonian` RECOMMENDED PRIME (86); `bipartite-chromatic-index` leftover (85). No Lean this run.)
+**Last updated:** 2026-09-07 (OPE-1100 Formalist: ore-hamiltonian Level A landed — n=3 / complete / connectedness / longest-path neighbourhood glue. Namesake residual. No novelty claim.)

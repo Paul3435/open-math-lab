@@ -1,7 +1,7 @@
 {
   "id": "ore-hamiltonian",
   "title": "Ore's theorem (nonadjacent degree-sum Hamiltonian cycle, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 86,
   "scores": {
@@ -42,6 +42,9 @@
     "combinatorics",
     "formalization"
   ],
+  "formalist_issue": "OPE-1100",
+  "director_issue": "OPE-1099",
+  "lean_artifact": "proofs/lean-project/ProofLab/OreHamiltonian.lean",
   "scored_at": "2026-09-07",
   "scout_issue": "OPE-1095",
   "parent_issue": "OPE-1094",

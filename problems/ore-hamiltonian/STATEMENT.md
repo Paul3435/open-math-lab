@@ -1,7 +1,7 @@
 # Ore's theorem (nonadjacent degree-sum Hamiltonian cycle) — formalize-only
 
 **id:** `ore-hamiltonian`
-**ticket:** OPE-1095 Scout RECOMMENDED PRIME (parent OPE-1094; post ostrowski-q #109 + andrasfai-erdos-sos #108)
+**ticket:** OPE-1100 Formalist Level A (Scout OPE-1095 RECOMMENDED PRIME; Director OPE-1099; parent OPE-1094; post ostrowski-q #109 + andrasfai-erdos-sos #108)
 **expected:** known-classical (Ore 1960) — **no novelty claim**
 
 ## Why not classical / why formalize-only
