@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-06T19:50:00Z",
+  "last_updated": "2026-09-07T06:15:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1462,7 +1462,7 @@
       "status": "shortlisted",
       "domain": "algebra",
       "score": 87,
-      "note": "OPE-886 Scout RECOMMENDED PRIME (Director OPE-885). Fresh funded slot after mason-stothers #97 + expander-mixing #98 CONSUMED. Classical Frobenius 1878 / Palais AMM 1968. Finite-dimensional associative real division algebras ≃ ℝ, ℂ, or ℍ. NOT Gelfand–Mazur (already Mathlib, complex Banach). NOT Mason–Stothers (#97). NOT expander-mixing (#98). NOT frobenius-coin-problem (OPE-25 Mathlib). NOT Frobenius endomorphism. NOT Artin–Wedderburn (proof_wanted, leftover-risk). NOT Hurwitz 1-2-4-8 / octonions. known-classical, no novelty.",
+      "note": "OPE-1062 Scout RECOMMENDED PRIME (reaffirm OPE-886; parent OPE-1061). Catalog-audit shortlist after prize wave #100–#103 CONSUMED. Independent Mathlib v4.10.0 grep this run: named real-division classification ZERO; Quaternion / finrank_eq_four / Basis.lift HIT as infra. Classical Frobenius 1878 / Palais AMM 1968. NOT a prize leftover. NOT Director-invented. NOT krenn-gu / hou-zeng-pfc / sun-135. NOT Gelfand–Mazur (already Mathlib, complex Banach). NOT Mason–Stothers (#97). NOT expander-mixing (#98). NOT frobenius-coin-problem (OPE-25 Mathlib). NOT Frobenius endomorphism. NOT Artin–Wedderburn (proof_wanted, leftover-risk). NOT Hurwitz 1-2-4-8 / octonions. known-classical, no novelty.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -1472,12 +1472,14 @@
         "catalog/problems/frobenius-real-division/",
         "problems/frobenius-real-division/"
       ],
-      "scout_issue": "OPE-886",
+      "scout_issue": "OPE-1062",
       "tickets": [
+        "OPE-1062",
+        "OPE-1061",
         "OPE-886",
         "OPE-885"
       ],
-      "parent_issue": "OPE-885"
+      "parent_issue": "OPE-1061"
     },
     {
       "id": "noether-normalization",
@@ -1485,7 +1487,7 @@
       "status": "shortlisted",
       "domain": "algebra",
       "score": 82,
-      "note": "OPE-886 Scout leftover slot #2 (Director OPE-885). Fresh funded leftover after mason-stothers #97 + expander-mixing #98 CONSUMED. Classical Noether 1926 / Atiyah–Macdonald 5.16. Finite-type k-algebra is module-finite over a polynomial subalgebra on an algebraically independent family. NOT Algebra.IsIntegral.finite (already Mathlib infra). NOT Hilbert basis / Nullstellensatz / primitive element (already Mathlib). NOT Mason–Stothers (#97). NOT CNS (#71). NOT frobenius-real-division (the prime). NOT going-up leftover. known-classical, no novelty.",
+      "note": "OPE-1062 Scout leftover slot #2 (reaffirm OPE-886; parent OPE-1061). Catalog-audit leftover after prize wave #100–#103 CONSUMED. Independent Mathlib v4.10.0 grep this run: named Noether normalization ZERO; Algebra.IsIntegral.finite / FiniteType HIT as different infra. Classical Noether 1926 / Atiyah–Macdonald 5.16. NOT a prize leftover. NOT Director-invented. NOT krenn-gu / hou-zeng-pfc / sun-135. NOT Algebra.IsIntegral.finite (already Mathlib infra). NOT Hilbert basis / Nullstellensatz / primitive element (already Mathlib). NOT Mason–Stothers (#97). NOT CNS (#71). NOT frobenius-real-division (the prime). NOT going-up leftover. known-classical, no novelty.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -1495,12 +1497,14 @@
         "catalog/problems/noether-normalization/",
         "problems/noether-normalization/"
       ],
-      "scout_issue": "OPE-886",
+      "scout_issue": "OPE-1062",
       "tickets": [
+        "OPE-1062",
+        "OPE-1061",
         "OPE-886",
         "OPE-885"
       ],
-      "parent_issue": "OPE-885"
+      "parent_issue": "OPE-1061"
     },
     {
       "id": "krenn-gu",
@@ -1575,12 +1579,12 @@
     },
     {
       "id": "sun-135",
-      "title": "Sun 1–3–5 four-square conjecture (open; $1350 source-stated cash)",
-      "status": "candidate",
+      "title": "Sun 1–3–5 four-square conjecture (ARCHIVED — not live cash)",
+      "status": "archived",
       "domain": "number_theory",
       "score": 72,
-      "note": "OPE-1028 Scout bench #3. Open Sun: n = x²+y²+z²+w² with x+3y+5z a square. PPL 006 source-stated US$1350 from Zhi-Wei Sun slides; PDF fetch FAILED this run — re-confirm before stronger cash language. Lagrange four-square already Mathlib (different theorem). v1 bounded search. Not the prime.",
-      "expected": "open",
+      "note": "OPE-1062 catalog stamp: ARCHIVED. OPE-1042 REJECT stands (1-3-5 conjecture proved 2020; OEIS A271518; JNT 222 Machiavelo-Tsopanidis). Not live cash. Do not revive. Do not shortlist. Lagrange four-square already Mathlib (different theorem). Was OPE-1028 bench #3 only.",
+      "expected": "known-classical",
       "skill_packs": [
         "number-theory",
         "formalization"
@@ -1589,20 +1593,22 @@
         "catalog/problems/sun-135/",
         "problems/sun-135/"
       ],
-      "scout_issue": "OPE-1028",
+      "scout_issue": "OPE-1062",
       "tickets": [
+        "OPE-1062",
+        "OPE-1042",
         "OPE-1028"
       ],
       "prize": {
         "amount_usd": 1350,
         "payer": "Zhi-Wei Sun",
         "url": "https://maths.nju.edu.cn/~zwsun/Square-sum.pdf",
-        "hygiene": "source-stated; slides PDF not independently fetched 2026-09-06"
+        "hygiene": "OPE-1042 REJECT — not live cash; do not revive"
       },
-      "mathlib_gap": true
+      "mathlib_gap": false
     }
   ],
-  "updated_at": "2026-09-06T22:46:00Z",
+  "updated_at": "2026-09-07T06:15:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

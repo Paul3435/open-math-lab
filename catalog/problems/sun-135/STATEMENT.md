@@ -1,8 +1,8 @@
-# Sun 1–3–5 four-square conjecture (open; live cash)
+# Sun 1–3–5 four-square conjecture (ARCHIVED — not live cash)
 
 **id:** `sun-135`
-**ticket:** OPE-1028 Scout bench #3 (board prize-money hunt)
-**expected:** `open` — **no prize claim**
+**ticket:** OPE-1062 catalog stamp; OPE-1042 REJECT stands; was OPE-1028 bench #3
+**expected:** `known-classical` — proved 2020; **do not revive**; **no prize claim**
 **cash:** US$1,350 — Zhi-Wei Sun (personal offer; PPL 006 “source-stated” from
 the author’s prize slides). No deadline. PPL last checked 2026-07-27.
 Slides URL recorded by PPL: https://maths.nju.edu.cn/~zwsun/Square-sum.pdf

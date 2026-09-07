@@ -100,15 +100,24 @@ Every `problems.json` entry must carry an `expected` tag set by Scout during the
 
 Fuller enum in `problems.json` → `expected_taxonomy`.
 
-## Prize-money shortlist (OPE-1028, 2026-09-06)
+## Prize-money shortlist (OPE-1028, 2026-09-06) — WAVE CONSUMED
 
 Board asked for one *open* problem with *live cash*. Scout did **not** solve and did **not** open Lean.
 
-1. **`krenn-gu` — RECOMMENDED PRIME (80).** €3,000 Krenn+Leitner (PPL 007). v1 finite slice, not the prize.
-2. **`hou-zeng-pfc` leftover (84 lab-score).** $1,000/$200 Hou+Zeng (OEIS A154404). Bounded verify only. **Level A landed OPE-1043** (`ProofLab/HouZeng.lean`, n≤30 witnesses; not the prize).
-3. **`sun-135` bench (72).** $1,350 Sun personal (PPL 006 source-stated; slides PDF not fetched this run).
+1. **`krenn-gu` — CONSUMED.** PR **#101** Level A + PR **#102** Level B. €3,000 namesake **out of v1**. No Level C. Do not revive.
+2. **`hou-zeng-pfc` — CONSUMED Level A.** PR **#103**. $1,000/$200 namesake `∀ n>4` **out of v1**. Level B declined (OPE-1047). Do not email Hou/Zeng. Do not revive.
+3. **`sun-135` — ARCHIVED (OPE-1042 REJECT / OPE-1062 stamp).** Proved 2020; not live cash. Do not revive.
 
 RSA Factoring Challenge **ended 2007**. Millennium / Beal $1M **out of v1 as a solve**. No prize claim.
+
+## Formalize-only shortlist (OPE-1062, 2026-09-07)
+
+Prize wave closed. Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation). Independent Mathlib v4.10.0 grep this run.
+
+1. **`frobenius-real-division` — RECOMMENDED PRIME (87).** Reaffirm OPE-886. Frobenius 1878 / Palais AMM 1968. Named classification still ZERO; Quaternion infra HIT.
+2. **`noether-normalization` leftover (82).** Reaffirm OPE-886. Noether 1926 / Atiyah–Macdonald 5.16. Named lemma still ZERO; `Algebra.IsIntegral.finite` is different infra.
+
+Director assigns after approval. Scout opened **no attack issues**.
 
 ## Shortlist (post OPE-21)
 
@@ -130,4 +139,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-06 (OPE-1038 Attack Lead: krenn-gu Level B timeboxed (8,3) search log. No prize claim.)
+**Last updated:** 2026-09-07 (OPE-1062 Scout: catalog-audit formalize-only shortlist after prize wave #100–#103. Prime `frobenius-real-division`. Archive `sun-135`. No prize claim.)

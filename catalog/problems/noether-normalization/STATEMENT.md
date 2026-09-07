@@ -1,7 +1,7 @@
 # Noether normalization lemma (formalize-only)
 
 **id:** `noether-normalization`
-**ticket:** OPE-886 Scout leftover slot #2 (Director OPE-885; post mason-stothers #97 + expander-mixing #98)
+**ticket:** OPE-1062 Scout leftover slot #2 (reaffirm OPE-886; parent OPE-1061; post prize wave #100–#103)
 **expected:** known-classical (Noether 1926; Atiyah–Macdonald Thm 5.16) — **no novelty claim**
 
 ## Why not classical / why formalize-only
