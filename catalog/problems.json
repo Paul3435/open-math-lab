@@ -1615,10 +1615,10 @@
     {
       "id": "bipartite-chromatic-index",
       "title": "König's line-colouring theorem (bipartite χ' = Δ, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 85,
-      "note": "OPE-1095 Scout leftover slot #2. Catalog-audit after OPE-1078 mill CONSUMED (#108+#109). König 1916 line-colouring: Colorable 2 ⇒ χ' = Δ. known-classical, no novelty. Independent Mathlib v4.10.0 grep this run: ZERO EdgeColorable/chromaticIndex/Vizing; Colorable L127 / maxDegree L343 / IsMatching HIT. NOT König matching ν=τ (consumed; different theorem). NOT Vizing. C5 landmine: Colorable 2 load-bearing. NOT Ore (the prime). NOT AES/Ostrowski Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone.",
+      "note": "OPE-1105 Formalist Level A. Director OPE-1104 approved Scout OPE-1095 leftover. Lean zero-sorry ProofLab/BipartiteChromaticIndex.lean. Level A LANDED: EdgeColorable encoding; edgeColorable_one_of_degree_le_one; matching_spanningCoe_edgeColorable_one (IsMatching glue, NOT konig_bipartite); star_edgeColorable_maxDegree; maxDegree_le_of_edgeColorable. Not labelled König. Namesake konig_edge_chromatic (Colorable 2 → EdgeColorable maxDegree) OUT of this ticket, not sorry-ed. Not König matching ν=τ (USE matching, do not re-prove). Not Vizing. Leave OPE-403 alone. No novelty claim.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1626,15 +1626,21 @@
       ],
       "artifacts": [
         "catalog/problems/bipartite-chromatic-index/",
-        "problems/bipartite-chromatic-index/"
+        "problems/bipartite-chromatic-index/",
+        "proofs/lean-project/ProofLab/BipartiteChromaticIndex.lean"
       ],
       "scout_issue": "OPE-1095",
       "tickets": [
         "OPE-1095",
-        "OPE-1094"
+        "OPE-1094",
+        "OPE-1104",
+        "OPE-1105"
       ],
       "parent_issue": "OPE-1094",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/BipartiteChromaticIndex.lean",
+      "formalist_issue": "OPE-1105",
+      "director_issue": "OPE-1104"
     },
     {
       "id": "krenn-gu",

@@ -1,7 +1,7 @@
 {
   "id": "bipartite-chromatic-index",
   "title": "König's line-colouring theorem (bipartite χ' = Δ, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "graph_theory",
   "score": 85,
   "scores": {
@@ -46,6 +46,9 @@
   "scored_at": "2026-09-07",
   "scout_issue": "OPE-1095",
   "parent_issue": "OPE-1094",
+  "formalist_issue": "OPE-1105",
+  "director_issue": "OPE-1104",
+  "lean_artifact": "proofs/lean-project/ProofLab/BipartiteChromaticIndex.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO chromaticIndex/EdgeColorable/Vizing; Colorable/maxDegree/IsMatching HIT as infra only",
     "Negative control turan → Turan.lean exists",
