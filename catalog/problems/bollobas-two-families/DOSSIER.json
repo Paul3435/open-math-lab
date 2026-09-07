@@ -1,0 +1,57 @@
+{
+  "id": "bollobas-two-families",
+  "title": "Bollobás two-families theorem (uniform set-pairs, formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_set_theory",
+  "score": 85,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Bollobás 1965: a finite family of pairs (A_i, B_i) with A_i ∩ B_i = ∅ and A_i ∩ B_j ≠ ∅ for i ≠ j, all |A_i|=a and |B_i|=b, satisfies |ι| ≤ C(a+b, a). Completely classical. Value is a Mathlib/ProofLab contribution (Finset / Nat.choose / Perm exist; ZERO named Bollobás two-families theorem in Mathlib+Archive — book citations only). Do NOT re-fund as novel. Sperner / LYM are DIFFERENT already-in theorems (IsAntichain.sperner, LYM.lean L214). Kruskal–Katona / EKR / Oddtown / sunflower are DIFFERENT already-consumed theorems. Sauer–Shelah is ALREADY Mathlib (Shatter.lean L190). Weighted ℚ form and Hilton–Milner / Eventown / Fisher are OUT of v1.",
+  "recommendation": "OPE-1125 leftover slot #2. Catalog-audit leftover after OPE-1110 mill CONSUMED (#114+#115). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of KK / EKR / Oddtown / sunflower / Hadamard / SZ. Independent Mathlib pin grep this run (choose/Finset/Perm HIT; named Bollobás two-families ZERO). Mill NOW: finite extremal set-pairs leftover beside Cauchy–Binet (rectangular det). Score 85 this run (not a JSON rubber-stamp): choose+Finset waiting (formalizability 16); Level A empty/singleton/a=0/b=0/one-pair (partial 16); permutation counting is real work but one-wave and mill combinatorics already demonstrated factorial/choose (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins uniform integer |ι| ≤ C(a+b,a) with disjoint + cross-intersecting pairs. Weighted residual. Do NOT assign this first unless Director swaps. Do NOT prove Sperner / LYM / KK / EKR / Oddtown / Cauchy–Binet.",
+  "mathlib_gap_grep_2026_09_07_ope1125": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1110 scores. rg bollobas / Bollobas over Mathlib/ + Archive + ProofLab → book citations only (Data/{Set,Finset}/Sups.lean), ZERO named theorem. Defs HIT: Nat.choose (Data/Nat/Choose/Basic.lean L45), choose_pos (L94), choose_symm (L170), Finset.card / Disjoint, Equiv.Perm via Determinant/Basic.lean L59. Already-in this run (do not re-prove, do not re-prime): Combinatorics/SetFamily/LYM.lean IsAntichain.sperner L214; Combinatorics/SetFamily/Shatter.lean Sauer-Shelah L190. Already-consumed this mill: ProofLab/KruskalKatona.lean (#67); ProofLab/ErdosKoRado.lean (#39+#41); ProofLab/Oddtown.lean (#68); ProofLab/Sunflower.lean (#70); ProofLab/SchwartzZippel.lean (#114); ProofLab/HadamardDet.lean (#115). KK STATEMENT did not name Bollobás as a leftover of THAT ticket — this is a fresh id, not that leftover. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem bollobas: IsSetPairFamily A B → (∀ i, (A i).card = a) → (∀ i, (B i).card = b) → Fintype.card ι ≤ Nat.choose (a+b) a. Level A may land only empty / singleton / a=0 / b=0 / one-pair glue, not labelled Bollobás.",
+    "landmines": [
+      "Do not re-prove Nat.choose / Sperner / LYM / kruskal_katona / erdos_ko_rado / oddtown / erdos_rado_sunflower.",
+      "Not Sperner / LYM (already Mathlib). Different theorem (antichain middle binomial).",
+      "Not Kruskal–Katona (#67). Different theorem (colex shadows).",
+      "Not EKR / Oddtown / sunflower / Sauer–Shelah.",
+      "Not Hilton–Milner / Eventown / Fisher / BIBD (leftovers).",
+      "A_i ∩ B_i = ∅ load-bearing. Cross intersections i≠j load-bearing. Uniform a,b load-bearing for this pin.",
+      "Not Cauchy–Binet (the prime). Not Hadamard-B / SZ-B.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "B. Bollobás, Acta Math. Acad. Sci. Hungar. 16 (1965) 447–452. Compact form: Wikipedia Bollobás theorem (combinatorics) / two-families. Type pin: Finset / Nat.choose. Sperner / LYM / KK / EKR / Oddtown are different already-in/consumed theorems."
+  },
+  "feasibility_shape": "Level A: empty family; singleton; a=0 forces |ι|≤1=C(b,0); b=0 symmetric; one pair 1 ≤ C(a+b,a) via choose_pos; not labelled Bollobás. Level B: namesake permutation counting |ι|·a!·b! ≤ (a+b)!. Cap two levels. No Sperner re-proof. No KK re-proof. Weighted ℚ residual. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Nat.choose / Finset.card / Disjoint / Equiv.Perm — USE; DO NOT re-prove",
+    "Mathlib IsAntichain.sperner / LYM / Sauer-Shelah — DIFFERENT already-in; DO NOT re-prove; DO NOT cite as Bollobás",
+    "ProofLab/KruskalKatona.lean / ErdosKoRado.lean / Oddtown.lean / Sunflower.lean — consumed, DO NOT revive",
+    "ProofLab/HadamardDet.lean / SchwartzZippel.lean — consumed #115/#114, DO NOT revive Level B",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1125",
+  "parent_issue": "OPE-1124",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO named Bollobás two-families; choose/Finset/Perm HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: Sperner/LYM; Sauer–Shelah",
+    "Already-consumed: KK / EKR / Oddtown / sunflower / SZ / Hadamard",
+    "Weighted / Hilton–Milner / Eventown / Fisher / Cauchy–Binet / Hadamard-B / SZ-B / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
