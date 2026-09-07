@@ -1,7 +1,7 @@
 {
   "id": "noether-normalization",
   "title": "Noether normalization lemma (formalize-only)",
-  "status": "shortlisted",
+  "status": "formalized",
   "domain": "algebra",
   "score": 82,
   "scores": {
@@ -40,7 +40,10 @@
     "Lab algebra + formalization skill packs"
   ],
   "estimated_token_budget": "100k",
-  "skill_packs": ["algebra", "formalization"],
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
   "scored_at": "2026-09-07",
   "scout_issue": "OPE-1062",
   "parent_issue": "OPE-1061",
@@ -50,5 +53,8 @@
     "Reaffirm not rubber-stamp: OPE-886 leftover is Scout INPUT; prize wave closed; mill reason is FiniteType commutative leftover after division-algebra prime",
     "Negative control turan → Turan.lean exists",
     "Mason / CNS / Hilbert basis / Nullstellensatz / going-up / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1073",
+  "director_issue": "OPE-1072",
+  "lean_artifact": "proofs/lean-project/ProofLab/NoetherNormalization.lean"
 }

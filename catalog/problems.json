@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T06:15:00Z",
+  "last_updated": "2026-09-07T08:44:14Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1490,10 +1490,10 @@
     {
       "id": "noether-normalization",
       "title": "Noether normalization lemma (formalize-only)",
-      "status": "shortlisted",
+      "status": "formalized",
       "domain": "algebra",
       "score": 82,
-      "note": "OPE-1062 Scout leftover slot #2 (reaffirm OPE-886; parent OPE-1061). Catalog-audit leftover after prize wave #100–#103 CONSUMED. Independent Mathlib v4.10.0 grep this run: named Noether normalization ZERO; Algebra.IsIntegral.finite / FiniteType HIT as different infra. Classical Noether 1926 / Atiyah–Macdonald 5.16. NOT a prize leftover. NOT Director-invented. NOT krenn-gu / hou-zeng-pfc / sun-135. NOT Algebra.IsIntegral.finite (already Mathlib infra). NOT Hilbert basis / Nullstellensatz / primitive element (already Mathlib). NOT Mason–Stothers (#97). NOT CNS (#71). NOT frobenius-real-division (the prime). NOT going-up leftover. known-classical, no novelty.",
+      "note": "OPE-1073 Formalist Level A LANDED (Scout OPE-1062 leftover slot #2; Director OPE-1072). Lean zero-sorry ProofLab/NoetherNormalization.lean: mvPolynomial_module_finite_self (identity aeval / generators = 1) + adjoin_integral_module_finite / adjoinRoot_monic_module_finite (Algebra.IsIntegral.finite glue). Not labelled Noether. Level B namesake noether_normalization out of this ticket, not sorry-ed. known-classical, no novelty. Default no claim. NOT Hilbert basis / IsIntegral.finite (infra, used) / Nullstellensatz / primitive element / Galois / Artin-Tate / going-up. NOT mason-stothers / Descartes / CNS / frobenius-real-division Level B / krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -1501,16 +1501,22 @@
       ],
       "artifacts": [
         "catalog/problems/noether-normalization/",
-        "problems/noether-normalization/"
+        "problems/noether-normalization/",
+        "proofs/lean-project/ProofLab/NoetherNormalization.lean"
       ],
       "scout_issue": "OPE-1062",
       "tickets": [
         "OPE-1062",
         "OPE-1061",
         "OPE-886",
-        "OPE-885"
+        "OPE-885",
+        "OPE-1072",
+        "OPE-1073"
       ],
-      "parent_issue": "OPE-1061"
+      "parent_issue": "OPE-1061",
+      "lean_artifact": "proofs/lean-project/ProofLab/NoetherNormalization.lean",
+      "formalist_issue": "OPE-1073",
+      "director_issue": "OPE-1072"
     },
     {
       "id": "krenn-gu",

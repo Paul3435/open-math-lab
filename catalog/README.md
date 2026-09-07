@@ -115,7 +115,7 @@ RSA Factoring Challenge **ended 2007**. Millennium / Beal $1M **out of v1 as a s
 Prize wave closed. Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation). Independent Mathlib v4.10.0 grep this run.
 
 1. **`frobenius-real-division` — RECOMMENDED PRIME (87).** Reaffirm OPE-886. Frobenius 1878 / Palais AMM 1968. Named classification still ZERO; Quaternion infra HIT.
-2. **`noether-normalization` leftover (82).** Reaffirm OPE-886. Noether 1926 / Atiyah–Macdonald 5.16. Named lemma still ZERO; `Algebra.IsIntegral.finite` is different infra.
+2. **`noether-normalization` leftover (82) — Level A CONSUMED (OPE-1073).** Reaffirm OPE-886. Noether 1926 / Atiyah–Macdonald 5.16. Named lemma still ZERO in Mathlib; `Algebra.IsIntegral.finite` is different infra (used, not re-proved). Level B namesake out of v1 this wave. Do not revive Level B.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
