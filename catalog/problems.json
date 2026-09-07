@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T18:40:00Z",
+  "last_updated": "2026-09-07T21:30:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -25,6 +25,30 @@
         "combinatorics"
       ],
       "expected": "known-classical"
+    },
+    {
+      "id": "cauchy-binet",
+      "title": "Cauchy–Binet formula (det of a rectangular product, formalize-only)",
+      "status": "candidate",
+      "domain": "linear_algebra",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1125 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1110 mill CONSUMED (#114 schwartz-zippel + #115 hadamard-det). Known classical (Binet 1812 / Cauchy 1815). Mathlib v4.10.0 gap this run: ZERO named Cauchy–Binet; HIT Matrix.det / det_mul / submatrix / powersetCard. Not det_mul (square already-in). Not Hadamard (#115). Not Kirchhoff (Cayley leftover-risk; residual). Leave OPE-403 alone. Default no claim.",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/cauchy-binet/",
+        "problems/cauchy-binet/"
+      ],
+      "scout_issue": "OPE-1125",
+      "tickets": [
+        "OPE-1125",
+        "OPE-1124"
+      ],
+      "parent_issue": "OPE-1124",
+      "mathlib_gap": true
     },
     {
       "id": "demo-collatz-bound-toy",
@@ -1704,6 +1728,30 @@
       "formalist_issue": "OPE-1105",
       "director_issue": "OPE-1104",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/112"
+    },
+    {
+      "id": "bollobas-two-families",
+      "title": "Bollobás two-families theorem (uniform set-pairs, formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_set_theory",
+      "score": 85,
+      "expected": "known-classical",
+      "note": "OPE-1125 Scout leftover slot #2. Catalog-audit leftover after OPE-1110 mill CONSUMED (#114+#115). Known classical (Bollobás 1965). Mathlib v4.10.0 gap this run: ZERO named Bollobás two-families; HIT Nat.choose / Finset / Perm. Not Sperner/LYM (already-in). Not KK/EKR/Oddtown/sunflower (consumed). Weighted residual. Leave OPE-403 alone. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/bollobas-two-families/",
+        "problems/bollobas-two-families/"
+      ],
+      "scout_issue": "OPE-1125",
+      "tickets": [
+        "OPE-1125",
+        "OPE-1124"
+      ],
+      "parent_issue": "OPE-1124",
+      "mathlib_gap": true
     },
     {
       "id": "krenn-gu",

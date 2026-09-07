@@ -1,0 +1,56 @@
+{
+  "id": "cauchy-binet",
+  "title": "Cauchy–Binet formula (det of a rectangular product, formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Binet 1812 / Cauchy 1815: det(A * B) equals the sum of det(column-submatrix) det(row-submatrix) over |S|=|m| subsets of the inner index. Completely classical. Value is a Mathlib/ProofLab contribution (Matrix.det / det_mul / submatrix / powersetCard exist; ZERO named Cauchy–Binet in Mathlib+Archive). Do NOT re-fund as novel. Matrix.det_mul is a DIFFERENT already-in square identity — USE as glue; do not re-prove; do not cite as Cauchy–Binet. Hadamard determinant inequality is a DIFFERENT already-consumed theorem (#115; USE Matrix.det; do not revive hadamard_det). Kirchhoff matrix-tree is OUT of v1 (Cayley leftover-risk; residual of this id).",
+  "recommendation": "OPE-1125 RECOMMENDED PRIME. Catalog-audit prime after OPE-1110 mill CONSUMED (#114 schwartz-zippel Level A + #115 hadamard-det Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Hadamard / SZ / Ore / konig_edge_chromatic / AES / Ostrowski / Frobenius / Noether. Independent Mathlib pin grep this run (det/det_mul/submatrix/powersetCard HIT; named Cauchy–Binet ZERO). Mill NOW: finite rectangular-det identity after Hadamard (row-norm bound on det) + Schwartz–Zippel (polynomial zeros). Score 86 this run (not a JSON rubber-stamp): det+submatrix+powersetCard waiting (formalizability 16); Level A empty/1x1/square det_mul glue (partial 17); Leibniz grouping by image subset is real work but one-wave and det_apply already demonstrated Perm sums (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins CommRing, finite m n, det(A*B)=sum of matching square minors. Kirchhoff residual. Do NOT assign bollobas-two-families first unless Director swaps. Do NOT prove det_mul / Hadamard-B / SZ-B / Kirchhoff.",
+  "mathlib_gap_grep_2026_09_07_ope1125": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1110 scores. rg cauchyBinet / CauchyBinet / cauchy_binet over Mathlib/ + Archive + ProofLab → ZERO named theorem. Defs HIT: Matrix.det (Determinant/Basic.lean L56 abbrev), det_mul (L129), det_apply Perm sum (L59), det_isEmpty (L85), det_unique (L100), Matrix.submatrix (Data/Matrix/Basic.lean L2281), Finset.powersetCard (Data/Finset/Powerset.lean L171). Already-in this run (do not re-prove, do not re-prime): det_mul square multiplicativity; AbsoluteValue.lean det_le L36 (n! x^n); Gershgorin.lean; Data/Matrix/Hadamard.lean product; Analysis/Complex/Hadamard.lean three-lines; LinearAlgebra/Vandermonde.lean. Already-consumed this mill: ProofLab/SchwartzZippel.lean Level A (#114); ProofLab/HadamardDet.lean Level A (#115). Hadamard STATEMENT named Cauchy–Binet as a DIFFERENT theorem of THAT ticket — this is a fresh id, not that leftover. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem cauchy_binet: CommRing R → det(A * B) = ∑ S ∈ univ.powersetCard (card m), det(A.submatrix id subtypeS) * det(B.submatrix subtypeS id). Level A may land only |m|=0 / |m|=1 / square det_mul glue, not labelled Cauchy–Binet.",
+    "landmines": [
+      "Do not re-prove Matrix.det / det_mul / det_apply / submatrix / powersetCard / det_le / Gershgorin.",
+      "Not Matrix.det_mul (square special case). USE, do not cite as Cauchy–Binet.",
+      "Not Hadamard (#115). Different theorem. Do not revive hadamard_det.",
+      "Not det_le n! x^n. Not Gershgorin / Hadamard product / three-lines / Vandermonde.",
+      "Not Kirchhoff matrix-tree (Cayley leftover-risk; residual of this id).",
+      "Not Schwartz–Zippel Level B. Not Ore / konig_edge_chromatic / AES-B.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Cauchy 1815 / Binet 1812. Textbook: Horn–Johnson §0.8.7. Compact form: Wikipedia Cauchy–Binet formula. Type pin: Matrix.det / submatrix / powersetCard. det_mul is a different already-in square identity."
+  },
+  "feasibility_shape": "Level A: |m|=0 det_isEmpty both sides 1; |m|=1 1×1 product is a dot product; square case unique full index set reduces to det_mul; not labelled Cauchy–Binet. Level B: namesake Leibniz expansion of det(A*B) grouped by image subset S ⊆ n. Cap two levels. No Kirchhoff. No Hadamard re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Matrix.det / det_mul / det_apply / submatrix / powersetCard — USE; DO NOT re-prove",
+    "Mathlib det_le / Gershgorin — DIFFERENT already-in; DO NOT re-prove; DO NOT cite as Cauchy–Binet",
+    "ProofLab/HadamardDet.lean — consumed #115, USE det encoding, DO NOT revive Level B",
+    "ProofLab/SchwartzZippel.lean — consumed #114, DO NOT revive Level B",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1125",
+  "parent_issue": "OPE-1124",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Cauchy–Binet / cauchy_binet; det/det_mul/submatrix/powersetCard HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: det_mul; det_le; Gershgorin; Hadamard product; three-lines; Vandermonde",
+    "Already-consumed: HadamardDet Level A (#115); SchwartzZippel Level A (#114)",
+    "Kirchhoff / Cayley leftover / Hadamard-B / SZ-B / Ore-B / konig_edge_chromatic / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

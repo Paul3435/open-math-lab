@@ -131,12 +131,19 @@ OPE-1095 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`ore-hamiltonian` — CONSUMED.** PR **#111** Level A. Catalog `formalized`. Level B namesake `ore_hamiltonian` **out of v1**. Do not revive.
 2. **`bipartite-chromatic-index` — CONSUMED Level A.** PR **#112** Level A. Catalog `formalized`. Level B namesake `konig_edge_chromatic` **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1110, 2026-09-07)
+## Formalize-only shortlist (OPE-1110, 2026-09-07) — WAVE CONSUMED
 
-OPE-1095 mill consumed (#111+#112). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1110 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`schwartz-zippel` — Level A LANDED (OPE-1115, PR #114).** Lean `ProofLab/SchwartzZippel.lean` n=1/constants/card_roots' glue. **Not labelled Schwartz–Zippel.** Namesake `schwartz_zippel` **out of this ticket**. Catalog `formalized`.
-2. **`hadamard-det` leftover — Level A LANDED (OPE-1120, PR #115).** Lean `ProofLab/HadamardDet.lean` n=0/1 / n=2 / orthogonal-rows glue. **Not labelled Hadamard.** Namesake `hadamard_det` **out of this ticket**. Catalog `formalized`.
+1. **`schwartz-zippel` — CONSUMED.** PR **#114** Level A. Catalog `formalized`. Level B namesake `schwartz_zippel` **out of v1**. Do not revive.
+2. **`hadamard-det` — CONSUMED Level A.** PR **#115** Level A. Catalog `formalized`. Level B namesake `hadamard_det` **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1125, 2026-09-07)
+
+OPE-1110 mill consumed (#114+#115). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`cauchy-binet` — RECOMMENDED PRIME (86).** Cauchy–Binet `det(A * B)` as a sum of matching square minors. Named theorem ZERO; `Matrix.det` / `det_mul` / `submatrix` / `powersetCard` HIT. **Not** `det_mul` (square already-in). **Not** Hadamard (#115). Kirchhoff residual.
+2. **`bollobas-two-families` leftover (85).** Bollobás 1965 uniform set-pairs `|ι| ≤ C(a+b, a)`. Named theorem ZERO; `Nat.choose` / `Finset` / `Perm` HIT. **Not** Sperner/LYM (already-in). **Not** KK/EKR/Oddtown/sunflower (consumed). Weighted residual.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -160,4 +167,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1120 Formalist: hadamard-det Level A n=0/1/n=2/orthogonal-rows glue. Namesake residual.)
+**Last updated:** 2026-09-07 (OPE-1125 Scout: catalog-audit formalize-only shortlist. Prime cauchy-binet; leftover bollobas-two-families. OPE-1110 mill consumed.)
