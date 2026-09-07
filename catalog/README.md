@@ -110,12 +110,19 @@ Board asked for one *open* problem with *live cash*. Scout did **not** solve and
 
 RSA Factoring Challenge **ended 2007**. Millennium / Beal $1M **out of v1 as a solve**. No prize claim.
 
-## Formalize-only shortlist (OPE-1062, 2026-09-07)
+## Formalize-only shortlist (OPE-1062, 2026-09-07) — WAVE CONSUMED
 
-Prize wave closed. Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation). Independent Mathlib v4.10.0 grep this run.
+Catalog-audit mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`frobenius-real-division` — RECOMMENDED PRIME (87).** Reaffirm OPE-886. Frobenius 1878 / Palais AMM 1968. Named classification still ZERO; Quaternion infra HIT.
-2. **`noether-normalization` leftover (82) — Level A CONSUMED (OPE-1073).** Reaffirm OPE-886. Noether 1926 / Atiyah–Macdonald 5.16. Named lemma still ZERO in Mathlib; `Algebra.IsIntegral.finite` is different infra (used, not re-proved). Level B namesake out of v1 this wave. Do not revive Level B.
+1. **`frobenius-real-division` — CONSUMED.** PR **#105** Level A. Catalog `formalized`. Level B `AlgEquiv` **out of v1**. Do not revive.
+2. **`noether-normalization` — CONSUMED Level A.** PR **#106**. Catalog `formalized`. Level B namesake **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1078, 2026-09-07)
+
+OPE-1062 mill consumed (#105+#106). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`andrasfai-erdos-sos` — RECOMMENDED PRIME (86).** Fresh id. AES 1974 r=3: `CliqueFree 3` + `5 * minDegree > 3 * n` ⇒ `Colorable 2`. Named theorem ZERO; CliqueFree/Colorable/minDegree infra HIT. Not Turán. Not bipartite-odd-cycle. Not Mycielski.
+2. **`ostrowski-q` leftover (82).** Fresh id. Ostrowski 1916 for `MulRingNorm ℚ`. Bounded padic half already Mathlib (**infra, USE**); namesake disjunction still TODO in Ostrowski.lean. Not number fields. Not π-irrational.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -139,4 +146,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1067 Formalist: frobenius-real-division Level A landed, zero-sorry. Level B namesake out of ticket. No novelty claim.)
+**Last updated:** 2026-09-07 (OPE-1078 Scout: catalog audit + ≤2 formalize-only shortlist after #105+#106 consumed. Prime `andrasfai-erdos-sos`; leftover `ostrowski-q`. No Lean this run.)

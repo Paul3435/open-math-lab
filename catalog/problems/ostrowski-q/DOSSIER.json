@@ -1,0 +1,57 @@
+{
+  "id": "ostrowski-q",
+  "title": "Ostrowski’s theorem for ℚ (formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 82,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Ostrowski 1916: every nontrivial absolute value on ℚ is equivalent to the usual |·|∞ or to a p-adic |·|_p. Completely classical. Value is a Mathlib/ProofLab contribution (MulRingNorm / mulRingNorm_padic / mulRingNorm_equiv_padic_of_bounded exist; the Ostrowski.lean header still marks the NAMESAKE as TODO; the file ends after the Non_archimedean section). Do NOT re-fund as novel. mulRingNorm_equiv_padic_of_bounded is a DIFFERENT fact (bounded half — infra, USE). Number-field Ostrowski is OUT of v1. Gelfand–Mazur / Hensel / π-irrational are DIFFERENT theorems.",
+  "recommendation": "OPE-1078 leftover slot #2. Catalog-audit leftover after OPE-1062 mill CONSUMED (#105+#106). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Frobenius/Noether, NOT π-irrational leftover. Independent Mathlib pin grep this run (bounded padic theorem HIT as DIFFERENT infra; named full Ostrowski ZERO; file header TODO). Mill NOW: elementary-valuation leftover after a finite extremal-graph prime (andrasfai-erdos-sos). Score 82 this run (not a JSON rubber-stamp): MulRingNorm+padic waiting (formalizability 15); Level A unbounded engine (partial 16); archimedean sandwich is real work (attack 15); Lean-only (verification 16); classical (crackpot 20). v1 pins MulRingNorm ℚ only. Number fields out of v1. Do NOT assign before andrasfai-erdos-sos unless Director swaps. Do NOT re-prove the bounded half / Hensel / π-irrational.",
+  "mathlib_gap_grep_2026_09_07_ope1078": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1062 scores. rg ostrowski over Mathlib + Archive: hits ONLY NumberTheory/Ostrowski.lean (header TODO + Non_archimedean section). Theorem HIT as DIFFERENT infra: mulRingNorm_equiv_padic_of_bounded L187 (bounded ⇒ padic). ZERO archimedean/unbounded engine. ZERO namesake disjunction. ZERO mulRingNorm_real. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run: hensels_lemma (Padics/Hensel.lean L472 — DIFFERENT); Gelfand–Mazur NormedRing.algEquivComplexOfComplete (DIFFERENT); e-irrational ProofLab namesake (DIFFERENT); padicNorm. ProofLab already has FrobeniusRealDivision / NoetherNormalization / EIrrational — those are NOT this theorem and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem ostrowski: f ≠ 1 → equiv f mulRingNorm_real ∨ ∃ p, Fact p.Prime ∧ equiv f (mulRingNorm_padic p). Level A may land only the unbounded/archimedean engine, not labelled Ostrowski. USE mulRingNorm_equiv_padic_of_bounded; do not re-prove it.",
+    "landmines": [
+      "Do not re-prove mulRingNorm_equiv_padic_of_bounded / mulRingNorm_padic / padicNorm / MulRingNorm.equiv / Hensel / Gelfand–Mazur.",
+      "Citing the bounded half as the gap is the OPE-25 failure mode.",
+      "Not Ostrowski for number fields (file-header TODO). Out of v1.",
+      "Not π-irrational / Niven cosine / e-transcendental. No intervalIntegral.",
+      "Not e-irrational (#92) / Descartes / Mason / Noether / Frobenius Level B.",
+      "Not andrasfai-erdos-sos (the prime). Do not assign first unless Director swaps.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Ostrowski, Acta Math. 41 (1916) 271–284. Cassels Local Fields; Conrad Ostrowski for ℚ. Wikipedia Ostrowski's theorem. Type pin: MulRingNorm ℚ / equiv / mulRingNorm_padic. Bounded theorem is infra, not this claim. Number fields out of v1."
+  },
+  "feasibility_shape": "Level A: unbounded on ℕ ⇒ f(n)=n^α on ℕ; package as equiv mulRingNorm_real; not labelled Ostrowski. Level B: namesake disjunction, using already-upstream mulRingNorm_equiv_padic_of_bounded for the bounded half. Cap two levels. No number fields. No Hensel re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib MulRingNorm / MulRingNorm.equiv — USE; DO NOT re-prove",
+    "Mathlib mulRingNorm_equiv_padic_of_bounded / mulRingNorm_padic / padicNorm — USE; DO NOT cite as this gap",
+    "Mathlib hensels_lemma — DIFFERENT; DO NOT re-prove",
+    "Mathlib Gelfand–Mazur — DIFFERENT; DO NOT re-prove",
+    "ProofLab/EIrrational.lean — consumed #92, different theorem, DO NOT re-prime",
+    "ProofLab/FrobeniusRealDivision.lean / NoetherNormalization.lean — consumed #105/#106, DO NOT revive Level B",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1078",
+  "parent_issue": "OPE-1077",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: Ostrowski.lean header TODO; bounded theorem HIT as infra only; namesake ZERO",
+    "Negative control turan → Turan.lean exists",
+    "Not π-irrational (no intervalIntegral). Not number-field Ostrowski.",
+    "AES / Hensel / Gelfand–Mazur / e-irrational / Frobenius B / Noether B / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T08:44:14Z",
+  "last_updated": "2026-09-07T09:46:34Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1520,6 +1520,54 @@
       "pr": "https://github.com/Paul3435/open-math-lab/pull/106"
     },
     {
+      "id": "andrasfai-erdos-sos",
+      "title": "Andrásfai–Erdős–Sós theorem, triangle-free case (formalize-only)",
+      "status": "candidate",
+      "domain": "extremal_graph_theory",
+      "score": 86,
+      "note": "OPE-1078 Scout RECOMMENDED PRIME (parent OPE-1077; post #105+#106). Catalog-audit formalize-only. Classical AES 1974 r=3: CliqueFree 3 + 5*minDegree > 3*n ⇒ Colorable 2. Independent Mathlib v4.10.0 grep this run: CliqueFree/Colorable/minDegree HIT as infra; named AES ZERO. NOT Turán (already Mathlib). NOT bipartite-odd-cycle (#79). NOT Mycielski (#65). NOT Frobenius/Noether Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/andrasfai-erdos-sos/",
+        "problems/andrasfai-erdos-sos/"
+      ],
+      "scout_issue": "OPE-1078",
+      "tickets": [
+        "OPE-1078",
+        "OPE-1077"
+      ],
+      "parent_issue": "OPE-1077",
+      "mathlib_gap": true
+    },
+    {
+      "id": "ostrowski-q",
+      "title": "Ostrowski’s theorem for ℚ (formalize-only)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 82,
+      "note": "OPE-1078 Scout leftover slot #2 (parent OPE-1077; post #105+#106). Catalog-audit formalize-only. Classical Ostrowski 1916 for MulRingNorm ℚ. Independent Mathlib v4.10.0 grep this run: mulRingNorm_equiv_padic_of_bounded HIT as DIFFERENT infra (bounded half); Ostrowski.lean header still TODO; namesake disjunction ZERO. NOT number fields (out of v1). NOT π-irrational / Niven. NOT Hensel / Gelfand–Mazur. NOT Frobenius/Noether Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone. Do NOT assign before andrasfai-erdos-sos unless Director swaps.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/ostrowski-q/",
+        "problems/ostrowski-q/"
+      ],
+      "scout_issue": "OPE-1078",
+      "tickets": [
+        "OPE-1078",
+        "OPE-1077"
+      ],
+      "parent_issue": "OPE-1077",
+      "mathlib_gap": true
+    },
+    {
       "id": "krenn-gu",
       "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
       "status": "heuristic",
@@ -1621,7 +1669,7 @@
       "mathlib_gap": false
     }
   ],
-  "updated_at": "2026-09-07T06:15:00Z",
+  "updated_at": "2026-09-07T09:46:34Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

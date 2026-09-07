@@ -1,0 +1,57 @@
+{
+  "id": "andrasfai-erdos-sos",
+  "title": "Andrásfai–Erdős–Sós theorem, triangle-free case (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_graph_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Andrásfai–Erdős–Sós 1974 r=3: a finite triangle-free graph on n vertices with δ > 3n/5 is bipartite (ℕ pin 5*minDegree > 3*n ⇒ Colorable 2). Completely classical. Value is a Mathlib/ProofLab contribution (CliqueFree / Colorable / minDegree exist; ZERO named AES in Mathlib+Archive). Do NOT re-fund as novel. Turán is a DIFFERENT already-upstream theorem (max-edges). bipartite-odd-cycle is a DIFFERENT characterization (Colorable 2 ↔ no odd walk). Mycielski is the OPPOSITE direction (unbounded χ of triangle-free graphs).",
+  "recommendation": "OPE-1078 RECOMMENDED PRIME. Catalog-audit prime after OPE-1062 mill CONSUMED (#105 frobenius-real-division Level A + #106 noether-normalization Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Frobenius/Noether. Independent Mathlib pin grep this run (CliqueFree 3 HIT; Colorable 2 HIT; minDegree HIT; named AES ZERO). Mill NOW: finite extremal-graph diversification after two algebra theorems. Score 86 this run (not a JSON rubber-stamp): CliqueFree+Colorable+minDegree waiting (formalizability 16); Level A shortest-odd-cycle glue (partial 17); double-count is real work but one-wave (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins CliqueFree 3 and 5δ > 3n ⇒ Colorable 2. General K_r-free AES is residual. Do NOT assign ostrowski-q first unless Director swaps. Do NOT prove Turán / Mantel / Mycielski-C.",
+  "mathlib_gap_grep_2026_09_07_ope1078": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1062 scores. rg andrasfai / Andrásfai / Andrasfai / three_n_div_five / minDegree.*Colorable over Mathlib/Combinatorics + Archive + ProofLab → ZERO named theorem. Defs HIT: CliqueFree (Clique.lean L261), Colorable (Coloring.lean L127), minDegree (Finite.lean L314). Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run: bipartite-odd-cycle namesake in ProofLab (USE encoding, do not re-prove); Mycielski namesake (OPPOSITE direction); Turán; greedy; Moore; KST. ProofLab already has FrobeniusRealDivision / NoetherNormalization / KrennGu / HouZeng — those are NOT this theorem and NOT re-primes.",
+  "statement_pin_required": {
+    "convention": "theorem andrasfai_erdos_sos: CliqueFree 3 → 5 * minDegree > 3 * card V → Colorable 2. Level A may land only shortest-odd-cycle / induced C_{2k+1} / ≤2 neighbours off-cycle, not labelled AES.",
+    "landmines": [
+      "Do not re-prove CliqueFree / Colorable / minDegree / colorable_two_iff_no_odd_walk / Turán / Mantel / Mycielski / Moore / greedy / Brooks.",
+      "Not Turán (already Mathlib). Not Mantel.",
+      "Not bipartite-odd-cycle (#79). Characterization ≠ degree condition.",
+      "Not Mycielski (#65). Opposite direction.",
+      "Not Moore / cages / HS / KST / Zarankiewicz / expander-mixing.",
+      "Not greedy / Brooks C / Vizing / 4CT.",
+      "Not ostrowski-q (the leftover). Do not assign first unless Director swaps.",
+      "Not frobenius-real-division Level B / noether-normalization Level B / krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Andrásfai–Erdős–Sós, Discrete Math. 8 (1974) 205–218. Diestel triangle-free degree form. Wikipedia Andrásfai–Erdős–Sós theorem. Type pin: CliqueFree 3 / Colorable 2 / minDegree. ℕ inequality 5δ > 3n. C5 is the landmine that the inequality is strict."
+  },
+  "feasibility_shape": "Level A: shortest odd cycle in a non-2-colourable triangle-free graph has length ≥ 5 and is induced; off-cycle vertices have ≤ 2 neighbours on it; not labelled AES. Level B: namesake by double-counting edges between C and V\\C under 5δ > 3n. Cap two levels. No general K_r. No Turán re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib CliqueFree / Colorable / minDegree — USE; DO NOT re-prove",
+    "ProofLab/BipartiteOddCycle.lean colorable_two_iff_no_odd_walk — USE encoding; DO NOT re-prove; DO NOT re-prime",
+    "Mathlib Turán — DIFFERENT; never cite as this gap",
+    "ProofLab/Mycielski.lean — OPPOSITE direction; DO NOT re-prime",
+    "ProofLab/FrobeniusRealDivision.lean / NoetherNormalization.lean — consumed #105/#106, DO NOT revive Level B",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1078",
+  "parent_issue": "OPE-1077",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO AES; CliqueFree/Colorable/minDegree HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "C5 landmine: n=5 δ=2 does not fire 5δ > 3n",
+    "Turán / bipartite-odd-cycle / Mycielski / Frobenius B / Noether B / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
