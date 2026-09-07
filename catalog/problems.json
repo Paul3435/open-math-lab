@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T22:45:00Z",
+  "last_updated": "2026-09-07T21:50:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1739,26 +1739,32 @@
     {
       "id": "bollobas-two-families",
       "title": "Bollobás two-families theorem (uniform set-pairs, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_set_theory",
       "score": 85,
       "expected": "known-classical",
-      "note": "OPE-1125 Scout leftover slot #2. Catalog-audit leftover after OPE-1110 mill CONSUMED (#114+#115). Known classical (Bollobás 1965). Mathlib v4.10.0 gap this run: ZERO named Bollobás two-families; HIT Nat.choose / Finset / Perm. Not Sperner/LYM (already-in). Not KK/EKR/Oddtown/sunflower (consumed). Weighted residual. Leave OPE-403 alone. Default no claim.",
+      "note": "OPE-1135 Formalist Level A. Director OPE-1134 approved Scout OPE-1125 leftover. Lean zero-sorry ProofLab/BollobasTwoFamilies.lean. Level A LANDED: IsSetPairFamily encoding; card_eq_zero_le_choose / fin_zero; one_le_choose; card_one_le_choose / fin_one; one_le_choose_of_disjoint; card_le_one_of_left_card_eq_zero / card_le_choose_of_left_card_eq_zero (a=0); card_le_one_of_right_card_eq_zero / card_le_choose_of_right_card_eq_zero (b=0). Not labelled Bollobas. Namesake bollobas (permutation counting) OUT of this ticket, not sorry-ed. Not Sperner/LYM. Not KK/EKR/Oddtown/sunflower. Weighted Q residual. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
         "catalog/problems/bollobas-two-families/",
-        "problems/bollobas-two-families/"
+        "problems/bollobas-two-families/",
+        "proofs/lean-project/ProofLab/BollobasTwoFamilies.lean"
       ],
       "scout_issue": "OPE-1125",
       "tickets": [
         "OPE-1125",
-        "OPE-1124"
+        "OPE-1124",
+        "OPE-1134",
+        "OPE-1135"
       ],
       "parent_issue": "OPE-1124",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/BollobasTwoFamilies.lean",
+      "formalist_issue": "OPE-1135",
+      "director_issue": "OPE-1134"
     },
     {
       "id": "krenn-gu",
