@@ -1,0 +1,58 @@
+{
+  "id": "hadamard-det",
+  "title": "Hadamard determinant inequality (row ℓ² product bound, formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 83,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Hadamard 1893: for a real n×n matrix, |det A| ≤ ∏_i ‖row i‖₂. Completely classical. Value is a Mathlib/ProofLab contribution (Matrix.det / det_apply exist; ZERO named Hadamard determinant inequality in Mathlib+Archive). Do NOT re-fund as novel. Matrix.det_le (n! x^n entrywise bound, AbsoluteValue.lean) is a DIFFERENT already-in weaker theorem — USE nothing as a namesake; do not re-prove. Gershgorin / Levy–Desplanques already-in (Gershgorin.lean). Hadamard *product* (Data/Matrix/Hadamard.lean) and Hadamard three-lines (Analysis/Complex/Hadamard.lean) are different theorems. Complex conjugate-transpose form OUT of v1.",
+  "recommendation": "OPE-1110 leftover slot #2. Catalog-audit leftover after OPE-1095 mill CONSUMED (#111+#112). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Ore / konig_edge_chromatic / AES / Ostrowski / Frobenius / Noether / expander-mixing. Independent Mathlib pin grep this run (Matrix.det HIT; named Hadamard determinant inequality ZERO; det_le is a different bound). Mill NOW: finite linear-algebra inequality leftover beside Schwartz–Zippel (polynomial zeros). Score 83 this run: det waiting but Gram/PSD engine is extra glue (formalizability 15); Level A n=1 / n=2 / orthogonal-rows equality (partial 16); namesake is one-wave but longer than SZ univariate glue (attack 15); Lean-only finite (verification 17); classical (crackpot 20). v1 pins real square matrices and Euclidean row norms. Complex residual. Do NOT assign this first unless Director swaps. Do NOT prove Gershgorin / det_le / SZ / Ore-B / konig_edge_chromatic.",
+  "mathlib_gap_grep_2026_09_07_ope1110": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1095 scores. rg hadamard.inequal / det_le_prod_norm / zippel-style Hadamard-det over Mathlib/ + Archive → ZERO named theorem. Defs HIT: Matrix.det (Determinant/Basic.lean L56 abbrev), det_apply (L59), detRowAlternating (L52). Already-in DIFFERENT theorems this run (do not re-prove, do not re-prime): AbsoluteValue.lean det_le L36 (n! x^n entrywise); Gershgorin.lean eigenvalue_mem_ball L26 / det_ne_zero_of_sum_row_lt_diag L59 (Levy–Desplanques); Data/Matrix/Hadamard.lean Hadamard product; Analysis/Complex/Hadamard.lean three-lines. LinearAlgebra/Vandermonde.lean is a different det identity. Negative control turan → Turan.lean L300. Already-consumed this mill: OreHamiltonian Level A (#111); BipartiteChromaticIndex Level A (#112). Expander-mixing used adjMatrix — DIFFERENT consumed id, do not revive namesake.",
+  "statement_pin_required": {
+    "convention": "theorem hadamard_det: |A.det| ≤ ∏ i, sqrt(∑ j, A i j ^ 2) for A : Matrix n n ℝ. Level A may land only n=0/1 / n=2 / orthogonal-rows equality, not labelled Hadamard.",
+    "landmines": [
+      "Do not re-prove Matrix.det / det_apply / det_le (n! x^n) / Gershgorin / Levy–Desplanques.",
+      "Not Matrix.det_le (AbsoluteValue.lean). Weaker different bound.",
+      "Not Gershgorin / row-strict diagonal dominance (already Mathlib).",
+      "Not Hadamard product. Not Hadamard three-lines.",
+      "v1 is real matrices + Euclidean row ℓ². Complex / column form residual.",
+      "Not Vandermonde det (already Mathlib). Not Cauchy–Binet / Kirchhoff.",
+      "Not expander-mixing leftover. Not Schwartz–Zippel (the prime).",
+      "Not Ore / konig_edge_chromatic Level B / AES-B / Ostrowski-B.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "J. Hadamard, Bull. Sci. Math. 17 (1893) 240–246. Textbook: Horn–Johnson / Beckenbach–Bellman. Compact form: Wikipedia Hadamard inequality. Type pin: Matrix.det / Euclidean row norm. det_le n! x^n is a different already-in bound."
+  },
+  "feasibility_shape": "Level A: n empty/1 trivial; n=2 explicit 2×2; pairwise-orthogonal rows ⇒ |det| = product of row norms (Gram diagonal); not labelled Hadamard. Level B: namesake via Gram G = A * Aᵀ, (det A)^2 = det G ≤ product of diagonal entries (AM-GM on eigenvalues of a PSD Gram, or induction). Cap two levels. No complex. No Gershgorin re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Matrix.det / det_apply — USE; DO NOT re-prove",
+    "Mathlib det_le (AbsoluteValue.lean) — DIFFERENT already-in bound; DO NOT re-prove; DO NOT cite as Hadamard",
+    "Mathlib Gershgorin.eigenvalue_mem_ball / det_ne_zero_of_sum_row_lt_diag — DIFFERENT already-in; DO NOT re-prove",
+    "ProofLab/OreHamiltonian.lean / BipartiteChromaticIndex.lean — consumed #111/#112, DO NOT revive Level B",
+    "ProofLab/ExpanderMixing.lean — consumed adjMatrix infra, DO NOT revive namesake",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1110",
+  "parent_issue": "OPE-1109",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Hadamard determinant inequality; Matrix.det HIT as infra only",
+    "Already-in different: det_le n! x^n; Gershgorin/Levy–Desplanques; Hadamard product; three-lines; Vandermonde det",
+    "Negative control turan → Turan.lean exists",
+    "Complex / column / Kirchhoff / expander-mixing / SZ / Ore-B / konig_edge_chromatic / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
