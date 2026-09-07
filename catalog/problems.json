@@ -1764,7 +1764,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/BollobasTwoFamilies.lean",
       "formalist_issue": "OPE-1135",
-      "director_issue": "OPE-1134"
+      "director_issue": "OPE-1134",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/118"
     },
     {
       "id": "krenn-gu",
