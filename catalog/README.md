@@ -135,8 +135,8 @@ OPE-1095 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1095 mill consumed (#111+#112). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`schwartz-zippel` — RECOMMENDED PRIME (86).** Fresh id. DeMillo–Lipton 1978 / Zippel 1979 / Schwartz 1980: nonzero `f`, `n≥1`, zeros in `S^n` ≤ `totalDegree * |S|^{n-1}`. Named theorem ZERO; `MvPolynomial.eval` / `totalDegree` / `finSuccEquiv` / `Polynomial.card_roots'` infra HIT. Not combinatorial Nullstellensatz (consumed #71). Not Chevalley–Warning (already Mathlib).
-2. **`hadamard-det` leftover (83).** Fresh id. Hadamard 1893: `|det A| ≤ ∏ ‖rowᵢ‖₂` on real square matrices. Named theorem ZERO; `Matrix.det` infra HIT. Not `Matrix.det_le` (`n! x^n`). Not Gershgorin / Levy–Desplanques. Not Hadamard product / three-lines.
+1. **`schwartz-zippel` — Level A LANDED (OPE-1115).** Lean `ProofLab/SchwartzZippel.lean` n=1/constants/card_roots' glue. **Not labelled Schwartz–Zippel.** Namesake `schwartz_zippel` **out of this ticket**. Catalog `formalized`. Hadamard leftover unassigned.
+2. **`hadamard-det` leftover (83).** Unassigned this tick. Fresh id. Hadamard 1893: `|det A| ≤ ∏ ‖rowᵢ‖₂` on real square matrices. Named theorem ZERO; `Matrix.det` infra HIT. Not `Matrix.det_le` (`n! x^n`). Not Gershgorin / Levy–Desplanques. Not Hadamard product / three-lines.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -160,4 +160,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1110 Scout: catalog-audit shortlist after #111+#112 consumed — `schwartz-zippel` RECOMMENDED PRIME (86); `hadamard-det` leftover (83). No Lean this run.)
+**Last updated:** 2026-09-07 (OPE-1115 Formalist: schwartz-zippel Level A n=1/constants/card_roots' glue. Namesake residual. hadamard-det leftover unassigned.)

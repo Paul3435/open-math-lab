@@ -264,10 +264,10 @@
     {
       "id": "schwartz-zippel",
       "title": "Schwartz–Zippel lemma (finite-box zeros of a polynomial, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorial_algebra",
       "score": 86,
-      "note": "OPE-1110 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1095 mill CONSUMED (#111 ore-hamiltonian Level A + #112 bipartite-chromatic-index Level A). Known classical (DeMillo–Lipton 1978 / Zippel 1979 / Schwartz 1980). Mathlib v4.10.0 gap this run: ZERO zippel / SchwartzZippel; HIT MvPolynomial.eval / totalDegree / degreeOf / finSuccEquiv / Polynomial.card_roots'. Not combinatorial Nullstellensatz (#71; USE encoding, do not re-prove). Not Chevalley–Warning (already Mathlib char_dvd_card_solutions). Not Alon–Füredi. Not Ore-B / konig_edge_chromatic. Leave OPE-403 alone. No novelty claim.",
+      "note": "OPE-1115 Formalist Level A. Director OPE-1114 approved Scout OPE-1110 prime. Lean zero-sorry ProofLab/SchwartzZippel.lean. Level A LANDED: card_roots_in_le_natDegree; eval_C_ne_zero / eval_ne_zero_of_totalDegree_eq_zero; toUnivariate (finSuccEquiv identification); card_zeros_fin_one_le_totalDegree. Not labelled Schwartz-Zippel. Namesake schwartz_zippel (induction on n via finSuccEquiv) OUT of this ticket, not sorry-ed. Not combinatorial Nullstellensatz (#71; USE encoding, do not re-prove). Not Chevalley-Warning (already Mathlib). Not Alon-Furedi. Not hadamard-det leftover. Leave OPE-403 alone. No novelty claim.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -275,15 +275,21 @@
       ],
       "artifacts": [
         "catalog/problems/schwartz-zippel/",
-        "problems/schwartz-zippel/"
+        "problems/schwartz-zippel/",
+        "proofs/lean-project/ProofLab/SchwartzZippel.lean"
       ],
       "scout_issue": "OPE-1110",
       "tickets": [
         "OPE-1110",
-        "OPE-1109"
+        "OPE-1109",
+        "OPE-1114",
+        "OPE-1115"
       ],
       "parent_issue": "OPE-1109",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/SchwartzZippel.lean",
+      "formalist_issue": "OPE-1115",
+      "director_issue": "OPE-1114"
     },
     {
       "id": "sum-free-subsets",
