@@ -1640,7 +1640,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/BipartiteChromaticIndex.lean",
       "formalist_issue": "OPE-1105",
-      "director_issue": "OPE-1104"
+      "director_issue": "OPE-1104",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/112"
     },
     {
       "id": "krenn-gu",
