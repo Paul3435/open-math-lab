@@ -142,7 +142,7 @@ OPE-1110 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1110 mill consumed (#114+#115). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`cauchy-binet` — RECOMMENDED PRIME (86).** Cauchy–Binet `det(A * B)` as a sum of matching square minors. Named theorem ZERO; `Matrix.det` / `det_mul` / `submatrix` / `powersetCard` HIT. **Not** `det_mul` (square already-in). **Not** Hadamard (#115). Kirchhoff residual.
+1. **`cauchy-binet` — CONSUMED Level A by OPE-1130 / PR #117.** Cauchy–Binet `det(A * B)` as a sum of matching square minors. Named theorem ZERO; `Matrix.det` / `det_mul` / `submatrix` / `powersetCard` HIT. **Not** `det_mul` (square already-in). **Not** Hadamard (#115). Kirchhoff residual.
 2. **`bollobas-two-families` leftover (85).** Bollobás 1965 uniform set-pairs `|ι| ≤ C(a+b, a)`. Named theorem ZERO; `Nat.choose` / `Finset` / `Perm` HIT. **Not** Sperner/LYM (already-in). **Not** KK/EKR/Oddtown/sunflower (consumed). Weighted residual.
 
 Director assigns after approval. Scout opened **no attack issues**.
@@ -167,4 +167,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1125 Scout: catalog-audit formalize-only shortlist. Prime cauchy-binet; leftover bollobas-two-families. OPE-1110 mill consumed.)
+**Last updated:** 2026-09-07 (OPE-1130 Formalist: cauchy-binet Level A. Scout OPE-1125 leftover bollobas-two-families unassigned.)
