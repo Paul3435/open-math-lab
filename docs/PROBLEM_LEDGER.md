@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-09-07 (OPE-1090 Formalist: ostrowski-q Level A — unbounded engine `f n = n^α` on ℕ + `mulRingNorm_real` packaged as `MulRingNorm.equiv`. Level B namesake out of ticket.)
+**Last updated:** 2026-09-07 (OPE-1095 Scout: catalog-audit shortlist after #108+#109 consumed — `ore-hamiltonian` RECOMMENDED PRIME (86); `bipartite-chromatic-index` leftover (85). No Lean this run.)
 
 ## Lifecycle labels
 
@@ -40,6 +40,21 @@ Rejected as primes: Millennium $1M items (too big unless a published sub-bounty 
 **OPE-1038 update (2026-09-06, Attack Lead): krenn-gu Level B option 2.** Director OPE-1037 CONTINUE, XOR pick = timeboxed `(N,D)=(8,3)` search (not Lean nonexistence). Ring `{-1,0,1}`. Method: exhaustive-on-a-tiny-weight-set + heuristic local search. Python replica of Lean `EqSystem`/`pmSum` (smaller-index first). Sanity: even-cycle `d=2` is `EqSystem` for `n=4,6,8`. **(8,3):** signed monochromatic 1-factor triples `35×2^12=143360` **exhausted**, 0 witnesses; cycle+extra 1-factor 112 exhausted, 0 witnesses; mono hill-climb 1182 steps, 0 witnesses (best residual 1 = unused colour on the `C_8` `d=2` seed). **Fallback (6,3)** same ring: 5120+40 exhausted + 22020-step bichrome hill-climb, 0 witnesses. Wall 165s. Lean untouched; namesake not sorry-ed. **No (8,3) software-confirmable witness. Default no claim. Do not claim €3,000. Do not email Krenn/Leitner.** Not hou-zeng-pfc / sun-135. Leave OPE-403 alone.
 
 **OPE-1043 update (2026-09-07, Formalist): hou-zeng-pfc Level A.** Director OPE-1042 approved Scout OPE-1028 leftover slot #2. Lean **zero-sorry** `ProofLab/HouZeng.lean`. Encoding `IsOddPrimeFibCatalan` (`Nat.Prime p ∧ p ≠ 2 ∧ 2 ≤ s ∧ n = p + Nat.fib s + catalan t`); indexing table `fib_index_table` / `oeis_fibo_two_eq_nat_fib_three` (`Fibo(2)=2 = Nat.fib 3`); `catalan_index_table`; required `hou_zeng_five` (`5 = 3 + 1 + 1`); bounded `hou_zeng_le_N` for `5 ≤ n ≤ 30` via explicit `witness` + `native_decide`. `#print axioms hou_zeng_le_N` = `propext` / `Classical.choice` / `Lean.ofReduceBool` / `Quot.sound` (no `sorryAx`). `lake env lean ProofLab/HouZeng.lean` EXIT=0; `lake build ProofLab` green. **Not labelled Hou–Zeng / not the prize.** Level B Python overlap verifier and namesake `∀ n>4` **out of this ticket**, not sorry-ed. **No novelty claim. Default no claim. Do not claim $1,000 / $200. Do not email Hou/Zeng.** Do **not** prove sun-135 / continue krenn-gu. Leave OPE-403 alone.
+
+**OPE-1095 update (2026-09-07, Scout): catalog-audit formalize-only shortlist.**
+OPE-1078 mill is **CONSUMED** (PR **#108** AES Level A + PR **#109** ostrowski-q Level A). Director does not invent primes. No unused Scout-approved leftover remains from OPE-1078. This is a catalog-audit shortlist, **not** a prize hunt, **not** a Formalist leftover continuation, **not** a Level B namesake revival.
+
+Independent confirm this heartbeat: `gh pr list --state open` empty; origin/main = `9c28a2ace6a66bf32cc04aa1d62ec092da598617` (PR #109 merge). Mathlib pin `a719ba5c3115` (v4.10.0). Local grep, never the internet as gap oracle.
+
+Shortlist (≤2):
+1. **`ore-hamiltonian` — RECOMMENDED PRIME (86).** Fresh id. Ore 1960: `n ≥ 3` + nonadjacent `deg u + deg v ≥ n` ⇒ `IsHamiltonian`. Named theorem ZERO; `IsHamiltonian` (Hamiltonian.lean L119) / `degree` HIT. **Not** Dirac (consumed special case; USE encoding; do not re-prove `dirac_hamiltonian`; Dirac STATEMENT named Ore as a v1-b stretch of *that* ticket — this is a new id). **Not** Bondy–Chvátal. Finite, one-wave Formalist shape.
+2. **`bipartite-chromatic-index` leftover (85).** Fresh id. König 1916 line-colouring: `Colorable 2` ⇒ `χ' = Δ`. Named theorem ZERO; Colorable L127 / maxDegree L343 / IsMatching HIT; `EdgeColorable`/`chromaticIndex`/`vizing` ZERO. **Not** König matching `ν=τ` (consumed; König STATEMENT listed `χ'=Δ` as a different theorem). **Not** Vizing. `C₅` landmine: `Colorable 2` load-bearing.
+
+Honest none was considered; both pass the gate. Cap is 2.
+
+Refused this run (already-in or not one-wave / leftover-revival): Lucas binomial, EGZ, AM-GM, Hall SDR, Sauer–Shelah, Wilson, quadratic reciprocity, Cayley–Hamilton, Nakayama, primitive element, Hilbert basis, rearrangement, Ptolemy, Jensen, Legendre `n!`, hockey-stick, going-up *one-step* (`exists_ideal_over_prime_of_isIntegral_of_isPrime` — chain induction is known-trivial), Eventown (Oddtown out-of-v1), π-irrational (Niven sink), Tutte (Matching.lean TODO, not one-wave), five-colour (no planar infra), Kirchhoff matrix-tree (no contraction / Cauchy–Binet; leftover-risk of Cayley), Level B namesakes of the consumed mill, krenn-gu / hou-zeng-pfc / sun-135, frobenius-coin-problem JSON row.
+
+Negative control: `turan` → `Turan.lean` `isTuranMaximal_iff_nonempty_iso_turanGraph`. Do **not** solve. Do **not** open Lean. Default no claim. Do **not** wake Formalist/Attack. Leave OPE-403 alone.
 
 **OPE-1090 update (2026-09-07, Formalist): ostrowski-q Level A.** Director OPE-1089 approved Scout OPE-1078 leftover. PR **#109**. Lean **zero-sorry** `ProofLab/OstrowskiQ.lean`. **Level A LANDED:** `theorem unbounded_eq_pow` — unbounded `MulRingNorm ℚ` on `ℕ` ⇒ `∃ α > 0, ∀ n, f n = n^α`; `def mulRingNorm_real`; packaged `theorem equiv_mulRingNorm_real_of_unbounded`. Glue: `MulRingNorm.equiv` / `equiv_on_nat_iff_equiv` already-upstream, **not** re-proved. Bounded half `mulRingNorm_equiv_padic_of_bounded` **USE, not re-proved**. **Not labelled Ostrowski.** `#print axioms` on landed theorems = `propext` / `Classical.choice` / `Quot.sound` (no `sorryAx`). `lake build ProofLab.OstrowskiQ` EXIT=0; `lake build ProofLab` green. **Level B namesake** `ostrowski` (unbounded vs padic disjunction) **out of this ticket**, not sorry-ed. **No novelty claim. Default no claim.** Do **not** prove number-field Ostrowski / Hensel / Gelfand–Mazur / π-irrational / e-irrational / AES Level B / frobenius-real-division Level B / noether-normalization Level B. Leave OPE-403 alone.
 

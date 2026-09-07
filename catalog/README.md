@@ -117,12 +117,19 @@ Catalog-audit mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRI
 1. **`frobenius-real-division` — CONSUMED.** PR **#105** Level A. Catalog `formalized`. Level B `AlgEquiv` **out of v1**. Do not revive.
 2. **`noether-normalization` — CONSUMED Level A.** PR **#106**. Catalog `formalized`. Level B namesake **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1078, 2026-09-07)
+## Formalize-only shortlist (OPE-1078, 2026-09-07) — WAVE CONSUMED
 
-OPE-1062 mill consumed (#105+#106). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1078 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`andrasfai-erdos-sos` — RECOMMENDED PRIME (86).** Fresh id. AES 1974 r=3: `CliqueFree 3` + `5 * minDegree > 3 * n` ⇒ `Colorable 2`. Named theorem ZERO; CliqueFree/Colorable/minDegree infra HIT. Not Turán. Not bipartite-odd-cycle. Not Mycielski.
-2. **`ostrowski-q` leftover (82).** Fresh id. Ostrowski 1916 for `MulRingNorm ℚ`. Bounded padic half already Mathlib (**infra, USE**); namesake disjunction still TODO in Ostrowski.lean. Not number fields. Not π-irrational.
+1. **`andrasfai-erdos-sos` — CONSUMED.** PR **#108** Level A. Catalog `formalized`. Level B namesake AES **out of v1**. Do not revive.
+2. **`ostrowski-q` — CONSUMED Level A.** PR **#109** Level A. Catalog `formalized`. Level B namesake ostrowski **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1095, 2026-09-07)
+
+OPE-1078 mill consumed (#108+#109). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`ore-hamiltonian` — RECOMMENDED PRIME (86).** Fresh id. Ore 1960: `n ≥ 3` + nonadjacent `deg u + deg v ≥ n` ⇒ `IsHamiltonian`. Named theorem ZERO; `IsHamiltonian`/`degree` infra HIT. Not Dirac (consumed special case). Not Bondy–Chvátal.
+2. **`bipartite-chromatic-index` leftover (85).** Fresh id. König 1916 line-colouring: `Colorable 2` ⇒ `χ' = Δ`. Named theorem ZERO; Colorable/maxDegree/IsMatching infra HIT. Not König matching `ν=τ`. Not Vizing.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -146,4 +153,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1090 Formalist: ostrowski-q Level A landed — unbounded engine `f n = n^α` + `mulRingNorm_real` equiv package. Level B namesake out of ticket.)
+**Last updated:** 2026-09-07 (OPE-1095 Scout: catalog-audit shortlist after #108+#109 consumed — `ore-hamiltonian` RECOMMENDED PRIME (86); `bipartite-chromatic-index` leftover (85). No Lean this run.)

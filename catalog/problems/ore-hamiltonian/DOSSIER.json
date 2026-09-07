@@ -1,0 +1,54 @@
+{
+  "id": "ore-hamiltonian",
+  "title": "Ore's theorem (nonadjacent degree-sum Hamiltonian cycle, formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Ore 1960: a finite simple graph on n≥3 vertices is Hamiltonian if every pair of nonadjacent vertices satisfies deg u + deg v ≥ n. Completely classical. Dirac 1952 (δ ≥ n/2) is the special case. Value is a Mathlib/ProofLab contribution (IsHamiltonian / degree exist; ZERO named Ore in Mathlib+Archive). Do NOT re-fund as novel. Dirac is a DIFFERENT already-consumed theorem (USE encoding, do not re-prove dirac_hamiltonian). Bondy–Chvátal is OUT of v1.",
+  "recommendation": "OPE-1095 RECOMMENDED PRIME. Catalog-audit prime after OPE-1078 mill CONSUMED (#108 andrasfai-erdos-sos Level A + #109 ostrowski-q Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of AES/Ostrowski/Frobenius/Noether/Dirac. Independent Mathlib pin grep this run (IsHamiltonian HIT; degree HIT; named Ore ZERO). Mill NOW: finite Hamiltonian sufficient-condition after AES (extremal) + Ostrowski (valuations). Score 86 this run (not a JSON rubber-stamp): IsHamiltonian+degree waiting (formalizability 16); Level A n=3/complete/connected/longest-path glue (partial 17); cycle-closing is real work but one-wave and Dirac already demonstrated the engine (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins n≥3 and nonadjacent deg-sum ⇒ IsHamiltonian. Bondy–Chvátal residual. Do NOT assign bipartite-chromatic-index first unless Director swaps. Do NOT prove Dirac / AES-B / Ostrowski-B.",
+  "mathlib_gap_grep_2026_09_07_ope1095": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1078 scores. rg ore_hamiltonian / Ore's theorem / theorem ore over Mathlib/Combinatorics/SimpleGraph + Archive + ProofLab → ZERO named theorem (Hamiltonian.lean has defs only). Defs HIT: SimpleGraph.IsHamiltonian (Hamiltonian.lean L119), Walk.IsHamiltonianCycle (L64), degree / minDegree (Finite.lean L314). Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run: ProofLab/Dirac.lean dirac_hamiltonian (USE encoding, do not re-prove, do not re-prime); AES Level A (consumed #108); OstrowskiQ Level A (consumed #109). Dirac STATEMENT named Ore as a v1-b stretch of THAT ticket — this is a fresh id, not that leftover.",
+  "statement_pin_required": {
+    "convention": "theorem ore_hamiltonian: 3 ≤ card V → (∀ u v, u ≠ v → ¬ Adj u v → card V ≤ degree u + degree v) → IsHamiltonian. Level A may land only n=3 / complete / connectedness / longest-path glue, not labelled Ore.",
+    "landmines": [
+      "Do not re-prove IsHamiltonian / degree / minDegree / dirac_hamiltonian / AES / greedy / Brooks.",
+      "Not Dirac (#44+#45). Special case ≠ this theorem.",
+      "n ≥ 3 load-bearing (K2 landmine).",
+      "Cycle, not path. Directed Ore out of v1.",
+      "Not Bondy–Chvátal / Chvátal sequence / Pósa / Tutte.",
+      "Not AES / ostrowski-q Level B / bipartite-chromatic-index (the leftover).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "O. Ore, Amer. Math. Monthly 67 (1960) 55. Bondy–Murty / Diestel. Wikipedia Ore's theorem. Type pin: IsHamiltonian / degree. ℕ inequality n ≤ deg u + deg v on nonadjacent pairs. Dirac is a different consumed special case."
+  },
+  "feasibility_shape": "Level A: n=3 / complete / Ore⇒connected / longest-path neighbourhood glue; not labelled Ore. Level B: namesake cycle-closing under the degree-sum hypothesis. Cap two levels. No Bondy–Chvátal. No Dirac re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib IsHamiltonian / Walk.IsHamiltonianCycle / degree — USE; DO NOT re-prove",
+    "ProofLab/Dirac.lean dirac_hamiltonian — DIFFERENT consumed theorem; USE encoding; DO NOT re-prove; DO NOT re-prime",
+    "ProofLab/AndrasfaiErdosSos.lean / OstrowskiQ.lean — consumed #108/#109, DO NOT revive Level B",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1095",
+  "parent_issue": "OPE-1094",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Ore; IsHamiltonian/degree HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "K2 landmine: n=2, Ore hypothesis vacuous on the unique edge, graph not Hamiltonian",
+    "Dirac / AES-B / Ostrowski-B / Bondy–Chvátal / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
