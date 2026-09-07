@@ -146,4 +146,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1083 Formalist: andrasfai-erdos-sos Level A landed — shortest-odd-cycle / induced / ≤2-neighbours glue. Level B namesake out of ticket. leftover `ostrowski-q` unassigned.)
+**Last updated:** 2026-09-07 (OPE-1090 Formalist: ostrowski-q Level A landed — unbounded engine `f n = n^α` + `mulRingNorm_real` equiv package. Level B namesake out of ticket.)

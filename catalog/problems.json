@@ -1553,10 +1553,10 @@
     {
       "id": "ostrowski-q",
       "title": "Ostrowski’s theorem for ℚ (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 82,
-      "note": "OPE-1078 Scout leftover slot #2 (parent OPE-1077; post #105+#106). Catalog-audit formalize-only. Classical Ostrowski 1916 for MulRingNorm ℚ. Independent Mathlib v4.10.0 grep this run: mulRingNorm_equiv_padic_of_bounded HIT as DIFFERENT infra (bounded half); Ostrowski.lean header still TODO; namesake disjunction ZERO. NOT number fields (out of v1). NOT π-irrational / Niven. NOT Hensel / Gelfand–Mazur. NOT Frobenius/Noether Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone. Do NOT assign before andrasfai-erdos-sos unless Director swaps.",
+      "note": "OPE-1090 Formalist Level A LANDED (Scout OPE-1078 leftover; Director OPE-1089). Lean zero-sorry ProofLab/OstrowskiQ.lean: unbounded_eq_pow (unbounded on ℕ ⇒ ∃ α>0, ∀ n, f n = n^α) + mulRingNorm_real + equiv_mulRingNorm_real_of_unbounded. Not labelled Ostrowski. Level B namesake ostrowski (unbounded vs padic disjunction) out of this ticket, not sorry-ed. known-classical, no novelty. Default no claim. USE mulRingNorm_equiv_padic_of_bounded (bounded half, infra, not this gap). NOT number-field Ostrowski. NOT Hensel / Gelfand–Mazur / π-irrational / e-irrational. NOT AES / Frobenius / Noether Level B. Leave OPE-403 alone.",
       "expected": "known-classical",
       "skill_packs": [
         "number-theory",
@@ -1564,15 +1564,22 @@
       ],
       "artifacts": [
         "catalog/problems/ostrowski-q/",
-        "problems/ostrowski-q/"
+        "problems/ostrowski-q/",
+        "proofs/lean-project/ProofLab/OstrowskiQ.lean"
       ],
       "scout_issue": "OPE-1078",
       "tickets": [
         "OPE-1078",
-        "OPE-1077"
+        "OPE-1077",
+        "OPE-1089",
+        "OPE-1090"
       ],
       "parent_issue": "OPE-1077",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/OstrowskiQ.lean",
+      "formalist_issue": "OPE-1090",
+      "director_issue": "OPE-1089",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/109"
     },
     {
       "id": "krenn-gu",

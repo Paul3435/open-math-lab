@@ -1,7 +1,7 @@
 {
   "id": "ostrowski-q",
   "title": "Ostrowski’s theorem for ℚ (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "number_theory",
   "score": 82,
   "scores": {
