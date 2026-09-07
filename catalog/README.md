@@ -146,4 +146,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1078 Scout: catalog audit + ≤2 formalize-only shortlist after #105+#106 consumed. Prime `andrasfai-erdos-sos`; leftover `ostrowski-q`. No Lean this run.)
+**Last updated:** 2026-09-07 (OPE-1083 Formalist: andrasfai-erdos-sos Level A landed — shortest-odd-cycle / induced / ≤2-neighbours glue. Level B namesake out of ticket. leftover `ostrowski-q` unassigned.)

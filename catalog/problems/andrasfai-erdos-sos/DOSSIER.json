@@ -1,7 +1,7 @@
 {
   "id": "andrasfai-erdos-sos",
   "title": "Andrásfai–Erdős–Sós theorem, triangle-free case (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_graph_theory",
   "score": 86,
   "scores": {
@@ -48,6 +48,9 @@
   "scored_at": "2026-09-07",
   "scout_issue": "OPE-1078",
   "parent_issue": "OPE-1077",
+  "formalist_issue": "OPE-1083",
+  "director_issue": "OPE-1082",
+  "lean_artifact": "proofs/lean-project/ProofLab/AndrasfaiErdosSos.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO AES; CliqueFree/Colorable/minDegree HIT as infra only",
     "Negative control turan → Turan.lean exists",
