@@ -1,7 +1,7 @@
 {
   "id": "hadamard-det",
   "title": "Hadamard determinant inequality (row ℓ² product bound, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "linear_algebra",
   "score": 83,
   "scores": {
@@ -49,6 +49,9 @@
   "scored_at": "2026-09-07",
   "scout_issue": "OPE-1110",
   "parent_issue": "OPE-1109",
+  "formalist_issue": "OPE-1120",
+  "director_issue": "OPE-1119",
+  "lean_artifact": "proofs/lean-project/ProofLab/HadamardDet.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Hadamard determinant inequality; Matrix.det HIT as infra only",
     "Already-in different: det_le n! x^n; Gershgorin/Levy–Desplanques; Hadamard product; three-lines; Vandermonde det",
