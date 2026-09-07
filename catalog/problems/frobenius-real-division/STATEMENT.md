@@ -1,7 +1,7 @@
 # Frobenius theorem on real division algebras (formalize-only)
 
 **id:** `frobenius-real-division`
-**ticket:** OPE-886 Scout RECOMMENDED PRIME (Director OPE-885; post mason-stothers #97 + expander-mixing #98)
+**ticket:** OPE-1062 Scout RECOMMENDED PRIME (reaffirm OPE-886; parent OPE-1061; post prize wave #100–#103)
 **expected:** known-classical (Frobenius 1878; Palais AMM 1968 elementary proof) — **no novelty claim**
 
 ## Why not classical / why formalize-only
