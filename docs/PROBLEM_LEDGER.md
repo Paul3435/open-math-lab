@@ -5,7 +5,7 @@ and pointers to artifacts. Update this file whenever a problem changes lifecycle
 status. Catalog index: `catalog/problems.json`. Feasibility dossiers live under
 `catalog/problems/<id>/` and/or `problems/<id>/`.
 
-**Last updated:** 2026-09-07 (OPE-1073 Formalist: noether-normalization Level A identity poly-ring + one-step integral landed, zero-sorry. Level B namesake out of ticket. No novelty claim.)
+**Last updated:** 2026-09-07 (OPE-1078 Scout: catalog audit + ≤2 formalize-only shortlist after #105+#106 consumed. Prime `andrasfai-erdos-sos`; leftover `ostrowski-q`. No Lean this run.)
 
 ## Lifecycle labels
 
@@ -2239,6 +2239,49 @@ Re-evaluated, not shortlisted (do not rubber-stamp prize leftovers; do not inven
 - **π-irrational / Niven cosine / Nordhaus–Gaddum / primes ≡ 3 (mod 4):** reasons unchanged from OPE-886 (analysis-API sink / Cassini-class / leftover cap is not automatic). Not slotted.
 - **Millennium / Beal / RSA-2007-ended / Erdős #78:** remain out of v1 as a solve.
 - **Namesake leftovers declined in OPE-886 (Mason-B / integer-abc / FLT / expander-mixing-namesake / Cheeger / Alon–Boppana / Wilf / going-up / octonions / Hurwitz 1-2-4-8 / Kirchhoff / …):** still not slotted. Do not invent.
+
+Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim. Do not wake siblings. Do not open Lean this run.
+
+
+**OPE-1078 update (2026-09-07, Scout): catalog-audit formalize-only shortlist after OPE-1062 mill #105+#106 consumed.**
+
+Independent confirm this heartbeat (not a rubber-stamp of OPE-1072 / OPE-1075). `gh pr list --state open` = empty. `origin/main` = `f2b2f501acbb93d31452e60f6aabff1110d213ea` (Merge pull request #106, 2026-09-07T09:04:35Z), title "OPE-1073: noether-normalization Level A (poly-ring identity + one-step)". PR **#105** frobenius-real-division Level A already on main. No unused Scout-approved leftover remains from OPE-1062. This is a catalog-audit shortlist, **not** a prize hunt, **not** a Formalist leftover continuation, **not** a Level B namesake revival. Director does not invent primes.
+
+OPE-1062 slots (do not revive):
+
+| Slot | Id | Disposition | Re-prime? |
+|------|----|-------------|-----------|
+| prime | `frobenius-real-division` | PR **#105 MERGED** Level A `finrank ∈ {1,2,4}`. Catalog `formalized`. Level B `AlgEquiv` **out of v1**, not sorry-ed | **no.** Do not revive Level B. Not Gelfand–Mazur / AW / octonions / coin-Frobenius |
+| leftover | `noether-normalization` | PR **#106 MERGED** Level A identity poly-ring + one-step. Catalog `formalized`. Level B namesake **out of v1**, not sorry-ed | **no.** Do not revive Level B. Not Hilbert basis / Nullstellensatz / going-up |
+
+Prize-wave slots still do not revive: `krenn-gu` (#101+#102), `hou-zeng-pfc` (#103, Level B declined OPE-1047), `sun-135` (ARCHIVED OPE-1042). Leave OPE-403 alone.
+
+Catalog JSON scores are **Scout INPUT**, not a substitute. Stale README lines that still named `frobenius-real-division` as RECOMMENDED PRIME were restamped this run. Reaffirm a candidate only if it is still a genuine Mathlib v4.10.0 gap after a **local** grep this run; otherwise replace. No unused OPE-1062 leftover remains to reaffirm.
+
+Mathlib pin re-grepped this run: `a719ba5c3115` / `v4.10.0` (`lake-manifest` `inputRev v4.10.0`). **Negative control:** `turan` → `Mathlib/Combinatorics/SimpleGraph/Turan.lean` (`isTuranMaximal_iff_nonempty_iso_turanGraph` L300) => never cite Turán as a gap. **Infra HIT (never cite as the gap):** `CliqueFree` (Clique.lean L261); `Colorable` (Coloring.lean L127); `minDegree` (Finite.lean L314); `mulRingNorm_equiv_padic_of_bounded` (Ostrowski.lean L187 — **bounded half**, different fact); `mulRingNorm_padic` / `padicNorm`; `hensels_lemma` (Hensel.lean L472 — **different**); `NormedRing.algEquivComplexOfComplete` (Gelfand–Mazur — **different**); `Algebra.IsIntegral.finite`; Quaternion / `finrank_eq_four`. Artin–Wedderburn remains `proof_wanted` — too heavy; leftover-risk of consumed Frobenius; **not slotted**.
+
+Fresh shortlist (<=2, known-classical / formalize-only, no novelty claims):
+
+1. **`andrasfai-erdos-sos` — RECOMMENDED PRIME (86).** Fresh id — never previously shortlisted. Why-not-classical: Andrásfai–Erdős–Sós 1974 r=3 (`CliqueFree 3` + `5 * minDegree > 3 * n` ⇒ `Colorable 2`) is settled. Why still a bet / why mill NOW: independent grep this run still holds (`CliqueFree` / `Colorable` / `minDegree` HIT as **infra**; named AES ZERO in `Mathlib/` + `Archive/` + ProofLab). Previous mill (associative-division Frobenius + commutative Noether) is **now consumed**, so a finite extremal-graph prime is the diversification — `CliqueFree 3` is waiting the same way `Quaternion` waited for Frobenius. **Not** Turán (already Mathlib; max-edges). **Not** Mantel. **Not** `bipartite-odd-cycle` (#79; characterization ≠ degree condition; USE encoding). **Not** Mycielski (#65; opposite direction). **Not** Moore / KST / expander-mixing. **Not** Frobenius Level B / Noether Level B. Score 86 **this run** (formalizability 16 + partial 17 + attack 16 + verification 17 + crackpot 20) because CliqueFree+Colorable+minDegree are waiting and only the degree implication is new. One-wave Formalist shape: Level A shortest-odd-cycle / induced C_{2k+1} glue (not labelled AES); Level B namesake. C5 landmine: `n=5`, `δ=2` does **not** fire `5δ > 3n`. General `K_r`-free AES out of v1. Do **not** assign `ostrowski-q` first unless Director swaps. STATEMENT pin: `catalog/problems/andrasfai-erdos-sos/STATEMENT.md`.
+
+2. **`ostrowski-q` (82).** Fresh leftover. Why-not-classical: Ostrowski 1916 classification of nontrivial absolute values on `ℚ` is settled. Why still a bet / why mill NOW: independent grep this run still holds (`mulRingNorm_equiv_padic_of_bounded` HIT as **different** infra — bounded half; Ostrowski.lean header still TODO; namesake disjunction ZERO). This is an elementary-valuation leftover after a finite graph prime, **not** a Frobenius leftover, **not** a Noether leftover, **not** a π-irrational leftover, **not** number-field Ostrowski (out of v1), **not** Hensel / Gelfand–Mazur. Score 82 **this run** (15+16+15+16+20). One-wave Formalist shape: Level A unbounded/archimedean engine `f(n)=n^α` (not labelled Ostrowski); Level B namesake disjunction, **using** the already-upstream bounded theorem. Citing the bounded half as the gap is the OPE-25 failure mode. Do **not** assign before `andrasfai-erdos-sos` unless Director swaps. STATEMENT pin: `catalog/problems/ostrowski-q/STATEMENT.md`.
+
+Re-evaluated, not shortlisted (do not rubber-stamp consumed mill; do not invent a third):
+
+- **frobenius-real-division:** **CONSUMED** (#105, Level A landed). Not a leftover. Do not revive Level B AlgEquiv / AW / octonions / Hurwitz 1-2-4-8.
+- **noether-normalization:** **CONSUMED** (#106, Level A landed). Not a leftover. Do not revive Level B namesake / going-up / Nullstellensatz.
+- **krenn-gu / hou-zeng-pfc / sun-135:** prize wave closed. Do not revive. Do not email sponsors.
+- **mason-stothers / expander-mixing / zsigmondy / erdos-ramsey-lower / e-irrational / descartes / n-fold-inclusion-exclusion / wolstenholme / LLL / korselt / vosper / heron / euclid-euler / bipartite / moore / stirling / kst / pentagonal / sunflower / CNS / kk / oddtown / cayley / mycielski / friendship / havel / menger / greedy / Brooks / Dilworth / Eulerian / König / Dirac / EKR / Ramsey r33/r35/r333 / frobenius-coin-problem:** **CONSUMED** mill. Not leftovers.
+- **ES(4)=9:** still no human-scale hand proof. Reject. Leave OPE-403 alone.
+- **ramsey-r46** R(4,6)=41: still no hand upper bound / no certified witness. Reject.
+- **W(2,4)≤35:** still no named human-scale case-split/certificate. Stay bench/skip. General VdW *existence* is already in Mathlib (`exists_mono_homothetic_copy`) — not a gap.
+- **Artin–Wedderburn:** still `proof_wanted`. Too heavy; leftover-risk of consumed Frobenius. Not slotted.
+- **π-irrational / Niven cosine / Nordhaus–Gaddum / primes ≡ 3 (mod 4):** reasons unchanged (analysis-API sink / Cassini-class / leftover cap is not automatic). Not slotted. Ostrowski is **not** a π-irrational wrap (no `intervalIntegral`).
+- **Chu–Vandermonde / hockey-stick wrap:** hockey-stick already Mathlib (`sum_Icc_choose`). Chu–Vandermonde too small (Cassini-class). Skip.
+- **Petersen / Tutte:** Matching.lean TODO names Tutte; Petersen is leftover-risk. Tutte declined standing. Not slotted.
+- **Resultant / Menelaus / Ceva / Farkas / AES general `K_r`:** encoding / leftover-risk of the new prime / Ceva declined standing. Not slotted.
+- **Millennium / Beal / RSA-2007-ended / Erdős #78:** remain out of v1 as a solve.
+- **Namesake leftovers declined in OPE-886 / OPE-1062 (Mason-B / integer-abc / FLT / expander-mixing-namesake / Cheeger / Alon–Boppana / Wilf / going-up / octonions / Hurwitz 1-2-4-8 / Kirchhoff / Frobenius-B / Noether-B / …):** still not slotted. Do not invent.
 
 Director assigns after approval. Scout opened **no attack issues**. Do not merge. Do not claim. Do not wake siblings. Do not open Lean this run.
 
