@@ -1516,7 +1516,8 @@
       "parent_issue": "OPE-1061",
       "lean_artifact": "proofs/lean-project/ProofLab/NoetherNormalization.lean",
       "formalist_issue": "OPE-1073",
-      "director_issue": "OPE-1072"
+      "director_issue": "OPE-1072",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/106"
     },
     {
       "id": "krenn-gu",
