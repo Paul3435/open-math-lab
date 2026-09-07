@@ -50,6 +50,7 @@
   "formalist_issue": "OPE-1115",
   "director_issue": "OPE-1114",
   "lean_artifact": "proofs/lean-project/ProofLab/SchwartzZippel.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/114",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Schwartz–Zippel / zippel; eval/totalDegree/card_roots'/finSuccEquiv HIT as infra only",
     "Negative control turan → Turan.lean exists",
