@@ -123,10 +123,10 @@
     {
       "id": "hadamard-det",
       "title": "Hadamard determinant inequality (row ℓ² product bound, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "linear_algebra",
       "score": 83,
-      "note": "OPE-1110 Scout leftover slot #2. Catalog-audit leftover after OPE-1095 mill CONSUMED (#111+#112). Known classical (Hadamard 1893). Mathlib v4.10.0 gap this run: ZERO Hadamard determinant inequality; HIT Matrix.det. Not Matrix.det_le (already-in n! x^n entrywise bound). Not Gershgorin / Levy–Desplanques (already Gershgorin.lean). Not Hadamard product. Not Hadamard three-lines. Not Vandermonde det. Complex form out of v1. Not Schwartz–Zippel (the prime). Not Ore-B / konig_edge_chromatic. Leave OPE-403 alone. No novelty claim.",
+      "note": "OPE-1120 Formalist Level A. Director OPE-1119 approved Scout OPE-1110 leftover slot #2 (prime schwartz-zippel consumed by #114). Lean zero-sorry ProofLab/HadamardDet.lean. Level A LANDED: rowNorm encoding; abs_det_eq_prod_rowNorm_of_isEmpty / fin_zero; abs_det_eq_prod_rowNorm_of_unique / fin_one; abs_det_le_prod_rowNorm_fin_two (explicit 2x2 CS); abs_det_eq_prod_rowNorm_of_orthogonal_rows (Gram diagonal). Not labelled Hadamard. Namesake hadamard_det (Gram AM-GM / induction) OUT of this ticket, not sorry-ed. Not Matrix.det_le (already-in n! x^n). Not Gershgorin / Levy-Desplanques. Not Hadamard product / three-lines. Not schwartz-zippel Level B. Leave OPE-403 alone. No novelty claim.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -134,15 +134,22 @@
       ],
       "artifacts": [
         "catalog/problems/hadamard-det/",
-        "problems/hadamard-det/"
+        "problems/hadamard-det/",
+        "proofs/lean-project/ProofLab/HadamardDet.lean"
       ],
       "scout_issue": "OPE-1110",
       "tickets": [
         "OPE-1110",
-        "OPE-1109"
+        "OPE-1109",
+        "OPE-1119",
+        "OPE-1120"
       ],
       "parent_issue": "OPE-1109",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/HadamardDet.lean",
+      "formalist_issue": "OPE-1120",
+      "director_issue": "OPE-1119",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/115"
     },
     {
       "id": "ramsey-r33",

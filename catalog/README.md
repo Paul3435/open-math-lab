@@ -135,8 +135,8 @@ OPE-1095 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1095 mill consumed (#111+#112). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`schwartz-zippel` — Level A LANDED (OPE-1115, PR #114).** Lean `ProofLab/SchwartzZippel.lean` n=1/constants/card_roots' glue. **Not labelled Schwartz–Zippel.** Namesake `schwartz_zippel` **out of this ticket**. Catalog `formalized`. Hadamard leftover unassigned.
-2. **`hadamard-det` leftover (83).** Unassigned this tick. Fresh id. Hadamard 1893: `|det A| ≤ ∏ ‖rowᵢ‖₂` on real square matrices. Named theorem ZERO; `Matrix.det` infra HIT. Not `Matrix.det_le` (`n! x^n`). Not Gershgorin / Levy–Desplanques. Not Hadamard product / three-lines.
+1. **`schwartz-zippel` — Level A LANDED (OPE-1115, PR #114).** Lean `ProofLab/SchwartzZippel.lean` n=1/constants/card_roots' glue. **Not labelled Schwartz–Zippel.** Namesake `schwartz_zippel` **out of this ticket**. Catalog `formalized`.
+2. **`hadamard-det` leftover — Level A LANDED (OPE-1120, PR #115).** Lean `ProofLab/HadamardDet.lean` n=0/1 / n=2 / orthogonal-rows glue. **Not labelled Hadamard.** Namesake `hadamard_det` **out of this ticket**. Catalog `formalized`.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -160,4 +160,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1115 Formalist: schwartz-zippel Level A n=1/constants/card_roots' glue. Namesake residual. hadamard-det leftover unassigned.)
+**Last updated:** 2026-09-07 (OPE-1120 Formalist: hadamard-det Level A n=0/1/n=2/orthogonal-rows glue. Namesake residual.)

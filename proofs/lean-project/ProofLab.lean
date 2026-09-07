@@ -57,3 +57,4 @@ import ProofLab.OstrowskiQ
 import ProofLab.OreHamiltonian
 import ProofLab.BipartiteChromaticIndex
 import ProofLab.SchwartzZippel
+import ProofLab.HadamardDet
