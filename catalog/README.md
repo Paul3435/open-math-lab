@@ -139,4 +139,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1062 Scout: catalog-audit formalize-only shortlist after prize wave #100–#103. Prime `frobenius-real-division`. Archive `sun-135`. No prize claim.)
+**Last updated:** 2026-09-07 (OPE-1067 Formalist: frobenius-real-division Level A landed, zero-sorry. Level B namesake out of ticket. No novelty claim.)

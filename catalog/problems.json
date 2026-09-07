@@ -1459,10 +1459,10 @@
     {
       "id": "frobenius-real-division",
       "title": "Frobenius theorem on real division algebras (formalize-only)",
-      "status": "shortlisted",
+      "status": "formalized",
       "domain": "algebra",
       "score": 87,
-      "note": "OPE-1062 Scout RECOMMENDED PRIME (reaffirm OPE-886; parent OPE-1061). Catalog-audit shortlist after prize wave #100–#103 CONSUMED. Independent Mathlib v4.10.0 grep this run: named real-division classification ZERO; Quaternion / finrank_eq_four / Basis.lift HIT as infra. Classical Frobenius 1878 / Palais AMM 1968. NOT a prize leftover. NOT Director-invented. NOT krenn-gu / hou-zeng-pfc / sun-135. NOT Gelfand–Mazur (already Mathlib, complex Banach). NOT Mason–Stothers (#97). NOT expander-mixing (#98). NOT frobenius-coin-problem (OPE-25 Mathlib). NOT Frobenius endomorphism. NOT Artin–Wedderburn (proof_wanted, leftover-risk). NOT Hurwitz 1-2-4-8 / octonions. known-classical, no novelty.",
+      "note": "OPE-1067 Formalist Level A LANDED (Scout OPE-1062 prime; Director OPE-1066). Lean zero-sorry ProofLab/FrobeniusRealDivision.lean: real_division_finrank_one_two_four. Not labelled Frobenius. Level B namesake AlgEquiv out of this ticket, not sorry-ed. known-classical, no novelty. Default no claim. NOT Gelfand–Mazur / AW / octonions / coin-Frobenius / noether-normalization / prize leftovers.",
       "expected": "known-classical",
       "skill_packs": [
         "algebra",
@@ -1470,16 +1470,21 @@
       ],
       "artifacts": [
         "catalog/problems/frobenius-real-division/",
-        "problems/frobenius-real-division/"
+        "problems/frobenius-real-division/",
+        "proofs/lean-project/ProofLab/FrobeniusRealDivision.lean"
       ],
       "scout_issue": "OPE-1062",
       "tickets": [
         "OPE-1062",
         "OPE-1061",
         "OPE-886",
-        "OPE-885"
+        "OPE-885",
+        "OPE-1066",
+        "OPE-1067"
       ],
-      "parent_issue": "OPE-1061"
+      "parent_issue": "OPE-1061",
+      "lean_artifact": "proofs/lean-project/ProofLab/FrobeniusRealDivision.lean",
+      "formalist_issue": "OPE-1067"
     },
     {
       "id": "noether-normalization",

@@ -1,7 +1,7 @@
 {
   "id": "frobenius-real-division",
   "title": "Frobenius theorem on real division algebras (formalize-only)",
-  "status": "shortlisted",
+  "status": "formalized",
   "domain": "algebra",
   "score": 87,
   "scores": {
