@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T13:46:38Z",
+  "last_updated": "2026-09-07T18:40:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -121,6 +121,30 @@
       "expected": "known-classical"
     },
     {
+      "id": "hadamard-det",
+      "title": "Hadamard determinant inequality (row ℓ² product bound, formalize-only)",
+      "status": "candidate",
+      "domain": "linear_algebra",
+      "score": 83,
+      "note": "OPE-1110 Scout leftover slot #2. Catalog-audit leftover after OPE-1095 mill CONSUMED (#111+#112). Known classical (Hadamard 1893). Mathlib v4.10.0 gap this run: ZERO Hadamard determinant inequality; HIT Matrix.det. Not Matrix.det_le (already-in n! x^n entrywise bound). Not Gershgorin / Levy–Desplanques (already Gershgorin.lean). Not Hadamard product. Not Hadamard three-lines. Not Vandermonde det. Complex form out of v1. Not Schwartz–Zippel (the prime). Not Ore-B / konig_edge_chromatic. Leave OPE-403 alone. No novelty claim.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/hadamard-det/",
+        "problems/hadamard-det/"
+      ],
+      "scout_issue": "OPE-1110",
+      "tickets": [
+        "OPE-1110",
+        "OPE-1109"
+      ],
+      "parent_issue": "OPE-1109",
+      "mathlib_gap": true
+    },
+    {
       "id": "ramsey-r33",
       "title": "Finite graph Ramsey numbers — R(3,3)=6 / R(4,4)=18 (formalize-only)",
       "domain": [
@@ -236,6 +260,30 @@
         "scope": "finite_only",
         "pr": "https://github.com/Paul3435/open-math-lab/pull/27"
       }
+    },
+    {
+      "id": "schwartz-zippel",
+      "title": "Schwartz–Zippel lemma (finite-box zeros of a polynomial, formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorial_algebra",
+      "score": 86,
+      "note": "OPE-1110 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1095 mill CONSUMED (#111 ore-hamiltonian Level A + #112 bipartite-chromatic-index Level A). Known classical (DeMillo–Lipton 1978 / Zippel 1979 / Schwartz 1980). Mathlib v4.10.0 gap this run: ZERO zippel / SchwartzZippel; HIT MvPolynomial.eval / totalDegree / degreeOf / finSuccEquiv / Polynomial.card_roots'. Not combinatorial Nullstellensatz (#71; USE encoding, do not re-prove). Not Chevalley–Warning (already Mathlib char_dvd_card_solutions). Not Alon–Füredi. Not Ore-B / konig_edge_chromatic. Leave OPE-403 alone. No novelty claim.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/schwartz-zippel/",
+        "problems/schwartz-zippel/"
+      ],
+      "scout_issue": "OPE-1110",
+      "tickets": [
+        "OPE-1110",
+        "OPE-1109"
+      ],
+      "parent_issue": "OPE-1109",
+      "mathlib_gap": true
     },
     {
       "id": "sum-free-subsets",
@@ -1745,7 +1793,7 @@
       "mathlib_gap": false
     }
   ],
-  "updated_at": "2026-09-07T13:46:38Z",
+  "updated_at": "2026-09-07T18:40:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

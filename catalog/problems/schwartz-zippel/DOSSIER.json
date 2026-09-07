@@ -1,0 +1,56 @@
+{
+  "id": "schwartz-zippel",
+  "title": "Schwartz–Zippel lemma (finite-box zeros of a polynomial, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorial_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "DeMillo–Lipton 1978 / Zippel 1979 / Schwartz JACM 1980: a nonzero polynomial of totalDegree ≤ d over a field vanishes on at most d |S|^{n-1} points of a finite box S^n. Completely classical. Value is a Mathlib/ProofLab contribution (MvPolynomial.eval / totalDegree / degreeOf / finSuccEquiv and Polynomial.card_roots' exist; ZERO named Schwartz–Zippel in Mathlib+Archive). Do NOT re-fund as novel. Combinatorial Nullstellensatz is a DIFFERENT already-consumed theorem (USE MvPolynomial encoding, do not re-prove combinatorial_nullstellensatz). Chevalley–Warning is ALREADY Mathlib (USE nothing from it as a namesake; do not re-prove). Alon–Füredi is OUT of v1.",
+  "recommendation": "OPE-1110 RECOMMENDED PRIME. Catalog-audit prime after OPE-1095 mill CONSUMED (#111 ore-hamiltonian Level A + #112 bipartite-chromatic-index Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Ore / konig_edge_chromatic / AES / Ostrowski / Frobenius / Noether / CNS. Independent Mathlib pin grep this run (eval/totalDegree/card_roots'/finSuccEquiv HIT; named Schwartz–Zippel / zippel ZERO). Mill NOW: finite polynomial-zero bound after Ore (Hamiltonian) + König line-colouring (edge-colour). Score 86 this run (not a JSON rubber-stamp): MvPolynomial+univariate roots waiting (formalizability 16); Level A n=1/card_roots glue (partial 17); multivariate induction is real work but one-wave and CNS already demonstrated finSuccEquiv (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins n≥1 field, f≠0, finite S, zeros in S^n ≤ totalDegree * |S|^{n-1}. Alon–Füredi residual. Do NOT assign hadamard-det first unless Director swaps. Do NOT prove CNS / Chevalley–Warning / Ore-B / konig_edge_chromatic.",
+  "mathlib_gap_grep_2026_09_07_ope1110": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1095 scores. rg zippel / SchwartzZippel / schwartz_zippel over Mathlib/ + Archive + ProofLab → ZERO named theorem. Defs HIT: MvPolynomial.eval (Basic.lean L1050), totalDegree (Degrees.lean L310), degreeOf (Degrees.lean L209), finSuccEquiv (Equiv.lean L303), Polynomial.card_roots' (Roots.lean L70). Already-in this run (do not re-prove, do not re-prime): FieldTheory/ChevalleyWarning.lean char_dvd_card_solutions (L175); ProofLab/CombinatorialNullstellensatz.lean combinatorial_nullstellensatz (consumed #71). Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-consumed this mill: ProofLab/OreHamiltonian.lean Level A (#111); ProofLab/BipartiteChromaticIndex.lean Level A (#112). CNS STATEMENT did not name Schwartz–Zippel as a leftover of THAT ticket — this is a fresh id, not that leftover.",
+  "statement_pin_required": {
+    "convention": "theorem schwartz_zippel: Field F → n≥1 → f ≠ 0 → |(S^n ∩ {x | eval x f = 0})| ≤ f.totalDegree * S.card ^ (n-1). Level A may land only n=1 / constants / card_roots' glue, not labelled Schwartz–Zippel.",
+    "landmines": [
+      "Do not re-prove MvPolynomial.eval / totalDegree / degreeOf / finSuccEquiv / Polynomial.card_roots' / combinatorial_nullstellensatz / Chevalley–Warning.",
+      "Not combinatorial Nullstellensatz (#71). Different theorem (leading-monomial nonvanishing on a box vs quantitative zero-set bound).",
+      "Not Chevalley–Warning (already Mathlib). Different theorem (char divides |zeros| when deg < #vars).",
+      "f ≠ 0 load-bearing. totalDegree load-bearing (CNS used degreeOf — do not swap).",
+      "n ≥ 1 load-bearing (n=0 Nat power / constants).",
+      "Not Alon–Füredi / Schwartz–Zippel over non-domains / PIT algorithms.",
+      "Not Ore / konig_edge_chromatic Level B / AES-B / Ostrowski-B / hadamard-det (the leftover).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "J. T. Schwartz, J. ACM 27 (1980) 701–717; R. Zippel, EUROSAM 1979; DeMillo–Lipton 1978. Compact form: Wikipedia Schwartz–Zippel lemma. Type pin: MvPolynomial.eval / totalDegree / Finset.box. CNS is a different consumed theorem."
+  },
+  "feasibility_shape": "Level A: n=1 univariate Finset-of-roots ≤ natDegree via card_roots'; constants never vanish; not labelled Schwartz–Zippel. Level B: namesake multivariate induction on n via finSuccEquiv (leading coefficient either vanishes on the tail — IH — or the univariate in the last variable has ≤ deg zeros). Cap two levels. No Alon–Füredi. No CNS re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib MvPolynomial.eval / totalDegree / degreeOf / finSuccEquiv / Polynomial.card_roots' — USE; DO NOT re-prove",
+    "ProofLab/CombinatorialNullstellensatz.lean combinatorial_nullstellensatz — DIFFERENT consumed theorem; USE encoding; DO NOT re-prove; DO NOT re-prime",
+    "Mathlib ChevalleyWarning.char_dvd_card_solutions — DIFFERENT already-in theorem; DO NOT re-prove; DO NOT re-prime",
+    "ProofLab/OreHamiltonian.lean / BipartiteChromaticIndex.lean — consumed #111/#112, DO NOT revive Level B",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1110",
+  "parent_issue": "OPE-1109",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Schwartz–Zippel / zippel; eval/totalDegree/card_roots'/finSuccEquiv HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: ChevalleyWarning.char_dvd_card_solutions; CNS namesake landed #71",
+    "n=0 / f=0 / totalDegree-vs-degreeOf / Alon–Füredi / Ore-B / konig_edge_chromatic / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

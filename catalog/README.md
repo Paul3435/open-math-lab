@@ -124,12 +124,19 @@ OPE-1078 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`andrasfai-erdos-sos` — CONSUMED.** PR **#108** Level A. Catalog `formalized`. Level B namesake AES **out of v1**. Do not revive.
 2. **`ostrowski-q` — CONSUMED Level A.** PR **#109** Level A. Catalog `formalized`. Level B namesake ostrowski **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1095, 2026-09-07)
+## Formalize-only shortlist (OPE-1095, 2026-09-07) — WAVE CONSUMED
 
-OPE-1078 mill consumed (#108+#109). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1095 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`ore-hamiltonian` — RECOMMENDED PRIME (86).** Fresh id. Ore 1960: `n ≥ 3` + nonadjacent `deg u + deg v ≥ n` ⇒ `IsHamiltonian`. **OPE-1100 Formalist Level A landed** (PR **#111**, `ProofLab/OreHamiltonian.lean`; not labelled Ore). Namesake residual. Named theorem ZERO; `IsHamiltonian`/`degree` infra HIT. Not Dirac (consumed special case). Not Bondy–Chvátal.
-2. **`bipartite-chromatic-index` leftover (85).** Fresh id. König 1916 line-colouring: `Colorable 2` ⇒ `χ' = Δ`. Named theorem ZERO; Colorable/maxDegree/IsMatching infra HIT. Not König matching `ν=τ`. Not Vizing.
+1. **`ore-hamiltonian` — CONSUMED.** PR **#111** Level A. Catalog `formalized`. Level B namesake `ore_hamiltonian` **out of v1**. Do not revive.
+2. **`bipartite-chromatic-index` — CONSUMED Level A.** PR **#112** Level A. Catalog `formalized`. Level B namesake `konig_edge_chromatic` **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1110, 2026-09-07)
+
+OPE-1095 mill consumed (#111+#112). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`schwartz-zippel` — RECOMMENDED PRIME (86).** Fresh id. DeMillo–Lipton 1978 / Zippel 1979 / Schwartz 1980: nonzero `f`, `n≥1`, zeros in `S^n` ≤ `totalDegree * |S|^{n-1}`. Named theorem ZERO; `MvPolynomial.eval` / `totalDegree` / `finSuccEquiv` / `Polynomial.card_roots'` infra HIT. Not combinatorial Nullstellensatz (consumed #71). Not Chevalley–Warning (already Mathlib).
+2. **`hadamard-det` leftover (83).** Fresh id. Hadamard 1893: `|det A| ≤ ∏ ‖rowᵢ‖₂` on real square matrices. Named theorem ZERO; `Matrix.det` infra HIT. Not `Matrix.det_le` (`n! x^n`). Not Gershgorin / Levy–Desplanques. Not Hadamard product / three-lines.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -153,4 +160,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1100 Formalist: ore-hamiltonian Level A landed — n=3 / complete / connectedness / longest-path neighbourhood glue. Namesake residual. No novelty claim.)
+**Last updated:** 2026-09-07 (OPE-1110 Scout: catalog-audit shortlist after #111+#112 consumed — `schwartz-zippel` RECOMMENDED PRIME (86); `hadamard-det` leftover (83). No Lean this run.)
