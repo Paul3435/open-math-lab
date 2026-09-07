@@ -55,3 +55,4 @@ import ProofLab.NoetherNormalization
 import ProofLab.AndrasfaiErdosSos
 import ProofLab.OstrowskiQ
 import ProofLab.OreHamiltonian
+import ProofLab.BipartiteChromaticIndex
