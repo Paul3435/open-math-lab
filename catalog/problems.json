@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T09:46:34Z",
+  "last_updated": "2026-09-07T13:46:38Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1582,6 +1582,54 @@
       "pr": "https://github.com/Paul3435/open-math-lab/pull/109"
     },
     {
+      "id": "ore-hamiltonian",
+      "title": "Ore's theorem (nonadjacent degree-sum Hamiltonian cycle, formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 86,
+      "note": "OPE-1095 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1078 mill CONSUMED (#108 AES + #109 ostrowski-q). Ore 1960: n≥3 + nonadjacent deg u+deg v ≥ n ⇒ IsHamiltonian. known-classical, no novelty. Independent Mathlib v4.10.0 grep this run: ZERO named Ore; IsHamiltonian (Hamiltonian.lean L119) / degree HIT. NOT Dirac (consumed special case; USE encoding; do not re-prove dirac_hamiltonian). NOT Bondy–Chvátal. NOT AES/Ostrowski Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/ore-hamiltonian/",
+        "problems/ore-hamiltonian/"
+      ],
+      "scout_issue": "OPE-1095",
+      "tickets": [
+        "OPE-1095",
+        "OPE-1094"
+      ],
+      "parent_issue": "OPE-1094",
+      "mathlib_gap": true
+    },
+    {
+      "id": "bipartite-chromatic-index",
+      "title": "König's line-colouring theorem (bipartite χ' = Δ, formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 85,
+      "note": "OPE-1095 Scout leftover slot #2. Catalog-audit after OPE-1078 mill CONSUMED (#108+#109). König 1916 line-colouring: Colorable 2 ⇒ χ' = Δ. known-classical, no novelty. Independent Mathlib v4.10.0 grep this run: ZERO EdgeColorable/chromaticIndex/Vizing; Colorable L127 / maxDegree L343 / IsMatching HIT. NOT König matching ν=τ (consumed; different theorem). NOT Vizing. C5 landmine: Colorable 2 load-bearing. NOT Ore (the prime). NOT AES/Ostrowski Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone.",
+      "expected": "known-classical",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/bipartite-chromatic-index/",
+        "problems/bipartite-chromatic-index/"
+      ],
+      "scout_issue": "OPE-1095",
+      "tickets": [
+        "OPE-1095",
+        "OPE-1094"
+      ],
+      "parent_issue": "OPE-1094",
+      "mathlib_gap": true
+    },
+    {
       "id": "krenn-gu",
       "title": "Krenn–Gu monochromatic quantum graphs (open; €3000 live cash)",
       "status": "heuristic",
@@ -1683,7 +1731,7 @@
       "mathlib_gap": false
     }
   ],
-  "updated_at": "2026-09-07T09:46:34Z",
+  "updated_at": "2026-09-07T13:46:38Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

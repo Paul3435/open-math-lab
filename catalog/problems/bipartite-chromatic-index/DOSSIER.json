@@ -1,0 +1,55 @@
+{
+  "id": "bipartite-chromatic-index",
+  "title": "König's line-colouring theorem (bipartite χ' = Δ, formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 85,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "König 1916 line-colouring: a finite bipartite graph has χ' = Δ (edges properly colourable with maxDegree colours). Completely classical. Value is a Mathlib/ProofLab contribution (Colorable 2 / maxDegree / IsMatching exist; ZERO EdgeColorable / chromaticIndex / Vizing / bipartite χ'=Δ in Mathlib+Archive). Do NOT re-fund as novel. konig_bipartite (ν=τ) is a DIFFERENT already-consumed theorem (USE matching infra, do not re-prove). Vizing is OUT of v1. Hall SDR is already Mathlib (different statement).",
+  "recommendation": "OPE-1095 leftover slot #2. Catalog-audit leftover after OPE-1078 mill CONSUMED (#108+#109). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of König matching / AES / Ostrowski / Dirac. Independent Mathlib pin grep this run (Colorable 2 HIT; maxDegree HIT; IsMatching HIT; EdgeColorable/chromaticIndex/Vizing ZERO). Mill NOW: finite bipartite edge-colouring leftover after an Ore Hamiltonian prime. Score 85 this run (not a JSON rubber-stamp): one new EdgeColorable def on edgeSet (formalizability 15); Level A matching/star/Δ≤χ' glue (partial 17); missing-colour alternating path is real work but one-wave (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins Colorable 2 ⇒ EdgeColorable maxDegree. Vizing residual. Do NOT assign before ore-hamiltonian unless Director swaps. Do NOT prove König matching / Vizing / Hall / Ore.",
+  "mathlib_gap_grep_2026_09_07_ope1095": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1078 scores. rg chromaticIndex / EdgeColorable / vizing / edge_color over Mathlib + Archive + ProofLab → ZERO. Defs HIT: Colorable (Coloring.lean L127), maxDegree (Finite.lean L343), IsMatching (Matching.lean L50), hall_hard_inductive (Hall/Finite.lean — DIFFERENT SDR theorem). Matching.lean TODO names Tutte and graph-Hall, NOT this line-colouring theorem. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run: ProofLab/Konig.lean konig_bipartite (USE matching, do not re-prove); greedy / Brooks (vertex colouring, DIFFERENT); Ore is the prime of this shortlist (DO NOT assign first unless Director swaps).",
+  "statement_pin_required": {
+    "convention": "theorem konig_edge_chromatic: Colorable 2 → EdgeColorable maxDegree. Level A may land only EdgeColorable encoding + matching/star/Δ≤χ' glue, not labelled König.",
+    "landmines": [
+      "Do not re-prove Colorable / maxDegree / IsMatching / konig_bipartite / Hall / greedy / Brooks.",
+      "Not König matching ν=τ (#48+#50). Min-max ≠ chromatic index.",
+      "Not Vizing. C5 landmine: Colorable 2 is load-bearing.",
+      "Not Tutte (Matching.lean TODO; not one-wave).",
+      "Not ore-hamiltonian (the prime). Do not assign first unless Director swaps.",
+      "Not AES / ostrowski-q Level B / Dirac leftover / krenn-gu / hou-zeng / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "D. König, Math. Ann. 77 (1916) 453–465. Diestel bipartite edge-colouring. Wikipedia König's theorem (graph theory) — the LINE-COLOURING form, not the matching min-max. Type pin: Colorable 2 / maxDegree + ProofLab EdgeColorable."
+  },
+  "feasibility_shape": "Level A: EdgeColorable encoding; matching is 1-edge-colourable; star is Δ-edge-colourable; Δ ≤ χ' trivial; not labelled König. Level B: namesake missing-colour alternating path / matching under Colorable 2. Cap two levels. No Vizing. No ν=τ re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Colorable 2 / maxDegree / IsMatching — USE; DO NOT re-prove",
+    "Mathlib hall_hard_inductive — DIFFERENT SDR theorem; USE if needed; DO NOT re-prove",
+    "ProofLab/Konig.lean konig_bipartite — DIFFERENT consumed theorem; USE matching; DO NOT re-prove; DO NOT re-prime",
+    "ProofLab/GreedyChromatic.lean / Brooks.lean — vertex colouring, DIFFERENT; DO NOT re-prime",
+    "ProofLab/AndrasfaiErdosSos.lean / OstrowskiQ.lean / Dirac.lean — consumed, DO NOT revive Level B",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-07",
+  "scout_issue": "OPE-1095",
+  "parent_issue": "OPE-1094",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO chromaticIndex/EdgeColorable/Vizing; Colorable/maxDegree/IsMatching HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "C5 landmine: odd cycle is class 2, so Colorable 2 is load-bearing",
+    "König matching / Vizing / Hall / Ore / AES-B / Ostrowski-B / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
