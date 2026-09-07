@@ -1522,10 +1522,10 @@
     {
       "id": "andrasfai-erdos-sos",
       "title": "Andrásfai–Erdős–Sós theorem, triangle-free case (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_graph_theory",
       "score": 86,
-      "note": "OPE-1078 Scout RECOMMENDED PRIME (parent OPE-1077; post #105+#106). Catalog-audit formalize-only. Classical AES 1974 r=3: CliqueFree 3 + 5*minDegree > 3*n ⇒ Colorable 2. Independent Mathlib v4.10.0 grep this run: CliqueFree/Colorable/minDegree HIT as infra; named AES ZERO. NOT Turán (already Mathlib). NOT bipartite-odd-cycle (#79). NOT Mycielski (#65). NOT Frobenius/Noether Level B. NOT krenn-gu / hou-zeng-pfc / sun-135. Leave OPE-403 alone.",
+      "note": "OPE-1083 Formalist Level A LANDED (Scout OPE-1078 prime; Director OPE-1082). Lean zero-sorry ProofLab/AndrasfaiErdosSos.lean: shortest_odd_cycle_glue (shortest odd closed walk is a cycle of length ≥ 5) + no_chord_of_shortest_odd_closed_walk (induced) + neighbor_indices_card_le_two (off-cycle ≤ 2 neighbours) + packaged shortest_odd_induced_cycle_glue. Not labelled AES. Level B namesake andrasfai_erdos_sos (5*minDegree > 3*n ⇒ Colorable 2) out of this ticket, not sorry-ed. known-classical, no novelty. Default no claim. NOT Turán / Mantel / bipartite-odd-cycle (#79, encoding used) / Mycielski / ostrowski-q / general K_r-free AES. Leave OPE-403 alone.",
       "expected": "known-classical",
       "skill_packs": [
         "combinatorics",
@@ -1533,15 +1533,22 @@
       ],
       "artifacts": [
         "catalog/problems/andrasfai-erdos-sos/",
-        "problems/andrasfai-erdos-sos/"
+        "problems/andrasfai-erdos-sos/",
+        "proofs/lean-project/ProofLab/AndrasfaiErdosSos.lean"
       ],
       "scout_issue": "OPE-1078",
       "tickets": [
         "OPE-1078",
-        "OPE-1077"
+        "OPE-1077",
+        "OPE-1082",
+        "OPE-1083"
       ],
       "parent_issue": "OPE-1077",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/AndrasfaiErdosSos.lean",
+      "formalist_issue": "OPE-1083",
+      "director_issue": "OPE-1082",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/108"
     },
     {
       "id": "ostrowski-q",

@@ -52,3 +52,4 @@ import ProofLab.KrennGu
 import ProofLab.HouZeng
 import ProofLab.FrobeniusRealDivision
 import ProofLab.NoetherNormalization
+import ProofLab.AndrasfaiErdosSos
