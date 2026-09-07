@@ -1,7 +1,7 @@
 # Cauchy–Binet formula (det of a rectangular product) — formalize-only
 
 **id:** `cauchy-binet`
-**ticket:** OPE-1125 Scout RECOMMENDED PRIME (parent OPE-1124; post schwartz-zippel #114 + hadamard-det #115)
+**ticket:** OPE-1130 Formalist Level A (Scout OPE-1125 RECOMMENDED PRIME; parent OPE-1124; Director OPE-1129; post schwartz-zippel #114 + hadamard-det #115)
 **expected:** known-classical (Binet 1812 / Cauchy 1815) — **no novelty claim**
 
 ## Why not classical / why formalize-only

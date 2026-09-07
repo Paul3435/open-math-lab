@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T21:30:00Z",
+  "last_updated": "2026-09-07T22:45:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -29,26 +29,32 @@
     {
       "id": "cauchy-binet",
       "title": "Cauchy–Binet formula (det of a rectangular product, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1125 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1110 mill CONSUMED (#114 schwartz-zippel + #115 hadamard-det). Known classical (Binet 1812 / Cauchy 1815). Mathlib v4.10.0 gap this run: ZERO named Cauchy–Binet; HIT Matrix.det / det_mul / submatrix / powersetCard. Not det_mul (square already-in). Not Hadamard (#115). Not Kirchhoff (Cayley leftover-risk; residual). Leave OPE-403 alone. Default no claim.",
+      "note": "OPE-1130 Formalist Level A. Director OPE-1129 approved Scout OPE-1125 prime. Lean zero-sorry ProofLab/CauchyBinet.lean. Level A LANDED: minorSum encoding; det_mul_eq_minorSum_of_isEmpty / fin_zero; det_mul_eq_minorSum_of_unique / fin_one; det_mul_eq_minorSum_of_card_eq / fin (square det_mul glue); minorSum_eq_zero_of_card_lt; det_mul_eq_minorSum_of_isEmpty_n. Not labelled Cauchy-Binet. Namesake cauchy_binet (Leibniz grouping by image subset) OUT of this ticket, not sorry-ed. Not Matrix.det_mul as namesake. Not Hadamard (#115). Not Kirchhoff. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
         "catalog/problems/cauchy-binet/",
-        "problems/cauchy-binet/"
+        "problems/cauchy-binet/",
+        "proofs/lean-project/ProofLab/CauchyBinet.lean"
       ],
       "scout_issue": "OPE-1125",
       "tickets": [
         "OPE-1125",
-        "OPE-1124"
+        "OPE-1124",
+        "OPE-1129",
+        "OPE-1130"
       ],
       "parent_issue": "OPE-1124",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/CauchyBinet.lean",
+      "formalist_issue": "OPE-1130",
+      "director_issue": "OPE-1129"
     },
     {
       "id": "demo-collatz-bound-toy",

@@ -1,7 +1,7 @@
 {
   "id": "cauchy-binet",
   "title": "Cauchy–Binet formula (det of a rectangular product, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "linear_algebra",
   "score": 86,
   "scores": {
@@ -46,6 +46,9 @@
   "scored_at": "2026-09-07",
   "scout_issue": "OPE-1125",
   "parent_issue": "OPE-1124",
+  "formalist_issue": "OPE-1130",
+  "director_issue": "OPE-1129",
+  "lean_artifact": "proofs/lean-project/ProofLab/CauchyBinet.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Cauchy–Binet / cauchy_binet; det/det_mul/submatrix/powersetCard HIT as infra only",
     "Negative control turan → Turan.lean exists",
