@@ -1547,7 +1547,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/AndrasfaiErdosSos.lean",
       "formalist_issue": "OPE-1083",
-      "director_issue": "OPE-1082"
+      "director_issue": "OPE-1082",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/108"
     },
     {
       "id": "ostrowski-q",
