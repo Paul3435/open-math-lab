@@ -1,7 +1,7 @@
 {
   "id": "nash-williams-arboricity",
   "title": "Nash–Williams arboricity theorem (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "extremal_graph_theory",
   "score": 84,
   "scores": {
