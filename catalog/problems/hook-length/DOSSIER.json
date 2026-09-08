@@ -1,0 +1,58 @@
+{
+  "id": "hook-length",
+  "title": "Hook-length formula (standard Young tableaux, formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Frame–Robinson–Thrall 1954: |SYT(μ)| = n! / ∏ hook(c) for a Young diagram μ with n cells. Completely classical. Value is a Mathlib/ProofLab contribution (YoungDiagram / rowLen / colLen / SSYT / factorial exist; ZERO named hook-length in Mathlib+Archive). Do NOT re-fund as novel. Catalan is a DIFFERENT already-in theorem (catalan_eq_centralBinom_div) — the 2-row (n,n) corollary is OUT of v1 (leftover-risk of Catalan and of demoted catalog row catalan-recurrence). SSYT is a DIFFERENT already-in filling type — USE as encoding, do not re-prove. RSK / hook-content / LR are OUT of v1.",
+  "recommendation": "OPE-1142 leftover slot #2. Catalog-audit leftover after OPE-1125 mill CONSUMED (#117+#118). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Cauchy–Binet / Bollobás / Catalan / Stirling / Hadamard / SZ. Independent Mathlib pin grep this run (rowLen/colLen/SSYT/factorial HIT; named hookLength ZERO). Mill NOW: finite tableau count leftover beside Singleton (coding). Score 84 this run (not a JSON rubber-stamp): YoungDiagram waiting (formalizability 16); Level A empty/one-cell/one-row/one-column (partial 16); FRT namesake is real work, not required this wave (attack 15); Lean-only finite (verification 17); classical (crackpot 20). v1 pins SYT count = n!/∏hook. Catalan/RSK/hook-content residual. Do NOT assign this first unless Director swaps. Do NOT prove Catalan / RSK / singleton_bound / hammingDist / cauchy_binet / bollobas.",
+  "mathlib_gap_grep_2026_09_08_ope1142": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1125 scores. rg hookLength / hook_length / HookLength over Mathlib/ + Archive + ProofLab → ZERO. Defs HIT: YoungDiagram (YoungDiagram.lean L60), card (module doc L28), rowLen (L271), colLen (L319), SemistandardYoungTableau (SemistandardTableau.lean L52), Nat.factorial (Factorial/Basic.lean L29). Already-in this run (do not re-prove, do not re-prime): Combinatorics/Enumerative/Catalan.lean catalan / catalan_eq_centralBinom_div; Derangements; Bertrand.lean; frobeniusNumber_pair; HalesJewett; Cramer (Adjugate.lean); Burnside lemma. Already-consumed this mill: ProofLab/CauchyBinet.lean (#117); ProofLab/BollobasTwoFamilies.lean (#118); ProofLab/StirlingSecondKind.lean (#77 informal leftover namesake — do not revive). Catalog JSON leftover catalan-recurrence FAILS the gap gate this run (already-in) — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem hook_length: Fintype.card (SYT μ) * ∏ hook = Nat.factorial μ.card. Level A may land only empty / one-cell / one-row / one-column glue, not labelled hook-length.",
+    "landmines": [
+      "Do not re-prove YoungDiagram / rowLen / colLen / SSYT / factorial / catalan.",
+      "Not Catalan (already Mathlib). 2-row (n,n) residual. Do not re-prime catalan-recurrence.",
+      "Not SSYT (already the filling type). SYT is the standard special case.",
+      "Not RSK / Schensted / LR / Jacobi–Trudi / hook-content.",
+      "Not Stirling-B (#77 leftover namesake). Do not revive.",
+      "c ∈ μ load-bearing for hooks.",
+      "Not Singleton (the prime). Not Cauchy–Binet (#117). Not Bollobás (#118).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Frame–Robinson–Thrall, Canad. J. Math. 6 (1954) 316–324. Textbook: Stanley EC2 §7.21. Compact form: Wikipedia Hook length formula. Type pin: YoungDiagram / rowLen / colLen / factorial. Catalan is a different already-in theorem."
+  },
+  "feasibility_shape": "Level A: empty 0!=1; one cell; one-row hooks n…1 product n!; one-column symmetric; not labelled hook-length. Level B: namesake FRT / hook-walk / GNW. Cap two levels. No Catalan corollary. No RSK. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape for Level A; namesake may remain residual.",
+  "infra_carry_over": [
+    "Mathlib YoungDiagram / rowLen / colLen / SSYT / factorial — USE; DO NOT re-prove",
+    "Mathlib catalan / catalan_eq_centralBinom_div — DIFFERENT already-in; DO NOT re-prove; DO NOT cite as hook-length",
+    "ProofLab/StirlingSecondKind.lean — consumed #77 informal, DO NOT revive namesake",
+    "ProofLab/CauchyBinet.lean / BollobasTwoFamilies.lean — consumed #117/#118, DO NOT revive Level B",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1142",
+  "parent_issue": "OPE-1141",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO hookLength; rowLen/colLen/SSYT/factorial HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: Catalan; SSYT; YoungDiagram; Cramer; Burnside; derangement; Bertrand",
+    "Already-consumed: CauchyBinet Level A (#117); BollobasTwoFamilies Level A (#118); Stirling-B namesake residual",
+    "JSON leftover catalan-recurrence replaced not reaffirmed",
+    "Catalan 2-row / RSK / hook-content / Singleton / Kirchhoff / cauchy_binet / bollobas / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
