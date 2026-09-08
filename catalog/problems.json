@@ -2117,25 +2117,31 @@
     {
       "id": "circulant-det",
       "title": "Circulant determinant (DFT / roots-of-unity product, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1200 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1189 mill CONSUMED (#129 schur-product + #130 lame-euclid). Independent Mathlib pin grep this run: Matrix.circulant HIT (Circulant.lean L46); Matrix.det HIT; named det_circulant / circulant_det ZERO (file ends L183, no det). Level A empty / n=1 / n=2 a²−b². Not labelled circulant-det. Namesake DFT / primitive-root product OUT of v1. Not det_vandermonde (already-in glue). Not cauchy-binet / hadamard-det / schur-product / Kirchhoff / pfaffian. Leave OPE-403 alone. No novelty claim.",
+      "note": "OPE-1206 Formalist Level A. Director OPE-1205 approved Scout OPE-1200 RECOMMENDED PRIME. Lean zero-sorry ProofLab/CirculantDet.lean. Level A LANDED: det_circulant_fin_zero (empty Fin 0); det_circulant_fin_one (n=1 evaluation v 0); det_circulant_fin_two (n=2 a^2-b^2); optional det_circulant_fin_three (a^3+b^3+c^3-3abc). Not labelled circulant-det / Fourier. Namesake det_circulant (DFT / primitive-root product) OUT of this ticket, not sorry-ed. Not det_vandermonde (already-in glue). Not cauchy-binet / hadamard-det / schur-product / lame-euclid / Kirchhoff / pfaffian / wantzel. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/circulant-det/"
+        "catalog/problems/circulant-det/",
+        "proofs/lean-project/ProofLab/CirculantDet.lean"
       ],
       "scout_issue": "OPE-1200",
       "tickets": [
         "OPE-1200",
-        "OPE-1199"
+        "OPE-1199",
+        "OPE-1205",
+        "OPE-1206"
       ],
       "parent_issue": "OPE-1199",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/CirculantDet.lean",
+      "formalist_issue": "OPE-1206",
+      "director_issue": "OPE-1205"
     },
     {
       "id": "wantzel-constructible",

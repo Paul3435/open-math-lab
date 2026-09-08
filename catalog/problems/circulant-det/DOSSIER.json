@@ -1,7 +1,10 @@
 {
   "id": "circulant-det",
   "title": "Circulant determinant (DFT / roots-of-unity product, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
+  "formalist_issue": "OPE-1206",
+  "director_issue": "OPE-1205",
+  "lean_artifact": "proofs/lean-project/ProofLab/CirculantDet.lean",
   "domain": "linear_algebra",
   "score": 86,
   "scores": {
