@@ -1,7 +1,7 @@
 {
   "id": "gale-shapley",
   "title": "Gale–Shapley stable matching (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics",
   "score": 86,
   "scores": {
@@ -56,5 +56,9 @@
     "Already-consumed: BirkhoffVonNeumann Level A (#123); NashWilliamsArboricity Level A (#124)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Gale–Ryser / Hall / König matching / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1179",
+  "director_issue": "OPE-1178",
+  "lean_artifact": "proofs/lean-project/ProofLab/GaleShapley.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/126"
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-08T14:19:26Z",
+  "last_updated": "2026-09-08T15:47:01Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1997,26 +1997,33 @@
     {
       "id": "gale-shapley",
       "title": "Gale-Shapley stable matching (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1173 Scout RECOMMENDED PRIME (parent OPE-1172). Catalog-audit after OPE-1157 mill CONSUMED (#123 birkhoff-von-neumann Level A + #124 nash-williams-arboricity Level A). Independent Mathlib v4.10.0 grep: named galeShapley/stableMatching/deferredAcceptance ZERO; Equiv.Perm / IsMatching / completeBipartiteGraph HIT. Not Hall (already-in). Not Gale-Ryser (BvN residual). Not Koenig matching. Finite one-wave Level A empty/n=1/partner-is-top/n=2. Default no claim. Leave OPE-403 alone.",
+      "note": "OPE-1179 Formalist Level A. Director OPE-1178 approved Scout OPE-1173 RECOMMENDED PRIME. Lean zero-sorry ProofLab/GaleShapley.lean. Level A LANDED: Ranking/Prefers/Blocks/IsStable encoding (Equiv.Perm matching type; USE, not re-prove Hall/IsMatching); isStable_fin_zero empty; isStable_fin_one unique perm; isStable_of_partner_is_top / isStable_of_rank_zero_partner; exists_stable_fin_two (id or transposition) plus explicit idRanking / swapRanking_two profiles. Not labelled Gale-Shapley. Namesake gale_shapley (deferred acceptance) OUT of this ticket, not sorry-ed. Not Hall / Gale-Ryser / Koenig matching / permMatrix / BvN #123 / Nash-Williams #124 / farey-sequence leftover. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
         "catalog/problems/gale-shapley/",
-        "problems/gale-shapley/"
+        "problems/gale-shapley/",
+        "proofs/lean-project/ProofLab/GaleShapley.lean"
       ],
       "scout_issue": "OPE-1173",
       "tickets": [
         "OPE-1173",
-        "OPE-1172"
+        "OPE-1172",
+        "OPE-1178",
+        "OPE-1179"
       ],
       "parent_issue": "OPE-1172",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/GaleShapley.lean",
+      "formalist_issue": "OPE-1179",
+      "director_issue": "OPE-1178",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/126"
     },
     {
       "id": "farey-sequence",
@@ -2043,7 +2050,7 @@
       "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-08T14:19:26Z",
+  "updated_at": "2026-09-08T15:47:01Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
