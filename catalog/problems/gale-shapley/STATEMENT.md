@@ -1,7 +1,7 @@
 # Gale–Shapley stable matching — formalize-only
 
 **id:** `gale-shapley`
-**ticket:** OPE-1173 Scout RECOMMENDED PRIME (parent OPE-1172; post birkhoff-von-neumann #123 + nash-williams-arboricity #124)
+**ticket:** OPE-1179 Formalist Level A (Scout OPE-1173 RECOMMENDED PRIME; Director OPE-1178; parent OPE-1172; post birkhoff-von-neumann #123 + nash-williams-arboricity #124)
 **expected:** known-classical (Gale–Shapley 1962) — **no novelty claim**
 
 ## Why not classical / why formalize-only

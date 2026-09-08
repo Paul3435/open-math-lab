@@ -163,8 +163,8 @@ OPE-1157 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1157 mill consumed (#123+#124). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`gale-shapley` — RECOMMENDED PRIME (86).** Fresh id. Gale–Shapley 1962: complete preference rankings of `n` men and `n` women admit a stable perfect matching. Named theorem ZERO (`galeShapley` / `stableMatching` / `deferredAcceptance`); `Equiv.Perm` / `IsMatching` / `completeBipartiteGraph` HIT. **Not** Hall (already-in; `K_{n,n}` matching existence is trivial; USE `Equiv.Perm`; do not re-prove). **Not** Gale–Ryser (BvN #123 residual; different Gale). **Not** König `ν=τ` (consumed). Rural hospitals residual. Finite, one-wave Formalist shape (empty / n=1 / partner-is-top / n=2).
-2. **`farey-sequence` leftover (84).** Fresh id. Farey 1816 / Cauchy 1816: adjacent reduced fractions `a/b < c/d` in `F_n` satisfy `bc − ad = 1`. Named theorem ZERO (`Farey` / `fareySequence`); `Nat.Coprime` / `totient` / Rat coprime-pair encoding HIT. **Not** `sum_totient` (already `n.divisors.sum φ = n`; different totient theorem). **Not** Pick (no area infra). **Not** Stern–Brocot as extra namesake. Finite, one-wave Level A (`F_1` / mediant / `F_2`).
+1. **`gale-shapley` — Level A LANDED (OPE-1179).** Formalist stamp of Scout OPE-1173 RECOMMENDED PRIME (Director OPE-1178). Lean `ProofLab/GaleShapley.lean` zero-sorry. Empty / n=1 / partner-is-top / n=2. **Not labelled Gale–Shapley.** Namesake `gale_shapley` residual. **Not** Hall / Gale–Ryser / König matching. Leave OPE-403 alone.
+2. **`farey-sequence` leftover (84).** Still **unassigned** this tick. Do **not** prove Farey / Cauchy adjacency / `sum_totient` / Pick / Stern–Brocot here.
 
 Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.
 
@@ -188,4 +188,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1173 Scout: catalog-audit formalize-only shortlist gale-shapley + farey-sequence.)
+**Last updated:** 2026-09-08 (OPE-1179 Formalist: gale-shapley Level A.)
