@@ -2147,25 +2147,32 @@
     {
       "id": "wantzel-constructible",
       "title": "Wantzel cube-doubling (constructible numbers have 2-power degree, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "algebra",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1200 Scout leftover slot #2. Catalog-audit leftover after OPE-1189 mill CONSUMED (#129+#130). Independent Mathlib pin grep this run: minpoly / Eisenstein / IntermediateField HIT; named Wantzel / IsConstructible / constructible ZERO; Wiedijk 100 #8 has no decl. Level A Eisenstein X³−2 / AdjoinRoot finrank 3 / 3≠2^k. Not labelled Wantzel. Namesake IsConstructible tower OUT of v1. Not Abel–Ruffini (already-in, different). Not angle trisection (residual). Not primitive element / Galois / Noether Level B. Leave OPE-403 alone. No novelty claim.",
+      "note": "OPE-1211 Formalist Level A. Director OPE-1210 approved Scout OPE-1200 leftover. Lean zero-sorry ProofLab/WantzelConstructible.lean. Level A LANDED: irreducible_X_pow_three_sub_two (Eisenstein at (2) USE, not re-proved); adjoinRoot_X_pow_three_sub_two_finrank (AdjoinRoot.powerBasis / finrank USE; no real cube-root); not_pow_two_three. Not labelled Wantzel / IsConstructible. Namesake IsConstructible tower OUT of this ticket, not sorry-ed. Not Abel-Ruffini (already-in). Not angle trisection (residual). Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/wantzel-constructible/"
+        "catalog/problems/wantzel-constructible/",
+        "proofs/lean-project/ProofLab/WantzelConstructible.lean"
       ],
       "scout_issue": "OPE-1200",
       "tickets": [
         "OPE-1200",
-        "OPE-1199"
+        "OPE-1199",
+        "OPE-1210",
+        "OPE-1211"
       ],
       "parent_issue": "OPE-1199",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/WantzelConstructible.lean",
+      "formalist_issue": "OPE-1211",
+      "director_issue": "OPE-1210",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/133"
     }
   ],
   "updated_at": "2026-09-08T19:30:00Z",

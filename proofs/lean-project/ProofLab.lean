@@ -69,3 +69,4 @@ import ProofLab.FareySequence
 import ProofLab.SchurProduct
 import ProofLab.LameEuclid
 import ProofLab.CirculantDet
+import ProofLab.WantzelConstructible
