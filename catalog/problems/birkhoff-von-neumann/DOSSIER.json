@@ -1,0 +1,61 @@
+{
+  "id": "birkhoff-von-neumann",
+  "title": "Birkhoff–von Neumann theorem (doubly stochastic matrices, formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Birkhoff 1946 / von Neumann 1953: a nonnegative n×n real matrix with every row-sum and column-sum equal to 1 lies in the convex hull of the permutation matrices. Completely classical. Value is a Mathlib/ProofLab contribution (Matrix / stdBasisMatrix / convexHull / Hall exist; ZERO named BvN / isDoublyStochastic / permMatrix in Mathlib+Archive). Do NOT re-fund as novel. Order/Birkhoff.lean lattice representation is a DIFFERENT already-in Birkhoff — do not cite as BvN. Hall is a DIFFERENT already-in matching theorem — USE as glue; do not re-prove. Gale–Ryser / transportation polytopes are OUT of v1 (residuals of this id).",
+  "recommendation": "OPE-1157 RECOMMENDED PRIME. Catalog-audit prime after OPE-1142 mill CONSUMED (#120 singleton-bound Level A + #121 hook-length Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Singleton / hook-length / Cauchy–Binet / Bollobás / Hadamard / SZ / Ore / konig_edge_chromatic / AES / Ostrowski / Frobenius / Noether. Independent Mathlib pin grep this run (stdBasisMatrix/convexHull/Hall HIT; named BvN / doublyStochastic / permMatrix ZERO). Mill NOW: finite convex-matrix theorem after Singleton (coding) + hook-length (tableaux). Score 86 this run (not a JSON rubber-stamp): stdBasisMatrix+convexHull waiting (formalizability 16); Level A empty/n=1/perm-is-DS/conv⊆DS/n=2 (partial 17); Hall peeling is real work but one-wave and mill already used Hall-class matchings as glue (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins DS ⊆ conv(perm). Gale–Ryser residual. Do NOT assign nash-williams-arboricity first unless Director swaps. Do NOT prove Hall / lattice Birkhoff / König ν=τ / LDL / cauchy_binet / singleton_bound / hook_length.",
+  "mathlib_gap_grep_2026_09_08_ope1157": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1142 scores. rg birkhoffVonNeumann / doublyStochastic / DoublyStochastic / isDoublyStochastic / permMatrix / permutationMatrix / NashWilliams / arboricity over Mathlib/ + Archive + ProofLab → ZERO named BvN. Defs HIT: stdBasisMatrix (Data/Matrix/Basis.lean L30), convexHull (Analysis/Convex/Hull.lean L42), Finset.all_card_le_biUnion_card_iff_exists_injective (Hall/Basic.lean L116), Matrix/Equiv.Perm/Finset.sum. Already-in this run (do not re-prove, do not re-prime): Order/Birkhoff.lean lattice representation; Birkhoff averages (MeanErgodic.lean); Hall SDR; König matching (consumed); LDL.lower_conj_diag (LDL.lean L111 — Cholesky-adjacent, do not re-prime factorization); det_vandermonde (Vandermonde.lean); Catalan.lean; Derangements; Bertrand.lean; frobeniusNumber_pair; HalesJewett infinitary vdW (Combinatorics/HalesJewett.lean). Already-consumed this mill: ProofLab/SingletonBound.lean Level A (#120); ProofLab/HookLength.lean Level A (#121). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run (already-in or not one-wave) — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem birkhoff_von_neumann: IsDoublyStochastic A → A ∈ convexHull ℝ (Set.range permMatrix). Level A may land only empty / n=1 / permutation matrices are DS / conv(perm) ⊆ DS / n=2 explicit, not labelled Birkhoff.",
+    "landmines": [
+      "Do not re-prove stdBasisMatrix / convexHull / Hall / Matrix.one / Equiv.Perm.",
+      "Not Birkhoff lattice representation (already-in). Different Birkhoff.",
+      "Not Birkhoff averages / mean ergodic theorem.",
+      "Not Hall (already-in). USE, do not cite as BvN.",
+      "Not König matching (consumed). Not konig_edge_chromatic Level B.",
+      "Not Gale–Ryser / transportation polytope / Birkhoff-polytope volume.",
+      "Not Cauchy–Binet (#117) / Hadamard (#115) / LDL.lower_conj_diag / Vandermonde.",
+      "Not Singleton (#120). Not hook-length (#121). Not Catalan (already-in).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Birkhoff 1946 Univ. Nac. Tucumán Rev. Ser. A 5; von Neumann 1953 Contributions to the theory of games II. Compact form: Wikipedia Birkhoff–von Neumann theorem. Type pin: Matrix / stdBasisMatrix / convexHull. Hall is a different already-in theorem. Lattice Birkhoff is a different already-in theorem."
+  },
+  "feasibility_shape": "Level A: empty n=0; n=1 unique [1]; permutation matrices are DS; conv(perm) ⊆ DS; n=2 explicit I/transposition combo; not labelled Birkhoff. Level B: namesake DS ⊆ conv(perm) via Hall peeling. Cap two levels. No Gale–Ryser. No König re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib stdBasisMatrix / convexHull / Hall / Equiv.Perm — USE; DO NOT re-prove",
+    "Order/Birkhoff.lean lattice representation — DIFFERENT already-in; DO NOT cite as BvN",
+    "Gale–Ryser / transportation — DIFFERENT residual; DO NOT prove as extra namesakes",
+    "ProofLab/SingletonBound.lean — consumed #120, DO NOT revive Level B / Hamming / Plotkin",
+    "ProofLab/HookLength.lean — consumed #121, DO NOT revive Level B / Catalan / RSK",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1157",
+  "parent_issue": "OPE-1156",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO BvN / doublyStochastic / permMatrix; stdBasisMatrix/convexHull/Hall HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: lattice Birkhoff; Hall; LDL.lower_conj_diag; Vandermonde det; Catalan; derangement; Bertrand; frobeniusNumber_pair; HalesJewett",
+    "Already-consumed: SingletonBound Level A (#120); HookLength Level A (#121)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Gale–Ryser / König matching / lattice Birkhoff / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
