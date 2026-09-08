@@ -50,6 +50,7 @@
   "parent_issue": "OPE-1188",
   "formalist_issue": "OPE-1195",
   "lean_artifact": "proofs/lean-project/ProofLab/LameEuclid.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/130",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lame_theorem / euclidSteps; Nat.fib/gcd_rec HIT as infra only",
     "Negative control turan → Turan.lean exists",

@@ -171,7 +171,7 @@ OPE-1173 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 OPE-1173 mill consumed (#126+#127). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`schur-product` — RECOMMENDED PRIME (86).** Parallel Formalist OPE-1194 / PR **#129** (not this branch). Do not restamp as consumed here.
-2. **`lame-euclid` leftover — Level A LANDED (OPE-1195 Formalist).** Lean `ProofLab/LameEuclid.lean` zero-sorry. Catalog `formalized`. Zero / self / `2,1` / Fibonacci pairs. **Not** labelled Lamé. Level B namesake `lame` / Cassini residual **out of v1**. Do not revive.
+2. **`lame-euclid` leftover — Level A LANDED (OPE-1195 Formalist).** PR **#130**. Lean `ProofLab/LameEuclid.lean` zero-sorry. Catalog `formalized`. Zero / self / `2,1` / Fibonacci pairs. **Not** labelled Lamé. Level B namesake `lame` / Cassini residual **out of v1**. Do not revive.
 
 Scout opened **no attack issues**. Board keep-going after OPE-1194.
 
