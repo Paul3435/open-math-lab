@@ -145,12 +145,19 @@ OPE-1125 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`cauchy-binet` — CONSUMED.** PR **#117** Level A. Catalog `formalized`. Level B namesake `cauchy_binet` **out of v1**. Kirchhoff residual **out of v1**. Do not revive.
 2. **`bollobas-two-families` — CONSUMED Level A.** PR **#118** Level A. Catalog `formalized`. Level B namesake `bollobas` **out of v1**. Weighted `ℚ` residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1142, 2026-09-08)
+## Formalize-only shortlist (OPE-1142, 2026-09-08) — WAVE CONSUMED
 
-OPE-1125 mill consumed (#117+#118). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1142 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`singleton-bound` — CONSUMED Level A (OPE-1147).** Scout OPE-1142 prime; Director OPE-1146. PR **#120**. Lean `ProofLab/SingletonBound.lean`. Catalog `formalized`. Level B namesake `singleton_bound` **out of v1**. Hamming/Plotkin/MDS residual **out of v1**. Do not revive.
-2. **`hook-length` leftover (84).** Frame–Robinson–Thrall 1954: `|SYT(μ)| = n! / ∏ hook(c)`. Named theorem ZERO; `YoungDiagram` / `rowLen` / `colLen` / SSYT / `factorial` HIT. **Not** Catalan (already-in; 2-row residual). **Not** RSK / hook-content. **Not** Stirling-B leftover. **Unassigned this tick.**
+1. **`singleton-bound` — CONSUMED.** PR **#120** Level A. Catalog `formalized`. Level B namesake `singleton_bound` **out of v1**. Hamming/Plotkin/MDS residual **out of v1**. Do not revive.
+2. **`hook-length` — CONSUMED Level A.** PR **#121** Level A. Catalog `formalized`. Level B namesake `hook_length` **out of v1**. Catalan 2-row / RSK / hook-content residual **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1157, 2026-09-08)
+
+OPE-1142 mill consumed (#120+#121). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`birkhoff-von-neumann` — RECOMMENDED PRIME (86).** Birkhoff 1946 / von Neumann 1953: nonnegative `n×n` matrix with row- and column-sums 1 is a convex combination of permutation matrices. Named theorem ZERO; `stdBasisMatrix` / `convexHull` / Hall HIT. **Not** lattice Birkhoff (already `Order/Birkhoff.lean`). **Not** Birkhoff averages. **Not** Hall (already-in; USE glue). **Not** König matching (consumed). **Not** LDL/Cholesky (already `LDL.lower_conj_diag`). Gale–Ryser residual.
+2. **`nash-williams-arboricity` leftover (84).** Nash-Williams 1964: arboricity = max `ceil(e(H)/(|V(H)|-1))`. Named theorem ZERO; `IsAcyclic` / `induce` / `edgeFinset` / `completeGraph` / `pathGraph` HIT. **Not** Cayley tree count (consumed leftover Prüfer). **Not** Kirchhoff. **Not** Turán. **Not** matroid union as extra namesake. **Unassigned this tick.**
 
 Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.
 
@@ -174,4 +181,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1147 Formalist: singleton-bound Level A consumed. hook-length leftover unassigned. OPE-1125 mill #117+#118 consumed.)
+**Last updated:** 2026-09-08 (OPE-1157 Scout: catalog-audit shortlist. Prime birkhoff-von-neumann. Leftover nash-williams-arboricity. OPE-1142 mill #120+#121 consumed.)

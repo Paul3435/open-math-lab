@@ -1,0 +1,60 @@
+{
+  "id": "nash-williams-arboricity",
+  "title": "Nash–Williams arboricity theorem (formalize-only)",
+  "status": "candidate",
+  "domain": "extremal_graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Nash-Williams 1964: the arboricity Υ(G) of a finite simple graph equals max_H ceil(e(H)/(|V(H)|-1)) over subgraphs with ≥2 vertices. Equivalent packing: E(G) partitions into k forests iff every subgraph H satisfies e(H) ≤ k(|V(H)|-1). Completely classical. Value is a Mathlib/ProofLab contribution (IsAcyclic / induce / edgeFinset / completeGraph / pathGraph exist; ZERO named nashWilliams / arboricity in Mathlib+Archive). Do NOT re-fund as novel. IsAcyclic is a DIFFERENT already-in forest predicate — USE as glue; do not re-prove. Cayley labelled-tree count is a DIFFERENT consumed theorem (#64 leftover Prüfer) — do not revive. Kirchhoff matrix-tree is OUT of v1 (Cayley leftover AND Cauchy–Binet leftover). Matroid union / directed branching are OUT of v1 (residuals of this id).",
+  "recommendation": "OPE-1157 leftover slot #2. Catalog-audit leftover after OPE-1142 mill CONSUMED (#120+#121). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Singleton / hook-length / Cayley / Kirchhoff / König / Ore / konig_edge_chromatic. Independent Mathlib pin grep this run (IsAcyclic/induce/edgeFinset HIT; named NashWilliams / arboricity ZERO). Mill NOW: finite forest-packing leftover beside BvN (doubly stochastic). Score 84 this run (not a JSON rubber-stamp): IsAcyclic waiting (formalizability 16); Level A empty/tree/path/star/K2/cycle 2-forest (partial 16); packing namesake is real work, not required this wave (attack 15); Lean-only finite (verification 17); classical (crackpot 20). v1 pins forest partition ↔ subgraph bound. Matroid-union residual. Do NOT assign this first unless Director swaps. Do NOT prove Cayley / Kirchhoff / IsAcyclic / Turán / singleton_bound / hook_length / birkhoff_von_neumann.",
+  "mathlib_gap_grep_2026_09_08_ope1157": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1142 scores. rg nashWilliams / NashWilliams / arboricity / IsForest / birkhoffVonNeumann / doublyStochastic over Mathlib/ + Archive + ProofLab → ZERO named Nash-Williams arboricity (IsAcyclic module doc says acyclic=forest, that is the predicate not the packing theorem). Defs HIT: IsAcyclic (Acyclic.lean L50), IsTree (L54), isAcyclic_bot (L62), IsTree.card_edgeFinset (L150), induce (Maps.lean L177), edgeFinset (Finite.lean L53), completeGraph (Basic.lean L144), pathGraph (Hasse.lean L94). Already-in this run (do not re-prove, do not re-prime): Turán isTuranMaximal_iff_nonempty_iso_turanGraph L300; Catalan.lean; Derangements; Bertrand.lean; frobeniusNumber_pair; HalesJewett. Already-consumed this mill: ProofLab/SingletonBound.lean (#120); ProofLab/HookLength.lean (#121); ProofLab/CayleyTrees.lean (#64 informal leftover namesake — do not revive). Catalog JSON leftover catalan-recurrence FAILS the gap gate this run (already-in) — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem nash_williams: 1 ≤ k → (IsForestPartition G k ↔ ∀ s, 2 ≤ |s| → |(G.induce s).edgeFinset| ≤ k * (|s| - 1)). Level A may land only empty / bot / tree e=n-1 / pathGraph / star / K2 / cycle 2-forest glue, not labelled Nash-Williams.",
+    "landmines": [
+      "Do not re-prove IsAcyclic / IsTree / induce / edgeFinset / completeGraph / pathGraph.",
+      "Not Cayley labelled-tree count (#64). Do not revive Prüfer.",
+      "Not Kirchhoff matrix-tree (Cayley leftover AND Cauchy–Binet leftover).",
+      "Not Turán / Mantel / KST / Moore.",
+      "Not König edge-colouring (#112) / Vizing / Brooks. Colouring ≠ forest packing.",
+      "Not matroid union / Edmonds / directed branching. Residual of this id.",
+      "1 ≤ k load-bearing for ℕ subtraction. Edge partition (not cover) load-bearing.",
+      "Not Singleton (#120). Not hook-length (#121). Not BvN (the prime).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Nash-Williams, J. London Math. Soc. 39 (1964) 12. Textbook: Diestel Graph Theory §2.4. Compact form: Wikipedia Nash-Williams theorem (arboricity). Type pin: IsAcyclic / induce / edgeFinset. IsTree is a different already-in predicate. Cayley is a different consumed count."
+  },
+  "feasibility_shape": "Level A: empty/bot IsAcyclic; tree e=n-1; pathGraph; star; K2; cycle 2-forest; not labelled Nash-Williams. Level B: namesake packing ↔ subgraph bound. Cap two levels. No Cayley re-proof. No Kirchhoff. No matroid union. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape for Level A; namesake may remain residual.",
+  "infra_carry_over": [
+    "Mathlib IsAcyclic / IsTree / induce / edgeFinset / completeGraph / pathGraph — USE; DO NOT re-prove",
+    "ProofLab/CayleyTrees.lean — consumed #64 informal, DO NOT revive namesake / Prüfer / Kirchhoff",
+    "ProofLab/SingletonBound.lean / HookLength.lean — consumed #120/#121, DO NOT revive Level B",
+    "Matroid union / directed branching — DIFFERENT residual; DO NOT prove as extra namesakes",
+    "Lab graph-theory + combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "graph-theory",
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1157",
+  "parent_issue": "OPE-1156",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO NashWilliams / arboricity; IsAcyclic/induce/edgeFinset HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: IsAcyclic/IsTree; completeGraph; pathGraph; Catalan; derangement; Bertrand; frobeniusNumber_pair; HalesJewett",
+    "Already-consumed: SingletonBound Level A (#120); HookLength Level A (#121); CayleyTrees leftover namesake (#64)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Cayley / Kirchhoff / matroid union / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
