@@ -166,18 +166,25 @@ OPE-1173 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`gale-shapley` — CONSUMED.** PR **#126** Level A. Catalog `formalized`. Level B namesake `gale_shapley` / rural hospitals residual **out of v1**. Do not revive.
 2. **`farey-sequence` — CONSUMED Level A.** PR **#127**. Catalog `formalized`. Level B namesake `farey_adjacent` / Stern–Brocot residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1189, 2026-09-08)
+## Formalize-only shortlist (OPE-1189, 2026-09-08) — WAVE CONSUMED
 
-OPE-1173 mill consumed (#126+#127). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1189 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`schur-product` — CONSUMED Level A.** PR **#129**. Catalog `formalized`. Empty / n=1 / diagonal / rank-one. **Not** labelled Schur. Level B namesake `schur_product` / SVD residual **out of v1**. Do not revive.
-2. **`lame-euclid` leftover — Level A LANDED (OPE-1195 Formalist).** PR **#130**. Lean `ProofLab/LameEuclid.lean` zero-sorry. Catalog `formalized`. Zero / self / `2,1` / Fibonacci pairs. **Not** labelled Lamé. Level B namesake `lame` / Cassini residual **out of v1**. Do not revive.
+1. **`schur-product` — CONSUMED.** PR **#129** Level A. Catalog `formalized`. Level B namesake `schur_product` / SVD residual **out of v1**. Do not revive.
+2. **`lame-euclid` — CONSUMED Level A.** PR **#130**. Catalog `formalized`. Level B namesake `lame` / Cassini residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Board keep-going after OPE-1194.
+## Formalize-only shortlist (OPE-1200, 2026-09-08)
+
+OPE-1189 mill consumed (#129+#130). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`circulant-det` — RECOMMENDED PRIME (86).** Fresh id. Classical circulant DFT formula: `det (circulant v) = ∏_k ∑_j v_j ω^{kj}`. Named theorem ZERO (`det_circulant` / `circulant_det`); `Matrix.circulant` (Circulant.lean L46) / `Matrix.det` HIT. Circulant.lean ends L183 with no det. **Not** `det_vandermonde` (already-in; namesake glue). **Not** Cauchy–Binet / Hadamard det / Schur product (consumed). Pfaffian / Kirchhoff residual. Finite, one-wave Formalist shape (empty / n=1 / n=2).
+2. **`wantzel-constructible` leftover (84).** Fresh id. Wantzel 1837 / Wiedijk 100 #8 (no Mathlib decl): constructible ⇒ minpoly degree a 2-power, so `³√2` is not constructible. Named theorem ZERO (`Wantzel` / `IsConstructible`); `minpoly` / Eisenstein / `IntermediateField` HIT. **Not** Abel–Ruffini (already-in; different theorem). **Not** angle trisection (residual). Finite, one-wave Level A (Eisenstein `X³−2` / adjoin finrank 3 / `3≠2^k`).
+
+Scout opened **no attack issues**. Director approves after this shortlist.
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1195 Formalist: lame-euclid Level A; keep both OPE-1194 + OPE-1195 rows.)
+**Last updated:** 2026-09-08 (OPE-1200 Scout: catalog-audit shortlist circulant-det + wantzel-constructible.)
 
 ## Shortlist (post OPE-21)
 
