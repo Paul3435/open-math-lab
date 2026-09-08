@@ -61,3 +61,4 @@ import ProofLab.HadamardDet
 import ProofLab.CauchyBinet
 import ProofLab.BollobasTwoFamilies
 import ProofLab.SingletonBound
+import ProofLab.HookLength
