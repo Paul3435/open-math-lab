@@ -1902,26 +1902,32 @@
     {
       "id": "hook-length",
       "title": "Hook-length formula (standard Young tableaux, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "enumerative_combinatorics",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1142 Scout leftover slot #2 (parent OPE-1141). Catalog-audit leftover after OPE-1125 mill CONSUMED (#117+#118). Known classical (Frame-Robinson-Thrall 1954). Mathlib v4.10.0 gap this run: ZERO named hookLength in Mathlib/+Archive/; HIT YoungDiagram / rowLen L271 / colLen L319 / SSYT / factorial. Not Catalan (already-in; 2-row residual; do not re-prime catalan-recurrence). Not RSK / hook-content. Not Singleton (the prime). Not Stirling-B leftover. Leave OPE-403 alone. Default no claim.",
+      "note": "OPE-1152 Formalist Level A. Director OPE-1151 approved Scout OPE-1142 leftover. Lean zero-sorry ProofLab/HookLength.lean. Level A LANDED: hook encoding; empty/one-cell/one-row/one-column glue; unique SYT fillings; hook product = n! on one-row/one-column. Not labelled hook-length. Namesake hook_length (FRT / hook-walk / GNW) OUT of this ticket, not sorry-ed. Not YoungDiagram / SSYT / factorial (USE glue). Not Catalan (already-in; 2-row residual). Not RSK / hook-content. Not Singleton (#120). Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
         "catalog/problems/hook-length/",
-        "problems/hook-length/"
+        "problems/hook-length/",
+        "proofs/lean-project/ProofLab/HookLength.lean"
       ],
       "scout_issue": "OPE-1142",
       "tickets": [
         "OPE-1142",
-        "OPE-1141"
+        "OPE-1141",
+        "OPE-1151",
+        "OPE-1152"
       ],
       "parent_issue": "OPE-1141",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/HookLength.lean",
+      "formalist_issue": "OPE-1152",
+      "director_issue": "OPE-1151"
     }
   ],
   "updated_at": "2026-09-08T08:00:00Z",
