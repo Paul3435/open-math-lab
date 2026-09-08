@@ -1871,26 +1871,32 @@
     {
       "id": "singleton-bound",
       "title": "Singleton bound (error-correcting codes, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "coding_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1142 Scout RECOMMENDED PRIME (parent OPE-1141). Catalog-audit prime after OPE-1125 mill CONSUMED (#117 cauchy-binet + #118 bollobas-two-families). Known classical (Singleton 1964). Mathlib v4.10.0 gap this run: ZERO named Singleton bound / minimumDistance / LinearCode in Mathlib/+Archive/; HIT hammingDist (Hamming.lean L38) / hammingNorm. Not the Hamming metric (USE glue). Not Hamming-bound / Plotkin / MDS / Reed-Solomon. Not Cauchy-Binet / Bollobas Level B. Not krenn-gu / hou-zeng / sun-135. Leave OPE-403 alone. Default no claim.",
+      "note": "OPE-1147 Formalist Level A. Director OPE-1146 approved Scout OPE-1142 prime. Lean zero-sorry ProofLab/SingletonBound.lean. Level A LANDED: minDist encoding; empty/singleton vacuous min-dist; d=1 whole-space bound; univ min-dist 1; binary repetition min-dist n. Not labelled Singleton. Namesake singleton_bound (puncture injection) OUT of this ticket, not sorry-ed. Not the Hamming metric (USE glue). Not Hamming-bound / Plotkin / MDS / Reed-Solomon. Not Cauchy-Binet / Bollobas Level B. Not hook-length leftover. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
         "catalog/problems/singleton-bound/",
-        "problems/singleton-bound/"
+        "problems/singleton-bound/",
+        "proofs/lean-project/ProofLab/SingletonBound.lean"
       ],
       "scout_issue": "OPE-1142",
       "tickets": [
         "OPE-1142",
-        "OPE-1141"
+        "OPE-1141",
+        "OPE-1146",
+        "OPE-1147"
       ],
       "parent_issue": "OPE-1141",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/SingletonBound.lean",
+      "formalist_issue": "OPE-1147",
+      "director_issue": "OPE-1146"
     },
     {
       "id": "hook-length",

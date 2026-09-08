@@ -1,7 +1,7 @@
 {
   "id": "singleton-bound",
   "title": "Singleton bound (error-correcting codes, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "coding_theory",
   "score": 86,
   "scores": {
@@ -47,6 +47,9 @@
   "scored_at": "2026-09-08",
   "scout_issue": "OPE-1142",
   "parent_issue": "OPE-1141",
+  "formalist_issue": "OPE-1147",
+  "director_issue": "OPE-1146",
+  "lean_artifact": "proofs/lean-project/ProofLab/SingletonBound.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Singleton bound / minimumDistance / LinearCode; hammingDist/hammingNorm HIT as infra only",
     "Negative control turan → Turan.lean exists",
