@@ -149,10 +149,10 @@ OPE-1125 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1125 mill consumed (#117+#118). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`singleton-bound` — RECOMMENDED PRIME (86).** Singleton 1964: `|C| ≤ |α|^(n-d+1)` for min-dist `d`. Named theorem ZERO; `hammingDist` / `hammingNorm` HIT. **Not** the Hamming metric (already-in). **Not** Hamming-bound / Plotkin / MDS. **Not** Cauchy–Binet (#117). **Not** Bollobás (#118).
-2. **`hook-length` leftover (84).** Frame–Robinson–Thrall 1954: `|SYT(μ)| = n! / ∏ hook(c)`. Named theorem ZERO; `YoungDiagram` / `rowLen` / `colLen` / SSYT / `factorial` HIT. **Not** Catalan (already-in; 2-row residual). **Not** RSK / hook-content. **Not** Stirling-B leftover.
+1. **`singleton-bound` — CONSUMED Level A (OPE-1147).** Scout OPE-1142 prime; Director OPE-1146. PR **#120**. Lean `ProofLab/SingletonBound.lean`. Catalog `formalized`. Level B namesake `singleton_bound` **out of v1**. Hamming/Plotkin/MDS residual **out of v1**. Do not revive.
+2. **`hook-length` leftover (84).** Frame–Robinson–Thrall 1954: `|SYT(μ)| = n! / ∏ hook(c)`. Named theorem ZERO; `YoungDiagram` / `rowLen` / `colLen` / SSYT / `factorial` HIT. **Not** Catalan (already-in; 2-row residual). **Not** RSK / hook-content. **Not** Stirling-B leftover. **Unassigned this tick.**
 
-Director assigns after approval. Scout opened **no attack issues**.
+Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.
 
 ## Shortlist (post OPE-21)
 
@@ -174,4 +174,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1142 Scout: catalog-audit shortlist singleton-bound prime + hook-length leftover. OPE-1125 mill #117+#118 consumed.)
+**Last updated:** 2026-09-08 (OPE-1147 Formalist: singleton-bound Level A consumed. hook-length leftover unassigned. OPE-1125 mill #117+#118 consumed.)

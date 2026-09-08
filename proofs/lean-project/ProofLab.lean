@@ -60,3 +60,4 @@ import ProofLab.SchwartzZippel
 import ProofLab.HadamardDet
 import ProofLab.CauchyBinet
 import ProofLab.BollobasTwoFamilies
+import ProofLab.SingletonBound
