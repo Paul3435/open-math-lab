@@ -156,7 +156,7 @@ OPE-1142 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1142 mill consumed (#120+#121). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`birkhoff-von-neumann` — RECOMMENDED PRIME (86).** Birkhoff 1946 / von Neumann 1953: nonnegative `n×n` matrix with row- and column-sums 1 is a convex combination of permutation matrices. Named theorem ZERO; `stdBasisMatrix` / `convexHull` / Hall HIT. **Not** lattice Birkhoff (already `Order/Birkhoff.lean`). **Not** Birkhoff averages. **Not** Hall (already-in; USE glue). **Not** König matching (consumed). **Not** LDL/Cholesky (already `LDL.lower_conj_diag`). Gale–Ryser residual.
+1. **`birkhoff-von-neumann` — RECOMMENDED PRIME (86) — CONSUMED Level A by OPE-1162.** Birkhoff 1946 / von Neumann 1953: nonnegative `n×n` matrix with row- and column-sums 1 is a convex combination of permutation matrices. Named theorem ZERO; `stdBasisMatrix` / `convexHull` / Hall / `Equiv.Perm.permMatrix` HIT as infra. **Not** lattice Birkhoff (already `Order/Birkhoff.lean`). **Not** Birkhoff averages. **Not** Hall (already-in; USE glue). **Not** König matching (consumed). **Not** LDL/Cholesky (already `LDL.lower_conj_diag`). Gale–Ryser residual. Level A empty/n=1/perm-is-DS/conv⊆DS/n=2 **LANDED** (not labelled Birkhoff). Level B namesake `birkhoff_von_neumann` **out of this ticket**.
 2. **`nash-williams-arboricity` leftover (84).** Nash-Williams 1964: arboricity = max `ceil(e(H)/(|V(H)|-1))`. Named theorem ZERO; `IsAcyclic` / `induce` / `edgeFinset` / `completeGraph` / `pathGraph` HIT. **Not** Cayley tree count (consumed leftover Prüfer). **Not** Kirchhoff. **Not** Turán. **Not** matroid union as extra namesake. **Unassigned this tick.**
 
 Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.
@@ -181,4 +181,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1157 Scout: catalog-audit shortlist. Prime birkhoff-von-neumann. Leftover nash-williams-arboricity. OPE-1142 mill #120+#121 consumed.)
+**Last updated:** 2026-09-08 (OPE-1162 Formalist: birkhoff-von-neumann Level A. Leftover nash-williams-arboricity still unassigned.)

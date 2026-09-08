@@ -62,3 +62,4 @@ import ProofLab.CauchyBinet
 import ProofLab.BollobasTwoFamilies
 import ProofLab.SingletonBound
 import ProofLab.HookLength
+import ProofLab.BirkhoffVonNeumann
