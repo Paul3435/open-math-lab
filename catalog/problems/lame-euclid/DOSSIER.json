@@ -1,0 +1,59 @@
+{
+  "id": "lame-euclid",
+  "title": "Lamé's theorem on the Euclidean algorithm (Fibonacci worst case, formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Lamé 1844: the number of division steps in the Euclidean algorithm on a ≥ b > 0 is maximised by consecutive Fibonacci numbers (a ≥ F_{n+2}, b ≥ F_{n+1} after n steps). Completely classical. Value is a Mathlib/ProofLab contribution (Nat.fib / Nat.gcd / gcd_rec exist; ZERO named lame_theorem / euclidSteps in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Nat.fib_gcd (fib (gcd m n) = gcd (fib m) (fib n), Fib/Basic.lean L235) is a DIFFERENT already-in Fibonacci identity — USE fib/gcd as glue; do not re-prove fib_gcd; do not cite it as Lamé. Euclid–Euler even perfect numbers are a DIFFERENT consumed Euclid (#80). Zeckendorf and Binet/GoldenRatio already-in. Cassini is ZERO this pin and is OUT of v1 (residual of this id).",
+  "recommendation": "OPE-1189 leftover slot #2. Catalog-audit leftover after OPE-1173 mill CONSUMED (#126+#127). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of GS / Farey / Euclid–Euler / fib_gcd / Zeckendorf. Independent Mathlib pin grep this run (Nat.fib / gcd_rec / Nat.gcd.induction HIT; named lame_theorem / euclidSteps ZERO). Mill NOW: finite Euclid-step leftover beside Schur product. Score 84 this run (not a JSON rubber-stamp): fib waiting (formalizability 16); Level A zero/self/2-1/Fibonacci pair (partial 16); backwards Fibonacci induction is real but elementary (attack 15); Lean-only finite (verification 17); classical (crackpot 20). v1 pins euclidSteps via % with terminal 0 uncounted. Cassini / digit-count form residual. Do NOT assign as prime unless Director swaps. Do NOT prove fib_gcd / Euclid–Euler / Zeckendorf / Cassini / schur_product / gale_shapley / farey_adjacent.",
+  "mathlib_gap_grep_2026_09_08_ope1189": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1173 scores. rg -w lame_theorem / Lame / euclidSteps / euclid_steps / gcd_steps / schurProduct / schur_product over Mathlib/ + Archive + ProofLab → ZERO named Lamé-on-Euclid. Defs HIT: Nat.fib (Fib/Basic.lean L65), fib_zero L69, fib_one L73, fib_two L77, fib_gcd L235 (DIFFERENT theorem — do not cite as Lamé), gcd_rec / Nat.gcd.induction (Fib/Basic.lean L236–L239; GCD/Basic.lean L34), coprime_iff_isRelPrime L278. Already-in this run (do not re-prove, do not re-prime): fib_gcd strong divisibility; Zeckendorf.lean; GoldenRatio Binet; Euclid–Euler consumed; Wilson; LucasLehmer; Bertrand; frobeniusNumber_pair; Beatty/Rayleigh; Catalan; Derangements; HalesJewett infinitary vdW; SchurComplement; CayleyHamilton; det_kronecker; Sauer-Shelah; FKG; Hall. Already-consumed this mill: ProofLab/GaleShapley.lean Level A (#126); ProofLab/FareySequence.lean Level A (#127). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem lame: b ≤ a → 0 < b → euclidSteps a b = n → fib (n+2) ≤ a ∧ fib (n+1) ≤ b. euclidSteps a 0 = 0; each % with b>0 counts +1. Level A may land only zero / self / 2,1 / one explicit Fibonacci pair, not labelled Lamé.",
+    "landmines": [
+      "Do not re-prove Nat.fib / Nat.gcd / gcd_rec / Nat.gcd.induction / fib_gcd.",
+      "Not fib_gcd (already-in). Different Fibonacci theorem.",
+      "Not Euclid–Euler even perfect numbers (consumed). Different Euclid.",
+      "Not Zeckendorf / Binet (already-in).",
+      "Not Cassini / digit-count form. Residual of this id.",
+      "Not Farey (#127) / farey_adjacent / Stern–Brocot. Not Gale–Shapley (#126).",
+      "Not Schur product (OPE-1189 prime).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Lamé 1844 Comptes rendus 19. Compact form: Wikipedia Euclidean algorithm / Lamé's theorem. Type pin: Nat.fib / euclidSteps via %. fib_gcd is a different already-in theorem. Euclid–Euler is a different consumed theorem."
+  },
+  "feasibility_shape": "Level A: euclidSteps a 0 = 0; euclidSteps a a = 1 (a>0); euclidSteps 2 1 = 1; euclidSteps (fib 6) (fib 5) = 4; not labelled Lamé. Level B: namesake a ≥ F_{n+2}, b ≥ F_{n+1}. Cap two levels. No fib_gcd re-proof. No Euclid–Euler. No Cassini as extra namesake. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Nat.fib / Nat.gcd / gcd_rec — USE; DO NOT re-prove",
+    "fib_gcd strong divisibility — DIFFERENT already-in; DO NOT cite as Lamé",
+    "Cassini / digit-count / Zeckendorf uniqueness — DIFFERENT residual; DO NOT prove as extra namesakes",
+    "ProofLab/GaleShapley.lean — consumed #126, DO NOT revive Level B / rural hospitals",
+    "ProofLab/FareySequence.lean — consumed #127, DO NOT revive Level B / farey_adjacent / Stern–Brocot",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1189",
+  "parent_issue": "OPE-1188",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lame_theorem / euclidSteps; Nat.fib/gcd_rec HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: fib_gcd; Zeckendorf; Binet; Wilson; Lucas-Lehmer; Bertrand; frobeniusNumber_pair; Catalan; Derangements; Hales-Jewett infinitary vdW",
+    "Already-consumed: GaleShapley Level A (#126); FareySequence Level A (#127); Euclid–Euler",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "fib_gcd / Euclid–Euler / Zeckendorf / Cassini / Schur product / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

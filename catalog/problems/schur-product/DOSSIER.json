@@ -1,0 +1,58 @@
+{
+  "id": "schur-product",
+  "title": "Schur product theorem (Hadamard product of PSD matrices, formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Schur 1911 / Hadamard 1894: if A and B are positive semidefinite then the Hadamard (entrywise) product A ⊙ B is positive semidefinite. Completely classical. Value is a Mathlib/ProofLab contribution (Matrix.hadamard / PosSemidef exist; ZERO named schurProduct / schur_product / hadamard_posSemidef in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. hadamard-det (#115) is a DIFFERENT consumed Hadamard theorem (row-ℓ² det bound) — USE hadamard ⊙ as glue; do not revive hadamard_det / Fischer / Minkowski det / three-lines. Schur complement (SchurComplement.det_one_add_mul_comm) is a DIFFERENT already-in identity — do not cite as the product theorem. Schur partition / Schur number are DIFFERENT consumed mill ids. SVD / polar / Moore–Penrose are OUT of v1 (residuals of this id).",
+  "recommendation": "OPE-1189 RECOMMENDED PRIME. Catalog-audit prime after OPE-1173 mill CONSUMED (#126 gale-shapley Level A + #127 farey-sequence Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of GS / Farey / hadamard_det / Schur complement / BvN / Nash–Williams. Independent Mathlib pin grep this run (hadamard / PosSemidef / posSemidef_diagonal_iff / posSemidef_iff_eq_transpose_mul_self / IsHermitian.eigenvalues HIT; named schurProduct / schur_product / hadamard_posSemidef ZERO). Mill NOW: finite PSD-Hadamard theorem after GS (matchings) + Farey (coprime adjacency). Score 86 this run (not a JSON rubber-stamp): hadamard waiting (formalizability 16); Level A empty/n=1/diagonal/rank-one (partial 17); Gram/spectral namesake is real work but undergraduate (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins ℝ Fin n PosSemidef A → PosSemidef B → PosSemidef (A ⊙ B). SVD residual. Do NOT assign lame-euclid first unless Director swaps. Do NOT prove hadamard_det / Schur complement / fib_gcd / gale_shapley / farey_adjacent.",
+  "mathlib_gap_grep_2026_09_08_ope1189": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1173 scores. rg -w schurProduct / SchurProduct / schur_product / hadamard_posSemidef / posSemidef_hadamard / lame_theorem / euclidSteps over Mathlib/ + Archive + ProofLab → ZERO named Schur product. Defs HIT: Matrix.hadamard (Hadamard.lean L42), hadamard_apply L47, hadamard_one L104, Matrix.PosSemidef (PosDef.lean L45), posSemidef_diagonal_iff L49, posSemidef_iff_eq_transpose_mul_self L252, IsHermitian.eigenvalues (Spectrum.lean L40). Already-in this run (do not re-prove, do not re-prime): SchurComplement.det_one_add_mul_comm (Weinstein–Aronszajn / matrix-det-lemma); CayleyHamilton (Charpoly); det_kronecker (Kronecker.lean L365); Sauer-Shelah (Shatter.lean L190); Beatty/Rayleigh; LucasLehmer; Wilson; FKG (FourFunctions.lean); Hall SDR; permMatrix; GramSchmidtOrtho; Rearrangement.lean; Nat.add_choose_eq; Nat.sum_totient; catalan_eq_centralBinom_div (Catalan.lean L109); numDerangements (Derangements/Finite.lean L62); bertrand (Bertrand.lean L229); frobeniusNumber_pair (FrobeniusNumber.lean L52); HalesJewett exists_mono_in_high_dimension + exists_mono_homothetic_copy (infinitary vdW). Already-consumed this mill: ProofLab/GaleShapley.lean Level A (#126); ProofLab/FareySequence.lean Level A (#127). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run (already-in or not one-wave) — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem schur_product: PosSemidef A → PosSemidef B → PosSemidef (A ⊙ B) on Matrix (Fin n) (Fin n) ℝ. Level A may land only empty / n=1 / nonnegative diagonal / rank-one outer-product identity, not labelled Schur.",
+    "landmines": [
+      "Do not re-prove Matrix.hadamard / PosSemidef / posSemidef_diagonal_iff / posSemidef_iff_eq_transpose_mul_self / IsHermitian.eigenvalues.",
+      "Not hadamard-det (#115). Different Hadamard. Do not revive hadamard_det / Fischer / Minkowski det / three-lines.",
+      "Not Schur complement (already-in). Do not cite as the product theorem.",
+      "Not Schur partition / Schur number (consumed mill). Different Schur theorems.",
+      "Not SVD / polar / Moore–Penrose. Residual of this id.",
+      "Not gale-shapley (#126) / farey-sequence (#127) Level B.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Schur 1911 J. Reine Angew. Math. 140. Compact form: Wikipedia Schur product theorem. Type pin: Matrix.hadamard / PosSemidef / Fin n / ℝ. hadamard-det is a different consumed theorem. Schur complement is a different already-in identity."
+  },
+  "feasibility_shape": "Level A: empty Fin 0; n=1 nonnegative scalars; diagonal via posSemidef_diagonal_iff; rank-one (v*vᵀ) ⊙ (w*wᵀ) = (v ⊙ w)(v ⊙ w)ᵀ; not labelled Schur. Level B: namesake via Gram / spectral. Cap two levels. No SVD. No Schur complement re-proof. No hadamard_det. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Matrix.hadamard / PosSemidef — USE; DO NOT re-prove",
+    "hadamard-det / hadamard_det — DIFFERENT consumed residual; DO NOT revive",
+    "Schur complement det_one_add_mul_comm — DIFFERENT already-in; DO NOT cite as Schur product",
+    "ProofLab/GaleShapley.lean — consumed #126, DO NOT revive Level B / rural hospitals",
+    "ProofLab/FareySequence.lean — consumed #127, DO NOT revive Level B / farey_adjacent / Stern–Brocot",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1189",
+  "parent_issue": "OPE-1188",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO schurProduct / schur_product / hadamard_posSemidef; hadamard/PosSemidef HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: Schur complement; Cayley-Hamilton; det_kronecker; Sauer-Shelah; Beatty; Lucas-Lehmer; Wilson; FKG; Hall; catalan; derangements; bertrand; frobeniusNumber_pair; Hales-Jewett infinitary vdW",
+    "Already-consumed: GaleShapley Level A (#126); FareySequence Level A (#127)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "hadamard-det / Schur complement / Schur partition / Schur number / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
