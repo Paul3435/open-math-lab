@@ -138,12 +138,19 @@ OPE-1110 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`schwartz-zippel` — CONSUMED.** PR **#114** Level A. Catalog `formalized`. Level B namesake `schwartz_zippel` **out of v1**. Do not revive.
 2. **`hadamard-det` — CONSUMED Level A.** PR **#115** Level A. Catalog `formalized`. Level B namesake `hadamard_det` **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1125, 2026-09-07)
+## Formalize-only shortlist (OPE-1125, 2026-09-07) — WAVE CONSUMED
 
-OPE-1110 mill consumed (#114+#115). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1125 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`cauchy-binet` — CONSUMED Level A by OPE-1130 / PR #117.** Cauchy–Binet `det(A * B)` as a sum of matching square minors. Named theorem ZERO; `Matrix.det` / `det_mul` / `submatrix` / `powersetCard` HIT. **Not** `det_mul` (square already-in). **Not** Hadamard (#115). Kirchhoff residual.
-2. **`bollobas-two-families` leftover (85) — CONSUMED Level A by OPE-1135 / PR #118.** Bollobás 1965 uniform set-pairs `|ι| ≤ C(a+b, a)`. Named theorem ZERO; `Nat.choose` / `Finset` / `Perm` HIT. **Not** Sperner/LYM (already-in). **Not** KK/EKR/Oddtown/sunflower (consumed). Weighted residual. Level B namesake `bollobas` **out of this ticket**.
+1. **`cauchy-binet` — CONSUMED.** PR **#117** Level A. Catalog `formalized`. Level B namesake `cauchy_binet` **out of v1**. Kirchhoff residual **out of v1**. Do not revive.
+2. **`bollobas-two-families` — CONSUMED Level A.** PR **#118** Level A. Catalog `formalized`. Level B namesake `bollobas` **out of v1**. Weighted `ℚ` residual **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1142, 2026-09-08)
+
+OPE-1125 mill consumed (#117+#118). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`singleton-bound` — RECOMMENDED PRIME (86).** Singleton 1964: `|C| ≤ |α|^(n-d+1)` for min-dist `d`. Named theorem ZERO; `hammingDist` / `hammingNorm` HIT. **Not** the Hamming metric (already-in). **Not** Hamming-bound / Plotkin / MDS. **Not** Cauchy–Binet (#117). **Not** Bollobás (#118).
+2. **`hook-length` leftover (84).** Frame–Robinson–Thrall 1954: `|SYT(μ)| = n! / ∏ hook(c)`. Named theorem ZERO; `YoungDiagram` / `rowLen` / `colLen` / SSYT / `factorial` HIT. **Not** Catalan (already-in; 2-row residual). **Not** RSK / hook-content. **Not** Stirling-B leftover.
 
 Director assigns after approval. Scout opened **no attack issues**.
 
@@ -167,4 +174,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-07 (OPE-1135 Formalist: bollobas-two-families Level A. Scout OPE-1125 leftover consumed.)
+**Last updated:** 2026-09-08 (OPE-1142 Scout: catalog-audit shortlist singleton-bound prime + hook-length leftover. OPE-1125 mill #117+#118 consumed.)

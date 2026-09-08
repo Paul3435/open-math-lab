@@ -1,0 +1,58 @@
+{
+  "id": "singleton-bound",
+  "title": "Singleton bound (error-correcting codes, formalize-only)",
+  "status": "candidate",
+  "domain": "coding_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Singleton 1964: a finite code C ⊆ (Fin n → α) with min Hamming distance d ≥ 1 satisfies |C| ≤ |α|^(n-d+1). Completely classical. Value is a Mathlib/ProofLab contribution (hammingDist / hammingNorm exist; ZERO named Singleton bound / minimumDistance / LinearCode in Mathlib+Archive). Do NOT re-fund as novel. hammingDist is a DIFFERENT already-in metric — USE as glue; do not re-prove; do not cite as Singleton. Hamming sphere-packing / Plotkin / GV / MacWilliams / Reed–Solomon are OUT of v1 (residuals of this id).",
+  "recommendation": "OPE-1142 RECOMMENDED PRIME. Catalog-audit prime after OPE-1125 mill CONSUMED (#117 cauchy-binet Level A + #118 bollobas-two-families Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of Cauchy–Binet / Bollobás / Hadamard / SZ / Ore / konig_edge_chromatic / AES / Ostrowski / Frobenius / Noether. Independent Mathlib pin grep this run (hammingDist/hammingNorm HIT; named Singleton bound / minimumDistance / LinearCode ZERO). Mill NOW: finite coding bound after Cauchy–Binet (rectangular det) + Bollobás (set-pairs). Score 86 this run (not a JSON rubber-stamp): hammingDist waiting (formalizability 16); Level A empty/singleton/d=1/whole-space/repetition (partial 17); puncture injection is real work but one-wave and mill already demonstrated Finset.card injections (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins combinatorial |C| ≤ |α|^(n-d+1) with min-dist d. Hamming/Plotkin/MDS residual. Do NOT assign hook-length first unless Director swaps. Do NOT prove hammingDist / Hamming-bound / Plotkin / Kirchhoff / cauchy_binet / bollobas.",
+  "mathlib_gap_grep_2026_09_08_ope1142": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1125 scores. rg singletonBound / SingletonBound / minimumDistance / LinearCode / plotkinBound / hammingBound / macWilliams over Mathlib/ + Archive + ProofLab → ZERO named theorem. Hamming.lean mentions 'code' only in the module docstring (L18). Defs HIT: hammingDist (InformationTheory/Hamming.lean L38), hammingNorm (L137), Fintype/Finset.card/Fin n. Already-in this run (do not re-prove, do not re-prime): Hamming metric; Fintype.card; Catalan.lean; Derangements; Bertrand.lean; frobeniusNumber_pair; HalesJewett infinitary vdW; Cramer's rule (Adjugate.lean); Burnside lemma (GroupAction/Quotient.lean sum_card_fixedBy_eq_card_orbits_mul_card_group); cyclotomic.irreducible_rat; Lucas.lean lucas_theorem; padicValNat_factorial / padicValNat_choose (Legendre/Kummer). Already-consumed this mill: ProofLab/CauchyBinet.lean Level A (#117); ProofLab/BollobasTwoFamilies.lean Level A (#118). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run (already-in or not one-wave) — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem singleton_bound: 1 ≤ d → (∀ distinct x y in C, d ≤ hammingDist x y) → C.card ≤ Fintype.card α ^ (n + 1 - d). Level A may land only empty / singleton / d=1 / whole-space min-dist / binary repetition glue, not labelled Singleton.",
+    "landmines": [
+      "Do not re-prove hammingDist / hammingNorm / Fintype.card.",
+      "Not the Hamming metric (already-in). USE, do not cite as Singleton.",
+      "Not Hamming sphere-packing / Plotkin / GV / MacWilliams / Reed–Solomon / Hamming codes.",
+      "Not Kraft / Shannon / Huffman.",
+      "1 ≤ d load-bearing for ℕ subtraction. Singleton codes allowed.",
+      "Not Cauchy–Binet (#117). Not Bollobás (#118). Not Kirchhoff / cauchy_binet / bollobas Level B.",
+      "Not hook-length (the leftover). Not Catalan (already-in).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Singleton 1964, IEEE TIT 10. Textbook: MacWilliams–Sloane Ch. 1. Compact form: Wikipedia Singleton bound. Type pin: hammingDist. Hamming metric is a different already-in definition."
+  },
+  "feasibility_shape": "Level A: empty C; singleton vacuous min-dist; d=1 bound is whole space; whole space min-dist 1; binary repetition min-dist n; not labelled Singleton. Level B: namesake puncture of d-1 coordinates is injective. Cap two levels. No Hamming-bound re-proof. No Plotkin. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib hammingDist / hammingNorm / Fintype.card / Fin n — USE; DO NOT re-prove",
+    "Hamming sphere-packing / Plotkin / MDS — DIFFERENT residual; DO NOT prove as extra namesakes",
+    "ProofLab/CauchyBinet.lean — consumed #117, DO NOT revive Level B / Kirchhoff",
+    "ProofLab/BollobasTwoFamilies.lean — consumed #118, DO NOT revive Level B / weighted Q",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1142",
+  "parent_issue": "OPE-1141",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Singleton bound / minimumDistance / LinearCode; hammingDist/hammingNorm HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: Hamming metric; Cramer; Burnside lemma; Catalan; derangement; Bertrand; frobeniusNumber_pair; Lucas; cyclotomic.irreducible_rat",
+    "Already-consumed: CauchyBinet Level A (#117); BollobasTwoFamilies Level A (#118)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Hamming-bound / Plotkin / MDS / Kirchhoff / cauchy_binet / bollobas / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-07T21:50:00Z",
+  "last_updated": "2026-09-08T08:00:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1867,9 +1867,57 @@
         "hygiene": "OPE-1042 REJECT — not live cash; do not revive"
       },
       "mathlib_gap": false
+    },
+    {
+      "id": "singleton-bound",
+      "title": "Singleton bound (error-correcting codes, formalize-only)",
+      "status": "candidate",
+      "domain": "coding_theory",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1142 Scout RECOMMENDED PRIME (parent OPE-1141). Catalog-audit prime after OPE-1125 mill CONSUMED (#117 cauchy-binet + #118 bollobas-two-families). Known classical (Singleton 1964). Mathlib v4.10.0 gap this run: ZERO named Singleton bound / minimumDistance / LinearCode in Mathlib/+Archive/; HIT hammingDist (Hamming.lean L38) / hammingNorm. Not the Hamming metric (USE glue). Not Hamming-bound / Plotkin / MDS / Reed-Solomon. Not Cauchy-Binet / Bollobas Level B. Not krenn-gu / hou-zeng / sun-135. Leave OPE-403 alone. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/singleton-bound/",
+        "problems/singleton-bound/"
+      ],
+      "scout_issue": "OPE-1142",
+      "tickets": [
+        "OPE-1142",
+        "OPE-1141"
+      ],
+      "parent_issue": "OPE-1141",
+      "mathlib_gap": true
+    },
+    {
+      "id": "hook-length",
+      "title": "Hook-length formula (standard Young tableaux, formalize-only)",
+      "status": "candidate",
+      "domain": "enumerative_combinatorics",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1142 Scout leftover slot #2 (parent OPE-1141). Catalog-audit leftover after OPE-1125 mill CONSUMED (#117+#118). Known classical (Frame-Robinson-Thrall 1954). Mathlib v4.10.0 gap this run: ZERO named hookLength in Mathlib/+Archive/; HIT YoungDiagram / rowLen L271 / colLen L319 / SSYT / factorial. Not Catalan (already-in; 2-row residual; do not re-prime catalan-recurrence). Not RSK / hook-content. Not Singleton (the prime). Not Stirling-B leftover. Leave OPE-403 alone. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/hook-length/",
+        "problems/hook-length/"
+      ],
+      "scout_issue": "OPE-1142",
+      "tickets": [
+        "OPE-1142",
+        "OPE-1141"
+      ],
+      "parent_issue": "OPE-1141",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-07T18:40:00Z",
+  "updated_at": "2026-09-08T08:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
