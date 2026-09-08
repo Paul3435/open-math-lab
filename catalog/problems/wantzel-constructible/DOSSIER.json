@@ -1,0 +1,60 @@
+{
+  "id": "wantzel-constructible",
+  "title": "Wantzel cube-doubling (constructible numbers have 2-power degree, formalize-only)",
+  "status": "candidate",
+  "domain": "algebra",
+  "score": 84,
+  "scores": {
+    "formalizability": 15,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Wantzel 1837: numbers constructible from ℚ by quadratic towers have minpoly degree a power of 2; hence ³√2 (minpoly X³−2, degree 3) is not constructible. Completely classical. Wiedijk 100 #8 has no Mathlib decl this pin. Value is a Mathlib/ProofLab contribution (minpoly / Eisenstein / IntermediateField / AdjoinRoot exist; ZERO named Wantzel / IsConstructible / constructible / doubling_the_cube / trisect in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Abel–Ruffini IsSolvableByRad (AbelRuffini.lean L194) is a DIFFERENT already-in theorem (radicals vs quadratic towers) — do not re-prove; do not import Archive.*. Eisenstein irreducible_of_eisenstein_criterion L82 is glue for X³−2 — USE, do not re-prove as namesake. Primitive element / Galois correspondence / Noether Level B are DIFFERENT (leftover-risk). Angle trisection is the other half of 100.yaml #8 — OUT of v1 (residual of this id).",
+  "recommendation": "OPE-1200 leftover slot #2. Catalog-audit leftover after OPE-1189 mill CONSUMED (#129+#130). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of schur_product / lame / Abel–Ruffini / Noether / primitive element / Galois. Independent Mathlib pin grep this run (minpoly / Eisenstein / IntermediateField HIT; named Wantzel / IsConstructible / constructible ZERO; 100.yaml #8 has no decl). Mill NOW: finite Wantzel leftover beside circulant-det. Score 84 this run (not a JSON rubber-stamp): encoding tax vs circulant def-waiting (formalizability 15); Level A Eisenstein + finrank 3 + 3≠2^k (partial 16); tower namesake is real but undergraduate (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins AdjoinRoot (X³−2) Level A; IsConstructible tower namesake residual. Angle trisection residual. Do NOT assign as prime unless Director swaps. Do NOT prove Abel–Ruffini / Galois correspondence / angle trisection / det_circulant / schur_product / lame.",
+  "mathlib_gap_grep_2026_09_08_ope1200": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1189 scores. rg Wantzel / IsConstructible / constructible / doubling_the_cube / trisect over Mathlib/ + Archive + ProofLab → ZERO (100.yaml #8 title only, no decl). Defs HIT: minpoly (Minpoly/Basic.lean L36), IntermediateField (IntermediateField.lean L47), irreducible_of_eisenstein_criterion (EisensteinCriterion.lean L82), IsSolvableByRad (AbelRuffini.lean L194 — DIFFERENT theorem). Already-in this run (do not re-prove, do not re-prime): Abel–Ruffini / IsSolvableByRad; Eisenstein criterion; minpoly; IntermediateField; det_vandermonde; CayleyHamilton; det_kronecker; SchurComplement.det_one_add_mul_comm; subgroup_units_cyclic (IntegralDomain.lean L140); Configuration.HasLines.card_le L211; Sauer-Shelah; Beatty/Rayleigh; LucasLehmer; Wilson; FKG; Hall; catalan; derangements; bertrand; frobeniusNumber_pair; HalesJewett infinitary vdW. Already-consumed this mill: ProofLab/SchurProduct.lean Level A (#129); ProofLab/LameEuclid.lean Level A (#130). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem wantzel: IsConstructible ℚ x → ∃ k, (minpoly ℚ x).natDegree = 2^k. Level A may land only Eisenstein irreducibility of X³−2 / AdjoinRoot finrank 3 / 3≠2^k, not labelled Wantzel.",
+    "landmines": [
+      "Do not re-prove minpoly / irreducible_of_eisenstein_criterion / IntermediateField / AdjoinRoot / finrank_mul_finrank.",
+      "Not Abel–Ruffini / IsSolvableByRad (already-in). Different theorem. Do not import Archive.*.",
+      "Not primitive element / Galois correspondence / noether-normalization Level B.",
+      "Not angle trisection. Residual of this id.",
+      "Not e-irrational / π-irrational / Hermite–Lindemann.",
+      "Not Eisenstein as namesake (glue only).",
+      "Not circulant-det (OPE-1200 prime) / det_vandermonde / pfaffian.",
+      "Not lame-euclid (#130) / schur-product (#129) Level B.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Wantzel 1837 J. Math. Pures Appl. 2. Wiedijk 100 #8 (no Mathlib decl this pin). Compact form: Wikipedia Wantzel's theorem / doubling the cube. Type pin: minpoly / Eisenstein / AdjoinRoot / IntermediateField / ℚ. Abel–Ruffini is a different already-in theorem. Angle trisection is the other half of #8 (residual)."
+  },
+  "feasibility_shape": "Level A: Eisenstein irreducibility of X³−2; AdjoinRoot finrank 3; 3≠2^k; not labelled Wantzel. Level B: namesake IsConstructible as quadratic IntermediateField tower ⇒ minpoly degree is a 2-power. Cap two levels. No angle trisection. No Abel–Ruffini re-proof. No Galois correspondence. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib minpoly / Eisenstein / IntermediateField / AdjoinRoot — USE; DO NOT re-prove",
+    "Abel–Ruffini IsSolvableByRad — DIFFERENT already-in; DO NOT re-prove; DO NOT import Archive.*",
+    "Angle trisection — DIFFERENT residual of this id; DO NOT prove as extra namesake",
+    "ProofLab/SchurProduct.lean — consumed #129, DO NOT revive Level B / SVD",
+    "ProofLab/LameEuclid.lean — consumed #130, DO NOT revive Level B / lame / Cassini",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1200",
+  "parent_issue": "OPE-1199",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Wantzel / IsConstructible / constructible; minpoly/Eisenstein/IntermediateField HIT as infra only; 100.yaml #8 has no decl",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: Abel–Ruffini IsSolvableByRad; Eisenstein criterion; minpoly; IntermediateField; det_vandermonde; Cayley-Hamilton; det_kronecker; Schur complement; subgroup_units_cyclic; Configuration.HasLines.card_le; Sauer-Shelah; Beatty; Lucas-Lehmer; Wilson; FKG; Hall; catalan; derangements; bertrand; frobeniusNumber_pair; Hales-Jewett infinitary vdW",
+    "Already-consumed: SchurProduct Level A (#129); LameEuclid Level A (#130)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Abel–Ruffini / Eisenstein-as-namesake / angle trisection / primitive element / Galois / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

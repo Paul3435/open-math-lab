@@ -1,0 +1,59 @@
+{
+  "id": "circulant-det",
+  "title": "Circulant determinant (DFT / roots-of-unity product, formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical circulant diagonalisation: det(circulant v) equals the product over k of the DFT evaluations ∑_j v_j ω^{kj}. Completely classical. Value is a Mathlib/ProofLab contribution (Matrix.circulant / Matrix.det exist; ZERO named det_circulant / circulant_det / circulantDet in Mathlib+Archive+ProofLab; Circulant.lean ends L183 with mul/transpose/symm/scalar only). Do NOT re-discover as novel. det_vandermonde (Vandermonde.lean L69) is a DIFFERENT already-in identity — USE as namesake glue; do not re-prove; do not cite as the circulant formula. cauchy-binet (#117) is a DIFFERENT consumed det theorem (minors of a product). hadamard-det (#115) is a DIFFERENT consumed inequality. schur-product (#129) is a DIFFERENT consumed Hadamard-entrywise theorem. Kirchhoff / pfaffian / SVD are OUT of v1 (residuals of this id).",
+  "recommendation": "OPE-1200 RECOMMENDED PRIME. Catalog-audit prime after OPE-1189 mill CONSUMED (#129 schur-product Level A + #130 lame-euclid Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of schur_product / lame / farey_adjacent / gale_shapley / cauchy_binet / hadamard_det / det_vandermonde. Independent Mathlib pin grep this run (circulant / det / det_isEmpty / det_fin_one / det_fin_two / det_vandermonde / IsPrimitiveRoot HIT; named det_circulant / circulant_det ZERO). Mill NOW: finite circulant-det theorem after Schur product (PSD ⊙) + Lamé (Euclid steps). Score 86 this run (not a JSON rubber-stamp): circulant waiting (formalizability 16); Level A empty/n=1/n=2 a²−b² (partial 17); DFT namesake is real work but undergraduate (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins CommRing Fin n Level A; ℂ/primitive-root namesake residual. Pfaffian residual. Do NOT assign wantzel-constructible first unless Director swaps. Do NOT prove det_vandermonde / cauchy_binet / hadamard_det / schur_product / lame / pfaffian.",
+  "mathlib_gap_grep_2026_09_08_ope1200": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1189 scores. rg det_circulant / circulant_det / circulantDet over Mathlib/ + Archive + ProofLab → ZERO named circulant determinant. Circulant.lean L46 def circulant, L51 circulant_apply, L109 circulant_mul, L144 circulant_single_one, file ends L183 (no det). Defs HIT: Matrix.det (Determinant/Basic.lean L56), det_apply L59, det_isEmpty L85, det_unique L100, det_fin_one L740, det_fin_two L747, det_vandermonde (Vandermonde.lean L69), vandermonde L38, IsPrimitiveRoot (RootsOfUnity/Basic.lean L259). Already-in this run (do not re-prove, do not re-prime): det_vandermonde; CayleyHamilton (Charpoly); det_kronecker (Kronecker.lean); SchurComplement.det_one_add_mul_comm; subgroup_units_cyclic (IntegralDomain.lean L140 — finite subgroups of domain units cyclic, so primitive roots mod p already-in as a special case); Configuration.HasLines.card_le (Configuration.lean L211 — de Bruijn–Erdős incidence already-in); Sauer-Shelah (Shatter.lean); Beatty/Rayleigh; LucasLehmer; Wilson; FKG (FourFunctions.lean); Hall SDR; GramSchmidtOrtho; Rearrangement.lean; Nat.add_choose_eq; Nat.sum_totient; catalan_eq_centralBinom_div (Catalan.lean L109); numDerangements (Derangements/Finite.lean L62); bertrand (Bertrand.lean L229); frobeniusNumber_pair (FrobeniusNumber.lean L52); HalesJewett infinitary vdW; EisensteinCriterion.irreducible_of_eisenstein_criterion L82; minpoly (Minpoly/Basic.lean L36); IntermediateField (IntermediateField.lean L47); IsSolvableByRad (AbelRuffini.lean L194 — different theorem). Already-consumed this mill: ProofLab/SchurProduct.lean Level A (#129); ProofLab/LameEuclid.lean Level A (#130). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run (already-in or not one-wave) — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem det_circulant: det (circulant v) = ∏_k ∑_j v_j ω^{kj} on Fin n, ℂ namesake. Level A may land only empty / n=1 / n=2 a²−b² / optional n=3 elementary identity, not labelled circulant-det.",
+    "landmines": [
+      "Do not re-prove Matrix.circulant / Matrix.det / det_isEmpty / det_fin_one / det_fin_two / det_vandermonde / IsPrimitiveRoot.",
+      "Not cauchy-binet (#117). Different det theorem. Do not revive cauchy_binet / Kirchhoff.",
+      "Not hadamard-det (#115). Different Hadamard. Do not revive hadamard_det / Fischer / Minkowski det / three-lines.",
+      "Not schur-product (#129). Different Hadamard (entrywise). Do not revive schur_product / SVD.",
+      "Not det_vandermonde (already-in). Do not cite as the circulant formula.",
+      "Not pfaffian. Residual of this id.",
+      "Not lame-euclid (#130) / lame / Cassini / fib_gcd.",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Classical circulant diagonalisation / DFT formula. Compact form: Wikipedia Circulant matrix. Type pin: Matrix.circulant / Matrix.det / Fin n. det_vandermonde is a different already-in identity. Cauchy–Binet and Hadamard det are different consumed theorems."
+  },
+  "feasibility_shape": "Level A: empty Fin 0; n=1 evaluation; n=2 a²−b² via det_fin_two; optional n=3 a³+b³+c³−3abc; not labelled circulant-det. Level B: namesake via cycle-matrix eigenvalues / Fourier / Vandermonde. Cap two levels. No pfaffian. No Kirchhoff. No hadamard_det. No schur_product. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Matrix.circulant / Matrix.det — USE; DO NOT re-prove",
+    "det_vandermonde — DIFFERENT already-in; DO NOT cite as circulant-det; namesake glue only",
+    "cauchy-binet / hadamard-det / schur-product — DIFFERENT consumed residuals; DO NOT revive",
+    "ProofLab/SchurProduct.lean — consumed #129, DO NOT revive Level B / SVD",
+    "ProofLab/LameEuclid.lean — consumed #130, DO NOT revive Level B / lame / Cassini",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1200",
+  "parent_issue": "OPE-1199",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO det_circulant / circulant_det; circulant/det HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: det_vandermonde; Cayley-Hamilton; det_kronecker; Schur complement; subgroup_units_cyclic; Configuration.HasLines.card_le; Sauer-Shelah; Beatty; Lucas-Lehmer; Wilson; FKG; Hall; catalan; derangements; bertrand; frobeniusNumber_pair; Hales-Jewett infinitary vdW; Eisenstein criterion; minpoly; IntermediateField; IsSolvableByRad",
+    "Already-consumed: SchurProduct Level A (#129); LameEuclid Level A (#130)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "cauchy-binet / hadamard-det / schur-product / det_vandermonde / pfaffian / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

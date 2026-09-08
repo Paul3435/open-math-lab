@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-08T17:54:51Z",
+  "last_updated": "2026-09-08T19:30:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2113,9 +2113,55 @@
       "lean_artifact": "proofs/lean-project/ProofLab/LameEuclid.lean",
       "formalist_issue": "OPE-1195",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/130"
+    },
+    {
+      "id": "circulant-det",
+      "title": "Circulant determinant (DFT / roots-of-unity product, formalize-only)",
+      "status": "candidate",
+      "domain": "linear_algebra",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1200 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1189 mill CONSUMED (#129 schur-product + #130 lame-euclid). Independent Mathlib pin grep this run: Matrix.circulant HIT (Circulant.lean L46); Matrix.det HIT; named det_circulant / circulant_det ZERO (file ends L183, no det). Level A empty / n=1 / n=2 a²−b². Not labelled circulant-det. Namesake DFT / primitive-root product OUT of v1. Not det_vandermonde (already-in glue). Not cauchy-binet / hadamard-det / schur-product / Kirchhoff / pfaffian. Leave OPE-403 alone. No novelty claim.",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/circulant-det/"
+      ],
+      "scout_issue": "OPE-1200",
+      "tickets": [
+        "OPE-1200",
+        "OPE-1199"
+      ],
+      "parent_issue": "OPE-1199",
+      "mathlib_gap": true
+    },
+    {
+      "id": "wantzel-constructible",
+      "title": "Wantzel cube-doubling (constructible numbers have 2-power degree, formalize-only)",
+      "status": "candidate",
+      "domain": "algebra",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1200 Scout leftover slot #2. Catalog-audit leftover after OPE-1189 mill CONSUMED (#129+#130). Independent Mathlib pin grep this run: minpoly / Eisenstein / IntermediateField HIT; named Wantzel / IsConstructible / constructible ZERO; Wiedijk 100 #8 has no decl. Level A Eisenstein X³−2 / AdjoinRoot finrank 3 / 3≠2^k. Not labelled Wantzel. Namesake IsConstructible tower OUT of v1. Not Abel–Ruffini (already-in, different). Not angle trisection (residual). Not primitive element / Galois / Noether Level B. Leave OPE-403 alone. No novelty claim.",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/wantzel-constructible/"
+      ],
+      "scout_issue": "OPE-1200",
+      "tickets": [
+        "OPE-1200",
+        "OPE-1199"
+      ],
+      "parent_issue": "OPE-1199",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-08T18:56:00Z",
+  "updated_at": "2026-09-08T19:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
