@@ -67,3 +67,4 @@ import ProofLab.NashWilliamsArboricity
 import ProofLab.GaleShapley
 import ProofLab.FareySequence
 import ProofLab.SchurProduct
+import ProofLab.LameEuclid

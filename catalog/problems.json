@@ -2089,28 +2089,33 @@
     {
       "id": "lame-euclid",
       "title": "Lamé theorem on the Euclidean algorithm (Fibonacci worst case, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1189 Scout leftover slot #2 (parent OPE-1188). Catalog-audit after OPE-1173 mill CONSUMED (#126+#127). Independent Mathlib v4.10.0 grep this run: ZERO lame_theorem / euclidSteps; HIT Nat.fib / gcd_rec. Not fib_gcd (already-in). Not Euclid-Euler (consumed). Cassini residual. Leave OPE-403 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1195 Formalist Level A. Scout OPE-1189 leftover; board keep-going after OPE-1194. Lean zero-sorry ProofLab/LameEuclid.lean. Level A LANDED: euclidSteps encoding (terminal 0 uncounted); euclidSteps_zero; euclidSteps_self (a%a=0); euclidSteps_two_one; euclidSteps_fib_six_five (F6,F5)=(8,5) takes 4; euclidSteps_fib_five_four (F5,F4)=(5,3) takes 3. Not labelled Lamé. Namesake lame (a≥F_{n+2}, b≥F_{n+1}) OUT of this ticket, not sorry-ed. Not fib_gcd (already-in). Not Euclid-Euler (consumed). Cassini / digit-count residual. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/lame-euclid/"
+        "catalog/problems/lame-euclid/",
+        "proofs/lean-project/ProofLab/LameEuclid.lean"
       ],
       "scout_issue": "OPE-1189",
       "tickets": [
         "OPE-1189",
-        "OPE-1188"
+        "OPE-1188",
+        "OPE-1195"
       ],
       "parent_issue": "OPE-1188",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/LameEuclid.lean",
+      "formalist_issue": "OPE-1195",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/130"
     }
   ],
-  "updated_at": "2026-09-08T17:54:51Z",
+  "updated_at": "2026-09-08T18:56:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
