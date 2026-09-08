@@ -152,12 +152,19 @@ OPE-1142 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`singleton-bound` — CONSUMED.** PR **#120** Level A. Catalog `formalized`. Level B namesake `singleton_bound` **out of v1**. Hamming/Plotkin/MDS residual **out of v1**. Do not revive.
 2. **`hook-length` — CONSUMED Level A.** PR **#121** Level A. Catalog `formalized`. Level B namesake `hook_length` **out of v1**. Catalan 2-row / RSK / hook-content residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1157, 2026-09-08)
+## Formalize-only shortlist (OPE-1157, 2026-09-08) — WAVE CONSUMED
 
-OPE-1142 mill consumed (#120+#121). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1157 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`birkhoff-von-neumann` — RECOMMENDED PRIME (86) — CONSUMED Level A by OPE-1162 / PR #123.** Birkhoff 1946 / von Neumann 1953: nonnegative `n×n` matrix with row- and column-sums 1 is a convex combination of permutation matrices. Named theorem ZERO; `stdBasisMatrix` / `convexHull` / Hall / `Equiv.Perm.permMatrix` HIT as infra. **Not** lattice Birkhoff (already `Order/Birkhoff.lean`). **Not** Birkhoff averages. **Not** Hall (already-in; USE glue). **Not** König matching (consumed). **Not** LDL/Cholesky (already `LDL.lower_conj_diag`). Gale–Ryser residual. Level A empty/n=1/perm-is-DS/conv⊆DS/n=2 **LANDED** (not labelled Birkhoff). Level B namesake `birkhoff_von_neumann` **out of this ticket**.
-2. **`nash-williams-arboricity` leftover (84) — CONSUMED Level A by OPE-1167 / PR #124.** Nash-Williams 1964: arboricity = max `ceil(e(H)/(|V(H)|-1))`. Named theorem ZERO; `IsAcyclic` / `induce` / `edgeFinset` / `completeGraph` / `pathGraph` HIT. **Not** Cayley tree count (consumed leftover Prüfer). **Not** Kirchhoff. **Not** Turán. **Not** matroid union as extra namesake. Level A empty/tree/path/star/K₂/cycle 2-forest **LANDED** (not labelled Nash-Williams). Level B namesake `nash_williams` **out of this ticket**.
+1. **`birkhoff-von-neumann` — CONSUMED.** PR **#123** Level A. Catalog `formalized`. Level B namesake `birkhoff_von_neumann` / Gale–Ryser residual **out of v1**. Do not revive.
+2. **`nash-williams-arboricity` — CONSUMED Level A.** PR **#124**. Catalog `formalized`. Level B namesake `nash_williams` / matroid-union residual **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1173, 2026-09-08)
+
+OPE-1157 mill consumed (#123+#124). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`gale-shapley` — RECOMMENDED PRIME (86).** Fresh id. Gale–Shapley 1962: complete preference rankings of `n` men and `n` women admit a stable perfect matching. Named theorem ZERO (`galeShapley` / `stableMatching` / `deferredAcceptance`); `Equiv.Perm` / `IsMatching` / `completeBipartiteGraph` HIT. **Not** Hall (already-in; `K_{n,n}` matching existence is trivial; USE `Equiv.Perm`; do not re-prove). **Not** Gale–Ryser (BvN #123 residual; different Gale). **Not** König `ν=τ` (consumed). Rural hospitals residual. Finite, one-wave Formalist shape (empty / n=1 / partner-is-top / n=2).
+2. **`farey-sequence` leftover (84).** Fresh id. Farey 1816 / Cauchy 1816: adjacent reduced fractions `a/b < c/d` in `F_n` satisfy `bc − ad = 1`. Named theorem ZERO (`Farey` / `fareySequence`); `Nat.Coprime` / `totient` / Rat coprime-pair encoding HIT. **Not** `sum_totient` (already `n.divisors.sum φ = n`; different totient theorem). **Not** Pick (no area infra). **Not** Stern–Brocot as extra namesake. Finite, one-wave Level A (`F_1` / mediant / `F_2`).
 
 Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.
 
@@ -181,4 +188,4 @@ Problem Scout owns catalog maintenance:
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1167 Formalist: nash-williams-arboricity Level A.)
+**Last updated:** 2026-09-08 (OPE-1173 Scout: catalog-audit formalize-only shortlist gale-shapley + farey-sequence.)

@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-08T10:45:36Z",
+  "last_updated": "2026-09-08T14:19:26Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -1993,9 +1993,57 @@
       "formalist_issue": "OPE-1167",
       "director_issue": "OPE-1166",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/124"
+    },
+    {
+      "id": "gale-shapley",
+      "title": "Gale-Shapley stable matching (formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1173 Scout RECOMMENDED PRIME (parent OPE-1172). Catalog-audit after OPE-1157 mill CONSUMED (#123 birkhoff-von-neumann Level A + #124 nash-williams-arboricity Level A). Independent Mathlib v4.10.0 grep: named galeShapley/stableMatching/deferredAcceptance ZERO; Equiv.Perm / IsMatching / completeBipartiteGraph HIT. Not Hall (already-in). Not Gale-Ryser (BvN residual). Not Koenig matching. Finite one-wave Level A empty/n=1/partner-is-top/n=2. Default no claim. Leave OPE-403 alone.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/gale-shapley/",
+        "problems/gale-shapley/"
+      ],
+      "scout_issue": "OPE-1173",
+      "tickets": [
+        "OPE-1173",
+        "OPE-1172"
+      ],
+      "parent_issue": "OPE-1172",
+      "mathlib_gap": true
+    },
+    {
+      "id": "farey-sequence",
+      "title": "Farey sequence adjacency (bc-ad=1, formalize-only)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1173 Scout leftover slot #2 (parent OPE-1172). Catalog-audit after OPE-1157 mill CONSUMED (#123+#124). Independent Mathlib v4.10.0 grep: named Farey/fareySequence ZERO; Nat.Coprime / totient / Rat coprime-pair encoding HIT. Not sum_totient (already-in divisor-sum). Not Pick. Not Stern-Brocot. Finite one-wave Level A F_1/mediant/F_2. Default no claim. Leave OPE-403 alone.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/farey-sequence/",
+        "problems/farey-sequence/"
+      ],
+      "scout_issue": "OPE-1173",
+      "tickets": [
+        "OPE-1173",
+        "OPE-1172"
+      ],
+      "parent_issue": "OPE-1172",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-08T13:13:41Z",
+  "updated_at": "2026-09-08T14:19:26Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
