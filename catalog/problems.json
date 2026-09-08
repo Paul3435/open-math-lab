@@ -2028,29 +2028,35 @@
     {
       "id": "farey-sequence",
       "title": "Farey sequence adjacency (bc-ad=1, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1173 Scout leftover slot #2 (parent OPE-1172). Catalog-audit after OPE-1157 mill CONSUMED (#123+#124). Independent Mathlib v4.10.0 grep: named Farey/fareySequence ZERO; Nat.Coprime / totient / Rat coprime-pair encoding HIT. Not sum_totient (already-in divisor-sum). Not Pick. Not Stern-Brocot. Finite one-wave Level A F_1/mediant/F_2. Default no claim. Leave OPE-403 alone.",
+      "note": "OPE-1184 Formalist Level A. Director OPE-1183 approved Scout OPE-1173 leftover. Lean zero-sorry ProofLab/FareySequence.lean. Level A LANDED: FareyFrac/FareyLt/Adjacent encoding (Nat.Coprime glue; USE, not re-prove sum_totient/totient_eq_card_coprime); mem_order_one / adjacent_zero_one_order_one / det_zero_one_order_one (F_1 = {0/1, 1/1} adjacent det 1); mediantNum_zero_one / oneOverTwo_eq_mediant (mediant 1/2); mem_order_two / unique_new_order_two / adjacent_zero_half_order_two / adjacent_half_one_order_two (F_2 = {0/1, 1/2, 1/1}). Not labelled Farey. Namesake farey_adjacent OUT of this ticket, not sorry-ed. Not sum_totient / Pick / Stern-Brocot / Gale-Shapley #126. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
         "catalog/problems/farey-sequence/",
-        "problems/farey-sequence/"
+        "problems/farey-sequence/",
+        "proofs/lean-project/ProofLab/FareySequence.lean"
       ],
       "scout_issue": "OPE-1173",
       "tickets": [
         "OPE-1173",
-        "OPE-1172"
+        "OPE-1172",
+        "OPE-1183",
+        "OPE-1184"
       ],
       "parent_issue": "OPE-1172",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/FareySequence.lean",
+      "formalist_issue": "OPE-1184",
+      "director_issue": "OPE-1183"
     }
   ],
-  "updated_at": "2026-09-08T15:47:01Z",
+  "updated_at": "2026-09-08T16:46:21Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

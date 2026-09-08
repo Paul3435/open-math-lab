@@ -164,9 +164,9 @@ OPE-1157 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 OPE-1157 mill consumed (#123+#124). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`gale-shapley` — Level A LANDED (OPE-1179, PR #126).** Formalist stamp of Scout OPE-1173 RECOMMENDED PRIME (Director OPE-1178). Lean `ProofLab/GaleShapley.lean` zero-sorry. Empty / n=1 / partner-is-top / n=2. **Not labelled Gale–Shapley.** Namesake `gale_shapley` residual. **Not** Hall / Gale–Ryser / König matching. Leave OPE-403 alone.
-2. **`farey-sequence` leftover (84).** Still **unassigned** this tick. Do **not** prove Farey / Cauchy adjacency / `sum_totient` / Pick / Stern–Brocot here.
+2. **`farey-sequence` leftover — Level A LANDED (OPE-1184).** Formalist stamp of Scout OPE-1173 leftover (Director OPE-1183). Lean `ProofLab/FareySequence.lean` zero-sorry. F_1 two-term adjacency / mediant of 0/1 and 1/1 / F_2 three-term list. **Not labelled Farey.** Namesake `farey_adjacent` residual. **Not** `sum_totient` / Pick / Stern–Brocot / Gale–Shapley (#126). Leave OPE-403 alone.
 
-Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.
+OPE-1173 mill **CONSUMED** (PR **#126** gale-shapley Level A + this Formalist leftover). Do **not** re-prime. Scout opened **no attack issues**.
 
 ## Shortlist (post OPE-21)
 
