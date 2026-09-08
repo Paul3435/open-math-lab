@@ -1,7 +1,10 @@
 {
   "id": "wantzel-constructible",
   "title": "Wantzel cube-doubling (constructible numbers have 2-power degree, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
+  "formalist_issue": "OPE-1211",
+  "director_issue": "OPE-1210",
+  "lean_artifact": "proofs/lean-project/ProofLab/WantzelConstructible.lean",
   "domain": "algebra",
   "score": 84,
   "scores": {
