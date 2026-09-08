@@ -1,7 +1,7 @@
 {
   "id": "lame-euclid",
   "title": "Lamé's theorem on the Euclidean algorithm (Fibonacci worst case, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "number_theory",
   "score": 84,
   "scores": {
@@ -48,6 +48,8 @@
   "scored_at": "2026-09-08",
   "scout_issue": "OPE-1189",
   "parent_issue": "OPE-1188",
+  "formalist_issue": "OPE-1195",
+  "lean_artifact": "proofs/lean-project/ProofLab/LameEuclid.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lame_theorem / euclidSteps; Nat.fib/gcd_rec HIT as infra only",
     "Negative control turan → Turan.lean exists",

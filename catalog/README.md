@@ -170,14 +170,14 @@ OPE-1173 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1173 mill consumed (#126+#127). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`schur-product` — RECOMMENDED PRIME (86).** Fresh id. Schur 1911 / Hadamard 1894: PSD `A,B` ⇒ PSD `A ⊙ B`. Named theorem ZERO; `Matrix.hadamard` / `PosSemidef` HIT. **Not** `hadamard-det` (#115). **Not** Schur complement (already-in). **Not** Schur partition / Schur number. SVD residual. Finite, one-wave Formalist shape.
-2. **`lame-euclid` leftover (84).** Fresh id. Lamé 1844: Euclid steps on `a ≥ b > 0` bounded by consecutive Fibonacci. Named theorem ZERO; `Nat.fib` / `gcd_rec` HIT. **Not** `fib_gcd` (already-in). **Not** Euclid–Euler (consumed). Cassini residual.
+1. **`schur-product` — RECOMMENDED PRIME (86).** Parallel Formalist OPE-1194 / PR **#129** (not this branch). Do not restamp as consumed here.
+2. **`lame-euclid` leftover — Level A LANDED (OPE-1195 Formalist).** Lean `ProofLab/LameEuclid.lean` zero-sorry. Catalog `formalized`. Zero / self / `2,1` / Fibonacci pairs. **Not** labelled Lamé. Level B namesake `lame` / Cassini residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Director approves after this delivery.
+Scout opened **no attack issues**. Board keep-going after OPE-1194.
 
 ---
 
-**Last updated:** 2026-09-08 (OPE-1189 Scout: catalog-audit formalize-only shortlist.)
+**Last updated:** 2026-09-08 (OPE-1195 Formalist: lame-euclid Level A.)
 
 ## Shortlist (post OPE-21)
 
