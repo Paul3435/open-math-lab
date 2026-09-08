@@ -159,14 +159,25 @@ OPE-1157 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`birkhoff-von-neumann` — CONSUMED.** PR **#123** Level A. Catalog `formalized`. Level B namesake `birkhoff_von_neumann` / Gale–Ryser residual **out of v1**. Do not revive.
 2. **`nash-williams-arboricity` — CONSUMED Level A.** PR **#124**. Catalog `formalized`. Level B namesake `nash_williams` / matroid-union residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1173, 2026-09-08)
+## Formalize-only shortlist (OPE-1173, 2026-09-08) — WAVE CONSUMED
 
-OPE-1157 mill consumed (#123+#124). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1173 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`gale-shapley` — Level A LANDED (OPE-1179, PR #126).** Formalist stamp of Scout OPE-1173 RECOMMENDED PRIME (Director OPE-1178). Lean `ProofLab/GaleShapley.lean` zero-sorry. Empty / n=1 / partner-is-top / n=2. **Not labelled Gale–Shapley.** Namesake `gale_shapley` residual. **Not** Hall / Gale–Ryser / König matching. Leave OPE-403 alone.
-2. **`farey-sequence` leftover — Level A LANDED (OPE-1184, PR #127).** Formalist stamp of Scout OPE-1173 leftover (Director OPE-1183). Lean `ProofLab/FareySequence.lean` zero-sorry. F_1 two-term adjacency / mediant of 0/1 and 1/1 / F_2 three-term list. **Not labelled Farey.** Namesake `farey_adjacent` residual. **Not** `sum_totient` / Pick / Stern–Brocot / Gale–Shapley (#126). Leave OPE-403 alone.
+1. **`gale-shapley` — CONSUMED.** PR **#126** Level A. Catalog `formalized`. Level B namesake `gale_shapley` / rural hospitals residual **out of v1**. Do not revive.
+2. **`farey-sequence` — CONSUMED Level A.** PR **#127**. Catalog `formalized`. Level B namesake `farey_adjacent` / Stern–Brocot residual **out of v1**. Do not revive.
 
-OPE-1173 mill **CONSUMED** (PR **#126** gale-shapley Level A + PR **#127** farey-sequence Level A). Do **not** re-prime. Scout opened **no attack issues**.
+## Formalize-only shortlist (OPE-1189, 2026-09-08)
+
+OPE-1173 mill consumed (#126+#127). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`schur-product` — RECOMMENDED PRIME (86).** Fresh id. Schur 1911 / Hadamard 1894: PSD `A,B` ⇒ PSD `A ⊙ B`. Named theorem ZERO; `Matrix.hadamard` / `PosSemidef` HIT. **Not** `hadamard-det` (#115). **Not** Schur complement (already-in). **Not** Schur partition / Schur number. SVD residual. Finite, one-wave Formalist shape.
+2. **`lame-euclid` leftover (84).** Fresh id. Lamé 1844: Euclid steps on `a ≥ b > 0` bounded by consecutive Fibonacci. Named theorem ZERO; `Nat.fib` / `gcd_rec` HIT. **Not** `fib_gcd` (already-in). **Not** Euclid–Euler (consumed). Cassini residual.
+
+Scout opened **no attack issues**. Director approves after this delivery.
+
+---
+
+**Last updated:** 2026-09-08 (OPE-1189 Scout: catalog-audit formalize-only shortlist.)
 
 ## Shortlist (post OPE-21)
 
@@ -184,8 +195,4 @@ Problem Scout owns catalog maintenance:
 2. Entry in `problems.json`  
 3. Row in `docs/PROBLEM_LEDGER.md` when touched  
 4. `python bin/mathforge score <id>`  
-5. Director review before attack assignment  
-
----
-
-**Last updated:** 2026-09-08 (OPE-1179 Formalist: gale-shapley Level A.)
+5. Director review before attack assignment

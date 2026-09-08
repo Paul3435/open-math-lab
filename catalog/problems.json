@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-08T15:47:01Z",
+  "last_updated": "2026-09-08T17:54:51Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2055,9 +2055,55 @@
       "formalist_issue": "OPE-1184",
       "director_issue": "OPE-1183",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/127"
+    },
+    {
+      "id": "schur-product",
+      "title": "Schur product theorem (Hadamard product of PSD matrices, formalize-only)",
+      "status": "candidate",
+      "domain": "linear_algebra",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1189 Scout RECOMMENDED PRIME (parent OPE-1188). Catalog-audit after OPE-1173 mill CONSUMED (#126 gale-shapley + #127 farey-sequence). Independent Mathlib v4.10.0 grep this run: ZERO schurProduct / schur_product / hadamard_posSemidef; HIT Matrix.hadamard / PosSemidef. Not hadamard-det (#115). Not Schur complement (already-in). Not Schur partition / Schur number. SVD residual. Leave OPE-403 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/schur-product/"
+      ],
+      "scout_issue": "OPE-1189",
+      "tickets": [
+        "OPE-1189",
+        "OPE-1188"
+      ],
+      "parent_issue": "OPE-1188",
+      "mathlib_gap": true
+    },
+    {
+      "id": "lame-euclid",
+      "title": "Lamé theorem on the Euclidean algorithm (Fibonacci worst case, formalize-only)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1189 Scout leftover slot #2 (parent OPE-1188). Catalog-audit after OPE-1173 mill CONSUMED (#126+#127). Independent Mathlib v4.10.0 grep this run: ZERO lame_theorem / euclidSteps; HIT Nat.fib / gcd_rec. Not fib_gcd (already-in). Not Euclid-Euler (consumed). Cassini residual. Leave OPE-403 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/lame-euclid/"
+      ],
+      "scout_issue": "OPE-1189",
+      "tickets": [
+        "OPE-1189",
+        "OPE-1188"
+      ],
+      "parent_issue": "OPE-1188",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-08T16:46:21Z",
+  "updated_at": "2026-09-08T17:54:51Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
