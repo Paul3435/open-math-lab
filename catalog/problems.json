@@ -2059,25 +2059,31 @@
     {
       "id": "schur-product",
       "title": "Schur product theorem (Hadamard product of PSD matrices, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1189 Scout RECOMMENDED PRIME (parent OPE-1188). Catalog-audit after OPE-1173 mill CONSUMED (#126 gale-shapley + #127 farey-sequence). Independent Mathlib v4.10.0 grep this run: ZERO schurProduct / schur_product / hadamard_posSemidef; HIT Matrix.hadamard / PosSemidef. Not hadamard-det (#115). Not Schur complement (already-in). Not Schur partition / Schur number. SVD residual. Leave OPE-403 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1194 Formalist Level A. Director OPE-1193 approved Scout OPE-1189 RECOMMENDED PRIME. Lean zero-sorry ProofLab/SchurProduct.lean. Level A LANDED: posSemidef_hadamard_fin_zero (empty Fin 0 vacuous); posSemidef_hadamard_fin_one (n=1 nonnegative scalars); posSemidef_hadamard_diagonal (posSemidef_diagonal_iff + entrywise products); hadamard_vecMulVec_vecMulVec / posSemidef_hadamard_rankOne (rank-one outer-product identity is a Gram matrix). Not labelled Schur. Namesake schur_product (general-n Gram/spectral) OUT of this ticket, not sorry-ed. Not hadamard_det (#115) / Schur complement / Schur partition / Schur number / SVD / polar / Moore-Penrose / lame-euclid leftover. Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/schur-product/"
+        "catalog/problems/schur-product/",
+        "proofs/lean-project/ProofLab/SchurProduct.lean"
       ],
       "scout_issue": "OPE-1189",
       "tickets": [
         "OPE-1189",
-        "OPE-1188"
+        "OPE-1188",
+        "OPE-1193",
+        "OPE-1194"
       ],
       "parent_issue": "OPE-1188",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/SchurProduct.lean",
+      "formalist_issue": "OPE-1194",
+      "director_issue": "OPE-1193"
     },
     {
       "id": "lame-euclid",
