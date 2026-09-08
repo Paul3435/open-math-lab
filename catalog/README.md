@@ -178,7 +178,7 @@ OPE-1189 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 OPE-1189 mill consumed (#129+#130). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`circulant-det` — RECOMMENDED PRIME (86) — CONSUMED by OPE-1206 / PR #132.** Lean `ProofLab/CirculantDet.lean`. Catalog `formalized`. Level B namesake `det_circulant` / DFT / pfaffian / Kirchhoff residual **out of v1**. Do not revive.
-2. **`wantzel-constructible` leftover (84) — CONSUMED by OPE-1211.** Lean `ProofLab/WantzelConstructible.lean`. Catalog `formalized`. Level A Eisenstein `X³−2` / `AdjoinRoot` finrank 3 / `3≠2^k`. **Not labelled Wantzel.** Level B namesake `IsConstructible` tower / angle trisection residual **out of v1**. Do not revive.
+2. **`wantzel-constructible` leftover (84) — CONSUMED by OPE-1211 / PR #133.** Lean `ProofLab/WantzelConstructible.lean`. Catalog `formalized`. Level A Eisenstein `X³−2` / `AdjoinRoot` finrank 3 / `3≠2^k`. **Not labelled Wantzel.** Level B namesake `IsConstructible` tower / angle trisection residual **out of v1**. Do not revive.
 
 Scout opened **no attack issues**. Director approves after this shortlist.
 

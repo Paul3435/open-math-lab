@@ -2171,7 +2171,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/WantzelConstructible.lean",
       "formalist_issue": "OPE-1211",
-      "director_issue": "OPE-1210"
+      "director_issue": "OPE-1210",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/133"
     }
   ],
   "updated_at": "2026-09-08T19:30:00Z",
