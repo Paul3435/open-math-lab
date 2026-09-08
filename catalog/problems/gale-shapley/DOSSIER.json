@@ -1,0 +1,60 @@
+{
+  "id": "gale-shapley",
+  "title": "Gale–Shapley stable matching (formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Gale–Shapley 1962: complete preference rankings of n men and n women admit a stable perfect matching (no blocking pair). Completely classical. Value is a Mathlib/ProofLab contribution (Equiv.Perm / Bijective / IsMatching exist; ZERO named galeShapley / stableMatching / deferredAcceptance in Mathlib+Archive). Do NOT re-discover as novel. Hall is a DIFFERENT already-in matching theorem — USE Equiv.Perm as the matching type; do not re-prove Hall; K_{n,n} always has a perfect matching. Gale–Ryser is a DIFFERENT consumed-mill residual of birkhoff-von-neumann (#123) — do not revive. König ν=τ consumed. Man-optimal / rural hospitals / strategy-proofness are OUT of v1 (residuals of this id).",
+  "recommendation": "OPE-1173 RECOMMENDED PRIME. Catalog-audit prime after OPE-1157 mill CONSUMED (#123 birkhoff-von-neumann Level A + #124 nash-williams-arboricity Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of BvN / Nash–Williams / Gale–Ryser / Hall / König / Singleton / hook-length / Cauchy–Binet / Bollobás / Hadamard / SZ / Ore / konig_edge_chromatic / AES / Ostrowski / Frobenius / Noether. Independent Mathlib pin grep this run (Equiv.Perm / IsMatching / completeBipartiteGraph HIT; named galeShapley / stableMatching / deferredAcceptance ZERO). Mill NOW: finite preference-matching theorem after BvN (convex matrices) + Nash–Williams (forest partitions). Score 86 this run (not a JSON rubber-stamp): Equiv.Perm waiting (formalizability 16); Level A empty/n=1/partner-is-top/n=2 (partial 17); deferred-acceptance invariant is real work but one-wave undergraduate (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins ∃ stable Equiv.Perm. Rural hospitals residual. Do NOT assign farey-sequence first unless Director swaps. Do NOT prove Hall / König ν=τ / Gale–Ryser / permMatrix / birkhoff_von_neumann / nash_williams.",
+  "mathlib_gap_grep_2026_09_08_ope1173": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1157 scores. rg -w galeShapley / GaleShapley / stableMatching / StableMatching / IsStableMatching / deferredAcceptance / Farey / fareySequence over Mathlib/ + Archive + ProofLab → ZERO named GS. Defs HIT: Equiv.Perm (Logic/Equiv/Basic.lean Perm.subtypeCongr L520), SimpleGraph.Subgraph.IsMatching (Matching.lean L50), completeBipartiteGraph (SimpleGraph/Basic.lean L153), Function.Bijective, Fin n. Already-in this run (do not re-prove, do not re-prime): Hall SDR (Hall/Basic.lean L116); Equiv.Perm.permMatrix (Permutation.lean L34 — BvN glue, do not cite as GS); König matching (consumed); lattice Birkhoff; SchurComplement.det_one_add_mul_comm (Weinstein–Aronszajn / matrix-det-lemma already-in, refused); GramSchmidtOrtho already-in; Algebra/Order/Rearrangement.lean already-in; Nat.add_choose_eq (Chu–Vandermonde already-in); Nat.sum_totient (Totient.lean L153, different totient theorem). Already-consumed this mill: ProofLab/BirkhoffVonNeumann.lean Level A (#123); ProofLab/NashWilliamsArboricity.lean Level A (#124). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run (already-in or not one-wave) — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem gale_shapley: bijective rankings → ∃ μ : Equiv.Perm (Fin n), IsStable mRank wRank μ. Level A may land only empty / n=1 / partner-is-top-choice ⇒ stable / n=2 explicit, not labelled Gale–Shapley.",
+    "landmines": [
+      "Do not re-prove Equiv.Perm / Function.Bijective / IsMatching / Hall / completeBipartiteGraph.",
+      "Not Gale–Ryser (BvN #123 residual). Different Gale. Do not revive.",
+      "Not Hall (already-in). K_{n,n} matching existence is trivial. Do not cite as GS.",
+      "Not König matching (consumed). Not konig_edge_chromatic Level B.",
+      "Not Equiv.Perm.permMatrix / birkhoff_von_neumann (#123).",
+      "Not nash-williams-arboricity (#124) Level B / matroid union.",
+      "Not rural hospitals / man-optimal uniqueness / strategy-proofness / stable roommates.",
+      "Not Singleton (#120). Not hook-length (#121). Not Catalan (already-in).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Gale–Shapley 1962 Amer. Math. Monthly 69. Compact form: Wikipedia Gale–Shapley algorithm / Stable marriage problem. Type pin: Equiv.Perm / Fin n / bijective rankings. Hall is a different already-in theorem. Gale–Ryser is a different consumed-mill residual."
+  },
+  "feasibility_shape": "Level A: empty n=0; n=1 unique perm; partner-is-top-choice ⇒ stable; n=2 explicit; not labelled Gale–Shapley. Level B: namesake existence via deferred acceptance. Cap two levels. No rural hospitals. No Hall re-proof. No Gale–Ryser. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Equiv.Perm / Function.Bijective / IsMatching — USE; DO NOT re-prove",
+    "Hall SDR — DIFFERENT already-in; DO NOT cite as GS",
+    "Gale–Ryser / permMatrix / BvN — DIFFERENT consumed residual; DO NOT revive",
+    "ProofLab/BirkhoffVonNeumann.lean — consumed #123, DO NOT revive Level B / Gale–Ryser",
+    "ProofLab/NashWilliamsArboricity.lean — consumed #124, DO NOT revive Level B / matroid union",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1173",
+  "parent_issue": "OPE-1172",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO galeShapley / stableMatching / deferredAcceptance; Equiv.Perm/IsMatching/completeBipartiteGraph HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: Hall; permMatrix; SchurComplement matrix-det-lemma; Gram-Schmidt; rearrangement; Chu–Vandermonde; sum_totient",
+    "Already-consumed: BirkhoffVonNeumann Level A (#123); NashWilliamsArboricity Level A (#124)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Gale–Ryser / Hall / König matching / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

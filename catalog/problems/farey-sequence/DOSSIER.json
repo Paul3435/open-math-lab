@@ -1,0 +1,60 @@
+{
+  "id": "farey-sequence",
+  "title": "Farey sequence adjacency (bc−ad=1, formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 15,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Farey 1816 / Cauchy 1816: adjacent reduced fractions a/b < c/d in the Farey sequence of order n satisfy bc−ad=1. Completely classical. Value is a Mathlib/ProofLab contribution (Nat.Coprime / totient / coprime-pair Rat encoding exist; ZERO named Farey / fareySequence in Mathlib+Archive). Do NOT re-discover as novel. Nat.sum_totient (divisors.sum φ = n, Totient.lean L153) is a DIFFERENT already-in totient identity — USE Coprime as glue; do not re-prove sum_totient; do not cite it as Farey. Count |F_n|=1+∑_{k≤n} φ(k) / Stern–Brocot / Calkin–Wilf / Ford circles are OUT of v1 (residuals of this id). Pick's theorem has no area infra (previously refused). Not Gale–Shapley (the OPE-1173 prime).",
+  "recommendation": "OPE-1173 leftover slot #2. Catalog-audit leftover after OPE-1157 mill CONSUMED (#123+#124). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of BvN / Nash–Williams / Gale–Ryser / totient-sum / Pick. Independent Mathlib pin grep this run (Nat.Coprime / totient / Rat coprime-pair encoding HIT; named Farey / fareySequence ZERO). Mill NOW: finite coprime-fraction leftover beside Gale–Shapley. Score 84 this run (not a JSON rubber-stamp): Coprime waiting (formalizability 16); Level A F_1/mediant/F_2 (partial 16); adjacency induction is real but elementary (attack 15); Lean-only finite (verification 17); classical (crackpot 20). v1 pins adjacent ⇒ bc−ad=1. Stern–Brocot residual. Do NOT assign as prime unless Director swaps. Do NOT prove sum_totient / Pick / Stern–Brocot / gale_shapley / birkhoff_von_neumann / nash_williams.",
+  "mathlib_gap_grep_2026_09_08_ope1173": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1157 scores. rg -w Farey / fareySequence / IsFarey / galeShapley / stableMatching over Mathlib/ + Archive + ProofLab → ZERO named Farey. Defs HIT: Nat.totient (Totient.lean L28), totient_eq_card_coprime (L41, uses Nat.Coprime), coprime_iff_isRelPrime (Data/Nat/GCD/Basic.lean L278), Rat coprime-pair encoding (Data/Rat/Denumerable.lean L25). Already-in this run (do not re-prove, do not re-prime): Nat.sum_totient / sum_totient' (Totient.lean L153/L164 — divisor-sum, different theorem); Hall SDR; permMatrix; SchurComplement.det_one_add_mul_comm; GramSchmidtOrtho; Rearrangement.lean; Nat.add_choose_eq. Already-consumed this mill: ProofLab/BirkhoffVonNeumann.lean Level A (#123); ProofLab/NashWilliamsArboricity.lean Level A (#124). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300.",
+  "statement_pin_required": {
+    "convention": "theorem farey_adjacent: Adjacent x y → y.num * x.den - x.num * y.den = 1 on FareyFrac n. Level A may land only F_1 two-term adjacency / mediant of 0/1 and 1/1 / F_2 three-term list, not labelled Farey.",
+    "landmines": [
+      "Do not re-prove Nat.Coprime / Nat.totient / sum_totient / totient_eq_card_coprime / Rat.num.",
+      "Not n.divisors.sum φ = n (already-in). Different totient theorem.",
+      "Not Pick's theorem (no area infra).",
+      "Not Stern–Brocot / Calkin–Wilf / Ford circles. Residual of this id.",
+      "Not Gale–Shapley (OPE-1173 prime).",
+      "Not Gale–Ryser / BvN (#123) / Nash–Williams (#124) Level B.",
+      "Not Minkowski convex body (already-in).",
+      "Not Singleton (#120). Not hook-length (#121). Not Catalan (already-in).",
+      "Not krenn-gu / hou-zeng-pfc / sun-135.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone."
+    ],
+    "canonical_source": "Farey 1816 Phil. Mag. 47; Cauchy 1816. Textbook: Hardy–Wright Ch. III. Compact form: Wikipedia Farey sequence. Type pin: Nat.Coprime / coprime pairs. sum_totient is a different already-in theorem."
+  },
+  "feasibility_shape": "Level A: F_1 = {0/1, 1/1} adjacent det 1; mediant 1/2; F_2 three-term; not labelled Farey. Level B: namesake adjacent ⇒ bc−ad=1. Cap two levels. No Stern–Brocot. No totient-sum re-proof. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Nat.Coprime / totient / Rat coprime-pair encoding — USE; DO NOT re-prove",
+    "sum_totient divisor-sum — DIFFERENT already-in; DO NOT cite as Farey",
+    "Stern–Brocot / Calkin–Wilf / Ford circles — DIFFERENT residual; DO NOT prove as extra namesakes",
+    "ProofLab/BirkhoffVonNeumann.lean — consumed #123, DO NOT revive Level B / Gale–Ryser",
+    "ProofLab/NashWilliamsArboricity.lean — consumed #124, DO NOT revive Level B / matroid union",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-08",
+  "scout_issue": "OPE-1173",
+  "parent_issue": "OPE-1172",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Farey / fareySequence; Nat.Coprime/totient/Rat coprime-pair HIT as infra only",
+    "Negative control turan → Turan.lean exists",
+    "Already-in: sum_totient; Hall; permMatrix; SchurComplement matrix-det-lemma; Gram-Schmidt; rearrangement; Chu–Vandermonde",
+    "Already-consumed: BirkhoffVonNeumann Level A (#123); NashWilliamsArboricity Level A (#124)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "sum_totient / Pick / Stern–Brocot / Gale–Shapley / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
