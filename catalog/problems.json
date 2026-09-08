@@ -1959,7 +1959,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/BirkhoffVonNeumann.lean",
       "formalist_issue": "OPE-1162",
-      "director_issue": "OPE-1161"
+      "director_issue": "OPE-1161",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/123"
     },
     {
       "id": "nash-williams-arboricity",
