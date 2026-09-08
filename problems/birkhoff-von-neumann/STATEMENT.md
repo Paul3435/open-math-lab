@@ -1,7 +1,7 @@
 # Birkhoff–von Neumann theorem (doubly stochastic matrices) — formalize-only
 
 **id:** `birkhoff-von-neumann`
-**ticket:** OPE-1157 Scout RECOMMENDED PRIME (parent OPE-1156; post singleton-bound #120 + hook-length #121)
+**ticket:** OPE-1162 Formalist Level A (Scout OPE-1157 prime; Director OPE-1161; parent OPE-1156; post singleton-bound #120 + hook-length #121)
 **expected:** known-classical (Birkhoff 1946 / von Neumann 1953) — **no novelty claim**
 
 ## Why not classical / why formalize-only
