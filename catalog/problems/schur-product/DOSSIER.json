@@ -1,7 +1,7 @@
 {
   "id": "schur-product",
   "title": "Schur product theorem (Hadamard product of PSD matrices, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "linear_algebra",
   "score": 86,
   "scores": {
@@ -47,6 +47,10 @@
   "scored_at": "2026-09-08",
   "scout_issue": "OPE-1189",
   "parent_issue": "OPE-1188",
+  "formalist_issue": "OPE-1194",
+  "director_issue": "OPE-1193",
+  "lean_artifact": "proofs/lean-project/ProofLab/SchurProduct.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/129",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO schurProduct / schur_product / hadamard_posSemidef; hadamard/PosSemidef HIT as infra only",
     "Negative control turan → Turan.lean exists",
