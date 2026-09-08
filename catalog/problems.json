@@ -2083,7 +2083,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/SchurProduct.lean",
       "formalist_issue": "OPE-1194",
-      "director_issue": "OPE-1193"
+      "director_issue": "OPE-1193",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/129"
     },
     {
       "id": "lame-euclid",
