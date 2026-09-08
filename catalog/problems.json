@@ -1965,11 +1965,11 @@
     {
       "id": "nash-williams-arboricity",
       "title": "Nash–Williams arboricity theorem (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "extremal_graph_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1157 Scout leftover slot #2 (parent OPE-1156). Catalog-audit leftover after OPE-1142 mill CONSUMED (#120+#121). Nash-Williams 1964: arboricity = max ceil(e(H)/(|V(H)|-1)). Named theorem ZERO; IsAcyclic / induce / edgeFinset / completeGraph / pathGraph HIT. Not Cayley tree count (#64 leftover Prüfer). Not Kirchhoff. Not Turán. Not matroid union as extra namesake. Unassigned this tick. Leave OPE-403 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1167 Formalist Level A. Director OPE-1166 approved Scout OPE-1157 leftover. Lean zero-sorry ProofLab/NashWilliamsArboricity.lean. Level A LANDED: IsForestPartition encoding; empty/bot 0-forest; tree is 1-forest and e=n-1 (USE IsTree.card_edgeFinset, not Cayley); pathGraph is a tree; star K_{1,n} is a tree; K2 is a tree; cycle 2-forest (e=n, ceil n/(n-1)=2). Not labelled Nash-Williams. Namesake nash_williams (packing ↔ subgraph bound) OUT of this ticket, not sorry-ed. Not Cayley / Kirchhoff / Turán / matroid union. Not birkhoff-von-neumann (#123). Leave OPE-403 alone. No novelty claim.",
       "skill_packs": [
         "graph-theory",
         "combinatorics",
@@ -1977,18 +1977,25 @@
       ],
       "artifacts": [
         "catalog/problems/nash-williams-arboricity/",
-        "problems/nash-williams-arboricity/"
+        "problems/nash-williams-arboricity/",
+        "proofs/lean-project/ProofLab/NashWilliamsArboricity.lean"
       ],
       "scout_issue": "OPE-1157",
       "tickets": [
         "OPE-1157",
-        "OPE-1156"
+        "OPE-1156",
+        "OPE-1166",
+        "OPE-1167"
       ],
       "parent_issue": "OPE-1156",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/NashWilliamsArboricity.lean",
+      "formalist_issue": "OPE-1167",
+      "director_issue": "OPE-1166",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/124"
     }
   ],
-  "updated_at": "2026-09-08T10:45:36Z",
+  "updated_at": "2026-09-08T13:13:41Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
