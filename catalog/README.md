@@ -149,7 +149,7 @@ OPE-1125 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1125 mill consumed (#117+#118). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`singleton-bound` — CONSUMED Level A (OPE-1147).** Scout OPE-1142 prime; Director OPE-1146. Lean `ProofLab/SingletonBound.lean`. Catalog `formalized`. Level B namesake `singleton_bound` **out of v1**. Hamming/Plotkin/MDS residual **out of v1**. Do not revive.
+1. **`singleton-bound` — CONSUMED Level A (OPE-1147).** Scout OPE-1142 prime; Director OPE-1146. PR **#120**. Lean `ProofLab/SingletonBound.lean`. Catalog `formalized`. Level B namesake `singleton_bound` **out of v1**. Hamming/Plotkin/MDS residual **out of v1**. Do not revive.
 2. **`hook-length` leftover (84).** Frame–Robinson–Thrall 1954: `|SYT(μ)| = n! / ∏ hook(c)`. Named theorem ZERO; `YoungDiagram` / `rowLen` / `colLen` / SSYT / `factorial` HIT. **Not** Catalan (already-in; 2-row residual). **Not** RSK / hook-content. **Not** Stirling-B leftover. **Unassigned this tick.**
 
 Director assigns after approval. Scout opened **no attack issues**. Do **not** commission another Scout mill while this unused leftover remains.

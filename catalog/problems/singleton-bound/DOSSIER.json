@@ -50,6 +50,7 @@
   "formalist_issue": "OPE-1147",
   "director_issue": "OPE-1146",
   "lean_artifact": "proofs/lean-project/ProofLab/SingletonBound.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/120",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Singleton bound / minimumDistance / LinearCode; hammingDist/hammingNorm HIT as infra only",
     "Negative control turan → Turan.lean exists",
