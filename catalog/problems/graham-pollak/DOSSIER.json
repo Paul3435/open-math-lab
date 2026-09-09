@@ -1,0 +1,59 @@
+{
+  "id": "graham-pollak",
+  "title": "Graham–Pollak biclique decomposition of K_n (formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Graham–Pollak 1971: the edges of K_n partition into n−1 complete bipartite graphs, and not fewer. Completely classical. Value is a Mathlib/ProofLab contribution (completeGraph / edgeFinset / card_edgeFinset_top_eq_card_choose_two / completeBipartiteGraph exist; ZERO named grahamPollak / graham_pollak / biclique / bicliquePartition / Pollak in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Nash–Williams arboricity (consumed #124) is a DIFFERENT edge-partition-into-forests theorem — do not revive nash_williams / matroid-union. KST (consumed kst) forbids a biclique; this decomposes into bicliques — opposite theorem. Cayley / Kirchhoff count spanning trees — different. König χ' / Vizing / Sabidussi / Brooks are DIFFERENT consumed colouring theorems.",
+  "recommendation": "OPE-1248 leftover slot #2. Catalog-audit leftover after OPE-1233 mill CONSUMED (#138 kraft-inequality Level A + #139 sabidussi-boxprod Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of kraft_inequality / McMillan / Huffman / sabidussi_boxprod / Hedetniemi / nash_williams / matroid-union / kst / Kirchhoff / Brooks / greedy / AES / konig_edge_chromatic. Independent Mathlib pin grep this run (completeGraph Basic.lean L144 HIT; completeGraph_eq_top L339 HIT; completeBipartiteGraph L153 HIT as König/K_{a,b} glue only; edgeFinset Finite.lean L53 HIT; card_edgeFinset_top_eq_card_choose_two L110 HIT; named grahamPollak / biclique / Pollak ZERO). Mill NOW: finite biclique decomposition leftover beside Sherman–Morrison rank-one inverse. Score 84 this run (not a JSON rubber-stamp): completeGraph+edgeFinset waiting (formalizability 16); Level A K1 empty / K2 one edge / K3 star-plus-edge (partial 16); namesake is undergraduate but Sym2 encoding is fiddly (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins Fin 1 / Fin 2 / Fin 3 Level A; n−1 lower bound namesake residual. Biclique cover / Zarankiewicz residual. Do NOT assign kraft-inequality leftover-revivals (McMillan / Huffman / Shannon). Do NOT prove Sherman–Morrison here (prime of this shortlist). Do NOT prove nash_williams / Kirchhoff / KST / Hedetniemi.",
+  "mathlib_gap_grep_2026_09_09_ope1248": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1233 scores. rg grahamPollak / graham_pollak / biclique / Biclique / pollak / Pollak over Mathlib/ + Archive + ProofLab → ZERO named Graham–Pollak theorem. Defs HIT: completeGraph (Basic.lean L144), completeGraph_eq_top L339, completeBipartiteGraph L153, edgeFinset (Finite.lean L53), edgeFinset_bot L81, card_edgeFinset_top_eq_card_choose_two L110. Already-in this run (do not re-prove, do not re-prime): Hall; CayleyHamilton; Wilson; catalan_eq_centralBinom_div L109; numDerangements L62; exists_prime_lt_and_le_two_mul L211; frobeniusNumber_pair L52; HalesJewett L445; isTuranMaximal_iff_nonempty_iso_turanGraph L300; det_one_add_mul_comm L395; totient product formula; Chebyshev T_real_cos; Sauer–Shelah card_shatterer_le_sum_vcDim L191; Cauchy–Davenport; triangle removal; handshaking even_card_odd_degree_vertices; Euler line. Already-consumed this mill: ProofLab/KraftInequality.lean Level A (#138); ProofLab/SabidussiBoxProd.lean Level A (#139). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem graham_pollak: min biclique-partition size of K_n is n−1, namesake. Level A may land only K1 empty / K2 one K_{1,1} / K3 star-plus-edge, not labelled Graham–Pollak.",
+    "landmines": [
+      "Do not re-prove completeGraph / edgeFinset / card_edgeFinset_top_eq_card_choose_two / completeBipartiteGraph / Disjoint.",
+      "Not Nash–Williams arboricity (consumed #124). Forests ≠ bicliques. Do not revive nash_williams / matroid-union.",
+      "Not Cayley / Kirchhoff (consumed leftover). Do not count spanning trees.",
+      "Not KST / Zarankiewicz (consumed kst). Opposite theorem.",
+      "Not König χ' / Vizing / Sabidussi / Brooks / greedy / AES / bipartite-odd-cycle.",
+      "Not kraft-inequality (#138) / McMillan / Huffman / Shannon.",
+      "Not sherman-morrison (OPE-1248 prime). Do not prove Sherman–Morrison here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Graham–Pollak 1971 biclique decomposition of K_n. Compact form: Wikipedia Graham–Pollak theorem. Type pin: completeGraph / edgeFinset / Finset-pair bicliqueEdges. Nash–Williams is a different consumed forest-partition theorem. KST is a different consumed forbidden-biclique theorem."
+  },
+  "feasibility_shape": "Level A: K1 empty partition card 0 = 1−1; K2 one disjoint pair {0} vs {1}; K3 star at 0 plus leftover {1}–{2}; not labelled Graham–Pollak. Level B: namesake min size = n−1. Cap two levels. No biclique cover. No Zarankiewicz. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: n=0 and n−1 not a Nat — pin n≥1.",
+  "infra_carry_over": [
+    "Mathlib completeGraph / edgeFinset / card_edgeFinset_top_eq_card_choose_two / Disjoint — USE; DO NOT re-prove",
+    "completeBipartiteGraph — DIFFERENT K_{a,b} glue; DO NOT cite as Graham–Pollak namesake; do not re-prove",
+    "Nash–Williams / Cayley / Kirchhoff / KST — DIFFERENT consumed; DO NOT sorry / revive",
+    "ProofLab/NashWilliamsArboricity.lean — consumed #124, DO NOT revive Level B / matroid-union",
+    "ProofLab/KraftInequality.lean — consumed #138, DO NOT revive Level B / McMillan / Huffman",
+    "ProofLab/SabidussiBoxProd.lean — consumed #139, DO NOT revive Level B / Hedetniemi",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1248",
+  "parent_issue": "OPE-1247",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO grahamPollak / biclique / pollak / sherman / woodbury; completeGraph / edgeFinset / Matrix.inv HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Euler line; det_one_add_mul_comm; totient product; Chebyshev T_real_cos; Sauer–Shelah; Cauchy–Davenport; triangle removal; handshaking",
+    "Already-consumed: KraftInequality Level A (#138); SabidussiBoxProd Level A (#139)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Nash–Williams / Kirchhoff / KST / Hedetniemi / McMillan / Huffman / Woodbury / SVD / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

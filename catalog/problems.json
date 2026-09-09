@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-09T07:37:10Z",
+  "last_updated": "2026-09-09T13:51:32Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2293,9 +2293,55 @@
       "formalist_issue": "OPE-1243",
       "director_issue": "OPE-1242",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/139"
+    },
+    {
+      "id": "sherman-morrison",
+      "title": "Sherman–Morrison rank-one inverse update (formalize-only)",
+      "status": "candidate",
+      "domain": "linear_algebra",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1248 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1233 mill CONSUMED (#138 kraft-inequality Level A + #139 sabidussi-boxprod Level A). Named theorem ZERO (shermanMorrison / woodbury / rankOneUpdate). Matrix.inv / vecMulVec / mulVec / det_fin_* HIT. det_one_add_mul_comm already-in glue, not namesake. Level A pin: Fin 0 / Fin 1 scalar / Fin 2 I+e0e0ᵀ, not labelled Sherman. Namesake sherman_morrison OUT of v1. Woodbury residual. Not SVD / polar / Moore–Penrose (schur-product #129). Not Kirchhoff / DFT. Not kraft / McMillan / Huffman. Not sabidussi / Hedetniemi. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Director approves after this shortlist.",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/sherman-morrison/"
+      ],
+      "scout_issue": "OPE-1248",
+      "tickets": [
+        "OPE-1248",
+        "OPE-1247"
+      ],
+      "parent_issue": "OPE-1247",
+      "mathlib_gap": true
+    },
+    {
+      "id": "graham-pollak",
+      "title": "Graham–Pollak biclique decomposition of K_n (formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1248 Scout leftover slot #2. Catalog-audit after OPE-1233 mill CONSUMED (#138+#139). Named theorem ZERO (grahamPollak / biclique / Pollak). completeGraph / edgeFinset / card_edgeFinset_top_eq_card_choose_two HIT. Level A pin: K1 empty / K2 one edge / K3 star-plus-edge, not labelled Graham–Pollak. Namesake graham_pollak OUT of v1. Not nash_williams / matroid-union (#124). Not Cayley / Kirchhoff. Not kst / Zarankiewicz. Not König χ' / Sabidussi / Brooks. Not sherman-morrison (prime of this shortlist). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Director approves after this shortlist.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/graham-pollak/"
+      ],
+      "scout_issue": "OPE-1248",
+      "tickets": [
+        "OPE-1248",
+        "OPE-1247"
+      ],
+      "parent_issue": "OPE-1247",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-09T10:48:24Z",
+  "updated_at": "2026-09-09T13:51:32Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
