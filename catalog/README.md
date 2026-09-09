@@ -191,7 +191,7 @@ OPE-1216 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1216 mill consumed (#135+#136). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`kraft-inequality` — CONSUMED Level A.** OPE-1238 Formalist. Lean `ProofLab/KraftInequality.lean`. Catalog `formalized`. Level A: empty Finset / singleton / binary `{[0],[1,0],[1,1]}` Kraft sum 1. Level B namesake `kraft_inequality` / McMillan / Huffman / Shannon residual **out of v1**. Do not revive.
+1. **`kraft-inequality` — CONSUMED Level A.** OPE-1238 Formalist. PR **#138**. Lean `ProofLab/KraftInequality.lean`. Catalog `formalized`. Level A: empty Finset / singleton / binary `{[0],[1,0],[1,1]}` Kraft sum 1. Level B namesake `kraft_inequality` / McMillan / Huffman / Shannon residual **out of v1**. Do not revive.
 2. **`sabidussi-boxprod` leftover (84).** Fresh id. Sabidussi 1957 χ(G □ H) = max. Named theorem ZERO. `boxProd` / `Colorable` HIT; Prod.lean ends with degree, no colouring. **Not** Brooks / greedy / AES / König χ'. **Not** Hedetniemi (residual of this id).
 
 Scout opened **no attack issues**. Director approves after this shortlist.

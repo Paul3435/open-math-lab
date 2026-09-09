@@ -50,6 +50,7 @@
   "parent_issue": "OPE-1232",
   "formalist_issue": "OPE-1238",
   "director_issue": "OPE-1237",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/138",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO kraft / PrefixFree / kraftSum / McMillan / Huffman; List.IsPrefix / Hamming.lean metric HIT as infra only",
     "Negative control turan → Turan.lean exists L300",
