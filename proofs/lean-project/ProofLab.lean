@@ -79,3 +79,4 @@ import ProofLab.GrahamPollak
 import ProofLab.FineWilf
 import ProofLab.BritishFlag
 import ProofLab.PlatonicSolids
+import ProofLab.EgyptianFractions

@@ -57,5 +57,8 @@
     "Already-consumed: FineWilf Level A (#144); BritishFlag Level A (#145)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Farey / Kraft / Erdős–Straus / Platonic leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1289",
+  "director_issue": "OPE-1288",
+  "lean_artifact": "proofs/lean-project/ProofLab/EgyptianFractions.lean"
 }
