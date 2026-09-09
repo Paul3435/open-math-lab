@@ -1,0 +1,59 @@
+{
+  "id": "sabidussi-boxprod",
+  "title": "Sabidussi box-product chromatic number (χ(G□H)=max, formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 15,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Sabidussi 1957: χ(G □ H) = max(χ(G), χ(H)). Completely classical. Value is a Mathlib/ProofLab contribution (boxProd / Colorable / chromaticNumber / completeGraph exist; Prod.lean ends L219 with connectedness+degree and TODO other products, ZERO colouring; ZERO named sabidussi / boxProd_colorable / colorable_boxProd / chromaticNumber_boxProd in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Brooks / greedy (consumed) are DIFFERENT χ≤Δ+1 theorems — USE Colorable, do not re-prove Brooks. AES / König χ' / bipartite-odd-cycle / Mycielski are DIFFERENT consumed colouring theorems. Hedetniemi (categorical product) is a DIFFERENT false statement — residual of this id; do not sorry Hedetniemi; Prod.lean TODO other products.",
+  "recommendation": "OPE-1233 leftover slot #2. Catalog-audit leftover after OPE-1216 mill CONSUMED (#135 petersen-1-factor Level A + #136 lagrange-quadratic-cf Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of petersen_one_factor / Tutte / lagrange_quadratic_cf / Pell / Brooks / greedy / AES / konig_edge_chromatic. Independent Mathlib pin grep this run (boxProd Prod.lean L39 HIT; Colorable Coloring.lean L127 / chromaticNumber L149 HIT; completeGraph Basic.lean L144 HIT; named sabidussi / boxProd_colorable / colorable_boxProd ZERO). Mill NOW: finite box-product colouring leftover beside Kraft prefix-free. Score 84 this run (not a JSON rubber-stamp): boxProd+Colorable waiting (formalizability 16); Level A empty/K1□K1/K2□K2 (partial 17); namesake is undergraduate but product types are fiddly (attack 15); Lean-only finite (verification 16); classical (crackpot 20). v1 pins Fin 0 / K1□K1 / K2□K2 Level A; χ(G□H)=max namesake residual. Hedetniemi / other products residual. Do NOT assign kraft-inequality leftover-revivals (McMillan / Huffman / Shannon / Hamming-bound). Do NOT prove Brooks / greedy / AES / König χ' / Tutte / Pell / Hedetniemi.",
+  "mathlib_gap_grep_2026_09_09_ope1233": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1216 scores. rg sabidussi / boxProd_colorable / colorable_boxProd / chromaticNumber_boxProd over Mathlib/Combinatorics/SimpleGraph + Archive + ProofLab → ZERO named Sabidussi theorem. Prod.lean L39 def boxProd, L46 □, L189 boxProd_connected, L213 boxProd_degree, file ends L219, TODO other products, ZERO Colorable. Defs HIT: Colorable (Coloring.lean L127), chromaticNumber L149, Colorable.mono L204, Colorable.of_embedding L219, completeGraph (Basic.lean L144). Already-in this run (do not re-prove, do not re-prime): Hall all_card_le_biUnion_card_iff_exists_injective (Hall/Basic.lean L116); CayleyHamilton Matrix.aeval_self_charpoly (Charpoly/Basic.lean L123); Wilson wilsons_lemma (Wilson.lean L38); catalan_eq_centralBinom_div (Catalan.lean L109); numDerangements (Derangements/Finite.lean L62); exists_prime_lt_and_le_two_mul (Bertrand.lean L211); frobeniusNumber_pair (FrobeniusNumber.lean L52); HalesJewett Line.exists_mono_in_high_dimension (HalesJewett.lean L445); isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300); List.IsPrefix (Infix.lean L12); hammingDist (Hamming.lean L38); orthocenter_eq_smul_vsub_vadd_circumcenter (MongePoint.lean L419 — Euler line ALREADY-IN). Already-consumed this mill: ProofLab/PetersenOneFactor.lean Level A (#135); ProofLab/LagrangeQuadraticCf.lean Level A (#136). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem sabidussi_boxprod: χ(G □ H) = max(χ(G), χ(H)), namesake. Level A may land only empty Fin 0 / K1□K1 / K2□K2 Colorable, not labelled Sabidussi.",
+    "landmines": [
+      "Do not re-prove boxProd / Colorable / chromaticNumber / completeGraph / Colorable.of_embedding / Brooks / greedy.",
+      "Not Brooks / greedy (consumed). Different χ≤Δ+1 theorem.",
+      "Not AES / Mycielski / König χ' / bipartite-odd-cycle (consumed).",
+      "Not Hedetniemi (categorical product; false). Residual of this id. Do not sorry Hedetniemi.",
+      "Not petersen-1-factor (#135) / Tutte / Hall.",
+      "Not lagrange-quadratic-cf (#136) / Pell.",
+      "Not kraft-inequality (OPE-1233 prime) / Huffman / Shannon. Do not prove Kraft here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Sabidussi 1957 chromatic number of the Cartesian product. Compact form: Wikipedia Cartesian product of graphs (chromatic number). Type pin: boxProd / Colorable / chromaticNumber. Brooks is a different consumed theorem. Hedetniemi is a different false statement."
+  },
+  "feasibility_shape": "Level A: empty ⊥□⊥ on Fin 0×Fin 0 Colorable 0 (or Colorable 1 if Fin 0 encoding fights); K1□K1 Colorable 1; K2□K2 = C4 Colorable 2; not labelled Sabidussi. Level B: namesake χ(G□H)=max(χ(G),χ(H)). Cap two levels. No Hedetniemi. No other products. No Vizing domination. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: Colorable 0 on empty vertex type — Formalist may land Colorable 1, not labelled Sabidussi.",
+  "infra_carry_over": [
+    "Mathlib boxProd / Colorable / chromaticNumber / completeGraph — USE; DO NOT re-prove",
+    "Brooks / greedy — DIFFERENT consumed; DO NOT cite as Sabidussi; do not re-prove",
+    "Hedetniemi / other products — DIFFERENT; residual; DO NOT sorry",
+    "ProofLab/PetersenOneFactor.lean — consumed #135, DO NOT revive Level B / Tutte",
+    "ProofLab/LagrangeQuadraticCf.lean — consumed #136, DO NOT revive Level B / Pell",
+    "ProofLab/Brooks.lean / GreedyChromatic.lean / BipartiteChromaticIndex.lean — consumed colouring mills, DO NOT revive",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1233",
+  "parent_issue": "OPE-1232",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO sabidussi / boxProd_colorable / colorable_boxProd; boxProd / Colorable HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Euler line",
+    "Already-consumed: PetersenOneFactor Level A (#135); LagrangeQuadraticCf Level A (#136)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Brooks / greedy / AES / König χ' / Hedetniemi / Kraft / Tutte / Pell / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
