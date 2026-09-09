@@ -1,0 +1,61 @@
+{
+  "id": "egyptian-fractions",
+  "title": "Egyptian fraction expansions (formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Fibonacci–Sylvester greedy: every positive rational is a finite sum of distinct unit fractions. Completely classical. Value is a Mathlib/ProofLab contribution (Rat / add_div / inv_sub_inv / Finset.sum exist; ZERO named egyptian / EgyptianFraction / unitFractionSum / sylvesterGreedy in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Farey (consumed #127) is a DIFFERENT adjacent-fraction theorem — USE Nat.Coprime glue, do not re-prove, do not cite as Egyptian. Kraft (consumed #138) is a DIFFERENT prefix-free-sum theorem — do not revive McMillan / Huffman / Shannon. Harmonic-series divergence is ALREADY tendsto_sum_range_one_div_nat_succ_atTop — USE inv_sub_inv telescoping, do not cite as Egyptian. Erdős–Straus 4/n=1/x+1/y+1/z is OPEN — residual of this id; do not sorry it. Platonic solids is the prime of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1278 leftover slot #2. Catalog-audit leftover after OPE-1263 mill CONSUMED (#144 fine-wilf Level A + #145 british-flag Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of fine_wilf / british_flag / Napoleon / farey_adjacent / Stern-Brocot / kraft_inequality / McMillan / Huffman / Shannon / lame / Wantzel. Independent Mathlib pin grep this run (Rat HIT; add_div Algebra/Field/Basic.lean L27 HIT; one_div_mul_add_mul_one_div_eq_one_div_add_one_div L48 HIT; inv_sub_inv L195 HIT as telescoping glue only; named egyptian / EgyptianFraction / unitFractionSum / sylvesterGreedy ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite unit-fraction sums leftover beside Platonic Schläfli arithmetic. Score 84 this run (not a JSON rubber-stamp): Rat+inv_sub_inv waiting (formalizability 16); Level A 1=1/1 / 1/n / 3/4=1/2+1/4 / 2/3=1/2+1/6 (partial 16); namesake is undergraduate greedy termination (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named rationals Level A; all-positive-rationals namesake residual. Erdős–Straus residual. Do NOT assign Platonic leftover-revivals (Euler polyhedron / Coxeter). Do NOT prove Platonic here (prime of this shortlist). Do NOT prove Farey as namesake / Erdős–Straus / Kraft.",
+  "mathlib_gap_grep_2026_09_09_ope1278": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1263 scores. rg egyptian / EgyptianFraction / unitFractionSum / sylvesterGreedy / platonic / PlatonicSolid / schlafli over Mathlib/ + Archive + ProofLab → ZERO named Egyptian-fraction theorem (and ZERO named Platonic count). Defs HIT: Rat (Data/Rat/Defs.lean), add_div (Algebra/Field/Basic.lean L27), one_div_mul_add_mul_one_div_eq_one_div_add_one_div (L48), inv_sub_inv (L195; telescoping glue, not namesake), CoxeterMatrix.H₃ (Coxeter/Matrix.lean L250; platonic glue, not namesake), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Hall; CayleyHamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Turán L300; det_one_add_mul_comm; totient product; Chebyshev T_real_cos; Sauer–Shelah; Cauchy–Davenport; triangle removal; handshaking; parallelogram_law L590; Ptolemy; law of cosines Triangle.lean; Euler line MongePoint; ZMod.pow_totient; exists_prime_orderOf_dvd_card; Schur-Zassenhaus; Partition.odds/distincts; extend_partialOrder L24; equiv_nim_grundyValue L231; one_add_mul_le_pow L43; young_inequality; card_sym_eq_multichoose; StoneWeierstrass; Dickson; Hindman; intersecting chords; inscribed angle; schnirelmannDensity API; tendsto_sum_range_one_div_nat_succ_atTop (harmonic divergence). Already-consumed this mill: ProofLab/FineWilf.lean Level A (#144); ProofLab/BritishFlag.lean Level A (#145). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem egyptian_fractions: every positive rational is a finite sum of distinct unit fractions, namesake. Level A may land only 1=1/1 / 1/n / 3/4=1/2+1/4 / 2/3=1/2+1/6, not labelled Egyptian.",
+    "landmines": [
+      "Do not re-prove Rat / add_div / inv_sub_inv / Finset.sum / one_div_add_one_div.",
+      "Not Farey / Stern–Brocot / Calkin–Wilf / Ford circles (consumed #127). Different theorem. Do not cite as Egyptian.",
+      "Not Kraft / McMillan / Huffman / Shannon (consumed #138).",
+      "Not harmonic-series divergence (already-in). Do not cite as Egyptian.",
+      "Not Erdős–Straus. Open. Residual of this id. Do not sorry it.",
+      "Not platonic-solids (OPE-1278 prime). Do not prove Platonic here.",
+      "Not fine-wilf (#144) / british-flag (#145) / lame / Wantzel.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Fibonacci 1202 / Sylvester 1880 greedy Egyptian expansions. Compact form: Wikipedia Egyptian fraction. Type pin: Finset ℕ denominators / Rat unitSum. Farey is a different consumed adjacent-fraction theorem. Erdős–Straus is a different open residual."
+  },
+  "feasibility_shape": "Level A: 1=1/1; unit 1/n; 3/4=1/2+1/4; 2/3=1/2+1/6; optional 1=1/2+1/3+1/6; not labelled Egyptian. Level B: namesake every positive rational. Cap two levels. No Erdős–Straus. No Farey-as-namesake. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: encode distinct positive denominators as Finset ℕ, zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Rat / add_div / Finset.sum — USE; DO NOT re-prove",
+    "inv_sub_inv — DIFFERENT telescoping glue; DO NOT cite as Egyptian; do not re-prove",
+    "Farey / Stern–Brocot / Calkin–Wilf — DIFFERENT consumed leftover; DO NOT sorry / revive",
+    "Erdős–Straus / Sylvester sequence — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/FareySequence.lean — consumed #127, DO NOT revive Level B / Stern–Brocot",
+    "ProofLab/KraftInequality.lean — consumed #138, DO NOT revive Level B / McMillan / Huffman / Shannon",
+    "ProofLab/FineWilf.lean — consumed #144, DO NOT revive Level B / Lyndon–Schützenberger",
+    "ProofLab/BritishFlag.lean — consumed #145, DO NOT revive Level B / Napoleon",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1278",
+  "parent_issue": "OPE-1277",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO egyptian / EgyptianFraction / unitFractionSum / sylvesterGreedy; Rat / add_div / inv_sub_inv HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: harmonic divergence; Szpilrajn; Sprague-Grundy; Bernoulli; Young; stars-and-bars; schnirelmannDensity API; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Turán L300; parallelogram_law",
+    "Already-consumed: FineWilf Level A (#144); BritishFlag Level A (#145)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Farey / Kraft / Erdős–Straus / Platonic leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

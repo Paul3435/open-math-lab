@@ -212,9 +212,18 @@ OPE-1248 mill consumed (#141+#142). Catalog-audit shortlist (not a prize hunt; n
 
 Scout opened **no attack issues**. Formalist OPE-1273 lands the leftover. OPE-1263 mill fully consumed.
 
+## Formalize-only shortlist (OPE-1278, 2026-09-09)
+
+OPE-1263 mill consumed (#144+#145). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`platonic-solids` — RECOMMENDED PRIME (86).** Fresh id. Euclid XIII / Wiedijk 100 #50 (no Mathlib `decl` this pin): exactly five combinatorial regular polyhedra, Schläfli `{p,q}` with `p,q ≥ 3` and `(p-2)(q-2) < 4`. Named theorem ZERO (`platonic` / `PlatonicSolid` / `schlafli` / `regularPolyhedron`); Coxeter `H₃` (Matrix.lean L250) HIT as dodecahedral glue **not** namesake; triangulated `Octahedron` HIT as unrelated axiom. **Not** Euler polyhedron (Wiedijk #13 residual). **Not** British flag / Napoleon (#145). Finite, one-wave Formalist shape (tetra/cube/octa/icosa/dodeca witnesses + `(3,6)`/`(4,4)` fail).
+2. **`egyptian-fractions` leftover (84).** Fresh id. Fibonacci–Sylvester greedy: every positive rational is a finite sum of distinct unit fractions. Named theorem ZERO (`egyptian` / `EgyptianFraction` / `unitFractionSum`); `Rat` / `add_div` L27 / `inv_sub_inv` L195 HIT. **Not** Farey (#127). **Not** Kraft (#138). **Not** Erdős–Straus (open residual). Finite, one-wave Level A (`1=1/1` / `1/n` / `3/4` / `2/3`).
+
+Scout opened **no attack issues**. Director approves after this deliver. Cap is 2.
+
 ---
 
-**Last updated:** 2026-09-09 (OPE-1273 Formalist: british-flag Level A.)
+**Last updated:** 2026-09-09 (OPE-1278 Scout: platonic-solids prime / egyptian-fractions leftover.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
