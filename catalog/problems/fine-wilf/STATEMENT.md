@@ -1,7 +1,7 @@
 # Fine–Wilf periodicity lemma — formalize-only
 
 **id:** `fine-wilf`
-**ticket:** OPE-1263 Scout RECOMMENDED PRIME (Director approves after this shortlist)
+**ticket:** OPE-1268 Formalist Level A (Scout OPE-1263 RECOMMENDED PRIME; Director OPE-1267)
 **expected:** known-classical (Fine–Wilf 1965: a word with
 periods `p` and `q` of length at least `p+q−gcd(p,q)`
 also has period `gcd(p,q)`) — **no novelty claim**
