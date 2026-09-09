@@ -70,3 +70,4 @@ import ProofLab.SchurProduct
 import ProofLab.LameEuclid
 import ProofLab.CirculantDet
 import ProofLab.WantzelConstructible
+import ProofLab.PetersenOneFactor
