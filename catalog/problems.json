@@ -2417,25 +2417,32 @@
     {
       "id": "platonic-solids",
       "title": "Number of Platonic solids (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "discrete_geometry",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1278 Scout RECOMMENDED PRIME (parent OPE-1277; post fine-wilf #144 + british-flag #145). Catalog-audit formalize-only. Euclid XIII / Wiedijk 100 #50 no Mathlib decl. Named platonic / PlatonicSolid / schlafli / regularPolyhedron ZERO this pin. Level A pin: tetra/cube/octa/icosa/dodeca (V,E,F,p,q) witnesses with handshaking 2E=pF=qV and Euler V−E+F=2, plus (3,6)/(4,4) fail (p-2)(q-2)<4, not labelled Platonic. CoxeterMatrix.H₃ USE glue not namesake. Triangulated Octahedron axiom is a different octahedron. Namesake platonic_schlafli (only five pairs) OUT of v1, not sorry-ed. Not Euler polyhedron (Wiedijk #13 residual). Not British flag / Napoleon. Not egyptian-fractions leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1284 Formalist Level A. PR #147. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean zero-sorry ProofLab/PlatonicSolids.lean. Level A LANDED: RegularMap encoding (p,q,V,E,F with 3≤p, 3≤q, 2E=pF=qV); tetra {3,3} (4,6,4); cube {4,3} (8,12,6); octa {3,4} (6,12,8); icosa {3,5} (12,30,20); dodeca {5,3} (20,30,12); euler_* = 2; schlafli_fail_three_six / schlafli_fail_four_four; optional schlafli_bound_tetra. Nat arithmetic USE, not re-proved. Not labelled Platonic / Euler polyhedron. Namesake platonic_schlafli OUT of this ticket, not sorry-ed. Not Coxeter H3 as namesake. Not triangulated Octahedron. Not egyptian-fractions leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/platonic-solids/"
+        "catalog/problems/platonic-solids/",
+        "proofs/lean-project/ProofLab/PlatonicSolids.lean"
       ],
       "scout_issue": "OPE-1278",
       "tickets": [
         "OPE-1278",
-        "OPE-1277"
+        "OPE-1277",
+        "OPE-1283",
+        "OPE-1284"
       ],
       "parent_issue": "OPE-1277",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/PlatonicSolids.lean",
+      "formalist_issue": "OPE-1284",
+      "director_issue": "OPE-1283",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/147"
     },
     {
       "id": "egyptian-fractions",
