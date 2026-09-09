@@ -207,7 +207,7 @@ Scout opened **no attack issues**. Formalist OPE-1258 lands the leftover. OPE-12
 
 OPE-1248 mill consumed (#141+#142). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`fine-wilf` — CONSUMED Level A.** OPE-1268 Formalist. Director OPE-1267 approved Scout OPE-1263 RECOMMENDED PRIME. Lean `ProofLab/FineWilf.lean`. Catalog `formalized`. Level A: empty / constant period 1 / `[0,1,0,1,0]` periods 2 and 4 + optional sharpness `[0,1,0,0,1,0]`, not labelled Fine–Wilf. Level B namesake `fine_wilf` / Lyndon–Schützenberger residual **out of v1**. Do not revive.
+1. **`fine-wilf` — CONSUMED Level A.** OPE-1268 Formalist. PR **#144**. Director OPE-1267 approved Scout OPE-1263 RECOMMENDED PRIME. Lean `ProofLab/FineWilf.lean`. Catalog `formalized`. Level A: empty / constant period 1 / `[0,1,0,1,0]` periods 2 and 4 + optional sharpness `[0,1,0,0,1,0]`, not labelled Fine–Wilf. Level B namesake `fine_wilf` / Lyndon–Schützenberger residual **out of v1**. Do not revive.
 2. **`british-flag` leftover (84).** Fresh id. British flag theorem on a rectangle. Named theorem ZERO this pin. `EuclideanSpace` HIT; `parallelogram_law` already-in glue **not** namesake. **Not** parallelogram law / Ptolemy / law of cosines / Euler line. **Not** Napoleon / Simson (residual). Level A: unit-square origin / vertex / centre. **Unassigned this tick.**
 
 Scout opened **no attack issues**. Formalist OPE-1268 lands the prime. british-flag leftover remains unused.

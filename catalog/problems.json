@@ -2361,7 +2361,7 @@
       "domain": "combinatorics_on_words",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1268 Formalist Level A. Director OPE-1267 approved Scout OPE-1263 RECOMMENDED PRIME. Lean zero-sorry ProofLab/FineWilf.lean. Level A LANDED: List.IsPeriod (linear p≠0, w[i]=w[i+p] in range); isPeriod_nil (empty vacuously period p); isPeriod_replicate_one (constant replicate period 1); fineWilfBinary [0,1,0,1,0] periods 2 and 4 and Nat.gcd 2 4 = 2; optional sharpness [0,1,0,0,1,0] periods 3 and 5, not period gcd=1. List.get / GetElem / Nat.gcd / List.replicate USE, not re-proved. Not labelled Fine–Wilf / Lyndon–Schützenberger / Kraft. Namesake fine_wilf OUT of this ticket, not sorry-ed. Not List.rotate / IsRotated as namesake. Not Kraft / McMillan / Huffman / Shannon. Not Calkin–Wilf / GNW / Wilf-χ. Not sherman-morrison / graham-pollak. Not british-flag leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1268 Formalist Level A. PR #144. Director OPE-1267 approved Scout OPE-1263 RECOMMENDED PRIME. Lean zero-sorry ProofLab/FineWilf.lean. Level A LANDED: List.IsPeriod (linear p≠0, w[i]=w[i+p] in range); isPeriod_nil (empty vacuously period p); isPeriod_replicate_one (constant replicate period 1); fineWilfBinary [0,1,0,1,0] periods 2 and 4 and Nat.gcd 2 4 = 2; optional sharpness [0,1,0,0,1,0] periods 3 and 5, not period gcd=1. List.get / GetElem / Nat.gcd / List.replicate USE, not re-proved. Not labelled Fine–Wilf / Lyndon–Schützenberger / Kraft. Namesake fine_wilf OUT of this ticket, not sorry-ed. Not List.rotate / IsRotated as namesake. Not Kraft / McMillan / Huffman / Shannon. Not Calkin–Wilf / GNW / Wilf-χ. Not sherman-morrison / graham-pollak. Not british-flag leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2381,7 +2381,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/FineWilf.lean",
       "formalist_issue": "OPE-1268",
-      "director_issue": "OPE-1267"
+      "director_issue": "OPE-1267",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/144"
     },
     {
       "id": "british-flag",
