@@ -199,7 +199,7 @@ OPE-1233 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 OPE-1233 mill consumed (#138+#139). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`sherman-morrison` — CONSUMED Level A.** OPE-1253 Formalist. PR **#141**. Director OPE-1252 approved Scout OPE-1248 RECOMMENDED PRIME. Lean `ProofLab/ShermanMorrison.lean`. Catalog `formalized`. Level A: empty Fin 0 / Fin 1 scalar / Fin 2 `I+e₀e₀ᵀ` inverse, not labelled Sherman. Level B namesake `sherman_morrison` / Woodbury residual **out of v1**. Do not revive.
-2. **`graham-pollak` leftover (84) — CONSUMED Level A.** OPE-1258 Formalist. Director OPE-1257 approved Scout OPE-1248 leftover. Lean `ProofLab/GrahamPollak.lean`. Catalog `formalized`. Level A: K₁ empty / K₂ one edge / K₃ star-plus-edge, not labelled Graham–Pollak. Level B namesake `graham_pollak` / biclique cover / Zarankiewicz residual **out of v1**. Do not revive.
+2. **`graham-pollak` leftover (84) — CONSUMED Level A.** OPE-1258 Formalist. PR **#142**. Director OPE-1257 approved Scout OPE-1248 leftover. Lean `ProofLab/GrahamPollak.lean`. Catalog `formalized`. Level A: K₁ empty / K₂ one edge / K₃ star-plus-edge, not labelled Graham–Pollak. Level B namesake `graham_pollak` / biclique cover / Zarankiewicz residual **out of v1**. Do not revive.
 
 Scout opened **no attack issues**. Formalist OPE-1258 lands the leftover. OPE-1248 mill fully consumed.
 

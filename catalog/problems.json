@@ -2331,7 +2331,7 @@
       "domain": "graph_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1258 Formalist Level A. Director OPE-1257 approved Scout OPE-1248 leftover. Lean zero-sorry ProofLab/GrahamPollak.lean. Level A LANDED: bicliquePartition_complete_fin_one (K1 empty partition card 0=1-1); bicliquePartition_complete_fin_two (K2 one K_{1,1} card 1=2-1); bicliquePartition_complete_fin_three (K3 star-at-0 plus leftover edge card 2=3-1). completeGraph / edgeFinset / Disjoint USE, not re-proved. Not labelled Graham–Pollak / Nash–Williams / KST. Namesake graham_pollak OUT of this ticket, not sorry-ed. Not nash_williams / matroid-union (#124). Not Cayley / Kirchhoff. Not kst / Zarankiewicz. Not König χ' / Sabidussi / Brooks. Not sherman-morrison (#141). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1258 Formalist Level A. PR #142. Director OPE-1257 approved Scout OPE-1248 leftover. Lean zero-sorry ProofLab/GrahamPollak.lean. Level A LANDED: bicliquePartition_complete_fin_one (K1 empty partition card 0=1-1); bicliquePartition_complete_fin_two (K2 one K_{1,1} card 1=2-1); bicliquePartition_complete_fin_three (K3 star-at-0 plus leftover edge card 2=3-1). completeGraph / edgeFinset / Disjoint USE, not re-proved. Not labelled Graham–Pollak / Nash–Williams / KST. Namesake graham_pollak OUT of this ticket, not sorry-ed. Not nash_williams / matroid-union (#124). Not Cayley / Kirchhoff. Not kst / Zarankiewicz. Not König χ' / Sabidussi / Brooks. Not sherman-morrison (#141). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2351,7 +2351,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/GrahamPollak.lean",
       "formalist_issue": "OPE-1258",
-      "director_issue": "OPE-1257"
+      "director_issue": "OPE-1257",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/142"
     }
   ],
   "updated_at": "2026-09-09T13:51:32Z",
