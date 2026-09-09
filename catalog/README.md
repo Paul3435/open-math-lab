@@ -173,18 +173,25 @@ OPE-1189 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`schur-product` — CONSUMED.** PR **#129** Level A. Catalog `formalized`. Level B namesake `schur_product` / SVD residual **out of v1**. Do not revive.
 2. **`lame-euclid` — CONSUMED Level A.** PR **#130**. Catalog `formalized`. Level B namesake `lame` / Cassini residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1200, 2026-09-08)
+## Formalize-only shortlist (OPE-1200, 2026-09-08) — WAVE CONSUMED
 
-OPE-1189 mill consumed (#129+#130). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1200 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`circulant-det` — RECOMMENDED PRIME (86) — CONSUMED by OPE-1206 / PR #132.** Lean `ProofLab/CirculantDet.lean`. Catalog `formalized`. Level B namesake `det_circulant` / DFT / pfaffian / Kirchhoff residual **out of v1**. Do not revive.
-2. **`wantzel-constructible` leftover (84) — CONSUMED by OPE-1211 / PR #133.** Lean `ProofLab/WantzelConstructible.lean`. Catalog `formalized`. Level A Eisenstein `X³−2` / `AdjoinRoot` finrank 3 / `3≠2^k`. **Not labelled Wantzel.** Level B namesake `IsConstructible` tower / angle trisection residual **out of v1**. Do not revive.
+1. **`circulant-det` — CONSUMED.** PR **#132** Level A. Catalog `formalized`. Level B namesake `det_circulant` / DFT / pfaffian / Kirchhoff residual **out of v1**. Do not revive.
+2. **`wantzel-constructible` — CONSUMED Level A.** PR **#133**. Catalog `formalized`. Level B namesake `IsConstructible` tower / angle trisection residual **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1216, 2026-09-09)
+
+OPE-1200 mill consumed (#132+#133). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`petersen-1-factor` — RECOMMENDED PRIME (86).** Fresh id. Petersen 1891: cubic bridgeless ⇒ perfect matching. Named theorem ZERO (`petersen_one_factor` / `IsBridgeless`); `IsMatching` / `IsPerfectMatching` / `IsRegularOfDegree` / `IsBridge` / `completeGraph` HIT. Level A: empty `Fin 0` / `K₄` / `K_{3,3}`. **Not** Tutte (Matching.lean TODO; residual). **Not** Hall (already-in). **Not** König / gale_shapley / Moore Petersen-graph. Do not revive #132/#133 Level B.
+2. **`lagrange-quadratic-cf` leftover (84).** Fresh id. Lagrange 1770: quadratic irrational ⇒ eventually periodic CF. Named theorem ZERO; `GenContFract.of` / `partDens` / `goldenRatio` / `gold_sq` HIT. Level A: `(of φ).h = 1` and first two `partDens = 1`. **Not** `terminates_iff_rat` (already-in USE). **Not** Dirichlet/Legendre / Beatty / Wantzel / Pell.
 
 Scout opened **no attack issues**. Director approves after this shortlist.
 
 ---
 
-**Last updated:** 2026-09-09 (OPE-1211 Formalist: wantzel-constructible Level A.)
+**Last updated:** 2026-09-09 (OPE-1216 Scout: catalog-audit shortlist petersen-1-factor + lagrange-quadratic-cf.)
 
 ## Shortlist (post OPE-21)
 
