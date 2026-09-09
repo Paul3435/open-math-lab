@@ -2387,25 +2387,32 @@
     {
       "id": "british-flag",
       "title": "British flag theorem for a rectangle (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "euclidean_geometry",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1263 Scout leftover slot #2. Catalog-audit after OPE-1248 mill CONSUMED (#141+#142). British flag: rectangle ABCD, every P has PA²+PC²=PB²+PD². Named theorem ZERO this pin (EuclideanSpace HIT; parallelogram_law already-in glue not namesake). Not parallelogram law / Ptolemy / law of cosines / Euler line. Not Napoleon / Simson (residual). Level A: unit-square origin / vertex / centre. No novelty claim. Default no claim. Leave OPE-403 alone. Leave OPE-1195 alone.",
+      "note": "OPE-1273 Formalist Level A. PR #145. Director OPE-1272 approved Scout OPE-1263 leftover slot #2. Lean zero-sorry ProofLab/BritishFlag.lean. Level A LANDED: unitA/unitB/unitC/unitD encoding (EuclideanSpace.single); dist_sq_fin_two (EuclideanSpace.dist_eq USE, not re-proved); british_flag_unit_origin (origin 0+2=1+1); british_flag_unit_at_C (vertex C 2+0=1+1); british_flag_unit_center (centre all four 1/2). EuclideanSpace / EuclideanSpace.single / dist USE, not re-proved. Not labelled British flag / parallelogram law / Napoleon. Namesake british_flag OUT of this ticket, not sorry-ed. Not parallelogram_law as namesake. Not Ptolemy / law of cosines / Euler line. Not Napoleon / Simson / Viviani. Not fine-wilf / sherman-morrison / graham-pollak. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/british-flag/"
+        "catalog/problems/british-flag/",
+        "proofs/lean-project/ProofLab/BritishFlag.lean"
       ],
       "scout_issue": "OPE-1263",
       "tickets": [
         "OPE-1263",
-        "OPE-1262"
+        "OPE-1262",
+        "OPE-1272",
+        "OPE-1273"
       ],
       "parent_issue": "OPE-1262",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/BritishFlag.lean",
+      "formalist_issue": "OPE-1273",
+      "director_issue": "OPE-1272",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/145"
     }
   ],
   "updated_at": "2026-09-09T16:54:20Z",
