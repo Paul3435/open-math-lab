@@ -1,7 +1,7 @@
 # British flag theorem for a rectangle — formalize-only
 
 **id:** `british-flag`
-**ticket:** OPE-1263 Scout leftover slot #2 (Director approves after this shortlist)
+**ticket:** OPE-1273 Formalist Level A (Scout OPE-1263 leftover slot #2; Director OPE-1272)
 **expected:** known-classical (British flag theorem: in the
 plane of rectangle `ABCD`, every point `P` satisfies
 `PA² + PC² = PB² + PD²`) — **no novelty claim**
