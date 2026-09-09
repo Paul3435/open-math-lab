@@ -1,7 +1,7 @@
 # Kraft inequality — formalize-only
 
 **id:** `kraft-inequality`
-**ticket:** OPE-1233 Scout RECOMMENDED PRIME (parent OPE-1232)
+**ticket:** OPE-1238 Formalist Level A (Scout OPE-1233 RECOMMENDED PRIME; Director OPE-1237)
 **expected:** known-classical (Kraft 1949: prefix-free
 codes satisfy ∑ r^{-ℓ} ≤ 1) — **no novelty claim**
 

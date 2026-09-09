@@ -2237,25 +2237,32 @@
     {
       "id": "kraft-inequality",
       "title": "Kraft inequality (prefix-free codes, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1233 Scout RECOMMENDED PRIME (parent OPE-1232). Catalog-audit formalize-only after OPE-1216 mill CONSUMED (#135 petersen-1-factor Level A + #136 lagrange-quadratic-cf Level A). Kraft 1949: finite prefix-free code over r≥2 has Kraft sum ≤ 1. Mathlib v4.10.0 grep this run: List.IsPrefix / <+: HIT (Infix.lean L12/L23); InformationTheory/ contains only Hamming.lean metric (hammingDist L38, Singleton glue); ZERO named kraft / PrefixFree / kraftSum / McMillan / Huffman. Not Singleton / Hamming-bound / Plotkin / MDS (consumed #120 leftover). Not McMillan / Huffman / Shannon (residual of this id). Level A pin: empty Finset / singleton / binary {[0],[1,0],[1,1]} Kraft sum 1, not labelled Kraft. Do not solve. Default no claim. Leave OPE-403 alone. Leave OPE-1195 alone.",
+      "note": "OPE-1238 Formalist Level A. Director OPE-1237 approved Scout OPE-1233 RECOMMENDED PRIME. Lean zero-sorry ProofLab/KraftInequality.lean. Level A LANDED: PrefixFree / kraftSum; prefixFree_empty / kraftSum_empty; prefixFree_singleton; kraftBinaryExample {[0],[1,0],[1,1]} over Fin 2 prefix-free Kraft sum 1; optional kraftSum_singleton_nil. List.IsPrefix / <+: / Finset.sum / Fintype.card USE, not re-proved. Not labelled Kraft / Huffman. Namesake kraft_inequality OUT of this ticket, not sorry-ed. Not McMillan / Huffman / Shannon. Not hammingDist / Singleton (#120). Not Hamming-bound / Plotkin / MDS. Not petersen-1-factor (#135) / lagrange-quadratic-cf (#136). Not sabidussi-boxprod leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/kraft-inequality/"
+        "catalog/problems/kraft-inequality/",
+        "proofs/lean-project/ProofLab/KraftInequality.lean"
       ],
       "scout_issue": "OPE-1233",
       "tickets": [
         "OPE-1233",
-        "OPE-1232"
+        "OPE-1232",
+        "OPE-1237",
+        "OPE-1238"
       ],
       "parent_issue": "OPE-1232",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/KraftInequality.lean",
+      "formalist_issue": "OPE-1238",
+      "director_issue": "OPE-1237",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/138"
     },
     {
       "id": "sabidussi-boxprod",
