@@ -1,7 +1,7 @@
 {
   "id": "fine-wilf",
   "title": "Fine–Wilf periodicity lemma (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics_on_words",
   "score": 86,
   "scores": {

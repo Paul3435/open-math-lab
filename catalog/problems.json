@@ -2357,25 +2357,31 @@
     {
       "id": "fine-wilf",
       "title": "Fine–Wilf periodicity lemma (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics_on_words",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1263 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1248 mill CONSUMED (#141 sherman-morrison Level A + #142 graham-pollak Level A). Fine–Wilf 1965: word with periods p,q of length ≥ p+q−gcd has period gcd. Named theorem ZERO this pin (List.get / Nat.gcd HIT; List.rotate cyclic glue not namesake; List.IsPrefix Kraft glue not namesake). Not Kraft / McMillan / Huffman / Shannon. Not Lyndon–Schützenberger (residual). Level A: empty / constant period 1 / [0,1,0,1,0] periods 2 and 4. No novelty claim. Default no claim. Leave OPE-403 alone. Leave OPE-1195 alone.",
+      "note": "OPE-1268 Formalist Level A. Director OPE-1267 approved Scout OPE-1263 RECOMMENDED PRIME. Lean zero-sorry ProofLab/FineWilf.lean. Level A LANDED: List.IsPeriod (linear p≠0, w[i]=w[i+p] in range); isPeriod_nil (empty vacuously period p); isPeriod_replicate_one (constant replicate period 1); fineWilfBinary [0,1,0,1,0] periods 2 and 4 and Nat.gcd 2 4 = 2; optional sharpness [0,1,0,0,1,0] periods 3 and 5, not period gcd=1. List.get / GetElem / Nat.gcd / List.replicate USE, not re-proved. Not labelled Fine–Wilf / Lyndon–Schützenberger / Kraft. Namesake fine_wilf OUT of this ticket, not sorry-ed. Not List.rotate / IsRotated as namesake. Not Kraft / McMillan / Huffman / Shannon. Not Calkin–Wilf / GNW / Wilf-χ. Not sherman-morrison / graham-pollak. Not british-flag leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/fine-wilf/"
+        "catalog/problems/fine-wilf/",
+        "proofs/lean-project/ProofLab/FineWilf.lean"
       ],
       "scout_issue": "OPE-1263",
       "tickets": [
         "OPE-1263",
-        "OPE-1262"
+        "OPE-1262",
+        "OPE-1267",
+        "OPE-1268"
       ],
       "parent_issue": "OPE-1262",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/FineWilf.lean",
+      "formalist_issue": "OPE-1268",
+      "director_issue": "OPE-1267"
     },
     {
       "id": "british-flag",
