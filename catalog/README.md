@@ -187,18 +187,25 @@ OPE-1216 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`petersen-1-factor` — CONSUMED Level A.** OPE-1223 Formalist. PR **#135**. Lean `ProofLab/PetersenOneFactor.lean`. Catalog `formalized`. Level B namesake `petersen_one_factor` / Tutte / Tait / snarks / Petersen-graph uniqueness residual **out of v1**. Do not revive.
 2. **`lagrange-quadratic-cf` — CONSUMED Level A.** OPE-1228 Formalist. PR **#136**. Lean `ProofLab/LagrangeQuadraticCf.lean`. Catalog `formalized`. Level A: `(of φ).h = 1` and first two `partDens = 1`; optional `√2` extra. Level B namesake `lagrange_quadratic_cf` / Pell / Galois purely-periodic / Hurwitz residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1233, 2026-09-09)
+## Formalize-only shortlist (OPE-1233, 2026-09-09) — WAVE CONSUMED
 
-OPE-1216 mill consumed (#135+#136). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1233 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
 1. **`kraft-inequality` — CONSUMED Level A.** OPE-1238 Formalist. PR **#138**. Lean `ProofLab/KraftInequality.lean`. Catalog `formalized`. Level A: empty Finset / singleton / binary `{[0],[1,0],[1,1]}` Kraft sum 1. Level B namesake `kraft_inequality` / McMillan / Huffman / Shannon residual **out of v1**. Do not revive.
 2. **`sabidussi-boxprod` leftover (84) — CONSUMED Level A.** OPE-1243 Formalist. PR **#139**. Lean `ProofLab/SabidussiBoxProd.lean`. Catalog `formalized`. Level A: empty `⊥□⊥` / `K1□K1` / `K2□K2` Colorable. Level B namesake `sabidussi_boxprod` / Hedetniemi / other products / Vizing domination residual **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1248, 2026-09-09)
+
+OPE-1233 mill consumed (#138+#139). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`sherman-morrison` — RECOMMENDED PRIME (86).** Fresh id. Sherman–Morrison 1950: `(A + uvᵀ)⁻¹ = A⁻¹ − (A⁻¹u vᵀ A⁻¹)/(1 + vᵀ A⁻¹ u)`. Named theorem ZERO (`shermanMorrison` / `woodbury` / `rankOneUpdate`). `Matrix.inv` / `vecMulVec` / `mulVec` / `det_fin_*` HIT. `det_one_add_mul_comm` already-in glue, **not** namesake. Level A pin: Fin 0 / Fin 1 scalar / Fin 2 `I+e₀e₀ᵀ`, not labelled Sherman. Namesake `sherman_morrison` residual. Woodbury residual. Do **not** revive SVD / polar / Moore–Penrose / Kirchhoff / kraft / sabidussi Level B.
+2. **`graham-pollak` leftover (84).** Fresh id. Graham–Pollak 1971: biclique partition of `E(K_n)` has min size `n−1`. Named theorem ZERO (`grahamPollak` / `biclique` / `Pollak`). `completeGraph` / `edgeFinset` / `card_edgeFinset_top_eq_card_choose_two` HIT. Level A pin: K₁ empty / K₂ one edge / K₃ star-plus-edge, not labelled Graham–Pollak. Namesake `graham_pollak` residual. Do **not** revive `nash_williams` / Kirchhoff / `kst` / König χ' / Sabidussi / Brooks.
 
 Scout opened **no attack issues**. Director approves after this shortlist.
 
 ---
 
-**Last updated:** 2026-09-09 (OPE-1243 Formalist: sabidussi-boxprod Level A.)
+**Last updated:** 2026-09-09 (OPE-1248 Scout: catalog-audit shortlist sherman-morrison + graham-pollak.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

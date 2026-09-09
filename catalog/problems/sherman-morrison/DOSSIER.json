@@ -1,0 +1,59 @@
+{
+  "id": "sherman-morrison",
+  "title": "Sherman–Morrison rank-one inverse update (formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Sherman–Morrison 1950: if A is invertible and 1 + vᵀ A⁻¹ u is invertible, then (A + uvᵀ)⁻¹ = A⁻¹ − (A⁻¹u vᵀ A⁻¹)/(1 + vᵀ A⁻¹ u). Completely classical. Value is a Mathlib/ProofLab contribution (Matrix.inv / vecMulVec / mulVec / dotProduct / det_fin_* exist; NonsingularInverse.lean has inverse/adjugate algebra and ZERO rank-one update; ZERO named shermanMorrison / sherman_morrison / woodbury / rankOneUpdate in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. det_one_add_mul_comm / Weinstein–Aronszajn (SchurComplement.lean L395) is a DIFFERENT det identity — USE glue, do not re-prove, do not cite as Sherman–Morrison. SVD / polar / Moore–Penrose are DIFFERENT schur-product #129 residuals. Woodbury is a DIFFERENT not-this-wave block identity — residual of this id; do not sorry Woodbury.",
+  "recommendation": "OPE-1248 RECOMMENDED PRIME. Catalog-audit prime after OPE-1233 mill CONSUMED (#138 kraft-inequality Level A + #139 sabidussi-boxprod Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of kraft_inequality / McMillan / Huffman / sabidussi_boxprod / Hedetniemi / schur_product / SVD / Moore–Penrose / det_circulant / Kirchhoff. Independent Mathlib pin grep this run (Matrix.inv NonsingularInverse.lean L191 HIT; mul_nonsing_inv L233 HIT; vecMulVec Basic.lean L1453 HIT; mulVec L1472 HIT; dotProduct L662 HIT; det_one_add_mul_comm SchurComplement.lean L395 HIT as already-in glue only; named shermanMorrison / woodbury / rankOneUpdate ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite rank-one inverse after Kraft prefix-free + Sabidussi box-product colouring. Score 86 this run (not a JSON rubber-stamp): inv+vecMulVec waiting in NonsingularInverse (formalizability 16); Level A Fin 0 / Fin 1 scalar / Fin 2 I+e0e0ᵀ (partial 17); namesake is undergraduate matrix algebra (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins Fin 0/1/2 Level A; all-n Sherman–Morrison namesake residual. Woodbury residual. Leftover slot #2 is graham-pollak (Director may swap). Do NOT prove Woodbury / SVD / polar / Moore–Penrose / Kirchhoff / DFT / McMillan / Huffman / Hedetniemi.",
+  "mathlib_gap_grep_2026_09_09_ope1248": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1233 scores. rg sherman / Sherman / woodbury / Woodbury / grahamPollak / biclique / pollak / rankOneUpdate / rank_one_update over Mathlib/ + Archive + ProofLab → ZERO named Sherman–Morrison or Graham–Pollak theorem. Defs HIT: Matrix.inv (NonsingularInverse.lean L191), inv_def L194, mul_nonsing_inv L233, vecMulVec (Data/Matrix/Basic.lean L1453), vecMulVec_apply L1457, mulVec L1472, dotProduct L662, det_isEmpty (Determinant/Basic.lean L85), det_fin_zero L736, det_fin_one L740, det_fin_two L747, det_one_add_mul_comm (SchurComplement.lean L395; already-in glue, not namesake), completeGraph (Basic.lean L144), completeGraph_eq_top L339, completeBipartiteGraph L153, edgeFinset (Finite.lean L53), card_edgeFinset_top_eq_card_choose_two L110. Already-in this run (do not re-prove, do not re-prime): Hall all_card_le_biUnion_card_iff_exists_injective (Hall/Basic.lean L116); CayleyHamilton Matrix.aeval_self_charpoly (Charpoly/Basic.lean L123); Wilson wilsons_lemma (Wilson.lean L38); catalan_eq_centralBinom_div (Catalan.lean L109); numDerangements (Derangements/Finite.lean L62); exists_prime_lt_and_le_two_mul (Bertrand.lean L211); frobeniusNumber_pair (FrobeniusNumber.lean L52); HalesJewett Line.exists_mono_in_high_dimension (HalesJewett.lean L445); isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300); List.IsPrefix (Infix.lean L12); hammingDist (Hamming.lean L38); boxProd (Prod.lean L39); Colorable (Coloring.lean L127); det_one_add_mul_comm (SchurComplement.lean L395); totient_eq_prod_factorization / totient_mul_prod_primeFactors (Totient.lean L259/L268); Polynomial.Chebyshev.T_real_cos (Trigonometric/Chebyshev.lean L110); Finset.card_shatterer_le_sum_vcDim (Shatter.lean L191 — Sauer–Shelah already-in as shatterer bound + card_le_card_shatterer L109); ZMod.min_le_card_add (CauchyDavenport.lean); triangleRemovalBound (Triangle/Removal.lean); even_card_odd_degree_vertices (DegreeSum.lean handshaking); orthocenter_eq_smul_vsub_vadd_circumcenter (MongePoint.lean L419 — Euler line ALREADY-IN). Already-consumed this mill: ProofLab/KraftInequality.lean Level A (#138); ProofLab/SabidussiBoxProd.lean Level A (#139). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300 isTuranMaximal_iff_nonempty_iso_turanGraph.",
+  "statement_pin_required": {
+    "convention": "theorem sherman_morrison: (A + vecMulVec u v)⁻¹ = A⁻¹ minus the rank-one correction, namesake. Level A may land only Fin 0 / Fin 1 scalar / Fin 2 I+e0e0ᵀ, not labelled Sherman.",
+    "landmines": [
+      "Do not re-prove Matrix.inv / vecMulVec / mulVec / dotProduct / mul_nonsing_inv / det_fin_* / det_one_add_mul_comm.",
+      "Not Weinstein–Aronszajn / det_one_add_mul_comm (already-in). Different theorem. Do not cite as Sherman–Morrison.",
+      "Not Woodbury. Residual of this id. Do not sorry Woodbury.",
+      "Not SVD / polar / Moore–Penrose (schur-product #129 residual).",
+      "Not Kirchhoff / DFT / pfaffian (circulant-det #132 leftover).",
+      "Not kraft-inequality (#138) / McMillan / Huffman / Shannon.",
+      "Not sabidussi-boxprod (#139) / Hedetniemi / Brooks / Vizing domination.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Sherman–Morrison 1950 rank-one inverse update. Compact form: Wikipedia Sherman–Morrison formula. Type pin: Matrix.inv / vecMulVec / ℚ. det_one_add_mul_comm is a different already-in det identity. Woodbury is a different residual block identity."
+  },
+  "feasibility_shape": "Level A: empty Fin 0 inverse of I+uvᵀ is I; Fin 1 scalar (a+uv)⁻¹; Fin 2 I+e0e0ᵀ inverse diag(1/2,1); not labelled Sherman. Level B: namesake all finite invertible rank-one updates. Cap two levels. No Woodbury. No SVD. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Matrix.inv / vecMulVec / mulVec / dotProduct / mul_nonsing_inv / det_fin_* — USE; DO NOT re-prove",
+    "det_one_add_mul_comm — DIFFERENT already-in glue; DO NOT cite as Sherman–Morrison; do not re-prove",
+    "Woodbury / SVD / polar / Moore–Penrose — DIFFERENT; residual or consumed leftover; DO NOT sorry",
+    "ProofLab/SchurProduct.lean — consumed #129, DO NOT revive Level B / SVD / polar / MP",
+    "ProofLab/KraftInequality.lean — consumed #138, DO NOT revive Level B / McMillan / Huffman",
+    "ProofLab/SabidussiBoxProd.lean — consumed #139, DO NOT revive Level B / Hedetniemi",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1248",
+  "parent_issue": "OPE-1247",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO sherman / woodbury / rankOneUpdate / grahamPollak / biclique / pollak; Matrix.inv / vecMulVec / completeGraph / edgeFinset HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; Hales-Jewett infinitary vdW; Euler line; det_one_add_mul_comm; totient product formula; Chebyshev T_real_cos; Sauer–Shelah via card_shatterer_le_sum_vcDim; Cauchy–Davenport; triangle removal; handshaking",
+    "Already-consumed: KraftInequality Level A (#138); SabidussiBoxProd Level A (#139)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Woodbury / SVD / polar / Moore–Penrose / Kirchhoff / McMillan / Huffman / Hedetniemi / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
