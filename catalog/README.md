@@ -216,14 +216,14 @@ Scout opened **no attack issues**. Formalist OPE-1273 lands the leftover. OPE-12
 
 OPE-1263 mill consumed (#144+#145). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`platonic-solids` — RECOMMENDED PRIME (86).** Fresh id. Euclid XIII / Wiedijk 100 #50 (no Mathlib `decl` this pin): exactly five combinatorial regular polyhedra, Schläfli `{p,q}` with `p,q ≥ 3` and `(p-2)(q-2) < 4`. Named theorem ZERO (`platonic` / `PlatonicSolid` / `schlafli` / `regularPolyhedron`); Coxeter `H₃` (Matrix.lean L250) HIT as dodecahedral glue **not** namesake; triangulated `Octahedron` HIT as unrelated axiom. **Not** Euler polyhedron (Wiedijk #13 residual). **Not** British flag / Napoleon (#145). Finite, one-wave Formalist shape (tetra/cube/octa/icosa/dodeca witnesses + `(3,6)`/`(4,4)` fail).
-2. **`egyptian-fractions` leftover (84).** Fresh id. Fibonacci–Sylvester greedy: every positive rational is a finite sum of distinct unit fractions. Named theorem ZERO (`egyptian` / `EgyptianFraction` / `unitFractionSum`); `Rat` / `add_div` L27 / `inv_sub_inv` L195 HIT. **Not** Farey (#127). **Not** Kraft (#138). **Not** Erdős–Straus (open residual). Finite, one-wave Level A (`1=1/1` / `1/n` / `3/4` / `2/3`).
+1. **`platonic-solids` — CONSUMED Level A.** OPE-1284 Formalist. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean `ProofLab/PlatonicSolids.lean`. Catalog `formalized`. Level A: tetra/cube/octa/icosa/dodeca `(V,E,F)` witnesses + `(3,6)`/`(4,4)` fail, not labelled Platonic. Level B namesake `platonic_schlafli` / Euler polyhedron / Coxeter classification residual **out of v1**. Do not revive.
+2. **`egyptian-fractions` leftover (84).** Fresh id. Fibonacci–Sylvester greedy: every positive rational is a finite sum of distinct unit fractions. Named theorem ZERO (`egyptian` / `EgyptianFraction` / `unitFractionSum`); `Rat` / `add_div` L27 / `inv_sub_inv` L195 HIT. **Not** Farey (#127). **Not** Kraft (#138). **Not** Erdős–Straus (open residual). Finite, one-wave Level A (`1=1/1` / `1/n` / `3/4` / `2/3`). **Unassigned this tick.**
 
-Scout opened **no attack issues**. Director approves after this deliver. Cap is 2.
+Scout opened **no attack issues**. Formalist OPE-1284 lands the prime. Hold leftover until this prime lands. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-09 (OPE-1278 Scout: platonic-solids prime / egyptian-fractions leftover.)
+**Last updated:** 2026-09-09 (OPE-1284 Formalist: platonic-solids Level A.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

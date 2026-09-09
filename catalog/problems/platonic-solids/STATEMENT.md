@@ -1,8 +1,8 @@
 # Number of Platonic solids — formalize-only
 
 **id:** `platonic-solids`
-**ticket:** OPE-1278 Scout RECOMMENDED PRIME (parent OPE-1277;
-post fine-wilf #144 + british-flag #145)
+**ticket:** OPE-1284 Formalist Level A (Scout OPE-1278
+RECOMMENDED PRIME; Director OPE-1283)
 **expected:** known-classical (Euclid XIII / Wiedijk 100 #50:
 exactly five combinatorial regular polyhedra, Schläfli
 `{p,q}` with `p,q ≥ 3` and `(p-2)(q-2) < 4`) —
