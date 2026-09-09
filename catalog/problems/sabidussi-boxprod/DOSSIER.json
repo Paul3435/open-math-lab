@@ -50,6 +50,7 @@
   "parent_issue": "OPE-1232",
   "formalist_issue": "OPE-1243",
   "director_issue": "OPE-1242",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/139",
   "lean_artifact": "proofs/lean-project/ProofLab/SabidussiBoxProd.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO sabidussi / boxProd_colorable / colorable_boxProd; boxProd / Colorable HIT as infra only",
