@@ -1,0 +1,59 @@
+{
+  "id": "lagrange-quadratic-cf",
+  "title": "Lagrange theorem (quadratic irrationals have eventually periodic continued fractions, formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 15,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Lagrange 1770: a real is a quadratic irrational iff its simple CF is eventually periodic. Completely classical. Value is a Mathlib/ProofLab contribution (GenContFract.of / partDens / Terminates / terminates_iff_rat / goldenRatio / gold_sq exist; ZERO named lagrange_quadratic / eventuallyPeriodic CF / quadratic_iff_periodic in Mathlib+Archive+ProofLab; Function.Periodic hits are Jacobi theta / Hurwitz zeta — wrong periodicity). Do NOT re-discover as novel. terminates_iff_rat (TerminatesIffRat.lean L321) is a DIFFERENT already-in theorem (rationals terminate) — USE, do not re-prove, do not cite as Lagrange. Dirichlet+Legendre CF (DiophantineApproximation.lean) are DIFFERENT already-in — do not revive. Beatty/Rayleigh already-in. Wantzel (#133) is a DIFFERENT quadratic-degree theorem — do not revive IsConstructible. Pell / two-square residual of this id.",
+  "recommendation": "OPE-1216 leftover slot #2. Catalog-audit leftover after OPE-1200 mill CONSUMED (#132 circulant-det Level A + #133 wantzel-constructible Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of det_circulant / Wantzel / IsConstructible / terminates_iff_rat / Dirichlet / Pell. Independent Mathlib pin grep this run (GenContFract.of / partDens / Terminates / terminates_iff_rat / FloorRing ℝ / goldenRatio / gold_sq / one_lt_gold HIT; named Lagrange CF-periodicity ZERO). Mill NOW: finite φ CF leftover beside Petersen 1-factor. Score 84 this run (not a JSON rubber-stamp): CF+φ waiting (formalizability 16); Level A φ head/partDens 0,1 (partial 17); namesake is undergraduate but GenContFract is fiddly (attack 15); Lean-only finite (verification 16); classical (crackpot 20). v1 pins φ head=1 / first partDens=1 Level A; quadratic⇔periodic namesake residual. Do NOT assign petersen-1-factor leftover-revivals (Tutte / 1-factorization of K_{2n} / Petersen graph). Do NOT prove terminates_iff_rat / Dirichlet / Pell / Wantzel / Tutte.",
+  "mathlib_gap_grep_2026_09_09_ope1216": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1200 scores. rg lagrange_quadratic / eventuallyPeriodic / IsPeriodicCF / quadratic_iff_periodic over Mathlib/Algebra/ContinuedFractions + NumberTheory + Archive + ProofLab → ZERO named Lagrange CF theorem. ContinuedFractions folder has ZERO 'periodic'. Function.Periodic hits are Jacobi theta / Hurwitz zeta (wrong). Defs HIT: GenContFract (Basic.lean L107), partDens L129, TerminatedAt L133, Terminates L143, GenContFract.of (Computation/Basic.lean L182), of_partNum_eq_one (Approximations.lean L158), terminates_iff_rat (TerminatesIffRat.lean L321), FloorRing ℝ (Archimedean.lean L27), goldenRatio (GoldenRatio.lean L30), gold_sq L79, one_lt_gold L96, gold_lt_two L100. Already-in this run (do not re-prove, do not re-prime): terminates_iff_rat; Dirichlet exists_rat_abs_sub_le_and_den_le / Legendre exists_rat_eq_convergent (DiophantineApproximation.lean); Beatty/Rayleigh (Rayleigh.lean); Wilson wilsons_lemma (Wilson.lean L38); Sauer-Shelah (Shatter.lean); FKG (FourFunctions.lean L336); LucasLehmer; CayleyHamilton Matrix.aeval_self_charpoly (Charpoly/Basic.lean L123); subgroup_units_cyclic (IntegralDomain.lean L140); Configuration.HasLines.card_le; Int.pow_sub_pow LTE (Multiplicity.lean L187); ADEInequality.classification; Sphere.oangle_center_eq_two_zsmul_oangle; Apollonius Triangle.lean L314; parallelogram_law (InnerProductSpace/Basic.lean L590); catalan_eq_centralBinom_div L109; numDerangements; exists_prime_lt_and_le_two_mul (Bertrand.lean L211); frobeniusNumber_pair L52; HalesJewett.lean infinitary vdW; det_vandermonde L69; hockey-stick Zhu Shijie (Choose/Sum.lean L123); multinomial file exists; Hall all_card_le_biUnion_card_iff_exists_injective L116; EisensteinCriterion; minpoly; IntermediateField; IsSolvableByRad. Already-consumed this mill: ProofLab/CirculantDet.lean Level A (#132); ProofLab/WantzelConstructible.lean Level A (#133). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300 isTuranMaximal_iff_nonempty_iso_turanGraph.",
+  "statement_pin_required": {
+    "convention": "theorem lagrange_quadratic_cf: irrational quadratic ⇒ eventually periodic partDens, namesake. Level A may land only φ head=1 / partDens 0 and 1 equal 1 / optional √2 extra, not labelled Lagrange.",
+    "landmines": [
+      "Do not re-prove GenContFract.of / partDens / gold_sq / terminates_iff_rat / FloorRing ℝ / Dirichlet / Legendre.",
+      "Not terminates_iff_rat (already-in). USE; do not cite as Lagrange.",
+      "Not Wantzel / IsConstructible (consumed #133). Different quadratic theorem.",
+      "Not Beatty/Rayleigh / Farey / Stern–Brocot.",
+      "Not circulant-det (#132) / det_circulant / DFT.",
+      "Not petersen-1-factor (OPE-1216 prime) / Tutte / Hall.",
+      "Do not prove Pell / two-square / quadratic reciprocity as namesake.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Lagrange 1770 continued-fraction periodicity of quadratic irrationals. Compact form: Wikipedia Lagrange's theorem (continued fraction). Type pin: GenContFract.of / partDens / goldenRatio. terminates_iff_rat is a different already-in theorem. Wantzel is a different consumed theorem."
+  },
+  "feasibility_shape": "Level A: (of φ).h = 1 via 1<φ<2; partDens.get? 0 = some 1 and get? 1 = some 1 via gold_sq engine (φ = 1 + 1/φ); optional √2 head 1 / first partDen 2; not labelled Lagrange. Level B: namesake irrational quadratic ⇒ eventually periodic partDens. Cap two levels. No Pell. No Galois purely-periodic. No Hurwitz. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: GenContFract/IntFractPair.stream is fiddly — Level A must stay φ (and optional √2), not the namesake.",
+  "infra_carry_over": [
+    "Mathlib GenContFract.of / partDens / Terminates — USE; DO NOT re-prove",
+    "terminates_iff_rat — DIFFERENT already-in; DO NOT cite as Lagrange; USE if a rational example is needed",
+    "goldenRatio / gold_sq / one_lt_gold — USE; DO NOT re-prove",
+    "Dirichlet+Legendre CF — DIFFERENT already-in; DO NOT revive",
+    "ProofLab/WantzelConstructible.lean — consumed #133, DO NOT revive Level B / IsConstructible",
+    "ProofLab/CirculantDet.lean — consumed #132, DO NOT revive Level B / DFT",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1216",
+  "parent_issue": "OPE-1215",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lagrange_quadratic / eventuallyPeriodic CF; GenContFract.of / φ HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: terminates_iff_rat; Dirichlet+Legendre CF; Beatty/Rayleigh; Wilson; Sauer-Shelah; FKG; LucasLehmer; Cayley-Hamilton; LTE; ADEInequality; inscribed angle; Apollonius; parallelogram_law; catalan; derangements; Bertrand exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; Hales-Jewett; det_vandermonde; hockey-stick; multinomial; Hall; Eisenstein; minpoly; IsSolvableByRad",
+    "Already-consumed: CirculantDet Level A (#132); WantzelConstructible Level A (#133)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "terminates_iff_rat / Dirichlet / Pell / Wantzel / Tutte / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

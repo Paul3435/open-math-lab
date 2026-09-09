@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-08T19:30:00Z",
+  "last_updated": "2026-09-09T07:37:10Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2173,9 +2173,55 @@
       "formalist_issue": "OPE-1211",
       "director_issue": "OPE-1210",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/133"
+    },
+    {
+      "id": "petersen-1-factor",
+      "title": "Petersen 1-factor theorem (cubic bridgeless graphs have a perfect matching, formalize-only)",
+      "status": "candidate",
+      "domain": "graph_theory",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1216 Scout RECOMMENDED PRIME (parent OPE-1215). Catalog-audit after OPE-1200 mill CONSUMED (#132+#133). Independent Mathlib v4.10.0 grep this run: ZERO petersen_one_factor / IsBridgeless / cubic_bridgeless; IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge / completeGraph HIT. Level A pin: empty Fin 0 / completeGraph (Fin 4) / K_{3,3}. Not labelled Petersen. Namesake all cubic bridgeless OUT of v1 (Tutte residual). Not Tutte / Hall / König / gale_shapley / Moore Petersen-graph / Wantzel / circulant-det. Leave OPE-403 alone. No novelty claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/petersen-1-factor/"
+      ],
+      "scout_issue": "OPE-1216",
+      "tickets": [
+        "OPE-1216",
+        "OPE-1215"
+      ],
+      "parent_issue": "OPE-1215",
+      "mathlib_gap": true
+    },
+    {
+      "id": "lagrange-quadratic-cf",
+      "title": "Lagrange theorem (quadratic irrationals have eventually periodic continued fractions, formalize-only)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1216 Scout leftover slot #2 (parent OPE-1215). Catalog-audit after OPE-1200 mill CONSUMED (#132+#133). Independent Mathlib v4.10.0 grep this run: ZERO lagrange_quadratic / eventuallyPeriodic CF; GenContFract.of / partDens / terminates_iff_rat / goldenRatio / gold_sq HIT. Level A pin: (of φ).h = 1 and first two partDens = 1. Not labelled Lagrange. Namesake quadratic⇔periodic OUT of v1. Not terminates_iff_rat (already-in USE). Not Dirichlet/Legendre / Beatty / Wantzel / Pell. Leave OPE-403 alone. No novelty claim.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/lagrange-quadratic-cf/"
+      ],
+      "scout_issue": "OPE-1216",
+      "tickets": [
+        "OPE-1216",
+        "OPE-1215"
+      ],
+      "parent_issue": "OPE-1215",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-08T19:30:00Z",
+  "updated_at": "2026-09-09T07:37:10Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

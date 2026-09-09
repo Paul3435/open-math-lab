@@ -1,0 +1,58 @@
+{
+  "id": "petersen-1-factor",
+  "title": "Petersen 1-factor theorem (cubic bridgeless graphs have a perfect matching, formalize-only)",
+  "status": "candidate",
+  "domain": "graph_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Petersen 1891: every cubic bridgeless simple graph has a 1-factor. Completely classical. Value is a Mathlib/ProofLab contribution (IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge exist; ZERO named petersen_one_factor / Petersen 1-factor / IsBridgeless / cubic_bridgeless in Mathlib+Archive+ProofLab except Moore-bound comments naming the Petersen graph). Do NOT re-discover as novel. Tutte (Matching.lean TODO) is a DIFFERENT not-one-wave theorem — residual of this id; do not sorry Tutte; do not cite as Petersen. Hall SDR (Hall/Basic.lean L116) is DIFFERENT already-in — do not re-prove. König matching is consumed. Gale-Shapley (#126) is a DIFFERENT matching theorem. The Petersen graph / Moore cage is a DIFFERENT consumed-moore comment residual. Kirchhoff / Cayley leftover OUT of v1.",
+  "recommendation": "OPE-1216 RECOMMENDED PRIME. Catalog-audit prime after OPE-1200 mill CONSUMED (#132 circulant-det Level A + #133 wantzel-constructible Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of det_circulant / Wantzel / IsConstructible / Tutte / Moore / König / Hall / gale_shapley. Independent Mathlib pin grep this run (IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge / completeGraph / completeBipartiteGraph HIT; named Petersen 1-factor / IsBridgeless / cubic_bridgeless / petersen_one_factor ZERO). Mill NOW: finite cubic-bridgeless 1-factor after circulant DFT + Wantzel degree. Score 86 this run (not a JSON rubber-stamp): matching+bridge+regular waiting (formalizability 16); Level A empty/K4/K_{3,3} (partial 17); namesake is real work but undergraduate (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins Fin 0 / K4 / K_{3,3} Level A; all-cubic-bridgeless namesake residual. Tutte residual. Leftover slot #2 is lagrange-quadratic-cf (Director may swap). Do NOT prove Tutte / Petersen-graph / Hall / König / gale_shapley / det_circulant / Wantzel / 1-factorization of K_{2n}.",
+  "mathlib_gap_grep_2026_09_09_ope1216": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1200 scores. rg petersen_one_factor / IsBridgeless / cubic_bridgeless / oneFactor over Mathlib/ + Archive + ProofLab → ZERO named 1-factor theorem. Petersen hits only ProofLab/MooreDegreeGirth.lean comments (consumed moore; different theorem). Matching.lean L50 def IsMatching, L139 def IsPerfectMatching, L161 isPerfectMatching_iff, file TODO Tutte + Hall (Hall already-in elsewhere). Defs HIT: IsRegularOfDegree (Finite.lean L261), IsBridge (Path.lean L997), completeGraph (Basic.lean L144), completeBipartiteGraph (L153), Hall all_card_le_biUnion_card_iff_exists_injective (Hall/Basic.lean L116). Already-in this run (do not re-prove, do not re-prime): Hall SDR; CayleyHamilton Matrix.aeval_self_charpoly (Charpoly/Basic.lean L123); subgroup_units_cyclic (IntegralDomain.lean L140); Configuration.HasLines.card_le; Sauer-Shelah; Beatty/Rayleigh; LucasLehmer; Wilson; FKG; Int.pow_sub_pow LTE (Multiplicity.lean L187); ADEInequality.classification; Sphere.oangle_center_eq_two_zsmul_oangle inscribed angle; Apollonius Triangle.lean; Dirichlet+Legendre CF (DiophantineApproximation.lean); GenContFract.terminates_iff_rat (TerminatesIffRat.lean L321); FloorRing ℝ (Archimedean.lean L27); goldenRatio (GoldenRatio.lean L30); catalan_eq_centralBinom_div; numDerangements; bertrand; frobeniusNumber_pair; HalesJewett infinitary vdW; det_vandermonde; EisensteinCriterion; minpoly; IntermediateField; IsSolvableByRad. Already-consumed this mill: ProofLab/CirculantDet.lean Level A (#132); ProofLab/WantzelConstructible.lean Level A (#133). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300 isTuranMaximal_iff_nonempty_iso_turanGraph.",
+  "statement_pin_required": {
+    "convention": "theorem petersen_one_factor: cubic + bridgeless ⇒ ∃ perfect matching, namesake. Level A may land only empty Fin 0 / K4 / K_{3,3}, not labelled Petersen.",
+    "landmines": [
+      "Do not re-prove IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge / completeGraph / completeBipartiteGraph / Hall SDR.",
+      "Not Tutte (Matching.lean TODO). Residual of this id. Do not sorry Tutte.",
+      "Not the Petersen graph / Moore / Hoffman-Singleton (consumed moore comments). Different theorem.",
+      "Not König matching (consumed) / Gale-Shapley (#126) / Vizing / konig_edge_chromatic.",
+      "Not circulant-det (#132) / det_circulant / DFT / Fourier / pfaffian.",
+      "Not wantzel-constructible (#133) / IsConstructible / angle trisection.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Petersen 1891 1-factor theorem. Compact form: Wikipedia Petersen theorem (graph theory). Type pin: IsRegularOfDegree 3 / IsBridge / IsPerfectMatching. Tutte is a different not-one-wave theorem. Petersen graph is a different object."
+  },
+  "feasibility_shape": "Level A: empty Fin 0 vacuous regular/bridgeless/matching; K4=⊤ on Fin 4 is 3-regular bridgeless with a 1-factor; K_{3,3} completeBipartiteGraph (Fin 3) (Fin 3) same; not labelled Petersen. Level B: namesake all finite cubic bridgeless graphs. Cap two levels. No Tutte. No Petersen-graph uniqueness. No Tait/snarks. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge — USE; DO NOT re-prove",
+    "Hall SDR — DIFFERENT already-in; DO NOT cite as Petersen; do not re-prove",
+    "Tutte — DIFFERENT Matching.lean TODO; residual; DO NOT sorry",
+    "ProofLab/MooreDegreeGirth.lean — consumed moore comments naming Petersen graph; DO NOT revive",
+    "ProofLab/CirculantDet.lean — consumed #132, DO NOT revive Level B / DFT",
+    "ProofLab/WantzelConstructible.lean — consumed #133, DO NOT revive Level B / IsConstructible",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1216",
+  "parent_issue": "OPE-1215",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO petersen_one_factor / IsBridgeless / cubic_bridgeless; matching/regular/bridge HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Hall; Cayley-Hamilton; LTE; ADEInequality; inscribed angle; Apollonius; Dirichlet+Legendre CF; terminates_iff_rat; catalan; derangements; bertrand; frobeniusNumber_pair; Hales-Jewett infinitary vdW; det_vandermonde; Eisenstein; minpoly; IsSolvableByRad",
+    "Already-consumed: CirculantDet Level A (#132); WantzelConstructible Level A (#133)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Tutte / Petersen-graph / Hall / König / gale_shapley / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
