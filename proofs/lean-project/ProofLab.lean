@@ -72,3 +72,4 @@ import ProofLab.CirculantDet
 import ProofLab.WantzelConstructible
 import ProofLab.PetersenOneFactor
 import ProofLab.LagrangeQuadraticCf
+import ProofLab.KraftInequality
