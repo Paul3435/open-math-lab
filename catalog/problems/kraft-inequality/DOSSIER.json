@@ -1,0 +1,59 @@
+{
+  "id": "kraft-inequality",
+  "title": "Kraft inequality (prefix-free codes, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Kraft 1949: a finite prefix-free code over an alphabet of size r≥2 has Kraft sum ∑ r^{-|w|} ≤ 1. Completely classical. Value is a Mathlib/ProofLab contribution (List.IsPrefix / <+: / Finset.sum / Fintype.card exist; InformationTheory/ contains only Hamming.lean metric; ZERO named kraft / PrefixFree / kraftSum / McMillan / Huffman in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Singleton / hammingDist (Hamming.lean L38, consumed #120) is a DIFFERENT error-correcting theorem — do not revive singleton_bound / Hamming-bound / Plotkin / MDS; OPE-1147 explicitly said Kraft is not the Singleton namesake. McMillan uniquely-decodable / Huffman optimality / Shannon source coding are DIFFERENT not-this-wave theorems — residual of this id; do not sorry McMillan; do not cite as Kraft.",
+  "recommendation": "OPE-1233 RECOMMENDED PRIME. Catalog-audit prime after OPE-1216 mill CONSUMED (#135 petersen-1-factor Level A + #136 lagrange-quadratic-cf Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of petersen_one_factor / Tutte / lagrange_quadratic_cf / Pell / singleton_bound / Hamming-bound / Huffman. Independent Mathlib pin grep this run (List.IsPrefix Infix.lean L12/<+: L23 HIT; hammingDist Hamming.lean L38 HIT as Singleton glue only; named kraft / PrefixFree / kraftSum / McMillan / Huffman / uniquelyDecodable ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite prefix-free Kraft after Petersen 1-factor + Lagrange φ-CF. Score 86 this run (not a JSON rubber-stamp): prefix+Finset waiting in an almost-empty InformationTheory folder (formalizability 16); Level A empty/singleton/binary {0,10,11} (partial 17); namesake is undergraduate tree-counting (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins Fin 2 empty/singleton/binary example Level A; all-prefix-free Kraft namesake residual. McMillan/Huffman/Shannon residual. Leftover slot #2 is sabidussi-boxprod (Director may swap). Do NOT prove McMillan / Huffman / Shannon / Hamming-bound / Plotkin / MDS / Tutte / Pell / Gauss-Lucas / Sturm.",
+  "mathlib_gap_grep_2026_09_09_ope1233": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1216 scores. rg kraft / PrefixFree / kraftSum / McMillan / Huffman / uniquelyDecodable over Mathlib/ + Archive + ProofLab → ZERO named Kraft theorem. InformationTheory/ contains only Hamming.lean (metric; hammingDist L38). Defs HIT: List.IsPrefix / <+: (Data/List/Infix.lean L12 / L23), Finset.sum, Fintype.card, hammingDist (Hamming.lean L38; Singleton glue, not namesake). Already-in this run (do not re-prove, do not re-prime): Hall all_card_le_biUnion_card_iff_exists_injective (Hall/Basic.lean L116); CayleyHamilton Matrix.aeval_self_charpoly (Charpoly/Basic.lean L123); Wilson wilsons_lemma (Wilson.lean L38); catalan_eq_centralBinom_div (Catalan.lean L109); numDerangements (Derangements/Finite.lean L62); exists_prime_lt_and_le_two_mul (Bertrand.lean L211); frobeniusNumber_pair (FrobeniusNumber.lean L52); HalesJewett Line.exists_mono_in_high_dimension (HalesJewett.lean L445; infinitary vdW corollary); isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300); completeGraph (Basic.lean L144); Colorable (Coloring.lean L127); boxProd (Prod.lean L39); circumcenter (Circumcenter.lean L254); orthocenter / orthocenter_eq_smul_vsub_vadd_circumcenter (MongePoint.lean L410/L419 — Euler line ALREADY-IN, do not prime). Already-consumed this mill: ProofLab/PetersenOneFactor.lean Level A (#135); ProofLab/LagrangeQuadraticCf.lean Level A (#136). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300 isTuranMaximal_iff_nonempty_iso_turanGraph.",
+  "statement_pin_required": {
+    "convention": "theorem kraft_inequality: PrefixFree C over r≥2 ⇒ kraftSum C ≤ 1, namesake. Level A may land only empty Finset / singleton / binary {0,10,11} Kraft sum 1, not labelled Kraft.",
+    "landmines": [
+      "Do not re-prove List.IsPrefix / <+: / Finset.sum / Fintype.card / hammingDist.",
+      "Not Singleton / hammingDist (consumed #120). Different theorem. Do not revive Hamming-bound / Plotkin / MDS.",
+      "Not McMillan uniquely-decodable. Residual of this id. Do not sorry McMillan.",
+      "Not Huffman / Shannon source coding. Residual of this id.",
+      "Not petersen-1-factor (#135) / Tutte / Hall / König.",
+      "Not lagrange-quadratic-cf (#136) / Pell / terminates_iff_rat.",
+      "Not Gauss-Lucas / Sturm / Budan-Fourier (Descartes leftover).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Kraft 1949 inequality for prefix-free codes. Compact form: Wikipedia Kraft–McMillan inequality (prefix-free half). Type pin: Finset (List α) / List.IsPrefix / ℚ Kraft sum. Singleton/hammingDist is a different consumed theorem. McMillan uniquely-decodable is a different residual theorem."
+  },
+  "feasibility_shape": "Level A: empty Finset prefix-free with Kraft 0; singleton prefix-free; binary { [0], [1,0], [1,1] } over Fin 2 is prefix-free with Kraft sum 1; not labelled Kraft. Level B: namesake all finite prefix-free codes over r≥2 have Kraft sum ≤ 1. Cap two levels. No McMillan. No Huffman. No Shannon. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib List.IsPrefix / <+: / Finset.sum / Fintype.card — USE; DO NOT re-prove",
+    "hammingDist — DIFFERENT Singleton glue; DO NOT cite as Kraft; do not re-prove",
+    "McMillan / Huffman / Shannon — DIFFERENT; residual; DO NOT sorry",
+    "ProofLab/SingletonBound.lean — consumed #120, DO NOT revive Level B / Hamming-bound",
+    "ProofLab/PetersenOneFactor.lean — consumed #135, DO NOT revive Level B / Tutte",
+    "ProofLab/LagrangeQuadraticCf.lean — consumed #136, DO NOT revive Level B / Pell",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1233",
+  "parent_issue": "OPE-1232",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO kraft / PrefixFree / kraftSum / McMillan / Huffman; List.IsPrefix / Hamming.lean metric HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; Hales-Jewett infinitary vdW; Euler line orthocenter_eq_smul_vsub_vadd_circumcenter",
+    "Already-consumed: PetersenOneFactor Level A (#135); LagrangeQuadraticCf Level A (#136)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Singleton / McMillan / Huffman / Shannon / Tutte / Pell / Gauss-Lucas / Sturm / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

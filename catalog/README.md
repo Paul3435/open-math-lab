@@ -180,25 +180,34 @@ OPE-1200 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 1. **`circulant-det` — CONSUMED.** PR **#132** Level A. Catalog `formalized`. Level B namesake `det_circulant` / DFT / pfaffian / Kirchhoff residual **out of v1**. Do not revive.
 2. **`wantzel-constructible` — CONSUMED Level A.** PR **#133**. Catalog `formalized`. Level B namesake `IsConstructible` tower / angle trisection residual **out of v1**. Do not revive.
 
-## Formalize-only shortlist (OPE-1216, 2026-09-09)
+## Formalize-only shortlist (OPE-1216, 2026-09-09) — WAVE CONSUMED
 
-OPE-1200 mill consumed (#132+#133). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1216 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
 1. **`petersen-1-factor` — CONSUMED Level A.** OPE-1223 Formalist. PR **#135**. Lean `ProofLab/PetersenOneFactor.lean`. Catalog `formalized`. Level B namesake `petersen_one_factor` / Tutte / Tait / snarks / Petersen-graph uniqueness residual **out of v1**. Do not revive.
 2. **`lagrange-quadratic-cf` — CONSUMED Level A.** OPE-1228 Formalist. PR **#136**. Lean `ProofLab/LagrangeQuadraticCf.lean`. Catalog `formalized`. Level A: `(of φ).h = 1` and first two `partDens = 1`; optional `√2` extra. Level B namesake `lagrange_quadratic_cf` / Pell / Galois purely-periodic / Hurwitz residual **out of v1**. Do not revive.
+
+## Formalize-only shortlist (OPE-1233, 2026-09-09)
+
+OPE-1216 mill consumed (#135+#136). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`kraft-inequality` — RECOMMENDED PRIME (86).** Fresh id. Kraft 1949 prefix-free ∑ r^{-ℓ} ≤ 1. Named theorem ZERO. `List.IsPrefix` HIT; InformationTheory/ = Hamming.lean metric only. **Not** Singleton / Hamming-bound / Plotkin / MDS. **Not** McMillan / Huffman / Shannon (residual of this id).
+2. **`sabidussi-boxprod` leftover (84).** Fresh id. Sabidussi 1957 χ(G □ H) = max. Named theorem ZERO. `boxProd` / `Colorable` HIT; Prod.lean ends with degree, no colouring. **Not** Brooks / greedy / AES / König χ'. **Not** Hedetniemi (residual of this id).
 
 Scout opened **no attack issues**. Director approves after this shortlist.
 
 ---
 
-**Last updated:** 2026-09-09 (OPE-1228 Formalist: lagrange-quadratic-cf Level A φ head / first two partDens.)
+**Last updated:** 2026-09-09 (OPE-1233 Scout: kraft-inequality prime / sabidussi-boxprod leftover.)
 
-## Shortlist (post OPE-21)
+## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
-1. **Frobenius (two coins)** — OPE-22 in flight  
-2. **Derangement formula** — next combinatorics formalization bet  
-3. **Catalan recurrence** — after binomial infra from (2)  
-**Alternate:** Bertrand computational certificate (smaller bound first).  
+These catalog JSON rows **fail the gap gate** this run (already Mathlib or not one-wave). Replaced, not reaffirmed. Do **not** re-prime.
+
+1. **Frobenius (two coins)** — already `frobeniusNumber_pair`; process-fuel only
+2. **Derangement formula** — already `numDerangements`
+3. **Catalan recurrence** — already `catalan_eq_centralBinom_div`
+**Alternate:** Bertrand — already `exists_prime_lt_and_le_two_mul`. vdW W(2,4) — Hales–Jewett infinitary already-in; finitary not one-wave.
 **Do not re-open** EW a=5 path. Sum-free only as Lean cleanup, not “discovery.”
 
 ## Contributing
