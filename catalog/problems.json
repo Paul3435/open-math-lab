@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-09T13:51:32Z",
+  "last_updated": "2026-09-09T16:54:20Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2353,9 +2353,55 @@
       "formalist_issue": "OPE-1258",
       "director_issue": "OPE-1257",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/142"
+    },
+    {
+      "id": "fine-wilf",
+      "title": "Fine–Wilf periodicity lemma (formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics_on_words",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1263 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1248 mill CONSUMED (#141 sherman-morrison Level A + #142 graham-pollak Level A). Fine–Wilf 1965: word with periods p,q of length ≥ p+q−gcd has period gcd. Named theorem ZERO this pin (List.get / Nat.gcd HIT; List.rotate cyclic glue not namesake; List.IsPrefix Kraft glue not namesake). Not Kraft / McMillan / Huffman / Shannon. Not Lyndon–Schützenberger (residual). Level A: empty / constant period 1 / [0,1,0,1,0] periods 2 and 4. No novelty claim. Default no claim. Leave OPE-403 alone. Leave OPE-1195 alone.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/fine-wilf/"
+      ],
+      "scout_issue": "OPE-1263",
+      "tickets": [
+        "OPE-1263",
+        "OPE-1262"
+      ],
+      "parent_issue": "OPE-1262",
+      "mathlib_gap": true
+    },
+    {
+      "id": "british-flag",
+      "title": "British flag theorem for a rectangle (formalize-only)",
+      "status": "candidate",
+      "domain": "euclidean_geometry",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1263 Scout leftover slot #2. Catalog-audit after OPE-1248 mill CONSUMED (#141+#142). British flag: rectangle ABCD, every P has PA²+PC²=PB²+PD². Named theorem ZERO this pin (EuclideanSpace HIT; parallelogram_law already-in glue not namesake). Not parallelogram law / Ptolemy / law of cosines / Euler line. Not Napoleon / Simson (residual). Level A: unit-square origin / vertex / centre. No novelty claim. Default no claim. Leave OPE-403 alone. Leave OPE-1195 alone.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/british-flag/"
+      ],
+      "scout_issue": "OPE-1263",
+      "tickets": [
+        "OPE-1263",
+        "OPE-1262"
+      ],
+      "parent_issue": "OPE-1262",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-09T13:51:32Z",
+  "updated_at": "2026-09-09T16:54:20Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

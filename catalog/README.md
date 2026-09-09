@@ -203,9 +203,18 @@ OPE-1233 mill consumed (#138+#139). Catalog-audit shortlist (not a prize hunt; n
 
 Scout opened **no attack issues**. Formalist OPE-1258 lands the leftover. OPE-1248 mill fully consumed.
 
+## Formalize-only shortlist (OPE-1263, 2026-09-09)
+
+OPE-1248 mill consumed (#141+#142). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`fine-wilf` — RECOMMENDED PRIME (86).** Fresh id. Fine–Wilf 1965 periodicity lemma. Named theorem ZERO this pin. `List.get` / `Nat.gcd` HIT; `List.rotate` cyclic glue **not** namesake; `List.IsPrefix` Kraft glue **not** namesake. **Not** Kraft / McMillan / Huffman / Shannon. **Not** Lyndon–Schützenberger (residual). Level A: empty / constant period 1 / `[0,1,0,1,0]` periods 2 and 4.
+2. **`british-flag` leftover (84).** Fresh id. British flag theorem on a rectangle. Named theorem ZERO this pin. `EuclideanSpace` HIT; `parallelogram_law` already-in glue **not** namesake. **Not** parallelogram law / Ptolemy / law of cosines / Euler line. **Not** Napoleon / Simson (residual). Level A: unit-square origin / vertex / centre.
+
+Scout opened **no attack issues**. Director approves after this shortlist.
+
 ---
 
-**Last updated:** 2026-09-09 (OPE-1258 Formalist: graham-pollak Level A.)
+**Last updated:** 2026-09-09 (OPE-1263 Scout: fine-wilf + british-flag.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

@@ -1,0 +1,60 @@
+{
+  "id": "british-flag",
+  "title": "British flag theorem for a rectangle (formalize-only)",
+  "status": "candidate",
+  "domain": "euclidean_geometry",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical British flag theorem: in the plane of rectangle ABCD, every point P satisfies PA²+PC²=PB²+PD². Completely classical. Value is a Mathlib/ProofLab contribution (EuclideanSpace / dist / parallelogram_law exist; ZERO named britishFlag / british_flag / BritishFlag in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. parallelogram_law (InnerProductSpace/Basic.lean L590) is a DIFFERENT parallelogram identity — USE glue, do not re-prove, do not cite as British flag. Ptolemy / law of cosines / Euler line are DIFFERENT already-in Euclidean theorems. Napoleon / Simson / nine-point / angle-bisector are DIFFERENT not-this-wave theorems — residual of this id; do not sorry Napoleon. Fine–Wilf is the prime of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1263 leftover slot #2. Catalog-audit leftover after OPE-1248 mill CONSUMED (#141 sherman-morrison Level A + #142 graham-pollak Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of sherman_morrison / Woodbury / graham_pollak / kraft_inequality / Wantzel / Heron / Ptolemy. Independent Mathlib pin grep this run (EuclideanSpace PiL2.lean L100 HIT; parallelogram_law InnerProductSpace/Basic.lean L590 HIT as already-in glue only; named britishFlag / british_flag / Napoleon / Simson / Viviani / angle-bisector-theorem ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite rectangle distance-sum leftover beside Fine–Wilf word periods. Score 84 this run (not a JSON rubber-stamp): EuclideanSpace+parallelogram_law waiting (formalizability 16); Level A unit-square origin / vertex / centre (partial 16); namesake is undergraduate coordinates (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins unit square Level A; all-points British flag namesake residual. Napoleon residual. Do NOT assign Fine–Wilf leftover-revivals (Lyndon–Schützenberger). Do NOT prove Fine–Wilf here (prime of this shortlist). Do NOT prove parallelogram_law as namesake / Napoleon / Wantzel.",
+  "mathlib_gap_grep_2026_09_09_ope1263": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1248 scores. rg britishFlag / british_flag / BritishFlag / napoleon / simson / viviani / angle-bisector-theorem over Mathlib/ + Archive + ProofLab → ZERO named British flag (or Napoleon / Simson). Defs HIT: EuclideanSpace (PiL2.lean L100), parallelogram_law (InnerProductSpace/Basic.lean L590; already-in glue, not namesake), Nat.gcd (Data/Nat/GCD/Basic.lean L12), List.rotate / IsRotated (Rotate.lean L18), List.IsPrefix (Infix.lean L12), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Hall; CayleyHamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Turán L300; det_one_add_mul_comm; totient product; Chebyshev T_real_cos; Sauer–Shelah; Cauchy–Davenport; triangle removal; handshaking; parallelogram_law L590; Ptolemy; law of cosines Triangle.lean; Euler line MongePoint; ZMod.pow_totient; exists_prime_orderOf_dvd_card; Schur-Zassenhaus; Partition.odds/distincts. Already-consumed this mill: ProofLab/ShermanMorrison.lean Level A (#141); ProofLab/GrahamPollak.lean Level A (#142). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem british_flag: PA²+PC²=PB²+PD² on an axis-aligned rectangle, namesake. Level A may land only unit-square origin / vertex / centre, not labelled British flag.",
+    "landmines": [
+      "Do not re-prove EuclideanSpace / dist / parallelogram_law / law of cosines / Ptolemy.",
+      "Not parallelogram_law (already-in). Different theorem. Do not cite as British flag.",
+      "Not Ptolemy / law of cosines / Euler line / Heron / Wantzel.",
+      "Not Napoleon / Simson / nine-point / angle-bisector. Residual of this id. Do not sorry Napoleon.",
+      "Not fine-wilf (OPE-1263 prime). Do not prove Fine–Wilf here.",
+      "Not sherman-morrison (#141) / Woodbury / graham-pollak (#142).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "British flag theorem (rectangle Union-Jack identity). Compact form: Wikipedia British flag theorem. Type pin: EuclideanSpace ℝ (Fin 2) / dist / axis-aligned corners. parallelogram_law is a different already-in identity. Napoleon is a different residual theorem."
+  },
+  "feasibility_shape": "Level A: unit square origin / vertex C / centre; not labelled British flag. Level B: namesake every point of the plane of an axis-aligned rectangle. Cap two levels. No Napoleon. No parallelogram-law-as-namesake. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: encode corners with EuclideanSpace.single / explicit coordinates, zero sorry.",
+  "infra_carry_over": [
+    "Mathlib EuclideanSpace / dist — USE; DO NOT re-prove",
+    "parallelogram_law — DIFFERENT already-in glue; DO NOT cite as British flag; do not re-prove",
+    "Ptolemy / law of cosines / Euler line — DIFFERENT already-in; DO NOT sorry / revive",
+    "Napoleon / Simson / nine-point / angle-bisector — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/Heron.lean — consumed, DO NOT revive",
+    "ProofLab/WantzelConstructible.lean — consumed #133, DO NOT revive Level B / angle trisection",
+    "ProofLab/ShermanMorrison.lean — consumed #141, DO NOT revive Level B / Woodbury",
+    "ProofLab/GrahamPollak.lean — consumed #142, DO NOT revive Level B / biclique cover",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1263",
+  "parent_issue": "OPE-1262",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO britishFlag / british_flag / Napoleon / Simson / Viviani / angle-bisector-theorem; EuclideanSpace / parallelogram_law HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: parallelogram_law L590; Ptolemy; law of cosines; Euler line; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Turán L300",
+    "Already-consumed: ShermanMorrison Level A (#141); GrahamPollak Level A (#142)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Napoleon / Simson / Fine–Wilf leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
