@@ -48,6 +48,8 @@
   "scored_at": "2026-09-09",
   "scout_issue": "OPE-1216",
   "parent_issue": "OPE-1215",
+  "formalist_issue": "OPE-1228",
+  "director_issue": "OPE-1227",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lagrange_quadratic / eventuallyPeriodic CF; GenContFract.of / φ HIT as infra only",
     "Negative control turan → Turan.lean exists L300",

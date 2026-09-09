@@ -2207,25 +2207,31 @@
     {
       "id": "lagrange-quadratic-cf",
       "title": "Lagrange theorem (quadratic irrationals have eventually periodic continued fractions, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1216 Scout leftover slot #2 (parent OPE-1215). Catalog-audit after OPE-1200 mill CONSUMED (#132+#133). Independent Mathlib v4.10.0 grep this run: ZERO lagrange_quadratic / eventuallyPeriodic CF; GenContFract.of / partDens / terminates_iff_rat / goldenRatio / gold_sq HIT. Level A pin: (of φ).h = 1 and first two partDens = 1. Not labelled Lagrange. Namesake quadratic⇔periodic OUT of v1. Not terminates_iff_rat (already-in USE). Not Dirichlet/Legendre / Beatty / Wantzel / Pell. Leave OPE-403 alone. No novelty claim.",
+      "note": "OPE-1228 Formalist Level A. Director OPE-1227 approved Scout OPE-1216 leftover. Lean zero-sorry ProofLab/LagrangeQuadraticCf.lean. Level A LANDED: goldenRatio_of_h / goldenRatio_partDen_zero / goldenRatio_partDen_one ((of φ).h = 1 and first two partDens = 1); optional extra sqrt_two_of_h / sqrt_two_partDen_zero (head 1, first partDen 2). GenContFract.of / partDens / goldenRatio / gold_sq / one_lt_gold / gold_lt_two / FloorRing ℝ USE, not re-proved. Not labelled Lagrange / Pell. Namesake lagrange_quadratic_cf OUT of this ticket, not sorry-ed. Not terminates_iff_rat (already-in USE). Not Dirichlet/Legendre / Beatty / Wantzel / Pell / petersen-1-factor. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/lagrange-quadratic-cf/"
+        "catalog/problems/lagrange-quadratic-cf/",
+        "proofs/lean-project/ProofLab/LagrangeQuadraticCf.lean"
       ],
       "scout_issue": "OPE-1216",
       "tickets": [
         "OPE-1216",
-        "OPE-1215"
+        "OPE-1215",
+        "OPE-1227",
+        "OPE-1228"
       ],
       "parent_issue": "OPE-1215",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/LagrangeQuadraticCf.lean",
+      "formalist_issue": "OPE-1228",
+      "director_issue": "OPE-1227"
     }
   ],
   "updated_at": "2026-09-09T07:37:10Z",
