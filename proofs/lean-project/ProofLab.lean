@@ -71,3 +71,4 @@ import ProofLab.LameEuclid
 import ProofLab.CirculantDet
 import ProofLab.WantzelConstructible
 import ProofLab.PetersenOneFactor
+import ProofLab.LagrangeQuadraticCf

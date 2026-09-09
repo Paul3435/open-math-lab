@@ -185,13 +185,13 @@ OPE-1200 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 OPE-1200 mill consumed (#132+#133). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`petersen-1-factor` — CONSUMED Level A.** OPE-1223 Formalist. PR **#135**. Lean `ProofLab/PetersenOneFactor.lean`. Catalog `formalized`. Level B namesake `petersen_one_factor` / Tutte / Tait / snarks / Petersen-graph uniqueness residual **out of v1**. Do not revive.
-2. **`lagrange-quadratic-cf` leftover (84).** Fresh id. Lagrange 1770: quadratic irrational ⇒ eventually periodic CF. Named theorem ZERO; `GenContFract.of` / `partDens` / `goldenRatio` / `gold_sq` HIT. Level A: `(of φ).h = 1` and first two `partDens = 1`. **Not** `terminates_iff_rat` (already-in USE). **Not** Dirichlet/Legendre / Beatty / Wantzel / Pell.
+2. **`lagrange-quadratic-cf` — CONSUMED Level A.** OPE-1228 Formalist. PR **#136**. Lean `ProofLab/LagrangeQuadraticCf.lean`. Catalog `formalized`. Level A: `(of φ).h = 1` and first two `partDens = 1`; optional `√2` extra. Level B namesake `lagrange_quadratic_cf` / Pell / Galois purely-periodic / Hurwitz residual **out of v1**. Do not revive.
 
 Scout opened **no attack issues**. Director approves after this shortlist.
 
 ---
 
-**Last updated:** 2026-09-09 (OPE-1223 Formalist: petersen-1-factor Level A empty Fin 0 / K4 / K_{3,3}.)
+**Last updated:** 2026-09-09 (OPE-1228 Formalist: lagrange-quadratic-cf Level A φ head / first two partDens.)
 
 ## Shortlist (post OPE-21)
 

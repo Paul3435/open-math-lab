@@ -1,7 +1,7 @@
 # Lagrange theorem on continued fractions of quadratics — formalize-only
 
 **id:** `lagrange-quadratic-cf`
-**ticket:** OPE-1216 Scout leftover slot #2 (parent OPE-1215; post circulant-det #132 + wantzel-constructible #133)
+**ticket:** OPE-1228 Formalist Level A (Scout OPE-1216 leftover slot #2; Director OPE-1227; parent OPE-1215)
 **expected:** known-classical (Lagrange 1770: real quadratic irrationals have eventually periodic CF) — **no novelty claim**
 
 ## Why not classical / why formalize-only
