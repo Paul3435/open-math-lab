@@ -198,14 +198,14 @@ OPE-1233 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 OPE-1233 mill consumed (#138+#139). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`sherman-morrison` — RECOMMENDED PRIME (86).** Fresh id. Sherman–Morrison 1950: `(A + uvᵀ)⁻¹ = A⁻¹ − (A⁻¹u vᵀ A⁻¹)/(1 + vᵀ A⁻¹ u)`. Named theorem ZERO (`shermanMorrison` / `woodbury` / `rankOneUpdate`). `Matrix.inv` / `vecMulVec` / `mulVec` / `det_fin_*` HIT. `det_one_add_mul_comm` already-in glue, **not** namesake. Level A pin: Fin 0 / Fin 1 scalar / Fin 2 `I+e₀e₀ᵀ`, not labelled Sherman. Namesake `sherman_morrison` residual. Woodbury residual. Do **not** revive SVD / polar / Moore–Penrose / Kirchhoff / kraft / sabidussi Level B.
-2. **`graham-pollak` leftover (84).** Fresh id. Graham–Pollak 1971: biclique partition of `E(K_n)` has min size `n−1`. Named theorem ZERO (`grahamPollak` / `biclique` / `Pollak`). `completeGraph` / `edgeFinset` / `card_edgeFinset_top_eq_card_choose_two` HIT. Level A pin: K₁ empty / K₂ one edge / K₃ star-plus-edge, not labelled Graham–Pollak. Namesake `graham_pollak` residual. Do **not** revive `nash_williams` / Kirchhoff / `kst` / König χ' / Sabidussi / Brooks.
+1. **`sherman-morrison` — CONSUMED Level A.** OPE-1253 Formalist. Director OPE-1252 approved Scout OPE-1248 RECOMMENDED PRIME. Lean `ProofLab/ShermanMorrison.lean`. Catalog `formalized`. Level A: empty Fin 0 / Fin 1 scalar / Fin 2 `I+e₀e₀ᵀ` inverse, not labelled Sherman. Level B namesake `sherman_morrison` / Woodbury residual **out of v1**. Do not revive.
+2. **`graham-pollak` leftover (84).** Unassigned this tick. Graham–Pollak 1971: biclique partition of `E(K_n)` has min size `n−1`. Named theorem ZERO (`grahamPollak` / `biclique` / `Pollak`). `completeGraph` / `edgeFinset` / `card_edgeFinset_top_eq_card_choose_two` HIT. Level A pin: K₁ empty / K₂ one edge / K₃ star-plus-edge, not labelled Graham–Pollak. Namesake `graham_pollak` residual. Do **not** revive `nash_williams` / Kirchhoff / `kst` / König χ' / Sabidussi / Brooks. Do **not** prove graham-pollak here.
 
-Scout opened **no attack issues**. Director approves after this shortlist.
+Scout opened **no attack issues**. Formalist OPE-1253 lands the prime.
 
 ---
 
-**Last updated:** 2026-09-09 (OPE-1248 Scout: catalog-audit shortlist sherman-morrison + graham-pollak.)
+**Last updated:** 2026-09-09 (OPE-1253 Formalist: sherman-morrison Level A.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

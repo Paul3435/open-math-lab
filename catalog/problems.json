@@ -2297,25 +2297,31 @@
     {
       "id": "sherman-morrison",
       "title": "Sherman–Morrison rank-one inverse update (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1248 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1233 mill CONSUMED (#138 kraft-inequality Level A + #139 sabidussi-boxprod Level A). Named theorem ZERO (shermanMorrison / woodbury / rankOneUpdate). Matrix.inv / vecMulVec / mulVec / det_fin_* HIT. det_one_add_mul_comm already-in glue, not namesake. Level A pin: Fin 0 / Fin 1 scalar / Fin 2 I+e0e0ᵀ, not labelled Sherman. Namesake sherman_morrison OUT of v1. Woodbury residual. Not SVD / polar / Moore–Penrose (schur-product #129). Not Kirchhoff / DFT. Not kraft / McMillan / Huffman. Not sabidussi / Hedetniemi. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Director approves after this shortlist.",
+      "note": "OPE-1253 Formalist Level A. Director OPE-1252 approved Scout OPE-1248 RECOMMENDED PRIME. Lean zero-sorry ProofLab/ShermanMorrison.lean. Level A LANDED: inv_add_vecMulVec_fin_zero (empty Fin 0 1+uvᵀ inverse is 1); inv_add_vecMulVec_fin_one (Fin 1 scalar (a+uv)⁻¹); inv_one_add_vecMulVec_e0_fin_two (I+e0e0ᵀ inverse diag(1/2,1)). Matrix.inv / vecMulVec / inv_eq_right_inv / det_fin_* USE, not re-proved. Not labelled Sherman / Woodbury. Namesake sherman_morrison OUT of this ticket, not sorry-ed. Not Woodbury / SVD / polar / Moore–Penrose / det_one_add_mul_comm as namesake. Not graham-pollak leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/sherman-morrison/"
+        "catalog/problems/sherman-morrison/",
+        "proofs/lean-project/ProofLab/ShermanMorrison.lean"
       ],
       "scout_issue": "OPE-1248",
       "tickets": [
         "OPE-1248",
-        "OPE-1247"
+        "OPE-1247",
+        "OPE-1252",
+        "OPE-1253"
       ],
       "parent_issue": "OPE-1247",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/ShermanMorrison.lean",
+      "formalist_issue": "OPE-1253",
+      "director_issue": "OPE-1252"
     },
     {
       "id": "graham-pollak",
