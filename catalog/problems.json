@@ -2421,7 +2421,7 @@
       "domain": "discrete_geometry",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1284 Formalist Level A. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean zero-sorry ProofLab/PlatonicSolids.lean. Level A LANDED: RegularMap encoding (p,q,V,E,F with 3≤p, 3≤q, 2E=pF=qV); tetra {3,3} (4,6,4); cube {4,3} (8,12,6); octa {3,4} (6,12,8); icosa {3,5} (12,30,20); dodeca {5,3} (20,30,12); euler_* = 2; schlafli_fail_three_six / schlafli_fail_four_four; optional schlafli_bound_tetra. Nat arithmetic USE, not re-proved. Not labelled Platonic / Euler polyhedron. Namesake platonic_schlafli OUT of this ticket, not sorry-ed. Not Coxeter H3 as namesake. Not triangulated Octahedron. Not egyptian-fractions leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1284 Formalist Level A. PR #147. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean zero-sorry ProofLab/PlatonicSolids.lean. Level A LANDED: RegularMap encoding (p,q,V,E,F with 3≤p, 3≤q, 2E=pF=qV); tetra {3,3} (4,6,4); cube {4,3} (8,12,6); octa {3,4} (6,12,8); icosa {3,5} (12,30,20); dodeca {5,3} (20,30,12); euler_* = 2; schlafli_fail_three_six / schlafli_fail_four_four; optional schlafli_bound_tetra. Nat arithmetic USE, not re-proved. Not labelled Platonic / Euler polyhedron. Namesake platonic_schlafli OUT of this ticket, not sorry-ed. Not Coxeter H3 as namesake. Not triangulated Octahedron. Not egyptian-fractions leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2441,7 +2441,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/PlatonicSolids.lean",
       "formalist_issue": "OPE-1284",
-      "director_issue": "OPE-1283"
+      "director_issue": "OPE-1283",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/147"
     },
     {
       "id": "egyptian-fractions",

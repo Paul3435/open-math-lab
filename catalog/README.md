@@ -216,7 +216,7 @@ Scout opened **no attack issues**. Formalist OPE-1273 lands the leftover. OPE-12
 
 OPE-1263 mill consumed (#144+#145). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`platonic-solids` — CONSUMED Level A.** OPE-1284 Formalist. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean `ProofLab/PlatonicSolids.lean`. Catalog `formalized`. Level A: tetra/cube/octa/icosa/dodeca `(V,E,F)` witnesses + `(3,6)`/`(4,4)` fail, not labelled Platonic. Level B namesake `platonic_schlafli` / Euler polyhedron / Coxeter classification residual **out of v1**. Do not revive.
+1. **`platonic-solids` — CONSUMED Level A.** OPE-1284 Formalist. PR **#147**. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean `ProofLab/PlatonicSolids.lean`. Catalog `formalized`. Level A: tetra/cube/octa/icosa/dodeca `(V,E,F)` witnesses + `(3,6)`/`(4,4)` fail, not labelled Platonic. Level B namesake `platonic_schlafli` / Euler polyhedron / Coxeter classification residual **out of v1**. Do not revive.
 2. **`egyptian-fractions` leftover (84).** Fresh id. Fibonacci–Sylvester greedy: every positive rational is a finite sum of distinct unit fractions. Named theorem ZERO (`egyptian` / `EgyptianFraction` / `unitFractionSum`); `Rat` / `add_div` L27 / `inv_sub_inv` L195 HIT. **Not** Farey (#127). **Not** Kraft (#138). **Not** Erdős–Straus (open residual). Finite, one-wave Level A (`1=1/1` / `1/n` / `3/4` / `2/3`). **Unassigned this tick.**
 
 Scout opened **no attack issues**. Formalist OPE-1284 lands the prime. Hold leftover until this prime lands. Cap is 2.
