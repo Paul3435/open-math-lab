@@ -1,7 +1,7 @@
 # Sabidussi box-product chromatic number — formalize-only
 
 **id:** `sabidussi-boxprod`
-**ticket:** OPE-1233 Scout leftover slot #2 (parent OPE-1232)
+**ticket:** OPE-1243 Formalist Level A (Scout OPE-1233 leftover; Director OPE-1242)
 **expected:** known-classical (Sabidussi 1957:
 χ(G □ H) = max(χ(G), χ(H))) — **no novelty claim**
 

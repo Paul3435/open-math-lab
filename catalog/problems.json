@@ -2267,25 +2267,31 @@
     {
       "id": "sabidussi-boxprod",
       "title": "Sabidussi box-product chromatic number (χ(G□H)=max, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1233 Scout leftover slot #2 (parent OPE-1232). Catalog-audit leftover after OPE-1216 mill CONSUMED (#135+#136). Sabidussi 1957: χ(G □ H) = max(χ(G), χ(H)). Mathlib v4.10.0 grep this run: boxProd HIT (Prod.lean L39); Colorable L127 / chromaticNumber L149 HIT; Prod.lean ends L219 connectedness+degree, ZERO colouring; ZERO named sabidussi / boxProd_colorable. Not Brooks / greedy / AES / König χ' / bipartite-odd-cycle (consumed colouring mills). Not Hedetniemi (categorical product; false; residual of this id). Level A pin: empty ⊥□⊥ / K1□K1 / K2□K2 Colorable, not labelled Sabidussi. Do not prove Kraft here. Do not solve. Default no claim. Leave OPE-403 alone. Leave OPE-1195 alone.",
+      "note": "OPE-1243 Formalist Level A. Director OPE-1242 approved Scout OPE-1233 leftover. Lean zero-sorry ProofLab/SabidussiBoxProd.lean. Level A LANDED: colorable_boxProd_bot_fin_zero (empty ⊥□⊥ on Fin 0×Fin 0 Colorable 0); colorable_boxProd_complete_fin_one (K1□K1 Colorable 1); colorable_boxProd_complete_fin_two (K2□K2 = C4 Colorable 2 via Fin 2 coordinate-sum). boxProd / Colorable / completeGraph / colorable_of_isEmpty USE, not re-proved. Not labelled Sabidussi / Brooks / Hedetniemi. Namesake sabidussi_boxprod OUT of this ticket, not sorry-ed. Not Hedetniemi / other products / Vizing domination. Not Brooks / greedy / AES / König χ' / bipartite-odd-cycle. Not kraft-inequality (#138). Not petersen-1-factor (#135) / lagrange-quadratic-cf (#136). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/sabidussi-boxprod/"
+        "catalog/problems/sabidussi-boxprod/",
+        "proofs/lean-project/ProofLab/SabidussiBoxProd.lean"
       ],
       "scout_issue": "OPE-1233",
       "tickets": [
         "OPE-1233",
-        "OPE-1232"
+        "OPE-1232",
+        "OPE-1242",
+        "OPE-1243"
       ],
       "parent_issue": "OPE-1232",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/SabidussiBoxProd.lean",
+      "formalist_issue": "OPE-1243",
+      "director_issue": "OPE-1242"
     }
   ],
   "updated_at": "2026-09-09T10:48:24Z",
