@@ -1,0 +1,60 @@
+{
+  "id": "fine-wilf",
+  "title": "Fine–Wilf periodicity lemma (formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics_on_words",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Fine–Wilf 1965: a finite word with periods p and q of length at least p+q−gcd(p,q) also has period gcd(p,q). Completely classical. Value is a Mathlib/ProofLab contribution (List.get / Nat.gcd / List.replicate exist; Rotate.lean has cyclic IsRotated and ZERO linear IsPeriod; ZERO named fineWilf / fine_wilf / FineWilf in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Kraft inequality (consumed #138) is a DIFFERENT prefix-free-sum theorem — USE List.IsPrefix glue, do not re-prove, do not cite as Fine–Wilf. List.rotate / IsRotated is a DIFFERENT cyclic predicate — USE glue, do not cite as Fine–Wilf. Lyndon–Schützenberger is a DIFFERENT commuting-words identity — residual of this id; do not sorry LS. Calkin–Wilf / GNW / Wilf-χ are DIFFERENT consumed leftovers.",
+  "recommendation": "OPE-1263 RECOMMENDED PRIME. Catalog-audit prime after OPE-1248 mill CONSUMED (#141 sherman-morrison Level A + #142 graham-pollak Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of sherman_morrison / Woodbury / graham_pollak / biclique cover / kraft_inequality / McMillan / Huffman / Shannon / sabidussi_boxprod / Hedetniemi. Independent Mathlib pin grep this run (List.get / GetElem HIT; Nat.gcd Data/Nat/GCD/Basic.lean L12 HIT; List.rotate / IsRotated Rotate.lean L18 HIT as cyclic glue only; List.IsPrefix Infix.lean L12 HIT as Kraft glue only; named fineWilf / fine_wilf / FineWilf / IsPeriod-word ZERO across Mathlib+Archive+ProofLab; unrelated Calkin–Wilf / GNW / Wilf-χ hits only). Mill NOW: finite linear word-period gcd after Sherman–Morrison rank-one inverse + Graham–Pollak biclique partition. Score 86 this run (not a JSON rubber-stamp): get+gcd waiting (formalizability 16); Level A nil / replicate period 1 / [0,1,0,1,0] periods 2 and 4 (partial 17); namesake is undergraduate gcd induction (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins empty/constant/length-5 binary Level A; all-word Fine–Wilf namesake residual. Lyndon–Schützenberger residual. Leftover slot #2 is british-flag (Director may swap). Do NOT prove LS / Kraft / McMillan / Huffman / Woodbury / graham_pollak.",
+  "mathlib_gap_grep_2026_09_09_ope1263": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1248 scores. rg fineWilf / fine_wilf / FineWilf / IsPeriod-word over Mathlib/ + Archive + ProofLab → ZERO named Fine–Wilf theorem (Calkin–Wilf Farey leftover / GNW hook-length leftover / Wilf-χ expander leftover only). Defs HIT: Nat.gcd (Data/Nat/GCD/Basic.lean L12), List.rotate / IsRotated (Rotate.lean L18; cyclic glue, not namesake), List.IsPrefix (Infix.lean L12; Kraft glue, not namesake), EuclideanSpace (PiL2.lean L100), parallelogram_law (InnerProductSpace/Basic.lean L590; british-flag glue, not namesake), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Hall all_card_le_biUnion_card_iff_exists_injective; CayleyHamilton Matrix.aeval_self_charpoly; Wilson wilsons_lemma; catalan_eq_centralBinom_div; numDerangements; exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; HalesJewett Line.exists_mono_in_high_dimension; isTuranMaximal_iff_nonempty_iso_turanGraph L300; List.IsPrefix; hammingDist; boxProd; Colorable; det_one_add_mul_comm; totient_eq_prod_factorization; Polynomial.Chebyshev.T_real_cos; Finset.card_shatterer_le_sum_vcDim; ZMod.min_le_card_add; triangleRemovalBound; even_card_odd_degree_vertices; parallelogram_law L590; ZMod.pow_totient / Nat.ModEq.pow_totient; exists_prime_orderOf_dvd_card; exists_prime_gt_modEq_one; Partition.odds / distincts (euler-odd-distinct already ProofLab, do not re-prime); Schur-Zassenhaus exists_right_complement'_of_coprime. Already-consumed this mill: ProofLab/ShermanMorrison.lean Level A (#141); ProofLab/GrahamPollak.lean Level A (#142). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem fine_wilf: a word with periods p and q long enough has period gcd(p,q), namesake. Level A may land only nil / replicate period 1 / [0,1,0,1,0] periods 2 and 4, not labelled Fine–Wilf.",
+    "landmines": [
+      "Do not re-prove List.get / GetElem / Nat.gcd / List.replicate / List.rotate / List.IsPrefix.",
+      "Not Kraft / McMillan / Huffman / Shannon (consumed #138). Different theorem. Do not cite as Fine–Wilf.",
+      "Not List.rotate / IsRotated as namesake. Cyclic vs linear period.",
+      "Not Lyndon–Schützenberger. Residual of this id. Do not sorry LS.",
+      "Not Calkin–Wilf / GNW / Wilf-χ (Farey / hook-length / expander leftovers).",
+      "Not sherman-morrison (#141) / Woodbury / SVD.",
+      "Not graham-pollak (#142) / biclique cover / Zarankiewicz.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Fine–Wilf 1965 periodicity lemma. Compact form: Wikipedia Fine and Wilf's theorem. Type pin: List.IsPeriod / Nat.gcd / List.get. Kraft is a different consumed prefix-free theorem. List.rotate is a different cyclic predicate."
+  },
+  "feasibility_shape": "Level A: empty list vacuously period p; constant replicate period 1; binary [0,1,0,1,0] periods 2 and 4 with gcd 2; not labelled Fine–Wilf. Level B: namesake all finite words. Cap two levels. No Lyndon–Schützenberger. No Kraft. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib List.get / Nat.gcd / List.replicate — USE; DO NOT re-prove",
+    "List.rotate / IsRotated — DIFFERENT cyclic glue; DO NOT cite as Fine–Wilf; do not re-prove",
+    "List.IsPrefix — DIFFERENT Kraft glue; DO NOT cite as Fine–Wilf; do not re-prove",
+    "Lyndon–Schützenberger / Thue–Morse — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/KraftInequality.lean — consumed #138, DO NOT revive Level B / McMillan / Huffman / Shannon",
+    "ProofLab/ShermanMorrison.lean — consumed #141, DO NOT revive Level B / Woodbury",
+    "ProofLab/GrahamPollak.lean — consumed #142, DO NOT revive Level B / biclique cover",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1263",
+  "parent_issue": "OPE-1262",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO fineWilf / fine_wilf / FineWilf / IsPeriod-word; List.get / Nat.gcd / List.rotate / parallelogram_law HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; Hales-Jewett infinitary vdW; parallelogram_law; Euler totient theorem; Cauchy group theorem; Schur-Zassenhaus; Partition.odds/distincts",
+    "Already-consumed: ShermanMorrison Level A (#141); GrahamPollak Level A (#142); EulerPartition / euler-odd-distinct (do not re-prime)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Lyndon–Schützenberger / Kraft / McMillan / Huffman / Woodbury / graham_pollak / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
