@@ -1,7 +1,7 @@
 # Graham–Pollak biclique decomposition of K_n — formalize-only
 
 **id:** `graham-pollak`
-**ticket:** OPE-1248 Scout leftover slot #2 (Director approves after this shortlist)
+**ticket:** OPE-1258 Formalist Level A (Scout OPE-1248 leftover; Director OPE-1257)
 **expected:** known-classical (Graham–Pollak 1971:
 the edges of `K_n` partition into `n−1` complete
 bipartite graphs, and not fewer) — **no novelty claim**

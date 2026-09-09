@@ -2327,25 +2327,31 @@
     {
       "id": "graham-pollak",
       "title": "Graham–Pollak biclique decomposition of K_n (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1248 Scout leftover slot #2. Catalog-audit after OPE-1233 mill CONSUMED (#138+#139). Named theorem ZERO (grahamPollak / biclique / Pollak). completeGraph / edgeFinset / card_edgeFinset_top_eq_card_choose_two HIT. Level A pin: K1 empty / K2 one edge / K3 star-plus-edge, not labelled Graham–Pollak. Namesake graham_pollak OUT of v1. Not nash_williams / matroid-union (#124). Not Cayley / Kirchhoff. Not kst / Zarankiewicz. Not König χ' / Sabidussi / Brooks. Not sherman-morrison (prime of this shortlist). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Director approves after this shortlist.",
+      "note": "OPE-1258 Formalist Level A. Director OPE-1257 approved Scout OPE-1248 leftover. Lean zero-sorry ProofLab/GrahamPollak.lean. Level A LANDED: bicliquePartition_complete_fin_one (K1 empty partition card 0=1-1); bicliquePartition_complete_fin_two (K2 one K_{1,1} card 1=2-1); bicliquePartition_complete_fin_three (K3 star-at-0 plus leftover edge card 2=3-1). completeGraph / edgeFinset / Disjoint USE, not re-proved. Not labelled Graham–Pollak / Nash–Williams / KST. Namesake graham_pollak OUT of this ticket, not sorry-ed. Not nash_williams / matroid-union (#124). Not Cayley / Kirchhoff. Not kst / Zarankiewicz. Not König χ' / Sabidussi / Brooks. Not sherman-morrison (#141). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/graham-pollak/"
+        "catalog/problems/graham-pollak/",
+        "proofs/lean-project/ProofLab/GrahamPollak.lean"
       ],
       "scout_issue": "OPE-1248",
       "tickets": [
         "OPE-1248",
-        "OPE-1247"
+        "OPE-1247",
+        "OPE-1257",
+        "OPE-1258"
       ],
       "parent_issue": "OPE-1247",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/GrahamPollak.lean",
+      "formalist_issue": "OPE-1258",
+      "director_issue": "OPE-1257"
     }
   ],
   "updated_at": "2026-09-09T13:51:32Z",
