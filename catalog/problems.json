@@ -2447,25 +2447,32 @@
     {
       "id": "egyptian-fractions",
       "title": "Egyptian fraction expansions (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "elementary_number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1278 Scout leftover slot #2 (parent OPE-1277; post fine-wilf #144 + british-flag #145). Catalog-audit formalize-only. Fibonacci–Sylvester greedy. Named egyptian / EgyptianFraction / unitFractionSum ZERO this pin. Level A pin: 1=1/1 / unit 1/n / 3/4=1/2+1/4 / 2/3=1/2+1/6, not labelled Egyptian. Rat / add_div / inv_sub_inv / Finset.sum USE glue not namesake. Namesake egyptian_fractions (every positive rational) OUT of v1, not sorry-ed. Not Farey / Stern–Brocot / Calkin–Wilf. Not Kraft / McMillan / Huffman / Shannon. Not Erdős–Straus (open residual). Not platonic-solids prime. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1289 Formalist Level A. PR #148. Director OPE-1288 approved Scout OPE-1278 leftover slot #2. Lean zero-sorry ProofLab/EgyptianFractions.lean. Level A LANDED: unitSum encoding (Finset Nat denominators, Rat 1/n); egyptian_one 1=1/1; egyptian_unit 1/n; egyptian_three_four 3/4=1/2+1/4; egyptian_two_three 2/3=1/2+1/6; optional egyptian_one_half_third_sixth 1=1/2+1/3+1/6. Rat / add_div / Finset.sum USE, not re-proved. Not labelled Egyptian / Farey / Kraft / harmonic. Namesake egyptian_fractions OUT of this ticket, not sorry-ed. Not Erdős–Straus (open residual). Not Farey (#127). Not Kraft (#138). Not platonic-solids (#147). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/egyptian-fractions/"
+        "catalog/problems/egyptian-fractions/",
+        "proofs/lean-project/ProofLab/EgyptianFractions.lean"
       ],
       "scout_issue": "OPE-1278",
       "tickets": [
         "OPE-1278",
-        "OPE-1277"
+        "OPE-1277",
+        "OPE-1288",
+        "OPE-1289"
       ],
       "parent_issue": "OPE-1277",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/EgyptianFractions.lean",
+      "formalist_issue": "OPE-1289",
+      "director_issue": "OPE-1288",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/148"
     }
   ],
   "updated_at": "2026-09-09T19:55:19Z",
