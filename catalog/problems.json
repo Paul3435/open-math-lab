@@ -2301,7 +2301,7 @@
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1253 Formalist Level A. Director OPE-1252 approved Scout OPE-1248 RECOMMENDED PRIME. Lean zero-sorry ProofLab/ShermanMorrison.lean. Level A LANDED: inv_add_vecMulVec_fin_zero (empty Fin 0 1+uvᵀ inverse is 1); inv_add_vecMulVec_fin_one (Fin 1 scalar (a+uv)⁻¹); inv_one_add_vecMulVec_e0_fin_two (I+e0e0ᵀ inverse diag(1/2,1)). Matrix.inv / vecMulVec / inv_eq_right_inv / det_fin_* USE, not re-proved. Not labelled Sherman / Woodbury. Namesake sherman_morrison OUT of this ticket, not sorry-ed. Not Woodbury / SVD / polar / Moore–Penrose / det_one_add_mul_comm as namesake. Not graham-pollak leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1253 Formalist Level A. PR #141. Director OPE-1252 approved Scout OPE-1248 RECOMMENDED PRIME. Lean zero-sorry ProofLab/ShermanMorrison.lean. Level A LANDED: inv_add_vecMulVec_fin_zero (empty Fin 0 1+uvᵀ inverse is 1); inv_add_vecMulVec_fin_one (Fin 1 scalar (a+uv)⁻¹); inv_one_add_vecMulVec_e0_fin_two (I+e0e0ᵀ inverse diag(1/2,1)). Matrix.inv / vecMulVec / inv_eq_right_inv / det_fin_* USE, not re-proved. Not labelled Sherman / Woodbury. Namesake sherman_morrison OUT of this ticket, not sorry-ed. Not Woodbury / SVD / polar / Moore–Penrose / det_one_add_mul_comm as namesake. Not graham-pollak leftover. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "algebra",
         "formalization"
@@ -2321,7 +2321,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/ShermanMorrison.lean",
       "formalist_issue": "OPE-1253",
-      "director_issue": "OPE-1252"
+      "director_issue": "OPE-1252",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/141"
     },
     {
       "id": "graham-pollak",
