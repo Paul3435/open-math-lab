@@ -1,0 +1,61 @@
+{
+  "id": "platonic-solids",
+  "title": "Number of Platonic solids (formalize-only)",
+  "status": "candidate",
+  "domain": "discrete_geometry",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Euclid XIII / Wiedijk 100 #50: combinatorial regular maps with p-gonal faces, q faces per vertex, handshaking 2E=pF=qV and Euler V−E+F=2 force (p-2)(q-2)<4, and the only integer solutions p,q≥3 are the five Schläfli symbols {3,3}/{3,4}/{3,5}/{4,3}/{5,3}. Completely classical. Value is a Mathlib/ProofLab contribution (Nat arithmetic / CoxeterMatrix.H₃ exist; ZERO named platonic / PlatonicSolid / schlafli / regularPolyhedron in Mathlib+Archive+ProofLab; Wiedijk 100.yaml #50 has no Mathlib decl). Do NOT re-discover as novel. CategoryTheory.Triangulated.Octahedron / octahedron_axiom is a DIFFERENT octahedron — do not cite as Platonic. CoxeterMatrix.H₃ (Coxeter/Matrix.lean L250) is a DIFFERENT dodecahedral/icosahedral reflection matrix — USE glue, do not re-prove, do not cite as the count of solids. Euler polyhedron formula (Wiedijk #13) is a DIFFERENT planar-graph theorem — residual of this id; do not sorry Euler. British flag / Napoleon / nine-point are DIFFERENT consumed leftovers. Egyptian fractions is the leftover of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1278 RECOMMENDED PRIME. Catalog-audit prime after OPE-1263 mill CONSUMED (#144 fine-wilf Level A + #145 british-flag Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of fine_wilf / Lyndon-Schützenberger / british_flag / Napoleon / Simson / Viviani / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / Huffman / Shannon / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / farey_adjacent. Independent Mathlib pin grep this run (Nat arithmetic HIT; CoxeterMatrix.H₃ Coxeter/Matrix.lean L250 HIT as dodecahedral glue only; CategoryTheory.Triangulated.Octahedron HIT as unrelated octahedron axiom only; named platonic / PlatonicSolid / schlafli / regularPolyhedron ZERO across Mathlib+Archive+ProofLab; Wiedijk 100.yaml #50 no decl). Mill NOW: finite Schläfli (V,E,F) witnesses after Fine–Wilf word periods + British flag rectangle distances. Score 86 this run (not a JSON rubber-stamp): Nat+handshaking waiting (formalizability 16); Level A five named solids + two failing pairs (partial 17); namesake is undergraduate (p-2)(q-2)<4 case-bash (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins tetra/cube/octa/icosa/dodeca Level A; only-five-pairs namesake residual. Euler polyhedron / Coxeter classification residual. Leftover slot #2 is egyptian-fractions (Director may swap). Do NOT prove Euler #13 / Coxeter / Kepler–Poinsot / egyptian-fractions / Napoleon.",
+  "mathlib_gap_grep_2026_09_09_ope1278": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1263 scores. rg platonic / PlatonicSolid / schlafli / regularPolyhedron / egyptian / EgyptianFraction / unitFractionSum over Mathlib/ + Archive + ProofLab → ZERO named Platonic count or Egyptian-fraction theorem (Coxeter H₃ comment + triangulated Octahedron axiom only). Defs HIT: CoxeterMatrix.H₃ (Coxeter/Matrix.lean L250; glue, not namesake), add_div (Algebra/Field/Basic.lean L27), one_div_mul_add_mul_one_div_eq_one_div_add_one_div (L48), inv_sub_inv (L195; egyptian glue, not namesake), extend_partialOrder (Order/Extension/Linear.lean L24; Szpilrajn ALREADY-IN), equiv_nim_grundyValue (SetTheory/Game/Nim.lean L231; Sprague-Grundy ALREADY-IN), one_add_mul_le_pow (Algebra/Order/Ring/Pow.lean L43; Bernoulli ALREADY-IN), young_inequality_of_nonneg (Analysis/MeanInequalities.lean L315), card_sym_eq_multichoose (Data/Sym/Card.lean L103; stars-and-bars ALREADY-IN), schnirelmannDensity (Combinatorics/Schnirelmann.lean L49; density API ALREADY-IN, Mann/Schnirelmann theorems still TODO — not this mill: Level A already-in), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Hall all_card_le_biUnion_card_iff_exists_injective; CayleyHamilton Matrix.aeval_self_charpoly; Wilson wilsons_lemma; catalan_eq_centralBinom_div; numDerangements; exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; HalesJewett Line.exists_mono_in_high_dimension; isTuranMaximal_iff_nonempty_iso_turanGraph L300; List.IsPrefix; hammingDist; boxProd; Colorable; det_one_add_mul_comm; totient_eq_prod_factorization; Polynomial.Chebyshev.T_real_cos; Finset.card_shatterer_le_sum_vcDim; ZMod.min_le_card_add; triangleRemovalBound; even_card_odd_degree_vertices; parallelogram_law InnerProductSpace/Basic.lean L590; ZMod.pow_totient / Nat.ModEq.pow_totient; exists_prime_orderOf_dvd_card; exists_prime_gt_modEq_one; Partition.odds / distincts; Schur-Zassenhaus exists_right_complement'_of_coprime; extend_partialOrder L24; equiv_nim_grundyValue L231; one_add_mul_le_pow L43; young_inequality; card_sym_eq_multichoose; StoneWeierstrass; Dickson lemma WellFoundedSet; Hindman FS_partition_regular; inscribed angle oangle_center_eq_two_zsmul_oangle; intersecting chords mul_dist_eq_mul_dist_of_cospherical_of_angle_eq_pi; schnirelmannDensity API. Already-consumed this mill: ProofLab/FineWilf.lean Level A (#144); ProofLab/BritishFlag.lean Level A (#145). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem platonic_schlafli: the only p,q≥3 with (p-2)(q-2)<4 are the five Schläfli pairs, namesake. Level A may land only tetra/cube/octa/icosa/dodeca (V,E,F,p,q) witnesses with handshaking and Euler 2, plus (3,6)/(4,4) failures, not labelled Platonic.",
+    "landmines": [
+      "Do not re-prove Nat arithmetic / CoxeterMatrix.H₃ / triangulated Octahedron.",
+      "Not the triangulated octahedron axiom. Different octahedron. Do not cite as Platonic.",
+      "Not Coxeter H₃ as namesake. Reflection matrix ≠ count of solids.",
+      "Not Euler polyhedron formula (Wiedijk #13). Residual of this id. Do not sorry Euler.",
+      "Not British flag / Napoleon / Simson / Viviani / nine-point (consumed #145).",
+      "Not egyptian-fractions (OPE-1278 leftover). Do not prove Egyptian here.",
+      "Not fine-wilf (#144) / sherman-morrison / graham-pollak.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Euclid XIII / Wiedijk 100 #50 The Number of Platonic Solids (no Mathlib decl this pin). Compact form: Wikipedia Platonic solid, Schläfli symbol {p,q}. Type pin: RegularMap p q V E F / 2E=pF=qV / V−E+F=2. Coxeter H₃ is a different reflection-matrix glue. Triangulated Octahedron is a different axiom."
+  },
+  "feasibility_shape": "Level A: tetra/cube/octa/icosa/dodeca (V,E,F) witnesses with handshaking and Euler 2; (3,6) and (4,4) fail (p-2)(q-2)<4; not labelled Platonic. Level B: namesake only five Schläfli pairs. Cap two levels. No Euler polyhedron. No Coxeter classification. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib Nat arithmetic — USE; DO NOT re-prove",
+    "CoxeterMatrix.H₃ — DIFFERENT dodecahedral glue; DO NOT cite as Platonic; do not re-prove",
+    "CategoryTheory.Triangulated.Octahedron — DIFFERENT octahedron axiom; DO NOT cite as Platonic",
+    "Euler polyhedron / Coxeter classification / Kepler–Poinsot — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/BritishFlag.lean — consumed #145, DO NOT revive Level B / Napoleon / Simson / Viviani",
+    "ProofLab/FineWilf.lean — consumed #144, DO NOT revive Level B / Lyndon–Schützenberger",
+    "ProofLab/WantzelConstructible.lean — consumed #133, DO NOT revive Level B / angle trisection",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-09",
+  "scout_issue": "OPE-1278",
+  "parent_issue": "OPE-1277",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO platonic / PlatonicSolid / schlafli / regularPolyhedron; Coxeter H₃ / triangulated Octahedron HIT as unrelated glue only",
+    "Wiedijk 100.yaml #50 The Number of Platonic Solids has no Mathlib decl",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Szpilrajn extend_partialOrder; Sprague-Grundy equiv_nim_grundyValue; Bernoulli one_add_mul_le_pow; Young; stars-and-bars card_sym_eq_multichoose; schnirelmannDensity API (Mann theorem still TODO, not this mill); Stone-Weierstrass; Dickson; Hindman; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; Hales-Jewett; parallelogram_law; Euler totient theorem; Cauchy group theorem; Schur-Zassenhaus; intersecting chords; inscribed angle",
+    "Already-consumed: FineWilf Level A (#144); BritishFlag Level A (#145)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Euler polyhedron / Coxeter / Napoleon / egyptian leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
