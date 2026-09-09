@@ -1,7 +1,7 @@
 # Petersen 1-factor theorem — formalize-only
 
 **id:** `petersen-1-factor`
-**ticket:** OPE-1216 Scout RECOMMENDED PRIME (parent OPE-1215; post circulant-det #132 + wantzel-constructible #133)
+**ticket:** OPE-1223 Formalist Level A (Scout OPE-1216 prime; Director OPE-1222; parent OPE-1215)
 **expected:** known-classical (Petersen 1891 cubic bridgeless 1-factor) — **no novelty claim**
 
 ## Why not classical / why formalize-only

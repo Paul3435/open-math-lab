@@ -2177,25 +2177,32 @@
     {
       "id": "petersen-1-factor",
       "title": "Petersen 1-factor theorem (cubic bridgeless graphs have a perfect matching, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "graph_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1216 Scout RECOMMENDED PRIME (parent OPE-1215). Catalog-audit after OPE-1200 mill CONSUMED (#132+#133). Independent Mathlib v4.10.0 grep this run: ZERO petersen_one_factor / IsBridgeless / cubic_bridgeless; IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge / completeGraph HIT. Level A pin: empty Fin 0 / completeGraph (Fin 4) / K_{3,3}. Not labelled Petersen. Namesake all cubic bridgeless OUT of v1 (Tutte residual). Not Tutte / Hall / König / gale_shapley / Moore Petersen-graph / Wantzel / circulant-det. Leave OPE-403 alone. No novelty claim.",
+      "note": "OPE-1223 Formalist Level A. Director OPE-1222 approved Scout OPE-1216 prime. Lean zero-sorry ProofLab/PetersenOneFactor.lean. Level A LANDED: isRegularOfDegree_bot_fin_zero / isBridgeless_bot_fin_zero / exists_perfectMatching_bot_fin_zero (empty Fin 0 vacuous); completeGraph_fin_four_regular_three / completeGraph_fin_four_bridgeless / completeGraph_fin_four_exists_perfectMatching (K4); completeBipartite_fin_three_regular_three / completeBipartite_fin_three_bridgeless / completeBipartite_fin_three_exists_perfectMatching (K_{3,3}). IsMatching / IsPerfectMatching / IsRegularOfDegree / IsBridge / completeGraph / completeBipartiteGraph USE, not re-proved. Not labelled Petersen / Tutte. Namesake petersen_one_factor OUT of this ticket, not sorry-ed. Not Tutte / Hall / König / gale_shapley / Moore Petersen-graph / Wantzel / circulant-det. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/petersen-1-factor/"
+        "catalog/problems/petersen-1-factor/",
+        "proofs/lean-project/ProofLab/PetersenOneFactor.lean"
       ],
       "scout_issue": "OPE-1216",
       "tickets": [
         "OPE-1216",
-        "OPE-1215"
+        "OPE-1215",
+        "OPE-1222",
+        "OPE-1223"
       ],
       "parent_issue": "OPE-1215",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/PetersenOneFactor.lean",
+      "formalist_issue": "OPE-1223",
+      "director_issue": "OPE-1222",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/135"
     },
     {
       "id": "lagrange-quadratic-cf",
