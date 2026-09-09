@@ -2451,7 +2451,7 @@
       "domain": "elementary_number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1289 Formalist Level A. Director OPE-1288 approved Scout OPE-1278 leftover slot #2. Lean zero-sorry ProofLab/EgyptianFractions.lean. Level A LANDED: unitSum encoding (Finset Nat denominators, Rat 1/n); egyptian_one 1=1/1; egyptian_unit 1/n; egyptian_three_four 3/4=1/2+1/4; egyptian_two_three 2/3=1/2+1/6; optional egyptian_one_half_third_sixth 1=1/2+1/3+1/6. Rat / add_div / Finset.sum USE, not re-proved. Not labelled Egyptian / Farey / Kraft / harmonic. Namesake egyptian_fractions OUT of this ticket, not sorry-ed. Not Erdős–Straus (open residual). Not Farey (#127). Not Kraft (#138). Not platonic-solids (#147). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1289 Formalist Level A. PR #148. Director OPE-1288 approved Scout OPE-1278 leftover slot #2. Lean zero-sorry ProofLab/EgyptianFractions.lean. Level A LANDED: unitSum encoding (Finset Nat denominators, Rat 1/n); egyptian_one 1=1/1; egyptian_unit 1/n; egyptian_three_four 3/4=1/2+1/4; egyptian_two_three 2/3=1/2+1/6; optional egyptian_one_half_third_sixth 1=1/2+1/3+1/6. Rat / add_div / Finset.sum USE, not re-proved. Not labelled Egyptian / Farey / Kraft / harmonic. Namesake egyptian_fractions OUT of this ticket, not sorry-ed. Not Erdős–Straus (open residual). Not Farey (#127). Not Kraft (#138). Not platonic-solids (#147). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2471,7 +2471,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/EgyptianFractions.lean",
       "formalist_issue": "OPE-1289",
-      "director_issue": "OPE-1288"
+      "director_issue": "OPE-1288",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/148"
     }
   ],
   "updated_at": "2026-09-09T19:55:19Z",

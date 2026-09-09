@@ -217,7 +217,7 @@ Scout opened **no attack issues**. Formalist OPE-1273 lands the leftover. OPE-12
 OPE-1263 mill consumed (#144+#145). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`platonic-solids` — CONSUMED Level A.** OPE-1284 Formalist. PR **#147**. Director OPE-1283 approved Scout OPE-1278 RECOMMENDED PRIME. Lean `ProofLab/PlatonicSolids.lean`. Catalog `formalized`. Level A: tetra/cube/octa/icosa/dodeca `(V,E,F)` witnesses + `(3,6)`/`(4,4)` fail, not labelled Platonic. Level B namesake `platonic_schlafli` / Euler polyhedron / Coxeter classification residual **out of v1**. Do not revive.
-2. **`egyptian-fractions` leftover (84) — CONSUMED Level A.** OPE-1289 Formalist. Director OPE-1288 approved Scout OPE-1278 leftover. Lean `ProofLab/EgyptianFractions.lean`. Catalog `formalized`. Level A: `1=1/1` / unit `1/n` / `3/4=1/2+1/4` / `2/3=1/2+1/6` + optional `1=1/2+1/3+1/6`, not labelled Egyptian. Level B namesake `egyptian_fractions` / Erdős–Straus residual **out of v1**. Do not revive.
+2. **`egyptian-fractions` leftover (84) — CONSUMED Level A.** OPE-1289 Formalist. PR **#148**. Director OPE-1288 approved Scout OPE-1278 leftover. Lean `ProofLab/EgyptianFractions.lean`. Catalog `formalized`. Level A: `1=1/1` / unit `1/n` / `3/4=1/2+1/4` / `2/3=1/2+1/6` + optional `1=1/2+1/3+1/6`, not labelled Egyptian. Level B namesake `egyptian_fractions` / Erdős–Straus residual **out of v1**. Do not revive.
 
 Scout opened **no attack issues**. Formalist OPE-1289 lands the leftover. OPE-1278 mill fully consumed.
 
