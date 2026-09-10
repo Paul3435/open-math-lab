@@ -2651,7 +2651,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/OrthogonalLatinSquares.lean",
       "formalist_issue": "OPE-1337",
-      "director_issue": "OPE-1336"
+      "director_issue": "OPE-1336",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/157"
     }
   ],
   "updated_at": "2026-09-10T14:55:00Z",
