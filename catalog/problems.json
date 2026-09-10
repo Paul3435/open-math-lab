@@ -2566,25 +2566,31 @@
     {
       "id": "cannonball-square-pyramid",
       "title": "Cannonball problem (when a square pyramid is a square, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "elementary_number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1310 Scout leftover slot #2. Catalog-audit after OPE-1294 mill CONSUMED (#150+#151). Classical Lucas 1875 / Watson 1918: P(n)=n(n+1)(2n+1)/6 square iff n=1 or n=24. Named theorem ZERO. sum_range_pow is different already-in Faulhaber. lucas_lehmer_sufficiency is different already-in Lucas. Not Proth/Pepin leftover-revivals. Level A: P(1)=1^2 / P(24)=70^2, not labelled cannonball/Lucas. Level B uniqueness residual. Prime of this shortlist is alcuin-integer-triangles. No novelty claim.",
+      "note": "OPE-1321 Formalist Level A. Director OPE-1320 approved Scout OPE-1310 leftover slot #2. Lean zero-sorry ProofLab/CannonballSquarePyramid.lean. Level A LANDED: squarePyramid encoding n*(n+1)*(2*n+1)/6; cannonball_one (P(1)=1*1); cannonball_twenty_four (P(24)=70*70); optional cannonball_two_not_square (P(2)=5 is not a square). Nat mul/div USE, not re-proved. Not labelled cannonball / Lucas. Namesake cannonball_square_pyramid (only n=1 and n=24) OUT of this ticket, not sorry-ed. Not Faulhaber / sum_range_pow as namesake / lucas_lehmer_sufficiency as namesake / Nat.sum_four_squares as namesake / Pell / square-triangular / Alcuin leftover-revivals / Frucht / Proth. Alcuin integer-triangles is CONSUMED #153. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/cannonball-square-pyramid/"
+        "catalog/problems/cannonball-square-pyramid/",
+        "proofs/lean-project/ProofLab/CannonballSquarePyramid.lean"
       ],
       "scout_issue": "OPE-1310",
       "tickets": [
         "OPE-1310",
-        "OPE-1309"
+        "OPE-1309",
+        "OPE-1320",
+        "OPE-1321"
       ],
       "parent_issue": "OPE-1309",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/CannonballSquarePyramid.lean",
+      "formalist_issue": "OPE-1321",
+      "director_issue": "OPE-1320"
     }
 
   ],

@@ -1,7 +1,7 @@
 {
   "id": "cannonball-square-pyramid",
   "title": "Cannonball problem (when a square pyramid is a square, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "elementary_number_theory",
   "score": 84,
   "scores": {
@@ -55,5 +55,8 @@
     "Already-consumed: FruchtGraphAut Level A (#150); ProthPrimality Level A (#151)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Proth leftover-revivals / Faulhaber / Lucas–Lehmer / Alcuin leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1321",
+  "director_issue": "OPE-1320",
+  "lean_artifact": "proofs/lean-project/ProofLab/CannonballSquarePyramid.lean"
 }
