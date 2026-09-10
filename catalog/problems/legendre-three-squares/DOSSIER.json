@@ -1,7 +1,7 @@
 {
   "id": "legendre-three-squares",
   "title": "Legendre three-square theorem (named small-n witnesses, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "number_theory",
   "score": 86,
   "scores": {
@@ -55,5 +55,9 @@
     "Already-consumed: JordanCanonicalForm Level A (#156); OrthogonalLatinSquares Level A (#157)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Four-square / two-square / cannonball leftover-revivals / Jordan leftover-revivals / OLS leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1347",
+  "director_issue": "OPE-1346",
+  "lean_artifact": "proofs/lean-project/ProofLab/LegendreThreeSquares.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/159"
 }
