@@ -57,5 +57,8 @@
     "Already-consumed: PlatonicSolids Level A (#147); EgyptianFractions Level A (#148)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Cayley trees / friendship / Moore / Sabidussi / Petersen / Proth leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1300",
+  "director_issue": "OPE-1299",
+  "lean_artifact": "proofs/lean-project/ProofLab/FruchtGraphAut.lean"
 }

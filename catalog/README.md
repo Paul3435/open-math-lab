@@ -225,14 +225,14 @@ Scout opened **no attack issues**. Formalist OPE-1289 lands the leftover. OPE-12
 
 OPE-1278 mill consumed (#147+#148). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`frucht-graph-aut` — RECOMMENDED PRIME (86).** Fresh id. Frucht 1939: every finite group is Aut of some finite simple graph. Named theorem ZERO (`frucht` / `Frucht` / `GraphAut` / `automorphismGroup`). `SimpleGraph.Iso` (Maps.lean L215) / `pathGraph` (Hasse.lean L94) / `completeGraph` (Basic.lean L144) HIT. `Iso.completeGraph` (Maps.lean L544) HIT as complete-graph glue **not** namesake. **Not** Cayley trees / Prüfer / Kirchhoff. **Not** Cayley's theorem `Γ ↪ Perm`. **Not** friendship / Moore / Sabidussi / Petersen. Finite, one-wave Formalist shape (unique Aut on `K₁`/`P₁` + `pathGraph 3` endpoint-swap).
-2. **`proth-primality` leftover (84).** Fresh id. Proth 1878: `N=k·2ⁿ+1` with `k` odd, `k<2ⁿ`, and `a^{(N-1)/2}≡−1 (mod N)` ⇒ `N` prime. Named theorem ZERO (`proth` / `Proth` / `ProthWitness` / `pepin` / `Pocklington`). `euler_criterion` (LegendreSymbol/Basic.lean L58) HIT as different prime-modulus glue **not** namesake. `lucas_lehmer_sufficiency` (LucasLehmer.lean L476) ALREADY-IN different Mersenne test. **Not** Korselt / Wantzel / Gauss–Wantzel / Fermat polygons as namesake. Finite, one-wave Level A (`3` / `5` / `13` form+witness `2`).
+1. **`frucht-graph-aut` — CONSUMED Level A.** OPE-1300 Formalist. Director OPE-1299 approved Scout OPE-1294 RECOMMENDED PRIME. Lean `ProofLab/FruchtGraphAut.lean`. Catalog `formalized`. Level A: unique Aut on `K₁`/`P₁` + `pathGraph 3` endpoint-swap `≠` refl + optional `K₂` swap via `Iso.completeGraph`, not labelled Frucht. Level B namesake `frucht_graph_aut` / Cayley-graph gadgets residual **out of v1**. Do not revive.
+2. **`proth-primality` leftover (84).** Fresh id. Proth 1878: `N=k·2ⁿ+1` with `k` odd, `k<2ⁿ`, and `a^{(N-1)/2}≡−1 (mod N)` ⇒ `N` prime. Named theorem ZERO (`proth` / `Proth` / `ProthWitness` / `pepin` / `Pocklington`). `euler_criterion` (LegendreSymbol/Basic.lean L58) HIT as different prime-modulus glue **not** namesake. `lucas_lehmer_sufficiency` (LucasLehmer.lean L476) ALREADY-IN different Mersenne test. **Not** Korselt / Wantzel / Gauss–Wantzel / Fermat polygons as namesake. Finite, one-wave Level A (`3` / `5` / `13` form+witness `2`). **Unassigned this tick.**
 
-Scout opened **no attack issues**. Director approves after this shortlist. OPE-1278 mill fully consumed; this is a replacement mill, not a leftover continuation.
+Scout opened **no attack issues**. Formalist OPE-1300 lands the prime. Hold leftover until this prime lands. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-10 (OPE-1294 Scout: catalog-audit shortlist frucht-graph-aut + proth-primality.)
+**Last updated:** 2026-09-10 (OPE-1300 Formalist: frucht-graph-aut Level A.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

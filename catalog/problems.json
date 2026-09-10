@@ -2477,25 +2477,31 @@
     {
       "id": "frucht-graph-aut",
       "title": "Frucht theorem (every finite group is a graph automorphism group, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "algebraic_graph_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1294 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1278 mill CONSUMED (#147+#148). Classical Frucht 1939: every finite group is Aut of some finite simple graph. Mathlib gap this pin: ZERO frucht / Frucht / GraphAut / automorphismGroup; SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph HIT as glue not namesake. Level A pin: unique Aut on K1/P1 plus pathGraph 3 endpoint-swap ≠ refl, not labelled Frucht. Namesake every-finite-group residual. Not Cayley trees / Iso.completeGraph as namesake / friendship / Moore / Sabidussi / Petersen. Leftover slot #2 is proth-primality. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1300 Formalist Level A. Director OPE-1299 approved Scout OPE-1294 RECOMMENDED PRIME. Lean zero-sorry ProofLab/FruchtGraphAut.lean. Level A LANDED: GraphAut encoding (G ≃g G); aut_complete_fin_one Subsingleton Aut(K1); aut_pathGraph_one Subsingleton Aut(P1); pathGraphThreeFlip Fin.revPerm endpoint-swap on pathGraph 3; pathGraphThreeFlip_ne_refl; optional completeFinTwoSwap via Iso.completeGraph USE. SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph USE, not re-proved. Not labelled Frucht / Cayley / Aut(Kn)≅Sn. Namesake frucht_graph_aut OUT of this ticket, not sorry-ed. Not Cayley trees / Iso.completeGraph as namesake / friendship / Moore / Sabidussi / Petersen. Leftover slot #2 is proth-primality (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/frucht-graph-aut/"
+        "catalog/problems/frucht-graph-aut/",
+        "proofs/lean-project/ProofLab/FruchtGraphAut.lean"
       ],
       "scout_issue": "OPE-1294",
       "tickets": [
         "OPE-1294",
-        "OPE-1293"
+        "OPE-1293",
+        "OPE-1299",
+        "OPE-1300"
       ],
       "parent_issue": "OPE-1293",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/FruchtGraphAut.lean",
+      "formalist_issue": "OPE-1300",
+      "director_issue": "OPE-1299"
     },
     {
       "id": "proth-primality",
