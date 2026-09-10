@@ -2597,25 +2597,31 @@
     {
       "id": "jordan-canonical-form",
       "title": "Jordan canonical form (named 2x2 blocks, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1326 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1310 mill CONSUMED (#153 alcuin-integer-triangles Level A + #154 cannonball-square-pyramid Level A). Fresh id. Named theorem ZERO (jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock). Matrix / aeval_self_charpoly L123 HIT as CH glue not namesake; exists_isNilpotent_isSemisimple L71 HIT as Dunford glue not namesake; IsJordan L78 HIT as algebra glue not namesake. Level A pin: J=!![0,1;0,0] with J*J=0 and J!=0 plus diagonal !![1,0;0,2], not labelled Jordan. Namesake residual. Not Sherman-Morrison / Cauchy-Binet / circulant / Hadamard / Schur-product leftover-revivals. Leftover slot #2 is orthogonal-latin-squares (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1332 Formalist Level A. Director OPE-1331 approved Scout OPE-1326 RECOMMENDED PRIME. Lean ProofLab/JordanCanonicalForm.lean. Catalog formalized. Level A: J=!![0,1;0,0] with J*J=0 and J!=0 plus diagonal !![1,0;0,2] + optional J1(1)=(J-I)^2=0, not labelled Jordan. Namesake residual. Leftover slot #2 is orthogonal-latin-squares (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/jordan-canonical-form/"
+        "catalog/problems/jordan-canonical-form/",
+        "proofs/lean-project/ProofLab/JordanCanonicalForm.lean"
       ],
       "scout_issue": "OPE-1326",
       "tickets": [
         "OPE-1326",
-        "OPE-1325"
+        "OPE-1325",
+        "OPE-1331",
+        "OPE-1332"
       ],
       "parent_issue": "OPE-1325",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/JordanCanonicalForm.lean",
+      "formalist_issue": "OPE-1332",
+      "director_issue": "OPE-1331"
     },
     {
       "id": "orthogonal-latin-squares",
