@@ -59,5 +59,6 @@
   ],
   "formalist_issue": "OPE-1316",
   "director_issue": "OPE-1315",
-  "lean_artifact": "proofs/lean-project/ProofLab/AlcuinIntegerTriangles.lean"
+  "lean_artifact": "proofs/lean-project/ProofLab/AlcuinIntegerTriangles.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/153"
 }
