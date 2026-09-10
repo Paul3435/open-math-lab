@@ -2661,7 +2661,7 @@
       "domain": "number_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1347 Formalist Level A. Director OPE-1346 approved Scout OPE-1342 RECOMMENDED PRIME (orthogonal-latin-squares CONSUMED by OPE-1337 / #157; jordan-canonical-form CONSUMED by OPE-1332 / #156). Lean ProofLab/LegendreThreeSquares.lean. Catalog formalized. Level A: IsSumThreeSquares; 1=1^2+0^2+0^2 / 2=1^2+1^2+0^2 / 3=1^2+1^2+1^2 / not seven; optional 6 yes / 15 not; not labelled Legendre. Namesake every n not 4^a(8b+7) residual. Gauss Eureka residual. langford-pairing leftover unassigned. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1347 Formalist Level A. Director OPE-1346 approved Scout OPE-1342 RECOMMENDED PRIME (orthogonal-latin-squares CONSUMED by OPE-1337 / #157; jordan-canonical-form CONSUMED by OPE-1332 / #156). Lean ProofLab/LegendreThreeSquares.lean. Catalog formalized. Level A: IsSumThreeSquares; 1=1^2+0^2+0^2 / 2=1^2+1^2+0^2 / 3=1^2+1^2+1^2 / not seven; optional 6 yes / 15 not; not labelled Legendre. Namesake every n not 4^a(8b+7) residual. Gauss Eureka residual. langford-pairing CONSUMED by OPE-1352 / #160. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
@@ -2713,9 +2713,55 @@
       "director_issue": "OPE-1351",
       "lean_artifact": "proofs/lean-project/ProofLab/LangfordPairing.lean",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/160"
+    },
+    {
+      "id": "myhill-nerode",
+      "title": "Myhill–Nerode (named small-language witnesses, formalize-only)",
+      "status": "candidate",
+      "domain": "computability",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1357 Scout RECOMMENDED PRIME (parent OPE-1356). Catalog-audit prime after OPE-1342 mill CONSUMED (#159 legendre-three-squares Level A + #160 langford-pairing Level A). Named theorem ZERO (Myhill / Nerode / nerode / myhillNerode / syntacticMonoid / Language.IsRegular). Language / DFA.accepts / pumping_lemma L152 HIT as glue not namesake. NFA.toDFA already-in not namesake. Kleene regex<=>DFA residual of this id. Not Fine-Wilf (#144). Not Kraft (#138). Not Langford (#160). Not three-square (#159). Finite one-wave Level A: empty language all-equivalent / {[]} distinguishes [] from [0] / optional 2-state DFA. gray-code leftover unassigned this tick. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "logic",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/myhill-nerode/"
+      ],
+      "scout_issue": "OPE-1357",
+      "tickets": [
+        "OPE-1357",
+        "OPE-1356"
+      ],
+      "parent_issue": "OPE-1356",
+      "mathlib_gap": true
+    },
+    {
+      "id": "gray-code",
+      "title": "Binary reflected Gray code (length 1 / length 2 / length 3 a listing, formalize-only)",
+      "status": "candidate",
+      "domain": "enumerative_combinatorics",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1357 Scout leftover slot #2 (parent OPE-1356). Catalog-audit leftover after OPE-1342 mill CONSUMED (#159+#160). Named theorem ZERO (GrayCode / grayCode / gray_code / binaryReflected / reflectedGray). hammingDist Hamming.lean L38 HIT as glue not namesake. Not Singleton (#120) / Hamming-bound / Plotkin / MDS. Not Ore (#111) / Bondy-Chvatal / Walk.IsHamiltonian as namesake. Not Kraft (#138). Not Fine-Wilf (#144). Not Langford (#160). Not myhill-nerode (prime of this shortlist). Finite one-wave Level A: length-1 / length-2 00-01-11-10 / length-3 reflected listing. Unassigned this tick. Hold until this prime lands. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/gray-code/"
+      ],
+      "scout_issue": "OPE-1357",
+      "tickets": [
+        "OPE-1357",
+        "OPE-1356"
+      ],
+      "parent_issue": "OPE-1356",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-10T18:30:00Z",
+  "updated_at": "2026-09-10T21:32:31Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",
