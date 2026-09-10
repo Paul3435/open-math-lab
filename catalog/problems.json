@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-10T08:18:16Z",
+  "last_updated": "2026-09-10T13:24:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2532,10 +2532,56 @@
       "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean",
       "formalist_issue": "OPE-1305",
       "director_issue": "OPE-1304",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/151"
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/151"    },
+    {
+      "id": "alcuin-integer-triangles",
+      "title": "Alcuin's sequence (integer-sided triangles of perimeter n, formalize-only)",
+      "status": "candidate",
+      "domain": "enumerative_combinatorics",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1310 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1294 mill CONSUMED (#150 frucht-graph-aut + #151 proth-primality). Classical Alcuin / OEIS A005044 integer-sided triangles of perimeter n. Named theorem ZERO. Nat/Finset waiting. PythagoreanTriple.classification is different already-in right-triangle glue. Not Heron/British-flag/Frucht/Proth leftover-revivals. Level A: perimeters 1 none / 3=(1,1,1) / 5=(1,2,2) / 6=(2,2,2), not labelled Alcuin. Level B closed form residual. Leftover slot #2 is cannonball-square-pyramid. No novelty claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/alcuin-integer-triangles/"
+      ],
+      "scout_issue": "OPE-1310",
+      "tickets": [
+        "OPE-1310",
+        "OPE-1309"
+      ],
+      "parent_issue": "OPE-1309",
+      "mathlib_gap": true
+    },
+    {
+      "id": "cannonball-square-pyramid",
+      "title": "Cannonball problem (when a square pyramid is a square, formalize-only)",
+      "status": "candidate",
+      "domain": "elementary_number_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1310 Scout leftover slot #2. Catalog-audit after OPE-1294 mill CONSUMED (#150+#151). Classical Lucas 1875 / Watson 1918: P(n)=n(n+1)(2n+1)/6 square iff n=1 or n=24. Named theorem ZERO. sum_range_pow is different already-in Faulhaber. lucas_lehmer_sufficiency is different already-in Lucas. Not Proth/Pepin leftover-revivals. Level A: P(1)=1^2 / P(24)=70^2, not labelled cannonball/Lucas. Level B uniqueness residual. Prime of this shortlist is alcuin-integer-triangles. No novelty claim.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/cannonball-square-pyramid/"
+      ],
+      "scout_issue": "OPE-1310",
+      "tickets": [
+        "OPE-1310",
+        "OPE-1309"
+      ],
+      "parent_issue": "OPE-1309",
+      "mathlib_gap": true
     }
+
   ],
-  "updated_at": "2026-09-10T08:18:16Z",
+  "updated_at": "2026-09-10T13:24:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

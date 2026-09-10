@@ -221,18 +221,27 @@ OPE-1263 mill consumed (#144+#145). Catalog-audit shortlist (not a prize hunt; n
 
 Scout opened **no attack issues**. Formalist OPE-1289 lands the leftover. OPE-1278 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1294, 2026-09-10)
+## Formalize-only shortlist (OPE-1294, 2026-09-10) — WAVE CONSUMED
 
-OPE-1278 mill consumed (#147+#148). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1294 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
 1. **`frucht-graph-aut` — CONSUMED Level A.** OPE-1300 Formalist. PR **#150**. Director OPE-1299 approved Scout OPE-1294 RECOMMENDED PRIME. Lean `ProofLab/FruchtGraphAut.lean`. Catalog `formalized`. Level A: unique Aut on `K₁`/`P₁` + `pathGraph 3` endpoint-swap `≠` refl + optional `K₂` swap via `Iso.completeGraph`, not labelled Frucht. Level B namesake `frucht_graph_aut` / Cayley-graph gadgets residual **out of v1**. Do not revive.
-2. **`proth-primality` leftover (84).** Fresh id. Proth 1878: `N=k·2ⁿ+1` with `k` odd, `k<2ⁿ`, and `a^{(N-1)/2}≡−1 (mod N)` ⇒ `N` prime. Named theorem ZERO (`proth` / `Proth` / `ProthWitness` / `pepin` / `Pocklington`). `euler_criterion` (LegendreSymbol/Basic.lean L58) HIT as different prime-modulus glue **not** namesake. `lucas_lehmer_sufficiency` (LucasLehmer.lean L476) ALREADY-IN different Mersenne test. **Not** Korselt / Wantzel / Gauss–Wantzel / Fermat polygons as namesake. Finite, one-wave Level A (`3` / `5` / `13` form+witness `2`). **Unassigned this tick.**
+2. **`proth-primality` leftover (84) — CONSUMED Level A.** OPE-1305 Formalist. PR **#151**. Director OPE-1304 approved Scout OPE-1294 leftover. Lean `ProofLab/ProthPrimality.lean`. Catalog `formalized`. Level A: `3` / `5` / `13` form+witness `2` + optional `9` form-and-composite, not labelled Proth. Level B namesake `proth_primality` / Pépin / Pocklington / Fermat residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Formalist OPE-1300 lands the prime. Hold leftover until this prime lands. Cap is 2.
+Scout opened **no attack issues**. Formalist OPE-1305 lands the leftover. OPE-1294 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1310, 2026-09-10)
+
+OPE-1294 mill consumed (#150+#151). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`alcuin-integer-triangles` — RECOMMENDED PRIME (86).** Fresh id. Alcuin of York / OEIS A005044: non-congruent positive integer sides `a ≤ b ≤ c` of perimeter `n` with strict `a+b > c`. Named theorem ZERO (`alcuin` / `Alcuin` / `integerTriangle` / `IntegerTriangle`). `Nat` / `Finset.filter` HIT; `PythagoreanTriple.classification` HIT as different right-triangle glue **not** namesake. **Not** Heron / integer area (consumed). **Not** British flag / Napoleon / Simson / Viviani (consumed #145). **Not** Frucht / Proth (consumed #150+#151). Finite, one-wave Level A (perimeters `1` none / `3=(1,1,1)` / `5=(1,2,2)` / `6=(2,2,2)`).
+2. **`cannonball-square-pyramid` leftover (84).** Fresh id. Lucas 1875 / Watson 1918: square-pyramidal `n(n+1)(2n+1)/6` is square iff `n=1` or `n=24`. Named theorem ZERO (`cannonball` / `Cannonball` / `squarePyramid`). `sum_range_pow` (Bernoulli.lean L280) HIT as already-in different Faulhaber over `ℚ` **not** namesake. `lucas_lehmer_sufficiency` L476 ALREADY-IN different Lucas/Mersenne. **Not** Proth / Pépin / four-squares. Finite, one-wave Level A (`P(1)=1²` / `P(24)=70²`). **Unassigned this tick.**
+
+Scout opened **no attack issues**. Formalist lands the prime after Director approval. Hold leftover until this prime lands. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-10 (OPE-1300 Formalist: frucht-graph-aut Level A.)
+**Last updated:** 2026-09-10 (OPE-1310 Scout: catalog-audit shortlist alcuin-integer-triangles + cannonball-square-pyramid.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
