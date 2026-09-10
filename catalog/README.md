@@ -230,18 +230,27 @@ OPE-1294 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1305 lands the leftover. OPE-1294 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1310, 2026-09-10)
+## Formalize-only shortlist (OPE-1310, 2026-09-10) — WAVE CONSUMED
 
-OPE-1294 mill consumed (#150+#151). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1310 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`alcuin-integer-triangles` — RECOMMENDED PRIME (86).** Fresh id. Alcuin of York / OEIS A005044: non-congruent positive integer sides `a ≤ b ≤ c` of perimeter `n` with strict `a+b > c`. Named theorem ZERO (`alcuin` / `Alcuin` / `integerTriangle` / `IntegerTriangle`). `Nat` / `Finset.filter` HIT; `PythagoreanTriple.classification` HIT as different right-triangle glue **not** namesake. **Not** Heron / integer area (consumed). **Not** British flag / Napoleon / Simson / Viviani (consumed #145). **Not** Frucht / Proth (consumed #150+#151). Finite, one-wave Level A (perimeters `1` none / `3=(1,1,1)` / `5=(1,2,2)` / `6=(2,2,2)`).
-2. **`cannonball-square-pyramid` leftover (84).** Fresh id. Lucas 1875 / Watson 1918: square-pyramidal `n(n+1)(2n+1)/6` is square iff `n=1` or `n=24`. Named theorem ZERO (`cannonball` / `Cannonball` / `squarePyramid`). `sum_range_pow` (Bernoulli.lean L280) HIT as already-in different Faulhaber over `ℚ` **not** namesake. `lucas_lehmer_sufficiency` L476 ALREADY-IN different Lucas/Mersenne. **Not** Proth / Pépin / four-squares. Finite, one-wave Level A (`P(1)=1²` / `P(24)=70²`). **Unassigned this tick.**
+1. **`alcuin-integer-triangles` — CONSUMED Level A.** OPE-1316 Formalist. PR **#153**. Director OPE-1315 approved Scout OPE-1310 RECOMMENDED PRIME. Lean `ProofLab/AlcuinIntegerTriangles.lean`. Catalog `formalized`. Level A: perimeter `1` none / `3=(1,1,1)` / `5=(1,2,2)` / `6=(2,2,2)` + optional perimeter `7`, not labelled Alcuin. Level B namesake `alcuin_integer_triangles` / Heronian / Pick residual **out of v1**. Do not revive.
+2. **`cannonball-square-pyramid` leftover (84) — CONSUMED Level A.** OPE-1321 Formalist. PR **#154**. Director OPE-1320 approved Scout OPE-1310 leftover. Lean `ProofLab/CannonballSquarePyramid.lean`. Catalog `formalized`. Level A: `P(1)=1²` / `P(24)=70²` + optional `P(2)` not square, not labelled cannonball / Lucas. Level B namesake `cannonball_square_pyramid` / Lucas uniqueness / Watson residual **out of v1**. Do not revive.
+
+Scout opened **no attack issues**. Formalist OPE-1321 lands the leftover. OPE-1310 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1326, 2026-09-10)
+
+OPE-1310 mill consumed (#153+#154). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`jordan-canonical-form` — RECOMMENDED PRIME (86).** Fresh id. Jordan 1870: over an algebraically closed field every square matrix is similar to a block-diagonal matrix of Jordan blocks. Named theorem ZERO (`jordanCanonical` / `JordanForm` / `jordan_form` / `IsJordanBlock` / `JordanBlock`). `Matrix.aeval_self_charpoly` (Charpoly/Basic.lean L123) HIT as already-in Cayley–Hamilton glue **not** namesake. `exists_isNilpotent_isSemisimple` (JordanChevalley.lean L71) HIT as already-in Dunford split **not** namesake. `IsJordan` (Algebra/Jordan/Basic.lean L78) HIT as already-in Jordan-algebra identity **not** namesake. **Not** Sherman–Morrison / Cauchy–Binet / circulant-det / Hadamard / Schur-product (consumed matrix mills). **Not** Alcuin / cannonball (consumed #153+#154). Finite, one-wave Level A (`J=!![0,1;0,0]` with `J*J=0` and `J≠0` / diagonal `!![1,0;0,2]`).
+2. **`orthogonal-latin-squares` leftover (84).** Fresh id. Euler 1782 Graeco-Latin: two Latin squares are orthogonal when symbol-pairs cover `[n]×[n]`; order 3 admits an affine pair, order 2 admits none. Named theorem ZERO (`latinSquare` / `LatinSquare` / `IsLatinSquare` / `orthogonalLatin` / `graecoLatin`). `Equiv.Perm` HIT as row-permutation glue **not** namesake. `ProjectivePlane` (Configuration.lean L329) HIT as different incidence glue **not** namesake. `HasLines.card_le` L211 HIT as different de Bruijn–Erdős. **Not** BvN / Gale–Shapley (consumed). **Not** Jordan form (prime of this shortlist). Finite, one-wave Level A (order 2 none / order 3 affine `L_1, L_2`). **Unassigned this tick.**
 
 Scout opened **no attack issues**. Formalist lands the prime after Director approval. Hold leftover until this prime lands. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-10 (OPE-1310 Scout: catalog-audit shortlist alcuin-integer-triangles + cannonball-square-pyramid.)
+**Last updated:** 2026-09-10 (OPE-1326 Scout: catalog-audit shortlist jordan-canonical-form + orthogonal-latin-squares.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

@@ -1,0 +1,59 @@
+{
+  "id": "jordan-canonical-form",
+  "title": "Jordan canonical form (named 2×2 blocks, formalize-only)",
+  "status": "candidate",
+  "domain": "linear_algebra",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Camille Jordan 1870: over an algebraically closed field every square matrix is similar to a block-diagonal matrix of Jordan blocks. Completely classical. Value is a Mathlib/ProofLab contribution (Matrix / charpoly / aeval_self_charpoly exist; ZERO named jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. exists_isNilpotent_isSemisimple is a DIFFERENT already-in Dunford split — USE if needed, do not re-prove, do not cite as Jordan form. IsJordan is a DIFFERENT already-in Jordan-algebra identity. Cayley–Hamilton is DIFFERENT already-in glue. Sherman–Morrison / Cauchy–Binet / circulant-det / Hadamard / Schur-product are DIFFERENT consumed matrix mills. Alcuin / cannonball are the consumed mill of OPE-1310. Orthogonal Latin squares is the leftover of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1326 RECOMMENDED PRIME. Catalog-audit prime after OPE-1310 mill CONSUMED (#153 alcuin-integer-triangles Level A + #154 cannonball-square-pyramid Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of alcuin_integer_triangles / cannonball_square_pyramid / Lucas uniqueness / Watson / integerTriangle / frucht_graph_aut / Cayley-graph gadgets / GRR / Aut(Kn)≅Sn / proth_primality / Pépin / Pocklington / euler_criterion / lucas_lehmer_sufficiency / platonic_schlafli / Euler polyhedron / egyptian_fractions / Erdos-Straus / british_flag / Napoleon / fine_wilf / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / Huffman / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / farey_adjacent. Independent Mathlib pin grep this run (Matrix/charpoly HIT; aeval_self_charpoly Charpoly/Basic.lean L123 HIT as different CH glue; exists_isNilpotent_isSemisimple JordanChevalley.lean L71 HIT as different Dunford glue; IsJordan Algebra/Jordan/Basic.lean L78 HIT as different algebra glue; named jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock / latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin ZERO across Mathlib+Archive+ProofLab; Wilson ALREADY wilsons_lemma Wilson.lean L38 — never cite as a gap; Farkas ALREADY ProperCone.hyperplane_separation — never cite as a gap). Mill NOW: finite 2×2 Jordan-block witnesses after integer-triangle counts + pyramidal squares. Score 86 this run (not a JSON rubber-stamp): Matrix+charpoly waiting (formalizability 16); Level A nilpotent Fin 2 / diagonal Fin 2 (partial 17); namesake is undergraduate similarity classification over alg-closed (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins named 2×2 Level A; namesake residual. Rational canonical form residual. Leftover slot #2 is orthogonal-latin-squares (Director may swap). Do NOT prove Dunford as namesake / CH as namesake / IsJordan as namesake / Latin leftover / Alcuin leftover-revivals / cannonball leftover-revivals.",
+  "mathlib_gap_grep_2026_09_10_ope1326": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1310 scores. rg jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock / latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin / GraecoLatin over Mathlib/ + Archive + ProofLab → ZERO named Jordan-canonical-form or Latin-square theorem (IsJordan HIT as unrelated Jordan algebra L78; exists_isNilpotent_isSemisimple HIT as unrelated Dunford L71; ProjectivePlane HIT as unrelated incidence L329). Defs HIT: Matrix / Matrix.mul / aeval_self_charpoly (Charpoly/Basic.lean L123; glue, not namesake), exists_isNilpotent_isSemisimple (JordanChevalley.lean L71; different Dunford), IsJordan (Algebra/Jordan/Basic.lean L78; different algebra), det_fin_two, Module.End.genEigenspace, Equiv.Perm, Fin add/mul, Function.Injective, HasLines.card_le (Configuration.lean L211; different de Bruijn–Erdős), ProjectivePlane (L329; different incidence), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Wilson wilsons_lemma (Wilson.lean L38); catalan_eq_centralBinom_div (Catalan.lean L109); numDerangements (Derangements/Finite.lean); exists_prime_lt_and_le_two_mul (Bertrand.lean L211); frobeniusNumber_pair (FrobeniusNumber.lean L52); parallelogram_law (InnerProductSpace/Basic.lean L590); det_one_add_mul_comm (SchurComplement.lean L395); euler_criterion (LegendreSymbol/Basic.lean L58); Matrix.aeval_self_charpoly L123; HasLines.card_le L211; ProjectivePlane L329; Nat.add_choose_eq Vandermonde; sum_Icc_choose hockey-stick; padicValNat_factorial Legendre; content_mul Gauss lemma; irreducible_of_eisenstein_criterion; sum_card_fixedBy_eq_card_orbits_mul_card_group Burnside; card_orbit_mul_card_stabilizer_eq_card_group; equiv_directSum_zmod_of_finite; jordan_holder; Maschke; Minkowski exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure; mul_meas_ge_le_integral_of_nonneg Markov; multiplicity.Int.pow_sub_pow LTE.",
+  "statement_pin_required": {
+    "convention": "theorem jordan_canonical_form: every matrix over an alg-closed field is similar to a Jordan form, namesake. Level A may land only J=!![0,1;0,0] with J*J=0 and J≠0, plus diagonal !![1,0;0,2], not labelled Jordan.",
+    "landmines": [
+      "Do not re-prove Matrix.mul / aeval_self_charpoly / exists_isNilpotent_isSemisimple / IsJordan.",
+      "Not Jordan–Chevalley Dunford. Semisimple+nilpotent ≠ blocks.",
+      "Not Jordan algebras. Do not label theorems jordan_*.",
+      "Not Sherman–Morrison / Cauchy–Binet / circulant / Hadamard / Schur-product (consumed matrix mills).",
+      "Not orthogonal-latin-squares (OPE-1326 leftover). Do not prove Latin squares here.",
+      "Not alcuin-integer-triangles (#153) / cannonball-square-pyramid (#154) / Frucht / Proth.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Camille Jordan 1870 canonical form of matrices; undergrad.yaml Jordan-normal-form line still Wikipedia on this pin. Type pin: jordanNilpotentFinTwo / Matrix (Fin 2). Dunford exists_isNilpotent_isSemisimple is a different already-in split. IsJordan is a different already-in algebra."
+  },
+  "feasibility_shape": "Level A: J=!![0,1;0,0] satisfies J*J=0 and J≠0; D=!![1,0;0,2] diagonal; optional extra J₁(1)=!![1,1;0,1] with (J-I)^2=0; not labelled Jordan. Level B: namesake similarity classification. Cap two levels. No rational canonical form. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems jordan_* (Jordan-algebra / Dunford collision); zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Matrix / Matrix.mul / charpoly — USE; DO NOT re-prove",
+    "aeval_self_charpoly — DIFFERENT Cayley–Hamilton glue; DO NOT cite as Jordan form; do not re-prove",
+    "exists_isNilpotent_isSemisimple — DIFFERENT Dunford; residual of this id AND already-in; DO NOT sorry as namesake",
+    "IsJordan — DIFFERENT already-in algebra; DO NOT cite as Jordan form",
+    "ProofLab/AlcuinIntegerTriangles.lean — consumed #153, DO NOT revive Level B / integerTriangle / Heron leftover-revivals",
+    "ProofLab/CannonballSquarePyramid.lean — consumed #154, DO NOT revive Level B / Lucas uniqueness / Watson / four-squares",
+    "ProofLab/ShermanMorrison.lean — consumed #141, DO NOT revive Woodbury / SVD",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1326",
+  "parent_issue": "OPE-1325",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock / latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin; Matrix / charpoly / aeval_self_charpoly HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; parallelogram_law L590; det_one_add_mul_comm L395; euler_criterion L58; CH L123; Dunford L71; IsJordan L78; HasLines.card_le L211; ProjectivePlane L329; Vandermonde Nat.add_choose_eq; hockey-stick sum_Icc_choose; Legendre padicValNat_factorial; Gauss content_mul; Eisenstein; Burnside; orbit-stabilizer; finite abelian structure; Jordan–Hölder; Maschke; Minkowski convex body; Markov inequality; LTE",
+    "Already-consumed: AlcuinIntegerTriangles Level A (#153); CannonballSquarePyramid Level A (#154)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Dunford / CH / IsJordan / Sherman leftover-revivals / Alcuin leftover-revivals / cannonball leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
