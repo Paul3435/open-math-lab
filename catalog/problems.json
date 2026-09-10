@@ -2481,7 +2481,7 @@
       "domain": "algebraic_graph_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1300 Formalist Level A. Director OPE-1299 approved Scout OPE-1294 RECOMMENDED PRIME. Lean zero-sorry ProofLab/FruchtGraphAut.lean. Level A LANDED: GraphAut encoding (G ≃g G); aut_complete_fin_one Subsingleton Aut(K1); aut_pathGraph_one Subsingleton Aut(P1); pathGraphThreeFlip Fin.revPerm endpoint-swap on pathGraph 3; pathGraphThreeFlip_ne_refl; optional completeFinTwoSwap via Iso.completeGraph USE. SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph USE, not re-proved. Not labelled Frucht / Cayley / Aut(Kn)≅Sn. Namesake frucht_graph_aut OUT of this ticket, not sorry-ed. Not Cayley trees / Iso.completeGraph as namesake / friendship / Moore / Sabidussi / Petersen. Leftover slot #2 is proth-primality (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1300 Formalist Level A. PR #150. Director OPE-1299 approved Scout OPE-1294 RECOMMENDED PRIME. Lean zero-sorry ProofLab/FruchtGraphAut.lean. Level A LANDED: GraphAut encoding (G ≃g G); aut_complete_fin_one Subsingleton Aut(K1); aut_pathGraph_one Subsingleton Aut(P1); pathGraphThreeFlip Fin.revPerm endpoint-swap on pathGraph 3; pathGraphThreeFlip_ne_refl; optional completeFinTwoSwap via Iso.completeGraph USE. SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph USE, not re-proved. Not labelled Frucht / Cayley / Aut(Kn)≅Sn. Namesake frucht_graph_aut OUT of this ticket, not sorry-ed. Not Cayley trees / Iso.completeGraph as namesake / friendship / Moore / Sabidussi / Petersen. Leftover slot #2 is proth-primality (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2501,7 +2501,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/FruchtGraphAut.lean",
       "formalist_issue": "OPE-1300",
-      "director_issue": "OPE-1299"
+      "director_issue": "OPE-1299",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/150"
     },
     {
       "id": "proth-primality",
