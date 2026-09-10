@@ -2627,25 +2627,31 @@
     {
       "id": "orthogonal-latin-squares",
       "title": "Orthogonal Latin squares (order 2 none / order 3 a pair, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "enumerative_combinatorics",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1326 Scout leftover slot #2. Catalog-audit after OPE-1310 mill CONSUMED (#153+#154). Fresh id. Named theorem ZERO (latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin). Fin / Function.Injective HIT; Equiv.Perm HIT as row-permutation glue not namesake; ProjectivePlane L329 HIT as different incidence glue; HasLines.card_le L211 HIT as different de Bruijn-Erdos. Level A pin: order 2 no orthogonal pair / order 3 affine L_1, L_2, not labelled Euler. Namesake n!=2,6 residual. Not BvN / Gale-Shapley leftover-revivals. Prime of this shortlist is jordan-canonical-form. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1337 Formalist Level A. Director OPE-1336 approved Scout OPE-1326 leftover as prime (jordan-canonical-form CONSUMED by OPE-1332 / #156). Lean ProofLab/OrthogonalLatinSquares.lean. Catalog formalized. Level A: IsLatinSquare row+column injective; Orthogonal pair-map injective; affine L_1,L_2 on Fin 3 Latin and orthogonal; no orthogonal pair of order 2; optional cyclic order-2 Latin; not labelled Euler. Namesake n!=2,6 residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/orthogonal-latin-squares/"
+        "catalog/problems/orthogonal-latin-squares/",
+        "proofs/lean-project/ProofLab/OrthogonalLatinSquares.lean"
       ],
       "scout_issue": "OPE-1326",
       "tickets": [
         "OPE-1326",
-        "OPE-1325"
+        "OPE-1325",
+        "OPE-1336",
+        "OPE-1337"
       ],
       "parent_issue": "OPE-1325",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/OrthogonalLatinSquares.lean",
+      "formalist_issue": "OPE-1337",
+      "director_issue": "OPE-1336"
     }
   ],
   "updated_at": "2026-09-10T14:55:00Z",

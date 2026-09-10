@@ -1,7 +1,7 @@
 {
   "id": "orthogonal-latin-squares",
   "title": "Orthogonal Latin squares (order 2 none / order 3 a pair, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "enumerative_combinatorics",
   "score": 84,
   "scores": {
@@ -57,5 +57,8 @@
     "Already-consumed: AlcuinIntegerTriangles Level A (#153); CannonballSquarePyramid Level A (#154)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "ProjectivePlane / Equiv.Perm / BvN leftover-revivals / Gale–Shapley leftover-revivals / Jordan prime of this shortlist / Alcuin leftover-revivals / cannonball leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1337",
+  "director_issue": "OPE-1336",
+  "lean_artifact": "proofs/lean-project/ProofLab/OrthogonalLatinSquares.lean"
 }
