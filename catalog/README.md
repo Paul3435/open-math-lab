@@ -239,18 +239,27 @@ OPE-1310 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1321 lands the leftover. OPE-1310 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1326, 2026-09-10)
+## Formalize-only shortlist (OPE-1326, 2026-09-10) — WAVE CONSUMED
 
-OPE-1310 mill consumed (#153+#154). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1326 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
 1. **`jordan-canonical-form` — CONSUMED Level A.** OPE-1332 Formalist. PR **#156**. Director OPE-1331 approved Scout OPE-1326 RECOMMENDED PRIME. Lean `ProofLab/JordanCanonicalForm.lean`. Catalog `formalized`. Level A: `J=!![0,1;0,0]` with `J*J=0` and `J≠0` / diagonal `!![1,0;0,2]` + optional `J₁(1)` with `(J-I)²=0`, not labelled Jordan. Level B namesake `jordan_canonical_form` / rational canonical form residual **out of v1**. Do not revive.
-2. **`orthogonal-latin-squares` leftover (84).** Fresh id. Euler 1782 Graeco-Latin: two Latin squares are orthogonal when symbol-pairs cover `[n]×[n]`; order 3 admits an affine pair, order 2 admits none. Named theorem ZERO (`latinSquare` / `LatinSquare` / `IsLatinSquare` / `orthogonalLatin` / `graecoLatin`). `Equiv.Perm` HIT as row-permutation glue **not** namesake. `ProjectivePlane` (Configuration.lean L329) HIT as different incidence glue **not** namesake. `HasLines.card_le` L211 HIT as different de Bruijn–Erdős. **Not** BvN / Gale–Shapley (consumed). **Not** Jordan form (prime of this shortlist). Finite, one-wave Level A (order 2 none / order 3 affine `L_1, L_2`). **Unassigned this tick.** Hold until this prime lands.
+2. **`orthogonal-latin-squares` leftover (84) — CONSUMED Level A.** OPE-1337 Formalist. PR **#157**. Director OPE-1336 approved Scout OPE-1326 leftover. Lean `ProofLab/OrthogonalLatinSquares.lean`. Catalog `formalized`. Level A: order-2 no pair / order-3 affine `L_1,L_2` + optional cyclic order-2 Latin, not labelled Euler. Level B namesake `orthogonal_latin_squares` / Euler officers / `n≠2,6` residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Formalist OPE-1332 lands the prime. Hold leftover until this prime lands. Cap is 2.
+Scout opened **no attack issues**. Formalist OPE-1337 lands the leftover. OPE-1326 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1342, 2026-09-10)
+
+OPE-1326 mill consumed (#156+#157). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`legendre-three-squares` — RECOMMENDED PRIME (86).** Fresh id. Legendre 1797/98: `n` is three integer squares iff not of the form `4^a(8b+7)`. Named theorem ZERO (`three_square` / `sum_three_squares` / `LegendreThree`). `Nat.sum_four_squares` L212 HIT as different four-square glue **not** namesake. `Nat.Prime.sq_add_sq` L31 HIT as different two-square glue **not** namesake. **Not** four-square / two-square (already-in). **Not** cannonball (consumed #154). **Not** Jordan / OLS (consumed #156+#157). **Not** Gauss Eureka (residual of this id). Finite, one-wave Level A (`1`/`2`/`3` yes / `7` no).
+2. **`langford-pairing` leftover (84).** Fresh id. Langford 1958: two copies of `k` have exactly `k` entries between them; exists iff `n ≡ 0 or 3 (mod 4)`. Named theorem ZERO (`langford` / `LangfordPairing` / `skolemSequence`). **Not** Skolem sequences (residual of this id). **Not** Fine–Wilf (consumed #144). **Not** OLS (consumed #157). **Not** three-square (prime of this shortlist). Finite, one-wave Level A (order 1 none / order 2 none / order 3 `[2,3,1,2,1,3]`). **Unassigned this tick.** Hold until this prime lands.
+
+Scout opened **no attack issues**. Formalist lands the prime after Director approval. Hold leftover until this prime lands. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-10 (OPE-1332 Formalist: jordan-canonical-form Level A.)
+**Last updated:** 2026-09-10 (OPE-1342 Scout: catalog-audit formalize-only shortlist.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
