@@ -81,3 +81,4 @@ import ProofLab.BritishFlag
 import ProofLab.PlatonicSolids
 import ProofLab.EgyptianFractions
 import ProofLab.FruchtGraphAut
+import ProofLab.ProthPrimality
