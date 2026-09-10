@@ -2711,7 +2711,8 @@
       "mathlib_gap": true,
       "formalist_issue": "OPE-1352",
       "director_issue": "OPE-1351",
-      "lean_artifact": "proofs/lean-project/ProofLab/LangfordPairing.lean"
+      "lean_artifact": "proofs/lean-project/ProofLab/LangfordPairing.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/160"
     }
   ],
   "updated_at": "2026-09-10T18:30:00Z",
