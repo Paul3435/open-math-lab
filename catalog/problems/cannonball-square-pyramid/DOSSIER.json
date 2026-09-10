@@ -1,0 +1,59 @@
+{
+  "id": "cannonball-square-pyramid",
+  "title": "Cannonball problem (when a square pyramid is a square, formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Lucas 1875 / Watson 1918: the square-pyramidal number P(n)=n(n+1)(2n+1)/6 is itself a square iff n=1 or n=24. Completely classical. Value is a Mathlib/ProofLab contribution (Nat mul/div exist; ZERO named cannonball / Cannonball / squarePyramid / SquarePyramidal / pyramidalSquare in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. sum_range_pow (Bernoulli.lean L280) is a DIFFERENT already-in Faulhaber identity over Q — USE elementary Nat closed form, do not re-prove Faulhaber, do not cite as cannonball. lucas_lehmer_sufficiency (LucasLehmer.lean L476) is a DIFFERENT already-in Mersenne test (different Lucas). Nat.sum_four_squares is a DIFFERENT already-in four-square theorem. Proth primality is a DIFFERENT consumed leftover (#151; form+witness ≠ pyramidal squares; do not sorry Pépin). Alcuin integer triangles is the prime of this shortlist — do not prove it here. Frucht graph Aut is the consumed prime of OPE-1294.",
+  "recommendation": "OPE-1310 leftover slot #2. Catalog-audit leftover after OPE-1294 mill CONSUMED (#150 frucht-graph-aut Level A + #151 proth-primality Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of frucht_graph_aut / Cayley-graph / GRR / Aut(Kn)≅Sn / proth_primality / Pépin / Pocklington / euler_criterion / lucas_lehmer_sufficiency / platonic_schlafli / egyptian_fractions / british_flag / Napoleon / fine_wilf / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / Huffman / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / Cassini / farey_adjacent. Independent Mathlib pin grep this run (Nat mul/div HIT; sum_range_id Intervals.lean L249 HIT as triangular glue only; sum_range_pow Bernoulli.lean L280 HIT as already-in different Faulhaber; lucas_lehmer_sufficiency L476 HIT as already-in different Lucas; Nat.sum_four_squares HIT as different; named cannonball / Cannonball / squarePyramid / SquarePyramidal / pyramidalSquare / alcuin / Alcuin ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite pyramidal-square witnesses leftover beside Alcuin triangle counts. Score 84 this run (not a JSON rubber-stamp): Nat mul/div waiting (formalizability 16); Level A P(1)=1^2 and P(24)=70^2 (partial 16); namesake is undergraduate Diophantine uniqueness (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named pyramidal numbers Level A; only-1-and-24 namesake residual. Pell / square-triangular residual. Do NOT assign Alcuin leftover-revivals (Heronian / Pick). Do NOT prove Alcuin here (prime of this shortlist). Do NOT prove Faulhaber as namesake / Lucas–Lehmer / Proth / Pépin.",
+  "mathlib_gap_grep_2026_09_10_ope1310": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1294 scores. rg cannonball / Cannonball / squarePyramid / SquarePyramidal / pyramidalSquare / alcuin / Alcuin / Proth / Frucht over Mathlib/ + Archive + ProofLab → ZERO named cannonball theorem (and ZERO named Alcuin triangle-count). Defs HIT: Nat mul/div, sum_range_id (Intervals.lean L249; triangular glue, not namesake), sum_range_pow (Bernoulli.lean L280; ALREADY-IN different Faulhaber over Q), Nat.sum_four_squares (different four-square theorem), lucas_lehmer_sufficiency (LucasLehmer.lean L476; ALREADY-IN different Lucas/Mersenne), euler_criterion (LegendreSymbol/Basic.lean L58; Proth glue, not this leftover), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Lucas theorem Choose/Lucas.lean L97 (binomial, different Lucas); Sperner/LYM; rearrangement; Zeckendorf; Binet; Sylvester inertia; Chebyshev sum; Cramer; quadratic reciprocity; Vieta; Farkas as hyperplane_separation L217; rank-nullity; Ballot; AM-GM; four-squares; two-squares; littleWedderburn; Möbius; totient product L259; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; Turán L300; parallelogram_law; Jensen; euler_criterion L58; lucas_lehmer_sufficiency L476. Already-consumed this mill: ProofLab/FruchtGraphAut.lean Level A (#150); ProofLab/ProthPrimality.lean Level A (#151). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem cannonball_square_pyramid: squarePyramid n = k*k with 0<n implies n=1 or n=24, namesake. Level A may land only P(1)=1^2 and P(24)=70^2, not labelled cannonball / Lucas.",
+    "landmines": [
+      "Do not re-prove Nat mul/div / sum_range_id / sum_range_pow / Nat.sum_four_squares / lucas_lehmer_sufficiency.",
+      "Not Faulhaber / sum_range_pow. Generating function over Q ≠ pyramidal-is-square.",
+      "Not Lucas–Lehmer / Mersenne. Already-in different Lucas. Do not label theorems lucas_*.",
+      "Not Proth / Pépin / Pocklington / euler_criterion (consumed #151 leftover-revivals).",
+      "Not alcuin-integer-triangles (OPE-1310 prime). Do not prove Alcuin here.",
+      "Not frucht-graph-aut (#150) / Cayley-graph / GRR.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Lucas 1875 / Watson 1918 cannonball problem: square-pyramidal numbers that are squares. Compact form: Wikipedia Cannonball problem. Type pin: squarePyramid n := n*(n+1)*(2*n+1)/6 / P(1)=1^2 / P(24)=70^2. Faulhaber sum_range_pow is a different already-in Q identity. Lucas–Lehmer is a different already-in Mersenne test."
+  },
+  "feasibility_shape": "Level A: P(1)=1^2; P(24)=70^2; optional P(2)=5 is not a square; not labelled cannonball / Lucas. Level B: namesake only n=1 and n=24. Cap two levels. No Pell. No Lucas–Lehmer. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: encode the closed form with Nat division (exact because 6 | n(n+1)(2n+1)), zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Nat mul/div — USE; DO NOT re-prove",
+    "sum_range_pow / Faulhaber — DIFFERENT already-in Q identity; DO NOT cite as cannonball; do not re-prove",
+    "lucas_lehmer_sufficiency — DIFFERENT already-in Mersenne test; DO NOT cite as cannonball; do not label lucas_*",
+    "Pell / square-triangular / uniqueness-for-all-n — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/ProthPrimality.lean — consumed #151, DO NOT revive Level B / Pépin / Pocklington / euler_criterion",
+    "ProofLab/FruchtGraphAut.lean — consumed #150, DO NOT revive Level B / Cayley-graph / GRR",
+    "ProofLab/LameEuclid.lean — consumed, DO NOT revive Cassini / fib_gcd as namesake",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1310",
+  "parent_issue": "OPE-1309",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO cannonball / Cannonball / squarePyramid / SquarePyramidal; Nat / sum_range_id / sum_range_pow / lucas_lehmer_sufficiency HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Faulhaber sum_range_pow L280; Lucas theorem L97 (different Lucas); four-squares; two-squares; lucas_lehmer_sufficiency L476; euler_criterion L58; Farkas as hyperplane_separation; rank-nullity; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; parallelogram_law",
+    "Already-consumed: FruchtGraphAut Level A (#150); ProthPrimality Level A (#151)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Proth leftover-revivals / Faulhaber / Lucas–Lehmer / Alcuin leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "alcuin-integer-triangles",
+  "title": "Alcuin's sequence (integer-sided triangles of perimeter n, formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Alcuin of York / OEIS A005044: the number of non-congruent triangles with positive integer sides and perimeter n is a settled finite count (closed form residual). Completely classical. Value is a Mathlib/ProofLab contribution (Nat / Finset.filter / Finset.card exist; ZERO named alcuin / Alcuin / integerTriangle / IntegerTriangle / triangleCount in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. PythagoreanTriple.classification is a DIFFERENT already-in right-triangle classification — USE if needed, do not re-prove, do not cite as Alcuin. Heron is a DIFFERENT consumed area formula. British flag / Napoleon / Simson / Viviani are DIFFERENT consumed Euclidean identities. Platonic solids / Egyptian fractions are DIFFERENT consumed mills. Frucht graph Aut / Proth primality are the consumed mill of OPE-1294. Cannonball square-pyramid is the leftover of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1310 RECOMMENDED PRIME. Catalog-audit prime after OPE-1294 mill CONSUMED (#150 frucht-graph-aut Level A + #151 proth-primality Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of frucht_graph_aut / Cayley-graph gadgets / GRR / Aut(Kn)≅Sn / proth_primality / Pépin / Pocklington / euler_criterion / lucas_lehmer_sufficiency / platonic_schlafli / Euler polyhedron / egyptian_fractions / Erdos-Straus / british_flag / Napoleon / fine_wilf / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / Huffman / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / farey_adjacent. Independent Mathlib pin grep this run (Nat/Finset HIT; PythagoreanTriple.classification HIT as different right-triangle glue; ruzsa_triangle_inequality HIT as different additive glue; named alcuin / Alcuin / integerTriangle / IntegerTriangle / triangleCount / cannonball / Cannonball / squarePyramid ZERO across Mathlib+Archive+ProofLab; Lucas theorem ALREADY Choose/Lucas.lean L97 — different binomial congruence, never cite as a gap; Farkas ALREADY ProperCone.hyperplane_separation L217 — never cite as a gap). Mill NOW: finite Nat triangle-count witnesses after graph Aut + Proth form. Score 86 this run (not a JSON rubber-stamp): Nat+Finset waiting (formalizability 16); Level A perimeters 1/3/5/6 (partial 17); namesake is undergraduate casework / round-n^2/48 (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins named small-perimeter Level A; closed-form namesake residual. Heronian / Pick / Brahmagupta residual. Leftover slot #2 is cannonball-square-pyramid (Director may swap). Do NOT prove Pythagorean classification as namesake / Heron / British-flag leftover-revivals / Frucht leftover-revivals / Proth leftover-revivals.",
+  "mathlib_gap_grep_2026_09_10_ope1310": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1294 scores. rg alcuin / Alcuin / integerTriangle / IntegerTriangle / triangleCount / cannonball / Cannonball / squarePyramid / SquarePyramidal / pyramidalSquare over Mathlib/ + Archive + ProofLab → ZERO named Alcuin triangle-count or cannonball theorem (Ruzsa triangle inequality HIT as unrelated additive; Euclidean angle_add_angle_add_angle_eq_pi HIT as unrelated geometry; LinearEquiv.automorphismGroup HIT as unrelated module Aut — not Frucht). Defs HIT: Nat, Finset.range / filter / card, Nat.choose / choose_two_right (Choose/Basic.lean L88; glue, not namesake), PythagoreanTriple.classification (different right-triangle theorem), sum_range_id (Intervals.lean L249; triangular, different), sum_range_pow (Bernoulli.lean L280; Faulhaber over Q, different — cannonball glue not namesake), totient_eq_prod_factorization (Totient.lean L259; already-in, never cite as Jordan/Alcuin), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Lucas theorem choose_modEq_prod_range_choose alias lucas_theorem (Choose/Lucas.lean L97); Sperner/LYM (LYM.lean); rearrangement (Algebra/Order/Rearrangement); Zeckendorf (Fib/Zeckendorf.lean); Binet (GoldenRatio.lean); Sylvester inertia (QuadraticForm/Real.lean); Chebyshev sum (Algebra/Order/Chebyshev.lean); Cramer mulVec_cramer; quadratic_reciprocity; Vieta; Farkas as ProperCone.hyperplane_separation (Proper.lean L217); rank-nullity finrank_range_add_finrank_ker (FiniteDimensional.lean L129); Ballot.ballot_problem; AM-GM geom_mean_le_arith_mean_weighted; Nat.sum_four_squares; Nat.Prime.sq_add_sq; littleWedderburn L160; Möbius sum_eq_iff_sum_mul_moebius_eq; totient product L259; sum_totient L153; Hall all_card_le_biUnion_card_iff_exists_injective; CayleyHamilton Matrix.aeval_self_charpoly; Wilson wilsons_lemma; catalan_eq_centralBinom_div L109; numDerangements; exists_prime_lt_and_le_two_mul L211; frobeniusNumber_pair L52; HalesJewett exists_mono_homothetic_copy L456; Turán L300; List.IsPrefix; hammingDist; boxProd; Colorable; det_one_add_mul_comm; totient_eq_prod_factorization; Polynomial.Chebyshev.T_real_cos; Finset.card_shatterer_le_sum_vcDim; ZMod.min_le_card_add; triangleRemovalBound; even_card_odd_degree_vertices; parallelogram_law; ZMod.pow_totient; exists_prime_orderOf_dvd_card; exists_prime_gt_modEq_one; Partition.odds / distincts; Schur-Zassenhaus; extend_partialOrder; equiv_nim_grundyValue; one_add_mul_le_pow; young_inequality_of_nonneg; card_sym_eq_multichoose; StoneWeierstrass; Dickson; Hindman; intersecting chords; inscribed angle; schnirelmannDensity API; tendsto_sum_range_one_div_nat_succ_atTop; euler_criterion L58; lucas_lehmer_sufficiency L476; Gershgorin eigenvalue_mem_ball; Urysohn; Tietze; ConvexOn.map_sum_le (Jensen L65); IsAntichain.sperner. Already-consumed this mill: ProofLab/FruchtGraphAut.lean Level A (#150); ProofLab/ProthPrimality.lean Level A (#151). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300. Skipped as Cassini-class / leftover-risk (not slotted): Karamata (Jensen+rearrangement wrap); Jordan totient (Möbius of n^2 wrap); Landau scores (Havel-Hakimi leftover-risk); Chevalley-Warning (SZ/CNS leftover-risk); matrix permanent (definitional / BvN / IE-Ryser leftover-risk); Farkas (already hyperplane_separation); Pick (Farey leftover-risk); Vizing (König χ' leftover); Perron-Frobenius (expander leftover).",
+  "statement_pin_required": {
+    "convention": "theorem alcuin_integer_triangles: closed-form count of integer-sided triangles of perimeter n, namesake. Level A may land only perimeters 1 (none) / 3 = (1,1,1) / 5 = (1,2,2) / 6 = (2,2,2), not labelled Alcuin.",
+    "landmines": [
+      "Do not re-prove Nat arithmetic / Finset.filter / PythagoreanTriple.classification / Heron.",
+      "Not Heron / integer area. Side-count ≠ area.",
+      "Not British flag / Napoleon / Simson / Viviani (consumed #145).",
+      "Not Pythagorean-triple classification. Already-in glue.",
+      "Not cannonball-square-pyramid (OPE-1310 leftover). Do not prove cannonball here.",
+      "Not frucht-graph-aut (#150) / proth-primality (#151) / Pépin / Pocklington / Cayley-graph / GRR.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Alcuin of York integer-sided triangles of given perimeter; OEIS A005044. Compact form: Wikipedia Integer triangle (number of triangles with given perimeter). Type pin: IsIntegerTriangle a b c n / a≤b≤c / a+b>c. Pythagorean classification is a different already-in right-triangle theorem. Heron is a different consumed area formula."
+  },
+  "feasibility_shape": "Level A: perimeter 1 none; 3 exactly (1,1,1); 5 exactly (1,2,2); 6 exactly (2,2,2); optional extra perimeter 7 exactly {(1,3,3),(2,2,3)}; not labelled Alcuin. Level B: namesake closed form. Cap two levels. No Heronian area. No Pick. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: encode strict a+b>c so (1,1,2) of perimeter 4 is excluded, zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Nat / Finset.filter / Finset.card — USE; DO NOT re-prove",
+    "PythagoreanTriple.classification — DIFFERENT right-triangle glue; DO NOT cite as Alcuin; do not re-prove",
+    "Heron / Pick / Brahmagupta / Heronian area — DIFFERENT; residual of this id AND heron leftover; DO NOT sorry",
+    "Ruzsa triangle inequality — DIFFERENT already-in additive; DO NOT cite as Alcuin",
+    "ProofLab/FruchtGraphAut.lean — consumed #150, DO NOT revive Level B / Cayley-graph / GRR / Aut(Kn)≅Sn",
+    "ProofLab/ProthPrimality.lean — consumed #151, DO NOT revive Level B / Pépin / Pocklington / euler_criterion",
+    "ProofLab/BritishFlag.lean — consumed #145, DO NOT revive Napoleon / Simson / Viviani",
+    "ProofLab/Heron.lean — consumed, DO NOT revive Pick / Brahmagupta",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1310",
+  "parent_issue": "OPE-1309",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO alcuin / Alcuin / integerTriangle / IntegerTriangle / triangleCount; Nat / Finset / PythagoreanTriple.classification HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Lucas theorem L97; Sperner/LYM; rearrangement; Zeckendorf; Binet; Sylvester inertia; Chebyshev sum; Cramer; quadratic reciprocity; Vieta; Farkas as hyperplane_separation L217; rank-nullity; Ballot; AM-GM; four-squares; littleWedderburn; Möbius; totient product; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; parallelogram_law; Jensen ConvexOn.map_sum_le",
+    "Already-consumed: FruchtGraphAut Level A (#150); ProthPrimality Level A (#151)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Heron / British-flag / Frucht leftover-revivals / Proth leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
