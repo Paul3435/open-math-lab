@@ -1,7 +1,7 @@
 {
   "id": "alcuin-integer-triangles",
   "title": "Alcuin's sequence (integer-sided triangles of perimeter n, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "enumerative_combinatorics",
   "score": 86,
   "scores": {
@@ -56,5 +56,8 @@
     "Already-consumed: FruchtGraphAut Level A (#150); ProthPrimality Level A (#151)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Heron / British-flag / Frucht leftover-revivals / Proth leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1316",
+  "director_issue": "OPE-1315",
+  "lean_artifact": "proofs/lean-project/ProofLab/AlcuinIntegerTriangles.lean"
 }

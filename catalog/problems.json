@@ -2536,25 +2536,31 @@
     {
       "id": "alcuin-integer-triangles",
       "title": "Alcuin's sequence (integer-sided triangles of perimeter n, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "enumerative_combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1310 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1294 mill CONSUMED (#150 frucht-graph-aut + #151 proth-primality). Classical Alcuin / OEIS A005044 integer-sided triangles of perimeter n. Named theorem ZERO. Nat/Finset waiting. PythagoreanTriple.classification is different already-in right-triangle glue. Not Heron/British-flag/Frucht/Proth leftover-revivals. Level A: perimeters 1 none / 3=(1,1,1) / 5=(1,2,2) / 6=(2,2,2), not labelled Alcuin. Level B closed form residual. Leftover slot #2 is cannonball-square-pyramid. No novelty claim.",
+      "note": "OPE-1316 Formalist Level A. Director OPE-1315 approved Scout OPE-1310 RECOMMENDED PRIME. Lean zero-sorry ProofLab/AlcuinIntegerTriangles.lean. Level A LANDED: IsIntegerTriangle encoding (positive a<=b<=c, a+b+c=n, strict a+b>c); alcuin_one (perimeter 1 none); alcuin_three (exactly (1,1,1)); alcuin_five (exactly (1,2,2)); alcuin_six (exactly (2,2,2)); optional alcuin_seven (exactly {(1,3,3),(2,2,3)}). Nat arithmetic USE, not re-proved. Not labelled Alcuin. Namesake alcuin_integer_triangles (round n^2/48) OUT of this ticket, not sorry-ed. Not PythagoreanTriple.classification as namesake / Heron / Pick / Brahmagupta / Ruzsa / cannonball-square-pyramid / Frucht / Proth. Leftover slot #2 is cannonball-square-pyramid (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/alcuin-integer-triangles/"
+        "catalog/problems/alcuin-integer-triangles/",
+        "proofs/lean-project/ProofLab/AlcuinIntegerTriangles.lean"
       ],
       "scout_issue": "OPE-1310",
       "tickets": [
         "OPE-1310",
-        "OPE-1309"
+        "OPE-1309",
+        "OPE-1315",
+        "OPE-1316"
       ],
       "parent_issue": "OPE-1309",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/AlcuinIntegerTriangles.lean",
+      "formalist_issue": "OPE-1316",
+      "director_issue": "OPE-1315"
     },
     {
       "id": "cannonball-square-pyramid",
