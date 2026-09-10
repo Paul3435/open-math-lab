@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-09T19:55:19Z",
+  "last_updated": "2026-09-10T08:18:16Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2473,9 +2473,55 @@
       "formalist_issue": "OPE-1289",
       "director_issue": "OPE-1288",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/148"
+    },
+    {
+      "id": "frucht-graph-aut",
+      "title": "Frucht theorem (every finite group is a graph automorphism group, formalize-only)",
+      "status": "candidate",
+      "domain": "algebraic_graph_theory",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1294 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1278 mill CONSUMED (#147+#148). Classical Frucht 1939: every finite group is Aut of some finite simple graph. Mathlib gap this pin: ZERO frucht / Frucht / GraphAut / automorphismGroup; SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph HIT as glue not namesake. Level A pin: unique Aut on K1/P1 plus pathGraph 3 endpoint-swap ≠ refl, not labelled Frucht. Namesake every-finite-group residual. Not Cayley trees / Iso.completeGraph as namesake / friendship / Moore / Sabidussi / Petersen. Leftover slot #2 is proth-primality. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/frucht-graph-aut/"
+      ],
+      "scout_issue": "OPE-1294",
+      "tickets": [
+        "OPE-1294",
+        "OPE-1293"
+      ],
+      "parent_issue": "OPE-1293",
+      "mathlib_gap": true
+    },
+    {
+      "id": "proth-primality",
+      "title": "Proth's theorem (primality of k·2ⁿ+1, formalize-only)",
+      "status": "candidate",
+      "domain": "elementary_number_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1294 Scout leftover slot #2. Catalog-audit after OPE-1278 mill CONSUMED (#147+#148). Classical Proth 1878: N=k·2ⁿ+1 with k odd, k<2ⁿ, and a^{(N-1)/2}≡−1 (mod N) ⇒ N prime. Mathlib gap this pin: ZERO proth / Proth / ProthWitness / pepin / Pocklington; euler_criterion L58 HIT as different prime-modulus glue; lucas_lehmer_sufficiency L476 ALREADY-IN different Mersenne test. Level A pin: 3/5/13 form+witness 2, not labelled Proth. Namesake form+witness⇒prime residual. Not Euler criterion as namesake / Lucas-Lehmer / Korselt / Wantzel / Gauss-Wantzel / Fermat polygons. Prime of this shortlist is frucht-graph-aut. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/proth-primality/"
+      ],
+      "scout_issue": "OPE-1294",
+      "tickets": [
+        "OPE-1294",
+        "OPE-1293"
+      ],
+      "parent_issue": "OPE-1293",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-09T19:55:19Z",
+  "updated_at": "2026-09-10T08:18:16Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

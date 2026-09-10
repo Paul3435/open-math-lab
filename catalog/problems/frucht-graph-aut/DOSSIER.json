@@ -1,0 +1,61 @@
+{
+  "id": "frucht-graph-aut",
+  "title": "Frucht theorem (every finite group is a graph automorphism group, formalize-only)",
+  "status": "candidate",
+  "domain": "algebraic_graph_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 17,
+    "attack_surface": 16,
+    "verification_budget": 17,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Frucht 1939: every finite group is Aut of some finite undirected simple graph. Completely classical. Value is a Mathlib/ProofLab contribution (SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph exist; ZERO named frucht / Frucht / GraphAut / automorphismGroup in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Iso.completeGraph (Maps.lean L544) is a DIFFERENT type-equivalence of complete graphs — USE glue, do not re-prove, do not cite as Frucht. Cayley's formula / labelled trees are a DIFFERENT consumed count — do not revive Prüfer / Kirchhoff. Cayley's theorem Γ↪Perm is ALREADY Equiv.Perm glue — do not cite as Frucht. Friendship / Moore / Sabidussi box-product / Petersen 1-factor are DIFFERENT consumed leftovers. Platonic solids / Egyptian fractions are the consumed mill of OPE-1278. Proth primality is the leftover of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1294 RECOMMENDED PRIME. Catalog-audit prime after OPE-1278 mill CONSUMED (#147 platonic-solids Level A + #148 egyptian-fractions Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of platonic_schlafli / Euler polyhedron / Coxeter H3 / egyptian_fractions / Erdos-Straus / british_flag / Napoleon / fine_wilf / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / Huffman / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / farey_adjacent. Independent Mathlib pin grep this run (SimpleGraph.Iso Maps.lean L215 HIT; Iso.completeGraph L544 HIT as complete-graph glue only; completeGraph Basic.lean L144 HIT; pathGraph Hasse.lean L94 HIT; named frucht / Frucht / GraphAut / automorphismGroup / Proth / prothPrime ZERO across Mathlib+Archive+ProofLab; Whitney embedding is a DIFFERENT manifold theorem). Mill NOW: finite Aut witnesses on pathGraph after Platonic Schläfli + Egyptian unit fractions. Score 86 this run (not a JSON rubber-stamp): ≃g+pathGraph waiting (formalizability 16); Level A unique Aut on K1/P1 + non-id flip on P3 (partial 17); namesake is undergraduate Cayley-graph gadgets (attack 16); Lean-only finite (verification 17); classical (crackpot 20). v1 pins named small-graph Aut Level A; every-finite-group namesake residual. Cayley-graph / GRR residual. Leftover slot #2 is proth-primality (Director may swap). Do NOT prove Iso.completeGraph as namesake / Cayley trees / Proth / platonic leftover-revivals / egyptian leftover-revivals.",
+  "mathlib_gap_grep_2026_09_10_ope1294": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1278 scores. rg frucht / Frucht / GraphAut / automorphismGroup / proth / Proth / ProthWitness / pepin / Pocklington over Mathlib/ + Archive + ProofLab → ZERO named Frucht theorem or Proth theorem (manifold WhitneyEmbedding.lean HIT as unrelated embedding; Turán ≃g HIT as already-in negative control). Defs HIT: SimpleGraph.Iso (Maps.lean L215), Iso.completeGraph (L544; glue, not namesake), completeGraph (Basic.lean L144), pathGraph (Hasse.lean L94), pathGraph_two_eq_top (L108), euler_criterion (LegendreSymbol/Basic.lean L58; Proth glue, not namesake), lucas_lehmer_sufficiency (LucasLehmer.lean L476; ALREADY-IN different Mersenne test), littleWedderburn (LittleWedderburn.lean L160; ALREADY-IN, OPE-1125 refused Little Wedderburn), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Hall all_card_le_biUnion_card_iff_exists_injective; CayleyHamilton Matrix.aeval_self_charpoly; Wilson wilsons_lemma; catalan_eq_centralBinom_div; numDerangements; exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; HalesJewett; Turán L300; List.IsPrefix; hammingDist; boxProd; Colorable; det_one_add_mul_comm; totient_eq_prod_factorization; Polynomial.Chebyshev.T_real_cos; Finset.card_shatterer_le_sum_vcDim; ZMod.min_le_card_add; triangleRemovalBound; even_card_odd_degree_vertices; parallelogram_law; ZMod.pow_totient; exists_prime_orderOf_dvd_card; exists_prime_gt_modEq_one; Partition.odds / distincts; Schur-Zassenhaus; extend_partialOrder; equiv_nim_grundyValue; one_add_mul_le_pow; young_inequality_of_nonneg; card_sym_eq_multichoose; StoneWeierstrass; Dickson; Hindman; intersecting chords; inscribed angle; schnirelmannDensity API; tendsto_sum_range_one_div_nat_succ_atTop; euler_criterion L58; lucas_lehmer_sufficiency L476; littleWedderburn L160; sum_eq_iff_sum_mul_moebius_eq (Möbius inversion ALREADY-IN); Gershgorin eigenvalue_mem_ball; Urysohn; Tietze; Collinear (AffineSpace/FiniteDimensional.lean L353 — Pappus/Ceva infra exists but those ids stay Euclidean/projective leftover of Heron, not this mill). Already-consumed this mill: ProofLab/PlatonicSolids.lean Level A (#147); ProofLab/EgyptianFractions.lean Level A (#148). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem frucht_graph_aut: every finite group is Aut of some finite simple graph, namesake. Level A may land only unique Aut on completeGraph (Fin 1) / pathGraph 1 plus a non-identity Aut of pathGraph 3, not labelled Frucht.",
+    "landmines": [
+      "Do not re-prove SimpleGraph.Iso / pathGraph / completeGraph / Iso.completeGraph / Equiv.Perm.",
+      "Not Iso.completeGraph as namesake. Type-equivalence of complete graphs ≠ Frucht.",
+      "Not Cayley's formula / Prüfer / Kirchhoff (consumed cayley-trees).",
+      "Not Cayley's theorem Γ↪Perm. Already-in glue.",
+      "Not friendship / Moore / Sabidussi box-product / Petersen 1-factor / Hedetniemi.",
+      "Not proth-primality (OPE-1294 leftover). Do not prove Proth here.",
+      "Not platonic-solids (#147) / egyptian-fractions (#148) / Fine-Wilf / British flag.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Frucht 1939, every finite group is Aut of a finite graph. Compact form: Wikipedia Frucht's theorem. Type pin: GraphAut := ≃g / pathGraph 3 flip. Iso.completeGraph is a different complete-graph glue. Cayley trees is a different consumed count."
+  },
+  "feasibility_shape": "Level A: unique Aut on K1/P1; pathGraph 3 endpoint-swap iso ≠ refl; optional K2 card 2 via Iso.completeGraph USE; not labelled Frucht. Level B: namesake every finite group. Cap two levels. No Cayley-graph gadgets as namesake. No Aut(K_n)≅S_n as namesake. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape.",
+  "infra_carry_over": [
+    "Mathlib SimpleGraph.Iso / pathGraph / completeGraph — USE; DO NOT re-prove",
+    "Iso.completeGraph — DIFFERENT complete-graph glue; DO NOT cite as Frucht; do not re-prove",
+    "Cayley trees / Prüfer / Kirchhoff — DIFFERENT consumed leftover; DO NOT sorry / revive",
+    "Cayley-graph gadgets / GRR / Aut(K_n)≅S_n as namesake — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/PlatonicSolids.lean — consumed #147, DO NOT revive Level B / Euler polyhedron / Coxeter H3",
+    "ProofLab/EgyptianFractions.lean — consumed #148, DO NOT revive Level B / Erdos-Straus",
+    "ProofLab/SabidussiBoxProd.lean — consumed #139, DO NOT revive Level B / Hedetniemi",
+    "ProofLab/CayleyTrees.lean — consumed, DO NOT revive Prüfer",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1294",
+  "parent_issue": "OPE-1293",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO frucht / Frucht / GraphAut / automorphismGroup; Iso / pathGraph / completeGraph HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Iso.completeGraph; euler_criterion; lucas_lehmer_sufficiency; littleWedderburn; Möbius inversion; Gershgorin; Urysohn; Tietze; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; parallelogram_law",
+    "Already-consumed: PlatonicSolids Level A (#147); EgyptianFractions Level A (#148)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Cayley trees / friendship / Moore / Sabidussi / Petersen / Proth leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
