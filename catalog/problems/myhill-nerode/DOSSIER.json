@@ -1,0 +1,61 @@
+{
+  "id": "myhill-nerode",
+  "title": "Myhill–Nerode (named small-language witnesses, formalize-only)",
+  "status": "candidate",
+  "domain": "computability",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Myhill 1957 / Nerode 1958: a language is regular iff it has finitely many Nerode right-congruence classes (x ~_L y iff ∀ z, xz ∈ L ↔ yz ∈ L). Completely classical. Value is a Mathlib/ProofLab contribution (Language / DFA.accepts exist; ZERO named Myhill / Nerode / nerode / myhillNerode / syntacticMonoid / Language.IsRegular in Mathlib+Archive+ProofLab; cardinal IsRegular is a different theorem). Do NOT re-discover as novel. DFA.pumping_lemma (DFA.lean L152) is a DIFFERENT already-in theorem — USE DFA/Language if needed, do not re-prove, do not cite as Myhill–Nerode. NFA.toDFA is already-in subset construction, not namesake. Kleene regex ⇔ DFA is RegularExpressions.lean L18 TODO — residual of this id. Fine–Wilf List.IsPeriod is a DIFFERENT consumed word-period theorem. Gray codes are the leftover of this shortlist.",
+  "recommendation": "OPE-1357 RECOMMENDED PRIME. Catalog-audit prime after OPE-1342 mill CONSUMED (#159 legendre-three-squares Level A + #160 langford-pairing Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of langford_pairing / Skolem sequences / legendre_three_squares / Gauss Eureka / three triangular / pumping_lemma / Kleene / Fine–Wilf / Lyndon–Schützenberger / Kraft / McMillan / Huffman. Independent Mathlib pin grep this run (Language / DFA / accepts / pumping_lemma L152 HIT as glue; named Myhill / Nerode / nerode / myhillNerode / syntacticMonoid / Language.IsRegular ZERO). Mill NOW: finite Nerode witnesses beside Gray-code listings. Score 86 this run: DFA/Language waiting (formalizability 18); Level A empty / {[]} distinction / optional 2-state DFA (partial 16); namesake is undergraduate finite-index characterisation (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-language Level A; namesake residual. Kleene residual.",
+  "mathlib_gap_grep_2026_09_10_ope1357": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1342 scores. rg Myhill / Nerode / nerode / myhillNerode / syntacticMonoid / Language.IsRegular over Mathlib/ + Archive + ProofLab → ZERO named Myhill–Nerode theorem (cardinal IsRegular is a different theorem). Defs HIT: Language (Language.lean L31), Membership L34, 0=∅ L47, 1={[]} L51, DFA (DFA.lean L39), eval L72, accepts L100, pumping_lemma L152 (already-in, not namesake), NFA.toDFA (already-in, not namesake), RegularExpression (RegularExpressions.lean L42; Kleene regex⇔DFA TODO L18 residual). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): pumping_lemma L152; NFA.toDFA; Bayes cond_eq_inv_mul_cond_mul; Helly helly_theorem' Radon.lean; Kummer padicValNat_choose; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; four-square L212; two-square L31; Langford consumed #160; three-square consumed #159; Fine–Wilf consumed #144; Kraft consumed #138.",
+  "statement_pin_required": {
+    "convention": "theorem myhill_nerode: finite Nerode index iff regular, namesake. Level A may land only empty-language all-equivalent / {[]} distinguishes [] from [0] / optional 2-state DFA distinction, not labelled Myhill / Nerode.",
+    "landmines": [
+      "Do not re-prove Language / DFA / eval / accepts / DFA.pumping_lemma / NFA.toDFA.",
+      "Not Kleene regex ⇔ DFA (RegularExpressions.lean TODO). Residual of this id. Do not sorry Kleene.",
+      "Not Fine–Wilf / Lyndon–Schützenberger (consumed #144).",
+      "Not Kraft / McMillan / Huffman / Shannon (consumed #138).",
+      "Not langford-pairing / Skolem sequences (consumed #160).",
+      "Not legendre-three-squares (consumed #159).",
+      "Not gray-code (OPE-1357 leftover). Do not prove Gray here.",
+      "Not cardinal IsRegular / Language.IsContextFree.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Myhill 1957 / Nerode 1958 right-congruence finite-index characterisation of regular languages. Type pin: NerodeEq / Language. Pumping lemma is a different already-in theorem. Kleene regex⇔DFA is a different residual. Fine–Wilf periods are a different consumed mill."
+  },
+  "feasibility_shape": "Level A: empty language all-equivalent / {[]} distinguishes [] from [0] / optional 2-state DFA distinction; not labelled Myhill / Nerode. Level B: namesake finite-index characterisation. Cap two levels. No Kleene regex⇔DFA. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems pumping_* as namesake (already-in); zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Language / DFA / eval / accepts — USE; DO NOT re-prove",
+    "DFA.pumping_lemma L152 — DIFFERENT already-in theorem; DO NOT cite as Myhill–Nerode",
+    "NFA.toDFA — DIFFERENT already-in subset construction; DO NOT re-prove",
+    "Kleene regex ⇔ DFA — DIFFERENT residual of this id; DO NOT sorry as namesake",
+    "ProofLab/FineWilf.lean — consumed #144, DO NOT revive Level B / Lyndon–Schützenberger",
+    "ProofLab/KraftInequality.lean — consumed #138, DO NOT revive Level B / McMillan / Huffman / Shannon",
+    "ProofLab/LangfordPairing.lean — consumed #160, DO NOT revive Level B / Skolem sequences",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "logic",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1357",
+  "parent_issue": "OPE-1356",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO Myhill / Nerode / nerode / myhillNerode / syntacticMonoid / Language.IsRegular; Language / DFA / accepts / pumping_lemma L152 HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: pumping_lemma L152; NFA.toDFA; Bayes cond_eq_inv_mul_cond_mul; Helly helly_theorem'; Kummer padicValNat_choose; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52",
+    "Already-consumed: LangfordPairing Level A (#160); LegendreThreeSquares Level A (#159); FineWilf Level A (#144); KraftInequality Level A (#138)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Kleene / Fine–Wilf leftover-revivals / Kraft leftover-revivals / Langford leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

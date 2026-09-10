@@ -248,18 +248,27 @@ OPE-1326 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1337 lands the leftover. OPE-1326 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1342, 2026-09-10)
+## Formalize-only shortlist (OPE-1342, 2026-09-10) — WAVE CONSUMED
 
-OPE-1326 mill consumed (#156+#157). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1342 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`legendre-three-squares` — RECOMMENDED PRIME (86).** Fresh id. Legendre 1797/98: `n` is three integer squares iff not of the form `4^a(8b+7)`. Named theorem ZERO (`three_square` / `sum_three_squares` / `LegendreThree`). `Nat.sum_four_squares` L212 HIT as different four-square glue **not** namesake. `Nat.Prime.sq_add_sq` L31 HIT as different two-square glue **not** namesake. **Not** four-square / two-square (already-in). **Not** cannonball (consumed #154). **Not** Jordan / OLS (consumed #156+#157). **Not** Gauss Eureka (residual of this id). Finite, one-wave Level A (`1`/`2`/`3` yes / `7` no).
-2. **`langford-pairing` leftover (84).** Fresh id. Langford 1958: two copies of `k` have exactly `k` entries between them; exists iff `n ≡ 0 or 3 (mod 4)`. Named theorem ZERO (`langford` / `LangfordPairing` / `skolemSequence`). **Not** Skolem sequences (residual of this id). **Not** Fine–Wilf (consumed #144). **Not** OLS (consumed #157). **Not** three-square (prime of this shortlist). Finite, one-wave Level A (order 1 none / order 2 none / order 3 `[2,3,1,2,1,3]`). **Unassigned this tick.** Hold until this prime lands.
+1. **`legendre-three-squares` — CONSUMED Level A.** OPE-1347 Formalist. PR **#159**. Director OPE-1346 approved Scout OPE-1342 RECOMMENDED PRIME. Lean `ProofLab/LegendreThreeSquares.lean`. Catalog `formalized`. Level A: `1`/`2`/`3` yes / `7` not + optional `6` yes / `15` not, not labelled Legendre. Level B namesake `legendre_three_squares` / Gauss Eureka residual **out of v1**. Do not revive.
+2. **`langford-pairing` leftover (84) — CONSUMED Level A.** OPE-1352 Formalist. PR **#160**. Director OPE-1351 approved Scout OPE-1342 leftover. Lean `ProofLab/LangfordPairing.lean`. Catalog `formalized`. Level A: order-1 none / order-2 none / order-3 `[2,3,1,2,1,3]` + optional order-4, not labelled Langford / Skolem. Level B namesake `langford_pairing` / Skolem sequences residual **out of v1**. Do not revive.
+
+Scout opened **no attack issues**. Formalist OPE-1352 lands the leftover. OPE-1342 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1357, 2026-09-10)
+
+OPE-1342 mill consumed (#159+#160). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`myhill-nerode` — RECOMMENDED PRIME (86).** Fresh id. Myhill 1957 / Nerode 1958: a language is regular iff it has finitely many Nerode right-congruence classes. Named theorem ZERO (`Myhill` / `Nerode` / `nerode` / `myhillNerode` / `syntacticMonoid` / `Language.IsRegular`). `Language` L31 / `DFA` L39 / `accepts` L100 HIT as glue **not** namesake. `DFA.pumping_lemma` L152 HIT as already-in **different** theorem **not** namesake. `NFA.toDFA` already-in subset construction **not** namesake. **Not** Kleene regex ⇔ DFA (RegularExpressions.lean L18 TODO; residual of this id). **Not** Fine–Wilf (consumed #144). **Not** Kraft (consumed #138). **Not** Langford (consumed #160). **Not** three-square (consumed #159). Finite, one-wave Level A (empty language all-equivalent / `{[]}` distinguishes `[]` from `[0]` / optional 2-state DFA).
+2. **`gray-code` leftover (84).** Fresh id. Gray 1953 / Baudot: listing of all `n`-bit strings with adjacent Hamming distance 1. Named theorem ZERO (`GrayCode` / `grayCode` / `gray_code` / `binaryReflected`). `hammingDist` Hamming.lean L38 HIT as glue **not** namesake. **Not** Singleton / Hamming-bound / Plotkin / MDS (consumed #120). **Not** Ore / Bondy–Chvátal / `Walk.IsHamiltonian` as namesake (consumed #111). **Not** Kraft (consumed #138). **Not** Fine–Wilf (consumed #144). **Not** Myhill–Nerode (prime of this shortlist). Finite, one-wave Level A (length 1 / length 2 `00,01,11,10` / length 3 reflected). **Unassigned this tick.** Hold until this prime lands.
 
 Scout opened **no attack issues**. Formalist lands the prime after Director approval. Hold leftover until this prime lands. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-10 (OPE-1342 Scout: catalog-audit formalize-only shortlist.)
+**Last updated:** 2026-09-10 (OPE-1357 Scout: catalog-audit formalize-only shortlist.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

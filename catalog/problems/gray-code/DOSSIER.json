@@ -1,0 +1,59 @@
+{
+  "id": "gray-code",
+  "title": "Binary reflected Gray code (length 1 / length 2 / length 3 a listing, formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Frank Gray 1953 / Baudot: an ordering of all n-bit strings in which adjacent strings differ in exactly one bit exists for every n. Completely classical. Value is a Mathlib/ProofLab contribution (hammingDist exists; ZERO named GrayCode / grayCode / gray_code / binaryReflected / reflectedGray in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Singleton hammingDist is DIFFERENT consumed min-distance bound — USE hammingDist if needed, do not re-prove, do not cite as Gray, do not revive Hamming-bound / Plotkin / MDS. Ore Walk.IsHamiltonian is a DIFFERENT consumed undirected degree-sum theorem — do not use as namesake, do not revive Bondy–Chvátal, do not define cubeGraph as this theorem. Myhill–Nerode is the prime of this shortlist. Fine–Wilf periods are a different consumed mill.",
+  "recommendation": "OPE-1357 leftover slot #2. Catalog-audit leftover after OPE-1342 mill CONSUMED (#159+#160). NOT a prize leftover, NOT Director-invented, NOT Level B revival of singleton_bound / Hamming-bound / Plotkin / MDS / ore_hamiltonian / Bondy–Chvátal / langford_pairing / Skolem / fine_wilf / kraft_inequality. Independent Mathlib pin grep this run (hammingDist Hamming.lean L38 HIT as glue; named GrayCode / grayCode / gray_code / binaryReflected / reflectedGray / Myhill / Nerode ZERO). Mill NOW: finite Gray listings leftover beside Nerode small-language witnesses. Score 84 this run: hammingDist waiting (formalizability 16); Level A length-1 / length-2 / length-3 listings (partial 16); namesake is undergraduate existence (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-length Level A; namesake residual. Hypercube-Hamiltonian residual. Hold until the prime lands.",
+  "mathlib_gap_grep_2026_09_10_ope1357": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1342 scores. rg GrayCode / grayCode / gray_code / binaryReflected / reflectedGray / Myhill / Nerode over Mathlib/ + Archive + ProofLab → ZERO named Gray or Myhill–Nerode theorem. Defs HIT: hammingDist (Hamming.lean L38), hammingDist_self L43, hammingDist_comm L52, Fin, List, List.Nodup, Fintype.card, isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove): pumping_lemma DFA.lean L152; NFA.toDFA; Bayes cond_eq_inv_mul_cond_mul; Helly helly_theorem'; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52. Already-consumed: SingletonBound Level A (#120; Hamming-bound / Plotkin / MDS residual); OreHamiltonian Level A (#111; Bondy–Chvátal residual); Kraft #138; FineWilf #144; Langford #160; three-square #159.",
+  "statement_pin_required": {
+    "convention": "theorem gray_code: exists for every n, namesake. Level A may land only length-1 / length-2 / length-3 listings, not labelled Gray / Ore / Singleton.",
+    "landmines": [
+      "Do not re-prove hammingDist / hammingDist_self / List.Nodup.",
+      "Not Singleton / Hamming-bound / Plotkin / MDS (consumed #120 residual). USE hammingDist. Do not sorry those bounds.",
+      "Not Ore / Dirac / Bondy–Chvátal (consumed #111 leftover). Do not use Walk.IsHamiltonian as namesake. Do not define cubeGraph as the theorem.",
+      "Not Kraft / McMillan / Huffman / Shannon (consumed #138).",
+      "Not Fine–Wilf / Lyndon–Schützenberger (consumed #144).",
+      "Not myhill-nerode (OPE-1357 prime). Do not prove Nerode here.",
+      "Not langford-pairing / Skolem (consumed #160).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Frank Gray 1953 / Baudot reflected binary code. Type pin: IsGrayCode / Fin n → Fin 2 / hammingDist. Singleton min-distance is a different consumed mill. Ore Hamiltonian is a different consumed mill. Myhill–Nerode is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: length 1 two vectors / length 2 00-01-11-10 / length 3 reflected listing; optional extra n=0; not labelled Gray / Ore / Singleton. Level B: namesake existence for every n. Cap two levels. No hypercube Hamiltonian. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems ore_* / hamiltonian_* / singleton_* as this listing; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib hammingDist / Fin / List.Nodup — USE; DO NOT re-prove",
+    "ProofLab/SingletonBound.lean — consumed #120, DO NOT revive Level B / Hamming-bound / Plotkin / MDS",
+    "ProofLab/OreHamiltonian.lean — consumed #111, DO NOT revive Level B / Bondy–Chvátal / Walk.IsHamiltonian as namesake",
+    "ProofLab/KraftInequality.lean — consumed #138, DO NOT revive Level B / McMillan / Huffman / Shannon",
+    "ProofLab/FineWilf.lean — consumed #144, DO NOT revive Level B / Lyndon–Schützenberger",
+    "ProofLab/LangfordPairing.lean — consumed #160, DO NOT revive Level B / Skolem sequences",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1357",
+  "parent_issue": "OPE-1356",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO GrayCode / grayCode / gray_code / binaryReflected / reflectedGray / Myhill / Nerode; hammingDist HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: pumping_lemma L152; NFA.toDFA; Bayes cond_eq_inv_mul_cond_mul; Helly helly_theorem'; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52",
+    "Already-consumed: SingletonBound Level A (#120); OreHamiltonian Level A (#111); LangfordPairing Level A (#160); LegendreThreeSquares Level A (#159)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Singleton leftover-revivals / Ore leftover-revivals / Kleene residual of the prime / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
