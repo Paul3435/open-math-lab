@@ -58,5 +58,6 @@
   ],
   "formalist_issue": "OPE-1332",
   "director_issue": "OPE-1331",
-  "lean_artifact": "proofs/lean-project/ProofLab/JordanCanonicalForm.lean"
+  "lean_artifact": "proofs/lean-project/ProofLab/JordanCanonicalForm.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/156"
 }
