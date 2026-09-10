@@ -1,0 +1,60 @@
+{
+  "id": "proth-primality",
+  "title": "Proth's theorem (primality of k·2ⁿ+1, formalize-only)",
+  "status": "candidate",
+  "domain": "elementary_number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Proth 1878: if N=k·2ⁿ+1 with k odd and k<2ⁿ, and some a satisfies a^{(N-1)/2}≡−1 (mod N), then N is prime. Completely classical. Value is a Mathlib/ProofLab contribution (ZMod / pow / Odd / Nat.Prime exist; ZERO named proth / Proth / ProthWitness / prothPrime / Pépin / Pocklington in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. euler_criterion (LegendreSymbol/Basic.lean L58) is a DIFFERENT prime-modulus quadratic-residuosity theorem — USE ZMod/pow glue, do not re-prove, do not cite as Proth. lucas_lehmer_sufficiency (LucasLehmer.lean L476) is a DIFFERENT already-in Mersenne test. Korselt/Carmichael is a DIFFERENT consumed compositeness criterion. Wantzel / Gauss–Wantzel constructible polygons / Fermat numbers are a DIFFERENT consumed leftover (Fermat 2^{2^m}+1 is a special Proth family — residual of this id; do not sorry Pépin). Platonic solids / Egyptian fractions are the consumed mill of OPE-1278. Frucht graph Aut is the prime of this shortlist — do not prove it here.",
+  "recommendation": "OPE-1294 leftover slot #2. Catalog-audit leftover after OPE-1278 mill CONSUMED (#147 platonic-solids Level A + #148 egyptian-fractions Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of platonic_schlafli / Euler polyhedron / egyptian_fractions / Erdos-Straus / british_flag / Napoleon / fine_wilf / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / Huffman / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / farey_adjacent / korselt. Independent Mathlib pin grep this run (ZMod HIT; euler_criterion LegendreSymbol/Basic.lean L58 HIT as quadratic-residue glue only; lucas_lehmer_sufficiency LucasLehmer.lean L476 HIT as already-in different Mersenne test; named proth / Proth / ProthWitness / prothPrime / pepin / Pocklington ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite Proth witnesses leftover beside Frucht Aut. Score 84 this run (not a JSON rubber-stamp): ZMod+pow waiting (formalizability 16); Level A 3/5/13 form+witness 2 (partial 16); namesake is undergraduate Pocklington-family sufficiency (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named Proth numbers Level A; form+witness⇒prime namesake residual. Pépin / Fermat / Gauss–Wantzel residual. Do NOT assign Frucht leftover-revivals (Cayley graphs / GRR). Do NOT prove Frucht here (prime of this shortlist). Do NOT prove Euler criterion as namesake / Lucas–Lehmer / Wantzel.",
+  "mathlib_gap_grep_2026_09_10_ope1294": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1278 scores. rg proth / Proth / ProthWitness / prothPrime / pepin / Pépin / Pocklington / frucht / Frucht / GraphAut over Mathlib/ + Archive + ProofLab → ZERO named Proth theorem (and ZERO named Frucht theorem). Defs HIT: ZMod, Nat.Prime, Nat.Odd, euler_criterion (LegendreSymbol/Basic.lean L58; glue, not namesake), pow_div_two_eq_neg_one_or_one (L70; prime-modulus glue, not namesake), lucas_lehmer_sufficiency (LucasLehmer.lean L476; ALREADY-IN different test), littleWedderburn (LittleWedderburn.lean L160; ALREADY-IN), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove, do not re-prime): Hall; CayleyHamilton; Wilson; catalan; derangements; Bertrand exists_prime_lt_and_le_two_mul; frobeniusNumber_pair; Hales-Jewett; Turán L300; det_one_add_mul_comm; totient product; Chebyshev T_real_cos; Sauer–Shelah; Cauchy–Davenport; triangle removal; handshaking; parallelogram_law; Ptolemy; law of cosines; Euler line; ZMod.pow_totient; exists_prime_orderOf_dvd_card; Schur-Zassenhaus; Partition.odds/distincts; extend_partialOrder; equiv_nim_grundyValue; one_add_mul_le_pow; young_inequality; card_sym_eq_multichoose; StoneWeierstrass; Dickson; Hindman; intersecting chords; inscribed angle; schnirelmannDensity API; tendsto_sum_range_one_div_nat_succ_atTop (harmonic divergence); euler_criterion L58; lucas_lehmer_sufficiency L476; Möbius inversion; Gershgorin. Already-consumed this mill: ProofLab/PlatonicSolids.lean Level A (#147); ProofLab/EgyptianFractions.lean Level A (#148). Catalog JSON leftovers catalan-recurrence / derangement-formula / bertrand-postulate-computational / frobenius-coin-problem / van-der-waerden-w24 FAIL the gap gate this run — replaced, not reaffirmed. Negative control turan → Turan.lean L300.",
+  "statement_pin_required": {
+    "convention": "theorem proth_primality: Proth form + witness ⇒ Nat.Prime, namesake. Level A may land only 3=1·2¹+1 / 5=1·2²+1 / 13=3·2²+1 with witness 2, not labelled Proth.",
+    "landmines": [
+      "Do not re-prove ZMod / pow / Odd / Nat.Prime / euler_criterion / lucas_lehmer_sufficiency.",
+      "Not Euler's criterion. Prime-modulus quadratic residuosity ≠ Proth sufficiency. Different direction.",
+      "Not Lucas–Lehmer / Mersenne. Already-in different test.",
+      "Not Korselt / Carmichael (consumed).",
+      "Not Wantzel / Gauss–Wantzel / Fermat-prime regular polygons (consumed #133). Residual of this id. Do not sorry Pépin.",
+      "Not frucht-graph-aut (OPE-1294 prime). Do not prove Frucht here.",
+      "Not platonic-solids (#147) / egyptian-fractions (#148) / Farey / Kraft.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Proth 1878 primality of k·2ⁿ+1 with modular witness. Compact form: Wikipedia Proth's theorem. Type pin: IsProth N k n / ProthWitness N a / ZMod pow = -1. Euler criterion is a different prime-modulus theorem. Lucas–Lehmer is a different already-in Mersenne test. Fermat numbers are a special Proth family residual."
+  },
+  "feasibility_shape": "Level A: 3 / 5 / 13 Proth form with witness 2; optional 9 is Proth form and composite; not labelled Proth. Level B: namesake form+witness⇒prime. Cap two levels. No Pépin. No Gauss–Wantzel. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: encode Odd k and k<2ⁿ as load-bearing, zero sorry.",
+  "infra_carry_over": [
+    "Mathlib ZMod / pow / Odd / Nat.Prime — USE; DO NOT re-prove",
+    "euler_criterion — DIFFERENT prime-modulus glue; DO NOT cite as Proth; do not re-prove",
+    "lucas_lehmer_sufficiency — DIFFERENT already-in Mersenne test; DO NOT cite as Proth",
+    "Pépin / Fermat numbers / Gauss–Wantzel / Pocklington — DIFFERENT; residual of this id; DO NOT sorry",
+    "ProofLab/WantzelConstructible.lean — consumed #133, DO NOT revive Level B / angle trisection / Gauss–Wantzel",
+    "ProofLab/EgyptianFractions.lean — consumed #148, DO NOT revive Level B / Erdos-Straus",
+    "ProofLab/PlatonicSolids.lean — consumed #147, DO NOT revive Level B / Euler polyhedron",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1294",
+  "parent_issue": "OPE-1293",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO proth / Proth / ProthWitness / pepin / Pocklington; ZMod / euler_criterion / lucas_lehmer_sufficiency HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: euler_criterion; lucas_lehmer_sufficiency; littleWedderburn; Möbius inversion; Gershgorin; Hall; Cayley-Hamilton; Wilson; catalan; derangements; Bertrand; frobeniusNumber_pair; Hales-Jewett; parallelogram_law",
+    "Already-consumed: PlatonicSolids Level A (#147); EgyptianFractions Level A (#148)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Wantzel / Korselt / Euclid-Euler / Frucht leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
