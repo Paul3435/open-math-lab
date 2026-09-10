@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-10T13:24:00Z",
+  "last_updated": "2026-09-10T14:55:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2532,7 +2532,8 @@
       "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean",
       "formalist_issue": "OPE-1305",
       "director_issue": "OPE-1304",
-      "pr": "https://github.com/Paul3435/open-math-lab/pull/151"    },
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/151"
+    },
     {
       "id": "alcuin-integer-triangles",
       "title": "Alcuin's sequence (integer-sided triangles of perimeter n, formalize-only)",
@@ -2540,7 +2541,7 @@
       "domain": "enumerative_combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1316 Formalist Level A. Director OPE-1315 approved Scout OPE-1310 RECOMMENDED PRIME. Lean zero-sorry ProofLab/AlcuinIntegerTriangles.lean. Level A LANDED: IsIntegerTriangle encoding (positive a<=b<=c, a+b+c=n, strict a+b>c); alcuin_one (perimeter 1 none); alcuin_three (exactly (1,1,1)); alcuin_five (exactly (1,2,2)); alcuin_six (exactly (2,2,2)); optional alcuin_seven (exactly {(1,3,3),(2,2,3)}). Nat arithmetic USE, not re-proved. Not labelled Alcuin. Namesake alcuin_integer_triangles (round n^2/48) OUT of this ticket, not sorry-ed. Not PythagoreanTriple.classification as namesake / Heron / Pick / Brahmagupta / Ruzsa / cannonball-square-pyramid / Frucht / Proth. Leftover slot #2 is cannonball-square-pyramid (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1316 Formalist Level A. Director OPE-1315 approved Scout OPE-1310 RECOMMENDED PRIME. Lean zero-sorry ProofLab/AlcuinIntegerTriangles.lean. Level A LANDED: IsIntegerTriangle encoding (positive a<=b<=c, a+b+c=n, strict a+b>c); alcuin_one (perimeter 1 none); alcuin_three (exactly (1,1,1)); alcuin_five (exactly (1,2,2)); alcuin_six (exactly (2,2,2)); optional alcuin_seven (exactly {(1,3,3),(2,2,3)}). Nat arithmetic USE, not re-proved. Not labelled Alcuin. Namesake alcuin_integer_triangles (round n^2/48) OUT of this ticket, not sorry-ed. Not PythagoreanTriple.classification as namesake / Heron / Pick / Brahmagupta / Ruzsa / cannonball-square-pyramid / Frucht / Proth. Leftover slot #2 cannonball-square-pyramid CONSUMED by OPE-1321 / PR #154. OPE-1310 mill fully consumed. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2570,7 +2571,7 @@
       "domain": "elementary_number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1321 Formalist Level A. Director OPE-1320 approved Scout OPE-1310 leftover slot #2. Lean zero-sorry ProofLab/CannonballSquarePyramid.lean. Level A LANDED: squarePyramid encoding n*(n+1)*(2*n+1)/6; cannonball_one (P(1)=1*1); cannonball_twenty_four (P(24)=70*70); optional cannonball_two_not_square (P(2)=5 is not a square). Nat mul/div USE, not re-proved. Not labelled cannonball / Lucas. Namesake cannonball_square_pyramid (only n=1 and n=24) OUT of this ticket, not sorry-ed. Not Faulhaber / sum_range_pow as namesake / lucas_lehmer_sufficiency as namesake / Nat.sum_four_squares as namesake / Pell / square-triangular / Alcuin leftover-revivals / Frucht / Proth. Alcuin integer-triangles is CONSUMED #153. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1321 Formalist Level A. Director OPE-1320 approved Scout OPE-1310 leftover slot #2. Lean zero-sorry ProofLab/CannonballSquarePyramid.lean. Level A LANDED: squarePyramid encoding n*(n+1)*(2*n+1)/6; cannonball_one (P(1)=1*1); cannonball_twenty_four (P(24)=70*70); optional cannonball_two_not_square (P(2)=5 is not a square). Nat mul/div USE, not re-proved. Not labelled cannonball / Lucas. Namesake cannonball_square_pyramid (only n=1 and n=24) OUT of this ticket, not sorry-ed. Not Faulhaber / sum_range_pow as namesake / lucas_lehmer_sufficiency as namesake / Nat.sum_four_squares as namesake / Pell / square-triangular / Alcuin leftover-revivals / Frucht / Proth. Alcuin integer-triangles is CONSUMED #153. OPE-1310 mill fully consumed. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
@@ -2592,10 +2593,55 @@
       "formalist_issue": "OPE-1321",
       "director_issue": "OPE-1320",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/154"
+    },
+    {
+      "id": "jordan-canonical-form",
+      "title": "Jordan canonical form (named 2x2 blocks, formalize-only)",
+      "status": "candidate",
+      "domain": "linear_algebra",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1326 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1310 mill CONSUMED (#153 alcuin-integer-triangles Level A + #154 cannonball-square-pyramid Level A). Fresh id. Named theorem ZERO (jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock). Matrix / aeval_self_charpoly L123 HIT as CH glue not namesake; exists_isNilpotent_isSemisimple L71 HIT as Dunford glue not namesake; IsJordan L78 HIT as algebra glue not namesake. Level A pin: J=!![0,1;0,0] with J*J=0 and J!=0 plus diagonal !![1,0;0,2], not labelled Jordan. Namesake residual. Not Sherman-Morrison / Cauchy-Binet / circulant / Hadamard / Schur-product leftover-revivals. Leftover slot #2 is orthogonal-latin-squares (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "algebra",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/jordan-canonical-form/"
+      ],
+      "scout_issue": "OPE-1326",
+      "tickets": [
+        "OPE-1326",
+        "OPE-1325"
+      ],
+      "parent_issue": "OPE-1325",
+      "mathlib_gap": true
+    },
+    {
+      "id": "orthogonal-latin-squares",
+      "title": "Orthogonal Latin squares (order 2 none / order 3 a pair, formalize-only)",
+      "status": "candidate",
+      "domain": "enumerative_combinatorics",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1326 Scout leftover slot #2. Catalog-audit after OPE-1310 mill CONSUMED (#153+#154). Fresh id. Named theorem ZERO (latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin). Fin / Function.Injective HIT; Equiv.Perm HIT as row-permutation glue not namesake; ProjectivePlane L329 HIT as different incidence glue; HasLines.card_le L211 HIT as different de Bruijn-Erdos. Level A pin: order 2 no orthogonal pair / order 3 affine L_1, L_2, not labelled Euler. Namesake n!=2,6 residual. Not BvN / Gale-Shapley leftover-revivals. Prime of this shortlist is jordan-canonical-form. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/orthogonal-latin-squares/"
+      ],
+      "scout_issue": "OPE-1326",
+      "tickets": [
+        "OPE-1326",
+        "OPE-1325"
+      ],
+      "parent_issue": "OPE-1325",
+      "mathlib_gap": true
     }
-
   ],
-  "updated_at": "2026-09-10T13:24:00Z",
+  "updated_at": "2026-09-10T14:55:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

@@ -1,0 +1,61 @@
+{
+  "id": "orthogonal-latin-squares",
+  "title": "Orthogonal Latin squares (order 2 none / order 3 a pair, formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Euler 1782 Graeco-Latin squares: two Latin squares of the same order are orthogonal when the ordered pairs of symbols cover the full product. Order 3 admits the affine pair L_k(i,j)=i+k*j (k=1,2); order 2 admits none. Completely classical. Value is a Mathlib/ProofLab contribution (Fin / Function.Injective / Equiv.Perm exist; ZERO named latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin / GraecoLatin in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Configuration.ProjectivePlane is a DIFFERENT already-in incidence structure — USE if needed, do not re-prove, do not cite as Latin squares. HasLines.card_le is DIFFERENT already-in de Bruijn–Erdős. Birkhoff–von Neumann is a DIFFERENT consumed permutation-matrix mill. Gale–Shapley is DIFFERENT consumed matching. Jordan canonical form is the prime of this shortlist — do not prove it here. Alcuin / cannonball are the consumed mill of OPE-1310.",
+  "recommendation": "OPE-1326 leftover slot #2. Catalog-audit leftover after OPE-1310 mill CONSUMED (#153+#154). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of alcuin_integer_triangles / cannonball_square_pyramid / Lucas uniqueness / Watson / integerTriangle / frucht_graph_aut / proth_primality / Pépin / platonic_schlafli / egyptian_fractions / british_flag / Napoleon / fine_wilf / graham_pollak / sherman_morrison / Woodbury / sabidussi_boxprod / Hedetniemi / kraft_inequality / McMillan / lagrange_quadratic_cf / Pell / petersen_one_factor / Tutte / Wantzel / det_circulant / schur_product / lame / farey_adjacent / birkhoff_von_neumann / Gale-Ryser / gale_shapley. Independent Mathlib pin grep this run (Fin/Injective HIT; Equiv.Perm HIT as different row-permutation glue; ProjectivePlane Configuration.lean L329 HIT as different incidence glue; HasLines.card_le L211 HIT as different de Bruijn–Erdős; named latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin / GraecoLatin / jordanCanonical / JordanForm / jordan_form / IsJordanBlock / JordanBlock ZERO across Mathlib+Archive+ProofLab). Mill NOW: finite Latin-square witnesses leftover beside Jordan 2×2 blocks. Score 84 this run (not a JSON rubber-stamp): Fin+Injective waiting (formalizability 16); Level A order 2 none / order 3 affine pair (partial 16); namesake is Euler officers / n≠2,6 classification (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-order Level A; namesake residual. Magic squares / Lo Shu residual of this id. Prime of this shortlist is jordan-canonical-form (Director may swap). Do NOT prove ProjectivePlane as namesake / Equiv.Perm as namesake / BvN leftover-revivals / Jordan here / Alcuin leftover-revivals / cannonball leftover-revivals.",
+  "mathlib_gap_grep_2026_09_10_ope1326": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1310 scores. Same ZERO named Latin-square / Jordan-form scan as the prime dossier. Defs HIT: Fin add/mul, Function.Injective, Equiv.Perm (row-permutation glue, not namesake), Configuration.ProjectivePlane (L329; different incidence), HasLines.card_le (L211; different de Bruijn–Erdős), isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run: Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; parallelogram_law L590; CH L123; Dunford L71; IsJordan L78; Vandermonde Nat.add_choose_eq; hockey-stick; Legendre n!; Gauss content_mul; Eisenstein; Burnside; orbit-stabilizer; finite abelian structure; Markov; LTE.",
+  "statement_pin_required": {
+    "convention": "theorem orthogonal_latin_squares: MOLS exist iff n≠2 and n≠6, namesake. Level A may land only order-2 no orthogonal pair / order-3 affine pair L_1, L_2, not labelled Euler.",
+    "landmines": [
+      "Do not re-prove Fin arithmetic / Function.Injective / Equiv.Perm / ProjectivePlane / HasLines.card_le.",
+      "Not a projective plane. Affine MOLS of order 3 ≠ Fano.",
+      "Not de Bruijn–Erdős incidence (already-in).",
+      "Not Birkhoff–von Neumann / Gale–Ryser (consumed #123).",
+      "Not Gale–Shapley (consumed #126).",
+      "Not jordan-canonical-form (OPE-1326 prime). Do not prove Jordan here.",
+      "Not alcuin-integer-triangles (#153) / cannonball-square-pyramid (#154).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Euler 1782 Graeco-Latin squares; affine plane of order 3. Type pin: IsLatinSquare / Orthogonal / affineLatin. ProjectivePlane is a different already-in incidence structure. Equiv.Perm is row-permutation glue."
+  },
+  "feasibility_shape": "Level A: order 2 has no orthogonal pair; order 3 affine L_1(i,j)=i+j and L_2(i,j)=i+2j are Latin and orthogonal; optional extra cyclic order-2 is Latin; not labelled Euler. Level B: namesake n≠2,6 classification. Cap two levels. No Euler officers / Bose–Shrikhande–Parker. No Lo Shu as extra namesake. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: encode both row and column injectivity so a row-Latin rectangle is excluded; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Fin / Function.Injective — USE; DO NOT re-prove",
+    "Equiv.Perm — DIFFERENT row-permutation glue; DO NOT cite as Latin squares; do not re-prove",
+    "Configuration.ProjectivePlane — DIFFERENT incidence; residual of this id AND already-in; DO NOT sorry as namesake",
+    "HasLines.card_le — DIFFERENT already-in de Bruijn–Erdős; DO NOT cite as Latin squares",
+    "ProofLab/AlcuinIntegerTriangles.lean — consumed #153, DO NOT revive Level B / integerTriangle",
+    "ProofLab/CannonballSquarePyramid.lean — consumed #154, DO NOT revive Level B / Lucas uniqueness / Watson",
+    "ProofLab/BirkhoffVonNeumann.lean — consumed #123, DO NOT revive Gale–Ryser",
+    "ProofLab/GaleShapley.lean — consumed #126, DO NOT revive rural hospitals",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1326",
+  "parent_issue": "OPE-1325",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO latinSquare / LatinSquare / IsLatinSquare / orthogonalLatin / graecoLatin / jordanCanonical / JordanForm; Fin / Injective / Equiv.Perm / ProjectivePlane HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; ProjectivePlane L329; HasLines.card_le L211; CH L123; Dunford L71; IsJordan L78; Vandermonde; hockey-stick; Burnside; Markov; LTE",
+    "Already-consumed: AlcuinIntegerTriangles Level A (#153); CannonballSquarePyramid Level A (#154)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "ProjectivePlane / Equiv.Perm / BvN leftover-revivals / Gale–Shapley leftover-revivals / Jordan prime of this shortlist / Alcuin leftover-revivals / cannonball leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
