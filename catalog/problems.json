@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-10T14:55:00Z",
+  "last_updated": "2026-09-10T18:30:00Z",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2601,7 +2601,7 @@
       "domain": "linear_algebra",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1332 Formalist Level A. Director OPE-1331 approved Scout OPE-1326 RECOMMENDED PRIME. Lean ProofLab/JordanCanonicalForm.lean. Catalog formalized. Level A: J=!![0,1;0,0] with J*J=0 and J!=0 plus diagonal !![1,0;0,2] + optional J1(1)=(J-I)^2=0, not labelled Jordan. Namesake residual. Leftover slot #2 is orthogonal-latin-squares (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1332 Formalist Level A. Director OPE-1331 approved Scout OPE-1326 RECOMMENDED PRIME. Lean ProofLab/JordanCanonicalForm.lean. Catalog formalized. Level A: J=!![0,1;0,0] with J*J=0 and J!=0 plus diagonal !![1,0;0,2] + optional J1(1)=(J-I)^2=0, not labelled Jordan. Namesake residual. Leftover slot #2 orthogonal-latin-squares CONSUMED by OPE-1337 / PR #157. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "algebra",
         "formalization"
@@ -2653,9 +2653,55 @@
       "formalist_issue": "OPE-1337",
       "director_issue": "OPE-1336",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/157"
+    },
+    {
+      "id": "legendre-three-squares",
+      "title": "Legendre three-square theorem (named small-n witnesses, formalize-only)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1342 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1326 mill CONSUMED (#156 jordan-canonical-form Level A + #157 orthogonal-latin-squares Level A). Named theorem ZERO (three_square / sum_three_squares / LegendreThree). Nat.sum_four_squares L212 HIT as different four-square glue not namesake. Level A pin: 1/2/3 yes and 7 not, not labelled Legendre. Namesake residual. Gauss Eureka residual. Leftover slot #2 is langford-pairing (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/legendre-three-squares/"
+      ],
+      "scout_issue": "OPE-1342",
+      "tickets": [
+        "OPE-1342",
+        "OPE-1341"
+      ],
+      "parent_issue": "OPE-1341",
+      "mathlib_gap": true
+    },
+    {
+      "id": "langford-pairing",
+      "title": "Langford pairing (order 1 none / order 2 none / order 3 a witness, formalize-only)",
+      "status": "candidate",
+      "domain": "enumerative_combinatorics",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1342 Scout leftover slot #2. Hold until the prime lands. Named theorem ZERO (langford / LangfordPairing / skolemSequence). Not Skolem sequences (residual). Not Fine-Wilf (#144). Not OLS (#157). Level A pin: order 1 none / order 2 none / order 3 [2,3,1,2,1,3], not labelled Langford / Skolem. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/langford-pairing/"
+      ],
+      "scout_issue": "OPE-1342",
+      "tickets": [
+        "OPE-1342",
+        "OPE-1341"
+      ],
+      "parent_issue": "OPE-1341",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-10T14:55:00Z",
+  "updated_at": "2026-09-10T18:30:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

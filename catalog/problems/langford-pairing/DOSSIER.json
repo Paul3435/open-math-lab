@@ -1,0 +1,58 @@
+{
+  "id": "langford-pairing",
+  "title": "Langford pairing (order 1 none / order 2 none / order 3 a witness, formalize-only)",
+  "status": "candidate",
+  "domain": "enumerative_combinatorics",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical C. Dudley Langford 1958: a permutation of {1,1,…,n,n} in which the two copies of k have exactly k entries between them exists iff n ≡ 0 or 3 (mod 4). Completely classical. Value is a Mathlib/ProofLab contribution (List / GetElem exist; ZERO named langford / Langford / LangfordPairing / skolemSequence / SkolemSequence in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Fine–Wilf List.IsPeriod is a DIFFERENT consumed word-period theorem — USE List/GetElem if needed, do not re-prove, do not cite as Langford. Orthogonal Latin squares are a DIFFERENT consumed mill (order-2 none / order-3 exists is a shape coincidence, not the same theorem). Skolem sequences (distance k, n ≡ 0 or 1 mod 4) are residual of this id. Three-square is the prime of this shortlist.",
+  "recommendation": "OPE-1342 leftover slot #2. Catalog-audit leftover after OPE-1326 mill CONSUMED (#156+#157). NOT a prize leftover, NOT Director-invented, NOT Level B revival of orthogonal_latin_squares / Euler officers / latinSquare / graecoLatin / fine_wilf / Lyndon–Schützenberger / jordan_canonical_form / cannonball_square_pyramid / alcuin_integer_triangles. Independent Mathlib pin grep this run (List / GetElem HIT as glue; named langford / Langford / LangfordPairing / skolemSequence / SkolemSequence / three_square / sum_three_squares ZERO). Mill NOW: finite Langford witnesses leftover beside three-square small-n. Score 84 this run: List waiting (formalizability 16); Level A order-1 none / order-2 none / order-3 witness (partial 16); namesake is undergraduate existence characterization (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-order Level A; namesake residual. Skolem-sequence residual. Hold until the prime lands.",
+  "mathlib_gap_grep_2026_09_10_ope1342": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1326 scores. rg langford / Langford / LangfordPairing / skolemSequence / SkolemSequence / three_square / sum_three_squares over Mathlib/ + Archive + ProofLab → ZERO named Langford or three-square theorem. Defs HIT: List / GetElem / List.filter (glue, not namesake), Nat, isTuranMaximal_iff_nonempty_iso_turanGraph (Turan.lean L300). Already-in this run (do not re-prove): Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; four-square L212; two-square L31; Fine–Wilf consumed #144 (periods ≠ between-counts); OLS consumed #157 (Latin ≠ Langford).",
+  "statement_pin_required": {
+    "convention": "theorem langford_pairing: exists iff n ≡ 0 or 3 (mod 4), namesake. Level A may land only order-1 none / order-2 none / order-3 [2,3,1,2,1,3], not labelled Langford / Skolem.",
+    "landmines": [
+      "Do not re-prove List.get / GetElem / List.filter.",
+      "Not Skolem sequences (distance k, different modulus). Residual of this id. Do not sorry Skolem. Do not label theorems skolem_*.",
+      "Not Fine–Wilf / Lyndon–Schützenberger (consumed #144).",
+      "Not orthogonal Latin squares / Euler officers / magic squares / Lo Shu (consumed #157).",
+      "Not legendre-three-squares (OPE-1342 prime). Do not prove three-square here.",
+      "Not jordan-canonical-form (#156) / Alcuin / graceful trees / Kraft.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "C. Dudley Langford 1958 pairings; existence n ≡ 0 or 3 (mod 4). Type pin: IsLangford / List ℕ. Skolem sequences are a different residual. Fine–Wilf periods are a different consumed mill."
+  },
+  "feasibility_shape": "Level A: order 1 none / order 2 none / order 3 [2,3,1,2,1,3]; optional extra one order-4 witness; not labelled Langford / Skolem. Level B: namesake existence characterization. Cap two levels. No Skolem sequences. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems skolem_* (Skolem–Mahler–Lech collision); zero sorry.",
+  "infra_carry_over": [
+    "Mathlib List / GetElem / List.filter — USE; DO NOT re-prove",
+    "Fine–Wilf List.IsPeriod — DIFFERENT consumed word-period mill #144; DO NOT cite as Langford; do not revive Lyndon–Schützenberger",
+    "Skolem sequences — DIFFERENT residual of this id; DO NOT sorry as namesake",
+    "ProofLab/OrthogonalLatinSquares.lean — consumed #157, DO NOT revive Level B / Euler officers / n≠2,6 / magic squares",
+    "ProofLab/JordanCanonicalForm.lean — consumed #156, DO NOT revive Level B / rational canonical form",
+    "ProofLab/FineWilf.lean — consumed #144, DO NOT revive Level B / Lyndon–Schützenberger",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-10",
+  "scout_issue": "OPE-1342",
+  "parent_issue": "OPE-1341",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO langford / Langford / LangfordPairing / skolemSequence / SkolemSequence / three_square / sum_three_squares; List / GetElem HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; four-square L212; two-square L31",
+    "Already-consumed: JordanCanonicalForm Level A (#156); OrthogonalLatinSquares Level A (#157); FineWilf Level A (#144)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Skolem-sequence / Fine–Wilf leftover-revivals / OLS leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
