@@ -1,7 +1,7 @@
 {
   "id": "langford-pairing",
   "title": "Langford pairing (order 1 none / order 2 none / order 3 a witness, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "enumerative_combinatorics",
   "score": 84,
   "scores": {
@@ -54,5 +54,8 @@
     "Already-consumed: JordanCanonicalForm Level A (#156); OrthogonalLatinSquares Level A (#157); FineWilf Level A (#144)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Skolem-sequence / Fine–Wilf leftover-revivals / OLS leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1352",
+  "director_issue": "OPE-1351",
+  "lean_artifact": "proofs/lean-project/ProofLab/LangfordPairing.lean"
 }
