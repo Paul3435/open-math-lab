@@ -2531,7 +2531,8 @@
       "mathlib_gap": true,
       "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean",
       "formalist_issue": "OPE-1305",
-      "director_issue": "OPE-1304"
+      "director_issue": "OPE-1304",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/151"
     }
   ],
   "updated_at": "2026-09-10T08:18:16Z",

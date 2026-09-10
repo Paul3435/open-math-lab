@@ -59,5 +59,6 @@
   ],
   "formalist_issue": "OPE-1305",
   "director_issue": "OPE-1304",
-  "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean"
+  "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/151"
 }
