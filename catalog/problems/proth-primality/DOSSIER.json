@@ -1,7 +1,7 @@
 {
   "id": "proth-primality",
   "title": "Proth's theorem (primality of k·2ⁿ+1, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "elementary_number_theory",
   "score": 84,
   "scores": {
@@ -56,5 +56,9 @@
     "Already-consumed: PlatonicSolids Level A (#147); EgyptianFractions Level A (#148)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Wantzel / Korselt / Euclid-Euler / Frucht leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1305",
+  "director_issue": "OPE-1304",
+  "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/151"
 }

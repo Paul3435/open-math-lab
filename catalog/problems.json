@@ -2507,25 +2507,32 @@
     {
       "id": "proth-primality",
       "title": "Proth's theorem (primality of k·2ⁿ+1, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "elementary_number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1294 Scout leftover slot #2. Catalog-audit after OPE-1278 mill CONSUMED (#147+#148). Classical Proth 1878: N=k·2ⁿ+1 with k odd, k<2ⁿ, and a^{(N-1)/2}≡−1 (mod N) ⇒ N prime. Mathlib gap this pin: ZERO proth / Proth / ProthWitness / pepin / Pocklington; euler_criterion L58 HIT as different prime-modulus glue; lucas_lehmer_sufficiency L476 ALREADY-IN different Mersenne test. Level A pin: 3/5/13 form+witness 2, not labelled Proth. Namesake form+witness⇒prime residual. Not Euler criterion as namesake / Lucas-Lehmer / Korselt / Wantzel / Gauss-Wantzel / Fermat polygons. Prime of this shortlist is frucht-graph-aut. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
+      "note": "OPE-1305 Formalist Level A. Director OPE-1304 approved Scout OPE-1294 leftover slot #2. Lean zero-sorry ProofLab/ProthPrimality.lean. Level A LANDED: IsProth / ProthWitness encoding; proth_three (3=1·2^1+1 witness 2); proth_five (5=1·2^2+1 witness 2); proth_thirteen (13=3·2^2+1 witness 2); optional nine_isProth_not_prime (9=1·2^3+1 composite). ZMod / pow / Odd / Nat.Prime USE, not re-proved. Not labelled Proth. Namesake proth_primality OUT of this ticket, not sorry-ed. Not euler_criterion as namesake / lucas_lehmer_sufficiency / Pépin / Fermat / Gauss-Wantzel / Pocklington / Korselt / Frucht. Consumed prime of this shortlist is frucht-graph-aut (#150). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/proth-primality/"
+        "catalog/problems/proth-primality/",
+        "proofs/lean-project/ProofLab/ProthPrimality.lean"
       ],
       "scout_issue": "OPE-1294",
       "tickets": [
         "OPE-1294",
-        "OPE-1293"
+        "OPE-1293",
+        "OPE-1304",
+        "OPE-1305"
       ],
       "parent_issue": "OPE-1293",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "lean_artifact": "proofs/lean-project/ProofLab/ProthPrimality.lean",
+      "formalist_issue": "OPE-1305",
+      "director_issue": "OPE-1304",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/151"
     }
   ],
   "updated_at": "2026-09-10T08:18:16Z",
