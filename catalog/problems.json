@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-10T18:30:00Z",
+  "last_updated": "2026-09-10",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2657,25 +2657,31 @@
     {
       "id": "legendre-three-squares",
       "title": "Legendre three-square theorem (named small-n witnesses, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1342 Scout RECOMMENDED PRIME. Catalog-audit after OPE-1326 mill CONSUMED (#156 jordan-canonical-form Level A + #157 orthogonal-latin-squares Level A). Named theorem ZERO (three_square / sum_three_squares / LegendreThree). Nat.sum_four_squares L212 HIT as different four-square glue not namesake. Level A pin: 1/2/3 yes and 7 not, not labelled Legendre. Namesake residual. Gauss Eureka residual. Leftover slot #2 is langford-pairing (unassigned this tick). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1347 Formalist Level A. Director OPE-1346 approved Scout OPE-1342 RECOMMENDED PRIME (orthogonal-latin-squares CONSUMED by OPE-1337 / #157; jordan-canonical-form CONSUMED by OPE-1332 / #156). Lean ProofLab/LegendreThreeSquares.lean. Catalog formalized. Level A: IsSumThreeSquares; 1=1^2+0^2+0^2 / 2=1^2+1^2+0^2 / 3=1^2+1^2+1^2 / not seven; optional 6 yes / 15 not; not labelled Legendre. Namesake every n not 4^a(8b+7) residual. Gauss Eureka residual. langford-pairing leftover unassigned. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/legendre-three-squares/"
+        "catalog/problems/legendre-three-squares/",
+        "proofs/lean-project/ProofLab/LegendreThreeSquares.lean"
       ],
       "scout_issue": "OPE-1342",
       "tickets": [
         "OPE-1342",
-        "OPE-1341"
+        "OPE-1341",
+        "OPE-1346",
+        "OPE-1347"
       ],
       "parent_issue": "OPE-1341",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1347",
+      "director_issue": "OPE-1346",
+      "lean_artifact": "proofs/lean-project/ProofLab/LegendreThreeSquares.lean"
     },
     {
       "id": "langford-pairing",

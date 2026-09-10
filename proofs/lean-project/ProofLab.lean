@@ -86,3 +86,4 @@ import ProofLab.AlcuinIntegerTriangles
 import ProofLab.CannonballSquarePyramid
 import ProofLab.JordanCanonicalForm
 import ProofLab.OrthogonalLatinSquares
+import ProofLab.LegendreThreeSquares
