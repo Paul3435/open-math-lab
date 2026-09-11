@@ -2839,25 +2839,31 @@
     {
       "id": "taxicab-1729",
       "title": "Hardy–Ramanujan taxicab 1729 = 1³+12³ = 9³+10³ (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1390 Scout RECOMMENDED PRIME. Catalog-audit prime after OPE-1374 mill CONSUMED (#165 zsqrt5-not-ufd Level A + #166 d8-ne-q8 Level A). Independent Mathlib pin grep this run: ZERO named taxicab / Taxicab / hardyRamanujan / 1729 two-cubes theorem (pow_three HIT as glue; fermatLastTheoremThree L725 is a different equation). Level A pin: 1³+12³=1729 / 9³+10³=1729 / equality, not labelled Hardy / Ramanujan / taxicab. Namesake smallest-n residual. Signed cubes / 4104 residual. Euler-brick is the leftover of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1395 Formalist Level A. Director OPE-1394 approved Scout OPE-1390 prime (euler-brick leftover unassigned). Lean ProofLab/Taxicab1729.lean. Catalog formalized. Level A: cubes_one_twelve 1^3+12^3=1729 / cubes_nine_ten 9^3+10^3=1729 / two_ways equality; optional pairs_distinct {1,12}≠{9,10}; not labelled Hardy / Ramanujan / taxicab. Namesake smallest-n residual. Signed cubes / 4104 residual. Euler-brick leftover unassigned. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/taxicab-1729/"
+        "catalog/problems/taxicab-1729/",
+        "proofs/lean-project/ProofLab/Taxicab1729.lean"
       ],
       "scout_issue": "OPE-1390",
       "tickets": [
         "OPE-1390",
-        "OPE-1389"
+        "OPE-1389",
+        "OPE-1394",
+        "OPE-1395"
       ],
       "parent_issue": "OPE-1389",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1395",
+      "director_issue": "OPE-1394",
+      "lean_artifact": "proofs/lean-project/ProofLab/Taxicab1729.lean"
     },
     {
       "id": "euler-brick",
