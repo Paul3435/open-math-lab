@@ -55,6 +55,7 @@
   "formalist_issue": "OPE-1429",
   "director_issue": "OPE-1428",
   "lean_artifact": "proofs/lean-project/ProofLab/BrocardFactorialSquare.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/175",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO brocard / Brocard / brocard_problem / BrocardRamanujan; Nat.factorial / pow_two HIT as infra only; n!+1 only in Euclid infinitude L82",
     "Negative control turan → Turan.lean exists L300",
