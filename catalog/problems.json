@@ -3073,7 +3073,8 @@
       "mathlib_gap": true,
       "formalist_issue": "OPE-1444",
       "director_issue": "OPE-1443",
-      "lean_artifact": "proofs/lean-project/ProofLab/HexNoDraw.lean"
+      "lean_artifact": "proofs/lean-project/ProofLab/HexNoDraw.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/178"
     }
   ],
   "updated_at": "2026-09-11T22:00:00Z",
