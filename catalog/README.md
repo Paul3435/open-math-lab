@@ -257,18 +257,27 @@ OPE-1342 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1352 lands the leftover. OPE-1342 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1357, 2026-09-10)
+## Formalize-only shortlist (OPE-1357, 2026-09-10) — WAVE CONSUMED
 
-OPE-1342 mill consumed (#159+#160). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1357 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
 1. **`myhill-nerode` — CONSUMED Level A.** OPE-1364 Formalist. PR **#162**. Director OPE-1362 approved Scout OPE-1357 RECOMMENDED PRIME. Lean `ProofLab/MyhillNerode.lean`. Catalog `formalized`. Level A: empty all-equivalent / `{[]}` `[]` vs `[0]` / optional 2-state last-letter DFA `[]` vs `[1]`, not labelled Myhill / Nerode. Level B namesake `myhill_nerode` / Kleene regex iff DFA residual **out of v1**. Do not revive.
-2. **`gray-code` leftover (84).** Fresh id. Gray 1953 / Baudot: listing of all `n`-bit strings with adjacent Hamming distance 1. Named theorem ZERO (`GrayCode` / `grayCode` / `gray_code` / `binaryReflected`). `hammingDist` Hamming.lean L38 HIT as glue **not** namesake. **Not** Singleton / Hamming-bound / Plotkin / MDS (consumed #120). **Not** Ore / Bondy–Chvátal / `Walk.IsHamiltonian` as namesake (consumed #111). **Not** Kraft (consumed #138). **Not** Fine–Wilf (consumed #144). **Not** Myhill–Nerode (prime of this shortlist, now Level A consumed #162). Finite, one-wave Level A (length 1 / length 2 `00,01,11,10` / length 3 reflected). **Unassigned this tick.** Hold until after this prime lands (prime now Level A on #162).
+2. **`gray-code` leftover (84) — CONSUMED Level A.** OPE-1369 Formalist. PR **#163**. Director OPE-1368 approved Scout OPE-1357 leftover. Lean `ProofLab/GrayCode.lean`. Catalog `formalized`. Level A: length-1 / length-2 `00-01-11-10` / length-3 reflected + optional n=0, not labelled Gray / Ore / Singleton. Level B namesake `gray_code` / hypercube Hamiltonian residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Formalist OPE-1364 lands the prime. Hold leftover until Director assigns it. Cap is 2.
+Scout opened **no attack issues**. Formalist OPE-1369 lands the leftover. OPE-1357 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1374, 2026-09-11)
+
+OPE-1357 mill consumed (#162+#163). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`zsqrt5-not-ufd` — RECOMMENDED PRIME (86).** Fresh id. Dedekind / standard quadratic example: `6 = 2·3 = (1+√-5)(1-√-5)` in `ℤ√(-5)` are essentially different irreducible factorizations. Named theorem ZERO (`zsqrt5` / `not_ufd` / `UniqueFactorizationMonoid (ℤ√`). `Zsqrtd` Basic.lean L28 / `norm` L436 / `norm_mul` L462 HIT as glue **not** namesake. **Not** GaussianInt Euclidean (already-in L243; different ring). **Not** two-square / three-square (already-in / consumed #159). **Not** Myhill–Nerode (consumed #162). **Not** Gray (consumed #163). Finite, one-wave Level A (`6=2·3` / `6=(1+√-5)(1-√-5)` / `2 ∤ 1+√-5` / 2 irreducible).
+2. **`d8-ne-q8` leftover (84).** Fresh id. Groups of order 8: `DihedralGroup 4` has reflections of order 2, `QuaternionGroup 2` has `xa` of order 4. Named theorem ZERO (`d8_ne_q8` / `DihedralGroup 4 ≃* QuaternionGroup 2`). `orderOf_sr` Dihedral.lean L147 / `orderOf_xa` Quaternion.lean L197 HIT as glue **not** namesake. **Not** n=0 isomorphism (already-in L141). **Not** Frucht (consumed #150). **Not** frobenius-real-division (consumed #105). **Not** ℤ[√-5] (prime of this shortlist). Finite, one-wave Level A (card 8 / sr order 2 / xa order 4). **Unassigned this tick.** Hold until after this prime lands.
+
+Scout opened **no attack issues**. Formalist lands the prime after Director approves. Hold leftover until Director assigns it. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-11 (OPE-1364 Formalist: myhill-nerode Level A.)
+**Last updated:** 2026-09-11 (OPE-1374 Scout: catalog-audit shortlist zsqrt5-not-ufd + d8-ne-q8.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

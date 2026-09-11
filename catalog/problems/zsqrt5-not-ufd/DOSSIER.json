@@ -1,0 +1,60 @@
+{
+  "id": "zsqrt5-not-ufd",
+  "title": "ℤ[√-5] is not a UFD (6=2·3=(1+√-5)(1-√-5), formalize-only)",
+  "status": "candidate",
+  "domain": "algebraic_number_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Dedekind / quadratic-integer example: 6 = 2*3 = (1+√-5)(1-√-5) in ℤ[√-5] are essentially different irreducible factorizations. Completely classical. Value is a Mathlib/ProofLab contribution (Zsqrtd.norm exists; ZERO named zsqrt5 / not_ufd / UniqueFactorizationMonoid (ℤ√(-5)) in Mathlib+Archive+ProofLab; GaussianInt Euclidean is a different ring). Do NOT re-discover as novel. EuclideanDomain ℤ[i] (GaussianInt.lean L243) is a DIFFERENT already-in theorem — USE Zsqrtd/norm if needed, do not re-prove, do not cite as this non-UFD. Nat.Prime.sq_add_sq is already-in two-square, not namesake. Three-square is consumed #159. Dedekind-domain class number 2 is residual of this id. Gray codes are consumed #163. Myhill–Nerode is consumed #162. D8 ≇ Q8 is the leftover of this shortlist.",
+  "recommendation": "OPE-1374 RECOMMENDED PRIME. Catalog-audit prime after OPE-1357 mill CONSUMED (#162 myhill-nerode Level A + #163 gray-code Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of gray_code / hypercube Hamiltonian / myhill_nerode / Kleene / three-square / GaussianInt Euclidean. Independent Mathlib pin grep this run (Zsqrtd / norm / norm_mul / Irreducible / UniqueFactorizationMonoid HIT as glue; named zsqrt5 / not_ufd / UniqueFactorizationMonoid (ℤ√ ZERO). Mill NOW: finite factorization witnesses beside D8 ≇ Q8 order counts. Score 86 this run: Zsqrtd.norm waiting (formalizability 18); Level A 6=2·3 / 6=(1+√-5)(1-√-5) / 2 ∤ 1+√-5 / 2 irreducible (partial 16); namesake is undergraduate non-UFD (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-factorization Level A; namesake residual. Class-number residual.",
+  "mathlib_gap_grep_2026_09_11_ope1374": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1357 scores. rg zsqrt5 / not_ufd / UniqueFactorizationMonoid (ℤ√ / Zsqrtd UniqueFactorization over Mathlib/ + Archive + ProofLab → ZERO named non-UFD theorem for ℤ√(-5). Defs HIT: Zsqrtd (Basic.lean L28), prefix ℤ√ L34, sqrtd L80, norm L436, norm_mul L462, norm_eq_zero_iff L518, Irreducible (Associated/Basic.lean L174), UniqueFactorizationMonoid (UniqueFactorizationDomain.lean L179), EuclideanDomain ℤ[i] (GaussianInt.lean L243 already-in, different ring, not namesake), Nat.Prime.sq_add_sq (already-in two-square, not namesake). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): GaussianInt Euclidean L243; IsCyclic Rˣ IntegralDomain.lean L132; Lagrange.interpolate LinearAlgebra/Lagrange.lean L287; det_kronecker Kronecker.lean L365; NielsenSchreier; subgroup_units_cyclic L140; Caratheodory convexHull; sum_totient L153; Polynomial.isNoetherianRing; snake_lemma; pumping_lemma DFA.lean L152; NFA.toDFA; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52; four-square L212; two-square L31. Already-consumed: MyhillNerode Level A (#162); GrayCode Level A (#163); LangfordPairing #160; LegendreThreeSquares #159; FineWilf #144; Kraft #138.",
+  "statement_pin_required": {
+    "convention": "theorem zsqrt5_not_ufd: ¬ UniqueFactorizationMonoid (ℤ√(-5)), namesake. Level A may land only 6=2·3 / 6=(1+√-5)(1-√-5) / 2 ∤ 1+√-5 / 2 irreducible, not labelled Dedekind / Kummer / Gaussian.",
+    "landmines": [
+      "Do not re-prove Zsqrtd / norm / norm_mul / Irreducible.",
+      "Not EuclideanDomain ℤ[i] (GaussianInt.lean L243 already-in). Different ring. USE Zsqrtd.",
+      "Not Nat.Prime.sq_add_sq / four-square / three-square (already-in / consumed #159).",
+      "Not Dedekind-domain ideal UFM / class number 2. Residual of this id. Do not sorry it.",
+      "Not Kummer padicValNat_choose (already-in).",
+      "Not myhill-nerode / gray-code (consumed #162+#163).",
+      "Not d8-ne-q8 (OPE-1374 leftover). Do not prove D8 ≇ Q8 here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Dedekind / standard quadratic non-UFD example. Type pin: ℤ√(-5) / Zsqrtd.norm / Irreducible. GaussianInt Euclidean is a different already-in ring. Two-square is a different already-in theorem. D8 ≇ Q8 is the leftover of this shortlist."
+  },
+  "feasibility_shape": "Level A: 6=2·3 / 6=(1+√-5)(1-√-5) / 2 ∤ 1+√-5 / 2 irreducible; optional extra 3 and 1+√-5 irreducible; not labelled Dedekind / Kummer / Gaussian. Level B: namesake ¬ UniqueFactorizationMonoid. Cap two levels. No class number 2. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems gaussian_* / kummer_* as namesake (already-in / different); zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Zsqrtd / norm / norm_mul / Irreducible — USE; DO NOT re-prove",
+    "GaussianInt EuclideanDomain ℤ[i] L243 — DIFFERENT already-in ring; DO NOT cite as this non-UFD",
+    "Nat.Prime.sq_add_sq — DIFFERENT already-in two-square; DO NOT re-prove",
+    "ProofLab/LegendreThreeSquares.lean — consumed #159, DO NOT revive Level B / Gauss Eureka",
+    "ProofLab/MyhillNerode.lean — consumed #162, DO NOT revive Level B / Kleene",
+    "ProofLab/GrayCode.lean — consumed #163, DO NOT revive Level B / hypercube Hamiltonian",
+    "Lab algebra + number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1374",
+  "parent_issue": "OPE-1373",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO zsqrt5 / not_ufd / UniqueFactorizationMonoid (ℤ√; Zsqrtd.norm HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: GaussianInt Euclidean L243; IsCyclic Rˣ L132; Lagrange.interpolate L287; det_kronecker L365; NielsenSchreier; Caratheodory; sum_totient L153; pumping_lemma L152; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52",
+    "Already-consumed: MyhillNerode Level A (#162); GrayCode Level A (#163); LangfordPairing Level A (#160); LegendreThreeSquares Level A (#159)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "GaussianInt leftover-revivals / two-square leftover-revivals / class-number residual of the prime / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

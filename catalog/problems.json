@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-10",
+  "last_updated": "2026-09-11",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -2721,7 +2721,7 @@
       "domain": "computability",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1364 Formalist Level A. Director OPE-1362 approved Scout OPE-1357 RECOMMENDED PRIME (gray-code leftover unassigned). Lean ProofLab/MyhillNerode.lean. Catalog formalized. Level A: NerodeEq; nerode_empty / nerode_one_nil_ne / optional lastLetterDFA [] vs [1]; not labelled Myhill / Nerode. Namesake finite Nerode index iff regular residual. Kleene regex iff DFA residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1364 Formalist Level A. Director OPE-1362 approved Scout OPE-1357 RECOMMENDED PRIME (gray-code leftover CONSUMED by OPE-1369 / #163). Lean ProofLab/MyhillNerode.lean. Catalog formalized. Level A: NerodeEq; nerode_empty / nerode_one_nil_ne / optional lastLetterDFA [] vs [1]; not labelled Myhill / Nerode. Namesake finite Nerode index iff regular residual. Kleene regex iff DFA residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "logic",
         "formalization"
@@ -2773,9 +2773,57 @@
       "director_issue": "OPE-1368",
       "lean_artifact": "proofs/lean-project/ProofLab/GrayCode.lean",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/163"
+    },
+    {
+      "id": "zsqrt5-not-ufd",
+      "title": "ℤ[√-5] is not a UFD (6=2·3=(1+√-5)(1-√-5), formalize-only)",
+      "status": "candidate",
+      "domain": "algebraic_number_theory",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1374 Scout RECOMMENDED PRIME (parent OPE-1373). Catalog-audit prime after OPE-1357 mill CONSUMED (#162 myhill-nerode Level A + #163 gray-code Level A). Independent Mathlib v4.10.0 grep this run: Zsqrtd.norm HIT as glue; ZERO named non-UFD for ℤ√(-5). GaussianInt Euclidean is a different already-in ring. Level A pin: 6=2·3 / 6=(1+√-5)(1-√-5) / 2 ∤ 1+√-5 / 2 irreducible, not labelled Dedekind / Kummer / Gaussian. Namesake ¬ UniqueFactorizationMonoid residual. Class number residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "algebra",
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/zsqrt5-not-ufd/"
+      ],
+      "scout_issue": "OPE-1374",
+      "tickets": [
+        "OPE-1374",
+        "OPE-1373"
+      ],
+      "parent_issue": "OPE-1373",
+      "mathlib_gap": true
+    },
+    {
+      "id": "d8-ne-q8",
+      "title": "D₈ ≇ Q₈ (reflections order 2 vs unique order-2, formalize-only)",
+      "status": "candidate",
+      "domain": "finite_group_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1374 Scout leftover slot #2 (parent OPE-1373). Catalog-audit leftover after OPE-1357 mill CONSUMED (#162+#163). Independent Mathlib v4.10.0 grep this run: orderOf_sr / orderOf_xa HIT as glue; ZERO named D8 ≇ Q8. n=0 isomorphism is a different already-in theorem. Level A pin: card 8 / sr order 2 / xa order 4, not labelled Frucht / Frobenius / Cayley. Namesake IsEmpty MulEquiv residual. Order-8 classification residual. Hold until the prime lands. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "algebra",
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/d8-ne-q8/"
+      ],
+      "scout_issue": "OPE-1374",
+      "tickets": [
+        "OPE-1374",
+        "OPE-1373"
+      ],
+      "parent_issue": "OPE-1373",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-10T21:32:31Z",
+  "updated_at": "2026-09-11T12:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

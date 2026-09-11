@@ -1,0 +1,60 @@
+{
+  "id": "d8-ne-q8",
+  "title": "D₈ ≇ Q₈ (reflections order 2 vs unique order-2, formalize-only)",
+  "status": "candidate",
+  "domain": "finite_group_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical classification fact: DihedralGroup 4 (order 8) has reflections of order 2, QuaternionGroup 2 (order 8) has xa of order 4 and a unique order-2 element, so the groups are not isomorphic. Completely classical. Value is a Mathlib/ProofLab contribution (orderOf_sr / orderOf_xa exist; ZERO named d8_ne_q8 / DihedralGroup 4 ≃* QuaternionGroup 2 negation in Mathlib+Archive+ProofLab; n=0 isomorphism is a different theorem). Do NOT re-discover as novel. quaternionGroupZeroEquivDihedralGroupZero (Quaternion.lean L141) is a DIFFERENT already-in infinite n=0 isomorphism — USE as contrast, do not cite as D8≅Q8. Frucht GraphAut is a DIFFERENT consumed mill — do not revive Cayley-graph / GRR / Aut(K_n)≅S_n, do not define the square's Aut as this theorem. Frobenius real division is a DIFFERENT consumed mill (ℝ,ℂ,ℍ). Myhill–Nerode is consumed #162. Gray codes are consumed #163. ℤ[√-5] not UFD is the prime of this shortlist.",
+  "recommendation": "OPE-1374 leftover slot #2. Catalog-audit leftover after OPE-1357 mill CONSUMED (#162+#163). NOT a prize leftover, NOT Director-invented, NOT Level B revival of frucht_graph_aut / Cayley-graph / GRR / Aut(K_n)≅S_n / frobenius_real_division / gray_code / myhill_nerode. Independent Mathlib pin grep this run (DihedralGroup.card / orderOf_sr / QuaternionGroup.card / orderOf_xa HIT as glue; named d8_ne_q8 / DihedralGroup 4 ≃* QuaternionGroup 2 ZERO). Mill NOW: finite order-2 counting leftover beside ℤ[√-5] factorization witnesses. Score 84 this run: orderOf_sr / orderOf_xa waiting (formalizability 16); Level A card-8 / sr order 2 / xa order 4 (partial 16); namesake is undergraduate non-isomorphism (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-order Level A; namesake residual. Order-8 classification residual. Hold until the prime lands.",
+  "mathlib_gap_grep_2026_09_11_ope1374": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1357 scores. rg d8_ne_q8 / DihedralGroup 4 ≃* QuaternionGroup 2 / not_mulEquiv_dihedral over Mathlib/ + Archive + ProofLab → ZERO named D8 ≇ Q8 theorem. Defs HIT: DihedralGroup (Dihedral.lean L24), card L117, orderOf_sr L147, QuaternionGroup (Quaternion.lean L51), card L165, orderOf_xa L197, quaternionGroupZeroEquivDihedralGroupZero L141 (already-in n=0 only, not namesake), alternatingGroup.isSimpleGroup_five L289 (already-in different group). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): quaternionGroupZeroEquivDihedralGroupZero L141; isSimpleGroup_five L289; IsCyclic Rˣ L132; GaussianInt Euclidean L243; Lagrange.interpolate L287; det_kronecker L365; NielsenSchreier; pumping_lemma L152; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52. Already-consumed: FruchtGraphAut Level A (#150; Cayley-graph / GRR / Aut(K_n)≅S_n residual); FrobeniusRealDivision Level A (#105); MyhillNerode #162; GrayCode #163; Langford #160; three-square #159.",
+  "statement_pin_required": {
+    "convention": "theorem d8_ne_q8: IsEmpty (DihedralGroup 4 ≃* QuaternionGroup 2), namesake. Level A may land only card-8 / orderOf_sr = 2 / orderOf_xa = 4, not labelled Frucht / Frobenius / Cayley.",
+    "landmines": [
+      "Do not re-prove DihedralGroup.card / orderOf_sr / QuaternionGroup.card / orderOf_xa.",
+      "Not quaternionGroupZeroEquivDihedralGroupZero (already-in L141; infinite n=0). Do not cite as D8≅Q8.",
+      "Not Frucht / Cayley-graph / GRR / Aut(K_n)≅S_n (consumed #150 residual). Do not define the square's Aut as this theorem.",
+      "Not frobenius-real-division / ℍ (consumed #105). Do not sorry QuaternionGroup 2 ≃* (Quaternion ℤ)ˣ.",
+      "Not A5 simple (already-in L289).",
+      "Not myhill-nerode / gray-code (consumed #162+#163).",
+      "Not zsqrt5-not-ufd (OPE-1374 prime). Do not prove ℤ[√-5] here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Classification of groups of order 8, D8 vs Q8. Type pin: DihedralGroup 4 / QuaternionGroup 2 / orderOf. n=0 isomorphism is a different already-in theorem. Frucht is a different consumed mill. ℤ[√-5] not UFD is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: card D8 = 8 / card Q8 = 8 / sr 0 order 2 / xa 0 order 4; optional extra two distinct D8 reflections vs unique Q8 order-2; not labelled Frucht / Frobenius / Cayley. Level B: namesake IsEmpty MulEquiv / full order-8 classification. Cap two levels. No Quaternion ℤˣ isomorphism. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems frucht_* / aut_* / frobenius_* as this non-isomorphism; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib DihedralGroup.card / orderOf_sr / QuaternionGroup.card / orderOf_xa — USE; DO NOT re-prove",
+    "quaternionGroupZeroEquivDihedralGroupZero L141 — DIFFERENT already-in n=0 isomorphism; DO NOT cite as D8≅Q8",
+    "ProofLab/FruchtGraphAut.lean — consumed #150, DO NOT revive Level B / Cayley-graph / GRR / Aut(K_n)≅S_n",
+    "ProofLab/FrobeniusRealDivision.lean — consumed #105, DO NOT revive Level B / ℍ AlgEquiv",
+    "ProofLab/MyhillNerode.lean — consumed #162, DO NOT revive Level B / Kleene",
+    "ProofLab/GrayCode.lean — consumed #163, DO NOT revive Level B / hypercube Hamiltonian",
+    "Lab algebra + combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1374",
+  "parent_issue": "OPE-1373",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO d8_ne_q8 / DihedralGroup 4 ≃* QuaternionGroup 2; orderOf_sr / orderOf_xa HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: quaternionGroupZeroEquivDihedralGroupZero L141; isSimpleGroup_five L289; IsCyclic Rˣ L132; GaussianInt Euclidean L243; Lagrange.interpolate L287; det_kronecker L365; pumping_lemma L152; Wilson L38; Catalan L109; numDerangements; Bertrand L211; frobeniusNumber_pair L52",
+    "Already-consumed: FruchtGraphAut Level A (#150); FrobeniusRealDivision Level A (#105); MyhillNerode Level A (#162); GrayCode Level A (#163)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Frucht leftover-revivals / n=0 isomorphism / Quaternion ℤˣ residual of this leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
