@@ -284,18 +284,27 @@ OPE-1390 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1400 lands the leftover. OPE-1390 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1405, 2026-09-11)
+## Formalize-only shortlist (OPE-1405, 2026-09-11) — WAVE CONSUMED
 
-OPE-1390 mill consumed (#168+#169). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1405 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`simpson-paradox` — RECOMMENDED PRIME (86).** Fresh id. Yule 1903 / Simpson 1951: rates `1/5` vs `2/8` and `6/8` vs `4/5` reverse overall `7/13` vs `6/13`. Named theorem ZERO (`simpson` / `SimpsonParadox` / `yuleSimpson` / `simpson_reversal`). `Nat` mul / `<` HIT as glue **not** namesake. **Not** Bayes / FKG (already-in; different theorems). **Not** taxicab-1729 (consumed #168). **Not** euler-brick (consumed #169). Finite, one-wave Level A (`1·8<2·5` / `6·5<4·8` / `7·13>6·13`).
-2. **`a4-klein-four` leftover (84).** Fresh id. Double transposition `swap 0 1 * swap 2 3` is even of order 2 in `alternatingGroup (Fin 4)`. Named theorem ZERO (`a4_klein` / `kleinFour_A4` / `V4_normal_A4`). `Equiv.swap` L1383 / `sign` L365 / `sign_swap` L396 / `alternatingGroup` L51 HIT as glue **not** namesake; `IsKleinFour` L51 / `DihedralGroup 2` instance L63 HIT as already-in **different carrier** **not** namesake; KleinFour.lean L30 TODO is the namesake residual. **Not** `isSimpleGroup_five` (already-in A₅). **Not** d8-ne-q8 (consumed #166). **Not** simpson-paradox (prime of this shortlist). Finite, one-wave Level A (`sign=1` / mem A₄ / `orderOf=2`).
+1. **`simpson-paradox` — CONSUMED Level A.** OPE-1410 Formalist. PR **#171**. Director OPE-1409 approved Scout OPE-1405 RECOMMENDED PRIME. Lean `ProofLab/SimpsonParadox.lean`. Catalog `formalized`. Level A: `1·8<2·5` / `6·5<4·8` / `7·13>6·13` + optional packaged conjunction, not labelled Simpson / Yule. Level B namesake `simpson_paradox` / Bayes / FKG / Condorcet / Arrow residual **out of v1**. Do not revive.
+2. **`a4-klein-four` leftover (84) — CONSUMED Level A.** OPE-1414 Formalist. PR **#172**. Director OPE-1409 HOLD leftover. Lean `ProofLab/A4KleinFour.lean`. Catalog `formalized`. Level A: `sign(swap 0 1 * swap 2 3)=1` / mem A₄ / `orderOf=2` + optional other double transpositions / product, not labelled Klein / A4 / Vierergruppe. Level B namesake `a4_klein_four` / KleinFour.lean L30 / A₄ subgroup order 6 residual **out of v1**. Do not revive.
+
+Scout opened **no attack issues**. Formalist OPE-1414 lands the leftover. OPE-1405 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1419, 2026-09-11)
+
+OPE-1405 mill consumed (#171+#172). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`n-queens` — RECOMMENDED PRIME (86).** Fresh id. Gauss 1850 / eight-queens: n=2 none / n=3 none / n=4 `[1,3,0,2]`. Named theorem ZERO (`nQueens` / `eightQueens` / `isQueens`). `List` / `Fin` / `Nodup` HIT as glue **not** namesake. **Not** Langford (consumed #160). **Not** Gray (consumed #163). **Not** OLS (consumed #157). **Not** simpson-paradox (consumed #171). **Not** a4-klein-four (consumed #172). Finite, one-wave Level A (n=2 none / n=3 none / n=4 witness).
+2. **`brocard-factorial-square` leftover (84).** Fresh id. Brocard 1876: `4!+1=5²` / `5!+1=11²` / `7!+1=71²`. Named theorem ZERO (`brocard` / `BrocardRamanujan`). `Nat.factorial` L29 / `pow_two` L581 HIT as glue **not** namesake; `wilsons_lemma` L38 / `exists_infinite_primes` L82 HIT as already-in **different** theorems **not** namesake. **Not** cannonball (consumed #154). **Not** taxicab-1729 (consumed #168). **Not** n-queens (prime of this shortlist). Finite, one-wave Level A (`4!+1=5²` / `5!+1=11²` / `7!+1=71²`).
 
 Scout opened **no attack issues**. Director approves after this shortlist. Formalist is **not** woken this run.
 
 ---
 
-**Last updated:** 2026-09-11 (OPE-1405 Scout: simpson-paradox prime + a4-klein-four leftover.)
+**Last updated:** 2026-09-11 (OPE-1419 Scout: n-queens prime + brocard-factorial-square leftover.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

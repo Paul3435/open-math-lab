@@ -1,0 +1,61 @@
+{
+  "id": "n-queens",
+  "title": "n-queens small boards (n=2 none / n=3 none / n=4 a witness, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Gauss 1850 / eight-queens: place n queens on an n×n board with no shared row, column, or diagonal. Completely classical. Value is a Mathlib/ProofLab contribution (List / Fin / Nodup exist; ZERO named nQueens / NQueens / eightQueens / isQueens theorem in Mathlib+Archive+ProofLab; only queen hit is a Queen Mary University comment). Do NOT re-discover as novel. Existence iff n≠2,3 / 92 solutions on n=8 are residual of this id. Langford is consumed #160 (between-counts ≠ diagonals). Gray is consumed #163. OLS is consumed #157. a4-klein-four is consumed #172. simpson-paradox is consumed #171. Brocard factorial-square is the leftover of this shortlist.",
+  "recommendation": "OPE-1419 RECOMMENDED PRIME. Catalog-audit prime after OPE-1405 mill CONSUMED (#171 simpson-paradox Level A + #172 a4-klein-four Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of simpson_paradox / a4_klein_four / langford_pairing / gray_code / orthogonal_latin_squares. Independent Mathlib pin grep this run (List / Fin / Nodup HIT as glue; named nQueens / eightQueens / isQueens ZERO). Mill NOW: finite small-board witnesses beside Brocard factorial squares. Score 86 this run: List/Fin/Nodup waiting (formalizability 18); Level A n=2 none / n=3 none / n=4 [1,3,0,2] (partial 16); namesake is undergraduate Gauss n-queens (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-board Level A; namesake residual. Existence iff n≠2,3 residual.",
+  "mathlib_gap_grep_2026_09_11_ope1419": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1405 scores. rg nQueens / NQueens / n_queens / eightQueens / EightQueens / isQueens / queens_problem / eight_queens over Mathlib/ + Archive + ProofLab → ZERO named n-queens theorem (only queen hit: Queen Mary University comment in PushoutI.lean L36). Defs HIT: List / GetElem / List.Nodup (Data/List/Nodup.lean properties); Fin / Fin.val; Function.Injective Logic/Function/Defs.lean L101 (optional column glue, not namesake). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan_eq_centralBinom_div Catalan.lean L109; numDerangements Derangements/Finite.lean L62; exists_prime_lt_and_le_two_mul Bertrand.lean L211; frobeniusNumber_pair FrobeniusNumber.lean L52; exists_mono_in_high_dimension HalesJewett.lean L445; wilsons_lemma Wilson.lean L38; exists_infinite_primes Prime/Basic.lean L82; Nat.factorial Factorial/Basic.lean L29; pow_two Algebra/Group/Defs.lean L581; isSimpleGroup_five Alternating.lean L289; IsKleinFour KleinFour.lean L51. Already-consumed: SimpsonParadox Level A (#171); A4KleinFour Level A (#172); Taxicab1729 #168; EulerBrick #169; LangfordPairing #160; GrayCode #163; OrthogonalLatinSquares #157.",
+  "statement_pin_required": {
+    "convention": "theorem n_queens: exists iff n≠2,3, namesake. Level A may land only n=2 none / n=3 none / n=4 [1,3,0,2], not labelled n-queens / eight-queens / Gauss.",
+    "landmines": [
+      "Do not re-prove List / Fin / Nodup / GetElem.",
+      "Not Langford (consumed #160). Between-counts ≠ diagonals.",
+      "Not Gray (consumed #163). Hamming listings ≠ queen attacks.",
+      "Not OLS / Euler officers / Lo Shu (consumed #157).",
+      "Not graceful trees (heuristic mill).",
+      "Not a4-klein-four / 15-puzzle (consumed #172). Do not sorry 15-puzzle.",
+      "Not simpson-paradox (consumed #171).",
+      "Not existence iff n≠2,3 / 92 solutions. Residual of this id. Do not sorry it.",
+      "Not brocard-factorial-square (OPE-1419 leftover). Do not prove 4!+1=5² here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Gauss 1850 / eight-queens small boards. Type pin: List (Fin n) / Nodup / diagonal inequalities. Langford is a different consumed theorem. Brocard factorial-square is the leftover of this shortlist."
+  },
+  "feasibility_shape": "Level A: n=2 none / n=3 none / n=4 [1,3,0,2]; optional extra [2,0,3,1]; not labelled n-queens / eight-queens / Gauss. Level B: namesake exists iff n≠2,3. Cap two levels. No solution-count 92. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems langford_* / gray_* / latin_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib List / Fin / Nodup / GetElem — USE; DO NOT re-prove",
+    "Function.Injective Defs.lean L101 — optional column glue, not namesake",
+    "ProofLab/LangfordPairing.lean — consumed #160, DO NOT revive Level B / Skolem",
+    "ProofLab/GrayCode.lean — consumed #163, DO NOT revive Level B / hypercube Hamiltonian",
+    "ProofLab/SimpsonParadox.lean — consumed #171, DO NOT revive Level B / Bayes / FKG",
+    "ProofLab/A4KleinFour.lean — consumed #172, DO NOT revive Level B / KleinFour / A4 order-6",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1419",
+  "parent_issue": "OPE-1418",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO nQueens / NQueens / eightQueens / isQueens; List / Fin / Nodup HIT as infra only; queen hit is Queen Mary University comment only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; wilsons_lemma L38; exists_infinite_primes L82; Nat.factorial L29; pow_two L581; isSimpleGroup_five L289; IsKleinFour L51",
+    "Already-consumed: SimpsonParadox Level A (#171); A4KleinFour Level A (#172); Taxicab1729 Level A (#168); EulerBrick Level A (#169); LangfordPairing Level A (#160); GrayCode Level A (#163); OrthogonalLatinSquares Level A (#157)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Langford leftover-revivals / Gray leftover-revivals / 15-puzzle residual of A4 / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
