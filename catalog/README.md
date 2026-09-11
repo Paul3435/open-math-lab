@@ -275,18 +275,27 @@ OPE-1374 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1385 lands the leftover. OPE-1374 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1390, 2026-09-11)
+## Formalize-only shortlist (OPE-1390, 2026-09-11) — WAVE CONSUMED
 
-OPE-1374 mill consumed (#165+#166). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1390 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`taxicab-1729` — RECOMMENDED PRIME (86).** Fresh id. Hardy–Ramanujan / taxicab: `1³+12³ = 9³+10³ = 1729` are two essentially different unordered pairs of positive cubes. Named theorem ZERO (`taxicab` / `Taxicab` / `hardyRamanujan` / `1729` two-cubes). `pow_three` (Algebra/Group/Defs.lean L590) HIT as glue **not** namesake. **Not** FLT n=3 (`fermatLastTheoremThree` L725 already-in; different equation). **Not** two-square / three-square (already-in / consumed #159). **Not** cannonball (consumed #154). **Not** zsqrt5-not-ufd (consumed #165). **Not** d8-ne-q8 (consumed #166). Finite, one-wave Level A (`1³+12³=1729` / `9³+10³=1729` / equality).
-2. **`euler-brick` leftover (84).** Fresh id. Halcke 1719 / Euler: edges `44,117,240` have integer face diagonals `125,244,267`. Named theorem ZERO (`eulerBrick` / `EulerBrick` / `perfectCuboid` / `integerCuboid`). `pow_two` L581 / `PythagoreanTriple` L44 HIT as glue **not** namesake; `classification` L649 HIT as already-in **single-triple** formula **not** namesake. **Not** Alcuin / Heron / British-flag / cannonball / Pick (consumed or geometry leftover cluster). **Not** Euclid–Euler / Eulerian / Euler-odd-distinct (consumed Euler *namesakes*). **Not** taxicab-1729 (prime of this shortlist). Perfect cuboid **open** residual. Finite, one-wave Level A (`44²+117²=125²` / `44²+240²=244²` / `117²+240²=267²`).
+1. **`taxicab-1729` — CONSUMED Level A.** OPE-1395 Formalist. PR **#168**. Director OPE-1394 approved Scout OPE-1390 RECOMMENDED PRIME. Lean `ProofLab/Taxicab1729.lean`. Catalog `formalized`. Level A: `1³+12³=1729` / `9³+10³=1729` / equality + optional unordered pairs distinct, not labelled Hardy / Ramanujan / taxicab. Level B namesake `taxicab_1729` / smallest-n / signed cubes / 4104 residual **out of v1**. Do not revive.
+2. **`euler-brick` leftover (84) — CONSUMED Level A.** OPE-1400 Formalist. PR **#169**. Director OPE-1399 approved Scout OPE-1390 leftover. Lean `ProofLab/EulerBrick.lean`. Catalog `formalized`. Level A: `44²+117²=125²` / `44²+240²=244²` / `117²+240²=267²` + optional space diagonal not square, not labelled Euler / Halcke / cuboid. Level B namesake `euler_brick` / perfect cuboid OPEN residual **out of v1**. Do not revive.
+
+Scout opened **no attack issues**. Formalist OPE-1400 lands the leftover. OPE-1390 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1405, 2026-09-11)
+
+OPE-1390 mill consumed (#168+#169). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`simpson-paradox` — RECOMMENDED PRIME (86).** Fresh id. Yule 1903 / Simpson 1951: rates `1/5` vs `2/8` and `6/8` vs `4/5` reverse overall `7/13` vs `6/13`. Named theorem ZERO (`simpson` / `SimpsonParadox` / `yuleSimpson` / `simpson_reversal`). `Nat` mul / `<` HIT as glue **not** namesake. **Not** Bayes / FKG (already-in; different theorems). **Not** taxicab-1729 (consumed #168). **Not** euler-brick (consumed #169). Finite, one-wave Level A (`1·8<2·5` / `6·5<4·8` / `7·13>6·13`).
+2. **`a4-klein-four` leftover (84).** Fresh id. Double transposition `swap 0 1 * swap 2 3` is even of order 2 in `alternatingGroup (Fin 4)`. Named theorem ZERO (`a4_klein` / `kleinFour_A4` / `V4_normal_A4`). `Equiv.swap` L1383 / `sign` L365 / `sign_swap` L396 / `alternatingGroup` L51 HIT as glue **not** namesake; `IsKleinFour` L51 / `DihedralGroup 2` instance L63 HIT as already-in **different carrier** **not** namesake; KleinFour.lean L30 TODO is the namesake residual. **Not** `isSimpleGroup_five` (already-in A₅). **Not** d8-ne-q8 (consumed #166). **Not** simpson-paradox (prime of this shortlist). Finite, one-wave Level A (`sign=1` / mem A₄ / `orderOf=2`).
 
 Scout opened **no attack issues**. Director approves after this shortlist. Formalist is **not** woken this run.
 
 ---
 
-**Last updated:** 2026-09-11 (OPE-1390 Scout: taxicab-1729 prime + euler-brick leftover.)
+**Last updated:** 2026-09-11 (OPE-1405 Scout: simpson-paradox prime + a4-klein-four leftover.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
