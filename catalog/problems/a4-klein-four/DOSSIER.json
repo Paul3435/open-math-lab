@@ -1,0 +1,61 @@
+{
+  "id": "a4-klein-four",
+  "title": "Double transpositions in A₄ are even of order 2 (formalize-only)",
+  "status": "candidate",
+  "domain": "algebra",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical undergraduate A₄ fact: σ = swap 0 1 * swap 2 3 is an even permutation of order 2 in alternatingGroup (Fin 4); the three double transpositions generate V ⊴ A₄. Completely classical. Value is a Mathlib/ProofLab contribution (swap / sign / alternatingGroup exist; ZERO named a4_klein / kleinFour_A4 / V4_normal_A4 theorem in Mathlib+Archive+ProofLab; IsKleinFour on DihedralGroup 2 / ZMod 2 × ZMod 2 is a different already-in carrier; isSimpleGroup_five is A₅). Do NOT re-discover as novel. KleinFour.lean L30 TODO (IsKleinFour ≃* normal V in A₄) is the namesake residual — do not sorry it. A₄ no subgroup of order 6 is residual (C6 vs S3 definition risk) — do not make it Level A. d8-ne-q8 is consumed #166 (order 8 ≠ order-4 V). Simpson-paradox is the prime of this shortlist. Taxicab-1729 is consumed #168. Euler-brick is consumed #169.",
+  "recommendation": "OPE-1405 leftover slot #2. Catalog-audit leftover after OPE-1390 mill CONSUMED (#168+#169). NOT a prize leftover, NOT Director-invented, NOT Level B revival of d8_ne_q8 / order-8 classification / isSimpleGroup_five / IsKleinFour (DihedralGroup 2) / taxicab_1729 / euler_brick. Independent Mathlib pin grep this run (swap L1383 / sign L365 / sign_swap L396 / alternatingGroup L51 / mem_alternatingGroup L69 HIT as glue; named a4_klein / kleinFour_A4 / V4_normal_A4 ZERO; KleinFour.lean L30 TODO documents the namesake gap). Mill NOW: finite even double-transposition witnesses leftover beside Simpson 2×2×2. Score 84 this run: sign / swap / alternatingGroup waiting (formalizability 16); Level A sign=1 / mem A₄ / orderOf=2 (partial 16); namesake is undergraduate V in A₄ (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-permutation Level A; namesake residual. Hold until the prime lands.",
+  "mathlib_gap_grep_2026_09_11_ope1405": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1390 scores. rg a4_klein / kleinFour_A4 / V4_normal_A4 / doubleTransposition over Mathlib/ + Archive + ProofLab → ZERO named A₄-V theorem. KleinFour.lean L30 TODO is the documented namesake gap (not Level A). Defs HIT: Equiv.swap Logic/Equiv/Basic.lean L1383; sign Sign.lean L365; sign_mul L373; sign_swap L396; alternatingGroup Alternating.lean L51; mem_alternatingGroup L69; two_mul_card_alternatingGroup L88; Fintype.card_perm Data/Fintype/Perm.lean L150; IsKleinFour KleinFour.lean L51 (mixin, different carrier); instance IsKleinFour (DihedralGroup 2) L63 already-in different carrier; instance ZMod 2 × ZMod 2 L59 already-in different carrier; isSimpleGroup_five L289 already-in A₅, not namesake. alternatingGroup (Fin 4) hits only the KleinFour.lean L30 TODO comment. Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): isSimpleGroup_five L289; IsKleinFour L51; DihedralGroup 2 instance L63; catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; fermatLastTheoremThree L725; PythagoreanTriple.classification L649; wilsons_lemma L38; Perfect L314; halting_problem L225. Already-consumed: Taxicab1729 #168; EulerBrick #169; D8NeQ8 #166; Zsqrt5NotUfd #165; FruchtGraphAut #150; FrobeniusRealDivision #105.",
+  "statement_pin_required": {
+    "convention": "theorem a4_klein_four: IsKleinFour ≃* normal V in A₄, namesake. Level A may land only sign(swap 0 1 * swap 2 3)=1 / membership in alternatingGroup (Fin 4) / orderOf=2, not labelled Klein / A4 / Vierergruppe.",
+    "landmines": [
+      "Do not re-prove Equiv.swap / sign / sign_swap / alternatingGroup / orderOf.",
+      "Not isSimpleGroup_five (Alternating.lean L289 already-in). Different group. USE sign.",
+      "Not IsKleinFour (DihedralGroup 2) / ZMod 2 × ZMod 2 (already-in different carriers).",
+      "Not the KleinFour.lean L30 isomorphism. Residual of this id. Do not sorry it.",
+      "Not A₄ no subgroup of order 6. Residual (C6 vs S3). Do not make it Level A.",
+      "Not d8-ne-q8 (consumed #166). Order 8 ≠ order-4 V in A₄.",
+      "Not Frucht / frobenius-real-division (consumed #150 / #105).",
+      "Not taxicab-1729 / euler-brick (consumed #168+#169).",
+      "Not simpson-paradox (OPE-1405 prime). Do not prove the 2×2×2 table here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "A₄ double transpositions / Klein V ⊴ A₄. Type pin: Equiv.swap / sign / alternatingGroup (Fin 4). IsKleinFour on DihedralGroup 2 is a different already-in carrier. A₅ simple is a different already-in theorem. Simpson-paradox is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: sign(swap 0 1 * swap 2 3)=1 / mem alternatingGroup (Fin 4) / orderOf=2; optional extra the other two double transpositions or the product identity; not labelled Klein / A4 / Vierergruppe. Level B: namesake IsKleinFour ≃* V ⊴ A₄. Cap two levels. No order-6 subgroup as Level A. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems simple_* / d8_* / frucht_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Equiv.swap L1383 / sign L365 / sign_swap L396 / alternatingGroup L51 / mem_alternatingGroup L69 — USE; DO NOT re-prove",
+    "isSimpleGroup_five Alternating.lean L289 — DIFFERENT already-in A₅ theorem; DO NOT cite as this A₄ witness",
+    "IsKleinFour KleinFour.lean L51 / DihedralGroup 2 instance L63 — DIFFERENT already-in carriers; DO NOT re-prove the mixin",
+    "ProofLab/D8NeQ8.lean — consumed #166, DO NOT revive Level B / order-8 classification",
+    "ProofLab/Taxicab1729.lean — consumed #168, DO NOT revive Level B / Hardy / Ramanujan",
+    "ProofLab/EulerBrick.lean — consumed #169, DO NOT revive Level B / perfect cuboid",
+    "Lab algebra + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "algebra",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1405",
+  "parent_issue": "OPE-1404",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO a4_klein / kleinFour_A4 / V4_normal_A4; swap / sign / alternatingGroup HIT as infra only; KleinFour.lean L30 TODO documents namesake gap",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: isSimpleGroup_five L289; IsKleinFour L51; DihedralGroup 2 instance L63; Fintype.card_perm L150; two_mul_card_alternatingGroup L88; catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; fermatLastTheoremThree L725; wilsons_lemma L38; Perfect L314; halting_problem L225",
+    "Already-consumed: Taxicab1729 Level A (#168); EulerBrick Level A (#169); D8NeQ8 Level A (#166); Zsqrt5NotUfd Level A (#165); FruchtGraphAut Level A (#150); FrobeniusRealDivision Level A (#105)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "A₅-simple leftover-revivals / d8 leftover-revivals / no-order-6 residual of the leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

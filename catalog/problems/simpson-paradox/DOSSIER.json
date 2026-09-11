@@ -1,0 +1,59 @@
+{
+  "id": "simpson-paradox",
+  "title": "Yule–Simpson rate reversal on a 2×2×2 table (formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Yule 1903 / Simpson 1951 example: rates 1/5 vs 2/8 and 6/8 vs 4/5 reverse overall 7/13 vs 6/13. Completely classical. Value is a Mathlib/ProofLab contribution (Nat mul / < exist; ZERO named simpson / SimpsonParadox / yuleSimpson / simpson_reversal / confounding table theorem in Mathlib+Archive+ProofLab; Bayes / FKG are different already-in theorems). Do NOT re-discover as novel. cond_eq_inv_mul_cond_mul is a DIFFERENT already-in Bayes identity — USE Nat mul, do not re-prove, do not cite as this table. FKG FourFunctions.lean lemma fkg is already-in association, not namesake. Condorcet / Arrow are residual of this id. Taxicab-1729 is consumed #168. Euler-brick is consumed #169. A4 Klein four is the leftover of this shortlist.",
+  "recommendation": "OPE-1405 RECOMMENDED PRIME. Catalog-audit prime after OPE-1390 mill CONSUMED (#168 taxicab-1729 Level A + #169 euler-brick Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of taxicab_1729 / euler_brick / perfect cuboid / d8_ne_q8 / UniqueFactorizationMonoid. Independent Mathlib pin grep this run (Nat mul / < HIT as glue; named simpson / SimpsonParadox / yuleSimpson / simpson_reversal ZERO). Mill NOW: finite 2×2×2 rate-reversal witnesses beside A4 double transpositions. Score 86 this run: Nat mul waiting (formalizability 18); Level A 1·8<2·5 / 6·5<4·8 / 7·13>6·13 (partial 16); namesake is undergraduate Simpson (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-table Level A; namesake residual. General confounding residual.",
+  "mathlib_gap_grep_2026_09_11_ope1405": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1390 scores. rg simpson / SimpsonParadox / yuleSimpson / simpson_reversal / confounding / contingencyTable / oddsRatio over Mathlib/ + Archive + ProofLab → ZERO named rate-reversal theorem. Defs HIT: Nat / HMul / < / >. Bayes / FKG already-in, different theorems, not namesake. Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan_eq_centralBinom_div Catalan.lean L109; numDerangements Derangements/Finite.lean L62; exists_prime_lt_and_le_two_mul Bertrand.lean L211; frobeniusNumber_pair FrobeniusNumber.lean L52; exists_mono_in_high_dimension HalesJewett.lean L445; fermatLastTheoremThree FLT/Three.lean L725; PythagoreanTriple.classification L649; wilsons_lemma Wilson.lean L38; isSimpleGroup_five Alternating.lean L289; IsKleinFour KleinFour.lean L51; Fintype.card_perm Data/Fintype/Perm.lean L150; two_mul_card_alternatingGroup L88; sign Sign.lean L365; sign_swap L396; Equiv.swap Basic.lean L1383; Perfect Divisors.lean L314; halting_problem Computability/Halting.lean L225. Already-consumed: Taxicab1729 Level A (#168); EulerBrick Level A (#169); Zsqrt5NotUfd #165; D8NeQ8 #166; GrayCode #163; MyhillNerode #162.",
+  "statement_pin_required": {
+    "convention": "theorem simpson_paradox: general Yule–Simpson reversal criterion, namesake. Level A may land only 1·8<2·5 / 6·5<4·8 / 7·13>6·13, not labelled Simpson / Yule.",
+    "landmines": [
+      "Do not re-prove Nat / mul / < / >.",
+      "Not Bayes (already-in). Different theorem. USE Nat mul.",
+      "Not FKG / Borel–Cantelli / LLN (already-in).",
+      "Not a general confounding calculus. Residual of this id. Do not sorry it.",
+      "Not Condorcet / Arrow. Residual. Do not label theorems condorcet_* / arrow_*.",
+      "Not intransitive dice / Kaprekar / happy numbers.",
+      "Not taxicab-1729 / euler-brick (consumed #168+#169).",
+      "Not a4-klein-four (OPE-1405 leftover). Do not prove A4 double transpositions here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Yule 1903 / Simpson 1951 2×2×2 rate reversal. Type pin: Nat mul / <. Bayes / FKG are different already-in theorems. A4 Klein four is the leftover of this shortlist."
+  },
+  "feasibility_shape": "Level A: 1·8<2·5 / 6·5<4·8 / 7·13>6·13; optional extra packaged conjunction / second table; not labelled Simpson / Yule. Level B: namesake general criterion. Cap two levels. No Condorcet. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems bayes_* / fkg_* / condorcet_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Nat / mul / < / > — USE; DO NOT re-prove",
+    "Bayes / FKG — DIFFERENT already-in theorems; DO NOT cite as this table",
+    "ProofLab/Taxicab1729.lean — consumed #168, DO NOT revive Level B / smallest-n / Hardy / Ramanujan",
+    "ProofLab/EulerBrick.lean — consumed #169, DO NOT revive Level B / perfect cuboid",
+    "ProofLab/D8NeQ8.lean — consumed #166, DO NOT revive Level B / order-8 classification",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1405",
+  "parent_issue": "OPE-1404",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO simpson / SimpsonParadox / yuleSimpson / simpson_reversal; Nat mul / < HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; fermatLastTheoremThree L725; PythagoreanTriple.classification L649; wilsons_lemma L38; isSimpleGroup_five L289; IsKleinFour L51; Fintype.card_perm L150; sign L365; sign_swap L396; Equiv.swap L1383; Perfect L314; halting_problem L225",
+    "Already-consumed: Taxicab1729 Level A (#168); EulerBrick Level A (#169); Zsqrt5NotUfd Level A (#165); D8NeQ8 Level A (#166); GrayCode Level A (#163); MyhillNerode Level A (#162)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Bayes leftover-revivals / Condorcet residual of the prime / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
