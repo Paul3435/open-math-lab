@@ -1,7 +1,7 @@
 {
   "id": "simpson-paradox",
   "title": "Yule–Simpson rate reversal on a 2×2×2 table (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics",
   "score": 86,
   "scores": {
@@ -48,6 +48,9 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1405",
   "parent_issue": "OPE-1404",
+  "formalist_issue": "OPE-1410",
+  "director_issue": "OPE-1409",
+  "lean_artifact": "proofs/lean-project/ProofLab/SimpsonParadox.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO simpson / SimpsonParadox / yuleSimpson / simpson_reversal; Nat mul / < HIT as infra only",
     "Negative control turan → Turan.lean exists L300",

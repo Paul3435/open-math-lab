@@ -94,3 +94,4 @@ import ProofLab.Zsqrt5NotUfd
 import ProofLab.D8NeQ8
 import ProofLab.Taxicab1729
 import ProofLab.EulerBrick
+import ProofLab.SimpsonParadox
