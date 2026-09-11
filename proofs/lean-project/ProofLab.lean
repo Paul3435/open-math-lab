@@ -89,3 +89,4 @@ import ProofLab.OrthogonalLatinSquares
 import ProofLab.LegendreThreeSquares
 import ProofLab.LangfordPairing
 import ProofLab.MyhillNerode
+import ProofLab.GrayCode

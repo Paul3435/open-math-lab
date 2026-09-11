@@ -2747,25 +2747,31 @@
     {
       "id": "gray-code",
       "title": "Binary reflected Gray code (length 1 / length 2 / length 3 a listing, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "enumerative_combinatorics",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1357 Scout leftover slot #2 (parent OPE-1356). Catalog-audit leftover after OPE-1342 mill CONSUMED (#159+#160). Named theorem ZERO (GrayCode / grayCode / gray_code / binaryReflected / reflectedGray). hammingDist Hamming.lean L38 HIT as glue not namesake. Not Singleton (#120) / Hamming-bound / Plotkin / MDS. Not Ore (#111) / Bondy-Chvatal / Walk.IsHamiltonian as namesake. Not Kraft (#138). Not Fine-Wilf (#144). Not Langford (#160). Not myhill-nerode (prime of this shortlist). Finite one-wave Level A: length-1 / length-2 00-01-11-10 / length-3 reflected listing. Unassigned this tick. Hold until this prime lands. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1369 Formalist Level A. Director OPE-1368 approved Scout OPE-1357 leftover (myhill-nerode CONSUMED by OPE-1364 / #162). Lean ProofLab/GrayCode.lean. Catalog formalized. Level A: IsGrayCode; gray_one ![0],![1] / gray_two 00-01-11-10 / gray_three reflected 000,001,011,010,110,111,101,100; optional gray_zero n=0; not labelled Gray / Ore / Singleton. Namesake exists for every n residual. Hypercube Hamiltonian residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/gray-code/"
+        "catalog/problems/gray-code/",
+        "proofs/lean-project/ProofLab/GrayCode.lean"
       ],
       "scout_issue": "OPE-1357",
       "tickets": [
         "OPE-1357",
-        "OPE-1356"
+        "OPE-1356",
+        "OPE-1368",
+        "OPE-1369"
       ],
       "parent_issue": "OPE-1356",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1369",
+      "director_issue": "OPE-1368",
+      "lean_artifact": "proofs/lean-project/ProofLab/GrayCode.lean"
     }
   ],
   "updated_at": "2026-09-10T21:32:31Z",

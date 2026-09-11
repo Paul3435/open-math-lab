@@ -1,7 +1,7 @@
 {
   "id": "gray-code",
   "title": "Binary reflected Gray code (length 1 / length 2 / length 3 a listing, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "enumerative_combinatorics",
   "score": 84,
   "scores": {
@@ -55,5 +55,8 @@
     "Already-consumed: SingletonBound Level A (#120); OreHamiltonian Level A (#111); LangfordPairing Level A (#160); LegendreThreeSquares Level A (#159)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Singleton leftover-revivals / Ore leftover-revivals / Kleene residual of the prime / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1369",
+  "director_issue": "OPE-1368",
+  "lean_artifact": "proofs/lean-project/ProofLab/GrayCode.lean"
 }
