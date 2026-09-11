@@ -2959,25 +2959,32 @@
     {
       "id": "n-queens",
       "title": "n-queens small boards (n=2 none / n=3 none / n=4 a witness, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1419 Scout RECOMMENDED PRIME (parent OPE-1418). Catalog-audit prime after OPE-1405 mill CONSUMED (#171 simpson-paradox + #172 a4-klein-four). Level A pin: n=2 none / n=3 none / n=4 [1,3,0,2], not labelled n-queens / eight-queens / Gauss. Namesake exists iff n≠2,3 residual. Not Langford (#160) / Gray (#163) / OLS (#157). Not simpson-paradox / a4-klein-four (consumed). brocard-factorial-square leftover unassigned. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1424 Formalist Level A. Director OPE-1423 approved Scout OPE-1419 RECOMMENDED PRIME (brocard-factorial-square leftover HOLD). Lean ProofLab/NQueens.lean. Catalog formalized. Level A: queens_two_none / queens_three_none / queens_four [1,3,0,2]; optional queens_four_alt [2,0,3,1]; not labelled n-queens / eight-queens / Gauss. Namesake exists iff n≠2,3 residual. Not Langford (#160) / Gray (#163) / OLS (#157). Not simpson-paradox (#171) / a4-klein-four (#172). brocard-factorial-square leftover unassigned this tick. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/n-queens/"
+        "catalog/problems/n-queens/",
+        "proofs/lean-project/ProofLab/NQueens.lean"
       ],
       "scout_issue": "OPE-1419",
       "tickets": [
         "OPE-1419",
-        "OPE-1418"
+        "OPE-1418",
+        "OPE-1423",
+        "OPE-1424"
       ],
       "parent_issue": "OPE-1418",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1424",
+      "director_issue": "OPE-1423",
+      "lean_artifact": "proofs/lean-project/ProofLab/NQueens.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/174"
     },
     {
       "id": "brocard-factorial-square",
