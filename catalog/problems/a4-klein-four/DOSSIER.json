@@ -1,7 +1,7 @@
 {
   "id": "a4-klein-four",
   "title": "Double transpositions in A₄ are even of order 2 (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "algebra",
   "score": 84,
   "scores": {
@@ -50,6 +50,10 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1405",
   "parent_issue": "OPE-1404",
+  "formalist_issue": "OPE-1414",
+  "director_issue": "OPE-1409",
+  "lean_artifact": "proofs/lean-project/ProofLab/A4KleinFour.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/172",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO a4_klein / kleinFour_A4 / V4_normal_A4; swap / sign / alternatingGroup HIT as infra only; KleinFour.lean L30 TODO documents namesake gap",
     "Negative control turan → Turan.lean exists L300",

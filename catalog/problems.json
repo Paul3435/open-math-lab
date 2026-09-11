@@ -2929,25 +2929,32 @@
     {
       "id": "a4-klein-four",
       "title": "Double transpositions in A₄ are even of order 2 (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "algebra",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1405 Scout leftover slot #2 (parent OPE-1404). Catalog-audit leftover after OPE-1390 mill CONSUMED (#168+#169). Level A pin: sign(swap 0 1 * swap 2 3)=1 / mem alternatingGroup (Fin 4) / orderOf=2, not labelled Klein / A4 / Vierergruppe. Namesake KleinFour.lean L30 isomorphism residual. Not isSimpleGroup_five (already-in A5). Not IsKleinFour (DihedralGroup 2) already-in different carrier. Not d8-ne-q8 (consumed #166). simpson-paradox is the prime of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1414 Formalist Level A. Director OPE-1409 HOLD leftover (Scout OPE-1405 slot #2) after simpson-paradox CONSUMED by OPE-1410 / PR #171. Lean ProofLab/A4KleinFour.lean. Catalog formalized. Level A: doubleTransp_sign sign(swap 0 1 * swap 2 3)=1 / doubleTransp_mem mem alternatingGroup (Fin 4) / doubleTransp_order_two orderOf=2; optional doubleTransp_02_13_sign / doubleTransp_03_12_sign / doubleTransp_product; not labelled Klein / A4 / Vierergruppe. Namesake KleinFour.lean L30 isomorphism residual. Not isSimpleGroup_five (already-in A5 USE). Not IsKleinFour (DihedralGroup 2) already-in different carrier. Not d8-ne-q8 (consumed #166). Not simpson-paradox (consumed #171). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "algebra",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/a4-klein-four/"
+        "catalog/problems/a4-klein-four/",
+        "proofs/lean-project/ProofLab/A4KleinFour.lean"
       ],
       "scout_issue": "OPE-1405",
       "tickets": [
         "OPE-1405",
-        "OPE-1404"
+        "OPE-1404",
+        "OPE-1409",
+        "OPE-1414"
       ],
       "parent_issue": "OPE-1404",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1414",
+      "director_issue": "OPE-1409",
+      "lean_artifact": "proofs/lean-project/ProofLab/A4KleinFour.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/172"
     }
   ],
   "updated_at": "2026-09-11T16:00:00Z",
