@@ -54,6 +54,7 @@
   "formalist_issue": "OPE-1439",
   "director_issue": "OPE-1438",
   "lean_artifact": "proofs/lean-project/ProofLab/MutilatedChessboard.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/177",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO mutilated / Gomory / chessboard_tiling; Fin / Even / IsMatching.even_card HIT as infra only; chessboard hit is Domineering comments; opposite-corner hit is British-flag Euclidean",
     "Negative control turan → Turan.lean exists L300",
