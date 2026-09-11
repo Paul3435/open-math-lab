@@ -1,7 +1,7 @@
 {
   "id": "n-queens",
   "title": "n-queens small boards (n=2 none / n=3 none / n=4 a witness, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics",
   "score": 86,
   "scores": {
@@ -50,6 +50,9 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1419",
   "parent_issue": "OPE-1418",
+  "formalist_issue": "OPE-1424",
+  "director_issue": "OPE-1423",
+  "lean_artifact": "proofs/lean-project/ProofLab/NQueens.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO nQueens / NQueens / eightQueens / isQueens; List / Fin / Nodup HIT as infra only; queen hit is Queen Mary University comment only",
     "Negative control turan → Turan.lean exists L300",

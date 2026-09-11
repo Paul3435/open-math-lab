@@ -96,3 +96,4 @@ import ProofLab.Taxicab1729
 import ProofLab.EulerBrick
 import ProofLab.SimpsonParadox
 import ProofLab.A4KleinFour
+import ProofLab.NQueens
