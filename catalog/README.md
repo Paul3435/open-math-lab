@@ -261,14 +261,14 @@ Scout opened **no attack issues**. Formalist OPE-1352 lands the leftover. OPE-13
 
 OPE-1342 mill consumed (#159+#160). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
-1. **`myhill-nerode` — RECOMMENDED PRIME (86).** Fresh id. Myhill 1957 / Nerode 1958: a language is regular iff it has finitely many Nerode right-congruence classes. Named theorem ZERO (`Myhill` / `Nerode` / `nerode` / `myhillNerode` / `syntacticMonoid` / `Language.IsRegular`). `Language` L31 / `DFA` L39 / `accepts` L100 HIT as glue **not** namesake. `DFA.pumping_lemma` L152 HIT as already-in **different** theorem **not** namesake. `NFA.toDFA` already-in subset construction **not** namesake. **Not** Kleene regex ⇔ DFA (RegularExpressions.lean L18 TODO; residual of this id). **Not** Fine–Wilf (consumed #144). **Not** Kraft (consumed #138). **Not** Langford (consumed #160). **Not** three-square (consumed #159). Finite, one-wave Level A (empty language all-equivalent / `{[]}` distinguishes `[]` from `[0]` / optional 2-state DFA).
-2. **`gray-code` leftover (84).** Fresh id. Gray 1953 / Baudot: listing of all `n`-bit strings with adjacent Hamming distance 1. Named theorem ZERO (`GrayCode` / `grayCode` / `gray_code` / `binaryReflected`). `hammingDist` Hamming.lean L38 HIT as glue **not** namesake. **Not** Singleton / Hamming-bound / Plotkin / MDS (consumed #120). **Not** Ore / Bondy–Chvátal / `Walk.IsHamiltonian` as namesake (consumed #111). **Not** Kraft (consumed #138). **Not** Fine–Wilf (consumed #144). **Not** Myhill–Nerode (prime of this shortlist). Finite, one-wave Level A (length 1 / length 2 `00,01,11,10` / length 3 reflected). **Unassigned this tick.** Hold until this prime lands.
+1. **`myhill-nerode` — CONSUMED Level A.** OPE-1364 Formalist. PR **#162**. Director OPE-1362 approved Scout OPE-1357 RECOMMENDED PRIME. Lean `ProofLab/MyhillNerode.lean`. Catalog `formalized`. Level A: empty all-equivalent / `{[]}` `[]` vs `[0]` / optional 2-state last-letter DFA `[]` vs `[1]`, not labelled Myhill / Nerode. Level B namesake `myhill_nerode` / Kleene regex iff DFA residual **out of v1**. Do not revive.
+2. **`gray-code` leftover (84).** Fresh id. Gray 1953 / Baudot: listing of all `n`-bit strings with adjacent Hamming distance 1. Named theorem ZERO (`GrayCode` / `grayCode` / `gray_code` / `binaryReflected`). `hammingDist` Hamming.lean L38 HIT as glue **not** namesake. **Not** Singleton / Hamming-bound / Plotkin / MDS (consumed #120). **Not** Ore / Bondy–Chvátal / `Walk.IsHamiltonian` as namesake (consumed #111). **Not** Kraft (consumed #138). **Not** Fine–Wilf (consumed #144). **Not** Myhill–Nerode (prime of this shortlist, now Level A consumed #162). Finite, one-wave Level A (length 1 / length 2 `00,01,11,10` / length 3 reflected). **Unassigned this tick.** Hold until after this prime lands (prime now Level A on #162).
 
-Scout opened **no attack issues**. Formalist lands the prime after Director approval. Hold leftover until this prime lands. Cap is 2.
+Scout opened **no attack issues**. Formalist OPE-1364 lands the prime. Hold leftover until Director assigns it. Cap is 2.
 
 ---
 
-**Last updated:** 2026-09-10 (OPE-1357 Scout: catalog-audit formalize-only shortlist.)
+**Last updated:** 2026-09-11 (OPE-1364 Formalist: myhill-nerode Level A.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

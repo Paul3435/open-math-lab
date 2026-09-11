@@ -2717,25 +2717,32 @@
     {
       "id": "myhill-nerode",
       "title": "Myhill–Nerode (named small-language witnesses, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "computability",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1357 Scout RECOMMENDED PRIME (parent OPE-1356). Catalog-audit prime after OPE-1342 mill CONSUMED (#159 legendre-three-squares Level A + #160 langford-pairing Level A). Named theorem ZERO (Myhill / Nerode / nerode / myhillNerode / syntacticMonoid / Language.IsRegular). Language / DFA.accepts / pumping_lemma L152 HIT as glue not namesake. NFA.toDFA already-in not namesake. Kleene regex<=>DFA residual of this id. Not Fine-Wilf (#144). Not Kraft (#138). Not Langford (#160). Not three-square (#159). Finite one-wave Level A: empty language all-equivalent / {[]} distinguishes [] from [0] / optional 2-state DFA. gray-code leftover unassigned this tick. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1364 Formalist Level A. Director OPE-1362 approved Scout OPE-1357 RECOMMENDED PRIME (gray-code leftover unassigned). Lean ProofLab/MyhillNerode.lean. Catalog formalized. Level A: NerodeEq; nerode_empty / nerode_one_nil_ne / optional lastLetterDFA [] vs [1]; not labelled Myhill / Nerode. Namesake finite Nerode index iff regular residual. Kleene regex iff DFA residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "logic",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/myhill-nerode/"
+        "catalog/problems/myhill-nerode/",
+        "proofs/lean-project/ProofLab/MyhillNerode.lean"
       ],
       "scout_issue": "OPE-1357",
       "tickets": [
         "OPE-1357",
-        "OPE-1356"
+        "OPE-1356",
+        "OPE-1362",
+        "OPE-1364"
       ],
       "parent_issue": "OPE-1356",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1364",
+      "director_issue": "OPE-1362",
+      "lean_artifact": "proofs/lean-project/ProofLab/MyhillNerode.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/162"
     },
     {
       "id": "gray-code",
