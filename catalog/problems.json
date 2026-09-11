@@ -2863,7 +2863,8 @@
       "mathlib_gap": true,
       "formalist_issue": "OPE-1395",
       "director_issue": "OPE-1394",
-      "lean_artifact": "proofs/lean-project/ProofLab/Taxicab1729.lean"
+      "lean_artifact": "proofs/lean-project/ProofLab/Taxicab1729.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/168"
     },
     {
       "id": "euler-brick",
