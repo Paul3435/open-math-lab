@@ -52,6 +52,7 @@
   "formalist_issue": "OPE-1380",
   "director_issue": "OPE-1379",
   "lean_artifact": "proofs/lean-project/ProofLab/Zsqrt5NotUfd.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/165",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO zsqrt5 / not_ufd / UniqueFactorizationMonoid (ℤ√; Zsqrtd.norm HIT as infra only",
     "Negative control turan → Turan.lean exists L300",
