@@ -88,3 +88,4 @@ import ProofLab.JordanCanonicalForm
 import ProofLab.OrthogonalLatinSquares
 import ProofLab.LegendreThreeSquares
 import ProofLab.LangfordPairing
+import ProofLab.MyhillNerode
