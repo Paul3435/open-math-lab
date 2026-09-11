@@ -2955,9 +2955,55 @@
       "director_issue": "OPE-1409",
       "lean_artifact": "proofs/lean-project/ProofLab/A4KleinFour.lean",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/172"
+    },
+    {
+      "id": "n-queens",
+      "title": "n-queens small boards (n=2 none / n=3 none / n=4 a witness, formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1419 Scout RECOMMENDED PRIME (parent OPE-1418). Catalog-audit prime after OPE-1405 mill CONSUMED (#171 simpson-paradox + #172 a4-klein-four). Level A pin: n=2 none / n=3 none / n=4 [1,3,0,2], not labelled n-queens / eight-queens / Gauss. Namesake exists iff n≠2,3 residual. Not Langford (#160) / Gray (#163) / OLS (#157). Not simpson-paradox / a4-klein-four (consumed). brocard-factorial-square leftover unassigned. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/n-queens/"
+      ],
+      "scout_issue": "OPE-1419",
+      "tickets": [
+        "OPE-1419",
+        "OPE-1418"
+      ],
+      "parent_issue": "OPE-1418",
+      "mathlib_gap": true
+    },
+    {
+      "id": "brocard-factorial-square",
+      "title": "Brocard factorial-plus-one squares (4!+1=5² / 5!+1=11² / 7!+1=71², formalize-only)",
+      "status": "candidate",
+      "domain": "number_theory",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1419 Scout leftover slot #2 (parent OPE-1418). Catalog-audit leftover after OPE-1405 mill CONSUMED (#171+#172). Level A pin: 4!+1=5² / 5!+1=11² / 7!+1=71², not labelled Brocard / Ramanujan / Wilson. Namesake uniqueness OPEN residual. Not Wilson (already-in). Not Euclid infinitude (already-in n!+1 gadget). Not cannonball (#154) / taxicab-1729 (#168). n-queens is the prime of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "number-theory",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/brocard-factorial-square/"
+      ],
+      "scout_issue": "OPE-1419",
+      "tickets": [
+        "OPE-1419",
+        "OPE-1418"
+      ],
+      "parent_issue": "OPE-1418",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-11T16:00:00Z",
+  "updated_at": "2026-09-11T20:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

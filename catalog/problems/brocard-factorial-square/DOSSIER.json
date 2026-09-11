@@ -1,0 +1,63 @@
+{
+  "id": "brocard-factorial-square",
+  "title": "Brocard factorial-plus-one squares (4!+1=5² / 5!+1=11² / 7!+1=71², formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Brocard 1876 / Ramanujan: n!+1 is square for (n,m)=(4,5),(5,11),(7,71). Completely classical. Value is a Mathlib/ProofLab contribution (Nat.factorial / pow_two exist; ZERO named brocard / Brocard / brocard_problem / factorial_plus_one_square / BrocardRamanujan in Mathlib+Archive+ProofLab; n!+1 hits only Euclid infinitude exists_infinite_primes L82, a different theorem; wilsons_lemma L38 is a different congruence). Do NOT re-discover as novel. Uniqueness (only 4,5,7) is OPEN residual of this id — do not sorry it. Brocard points are a geometry name collision — do not sorry them. Wilson is already-in different theorem. Cannonball is consumed #154. Taxicab-1729 is consumed #168. n-queens is the prime of this shortlist.",
+  "recommendation": "OPE-1419 leftover slot #2. Catalog-audit leftover after OPE-1405 mill CONSUMED (#171+#172). NOT a prize leftover, NOT Director-invented, NOT Level B revival of wilsons_lemma / exists_infinite_primes / cannonball_square_pyramid / taxicab_1729 / simpson_paradox / a4_klein_four. Independent Mathlib pin grep this run (Nat.factorial L29 / factorial_succ L43 / pow_two L581 HIT as glue; named brocard / BrocardRamanujan ZERO; n!+1 only in Euclid infinitude L82). Mill NOW: finite factorial-plus-one square witnesses leftover beside n-queens small boards. Score 84 this run: factorial / pow_two waiting (formalizability 16); Level A 4!+1=5² / 5!+1=11² / 7!+1=71² (partial 16); namesake is undergraduate Brocard (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-identity Level A; namesake uniqueness OPEN residual. Hold until the prime lands.",
+  "mathlib_gap_grep_2026_09_11_ope1419": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1405 scores. rg brocard / Brocard / brocard_problem / factorial_plus_one_square / BrocardRamanujan over Mathlib/ + Archive + ProofLab → ZERO named Brocard theorem. n!+1 HIT only as Euclid infinitude gadget Prime/Basic.lean L82-84 (minFac (n ! + 1)), different theorem, not namesake. Defs HIT: Nat.factorial Factorial/Basic.lean L29; scoped n ! L34; factorial_succ L43; pow_two Algebra/Group/Defs.lean L581; IsSquare Even.lean L46 (square glue, not namesake). Already-in different theorems: wilsons_lemma Wilson.lean L38; exists_infinite_primes Prime/Basic.lean L82; Perfect Divisors.lean L314. Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; fermatLastTheoremThree FLT/Three.lean L725; PythagoreanTriple.classification L649; isSimpleGroup_five L289; IsKleinFour L51. Already-consumed: SimpsonParadox #171; A4KleinFour #172; Taxicab1729 #168; EulerBrick #169; CannonballSquarePyramid #154; LangfordPairing #160.",
+  "statement_pin_required": {
+    "convention": "theorem brocard_factorial_square: only n=4,5,7 make n!+1 square, namesake (OPEN). Level A may land only 4!+1=5² / 5!+1=11² / 7!+1=71², not labelled Brocard / Ramanujan / Wilson.",
+    "landmines": [
+      "Do not re-prove Nat.factorial / factorial_succ / pow_two.",
+      "Not Wilson (wilsons_lemma L38 already-in). Different congruence. USE factorial.",
+      "Not Euclid infinitude (exists_infinite_primes L82 already-in). n!+1 is a prime gadget there, not a square.",
+      "Not Brocard points / Brocard angle. Geometry name collision. Do not sorry them. Do not label theorems brocard_point_*.",
+      "Not uniqueness / only-three-solutions. OPEN residual of this id. Do not sorry it.",
+      "Not cannonball (consumed #154). Pyramidal-square ≠ factorial-plus-one square.",
+      "Not taxicab-1729 (consumed #168). Ramanujan name here is Brocard–Ramanujan residual, not taxicab.",
+      "Not euler-brick / Perfect / amicable / Euclid–Euler (consumed).",
+      "Not n-queens (OPE-1419 prime). Do not prove small-board queens here.",
+      "Not simpson-paradox / a4-klein-four (consumed #171+#172).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Brocard 1876 / Ramanujan factorial-plus-one squares. Type pin: Nat.factorial / pow_two. Wilson and Euclid infinitude are different already-in theorems. n-queens is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: 4!+1=5² / 5!+1=11² / 7!+1=71²; optional extra 6!+1 not square; not labelled Brocard / Ramanujan / Wilson. Level B: namesake uniqueness (OPEN). Cap two levels. No Brocard points. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems wilson_* / euclid_* / brocard_point_* / taxicab_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Nat.factorial L29 / factorial_succ L43 / pow_two L581 — USE; DO NOT re-prove",
+    "wilsons_lemma Wilson.lean L38 — DIFFERENT already-in congruence; DO NOT cite as Brocard",
+    "exists_infinite_primes Prime/Basic.lean L82 — DIFFERENT already-in n!+1 gadget; DO NOT cite as Brocard",
+    "ProofLab/CannonballSquarePyramid.lean — consumed #154, DO NOT revive Level B / Lucas uniqueness",
+    "ProofLab/Taxicab1729.lean — consumed #168, DO NOT revive Level B / Hardy / Ramanujan taxicab",
+    "ProofLab/SimpsonParadox.lean — consumed #171, DO NOT revive Level B / Bayes / FKG",
+    "ProofLab/A4KleinFour.lean — consumed #172, DO NOT revive Level B / KleinFour",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1419",
+  "parent_issue": "OPE-1418",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO brocard / Brocard / brocard_problem / BrocardRamanujan; Nat.factorial / pow_two HIT as infra only; n!+1 only in Euclid infinitude L82",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: wilsons_lemma L38; exists_infinite_primes L82; Nat.factorial L29; pow_two L581; Perfect L314; catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; fermatLastTheoremThree L725",
+    "Already-consumed: SimpsonParadox Level A (#171); A4KleinFour Level A (#172); Taxicab1729 Level A (#168); EulerBrick Level A (#169); CannonballSquarePyramid Level A (#154); LangfordPairing Level A (#160)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Wilson leftover-revivals / Euclid infinitude leftover-revivals / Brocard-points name collision / uniqueness OPEN residual of the leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
