@@ -1,7 +1,7 @@
 {
   "id": "zsqrt5-not-ufd",
   "title": "ℤ[√-5] is not a UFD (6=2·3=(1+√-5)(1-√-5), formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "algebraic_number_theory",
   "score": 86,
   "scores": {
@@ -49,6 +49,9 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1374",
   "parent_issue": "OPE-1373",
+  "formalist_issue": "OPE-1380",
+  "director_issue": "OPE-1379",
+  "lean_artifact": "proofs/lean-project/ProofLab/Zsqrt5NotUfd.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO zsqrt5 / not_ufd / UniqueFactorizationMonoid (ℤ√; Zsqrtd.norm HIT as infra only",
     "Negative control turan → Turan.lean exists L300",

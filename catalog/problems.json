@@ -2777,26 +2777,32 @@
     {
       "id": "zsqrt5-not-ufd",
       "title": "ℤ[√-5] is not a UFD (6=2·3=(1+√-5)(1-√-5), formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "algebraic_number_theory",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1374 Scout RECOMMENDED PRIME (parent OPE-1373). Catalog-audit prime after OPE-1357 mill CONSUMED (#162 myhill-nerode Level A + #163 gray-code Level A). Independent Mathlib v4.10.0 grep this run: Zsqrtd.norm HIT as glue; ZERO named non-UFD for ℤ√(-5). GaussianInt Euclidean is a different already-in ring. Level A pin: 6=2·3 / 6=(1+√-5)(1-√-5) / 2 ∤ 1+√-5 / 2 irreducible, not labelled Dedekind / Kummer / Gaussian. Namesake ¬ UniqueFactorizationMonoid residual. Class number residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1380 Formalist Level A. Director OPE-1379 approved Scout OPE-1374 prime (d8-ne-q8 leftover unassigned). Lean ProofLab/Zsqrt5NotUfd.lean. Catalog formalized. Level A: six_two_three 6=2*3 / six_split 6=(1+√-5)(1-√-5) / two_not_dvd_one_plus_sqrtd / two_irreducible; optional three_irreducible / one_plus_sqrtd_irreducible / two_not_associated_one_plus; not labelled Dedekind / Kummer / Gaussian. Namesake ¬ UniqueFactorizationMonoid residual. Class number residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "algebra",
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/zsqrt5-not-ufd/"
+        "catalog/problems/zsqrt5-not-ufd/",
+        "proofs/lean-project/ProofLab/Zsqrt5NotUfd.lean"
       ],
       "scout_issue": "OPE-1374",
       "tickets": [
         "OPE-1374",
-        "OPE-1373"
+        "OPE-1373",
+        "OPE-1379",
+        "OPE-1380"
       ],
       "parent_issue": "OPE-1373",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1380",
+      "director_issue": "OPE-1379",
+      "lean_artifact": "proofs/lean-project/ProofLab/Zsqrt5NotUfd.lean"
     },
     {
       "id": "d8-ne-q8",
