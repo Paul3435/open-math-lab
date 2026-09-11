@@ -1,0 +1,60 @@
+{
+  "id": "euler-brick",
+  "title": "Euler brick 44,117,240 face diagonals (formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Halcke 1719 / Euler brick: edges 44,117,240 have integer face diagonals 125,244,267. Completely classical. Value is a Mathlib/ProofLab contribution (pow_two / PythagoreanTriple exist; ZERO named eulerBrick / EulerBrick / perfectCuboid / integerCuboid in Mathlib+Archive+ProofLab; PythagoreanTriple.classification is a different single-triple parametrization). Do NOT re-discover as novel. PythagoreanTriple.classification (PythagoreanTriples.lean L649) is a DIFFERENT already-in theorem — USE ^2 if needed, do not re-prove, do not cite as this three-face box. Alcuin integer triangles are consumed #153 (perimeter counts ≠ face diagonals). Heron / British-flag / cannonball / Pick are consumed or geometry leftover cluster — do not revive. Euclid–Euler perfect / Euler odd=distinct / Eulerian trails are DIFFERENT consumed Euler namesakes — do not label theorems eulerian_* / euclid_euler_*. Perfect cuboid is OPEN residual of this id. Taxicab-1729 is the prime of this shortlist. D8 ≇ Q8 is consumed #166. ℤ[√-5] not UFD is consumed #165.",
+  "recommendation": "OPE-1390 leftover slot #2. Catalog-audit leftover after OPE-1374 mill CONSUMED (#165+#166). NOT a prize leftover, NOT Director-invented, NOT Level B revival of zsqrt5_not_ufd / d8_ne_q8 / alcuin_integer_triangles / heron / british_flag / cannonball / PythagoreanTriple.classification. Independent Mathlib pin grep this run (pow_two L581 / PythagoreanTriple L44 HIT as glue; named eulerBrick / EulerBrick / perfectCuboid / integerCuboid ZERO). Mill NOW: finite three-face Pythagorean witnesses leftover beside two-cube 1729. Score 84 this run: pow_two / PythagoreanTriple waiting (formalizability 16); Level A 44²+117²=125² / 44²+240²=244² / 117²+240²=267² (partial 16); namesake is undergraduate Euler brick (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-edge Level A; namesake residual. Perfect cuboid OPEN residual. Hold until the prime lands.",
+  "mathlib_gap_grep_2026_09_11_ope1390": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1374 scores. rg eulerBrick / EulerBrick / perfectCuboid / integerCuboid / euler.?brick / faceDiagonal / integer.box over Mathlib/ + Archive + ProofLab → ZERO named Euler-brick theorem (Haar OfBasis.lean 'cuboid' is a parallelepiped measure, unrelated; Euler partition / Eulerian / Euclid–Euler perfect are different consumed namesakes). Defs HIT: pow_two (Algebra/Group/Defs.lean L581), PythagoreanTriple (PythagoreanTriples.lean L44), classification L649 (already-in single-triple formula, not namesake). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): PythagoreanTriple.classification L649; fermatLastTheoremThree L725; Zeckendorf; lucas_theorem L97; Gershgorin; Matrix.cramer; sperner LYM; Sauer-Shelah; EGZ; CauchyDavenport; FKG; totient_even L113; harmonic Int.lean; Nim/Sprague-Grundy; Wallis; Ballot; pumping_lemma L152; Wilson L38; Catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; four-square L212; two-square L31. Already-consumed: Zsqrt5NotUfd #165; D8NeQ8 #166; AlcuinIntegerTriangles #153; CannonballSquarePyramid #154; BritishFlag #145; Heron; GrayCode #163; MyhillNerode #162.",
+  "statement_pin_required": {
+    "convention": "theorem euler_brick: exists integer-edged box with integer face diagonals, namesake. Level A may land only 44²+117²=125² / 44²+240²=244² / 117²+240²=267², not labelled Euler / Halcke / cuboid.",
+    "landmines": [
+      "Do not re-prove Nat / pow_two / PythagoreanTriple.",
+      "Not PythagoreanTriple.classification (PythagoreanTriples.lean L649 already-in). Different theorem. USE ^ 2.",
+      "Not Alcuin / Heron / British-flag / cannonball / Pick / Ceva / Morley (consumed or geometry leftover cluster).",
+      "Not a perfect cuboid. That is OPEN. Residual of this id. Do not sorry it.",
+      "Not Euclid–Euler perfect / Euler odd=distinct / Eulerian trails (consumed Euler namesakes). Do not label theorems eulerian_* / euclid_euler_*.",
+      "Not taxicab-1729 (OPE-1390 prime). Do not prove 1729 here.",
+      "Not zsqrt5-not-ufd / d8-ne-q8 (consumed #165+#166).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Halcke 1719 / Euler brick (44,117,240). Type pin: Nat / ^ 2. PythagoreanTriple.classification is a different already-in single-triple formula. Alcuin / Heron / British-flag are different consumed mills. Taxicab-1729 is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: 44²+117²=125² / 44²+240²=244² / 117²+240²=267²; optional extra space diagonal not square; not labelled Euler / Halcke / cuboid. Level B: namesake existence/infinitude. Perfect cuboid OPEN out of v1. Cap two levels. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems eulerian_* / euclid_euler_* / pythagorean_classification_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Nat / pow_two L581 / PythagoreanTriple L44 — USE; DO NOT re-prove",
+    "PythagoreanTriple.classification L649 — DIFFERENT already-in single-triple formula; DO NOT cite as this brick",
+    "ProofLab/AlcuinIntegerTriangles.lean — consumed #153, DO NOT revive Level B / integerTriangle",
+    "ProofLab/CannonballSquarePyramid.lean — consumed #154, DO NOT revive Level B / Lucas uniqueness",
+    "ProofLab/BritishFlag.lean — consumed #145, DO NOT revive Level B / Napoleon / Simson / Viviani",
+    "ProofLab/Zsqrt5NotUfd.lean — consumed #165, DO NOT revive Level B / UniqueFactorizationMonoid",
+    "ProofLab/D8NeQ8.lean — consumed #166, DO NOT revive Level B / order-8 classification",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1390",
+  "parent_issue": "OPE-1389",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO eulerBrick / EulerBrick / perfectCuboid / integerCuboid; pow_two / PythagoreanTriple HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: PythagoreanTriple.classification L649; fermatLastTheoremThree L725; Zeckendorf; lucas_theorem L97; Gershgorin; Matrix.cramer; sperner LYM; Sauer-Shelah; EGZ; CauchyDavenport; FKG; totient_even L113; harmonic Int.lean; Nim/Sprague-Grundy; Wallis; Ballot; pumping_lemma L152; Wilson L38; Catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52",
+    "Already-consumed: Zsqrt5NotUfd Level A (#165); D8NeQ8 Level A (#166); AlcuinIntegerTriangles Level A (#153); CannonballSquarePyramid Level A (#154); BritishFlag Level A (#145); GrayCode Level A (#163); MyhillNerode Level A (#162)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "PythagoreanTriple.classification leftover-revivals / Alcuin leftover-revivals / perfect-cuboid OPEN residual of the leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
