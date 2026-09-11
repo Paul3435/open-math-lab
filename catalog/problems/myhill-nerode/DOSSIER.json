@@ -1,7 +1,7 @@
 {
   "id": "myhill-nerode",
   "title": "Myhill–Nerode (named small-language witnesses, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "computability",
   "score": 86,
   "scores": {
@@ -57,5 +57,9 @@
     "Already-consumed: LangfordPairing Level A (#160); LegendreThreeSquares Level A (#159); FineWilf Level A (#144); KraftInequality Level A (#138)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Kleene / Fine–Wilf leftover-revivals / Kraft leftover-revivals / Langford leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1364",
+  "director_issue": "OPE-1362",
+  "lean_artifact": "proofs/lean-project/ProofLab/MyhillNerode.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/162"
 }
