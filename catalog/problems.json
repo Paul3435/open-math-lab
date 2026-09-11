@@ -2899,25 +2899,32 @@
     {
       "id": "simpson-paradox",
       "title": "Yule–Simpson rate reversal on a 2×2×2 table (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1405 Scout RECOMMENDED PRIME (parent OPE-1404). Catalog-audit prime after OPE-1390 mill CONSUMED (#168 taxicab-1729 + #169 euler-brick). Level A pin: 1·8<2·5 / 6·5<4·8 / 7·13>6·13, not labelled Simpson / Yule. Namesake general confounding residual. Condorcet / Arrow residual. Not Bayes / FKG (already-in). Not taxicab-1729 / euler-brick (consumed). a4-klein-four leftover unassigned. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1410 Formalist Level A. Director OPE-1409 approved Scout OPE-1405 RECOMMENDED PRIME (a4-klein-four leftover unassigned). Lean ProofLab/SimpsonParadox.lean. Catalog formalized. Level A: cohort_one_B_gt_A 1*8<2*5 / cohort_two_B_gt_A 6*5<4*8 / overall_A_gt_B 7*13>6*13; optional rate_reversal conjunction; not labelled Simpson / Yule. Namesake general confounding residual. Condorcet / Arrow residual. Not Bayes / FKG (already-in USE). Not taxicab-1729 (#168) / euler-brick (#169). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/simpson-paradox/"
+        "catalog/problems/simpson-paradox/",
+        "proofs/lean-project/ProofLab/SimpsonParadox.lean"
       ],
       "scout_issue": "OPE-1405",
       "tickets": [
         "OPE-1405",
-        "OPE-1404"
+        "OPE-1404",
+        "OPE-1409",
+        "OPE-1410"
       ],
       "parent_issue": "OPE-1404",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1410",
+      "director_issue": "OPE-1409",
+      "lean_artifact": "proofs/lean-project/ProofLab/SimpsonParadox.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/171"
     },
     {
       "id": "a4-klein-four",

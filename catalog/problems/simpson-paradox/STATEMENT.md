@@ -1,7 +1,8 @@
 # Yule–Simpson rate reversal on a 2×2×2 table (formalize-only)
 
 **id:** `simpson-paradox`
-**ticket:** OPE-1405 Scout RECOMMENDED PRIME (parent OPE-1404;
+**ticket:** OPE-1410 Formalist Level A (Scout OPE-1405
+RECOMMENDED PRIME; Director OPE-1409; parent OPE-1404;
 post taxicab-1729 #168 + euler-brick #169)
 **expected:** known-classical (Yule 1903 / Simpson 1951:
 a treatment can beat another in every cohort and lose
