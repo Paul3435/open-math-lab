@@ -2771,7 +2771,8 @@
       "mathlib_gap": true,
       "formalist_issue": "OPE-1369",
       "director_issue": "OPE-1368",
-      "lean_artifact": "proofs/lean-project/ProofLab/GrayCode.lean"
+      "lean_artifact": "proofs/lean-project/ProofLab/GrayCode.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/163"
     }
   ],
   "updated_at": "2026-09-10T21:32:31Z",
