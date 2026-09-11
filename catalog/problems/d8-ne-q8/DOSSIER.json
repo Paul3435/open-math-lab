@@ -1,7 +1,7 @@
 {
   "id": "d8-ne-q8",
   "title": "D₈ ≇ Q₈ (reflections order 2 vs unique order-2, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "finite_group_theory",
   "score": 84,
   "scores": {
@@ -56,5 +56,8 @@
     "Already-consumed: FruchtGraphAut Level A (#150); FrobeniusRealDivision Level A (#105); MyhillNerode Level A (#162); GrayCode Level A (#163)",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Frucht leftover-revivals / n=0 isomorphism / Quaternion ℤˣ residual of this leftover / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1385",
+  "director_issue": "OPE-1384",
+  "lean_artifact": "proofs/lean-project/ProofLab/D8NeQ8.lean"
 }

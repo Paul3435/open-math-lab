@@ -91,3 +91,4 @@ import ProofLab.LangfordPairing
 import ProofLab.MyhillNerode
 import ProofLab.GrayCode
 import ProofLab.Zsqrt5NotUfd
+import ProofLab.D8NeQ8

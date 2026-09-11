@@ -271,13 +271,13 @@ Scout opened **no attack issues**. Formalist OPE-1369 lands the leftover. OPE-13
 OPE-1357 mill consumed (#162+#163). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
 
 1. **`zsqrt5-not-ufd` — RECOMMENDED PRIME (86).** Fresh id. Dedekind / standard quadratic example: `6 = 2·3 = (1+√-5)(1-√-5)` in `ℤ√(-5)` are essentially different irreducible factorizations. Named theorem ZERO (`zsqrt5` / `not_ufd` / `UniqueFactorizationMonoid (ℤ√`). `Zsqrtd` Basic.lean L28 / `norm` L436 / `norm_mul` L462 HIT as glue **not** namesake. **Not** GaussianInt Euclidean (already-in L243; different ring). **Not** two-square / three-square (already-in / consumed #159). **Not** Myhill–Nerode (consumed #162). **Not** Gray (consumed #163). Finite, one-wave Level A (`6=2·3` / `6=(1+√-5)(1-√-5)` / `2 ∤ 1+√-5` / 2 irreducible).
-2. **`d8-ne-q8` leftover (84).** Fresh id. Groups of order 8: `DihedralGroup 4` has reflections of order 2, `QuaternionGroup 2` has `xa` of order 4. Named theorem ZERO (`d8_ne_q8` / `DihedralGroup 4 ≃* QuaternionGroup 2`). `orderOf_sr` Dihedral.lean L147 / `orderOf_xa` Quaternion.lean L197 HIT as glue **not** namesake. **Not** n=0 isomorphism (already-in L141). **Not** Frucht (consumed #150). **Not** frobenius-real-division (consumed #105). **Not** ℤ[√-5] (prime of this shortlist). Finite, one-wave Level A (card 8 / sr order 2 / xa order 4). **Unassigned this tick.** Hold until after this prime lands.
+2. **`d8-ne-q8` leftover (84) — CONSUMED Level A.** OPE-1385 Formalist. Director OPE-1384 approved Scout OPE-1374 leftover. Lean `ProofLab/D8NeQ8.lean`. Catalog `formalized`. Level A: card D8=8 / card Q8=8 / `orderOf (sr 0)=2` / `orderOf (xa 0)=4` + optional two D8 reflections vs unique Q8 order-2, not labelled Frucht / Frobenius / Cayley. Level B namesake `d8_ne_q8` / order-8 classification residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Formalist lands the prime after Director approves. Hold leftover until Director assigns it. Cap is 2.
+Scout opened **no attack issues**. Formalist OPE-1385 lands the leftover. OPE-1374 mill fully consumed.
 
 ---
 
-**Last updated:** 2026-09-11 (OPE-1374 Scout: catalog-audit shortlist zsqrt5-not-ufd + d8-ne-q8.)
+**Last updated:** 2026-09-11 (OPE-1385 Formalist: d8-ne-q8 Level A.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
