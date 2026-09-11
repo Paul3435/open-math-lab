@@ -3019,25 +3019,31 @@
     {
       "id": "mutilated-chessboard",
       "title": "Mutilated chessboard (2×2 opposite corners none / 4×4 color imbalance, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1434 Scout RECOMMENDED PRIME (parent OPE-1433). Catalog-audit formalize-only after OPE-1419 mill CONSUMED (#174 n-queens + #175 brocard-factorial-square). Level A pin: n=2 opposite corners same color / leftover pair same color; n=4 color 8-and-8 plus remaining 6-vs-8; not labelled mutilated / Gomory / Dudeney. Namesake 8×8 residual. Not n-queens (#174). Not Domineering (already-in game). Not British-flag (#145). Not Hall (already-in). Hex leftover of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1439 Formalist Level A. Director OPE-1438 approved Scout OPE-1434 RECOMMENDED PRIME (hex-no-draw leftover HOLD). Lean ProofLab/MutilatedChessboard.lean. Catalog formalized. Level A: mutilated_two_none (n=2 opposite corners same color / leftover pair same color) / mutilated_four_imbalance (n=4 8-and-8); optional mutilated_four_remaining 6-vs-8 / boardColor_of_orthoAdj / mutilated_two_leftover_not_adj; not labelled mutilated / Gomory / Dudeney. Namesake 8x8 / all even n residual. Not n-queens (#174). Not Domineering (already-in game). Not British-flag (#145). Not Hall (already-in). hex-no-draw leftover unassigned this tick. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/mutilated-chessboard/"
+        "catalog/problems/mutilated-chessboard/",
+        "proofs/lean-project/ProofLab/MutilatedChessboard.lean"
       ],
       "scout_issue": "OPE-1434",
       "tickets": [
         "OPE-1434",
-        "OPE-1433"
+        "OPE-1433",
+        "OPE-1438",
+        "OPE-1439"
       ],
       "parent_issue": "OPE-1433",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1439",
+      "director_issue": "OPE-1438",
+      "lean_artifact": "proofs/lean-project/ProofLab/MutilatedChessboard.lean"
     },
     {
       "id": "hex-no-draw",

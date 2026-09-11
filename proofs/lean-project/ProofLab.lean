@@ -98,3 +98,4 @@ import ProofLab.SimpsonParadox
 import ProofLab.A4KleinFour
 import ProofLab.NQueens
 import ProofLab.BrocardFactorialSquare
+import ProofLab.MutilatedChessboard
