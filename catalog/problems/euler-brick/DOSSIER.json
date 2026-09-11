@@ -1,7 +1,7 @@
 {
   "id": "euler-brick",
   "title": "Euler brick 44,117,240 face diagonals (formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "number_theory",
   "score": 84,
   "scores": {
@@ -49,6 +49,10 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1390",
   "parent_issue": "OPE-1389",
+  "formalist_issue": "OPE-1400",
+  "director_issue": "OPE-1399",
+  "lean_artifact": "proofs/lean-project/ProofLab/EulerBrick.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/169",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO eulerBrick / EulerBrick / perfectCuboid / integerCuboid; pow_two / PythagoreanTriple HIT as infra only",
     "Negative control turan → Turan.lean exists L300",

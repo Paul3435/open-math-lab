@@ -2869,25 +2869,32 @@
     {
       "id": "euler-brick",
       "title": "Euler brick 44,117,240 face diagonals (formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1390 Scout leftover slot #2. Catalog-audit leftover after OPE-1374 mill CONSUMED (#165+#166). Independent Mathlib pin grep this run: ZERO named eulerBrick / EulerBrick / perfectCuboid / integerCuboid (pow_two / PythagoreanTriple HIT as glue; classification L649 is a different single-triple formula). Level A pin: 44²+117²=125² / 44²+240²=244² / 117²+240²=267², not labelled Euler / Halcke / cuboid. Namesake infinitude residual. Perfect cuboid OPEN residual. Not Alcuin / Heron / British-flag / Euclid–Euler / Eulerian / Euler-odd-distinct. Taxicab-1729 is the prime of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1400 Formalist Level A. Director OPE-1399 approved Scout OPE-1390 leftover (taxicab-1729 prime consumed #168). Lean ProofLab/EulerBrick.lean. Catalog formalized. Level A: brick_ab 44^2+117^2=125^2 / brick_ac 44^2+240^2=244^2 / brick_bc 117^2+240^2=267^2; optional space_diag_not_square; not labelled Euler / Halcke / cuboid. Namesake existence/infinitude residual. Perfect cuboid OPEN residual. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/euler-brick/"
+        "catalog/problems/euler-brick/",
+        "proofs/lean-project/ProofLab/EulerBrick.lean"
       ],
       "scout_issue": "OPE-1390",
       "tickets": [
         "OPE-1390",
-        "OPE-1389"
+        "OPE-1389",
+        "OPE-1399",
+        "OPE-1400"
       ],
       "parent_issue": "OPE-1389",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1400",
+      "director_issue": "OPE-1399",
+      "lean_artifact": "proofs/lean-project/ProofLab/EulerBrick.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/169"
     }
   ],
   "updated_at": "2026-09-11T12:00:00Z",
