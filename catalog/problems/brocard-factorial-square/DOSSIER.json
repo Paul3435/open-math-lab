@@ -1,7 +1,7 @@
 {
   "id": "brocard-factorial-square",
   "title": "Brocard factorial-plus-one squares (4!+1=5² / 5!+1=11² / 7!+1=71², formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "number_theory",
   "score": 84,
   "scores": {
@@ -52,6 +52,9 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1419",
   "parent_issue": "OPE-1418",
+  "formalist_issue": "OPE-1429",
+  "director_issue": "OPE-1428",
+  "lean_artifact": "proofs/lean-project/ProofLab/BrocardFactorialSquare.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO brocard / Brocard / brocard_problem / BrocardRamanujan; Nat.factorial / pow_two HIT as infra only; n!+1 only in Euclid infinitude L82",
     "Negative control turan → Turan.lean exists L300",

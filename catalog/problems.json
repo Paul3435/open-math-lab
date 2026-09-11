@@ -2989,25 +2989,31 @@
     {
       "id": "brocard-factorial-square",
       "title": "Brocard factorial-plus-one squares (4!+1=5² / 5!+1=11² / 7!+1=71², formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1419 Scout leftover slot #2 (parent OPE-1418). Catalog-audit leftover after OPE-1405 mill CONSUMED (#171+#172). Level A pin: 4!+1=5² / 5!+1=11² / 7!+1=71², not labelled Brocard / Ramanujan / Wilson. Namesake uniqueness OPEN residual. Not Wilson (already-in). Not Euclid infinitude (already-in n!+1 gadget). Not cannonball (#154) / taxicab-1729 (#168). n-queens is the prime of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1429 Formalist Level A. Director OPE-1428 approved Scout OPE-1419 leftover HOLD (n-queens CONSUMED #174). Lean ProofLab/BrocardFactorialSquare.lean. Catalog formalized. Level A: brocard_four 4!+1=5^2 / brocard_five 5!+1=11^2 / brocard_seven 7!+1=71^2; optional brocard_six_not 6!+1 not square; not labelled Brocard / Ramanujan / Wilson. Namesake uniqueness OPEN residual. Not Wilson (already-in). Not Euclid infinitude (already-in n!+1 gadget). Not cannonball (#154) / taxicab-1729 (#168) / euler-brick (#169) / n-queens (#174). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/brocard-factorial-square/"
+        "catalog/problems/brocard-factorial-square/",
+        "proofs/lean-project/ProofLab/BrocardFactorialSquare.lean"
       ],
       "scout_issue": "OPE-1419",
       "tickets": [
         "OPE-1419",
-        "OPE-1418"
+        "OPE-1418",
+        "OPE-1428",
+        "OPE-1429"
       ],
       "parent_issue": "OPE-1418",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1429",
+      "director_issue": "OPE-1428",
+      "lean_artifact": "proofs/lean-project/ProofLab/BrocardFactorialSquare.lean"
     }
   ],
   "updated_at": "2026-09-11T20:00:00Z",
