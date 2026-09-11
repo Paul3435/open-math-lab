@@ -1,0 +1,62 @@
+{
+  "id": "mutilated-chessboard",
+  "title": "Mutilated chessboard (2×2 opposite corners none / 4×4 color imbalance, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Dudeney / Gomory: an n×n board with two opposite corners removed has no domino tiling, because those corners share a 2-color and every domino covers one black and one white. Completely classical. Value is a Mathlib/ProofLab contribution (Fin / Even / IsMatching.even_card exist; ZERO named mutilated / Gomory / chessboard_tiling theorem in Mathlib+Archive+ProofLab; chessboard hits only Domineering comments; opposite-corner hits British-flag Euclidean pairing, a different theorem). Do NOT re-discover as novel. 8×8 namesake / all even n are residual of this id. n-queens is consumed #174 (placement ≠ covering). Domineering is already-in as a game, not this theorem. British-flag is consumed #145. Hex is the leftover of this shortlist.",
+  "recommendation": "OPE-1434 RECOMMENDED PRIME. Catalog-audit prime after OPE-1419 mill CONSUMED (#174 n-queens Level A + #175 brocard-factorial-square Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of n_queens / brocard_factorial_square / langford_pairing / gray_code / simpson_paradox. Independent Mathlib pin grep this run (Fin / Even / IsMatching.even_card HIT as glue; named mutilated / Gomory ZERO). Mill NOW: finite color-imbalance witnesses beside Hex no-draw. Score 86 this run: Fin/parity/matching waiting (formalizability 18); Level A n=2 none / n=4 6-vs-8 (partial 16); namesake is undergraduate Gomory coloring (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-board Level A; namesake residual. 8×8 residual.",
+  "mathlib_gap_grep_2026_09_11_ope1434": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1419 scores. rg mutilated / Gomory / gomory / chessboard_tiling / MutilatedChessboard over Mathlib/ + Archive + ProofLab → ZERO named mutilated-chessboard theorem (chessboard hits: Domineering.lean L11 game comments; opposite corner hits: ProofLab/BritishFlag.lean Euclidean pairing + CauchyIntegral rectangle, different theorems). Defs HIT: Fin / Fin.val / Prod; Even (to_additive of IsSquare Algebra/Group/Even.lean L46); Subgraph.IsMatching Matching.lean L50; IsPerfectMatching L139; IsMatching.even_card L150 (matching-parity glue, not namesake); optional pathGraph Hasse.lean L94 / boxProd Prod.lean L39 (grid glue, not namesake; Sabidussi leftover). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan_eq_centralBinom_div Catalan.lean L109; numDerangements Derangements/Finite.lean L62; exists_prime_lt_and_le_two_mul Bertrand.lean L211; frobeniusNumber_pair FrobeniusNumber.lean L52; exists_mono_in_high_dimension HalesJewett.lean L445; hall_hard_inductive Hall/Finite.lean L217; pow_four_add_four_mul_pow_four Identities.lean L35 (Sophie Germain identity already-in); wilsons_lemma Wilson.lean L38; exists_infinite_primes Prime/Basic.lean L82; Nat.factorial Factorial/Basic.lean L29; Domineering game. Already-consumed: NQueens Level A (#174); BrocardFactorialSquare Level A (#175); SimpsonParadox #171; A4KleinFour #172; Taxicab1729 #168; EulerBrick #169; LangfordPairing #160; GrayCode #163; BritishFlag #145; SabidussiBoxProd #139.",
+  "statement_pin_required": {
+    "convention": "theorem mutilated_chessboard: 8×8 / even n opposite-corner board has no domino tiling, namesake. Level A may land only n=2 same-color leftover pair / n=4 8-and-8 plus remaining 6-vs-8, not labelled mutilated / Gomory / Dudeney.",
+    "landmines": [
+      "Do not re-prove Fin / Even / IsMatching.even_card / Finset.card.",
+      "Not n-queens (consumed #174). Placement ≠ covering. Do not revive eight-queens / Gauss.",
+      "Not Domineering (already-in game). Do not label theorems domineering_*.",
+      "Not British-flag opposite-corner pairing (consumed #145). Euclidean dist ≠ grid coloring.",
+      "Not Hall SDR (already-in L217). Different matching theorem.",
+      "Not Sabidussi boxProd as namesake (consumed #139). Optional grid glue only.",
+      "Not L-tromino / Golomb deficient board / Aztec. Residual of this id or a different cluster. Hex is the leftover of this shortlist.",
+      "Not 8×8 namesake. Residual of this id. Do not sorry it.",
+      "Not brocard-factorial-square (consumed #175).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Dudeney / Gomory mutilated chessboard coloring. Type pin: Fin n × Fin n / BoardColor / opposite corners. n-queens is a different consumed theorem. Hex is the leftover of this shortlist."
+  },
+  "feasibility_shape": "Level A: n=2 opposite corners same color / leftover pair same color; n=4 color 8-and-8 plus remaining 6-vs-8; optional extra n=2 no perfect matching; not labelled mutilated / Gomory / Dudeney. Level B: namesake 8×8 / all even n. Cap two levels. No L-tromino. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems queens_* / domineering_* / british_flag_* / hex_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Fin / Even / IsMatching.even_card / Finset.card — USE; DO NOT re-prove",
+    "IsPerfectMatching Matching.lean L139 — matching glue, not namesake",
+    "pathGraph / boxProd — optional grid glue, not namesake; Sabidussi leftover",
+    "ProofLab/NQueens.lean — consumed #174, DO NOT revive Level B / eight-queens / Gauss",
+    "ProofLab/BrocardFactorialSquare.lean — consumed #175, DO NOT revive Level B uniqueness",
+    "ProofLab/BritishFlag.lean — consumed #145, DO NOT revive opposite-corner Euclidean",
+    "Domineering.lean — already-in game, DO NOT cite as this theorem",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1434",
+  "parent_issue": "OPE-1433",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO mutilated / Gomory / chessboard_tiling; Fin / Even / IsMatching.even_card HIT as infra only; chessboard hit is Domineering comments; opposite-corner hit is British-flag Euclidean",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; hall_hard_inductive L217; Sophie Germain identity L35; wilsons_lemma L38; exists_infinite_primes L82; Domineering game",
+    "Already-consumed: NQueens Level A (#174); BrocardFactorialSquare Level A (#175); SimpsonParadox #171; A4KleinFour #172; Taxicab1729 #168; EulerBrick #169; LangfordPairing #160; GrayCode #163; BritishFlag #145; SabidussiBoxProd #139",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "n-queens leftover-revivals / Domineering leftover-revivals / British-flag leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
