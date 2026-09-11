@@ -2963,7 +2963,7 @@
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1424 Formalist Level A. Director OPE-1423 approved Scout OPE-1419 RECOMMENDED PRIME (brocard-factorial-square leftover HOLD). Lean ProofLab/NQueens.lean. Catalog formalized. Level A: queens_two_none / queens_three_none / queens_four [1,3,0,2]; optional queens_four_alt [2,0,3,1]; not labelled n-queens / eight-queens / Gauss. Namesake exists iff n≠2,3 residual. Not Langford (#160) / Gray (#163) / OLS (#157). Not simpson-paradox (#171) / a4-klein-four (#172). brocard-factorial-square leftover unassigned this tick. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1424 Formalist Level A. Director OPE-1423 approved Scout OPE-1419 RECOMMENDED PRIME. Lean ProofLab/NQueens.lean. Catalog formalized. CONSUMED by PR #174. Level A: queens_two_none / queens_three_none / queens_four [1,3,0,2]; optional queens_four_alt [2,0,3,1]; not labelled n-queens / eight-queens / Gauss. Namesake exists iff n!=2,3 residual. Not Langford (#160) / Gray (#163) / OLS (#157). Not simpson-paradox (#171) / a4-klein-four (#172). brocard-factorial-square CONSUMED by OPE-1429 / PR #175 (not leftover). OPE-1434 restamp: do not re-prime. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
@@ -2993,7 +2993,7 @@
       "domain": "number_theory",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1429 Formalist Level A. Director OPE-1428 approved Scout OPE-1419 leftover HOLD (n-queens CONSUMED #174). Lean ProofLab/BrocardFactorialSquare.lean. Catalog formalized. Level A: brocard_four 4!+1=5^2 / brocard_five 5!+1=11^2 / brocard_seven 7!+1=71^2; optional brocard_six_not 6!+1 not square; not labelled Brocard / Ramanujan / Wilson. Namesake uniqueness OPEN residual. Not Wilson (already-in). Not Euclid infinitude (already-in n!+1 gadget). Not cannonball (#154) / taxicab-1729 (#168) / euler-brick (#169) / n-queens (#174). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1429 Formalist Level A. Director OPE-1428 approved Scout OPE-1419 leftover HOLD (n-queens CONSUMED #174). Lean ProofLab/BrocardFactorialSquare.lean. Catalog formalized. CONSUMED by PR #175. Level A: brocard_four 4!+1=5^2 / brocard_five 5!+1=11^2 / brocard_seven 7!+1=71^2; optional brocard_six_not; not labelled Brocard / Ramanujan / Wilson. Namesake uniqueness OPEN residual. Not Wilson (already-in). Not Euclid infinitude (already-in n!+1 gadget). Not cannonball (#154) / taxicab-1729 (#168) / euler-brick (#169) / n-queens (#174). OPE-1434 restamp: do not re-prime. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "number-theory",
         "formalization"
@@ -3015,9 +3015,55 @@
       "director_issue": "OPE-1428",
       "lean_artifact": "proofs/lean-project/ProofLab/BrocardFactorialSquare.lean",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/175"
+    },
+    {
+      "id": "mutilated-chessboard",
+      "title": "Mutilated chessboard (2×2 opposite corners none / 4×4 color imbalance, formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1434 Scout RECOMMENDED PRIME (parent OPE-1433). Catalog-audit formalize-only after OPE-1419 mill CONSUMED (#174 n-queens + #175 brocard-factorial-square). Level A pin: n=2 opposite corners same color / leftover pair same color; n=4 color 8-and-8 plus remaining 6-vs-8; not labelled mutilated / Gomory / Dudeney. Namesake 8×8 residual. Not n-queens (#174). Not Domineering (already-in game). Not British-flag (#145). Not Hall (already-in). Hex leftover of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/mutilated-chessboard/"
+      ],
+      "scout_issue": "OPE-1434",
+      "tickets": [
+        "OPE-1434",
+        "OPE-1433"
+      ],
+      "parent_issue": "OPE-1433",
+      "mathlib_gap": true
+    },
+    {
+      "id": "hex-no-draw",
+      "title": "Hex no-draw small boards (n=1 cell wins / n=2 every coloring has a winner, formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1434 Scout leftover slot #2 (parent OPE-1433). Catalog-audit formalize-only after OPE-1419 mill CONSUMED (#174+#175). Level A pin: n=1 cell-wins / n=2 every coloring has a winner; not labelled Hex / Nash / Gale. Namesake every-n residual. Not n-queens (#174). Not Gale–Shapley (#126). Not Nash–Williams (#124). Not mutilated-chessboard (prime of this shortlist). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/hex-no-draw/"
+      ],
+      "scout_issue": "OPE-1434",
+      "tickets": [
+        "OPE-1434",
+        "OPE-1433"
+      ],
+      "parent_issue": "OPE-1433",
+      "mathlib_gap": true
     }
   ],
-  "updated_at": "2026-09-11T20:00:00Z",
+  "updated_at": "2026-09-11T22:00:00Z",
   "expected_taxonomy": {
     "known-classical": "already in Mathlib or classic literature; do NOT re-fund as novel (Lean-practice/formalize-only only)",
     "formalize-only": "no novelty claim; Lean contribution is the value",

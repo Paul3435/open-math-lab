@@ -1,0 +1,62 @@
+{
+  "id": "hex-no-draw",
+  "title": "Hex no-draw small boards (n=1 cell wins / n=2 every coloring has a winner, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Nash 1952 / Gale: a completed Hex coloring of an n×n rhombus has a winner (one player connects their opposite sides); there is no draw. Completely classical. Value is a Mathlib/ProofLab contribution (Fin / Reachable exist; ZERO named hex_no_draw / HexTheorem / NashHex / GaleHex in Mathlib+Archive+ProofLab; only Hex hits are PGame.lean L83 future-work bullet and an unrelated have Hex in PrimitiveRoots.lean L439). Do NOT re-discover as novel. No-draw for every n / first-player win / Gale pairing / Brouwer are residual of this id. n-queens is consumed #174. Gale–Shapley is consumed #126 (different Gale). Nash–Williams is consumed #124 (different Nash). Mutilated-chessboard is the prime of this shortlist (parity tiling ≠ Hex connection).",
+  "recommendation": "OPE-1434 leftover slot #2. Catalog-audit leftover after OPE-1419 mill CONSUMED (#174+#175). NOT a prize leftover, NOT Director-invented, NOT Level B revival of n_queens / gale_shapley / nash_williams / brocard_factorial_square. Independent Mathlib pin grep this run (Reachable Path.lean L628 HIT as glue; named hex_no_draw / HexTheorem ZERO; PGame.lean L83 future work is CGT residual of this id, not Level A). Mill NOW: finite no-draw witnesses beside mutilated-chessboard. Score 84 this run: hex-adjacency is 1–2 new defs (formalizability 16); Level A n=1 cell-wins / n=2 every coloring (partial 16); namesake is undergraduate Hex no-draw (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-board Level A; namesake residual. Every-n / first-player / Brouwer residual.",
+  "mathlib_gap_grep_2026_09_11_ope1434": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1419 scores. rg hex_no_draw / HexTheorem / hex_theorem / NashHex / GaleHex / no_draw over Mathlib/ + Archive + ProofLab → ZERO named Hex-no-draw theorem. Hex hits: PGame.lean L83 future-work bullet '* Hex.' (CGT analysis residual of this id, not Level A); PrimitiveRoots.lean L439 unrelated `have Hex`. Defs HIT: Fin / Prod; SimpleGraph.Reachable Path.lean L628 / Walk (connection glue, not namesake); Colorable Coloring.lean L127 (vertex-coloring glue, different theorem, not namesake). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan_eq_centralBinom_div Catalan.lean L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; hall_hard_inductive L217; Domineering game; Reachable L628. Already-consumed: NQueens #174; BrocardFactorialSquare #175; GaleShapley #126; NashWilliamsArboricity #124; BritishFlag #145; SabidussiBoxProd #139; PetersenOneFactor #135.",
+  "statement_pin_required": {
+    "convention": "theorem hex_no_draw: every n completed coloring has a winner, namesake. Level A may land only n=1 cell-wins / n=2 every coloring has a winner, not labelled Hex / Nash / Gale.",
+    "landmines": [
+      "Do not re-prove Fin / Reachable / Walk.",
+      "Not n-queens (consumed #174). Attacks ≠ side-connection.",
+      "Not mutilated-chessboard (OPE-1434 prime). Parity tiling ≠ Hex players. Do not prove opposite-corner imbalance here.",
+      "Not Gale–Shapley (consumed #126). Different Gale. Do not label theorems gale_*.",
+      "Not Nash–Williams (consumed #124). Different Nash. Do not label theorems nash_*.",
+      "Not Colorable / Brooks / greedy as namesake (consumed coloring mill). Hex colors cells, not a proper vertex coloring.",
+      "Not Domineering / Sprague–Grundy (already-in CGT).",
+      "Not first-player win / Gale pairing / Brouwer / Shannon switching. Residual of this id. Do not sorry them. Brouwer was refused as an IVT wrap.",
+      "Not brocard-factorial-square (consumed #175).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Nash 1952 / Gale Hex no-draw. Type pin: Fin n × Fin n / HexAdj / Reachable on color classes. Gale–Shapley is a different consumed Gale. Mutilated-chessboard is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: n=1 cell-wins / n=2 every coloring has a winner; optional extra explicit n=2 red-win coloring; not labelled Hex / Nash / Gale. Level B: namesake every n. Cap two levels. No first-player / Brouwer / Shannon. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems gale_* / nash_* / queens_* / mutilated_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Fin / Prod / SimpleGraph.Reachable Path.lean L628 — USE; DO NOT re-prove",
+    "Colorable Coloring.lean L127 — different vertex-coloring glue, not namesake",
+    "PGame.lean L83 future work Hex — CGT residual of this id, not Level A",
+    "ProofLab/NQueens.lean — consumed #174, DO NOT revive Level B / eight-queens",
+    "ProofLab/GaleShapley.lean — consumed #126, DO NOT revive rural hospitals / gale_*",
+    "ProofLab/NashWilliamsArboricity.lean — consumed #124, DO NOT revive nash_*",
+    "ProofLab/BrocardFactorialSquare.lean — consumed #175, DO NOT revive Level B uniqueness",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1434",
+  "parent_issue": "OPE-1433",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO hex_no_draw / HexTheorem / NashHex / GaleHex; Reachable L628 HIT as infra only; Hex hit is PGame.lean L83 future work + unrelated have Hex L439",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; hall_hard_inductive L217; Domineering game; Reachable L628",
+    "Already-consumed: NQueens #174; BrocardFactorialSquare #175; GaleShapley #126; NashWilliamsArboricity #124; BritishFlag #145; SabidussiBoxProd #139",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Gale–Shapley leftover-revivals / Nash–Williams leftover-revivals / Brouwer wrap / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}

@@ -293,18 +293,27 @@ OPE-1405 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1414 lands the leftover. OPE-1405 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1419, 2026-09-11)
+## Formalize-only shortlist (OPE-1419, 2026-09-11) — WAVE CONSUMED
 
-OPE-1405 mill consumed (#171+#172). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1419 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`n-queens` — RECOMMENDED PRIME (86).** Fresh id. Gauss 1850 / eight-queens: n=2 none / n=3 none / n=4 `[1,3,0,2]`. Named theorem ZERO (`nQueens` / `eightQueens` / `isQueens`). `List` / `Fin` / `Nodup` HIT as glue **not** namesake. **Not** Langford (consumed #160). **Not** Gray (consumed #163). **Not** OLS (consumed #157). **Not** simpson-paradox (consumed #171). **Not** a4-klein-four (consumed #172). Finite, one-wave Level A (n=2 none / n=3 none / n=4 witness).
-2. **`brocard-factorial-square` leftover (84).** Fresh id. Brocard 1876: `4!+1=5²` / `5!+1=11²` / `7!+1=71²`. Named theorem ZERO (`brocard` / `BrocardRamanujan`). `Nat.factorial` L29 / `pow_two` L581 HIT as glue **not** namesake; `wilsons_lemma` L38 / `exists_infinite_primes` L82 HIT as already-in **different** theorems **not** namesake. **Not** cannonball (consumed #154). **Not** taxicab-1729 (consumed #168). **Not** n-queens (prime of this shortlist). Finite, one-wave Level A (`4!+1=5²` / `5!+1=11²` / `7!+1=71²`).
+1. **`n-queens` — CONSUMED Level A.** OPE-1424 Formalist. PR **#174**. Director OPE-1423 approved Scout OPE-1419 RECOMMENDED PRIME. Lean `ProofLab/NQueens.lean`. Catalog `formalized`. Level A: n=2 none / n=3 none / n=4 `[1,3,0,2]` + optional `[2,0,3,1]`, not labelled n-queens / eight-queens / Gauss. Level B namesake `n_queens` / exists iff `n≠2,3` / 92 solutions residual **out of v1**. Do not revive.
+2. **`brocard-factorial-square` leftover (84) — CONSUMED Level A.** OPE-1429 Formalist. PR **#175**. Director OPE-1428 leftover HOLD. Lean `ProofLab/BrocardFactorialSquare.lean`. Catalog `formalized`. Level A: `4!+1=5²` / `5!+1=11²` / `7!+1=71²` + optional `6!+1` not square, not labelled Brocard / Ramanujan / Wilson. Level B namesake uniqueness OPEN residual **out of v1**. Do not revive.
+
+Scout opened **no attack issues**. Formalist OPE-1429 lands the leftover. OPE-1419 mill fully consumed.
+
+## Formalize-only shortlist (OPE-1434, 2026-09-11)
+
+OPE-1419 mill consumed (#174+#175). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`mutilated-chessboard` — RECOMMENDED PRIME (86).** Fresh id. Dudeney / Gomory: n=2 opposite corners none / n=4 color 8-and-8 plus remaining 6-vs-8. Named theorem ZERO (`mutilated` / `Gomory` / `chessboard_tiling`). `Fin` / `Even` / `IsMatching.even_card` L150 HIT as glue **not** namesake. **Not** n-queens (consumed #174). **Not** Domineering (already-in game). **Not** British-flag (consumed #145). **Not** Hall (already-in L217). Finite, one-wave Level A (n=2 same-color leftover / n=4 imbalance).
+2. **`hex-no-draw` leftover (84).** Fresh id. Nash 1952 / Gale: n=1 cell wins / n=2 every coloring has a winner. Named theorem ZERO (`hex_no_draw` / `HexTheorem` / `NashHex` / `GaleHex`). `Reachable` Path.lean L628 HIT as glue **not** namesake; PGame.lean L83 `* Hex.` is CGT residual **not** Level A. **Not** Gale–Shapley (consumed #126). **Not** Nash–Williams (consumed #124). **Not** n-queens (consumed #174). **Not** mutilated-chessboard (prime of this shortlist). Finite, one-wave Level A (n=1 cell-wins / n=2 no-draw).
 
 Scout opened **no attack issues**. Director approves after this shortlist. Formalist is **not** woken this run.
 
 ---
 
-**Last updated:** 2026-09-11 (OPE-1419 Scout: n-queens prime + brocard-factorial-square leftover.)
+**Last updated:** 2026-09-11 (OPE-1434 Scout: mutilated-chessboard prime + hex-no-draw leftover.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
