@@ -266,18 +266,27 @@ OPE-1357 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1369 lands the leftover. OPE-1357 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1374, 2026-09-11)
+## Formalize-only shortlist (OPE-1374, 2026-09-11) — WAVE CONSUMED
 
-OPE-1357 mill consumed (#162+#163). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1374 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`zsqrt5-not-ufd` — RECOMMENDED PRIME (86).** Fresh id. Dedekind / standard quadratic example: `6 = 2·3 = (1+√-5)(1-√-5)` in `ℤ√(-5)` are essentially different irreducible factorizations. Named theorem ZERO (`zsqrt5` / `not_ufd` / `UniqueFactorizationMonoid (ℤ√`). `Zsqrtd` Basic.lean L28 / `norm` L436 / `norm_mul` L462 HIT as glue **not** namesake. **Not** GaussianInt Euclidean (already-in L243; different ring). **Not** two-square / three-square (already-in / consumed #159). **Not** Myhill–Nerode (consumed #162). **Not** Gray (consumed #163). Finite, one-wave Level A (`6=2·3` / `6=(1+√-5)(1-√-5)` / `2 ∤ 1+√-5` / 2 irreducible).
+1. **`zsqrt5-not-ufd` — CONSUMED Level A.** OPE-1380 Formalist. PR **#165**. Director OPE-1379 approved Scout OPE-1374 RECOMMENDED PRIME. Lean `ProofLab/Zsqrt5NotUfd.lean`. Catalog `formalized`. Level A: `6=2·3` / `6=(1+√-5)(1-√-5)` / `2 ∤ 1+√-5` / 2 irreducible, not labelled Dedekind / Kummer / Gaussian. Level B namesake `zsqrt5_not_ufd` / UniqueFactorizationMonoid residual **out of v1**. Do not revive.
 2. **`d8-ne-q8` leftover (84) — CONSUMED Level A.** OPE-1385 Formalist. PR **#166**. Director OPE-1384 approved Scout OPE-1374 leftover. Lean `ProofLab/D8NeQ8.lean`. Catalog `formalized`. Level A: card D8=8 / card Q8=8 / `orderOf (sr 0)=2` / `orderOf (xa 0)=4` + optional two D8 reflections vs unique Q8 order-2, not labelled Frucht / Frobenius / Cayley. Level B namesake `d8_ne_q8` / order-8 classification residual **out of v1**. Do not revive.
 
 Scout opened **no attack issues**. Formalist OPE-1385 lands the leftover. OPE-1374 mill fully consumed.
 
+## Formalize-only shortlist (OPE-1390, 2026-09-11)
+
+OPE-1374 mill consumed (#165+#166). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+1. **`taxicab-1729` — RECOMMENDED PRIME (86).** Fresh id. Hardy–Ramanujan / taxicab: `1³+12³ = 9³+10³ = 1729` are two essentially different unordered pairs of positive cubes. Named theorem ZERO (`taxicab` / `Taxicab` / `hardyRamanujan` / `1729` two-cubes). `pow_three` (Algebra/Group/Defs.lean L590) HIT as glue **not** namesake. **Not** FLT n=3 (`fermatLastTheoremThree` L725 already-in; different equation). **Not** two-square / three-square (already-in / consumed #159). **Not** cannonball (consumed #154). **Not** zsqrt5-not-ufd (consumed #165). **Not** d8-ne-q8 (consumed #166). Finite, one-wave Level A (`1³+12³=1729` / `9³+10³=1729` / equality).
+2. **`euler-brick` leftover (84).** Fresh id. Halcke 1719 / Euler: edges `44,117,240` have integer face diagonals `125,244,267`. Named theorem ZERO (`eulerBrick` / `EulerBrick` / `perfectCuboid` / `integerCuboid`). `pow_two` L581 / `PythagoreanTriple` L44 HIT as glue **not** namesake; `classification` L649 HIT as already-in **single-triple** formula **not** namesake. **Not** Alcuin / Heron / British-flag / cannonball / Pick (consumed or geometry leftover cluster). **Not** Euclid–Euler / Eulerian / Euler-odd-distinct (consumed Euler *namesakes*). **Not** taxicab-1729 (prime of this shortlist). Perfect cuboid **open** residual. Finite, one-wave Level A (`44²+117²=125²` / `44²+240²=244²` / `117²+240²=267²`).
+
+Scout opened **no attack issues**. Director approves after this shortlist. Formalist is **not** woken this run.
+
 ---
 
-**Last updated:** 2026-09-11 (OPE-1385 Formalist: d8-ne-q8 Level A.)
+**Last updated:** 2026-09-11 (OPE-1390 Scout: taxicab-1729 prime + euler-brick leftover.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 

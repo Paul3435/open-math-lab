@@ -1,0 +1,60 @@
+{
+  "id": "taxicab-1729",
+  "title": "Hardy–Ramanujan taxicab 1729 = 1³+12³ = 9³+10³ (formalize-only)",
+  "status": "candidate",
+  "domain": "number_theory",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Hardy–Ramanujan / taxicab example: 1³+12³ = 9³+10³ = 1729 are two essentially different unordered pairs of positive cubes. Completely classical. Value is a Mathlib/ProofLab contribution (Nat / pow_three exist; ZERO named taxicab / Taxicab / hardyRamanujan / 1729 two-cubes theorem in Mathlib+Archive+ProofLab; fermatLastTheoremThree is a different equation). Do NOT re-discover as novel. FermatLastTheoremFor 3 (FLT/Three.lean L725) is a DIFFERENT already-in theorem — USE Nat/^3 if needed, do not re-prove, do not cite as this two-ways sum. Nat.Prime.sq_add_sq is already-in two-square, not namesake. Three-square is consumed #159. Cannonball is consumed #154. Smallest-n uniqueness is residual of this id. D8 ≇ Q8 is consumed #166. ℤ[√-5] not UFD is consumed #165. Euler brick is the leftover of this shortlist.",
+  "recommendation": "OPE-1390 RECOMMENDED PRIME. Catalog-audit prime after OPE-1374 mill CONSUMED (#165 zsqrt5-not-ufd Level A + #166 d8-ne-q8 Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of zsqrt5_not_ufd / UniqueFactorizationMonoid / d8_ne_q8 / order-8 classification / cannonball / FLT n=3. Independent Mathlib pin grep this run (Nat / pow_two L581 / pow_three L590 HIT as glue; named taxicab / Taxicab / hardyRamanujan / 1729 two-cubes ZERO). Mill NOW: finite two-cube witnesses beside Euler-brick face diagonals. Score 86 this run: pow_three waiting (formalizability 18); Level A 1³+12³ / 9³+10³ / equality (partial 16); namesake is undergraduate taxicab (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-cube Level A; namesake residual. Smallest-n residual.",
+  "mathlib_gap_grep_2026_09_11_ope1390": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1374 scores. rg taxicab / Taxicab / hardyRamanujan / 1729 / twoCubes / sum_of_two_cubes over Mathlib/ + Archive + ProofLab → ZERO named two-cubes-two-ways theorem (Dual.lean URL fragment 172988 only; FLT/Three.lean cube_add_cube is a³+b³=c³, different equation; Archive CubingACube is Wiedijk #82 cannot-cube-a-cube, different). Defs HIT: pow_two (Algebra/Group/Defs.lean L581), pow_three L590, Nat /^, fermatLastTheoremThree (FLT/Three.lean L725 already-in, different equation, not namesake), Nat.Prime.sq_add_sq (already-in two-square, not namesake). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): fermatLastTheoremThree L725; IsCyclic Rˣ IntegralDomain.lean L132; Lagrange.interpolate LinearAlgebra/Lagrange.lean L287; det_kronecker Kronecker.lean L365; NielsenSchreier; GaussianInt Euclidean L243; Zeckendorf.lean; lucas_theorem Choose/Lucas.lean L97; Gershgorin eigenvalue_mem_ball; PythagoreanTriple.classification L649; Matrix.cramer / mulVec_cramer; IsAntichain.sperner LYM.lean; Sauer-Shelah Shatter.lean L190; EGZ ErdosGinzburgZiv.lean; CauchyDavenport; FKG FourFunctions.lean lemma fkg; NewtonIdentities; LiftingTheExponent Multiplicity.lean; quadratic_reciprocity; chineseRemainder; Nat.ModEq.pow_totient; totient_even Totient.lean L113; harmonic not integer Harmonic/Int.lean; composition_card 2^(n-1); sum_Icc_choose hockey-stick; exists_prime_orderOf_dvd_card Cauchy groups; Sylvester inertia QuadraticForm/Real.lean; Sprague-Grundy SetTheory/Game/Nim.lean; Wallis Data.Real.Pi.Wallis; Ballot.ballot_problem; pumping_lemma DFA.lean L152; NFA.toDFA; Wilson L38; Catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; four-square L212; two-square L31. Already-consumed: Zsqrt5NotUfd Level A (#165); D8NeQ8 Level A (#166); GrayCode #163; MyhillNerode #162; CannonballSquarePyramid #154; LegendreThreeSquares #159.",
+  "statement_pin_required": {
+    "convention": "theorem taxicab_1729: 1729 is smallest n with two unordered positive-cube pairs, namesake. Level A may land only 1³+12³=1729 / 9³+10³=1729 / equality, not labelled Hardy / Ramanujan / taxicab.",
+    "landmines": [
+      "Do not re-prove Nat / pow_two / pow_three.",
+      "Not fermatLastTheoremThree (FLT/Three.lean L725 already-in). Different equation. USE ^ 3.",
+      "Not Nat.Prime.sq_add_sq / four-square / three-square (already-in / consumed #159).",
+      "Not cannonball (consumed #154).",
+      "Not smallest-n uniqueness. Residual of this id. Do not sorry it.",
+      "Not signed cubes / 91 / 4104. Residual.",
+      "Not zsqrt5-not-ufd / d8-ne-q8 (consumed #165+#166).",
+      "Not euler-brick (OPE-1390 leftover). Do not prove the 44,117,240 brick here.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Hardy–Ramanujan / taxicab Ta(2)=1729. Type pin: Nat / ^ 3. FLT n=3 is a different already-in equation. Two-square is a different already-in theorem. Euler brick is the leftover of this shortlist."
+  },
+  "feasibility_shape": "Level A: 1³+12³=1729 / 9³+10³=1729 / equality; optional extra unordered pairs distinct; not labelled Hardy / Ramanujan / taxicab. Level B: namesake smallest n. Cap two levels. No signed cubes. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems fermat_* / flt_* as namesake (already-in / different); zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Nat / pow_two L581 / pow_three L590 — USE; DO NOT re-prove",
+    "fermatLastTheoremThree FLT/Three.lean L725 — DIFFERENT already-in equation; DO NOT cite as this two-ways sum",
+    "Nat.Prime.sq_add_sq — DIFFERENT already-in two-square; DO NOT re-prove",
+    "ProofLab/CannonballSquarePyramid.lean — consumed #154, DO NOT revive Level B / Lucas uniqueness",
+    "ProofLab/Zsqrt5NotUfd.lean — consumed #165, DO NOT revive Level B / UniqueFactorizationMonoid",
+    "ProofLab/D8NeQ8.lean — consumed #166, DO NOT revive Level B / order-8 classification",
+    "Lab number-theory + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "number-theory",
+    "formalization"
+  ],
+  "scored_at": "2026-09-11",
+  "scout_issue": "OPE-1390",
+  "parent_issue": "OPE-1389",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO taxicab / Taxicab / hardyRamanujan / 1729 two-cubes; pow_three HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: fermatLastTheoremThree L725; PythagoreanTriple.classification L649; Zeckendorf; lucas_theorem L97; Gershgorin; Matrix.cramer; sperner LYM; Sauer-Shelah; EGZ; CauchyDavenport; FKG; totient_even L113; harmonic Int.lean; Nim/Sprague-Grundy; Wallis; Ballot; pumping_lemma L152; Wilson L38; Catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52",
+    "Already-consumed: Zsqrt5NotUfd Level A (#165); D8NeQ8 Level A (#166); GrayCode Level A (#163); MyhillNerode Level A (#162); CannonballSquarePyramid Level A (#154); LegendreThreeSquares Level A (#159)",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "FLT n=3 leftover-revivals / two-square leftover-revivals / smallest-n residual of the prime / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
