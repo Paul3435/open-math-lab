@@ -1,7 +1,7 @@
 {
   "id": "hex-no-draw",
   "title": "Hex no-draw small boards (n=1 cell wins / n=2 every coloring has a winner, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics",
   "score": 84,
   "scores": {
@@ -51,6 +51,9 @@
   "scored_at": "2026-09-11",
   "scout_issue": "OPE-1434",
   "parent_issue": "OPE-1433",
+  "formalist_issue": "OPE-1444",
+  "director_issue": "OPE-1443",
+  "lean_artifact": "proofs/lean-project/ProofLab/HexNoDraw.lean",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO hex_no_draw / HexTheorem / NashHex / GaleHex; Reachable L628 HIT as infra only; Hex hit is PGame.lean L83 future work + unrelated have Hex L439",
     "Negative control turan → Turan.lean exists L300",

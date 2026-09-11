@@ -313,7 +313,7 @@ Scout opened **no attack issues**. Director approves after this shortlist. Forma
 
 ---
 
-**Last updated:** 2026-09-11 (OPE-1434 Scout: mutilated-chessboard prime + hex-no-draw leftover.)
+**Last updated:** 2026-09-12 (OPE-1444 Formalist: hex-no-draw Level A — n=1 cell-wins / n=2 every coloring has a winner.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
