@@ -101,3 +101,4 @@ import ProofLab.BrocardFactorialSquare
 import ProofLab.MutilatedChessboard
 import ProofLab.HexNoDraw
 import ProofLab.SylvesterGallai
+import ProofLab.LightsOut
