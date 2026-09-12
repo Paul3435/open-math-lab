@@ -1,7 +1,7 @@
 {
   "id": "lights-out",
   "title": "Lights Out small boards (n=1 cell-toggle / n=2 all-ones odd chase, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics",
   "score": 84,
   "scores": {
@@ -49,6 +49,10 @@
   "scored_at": "2026-09-12",
   "scout_issue": "OPE-1449",
   "parent_issue": "OPE-1448",
+  "formalist_issue": "OPE-1460",
+  "director_issue": "OPE-1459",
+  "lean_artifact": "proofs/lean-project/ProofLab/LightsOut.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/181",
   "scout_probes": [
     "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lights_out / LightsOut / sutner / Sutner / sigma_game; Fin / Finset.card / CharP.Two.add_self_eq_zero L30 HIT as infra only",
     "Negative control turan → Turan.lean exists L300",
