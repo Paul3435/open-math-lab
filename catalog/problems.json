@@ -3079,25 +3079,32 @@
     {
       "id": "sylvester-gallai",
       "title": "Sylvester–Gallai ordinary-line witness (3-collinear plus off-line, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 86,
       "expected": "known-classical",
-      "note": "OPE-1449 Scout RECOMMENDED PRIME (parent OPE-1448; post mutilated-chessboard #177 + hex-no-draw #178). Catalog-audit prime. Formalize-only known-classical. Level A pin: 3-collinear (0,0)/(1,0)/(2,0) plus off-line (0,1) plus ordinary vertical card=2, not labelled Sylvester / Gallai. Namesake every finite non-collinear set residual. Not British-flag (#145). Not Heron (#83). Not Alcuin (#153). Not Pick / shoelace as namesake. Not Sylvester inertia (already-in). Not Sylvester sequence (Egyptian #148). Not mutilated-chessboard (#177). Not hex-no-draw (#178). Lights Out is leftover of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1455 Formalist Level A. Director OPE-1454 approved Scout OPE-1449 RECOMMENDED PRIME (lights-out leftover HOLD). Lean ProofLab/SylvesterGallai.lean. Catalog formalized. Level A: sg_three_collinear (0,0)/(1,0)/(2,0) / sg_off_line (0,1) / sg_ordinary_vertical card=2; optional sg_base_not_ordinary card=3; not labelled Sylvester / Gallai. Namesake every finite non-collinear set residual. Not British-flag (#145). Not Heron (#83). Not Alcuin (#153). Not Pick / shoelace as namesake. Not Sylvester inertia (already-in). Not Sylvester sequence (Egyptian #148). Not mutilated-chessboard (#177). Not hex-no-draw (#178). Not n-queens (#174). Not brocard-factorial-square (#175). Lights Out leftover unassigned this tick. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/sylvester-gallai/"
+        "catalog/problems/sylvester-gallai/",
+        "proofs/lean-project/ProofLab/SylvesterGallai.lean"
       ],
       "scout_issue": "OPE-1449",
       "tickets": [
         "OPE-1449",
-        "OPE-1448"
+        "OPE-1448",
+        "OPE-1454",
+        "OPE-1455"
       ],
       "parent_issue": "OPE-1448",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1455",
+      "director_issue": "OPE-1454",
+      "lean_artifact": "proofs/lean-project/ProofLab/SylvesterGallai.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/180"
     },
     {
       "id": "lights-out",

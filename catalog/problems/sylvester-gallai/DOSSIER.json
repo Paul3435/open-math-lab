@@ -1,7 +1,7 @@
 {
   "id": "sylvester-gallai",
   "title": "Sylvester–Gallai ordinary-line witness (3-collinear plus off-line, formalize-only)",
-  "status": "candidate",
+  "status": "formalized",
   "domain": "combinatorics",
   "score": 86,
   "scores": {
@@ -62,5 +62,9 @@
     "Already-consumed: MutilatedChessboard Level A (#177); HexNoDraw Level A (#178); NQueens #174; BrocardFactorialSquare #175; BritishFlag #145; Heron #83; AlcuinIntegerTriangles #153; WantzelConstructible #133; PlatonicSolids #147; EgyptianFractions #148",
     "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
     "Heron leftover-revivals / British-flag leftover-revivals / Pick / shoelace / inertia / Egyptian greedy / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
-  ]
+  ],
+  "formalist_issue": "OPE-1455",
+  "director_issue": "OPE-1454",
+  "lean_artifact": "proofs/lean-project/ProofLab/SylvesterGallai.lean",
+  "pr": "https://github.com/Paul3435/open-math-lab/pull/180"
 }

@@ -322,7 +322,7 @@ Scout opened **no attack issues**. Director approves after this shortlist. Forma
 
 ---
 
-**Last updated:** 2026-09-12 (OPE-1449 Scout: catalog-audit shortlist sylvester-gallai prime + lights-out leftover.)
+**Last updated:** 2026-09-12 (OPE-1455 Formalist: sylvester-gallai Level A — 3-collinear + off-line + ordinary vertical card=2.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
