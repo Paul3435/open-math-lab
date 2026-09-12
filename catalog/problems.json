@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "last_updated": "2026-09-11",
+  "last_updated": "2026-09-12",
   "ledger": "docs/PROBLEM_LEDGER.md",
   "problems": [
     {
@@ -3075,6 +3075,52 @@
       "director_issue": "OPE-1443",
       "lean_artifact": "proofs/lean-project/ProofLab/HexNoDraw.lean",
       "pr": "https://github.com/Paul3435/open-math-lab/pull/178"
+    },
+    {
+      "id": "sylvester-gallai",
+      "title": "Sylvester–Gallai ordinary-line witness (3-collinear plus off-line, formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics",
+      "score": 86,
+      "expected": "known-classical",
+      "note": "OPE-1449 Scout RECOMMENDED PRIME (parent OPE-1448; post mutilated-chessboard #177 + hex-no-draw #178). Catalog-audit prime. Formalize-only known-classical. Level A pin: 3-collinear (0,0)/(1,0)/(2,0) plus off-line (0,1) plus ordinary vertical card=2, not labelled Sylvester / Gallai. Namesake every finite non-collinear set residual. Not British-flag (#145). Not Heron (#83). Not Alcuin (#153). Not Pick / shoelace as namesake. Not Sylvester inertia (already-in). Not Sylvester sequence (Egyptian #148). Not mutilated-chessboard (#177). Not hex-no-draw (#178). Lights Out is leftover of this shortlist. Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/sylvester-gallai/"
+      ],
+      "scout_issue": "OPE-1449",
+      "tickets": [
+        "OPE-1449",
+        "OPE-1448"
+      ],
+      "parent_issue": "OPE-1448",
+      "mathlib_gap": true
+    },
+    {
+      "id": "lights-out",
+      "title": "Lights Out small boards (n=1 cell-toggle / n=2 all-ones odd chase, formalize-only)",
+      "status": "candidate",
+      "domain": "combinatorics",
+      "score": 84,
+      "expected": "known-classical",
+      "note": "OPE-1449 Scout leftover slot #2 (parent OPE-1448; post mutilated-chessboard #177 + hex-no-draw #178). Catalog-audit leftover. Formalize-only known-classical. Level A pin: n=1 cell-toggle / n=2 all-four-press odd chase, not labelled Lights Out / Sutner. Namesake every-n / 5x5 / Garden-of-Eden residual. Not mutilated-chessboard (#177; grid glue not namesake). Not hex-no-draw (#178). Not n-queens (#174). Not Domineering (already-in game). Not Sylvester–Gallai (prime of this shortlist). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "skill_packs": [
+        "combinatorics",
+        "formalization"
+      ],
+      "artifacts": [
+        "catalog/problems/lights-out/"
+      ],
+      "scout_issue": "OPE-1449",
+      "tickets": [
+        "OPE-1449",
+        "OPE-1448"
+      ],
+      "parent_issue": "OPE-1448",
+      "mathlib_gap": true
     }
   ],
   "updated_at": "2026-09-11T22:00:00Z",

@@ -1,0 +1,60 @@
+{
+  "id": "lights-out",
+  "title": "Lights Out small boards (n=1 cell-toggle / n=2 all-ones odd chase, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 84,
+  "scores": {
+    "formalizability": 16,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Sutner 1990 / Anderson–Feil 1998 σ-game: pressing a cell toggles it and orthogonal neighbors over ℤ/2ℤ; all-ones is solvable on small boards. Completely classical. Value is a Mathlib/ProofLab contribution (Fin / Finset.card / CharP.Two.add_self_eq_zero L30 exist; ZERO named lights_out / LightsOut / sutner / sigma_game in Mathlib+Archive+ProofLab). Do NOT re-discover as novel. Every-n / n≢0 mod 3 / 5×5 toy / Garden-of-Eden are residual of this id. Mutilated-chessboard is consumed #177 (same Fin n × Fin n grid is glue, not namesake). Hex-no-draw is consumed #178. Domineering is already-in as a game, not this theorem. Sylvester–Gallai is the prime of this shortlist (incidence ≠ F2 chase).",
+  "recommendation": "OPE-1449 leftover slot #2. Catalog-audit leftover after OPE-1434 mill CONSUMED (#177+#178). NOT a prize leftover, NOT Director-invented, NOT Level B revival of mutilated_chessboard / hex_no_draw / n_queens / domineering. Independent Mathlib pin grep this run (Fin / Finset.card / CharP.Two.add_self_eq_zero L30 HIT as glue; named lights_out / sutner ZERO). Mill NOW: finite odd-chase witnesses beside Sylvester–Gallai. Score 84 this run: Neighbor4/Affects are 1–2 new defs (formalizability 16); Level A n=1 cell-toggle / n=2 all-four odd chase (partial 16); namesake is undergraduate Lights Out (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-board Level A; namesake residual. Every-n / 5×5 / Garden-of-Eden residual.",
+  "mathlib_gap_grep_2026_09_12_ope1449": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1434 scores. rg lights_out / LightsOut / sutner / Sutner / sigma_game over Mathlib/ + Archive + ProofLab → ZERO named Lights Out theorem. Defs HIT: Fin / Fin.val / Prod / Finset; Finset.card (count glue, not namesake); CharP.Two.add_self_eq_zero Algebra/CharP/Two.lean L30 (char-2 glue, not namesake); optional ZMod 2 as toggle ring, not namesake. Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; hall_hard_inductive L217; Rearrangement L60; Chebyshev sum L103; Markov L850; helly_theorem L139; Lucas L33; Eisenstein L82; EGZ L108; orbit-stabilizer L171; Burnside L278; Domineering game; CharP.Two.add_self_eq_zero L30. Already-consumed: MutilatedChessboard Level A (#177); HexNoDraw Level A (#178); NQueens #174; BrocardFactorialSquare #175; GrayCode #163; OrthogonalLatinSquares #157; LangfordPairing #160; BritishFlag #145.",
+  "statement_pin_required": {
+    "convention": "theorem lights_out: all-ones solvable for every n / n≢0 mod 3 classification, namesake. Level A may land only n=1 cell-toggle / n=2 all-four-press odd chase, not labelled Lights Out / Sutner.",
+    "landmines": [
+      "Do not re-prove Fin / Finset.card / CharP.Two.add_self_eq_zero.",
+      "Not mutilated-chessboard (consumed #177). Tiling ≠ F2 toggling. Same grid is glue, not namesake. Do not label theorems mutilated_*.",
+      "Not hex-no-draw (consumed #178). Reachable ≠ toggle parity. Do not label theorems hex_*.",
+      "Not n-queens (consumed #174). Placement ≠ chase.",
+      "Not Domineering (already-in game). Do not label theorems domineering_*.",
+      "Not Sprague–Grundy (already-in CGT).",
+      "Not Sylvester–Gallai (OPE-1449 prime). Incidence ≠ F2 chase. Do not prove ordinary lines here.",
+      "Not namesake every n / n≢0 mod 3 / 5×5 / Garden-of-Eden. Residual of this id. Do not sorry it.",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Sutner 1990 / Anderson–Feil 1998 Lights Out σ-game. Type pin: Fin n × Fin n / Neighbor4 / Affects / ToggleCount. Mutilated-chessboard is a different consumed theorem. Sylvester–Gallai is the prime of this shortlist."
+  },
+  "feasibility_shape": "Level A: n=1 cell-toggle / n=2 all-four-press odd chase; optional extra a non-solving press pattern; not labelled Lights Out / Sutner. Level B: namesake every n / n≢0 mod 3 / 5×5. Cap two levels. No Garden-of-Eden. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems mutilated_* / hex_* / queens_* / domineering_* / sg_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Fin / Prod / Finset.card / CharP.Two.add_self_eq_zero L30 — USE; DO NOT re-prove",
+    "ZMod 2 — optional toggle ring, not namesake",
+    "ProofLab/MutilatedChessboard.lean — consumed #177, DO NOT revive Level B / Gomory / 8x8",
+    "ProofLab/HexNoDraw.lean — consumed #178, DO NOT revive Level B / HexTheorem / Nash / Gale",
+    "ProofLab/NQueens.lean — consumed #174, DO NOT revive Level B / eight-queens / Gauss",
+    "Domineering.lean — already-in game, DO NOT cite as this theorem",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-12",
+  "scout_issue": "OPE-1449",
+  "parent_issue": "OPE-1448",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO lights_out / LightsOut / sutner / Sutner / sigma_game; Fin / Finset.card / CharP.Two.add_self_eq_zero L30 HIT as infra only",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; hall_hard_inductive L217; Rearrangement L60; Chebyshev sum L103; Markov L850; helly_theorem L139; Lucas L33; Eisenstein L82; EGZ L108; orbit-stabilizer L171; Burnside L278; Domineering game; CharP.Two.add_self_eq_zero L30",
+    "Already-consumed: MutilatedChessboard Level A (#177); HexNoDraw Level A (#178); NQueens #174; BrocardFactorialSquare #175; GrayCode #163; OrthogonalLatinSquares #157; LangfordPairing #160; BritishFlag #145",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "mutilated leftover-revivals / Hex leftover-revivals / Domineering leftover-revivals / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
