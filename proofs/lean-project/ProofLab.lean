@@ -100,3 +100,4 @@ import ProofLab.NQueens
 import ProofLab.BrocardFactorialSquare
 import ProofLab.MutilatedChessboard
 import ProofLab.HexNoDraw
+import ProofLab.SylvesterGallai
