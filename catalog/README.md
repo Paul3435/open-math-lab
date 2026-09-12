@@ -320,9 +320,17 @@ OPE-1449 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1460 lands the leftover. OPE-1449 mill fully consumed.
 
+## Formalize-only shortlist (OPE-1467, 2026-09-12) — HONEST NONE
+
+OPE-1449 mill consumed (#180+#181). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+
+**Recommended prime: none.** No fresh Level A Mathlib-gap candidate passes the gate this tick. Do **not** force two slots. Do **not** mill a known-trivial encoding. Do **not** re-prime `sylvester-gallai` / `lights-out` (CONSUMED #180/#181). JSON leftovers catalan / derangement / Bertrand / frobenius-coin / vdW-w24 **replaced, not reaffirmed** (already-in or not one-wave). Probed ZERO-named leftovers (Sperner lemma, Thue–Morse, Vizing, Pick/Ceva, Pépin, chordal PEO) fail leftover-revival or known-trivial gates.
+
+Scout opened **no attack issues**. Director approves after this shortlist. Formalist is **not** woken this run.
+
 ---
 
-**Last updated:** 2026-09-12 (OPE-1460 Formalist: lights-out Level A — n=1 cell-toggle / n=2 all-four-press odd chase.)
+**Last updated:** 2026-09-12 (OPE-1467 Scout: catalog-audit shortlist honest none.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
