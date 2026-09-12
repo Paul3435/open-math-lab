@@ -1,0 +1,66 @@
+{
+  "id": "sylvester-gallai",
+  "title": "Sylvester–Gallai ordinary-line witness (3-collinear plus off-line, formalize-only)",
+  "status": "candidate",
+  "domain": "combinatorics",
+  "score": 86,
+  "scores": {
+    "formalizability": 18,
+    "partial_progress": 16,
+    "attack_surface": 16,
+    "verification_budget": 16,
+    "crackpot_resistance": 20
+  },
+  "expected": "known-classical",
+  "why_not_classical": "Classical Sylvester 1893 / Gallai 1944: a finite non-collinear point set in the plane has an ordinary line (exactly two of the points). Completely classical. Value is a Mathlib/ProofLab contribution (Int / Finset.card exist; optional Collinear AffineSpace/FiniteDimensional.lean L353 is glue not namesake; ZERO named sylvester_gallai / ordinary_line in Mathlib+Archive+ProofLab; sylvester hits are inertia L52, Egyptian greedy, and Heron.lean L19 distinguishing SG as a different statement). Do NOT re-discover as novel. Namesake every finite non-collinear set / Kelly / Melchior / Dirac–Motzkin are residual of this id. British-flag is consumed #145. Heron is consumed #83. Alcuin is consumed #153. Pick / shoelace are geometry leftovers, not this theorem. Lights Out is the leftover of this shortlist.",
+  "recommendation": "OPE-1449 RECOMMENDED PRIME. Catalog-audit prime after OPE-1434 mill CONSUMED (#177 mutilated-chessboard Level A + #178 hex-no-draw Level A). NOT a prize leftover, NOT Director-invented, NOT krenn-gu / hou-zeng-pfc / sun-135, NOT Level B revival of mutilated_chessboard / hex_no_draw / heron / british_flag. Independent Mathlib pin grep this run (Int / Finset.card HIT as glue; named sylvester_gallai / ordinary_line ZERO; inertia L52 different Sylvester; Egyptian sylvesterGreedy different Sylvester). Mill NOW: finite ordinary-line witnesses beside Lights Out. Score 86 this run: Int/det/Finset.card waiting (formalizability 18); Level A 3-collinear + off-line + ordinary vertical (partial 16); namesake is undergraduate Sylvester–Gallai (attack 16); Lean-only finite (verification 16); classical (crackpot 20). v1 pins named small-set Level A; namesake residual.",
+  "mathlib_gap_grep_2026_09_12_ope1449": "Pin mathlib a719ba5c3115 (v4.10.0). Independent of OPE-1434 scores. rg sylvester_gallai / SylvesterGallai / ordinary_line / OrdinaryLine / gallai_sylvester over Mathlib/ + Archive + ProofLab → ZERO named Sylvester–Gallai theorem. sylvester hits: QuadraticForm/Real.lean L52 Sylvester inertia (different theorem); ProofLab/EgyptianFractions.lean sylvesterGreedy (different Sylvester); ProofLab/Heron.lean L19 explicitly 'This is not Sylvester–Gallai'. Defs HIT: Int / HMul / HSub; Finset.card / card_eq_two Card.lean L696 (cardinality glue, not namesake); optional Collinear AffineSpace/FiniteDimensional.lean L353 (affine collinearity glue, not namesake). Negative control: turan → Turan.lean isTuranMaximal_iff_nonempty_iso_turanGraph L300. Already-in this run (do not re-prove): catalan_eq_centralBinom_div Catalan.lean L109; numDerangements L62; exists_prime_lt_and_le_two_mul Bertrand.lean L211; frobeniusNumber_pair FrobeniusNumber.lean L52; exists_mono_in_high_dimension HalesJewett.lean L445; hall_hard_inductive Hall/Finite.lean L217; Rearrangement.lean MonovaryOn.sum_smul_comp_perm_le_sum_smul L60; Chebyshev MonovaryOn.sum_mul_sum_le_card_mul_sum L103; mul_meas_ge_le_lintegral Lebesgue.lean L850 (Markov); helly_theorem Radon.lean L139; choose_modEq_choose_mod_mul_choose_div Lucas.lean L33; EisensteinCriterion irreducible_of_eisenstein_criterion L82; Int.erdos_ginzburg_ziv L108; card_orbit_mul_card_stabilizer_eq_card_group L171; sum_card_fixedBy_eq_card_orbits_mul_card_group Burnside L278; equivalent_one_neg_one_weighted_sum_squared inertia L52; Collinear L353. Already-consumed: MutilatedChessboard Level A (#177); HexNoDraw Level A (#178); NQueens #174; BrocardFactorialSquare #175; BritishFlag #145; Heron #83; AlcuinIntegerTriangles #153; WantzelConstructible #133; PlatonicSolids #147; EgyptianFractions #148.",
+  "statement_pin_required": {
+    "convention": "theorem sylvester_gallai: every finite non-collinear planar set has an ordinary line, namesake. Level A may land only 3-collinear row plus off-line point plus one ordinary vertical, not labelled Sylvester / Gallai.",
+    "landmines": [
+      "Do not re-prove Int / Finset.card / Collinear as namesake.",
+      "Not British-flag (consumed #145). Euclidean dist ≠ incidence. Do not revive Napoleon / Simson / Viviani.",
+      "Not Heron (consumed #83). Area formula ≠ ordinary line. Heron.lean L19 already distinguishes SG.",
+      "Not Alcuin (consumed #153). Integer triangles ≠ incidence. Do not revive Heronian / Pick.",
+      "Not Wantzel (consumed #133). Constructible ≠ ordinary lines.",
+      "Not Pick / Ceva / shoelace / Varignon / Menelaus / Desargues / Pappus / Morley / art gallery. Geometry leftover of Heron / #145 / Alcuin / Wantzel. Det is glue, not namesake.",
+      "Not Sylvester inertia (already-in L52). Different Sylvester. Do not label theorems inertia_*.",
+      "Not Sylvester sequence / greedy Egyptian (consumed #148). Different Sylvester. Do not label theorems sylvester_* as this namesake.",
+      "Not mutilated-chessboard (consumed #177). Not hex-no-draw (consumed #178).",
+      "Not namesake every finite non-collinear set / Kelly / Melchior / Dirac–Motzkin. Residual of this id. Do not sorry it.",
+      "Not Lights Out (leftover of this shortlist).",
+      "Do not re-prime the consumed mill list.",
+      "Leave OPE-403 alone. Leave OPE-1195 leftover status alone."
+    ],
+    "canonical_source": "Sylvester 1893 / Gallai 1944 ordinary line. Type pin: ℤ × ℤ / collinearDet / Finset.card. Heron is a different consumed theorem. Lights Out is the leftover of this shortlist."
+  },
+  "feasibility_shape": "Level A: 3-collinear (0,0)/(1,0)/(2,0) plus off-line (0,1) plus ordinary vertical card=2; optional extra base line not ordinary; not labelled Sylvester / Gallai. Level B: namesake every finite non-collinear set. Cap two levels. No Kelly / Melchior. Honest partial allowed (comment residual, not sorry). One-wave Formalist shape. Definition risk: do not label theorems heron_* / british_flag_* / shoelace_* / pick_* / inertia_* / sylvester_* (sequence) / mutilated_* / hex_* / lights_* as namesake; zero sorry.",
+  "infra_carry_over": [
+    "Mathlib Int / Finset.card / card_eq_two Card.lean L696 — USE; DO NOT re-prove",
+    "Collinear AffineSpace/FiniteDimensional.lean L353 — optional affine glue, not namesake",
+    "QuadraticForm/Real.lean L52 inertia — different Sylvester, DO NOT cite as this theorem",
+    "ProofLab/EgyptianFractions.lean sylvesterGreedy — different Sylvester, DO NOT revive Erdos-Straus",
+    "ProofLab/Heron.lean — consumed #83, DO NOT revive area / Weitzenbock; L19 already distinguishes SG",
+    "ProofLab/BritishFlag.lean — consumed #145, DO NOT revive opposite-corner Euclidean",
+    "ProofLab/AlcuinIntegerTriangles.lean — consumed #153, DO NOT revive Heronian / Pick",
+    "ProofLab/MutilatedChessboard.lean — consumed #177, DO NOT revive Level B / Gomory / 8x8",
+    "ProofLab/HexNoDraw.lean — consumed #178, DO NOT revive Level B / HexTheorem / Nash / Gale",
+    "Lab combinatorics + formalization skill packs"
+  ],
+  "estimated_token_budget": "100k",
+  "skill_packs": [
+    "combinatorics",
+    "formalization"
+  ],
+  "scored_at": "2026-09-12",
+  "scout_issue": "OPE-1449",
+  "parent_issue": "OPE-1448",
+  "scout_probes": [
+    "Independent Mathlib gap grep vs pinned v4.10.0 this run: ZERO sylvester_gallai / ordinary_line / OrdinaryLine / gallai_sylvester; Int / Finset.card HIT as infra only; sylvester hits are inertia L52 + Egyptian greedy + Heron.lean L19 distinguishing SG",
+    "Negative control turan → Turan.lean exists L300",
+    "Already-in: catalan L109; numDerangements L62; Bertrand L211; frobeniusNumber_pair L52; HalesJewett L445; hall_hard_inductive L217; Rearrangement L60; Chebyshev sum L103; Markov mul_meas_ge_le_lintegral L850; helly_theorem L139; Lucas L33; Eisenstein L82; EGZ L108; orbit-stabilizer L171; Burnside L278; inertia L52; Collinear L353",
+    "Already-consumed: MutilatedChessboard Level A (#177); HexNoDraw Level A (#178); NQueens #174; BrocardFactorialSquare #175; BritishFlag #145; Heron #83; AlcuinIntegerTriangles #153; WantzelConstructible #133; PlatonicSolids #147; EgyptianFractions #148",
+    "JSON leftovers catalan/derangement/bertrand/frobenius-coin/vdW-w24 replaced not reaffirmed",
+    "Heron leftover-revivals / British-flag leftover-revivals / Pick / shoelace / inertia / Egyptian greedy / krenn-gu / hou-zeng / sun-135 disclosed as different statements"
+  ]
+}
