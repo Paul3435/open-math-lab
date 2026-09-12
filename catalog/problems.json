@@ -3049,25 +3049,32 @@
     {
       "id": "hex-no-draw",
       "title": "Hex no-draw small boards (n=1 cell wins / n=2 every coloring has a winner, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1434 Scout leftover slot #2 (parent OPE-1433). Catalog-audit formalize-only after OPE-1419 mill CONSUMED (#174+#175). Level A pin: n=1 cell-wins / n=2 every coloring has a winner; not labelled Hex / Nash / Gale. Namesake every-n residual. Not n-queens (#174). Not Gale–Shapley (#126). Not Nash–Williams (#124). Not mutilated-chessboard (prime of this shortlist). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1444 Formalist Level A. Director OPE-1443 approved Scout OPE-1434 leftover HOLD (mutilated-chessboard CONSUMED #177). Lean ProofLab/HexNoDraw.lean. Catalog formalized. Level A: hex_one (n=1 cell-wins) / hex_two (n=2 every coloring has a winner); optional hex_two_row0_red; not labelled Hex / Nash / Gale. Namesake every-n residual. Not n-queens (#174). Not Gale–Shapley (#126). Not Nash–Williams (#124). Not mutilated-chessboard (#177). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/hex-no-draw/"
+        "catalog/problems/hex-no-draw/",
+        "proofs/lean-project/ProofLab/HexNoDraw.lean"
       ],
       "scout_issue": "OPE-1434",
       "tickets": [
         "OPE-1434",
-        "OPE-1433"
+        "OPE-1433",
+        "OPE-1443",
+        "OPE-1444"
       ],
       "parent_issue": "OPE-1433",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1444",
+      "director_issue": "OPE-1443",
+      "lean_artifact": "proofs/lean-project/ProofLab/HexNoDraw.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/178"
     }
   ],
   "updated_at": "2026-09-11T22:00:00Z",
