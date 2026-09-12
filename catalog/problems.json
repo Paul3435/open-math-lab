@@ -3109,25 +3109,32 @@
     {
       "id": "lights-out",
       "title": "Lights Out small boards (n=1 cell-toggle / n=2 all-ones odd chase, formalize-only)",
-      "status": "candidate",
+      "status": "formalized",
       "domain": "combinatorics",
       "score": 84,
       "expected": "known-classical",
-      "note": "OPE-1449 Scout leftover slot #2 (parent OPE-1448; post mutilated-chessboard #177 + hex-no-draw #178). Catalog-audit leftover. Formalize-only known-classical. Level A pin: n=1 cell-toggle / n=2 all-four-press odd chase, not labelled Lights Out / Sutner. Namesake every-n / 5x5 / Garden-of-Eden residual. Not mutilated-chessboard (#177; grid glue not namesake). Not hex-no-draw (#178). Not n-queens (#174). Not Domineering (already-in game). Not Sylvester–Gallai (prime of this shortlist). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
+      "note": "OPE-1460 Formalist Level A. Director OPE-1459 approved Scout OPE-1449 leftover HOLD (sylvester-gallai CONSUMED by OPE-1455 / PR #180). Lean ProofLab/LightsOut.lean. Catalog formalized. Level A: lights_one (n=1 cell-toggle) / lights_two_all_ones (n=2 all-four-press odd chase); optional lights_two_corner_even; not labelled Lights Out / Sutner. Namesake every-n / n≢0 mod 3 / 5x5 / Garden-of-Eden residual. Not mutilated-chessboard (#177; grid glue not namesake). Not hex-no-draw (#178). Not n-queens (#174). Not Domineering (already-in game). Not Sylvester–Gallai (consumed #180). Leave OPE-403 alone. Leave OPE-1195 alone. No novelty claim. Default no claim.",
       "skill_packs": [
         "combinatorics",
         "formalization"
       ],
       "artifacts": [
-        "catalog/problems/lights-out/"
+        "catalog/problems/lights-out/",
+        "proofs/lean-project/ProofLab/LightsOut.lean"
       ],
       "scout_issue": "OPE-1449",
       "tickets": [
         "OPE-1449",
-        "OPE-1448"
+        "OPE-1448",
+        "OPE-1459",
+        "OPE-1460"
       ],
       "parent_issue": "OPE-1448",
-      "mathlib_gap": true
+      "mathlib_gap": true,
+      "formalist_issue": "OPE-1460",
+      "director_issue": "OPE-1459",
+      "lean_artifact": "proofs/lean-project/ProofLab/LightsOut.lean",
+      "pr": "https://github.com/Paul3435/open-math-lab/pull/181"
     }
   ],
   "updated_at": "2026-09-11T22:00:00Z",

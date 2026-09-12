@@ -311,18 +311,18 @@ OPE-1434 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME”
 
 Scout opened **no attack issues**. Formalist OPE-1444 lands the leftover. OPE-1434 mill fully consumed.
 
-## Formalize-only shortlist (OPE-1449, 2026-09-12)
+## Formalize-only shortlist (OPE-1449, 2026-09-12) — WAVE CONSUMED
 
-OPE-1434 mill consumed (#177+#178). Catalog-audit shortlist (not a prize hunt; not a Formalist leftover continuation; not a Level B namesake revival). Independent Mathlib v4.10.0 grep this run.
+OPE-1449 mill fully consumed. Do **not** re-prime. Stale “RECOMMENDED PRIME” / leftover-unassigned lines naming these ids are **INPUT to restamp**, not a prime.
 
-1. **`sylvester-gallai` — RECOMMENDED PRIME (86).** Fresh id. Sylvester 1893 / Gallai 1944: 3-collinear `(0,0)/(1,0)/(2,0)` plus off-line `(0,1)` plus ordinary vertical card=2. Named theorem ZERO (`sylvester_gallai` / `ordinary_line` / `OrdinaryLine`). `Int` / `Finset.card` HIT as glue **not** namesake; optional `Collinear` L353 HIT as affine glue **not** namesake. **Not** British-flag (consumed #145). **Not** Heron (consumed #83; L19 already distinguishes SG). **Not** Alcuin (consumed #153). **Not** Pick / shoelace as namesake. **Not** Sylvester inertia (already-in L52). **Not** Sylvester sequence (Egyptian #148). Finite, one-wave Level A (3-collinear + off-line + ordinary vertical).
-2. **`lights-out` leftover (84).** Fresh id. Sutner 1990 / Anderson–Feil: n=1 cell-toggle / n=2 all-four-press odd chase. Named theorem ZERO (`lights_out` / `LightsOut` / `sutner` / `sigma_game`). `Fin` / `Finset.card` / `CharP.Two.add_self_eq_zero` L30 HIT as glue **not** namesake. **Not** mutilated-chessboard (consumed #177; grid glue not namesake). **Not** hex-no-draw (consumed #178). **Not** Domineering (already-in game). **Not** Sylvester–Gallai (prime of this shortlist). Finite, one-wave Level A (n=1 cell-toggle / n=2 odd chase).
+1. **`sylvester-gallai` — CONSUMED Level A.** OPE-1455 Formalist. PR **#180**. Director OPE-1454 approved Scout OPE-1449 RECOMMENDED PRIME. Lean `ProofLab/SylvesterGallai.lean`. Catalog `formalized`. Level A: 3-collinear + off-line + ordinary vertical card=2, not labelled Sylvester / Gallai. Level B namesake `sylvester_gallai` / every finite non-collinear set residual **out of v1**. Do not revive.
+2. **`lights-out` leftover (84) — CONSUMED Level A.** OPE-1460 Formalist. PR **#181**. Director OPE-1459 leftover HOLD. Lean `ProofLab/LightsOut.lean`. Catalog `formalized`. Level A: n=1 cell-toggle / n=2 all-four-press odd chase + optional opposite-corner even, not labelled Lights Out / Sutner. Level B namesake `lights_out` / every n / n≢0 mod 3 / 5×5 / Garden-of-Eden residual **out of v1**. Do not revive.
 
-Scout opened **no attack issues**. Director approves after this shortlist. Formalist is **not** woken this run.
+Scout opened **no attack issues**. Formalist OPE-1460 lands the leftover. OPE-1449 mill fully consumed.
 
 ---
 
-**Last updated:** 2026-09-12 (OPE-1455 Formalist: sylvester-gallai Level A — 3-collinear + off-line + ordinary vertical card=2.)
+**Last updated:** 2026-09-12 (OPE-1460 Formalist: lights-out Level A — n=1 cell-toggle / n=2 all-four-press odd chase.)
 
 ## Shortlist (post OPE-21) — STALE JSON LEFTOVERS, NOT THIS MILL
 
